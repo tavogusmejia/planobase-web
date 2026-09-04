@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import createNextIntlPlugin from 'next-intl/plugin'
@@ -55,6 +55,37 @@ function buildRedirects() {
   return out
 }
 
+/**
+ * Origen de los medios. Vacío = se sirven de `public/media/`.
+ *
+ * Es variable propia y no se deriva de NEXT_PUBLIC_SUPABASE_URL a propósito: en
+ * cuanto la URL de Supabase entra en .env.local para trabajar en los leads, un
+ * origen derivado haría que `pnpm dev` pidiera las imágenes a un bucket que
+ * todavía está vacío. Así, local sigue leyendo del disco y solo producción va al
+ * bucket; y revertir es borrar la variable y redesplegar.
+ */
+const ORIGEN_MEDIA = process.env.NEXT_PUBLIC_MEDIA_ORIGIN?.replace(/\/+$/, '')
+
+/**
+ * La guarda que impide el peor desenlace posible.
+ *
+ * `public/media/` está en .gitignore, así que en Vercel ese directorio no
+ * existe. Sin origen remoto el sitio despliega con 215 imágenes rotas y tanto el
+ * build como el deploy salen en verde: el fallo es completamente silencioso
+ * hasta que alguien abre el sitio. Mejor romper el build.
+ */
+if (
+  process.env.VERCEL &&
+  !ORIGEN_MEDIA &&
+  !existsSync(join(__dirname, 'public/media/proyectos'))
+) {
+  throw new Error(
+    'Build en Vercel sin NEXT_PUBLIC_MEDIA_ORIGIN y sin public/media/: el sitio ' +
+      'saldría sin una sola imagen. Corre `pnpm seed` y define la variable en los ' +
+      'tres entornos de Vercel (production, preview y development).',
+  )
+}
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
@@ -73,15 +104,23 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     // Anchos alineados con la rejilla real del sitio, no los de Next por defecto.
-    deviceSizes: [420, 640, 828, 1080, 1280, 1600, 1920, 2560, 3200],
+    //
+    // Se recortan de nueve a seis: Vercel factura por transformación, y cada
+    // ancho de más multiplica 215 imágenes de origen por dos formatos. Los que
+    // se quitan (828, 1600, 3200) caían entre dos anchos que ya estaban y no
+    // servían a ningún punto de ruptura real de la rejilla.
+    deviceSizes: [420, 640, 1080, 1280, 1920, 2560],
     imageSizes: [96, 160, 240, 320, 480, 640],
+    // Un año. Con los medios en el bucket, el optimizador no tiene por qué
+    // volver a pedir el original: son de solo añadir.
+    minimumCacheTTL: 31_536_000,
     remotePatterns: [
-      // Supabase Storage. El host sale de la URL del proyecto en tiempo de build.
-      ...(process.env.NEXT_PUBLIC_SUPABASE_URL
+      // El bucket de medios, si está configurado.
+      ...(ORIGEN_MEDIA
         ? [
             {
               protocol: 'https' as const,
-              hostname: new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname,
+              hostname: new URL(ORIGEN_MEDIA).hostname,
               pathname: '/storage/v1/object/public/**',
             },
           ]

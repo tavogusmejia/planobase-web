@@ -18,27 +18,70 @@ pnpm dev
 vez porque procesa 230 imágenes.
 
 ```bash
-pnpm build      # tiene que pasar sin errores ni warnings
+pnpm build          # tiene que pasar sin errores ni warnings
 pnpm lint
 pnpm typecheck
+
+pnpm seed           # sube los medios al bucket y verifica la base
+pnpm media:upload   # solo la sincronización de medios (--force reescribe)
 ```
 
 ### Variables de entorno
 
-Crea `.env.local` en la raíz. **No está `.env.example`**: la regla `deny` de
-`.claude/settings.json` usa el patrón `Edit(./.env.*)`, que también bloquea ese
-archivo. Conviene acotarla a `.env`, `.env.local` y `.env.*.local`.
+Crea `.env.local` en la raíz. **Esta lista es la copia autoritativa**: no hay
+`.env.example` porque la regla `deny` de `.claude/settings.json` usa el patrón
+`Edit(./.env.*)`, que también bloquea ese archivo. Conviene acotarla a `.env`,
+`.env.local` y `.env.*.local`.
 
+```bash
+# --- sitio ---
+NEXT_PUBLIC_SITE_URL=http://localhost:3000   # en Vercel: https://www.planobase.co
+
+# --- supabase ---
+NEXT_PUBLIC_SUPABASE_URL=https://<ref>.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<anon o sb_publishable_...>
+SUPABASE_SERVICE_ROLE_KEY=<service_role o sb_secret_...>
+
+# --- medios ---
+# Se deja COMENTADA en local a propósito: así las imágenes salen de
+# public/media/, que es instantáneo y no toca la red. Descoméntala solo para
+# ensayar producción con `pnpm build && pnpm start`.
+# NEXT_PUBLIC_MEDIA_ORIGIN=https://<ref>.supabase.co/storage/v1/object/public/media
+
+# --- leads ---
+LEADS_NOTIFY_TO=proyectos@planobase.co
+LEAD_IP_SALT=<openssl rand -hex 16>
+# LEADS_NOTIFY_FROM=Plano Base <web@planobase.co>   # tras verificar el dominio
+# RESEND_API_KEY=<opcional; sin ella el lead se guarda pero no se avisa>
 ```
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
-NEXT_PUBLIC_SITE_URL=https://www.planobase.co
-CONTACT_NOTIFY_EMAIL=proyectos@planobase.co
-RESEND_API_KEY=
-NEXT_PUBLIC_META_PIXEL_ID=
-NEXT_PUBLIC_WHATSAPP_NUMBER=573014264603
-```
+
+`pnpm seed` imprime el valor exacto de `NEXT_PUBLIC_MEDIA_ORIGIN` al terminar.
+
+### Desplegar
+
+Las imágenes **no viajan en el repositorio**: `public/media/` está en
+`.gitignore` (73 MB regenerados desde `assets-originales/`, que tampoco se
+versiona). Por eso el orden importa:
+
+1. `pnpm seed` — sube los 215 `.webp` al bucket `media`.
+2. Cargar las **siete** variables en Vercel, en los **tres** entornos
+   (`production`, `preview` y `development`). Olvidar `preview` deja cada rama
+   con las imágenes rotas, que es justo donde se revisan los cambios.
+3. Desplegar, verificar en `*.vercel.app`, y solo entonces mover el DNS.
+
+Dos trampas que cuestan una tarde:
+
+- **Las `NEXT_PUBLIC_*` se congelan en el build.** Añadir o cambiar una después
+  del deploy no hace nada hasta que se reconstruye, y Vercel no reconstruye por
+  cambiar una variable: hay que forzarlo (`vercel --prod --force`).
+- **Antes de desplegar, ensaya en local**: descomenta `NEXT_PUBLIC_MEDIA_ORIGIN`,
+  corre `pnpm build && pnpm start` y comprueba que ninguna imagen da 400. Un 400
+  ahí significa `remotePatterns` vacío, y es mucho más barato descubrirlo aquí.
+
+`next.config.ts` tiene una guarda que rompe el build en Vercel si no hay origen
+de medios ni `public/media/`. Sin ella el fallo es silencioso: build verde,
+deploy verde, sitio sin una sola fotografía.
+
 
 ---
 
@@ -49,8 +92,11 @@ funcional, las 23 fichas de proyecto, `/servicios` con sus cuatro líneas,
 `/estudio`, `/agendar`, `/contacto`, `/blog`, sitemap con hreflang, robots, los
 36 redirects 301 y JSON-LD de proyecto, artículo y servicio.
 
-**Falta.** Supabase (esquema y `seed.ts`), el panel `/admin`, el envío de correo
-del formulario, el Pixel de Meta, la pasarela de pago y la auditoría Lighthouse.
+**Falta.** El panel `/admin`, el Pixel de Meta, la pasarela de pago y la
+auditoría Lighthouse. La migración del contenido editorial a Supabase queda para
+cuando exista el panel: hoy `content/` es donde se edita bien, y el esquema de
+referencia es bilingüe por tablas de traducción mientras los tipos del sitio son
+monolingües, así que esa migración necesita su propia capa de mapeo.
 
 ### Servicios: qué se publica y qué no
 

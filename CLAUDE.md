@@ -20,7 +20,7 @@ Antes de escribir cualquier texto de página, lee el archivo correspondiente en
 `wix-migration/01-content/`.
 
 ## Comandos
-pnpm dev · pnpm build · pnpm lint · pnpm seed
+pnpm dev · pnpm build · pnpm lint · pnpm typecheck · pnpm media · pnpm media:upload · pnpm seed
 
 ## Nunca
 - No hagas commit de .env ni de assets-originales/

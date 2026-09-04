@@ -1,8 +1,12 @@
 'use server'
 
+import { createHash } from 'node:crypto'
 import { appendFile, mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
 import { headers } from 'next/headers'
+import { after } from 'next/server'
+import { configLeads, haySupabaseAdmin } from '@/lib/env'
+import { supabaseAdmin } from '@/lib/supabase/admin'
 import { leadSchema, type LeadInput, type LeadResult } from '@/lib/schemas'
 
 /**
@@ -11,23 +15,148 @@ import { leadSchema, type LeadInput, type LeadResult } from '@/lib/schemas'
  * Es una Server Action: la escritura nunca sale del servidor y la clave de
  * servicio de Supabase jamás cruza al navegador.
  *
- * Estado actual: sin `SUPABASE_SERVICE_ROLE_KEY` configurada, el lead se guarda
- * en `.leads/leads.jsonl` (ignorado por git) para que nada se pierda durante la
- * revisión. Cuando Supabase esté cargado, este es el único archivo que cambia.
+ * Antes esto escribía a `.leads/leads.jsonl` con `appendFile`. En Vercel el
+ * sistema de archivos es de solo lectura, así que el `mkdir` lanzaba, caía al
+ * catch y el visitante leía «No pudimos registrar tu mensaje» — con el sitio
+ * prometiendo respuesta en una hora en tres páginas distintas. Cada envío
+ * perdido era un encargo que nadie supo que tocó la puerta.
+ *
+ * Ahora hay una cascada, en este orden:
+ *
+ *   1. Insertar en `leads`.
+ *   2. Si el insert falla, se intenta el correo igualmente; si el correo sale,
+ *      se responde `ok`, porque el lead ya llegó a un humano, que es lo único
+ *      que importa a las 11 de la noche de un viernes.
+ *   3. Si fallan los dos, se registra en el log y se le ofrece WhatsApp.
+ *
+ * El respaldo en disco se conserva solo fuera de producción: sirve para
+ * desarrollar sin Supabase y nunca se ejecuta en Vercel.
  */
 
-/** Límite por IP: 5 envíos cada 10 minutos. En memoria, suficiente para una
- *  sola instancia; cuando haya varias, pasa a la base de datos. */
-const ventanaMs = 10 * 60 * 1000
-const maxPorVentana = 5
-const golpes = new Map<string, number[]>()
+const VENTANA_MS = 10 * 60 * 1000
+const MAX_POR_VENTANA = 5
 
-function excedeLimite(ip: string): boolean {
-  const ahora = Date.now()
-  const previos = (golpes.get(ip) ?? []).filter((t) => ahora - t < ventanaMs)
-  previos.push(ahora)
-  golpes.set(ip, previos)
-  return previos.length > maxPorVentana
+type RegistroLead = {
+  nombre: string
+  correo: string
+  whatsapp: string
+  municipio: string
+  etapa: string
+  mensaje: string
+  declaracion: boolean
+  origen: string
+  utm_source: string | null
+  utm_campaign: string | null
+  promo: string | null
+  ip_hash: string | null
+  user_agent: string | null
+}
+
+/**
+ * Huella de la IP, nunca la IP. El límite de envíos necesita distinguir
+ * clientes, no identificarlos, y guardar la dirección de quien rellena un
+ * formulario de captación es dato personal bajo la Ley 1581 sin ninguna
+ * contrapartida. Sin sal configurada no se guarda nada: un sha256 de una IPv4
+ * es reversible por fuerza bruta en segundos.
+ */
+function huellaIp(ip: string, sal: string): string | null {
+  if (!sal || ip === 'desconocida') return null
+  return createHash('sha256').update(`${ip}${sal}`).digest('hex')
+}
+
+/**
+ * Límite por huella. Sustituye al `Map` en memoria que había antes, que en
+ * funciones efímeras y multirregión se reiniciaba en cada invocación y por tanto
+ * no limitaba nada.
+ *
+ * Falla abierto a propósito: si la consulta no responde, se acepta el envío. Un
+ * lead de más es un correo; un lead de menos es un encargo perdido.
+ */
+async function excedeLimite(huella: string | null): Promise<boolean> {
+  if (!huella) return false
+  try {
+    const desde = new Date(Date.now() - VENTANA_MS).toISOString()
+    const { count, error } = await supabaseAdmin()
+      .from('leads')
+      .select('id', { count: 'exact', head: true })
+      .eq('ip_hash', huella)
+      .gt('created_at', desde)
+
+    if (error) return false
+    return (count ?? 0) >= MAX_POR_VENTANA
+  } catch {
+    return false
+  }
+}
+
+function cuerpoCorreo(r: RegistroLead): string {
+  const digitos = r.whatsapp.replace(/\D/g, '')
+  const procedencia = [r.utm_source, r.utm_campaign, r.promo]
+    .filter(Boolean)
+    .join(' · ')
+
+  return [
+    `${r.nombre} — ${r.municipio}`,
+    `Etapa: ${r.etapa}`,
+    '',
+    r.mensaje,
+    '',
+    `Correo:   ${r.correo}`,
+    `WhatsApp: ${r.whatsapp}`,
+    `Responder por WhatsApp: https://wa.me/${digitos}`,
+    procedencia ? `Procedencia: ${procedencia}` : '',
+    '',
+    'El sitio promete respuesta en una hora.',
+  ]
+    .filter((l) => l !== '')
+    .join('\n')
+}
+
+/** Devuelve si el correo salió. Sin SDK: es una plantilla y una petición. */
+async function notificar(r: RegistroLead): Promise<boolean> {
+  const { notificarA, notificarDesde, resendApiKey } = configLeads()
+  if (!resendApiKey || !notificarA) return false
+
+  try {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${resendApiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: notificarDesde,
+        to: [notificarA],
+        reply_to: r.correo,
+        subject: `Lead web · ${r.nombre} · ${r.municipio}`,
+        text: cuerpoCorreo(r),
+      }),
+    })
+    if (!res.ok) {
+      console.error('[leads] Resend respondió', res.status, await res.text())
+      return false
+    }
+    return true
+  } catch (error) {
+    console.error('[leads] No se pudo notificar:', error)
+    return false
+  }
+}
+
+/** Respaldo de desarrollo. Nunca corre en producción. */
+async function respaldoLocal(r: RegistroLead): Promise<void> {
+  if (process.env.NODE_ENV === 'production') return
+  try {
+    const dir = join(process.cwd(), '.leads')
+    await mkdir(dir, { recursive: true })
+    await appendFile(
+      join(dir, 'leads.jsonl'),
+      `${JSON.stringify({ recibido: new Date().toISOString(), ...r })}\n`,
+      'utf8',
+    )
+  } catch {
+    // El respaldo de desarrollo no puede tumbar un envío.
+  }
 }
 
 export async function enviarLead(raw: unknown): Promise<LeadResult> {
@@ -54,7 +183,12 @@ export async function enviarLead(raw: unknown): Promise<LeadResult> {
     h.get('x-real-ip') ??
     'desconocida'
 
-  if (excedeLimite(ip)) {
+  const { salIp } = configLeads()
+  const huella = huellaIp(ip, salIp)
+
+  const hayBase = haySupabaseAdmin()
+
+  if (hayBase && (await excedeLimite(huella))) {
     return {
       ok: false,
       errores: {},
@@ -63,39 +197,56 @@ export async function enviarLead(raw: unknown): Promise<LeadResult> {
     }
   }
 
-  const registro = {
-    recibido: new Date().toISOString(),
+  const registro: RegistroLead = {
+    nombre: lead.nombre,
+    correo: lead.correo,
+    whatsapp: lead.whatsapp,
+    municipio: lead.municipio,
+    etapa: lead.etapa,
+    mensaje: lead.mensaje,
+    declaracion: lead.declaracion,
     origen: 'web',
-    ip,
-    ...lead,
-    sitioWeb: undefined,
+    utm_source: lead.utmSource ?? null,
+    utm_campaign: lead.utmCampaign ?? null,
+    promo: lead.promo ?? null,
+    ip_hash: huella,
+    user_agent: h.get('user-agent'),
   }
 
-  try {
-    // TODO — Supabase: insertar en `leads` y notificar por Resend.
-    // Requiere SUPABASE_SERVICE_ROLE_KEY y RESEND_API_KEY en .env.local.
-    const dir = join(process.cwd(), '.leads')
-    await mkdir(dir, { recursive: true })
-    await appendFile(
-      join(dir, 'leads.jsonl'),
-      JSON.stringify(registro) + '\n',
-      'utf8',
-    )
+  await respaldoLocal(registro)
 
-    if (!process.env.RESEND_API_KEY) {
-      console.warn(
-        '[leads] Sin RESEND_API_KEY: el lead quedó guardado en .leads/leads.jsonl pero no se envió notificación.',
-      )
-    }
-
-    return { ok: true }
-  } catch (error) {
-    console.error('[leads] No se pudo registrar el lead:', error)
+  if (!hayBase) {
+    // Sin base configurada. En desarrollo ya quedó en disco; en producción el
+    // correo es la última línea de defensa.
+    if (process.env.NODE_ENV !== 'production') return { ok: true }
+    if (await notificar(registro)) return { ok: true }
+    console.error('[leads] Sin Supabase y sin Resend: el lead se perdió.')
     return {
       ok: false,
       errores: {},
       general:
         'No pudimos registrar tu mensaje. Escríbenos por WhatsApp y lo resolvemos de inmediato.',
     }
+  }
+
+  const { error } = await supabaseAdmin().from('leads').insert(registro)
+
+  if (!error) {
+    // El visitante no espera a que Resend responda: el acuse va después.
+    after(async () => {
+      await notificar(registro)
+    })
+    return { ok: true }
+  }
+
+  console.error('[leads] No se pudo insertar:', error.message)
+
+  if (await notificar(registro)) return { ok: true }
+
+  return {
+    ok: false,
+    errores: {},
+    general:
+      'No pudimos registrar tu mensaje. Escríbenos por WhatsApp y lo resolvemos de inmediato.',
   }
 }

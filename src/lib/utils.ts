@@ -21,12 +21,25 @@ export function formatCOP(value: number): string {
 }
 
 /**
- * Ruta pública de una imagen. Hoy sale de `public/media/`, generada por
- * `pnpm media`. Cuando el bucket de Supabase esté cargado, esta función es el
- * único sitio donde hay que cambiar el origen.
+ * Origen de los medios. Sin barra final.
+ *
+ * Vacío en local: las imágenes salen de `public/media/`, que es instantáneo y no
+ * toca la red. En producción apunta al bucket, porque `public/media/` está en
+ * .gitignore y en Vercel no existe. Cambiar de uno a otro es una variable de
+ * entorno, no un despliegue de código.
+ *
+ * Se escribe entera —`process.env.NOMBRE`— porque Next solo sustituye las
+ * NEXT_PUBLIC_* por su valor cuando aparecen así; desestructurar `process.env`
+ * las dejaría vacías en el navegador sin ningún error visible.
  */
+const ORIGEN_MEDIA = (process.env.NEXT_PUBLIC_MEDIA_ORIGIN ?? '').replace(
+  /\/+$/,
+  '',
+)
+
+/** Ruta pública de una imagen del bucket `media`. */
 export function mediaSrc(path: string): string {
-  return `/media/${path}`
+  return ORIGEN_MEDIA ? `${ORIGEN_MEDIA}/${path}` : `/media/${path}`
 }
 
 /**

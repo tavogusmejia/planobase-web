@@ -217,8 +217,11 @@ ruta que usará el bucket `media` de Storage.
 8. **Precios de los peldaños 2 y 3** (estudio de viabilidad, anteproyecto). La
    escalera de producto está publicada sin cifras porque solo el precio de la
    asesoría está confirmado.
-9. **Matrícula profesional** (CPNAA / COPNIA) de los dos socios. Es la casilla
-   que verifica un comprador institucional antes de llamar.
+9. ~~**Matrícula profesional** (CPNAA / COPNIA) de los dos socios.~~
+   **Resuelto (4/9/2026):** no se publican. Son documentación de respaldo y no
+   material de sitio web; el NIT es un dato comercial que va en la propuesta.
+   Se deja anotado el contrapeso que se descartó a conciencia: un comprador
+   institucional suele verificar esa casilla antes de llamar.
 10. **La visión de `/estudio` es un borrador para Eduardo.** Los cuatro temas
     salen de contar de qué habla el estudio en sus propias memorias, y cada uno
     lleva una cita literal. Está escrito para que él lo corrija a su voz.

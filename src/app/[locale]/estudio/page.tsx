@@ -116,8 +116,11 @@ export default async function EstudioPage({
             </li>
           ))}
         </ul>
-        {/* TODO — matrícula profesional (CPNAA / COPNIA) de cada socio. Es la
-            casilla que verifica un comprador institucional antes de llamar. */}
+        {/* Aquí iba un pendiente por las matrículas profesionales. Decisión de
+            Gustavo (4/9/2026): no se publican. Son documentación de respaldo,
+            no material de sitio web, y el NIT es un dato comercial que va en la
+            propuesta y no en la página. Queda anotado para que no vuelva a
+            entrar como tarea. */}
       </section>
 
       {/* ---- Reconocimientos ------------------------------------------------ */}

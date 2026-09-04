@@ -112,8 +112,14 @@ export const equipo: TeamMember[] = [
  * / Amalgama (1). El sitio los pintaba a los cuatro con el mismo peso, y el
  * JSON-LD los declaraba coautores idénticos.
  *
- * Decisión de Gustavo (4/9/2026): se nombran Eduardo y Gabriel; el resto se
- * agrupa en «y otros». Sin fechas ni calificación del vínculo.
+ * Decisión de Gustavo (4/9/2026): se nombra solo a Eduardo; todos los demás,
+ * Gabriel Romero Villota incluido, se agrupan en «y otros». Sin fechas ni
+ * calificación del vínculo.
+ *
+ * Consecuencia buscada: la ficha queda igual en los 24 proyectos —«Arq. Eduardo
+ * Mejía Martínez y otros»— porque en ninguno trabajó solo. Es repetitivo y es
+ * cierto: el estudio acredita a quien lo dirige y reconoce que hubo más manos,
+ * sin convertir cada ficha en un reparto.
  *
  * La clave es el nombre TAL COMO VIENE en el dato; el valor es cómo se publica.
  * Eso resuelve de paso que el mismo hombre apareciera como «Eduardo Mejía» en
@@ -123,13 +129,11 @@ export const equipo: TeamMember[] = [
  * Quien no esté en este padrón no desaparece del dato —`content/projects.ts`
  * sigue guardando los cuatro— pero no se nombra en la página.
  *
- * PENDIENTE: confirmar si Gabriel Romero Villota lleva también el tratamiento
- * de «Arq.». Se le dio solo a Eduardo porque es el único cuyo título consta en
- * el material del estudio.
+ * Añadir un nombre aquí es publicarlo; quitarlo es devolverlo a «otros». Esa es
+ * toda la interfaz de esta decisión.
  */
 export const creditosDiseno: Record<string, string> = {
   'Eduardo Mejía': 'Arq. Eduardo Mejía Martínez',
-  'Gabriel Romero Villota': 'Gabriel Romero Villota',
 }
 
 /**

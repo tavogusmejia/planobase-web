@@ -137,53 +137,57 @@ export const reconocimientos: Award[] = [
 ]
 
 /**
- * El servicio reservable. Es la conversión principal del sitio y el destino del
- * tráfico de campaña.
+ * El primer escalón, y el destino del tráfico de campaña.
  *
- * TODO — decisión de Gustavo: el plan de Facebook Ads anuncia la asesoría como
- * "sin costo de consulta inicial" y "sin compromiso", mientras que aquí figura a
- * $50.000 COP con pago por adelantado y no reembolsable. Un lead que llega desde
- * la pauta creyendo que es gratis y encuentra una pasarela de pago no convierte.
- * El precio vive en esta constante: cambiarlo es una línea.
+ * Hasta hoy era una reunión virtual de una hora a $50.000 COP, con pago por
+ * adelantado y no reembolsable, mientras el plan de Facebook Ads la anunciaba
+ * como "sin costo de consulta inicial" y "sin compromiso". Un lead que hacía
+ * clic en "gratis" y aterrizaba en una pasarela de pago no convertía — y peor,
+ * quemaba el aprendizaje del algoritmo con clics que nunca cerraban, lo que
+ * encarece todas las impresiones siguientes.
+ *
+ * Decisión de Gustavo (4/9/2026): se parte en dos. Esta primera llamada es
+ * corta y sin costo, y es lo que recibe el tráfico frío; el producto pagado de
+ * verdad es la visita técnica con informe escrito, que vive en la escalera de
+ * `content/puertas.ts`. Así el anuncio dice la verdad y la hora del director
+ * —el recurso más escaso de una empresa de dos personas— deja de venderse al
+ * precio de un almuerzo.
+ *
+ * El slug NO cambia: /servicios/asesoria-tecnica está en el sitemap y es
+ * destino de un redirect desde Wix.
  */
 export const asesoria: Service = {
   slug: 'asesoria-tecnica',
   nombre: 'Asesoría técnica',
   tagline: 'Contar con la asesoría de un arquitecto no debe ser costoso.',
   descripcion:
-    'Agenda una reunión virtual de una hora con un arquitecto de Plano Base. ' +
-    'Ideal para resolver dudas técnicas, evaluar daños, entender procesos o ' +
-    'recibir orientación profesional sin compromisos.',
-  duracionMin: 60,
-  precioCOP: 50_000,
+    'Quince minutos con un arquitecto de Plano Base, sin costo y sin ' +
+    'compromiso. Nos cuenta su caso, le decimos si podemos ayudarle, qué ' +
+    'implica y cuál es el siguiente paso. Si hace falta ir al predio, se lo ' +
+    'decimos en esta llamada.',
+  duracionMin: 15,
+  precioCOP: 0,
+  /* Tres, no seis. Las anteriores —pago por adelantado, no reembolsable,
+     cambios con 24 h— eran las de un servicio pagado y resultan
+     desproporcionadas para una llamada de quince minutos que no cuesta nada.
+     PENDIENTE DE APROBACIÓN: redactadas a partir de la decisión, no de un
+     documento del estudio. */
   politicas: [
-    { clave: 'Reserva previa', texto: 'Mínimo 48 horas de anticipación.' },
     {
-      clave: 'Pago',
-      texto: 'Pago total por adelantado al momento de la reserva.',
+      clave: 'Reserva',
+      texto: 'Por WhatsApp. Confirmamos fecha y hora el mismo día.',
     },
     {
-      clave: 'Confirmación',
-      texto: 'Correo o mensaje de confirmación con fecha, hora y duración.',
+      clave: 'Duración',
+      texto: 'Quince minutos. Si el caso da para más, se lo decimos ahí mismo.',
     },
     {
-      clave: 'Cambios',
-      texto:
-        'Un cambio de fecha u hora con mínimo 24 h de anticipación, sujeto a disponibilidad.',
-    },
-    {
-      clave: 'Cancelaciones',
-      texto:
-        'El pago no es reembolsable ante cancelaciones, inasistencias sin aviso o cambios con menos de 24 h.',
-    },
-    {
-      clave: 'Si cancelamos nosotros',
-      texto: 'Reprogramación sin costo o reembolso completo del depósito.',
+      clave: 'Sin compromiso',
+      texto: 'No hay costo ni obligación de contratar nada después.',
     },
   ],
 }
 
-/** Municipios del formulario, alineados con el Lead Ad de la campaña. */
 export const municipios = [
   'Jamundí',
   'Cali',

@@ -106,8 +106,9 @@ export type Peldano = {
   n: number
   nombre: string
   entrega: string
-  /** Precio solo si está confirmado. `null` mientras no lo esté. */
   precioCOP: number | null
+  /** El precio es un piso y se cotiza según el caso: se anuncia "desde X". */
+  desde?: boolean
 }
 
 export const escalera: Peldano[] = [
@@ -115,12 +116,26 @@ export const escalera: Peldano[] = [
     n: 1,
     nombre: 'Asesoría técnica',
     entrega:
-      'Una hora con un arquitecto. Sale con un diagnóstico de su caso y un ' +
-      'rango real de costos, por escrito.',
-    precioCOP: 50_000,
+      'Quince minutos con un arquitecto. Le decimos si podemos ayudarle, qué ' +
+      'implica su caso y cuál es el siguiente paso.',
+    precioCOP: 0,
   },
   {
+    /* Producto nuevo (decisión del 4/9/2026): es el primer escalón pagado y el
+       que sostiene la caja mientras maduran los encargos grandes. El precio es
+       un piso porque depende del predio, la distancia y el alcance.
+       PENDIENTE DE APROBACIÓN: el alcance está redactado a partir de la
+       decisión, no de un documento del estudio. */
     n: 2,
+    nombre: 'Visita técnica con informe',
+    entrega:
+      'Vamos al predio o al inmueble. Sale con un informe escrito: qué tiene, ' +
+      'qué lo condiciona, qué hay que hacer y en qué orden.',
+    precioCOP: 300_000,
+    desde: true,
+  },
+  {
+    n: 3,
     nombre: 'Estudio de viabilidad',
     entrega:
       'Qué permite la norma en su predio, qué se puede construir, presupuesto ' +
@@ -128,7 +143,7 @@ export const escalera: Peldano[] = [
     precioCOP: null,
   },
   {
-    n: 3,
+    n: 4,
     nombre: 'Anteproyecto',
     entrega:
       'Implantación, plantas, volumetría e imágenes. El proyecto deja de ser ' +
@@ -136,7 +151,7 @@ export const escalera: Peldano[] = [
     precioCOP: null,
   },
   {
-    n: 4,
+    n: 5,
     nombre: 'Proyecto arquitectónico y licencia',
     entrega:
       'Planos constructivos, coordinación con las demás ingenierías y trámite ' +
@@ -144,7 +159,7 @@ export const escalera: Peldano[] = [
     precioCOP: null,
   },
   {
-    n: 5,
+    n: 6,
     nombre: 'Dirección de obra',
     entrega:
       'Acompañamiento técnico durante la construcción, con reportes y control ' +
@@ -152,6 +167,7 @@ export const escalera: Peldano[] = [
     precioCOP: null,
   },
 ]
+
 
 /** Devuelve los servicios completos que cubre una puerta. */
 export function serviciosDe(puerta: Puerta) {

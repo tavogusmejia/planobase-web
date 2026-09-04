@@ -6,7 +6,6 @@ import { Rule } from '@/components/ui/Rule'
 import { puertas, puertaPorSlug, serviciosDe } from '@content/puertas'
 import { asesoria, contacto, reconocimientos } from '@content/site'
 import { routing } from '@/i18n/routing'
-import { formatCOP } from '@/lib/utils'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
 export function generateStaticParams() {
@@ -151,8 +150,9 @@ export default async function PuertaPage({
         </h2>
         <div className="mt-8 lg:mt-0">
           <p className="text-small text-ink-soft">
-            La primera hora cuesta {formatCOP(asesoria.precioCOP)} y sale de
-            ella con un diagnóstico por escrito.
+            La primera llamada no cuesta nada y dura{' '}
+            {asesoria.duracionMin} minutos. Sale de ella sabiendo si podemos
+            ayudarle y qué implica.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <Link

@@ -37,6 +37,15 @@ const ORIGEN_MEDIA = (process.env.NEXT_PUBLIC_MEDIA_ORIGIN ?? '').replace(
   '',
 )
 
+/**
+ * Precio para mostrar. Un servicio gratuito se anuncia como tal, no como "$ 0",
+ * que se lee a medio camino entre un error y una promesa dudosa.
+ */
+export function etiquetaPrecio(cop: number, desde = false): string {
+  if (cop <= 0) return 'Sin costo'
+  return desde ? `desde ${formatCOP(cop)}` : formatCOP(cop)
+}
+
 /** Ruta pública de una imagen del bucket `media`. */
 export function mediaSrc(path: string): string {
   return ORIGEN_MEDIA ? `${ORIGEN_MEDIA}/${path}` : `/media/${path}`

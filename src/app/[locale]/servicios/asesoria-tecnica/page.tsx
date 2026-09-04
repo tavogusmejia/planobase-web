@@ -3,7 +3,7 @@ import { setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { asesoria, contacto } from '@content/site'
-import { formatCOP } from '@/lib/utils'
+import { etiquetaPrecio } from '@/lib/utils'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
 export async function generateMetadata({
@@ -62,7 +62,7 @@ export default async function AsesoriaTecnicaPage({
 
       <h1 className="text-h1 measure-display mt-6 text-ink">{asesoria.nombre}</h1>
       <Rule className="mt-6 max-w-3xl text-muted">
-        {asesoria.duracionMin} min &nbsp; {formatCOP(asesoria.precioCOP)}
+        {asesoria.duracionMin} min &nbsp; {etiquetaPrecio(asesoria.precioCOP)}
       </Rule>
 
       <p className="text-lead measure mt-10 text-ink">{asesoria.tagline}</p>

@@ -4,7 +4,7 @@ import { Link } from '@/i18n/navigation'
 import { ContactForm } from '@/components/forms/ContactForm'
 import { Rule } from '@/components/ui/Rule'
 import { asesoria, contacto } from '@content/site'
-import { formatCOP } from '@/lib/utils'
+import { etiquetaPrecio } from '@/lib/utils'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
 export async function generateMetadata({
@@ -90,7 +90,7 @@ export default async function ContactoPage({
           <div className="mt-14 border-t border-line pt-8">
             <h2 className="text-h4 text-ink">{asesoria.nombre}</h2>
             <Rule className="mt-3 text-muted">
-              {asesoria.duracionMin} min &nbsp; {formatCOP(asesoria.precioCOP)}
+              {asesoria.duracionMin} min &nbsp; {etiquetaPrecio(asesoria.precioCOP)}
             </Rule>
             <p className="text-small mt-5 text-ink-soft">{asesoria.tagline}</p>
             <Link

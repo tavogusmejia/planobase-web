@@ -7,7 +7,7 @@ import { ProjectCard } from '@/components/project/ProjectCard'
 import { getFeatured, getHeroProjects, getStats } from '@/lib/data/projects'
 import { asesoria, contacto, manifiesto, site } from '@content/site'
 import { puertas } from '@content/puertas'
-import { formatCOP } from '@/lib/utils'
+import { etiquetaPrecio } from '@/lib/utils'
 
 /**
  * La home no tenía metadatos propios: heredaba los del layout, sin canonical.
@@ -181,7 +181,7 @@ export default async function HomePage({
             <h2 className="text-h2 text-ink">{asesoria.nombre}</h2>
             <Rule className="mt-4 text-muted">
               {t('servicioDuracion', { minutos: asesoria.duracionMin })}
-              &nbsp; {formatCOP(asesoria.precioCOP)}
+              &nbsp; {etiquetaPrecio(asesoria.precioCOP)}
             </Rule>
           </div>
           <div className="mt-8 lg:mt-0">

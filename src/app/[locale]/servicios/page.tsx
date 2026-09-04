@@ -4,7 +4,7 @@ import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { escalera, puertas } from '@content/puertas'
 import { asesoria, contacto } from '@content/site'
-import { formatCOP } from '@/lib/utils'
+import { etiquetaPrecio } from '@/lib/utils'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
 export async function generateMetadata({
@@ -103,7 +103,7 @@ export default async function ServiciosPage({
         </h2>
         <p className="text-lead measure mt-6 text-ink-soft">
           Se avanza por pasos, y en cada uno usted decide si sigue. El primero
-          cuesta {formatCOP(asesoria.precioCOP)} y dura una hora.
+          no cuesta nada y dura {asesoria.duracionMin} minutos.
         </p>
 
         <ol className="mt-14 border-t border-line">
@@ -117,9 +117,9 @@ export default async function ServiciosPage({
               </span>
               <h3 className="text-h5 text-ink">
                 {paso.nombre}
-                {paso.precioCOP ? (
+                {paso.precioCOP !== null ? (
                   <span className="text-block mt-1 block tabular-nums text-muted">
-                    {formatCOP(paso.precioCOP)}
+                    {etiquetaPrecio(paso.precioCOP, paso.desde)}
                   </span>
                 ) : null}
               </h3>
@@ -132,15 +132,15 @@ export default async function ServiciosPage({
       {/* ---- Acción -------------------------------------------------------- */}
       <section className="mt-24 border-t-2 border-signal pt-10 lg:grid lg:grid-cols-2 lg:gap-16">
         <h2 className="text-h2 measure-display text-ink">
-          Si no sabe cuál de todas es su pregunta, esa es la primera hora.
+          Si no sabe cuál de todas es su pregunta, esa es la primera llamada.
         </h2>
         <div className="mt-10 lg:mt-0">
-          <p className="text-h3 tabular-nums text-ink">
-            {formatCOP(asesoria.precioCOP)}
+          <p className="text-h3 text-ink">
+            {etiquetaPrecio(asesoria.precioCOP)}
           </p>
           <p className="text-small measure mt-3 text-ink-soft">
-            {asesoria.duracionMin} minutos con un arquitecto. Sale con un
-            diagnóstico y un rango de costos, por escrito.
+            {asesoria.duracionMin} minutos con un arquitecto. Le decimos si
+            podemos ayudarle y cuál es el siguiente paso.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link

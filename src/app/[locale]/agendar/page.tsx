@@ -3,7 +3,7 @@ import { setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { asesoria, contacto } from '@content/site'
-import { formatCOP } from '@/lib/utils'
+import { etiquetaPrecio } from '@/lib/utils'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
 export async function generateMetadata({
@@ -32,9 +32,10 @@ export async function generateMetadata({
  * de la descripción documentada del servicio y del plan de campaña; conviene que
  * la lea alguien del estudio antes de poner un peso en pauta.
  *
- * TODO — el plan de campaña anuncia la asesoría como "sin costo de consulta
- * inicial". Aquí figura a {asesoria.precioCOP} porque es el dato documentado.
- * Mientras no se resuelva, el anuncio y esta página se contradicen.
+ * La contradicción entre el anuncio y esta página quedó resuelta el 4/9/2026:
+ * la primera llamada es de quince minutos y sin costo, que es lo que el plan de
+ * campaña prometía, y el producto pagado pasa a ser la visita técnica con
+ * informe, en la escalera de content/puertas.ts.
  */
 export default async function AgendarPage({
   params,
@@ -104,7 +105,7 @@ export default async function AgendarPage({
               {asesoria.duracionMin} min
             </Rule>
             <p className="text-h2 mt-8 tabular-nums text-ink">
-              {formatCOP(asesoria.precioCOP)}
+              {etiquetaPrecio(asesoria.precioCOP)}
             </p>
 
             <WhatsAppLink

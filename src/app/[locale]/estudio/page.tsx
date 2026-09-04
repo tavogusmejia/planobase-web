@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
+import { Rule } from '@/components/ui/Rule'
+import { mediaSrc } from '@/lib/utils'
 import {
   equipo,
   manifiesto,
@@ -96,23 +99,51 @@ export default async function EstudioPage({
         ))}
       </div>
 
-      {/* ---- Equipo ---------------------------------------------------------
-          Los nombres van en HTML: en el sitio actual están dentro de las
-          imágenes y no los lee ni un buscador ni un lector de pantalla.
-          Son dos personas, y eso se enuncia como dedicación, no se disimula. */}
+      {/* ---- El estudio son dos oficios --------------------------------------
+          Aquí decía «Dos arquitectos responden con su nombre», y era falso: el
+          propio sitio muestra tres líneas más abajo que Gustavo es Gerente de
+          Proyectos y Consultor Técnico. Era la única afirmación del sitio de
+          que ambos socios son arquitectos, y ningún dato la sostenía.
+
+          Lo que la sustituye no es una corrección defensiva: es el hecho que
+          ningún competidor puede copiar. Un arquitecto que dibuja y firma, y
+          alguien que no lo es y que gerencia obra y diagnostica. Eso explica de
+          una sola vez por qué el estudio vende obra y servicios técnicos, que
+          es la confusión que antes se intentaba resolver partiendo el sitio en
+          dos con un conmutador.
+
+          Los nombres van en HTML: en el sitio de Wix estaban dentro de las
+          imágenes y no los leía ni un buscador ni un lector de pantalla.
+
+          PENDIENTE DE APROBACIÓN: el titular. El resto —nombres y cargos— sale
+          del material del estudio.                                            */}
       <section className="mt-36">
         <h2 className="text-h2 measure-display text-ink">
-          Dos arquitectos responden con su nombre.
+          Un arquitecto y un gerente de proyectos.
         </h2>
         <p className="text-body measure mt-8 text-ink-soft">{sobreElEquipo}</p>
 
-        <ul className="mt-14 grid gap-10 border-t border-line pt-10 sm:grid-cols-2 lg:max-w-4xl">
+        <ul className="mt-14 grid gap-x-10 gap-y-14 border-t border-line pt-12 sm:grid-cols-2 lg:max-w-3xl">
           {equipo.map((m) => (
             <li key={m.slug}>
-              <h3 className="text-h3 text-ink">{m.nombre}</h3>
-              <p className="text-small mt-2 text-ink-soft">
-                {m.cargo.join(' · ')}
-              </p>
+              {m.foto ? (
+                <div className="relative aspect-square w-full overflow-hidden bg-mist">
+                  <Image
+                    src={mediaSrc(m.foto.path)}
+                    alt={m.foto.alt}
+                    fill
+                    sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 100vw"
+                    placeholder="blur"
+                    blurDataURL={m.foto.blurDataURL}
+                    className="object-cover"
+                  />
+                </div>
+              ) : null}
+
+              <h3 className="text-h3 mt-6 text-ink">{m.nombre}</h3>
+              {/* La línea de cota bajo el nombre, igual que bajo un proyecto:
+                  lo que mide aquí es el oficio. */}
+              <Rule className="mt-3 text-muted">{m.cargo.join(' · ')}</Rule>
             </li>
           ))}
         </ul>

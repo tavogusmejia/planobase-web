@@ -1,4 +1,5 @@
 import type { Award, Service, TeamMember } from '@/lib/types'
+import { fotosEquipo } from '@content/media-equipo'
 
 /**
  * Datos del estudio. Fuente: wix-migration/01-content/site.json, corregido con
@@ -94,15 +95,16 @@ export const equipo: TeamMember[] = [
     slug: 'eduardo-mejia-martinez',
     nombre: 'Eduardo Mejía Martínez',
     cargo: ['Arquitecto Director', 'Representante Legal'],
-    foto: null,
+    foto: fotosEquipo['eduardo-mejia-martinez'] ?? null,
   },
   {
     slug: 'gustavo-mejia-martinez',
     nombre: 'Gustavo Mejía Martínez',
     cargo: ['Gerente de Proyectos', 'Consultor Técnico'],
-    foto: null,
+    foto: fotosEquipo['gustavo-mejia-martinez'] ?? null,
   },
 ]
+
 
 /**
  * Cómo se acredita el diseño en la ficha de proyecto.

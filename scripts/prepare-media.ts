@@ -210,6 +210,93 @@ async function heroSlugs(proyectos: WixProject[]): Promise<Set<string>> {
 }
 
 /**
+ * Retratos del equipo: `assets-originales/equipo/` → `public/media/equipo/`.
+ *
+ * Wix mostraba cuatro retratos con los nombres DENTRO de la imagen, así que no
+ * los leía ni un buscador ni un lector de pantalla. Los archivos se bajaron como
+ * `miembro-1..4` y el orden coincide con el del manifiesto de Wix, donde dos
+ * traen el nombre en el archivo original: `00gustavo_edited.jpg` y
+ * `00Miguel_edited.jpg`, más `00laura.png`.
+ *
+ * De ahí sale este emparejamiento. Miguel y Laura ya no están en el estudio, así
+ * que no se procesan. Gustavo es seguro por el nombre del archivo; Eduardo sale
+ * por descarte —es el único de los cuatro sin nombre en el archivo y el único
+ * miembro actual que falta—, así que CONVIENE MIRARLO antes de publicar.
+ *
+ * Se recortan a cuadrado: los originales vienen en tres proporciones distintas y
+ * un par de retratos con encuadres que no casan se ve peor que cualquier recorte.
+ * `position: 'attention'` deja que sharp busque la zona con más información en
+ * vez de cortar por el centro a ciegas.
+ */
+const RETRATOS: { archivo: string; slug: string; nombre: string }[] = [
+  {
+    archivo: 'miembro-1.jpeg',
+    slug: 'eduardo-mejia-martinez',
+    nombre: 'Eduardo Mejía Martínez',
+  },
+  {
+    archivo: 'miembro-2.jpg',
+    slug: 'gustavo-mejia-martinez',
+    nombre: 'Gustavo Mejía Martínez',
+  },
+]
+
+const LADO_RETRATO = 1000
+
+async function generarRetratos(): Promise<number> {
+  const origen = join(ROOT, 'assets-originales/equipo')
+  const destino = join(ROOT, 'public/media/equipo')
+  const salida: Record<string, ProjectImage> = {}
+
+  for (const r of RETRATOS) {
+    const from = join(origen, r.archivo)
+    if (!(await exists(from))) continue
+
+    await mkdir(destino, { recursive: true })
+    const to = join(destino, `${r.slug}.webp`)
+
+    if (!(await exists(to))) {
+      await sharp(from)
+        .rotate()
+        .resize({
+          width: LADO_RETRATO,
+          height: LADO_RETRATO,
+          fit: 'cover',
+          position: 'attention',
+          withoutEnlargement: true,
+        })
+        .webp({ quality: QUALITY })
+        .toFile(to)
+    }
+
+    const meta = await sharp(to).metadata()
+    const blur = await sharp(to)
+      .resize({ width: 16, fit: 'inside' })
+      .webp({ quality: 40 })
+      .toBuffer()
+
+    salida[r.slug] = {
+      path: `equipo/${r.slug}.webp`,
+      width: meta.width ?? 0,
+      height: meta.height ?? 0,
+      blurDataURL: `data:image/webp;base64,${blur.toString('base64')}`,
+      alt: `Retrato de ${r.nombre}`,
+    }
+  }
+
+  await writeFile(
+    join(ROOT, 'content/media-equipo.ts'),
+    `// GENERADO POR \`pnpm media\`. No editar a mano.\n` +
+      `// Fuente: assets-originales/equipo/\n` +
+      `import type { ProjectImage } from '@/lib/types'\n\n` +
+      `export const fotosEquipo: Record<string, ProjectImage> = ${JSON.stringify(salida, null, 2)}\n`,
+    'utf8',
+  )
+
+  return Object.keys(salida).length
+}
+
+/**
  * Imagen por defecto para compartir (Open Graph), 1200x630.
  *
  * WhatsApp es el canal principal de este negocio y hasta ahora los enlaces se
@@ -337,6 +424,9 @@ export const projects: Project[] = `
   console.log(`  imágenes       ${totalImgs}`)
   console.log(`  sin imagen     ${sinImagen.join(', ') || '—'}`)
   console.log(`  sin área       ${areaFaltante.length} proyectos`)
+
+  const retratos = await generarRetratos()
+  console.log(`  retratos       ${retratos} → content/media-equipo.ts`)
 
   const og = await generarOgPorDefecto()
   console.log(`  og por defecto ${og ? 'public/og/default.jpg' : 'sin portada de origen'}`)

@@ -83,9 +83,16 @@ export default async function HomePage({
           {tc('verTodos', { count: stats.proyectos })}
         </Rule>
 
-        <div className="grid gap-x-8 gap-y-14 md:grid-cols-2 xl:grid-cols-3">
+        {/* Misma retícula del portafolio: a filete, sin aire entre piezas.
+            Los rótulos se revelan al recorrerla con el cursor. */}
+        <div className="grid gap-px bg-line md:grid-cols-2 xl:grid-cols-3">
           {destacados.map((p, i) => (
-            <ProjectCard key={p.slug} project={p} priority={i < 3} />
+            <ProjectCard
+              key={p.slug}
+              project={p}
+              priority={i < 3}
+              sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+            />
           ))}
         </div>
 

@@ -4,26 +4,25 @@ import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link, usePathname } from '@/i18n/navigation'
 import { Logotipo } from '@/components/brand/Logotipo'
-import { PerfilSwitch, perfilDeRuta } from '@/components/layout/PerfilSwitch'
 import { navegacion } from '@content/site'
 import { routing } from '@/i18n/routing'
 import { cn } from '@/lib/utils'
 
+/**
+ * Cabecera. Un solo menú con el sitio entero a la vista: el conmutador
+ * Estudio / Oficina técnica que vivía aquí obligaba al visitante a clasificarse
+ * antes de saber qué hay y dejaba media navegación oculta. La distinción entre
+ * las dos formas de contratar al estudio se resuelve en el texto de /servicios,
+ * no en un mecanismo de navegación.
+ */
 export function Header({ locale }: { locale: string }) {
   const t = useTranslations('nav')
   const tc = useTranslations('comun')
   const pathname = usePathname()
   const [abierto, setAbierto] = useState(false)
 
-  const perfil = perfilDeRuta(pathname)
   const activa = (href: string) =>
     pathname === href || pathname.startsWith(`${href}/`)
-
-  /* El menú muestra el lado en el que estás más lo que es común a los dos.
-     Así el visitante no ve nunca el catálogo entero del estudio de golpe. */
-  const items = navegacion.filter(
-    (i) => i.perfil === perfil || i.perfil === 'ambos',
-  )
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur-sm">
@@ -41,13 +40,13 @@ export function Header({ locale }: { locale: string }) {
           <Logotipo className="h-10 w-auto lg:h-12" />
         </Link>
 
-        <PerfilSwitch className="hidden shrink-0 md:block" />
-
+        {/* El menú completo aparece en lg y no en md: cinco enlaces más el
+            selector de idioma no caben en 768 px sin apretarse contra el logo. */}
         <nav
           aria-label="Principal"
-          className="hidden items-center gap-8 md:flex"
+          className="hidden items-center gap-8 lg:flex"
         >
-          {items.map((item) => (
+          {navegacion.map((item) => (
             <Link
               key={item.key}
               href={item.href}
@@ -84,7 +83,7 @@ export function Header({ locale }: { locale: string }) {
           onClick={() => setAbierto((v) => !v)}
           aria-expanded={abierto}
           aria-controls="menu-movil"
-          className="text-small text-ink md:hidden"
+          className="text-small text-ink lg:hidden"
         >
           {abierto ? t('cerrarMenu') : t('abrirMenu')}
         </button>
@@ -94,10 +93,9 @@ export function Header({ locale }: { locale: string }) {
         <nav
           id="menu-movil"
           aria-label="Principal"
-          className="border-t border-line px-gutter pb-8 pt-6 md:hidden"
+          className="border-t border-line px-gutter pb-8 pt-2 lg:hidden"
         >
-          <PerfilSwitch className="mb-6 max-w-xs" />
-          {items.map((item) => (
+          {navegacion.map((item) => (
             <Link
               key={item.key}
               href={item.href}

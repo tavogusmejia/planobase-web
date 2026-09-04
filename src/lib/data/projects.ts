@@ -1,6 +1,6 @@
 import { projects } from '@content/projects'
-import { reconocimientos } from '@content/site'
-import type { Categoria, Project } from '@/lib/types'
+import { heroApertura, reconocimientos } from '@content/site'
+import { CATEGORIAS, type Categoria, type Project } from '@/lib/types'
 
 /**
  * Acceso a datos. Hoy lee de `content/`, generado desde el volcado de Wix.
@@ -34,15 +34,17 @@ export async function getAllSlugs(): Promise<string[]> {
 const ANCHO_MINIMO_HERO = 1920
 
 /**
- * Los proyectos del hero, por relevancia: primero los declarados en el sitio,
- * luego los destacados, luego por año descendente. Solo entran los que tienen
- * portada suficientemente grande.
+ * Los proyectos del hero: abre el declarado en `heroApertura` y el resto sigue
+ * por relevancia —primero los declarados en el sitio, luego los destacados,
+ * luego por año descendente—. Solo entran los que tienen portada
+ * suficientemente grande.
  */
 export async function getHeroProjects(limite = 7): Promise<Project[]> {
   return publicados
     .filter((p) => (p.portada?.width ?? 0) >= ANCHO_MINIMO_HERO)
     .sort(
       (a, b) =>
+        Number(b.slug === heroApertura) - Number(a.slug === heroApertura) ||
         Number(b.enHeroHome) - Number(a.enHeroHome) ||
         Number(b.destacado) - Number(a.destacado) ||
         b.anio - a.anio ||
@@ -105,9 +107,15 @@ export async function getStats() {
 }
 
 export async function getCategoryCounts(): Promise<Record<Categoria, number>> {
-  const out = {} as Record<Categoria, number>
+  // Se parte de la taxonomía completa en cero, no del conteo. Una categoría sin
+  // proyectos tiene que poder pintarse como vacía: es la que anuncia por dónde
+  // va a crecer el portafolio, y desaparecer del filtro sería justo lo contrario.
+  const out = Object.fromEntries(CATEGORIAS.map((c) => [c, 0])) as Record<
+    Categoria,
+    number
+  >
   for (const p of publicados) {
-    for (const c of p.categorias) out[c] = (out[c] ?? 0) + 1
+    for (const c of p.categorias) out[c] += 1
   }
   return out
 }

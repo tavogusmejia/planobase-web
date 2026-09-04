@@ -58,11 +58,19 @@
   },
   "categorias": {
     "todos": "All",
-    "cultural": "Cultural",
-    "educativo": "Educational",
+    "educativo": "Education",
+    "cultural": "Culture",
     "institucional": "Institutional",
-    "residencial": "Residential",
-    "urbano": "Urban"
+    "urbano": "Public space",
+    "casas": "Houses",
+    "vivienda": "Housing",
+    "comercial": "Commercial",
+    "hoteleria": "Hospitality",
+    "interiorismo": "Interiors",
+    "diseno": "Design",
+    "concursos": "Competitions",
+    "sinProyectos": "No published work in this category yet. The portfolio keeps growing.",
+    "etiqueta": "Filter the portfolio by category"
   },
   "footer": {
     "estudio": "Studio",
@@ -76,10 +84,5 @@
     "cargando": "Loading",
     "cambiarIdioma": "Change language",
     "traduccionPendiente": "Content shown in Spanish; the English translation is in progress."
-  },
-  "perfil": {
-    "estudio": "Studio",
-    "oficina": "Technical office",
-    "etiqueta": "Switch profile"
   }
 }

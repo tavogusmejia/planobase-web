@@ -56,7 +56,8 @@ export const projects: Project[] = [
     "creditosFotografia": null,
     "construido": false,
     "categorias": [
-      "educativo"
+      "educativo",
+      "concursos"
     ],
     "destacado": true,
     "enHeroHome": false,
@@ -143,7 +144,8 @@ export const projects: Project[] = [
     "construido": false,
     "categorias": [
       "educativo",
-      "cultural"
+      "cultural",
+      "concursos"
     ],
     "destacado": true,
     "enHeroHome": false,
@@ -230,7 +232,8 @@ export const projects: Project[] = [
     "construido": false,
     "categorias": [
       "educativo",
-      "urbano"
+      "urbano",
+      "concursos"
     ],
     "destacado": true,
     "enHeroHome": true,
@@ -352,7 +355,8 @@ export const projects: Project[] = [
     "construido": false,
     "categorias": [
       "cultural",
-      "urbano"
+      "urbano",
+      "concursos"
     ],
     "destacado": false,
     "enHeroHome": false,
@@ -801,7 +805,8 @@ export const projects: Project[] = [
     "creditosFotografia": null,
     "construido": false,
     "categorias": [
-      "institucional"
+      "institucional",
+      "concursos"
     ],
     "destacado": true,
     "enHeroHome": false,
@@ -889,7 +894,7 @@ export const projects: Project[] = [
     "creditosFotografia": null,
     "construido": false,
     "categorias": [
-      "residencial"
+      "casas"
     ],
     "destacado": true,
     "enHeroHome": true,
@@ -1019,7 +1024,7 @@ export const projects: Project[] = [
     "creditosFotografia": null,
     "construido": false,
     "categorias": [
-      "residencial"
+      "casas"
     ],
     "destacado": false,
     "enHeroHome": false,
@@ -1128,7 +1133,8 @@ export const projects: Project[] = [
     "creditosFotografia": null,
     "construido": false,
     "categorias": [
-      "educativo"
+      "educativo",
+      "concursos"
     ],
     "destacado": false,
     "enHeroHome": false,
@@ -1210,7 +1216,8 @@ export const projects: Project[] = [
     "construido": false,
     "categorias": [
       "educativo",
-      "cultural"
+      "cultural",
+      "concursos"
     ],
     "destacado": false,
     "enHeroHome": false,
@@ -1299,7 +1306,8 @@ export const projects: Project[] = [
     "creditosFotografia": null,
     "construido": false,
     "categorias": [
-      "educativo"
+      "educativo",
+      "concursos"
     ],
     "destacado": true,
     "enHeroHome": false,
@@ -1434,7 +1442,8 @@ export const projects: Project[] = [
     "creditosFotografia": null,
     "construido": false,
     "categorias": [
-      "urbano"
+      "urbano",
+      "concursos"
     ],
     "destacado": false,
     "enHeroHome": false,
@@ -1495,7 +1504,8 @@ export const projects: Project[] = [
     "construido": true,
     "categorias": [
       "educativo",
-      "cultural"
+      "cultural",
+      "concursos"
     ],
     "destacado": true,
     "enHeroHome": false,
@@ -1707,7 +1717,8 @@ export const projects: Project[] = [
     "creditosFotografia": null,
     "construido": false,
     "categorias": [
-      "cultural"
+      "cultural",
+      "concursos"
     ],
     "destacado": false,
     "enHeroHome": false,
@@ -1794,7 +1805,7 @@ export const projects: Project[] = [
     "creditosFotografia": null,
     "construido": false,
     "categorias": [
-      "residencial"
+      "vivienda"
     ],
     "destacado": true,
     "enHeroHome": true,
@@ -1883,7 +1894,8 @@ export const projects: Project[] = [
     "creditosFotografia": null,
     "construido": false,
     "categorias": [
-      "educativo"
+      "educativo",
+      "concursos"
     ],
     "destacado": true,
     "enHeroHome": false,
@@ -2105,7 +2117,8 @@ export const projects: Project[] = [
     "creditosFotografia": null,
     "construido": false,
     "categorias": [
-      "cultural"
+      "cultural",
+      "concursos"
     ],
     "destacado": false,
     "enHeroHome": false,
@@ -2166,7 +2179,8 @@ export const projects: Project[] = [
     "construido": false,
     "categorias": [
       "cultural",
-      "institucional"
+      "institucional",
+      "concursos"
     ],
     "destacado": false,
     "enHeroHome": false,
@@ -2252,7 +2266,7 @@ export const projects: Project[] = [
     "creditosFotografia": null,
     "construido": false,
     "categorias": [
-      "residencial"
+      "vivienda"
     ],
     "destacado": false,
     "enHeroHome": false,

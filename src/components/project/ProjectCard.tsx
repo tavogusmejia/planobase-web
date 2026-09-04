@@ -1,33 +1,47 @@
+'use client'
+
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { Rule } from '@/components/ui/Rule'
+import { RotuloProyecto, useRotulo } from '@/components/project/RotuloProyecto'
 import { etiquetaProyecto, mediaSrc } from '@/lib/utils'
 import type { Project } from '@/lib/types'
 
 /**
- * Tarjeta del portafolio.
+ * Ficha del portafolio.
  *
  * En el sitio de Wix las tarjetas no mostraban absolutamente nada: una pared de
- * fotos anónimas. Aquí el nombre, el año y la ciudad son obligatorios, y la
- * línea de cota los sostiene igual que en una plancha.
+ * fotos anónimas que además no llevaba a ninguna parte. Aquí el nombre, el año,
+ * la ciudad y la naturaleza del encargo están siempre en el documento —para el
+ * lector de pantalla y para el buscador— y se revelan al recorrer la retícula
+ * con el cursor, quedándose visibles a partir de ese momento. El detalle del
+ * comportamiento está en `RotuloProyecto`.
+ *
+ * Es cliente porque el revelado es interacción real, no adorno: hay estado que
+ * persiste por ficha.
  */
 export function ProjectCard({
   project,
   priority = false,
-  sizes = '(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw',
+  sizes = '(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw',
 }: {
   project: Project
   priority?: boolean
   sizes?: string
 }) {
   const { portada } = project
+  const { revelado, pulso, disparadores } = useRotulo()
+
   if (!portada) return null
 
   const etiqueta = etiquetaProyecto(project)
 
   return (
-    <article>
-      <Link href={`/proyectos/${project.slug}`} className="group block">
+    <article className="bg-paper">
+      <Link
+        href={`/proyectos/${project.slug}`}
+        {...disparadores}
+        className="group block"
+      >
         <div className="relative aspect-[4/3] overflow-hidden bg-mist">
           <Image
             src={mediaSrc(portada.path)}
@@ -39,13 +53,28 @@ export function ProjectCard({
             blurDataURL={portada.blurDataURL}
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
           />
-        </div>
 
-        <h3 className="text-h4 mt-5 text-ink">{project.titulo}</h3>
-        <Rule className="mt-2 text-muted">
-          {project.anio} &nbsp; {project.ciudad}
-          {etiqueta ? <> &nbsp; {etiqueta}</> : null}
-        </Rule>
+          {/* Velo. Sube con el rótulo y solo bajo él: el resto de la fotografía
+              no se toca. Sin esto el nombre se pierde en una fachada clara. */}
+          <span
+            aria-hidden
+            data-revelado={revelado}
+            className="rotulo absolute inset-x-0 bottom-0 block h-2/5 bg-gradient-to-t from-ink/85 via-ink/45 to-transparent"
+          />
+
+          <RotuloProyecto
+            titulo={project.titulo}
+            medida={
+              <>
+                {project.anio} &nbsp; {project.ciudad}
+                {etiqueta ? <> &nbsp; {etiqueta}</> : null}
+              </>
+            }
+            revelado={revelado}
+            pulso={pulso}
+            className="absolute inset-x-0 bottom-0 p-5 lg:p-6"
+          />
+        </div>
       </Link>
     </article>
   )

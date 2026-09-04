@@ -60,20 +60,63 @@ const exists = (p: string) =>
     () => false,
   )
 
-/** "Educativo" → "educativo". Se descartan valores fuera de la taxonomía. */
-function normalizeCategoria(raw: string): Categoria | null {
-  const v = raw
+const sinAcentos = (s: string) =>
+  s
     .toLowerCase()
     .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-  const valid: Categoria[] = [
-    'cultural',
-    'educativo',
-    'institucional',
-    'residencial',
-    'urbano',
-  ]
-  return valid.find((c) => c === v) ?? null
+    .replace(/[\u0300-\u036f]/g, '')
+
+/**
+ * "Educativo" → "educativo". Los cuatro valores de Wix que pasan tal cual.
+ * "Residencial" no está aquí: se resuelve en `categoriasDe`, que sí ve el
+ * proyecto entero. Cualquier valor fuera de la taxonomía se descarta.
+ */
+const MAPA_WIX: Partial<Record<string, Categoria>> = {
+  cultural: 'cultural',
+  educativo: 'educativo',
+  institucional: 'institucional',
+  urbano: 'urbano',
+}
+
+/**
+ * Categorías de un proyecto. Todo lo que sale de aquí está sostenido por un
+ * dato del volcado; nada se asigna por criterio nuestro.
+ *
+ * - Residencial se parte en casas / vivienda por la palabra "multifamiliar",
+ *   que los propios subtítulos del estudio usan: "Edificio multifamiliar
+ *   Tirreno", "Edificio multifamiliar Arezzo". Las dos Casa Aguilar dicen
+ *   "vivienda campestre" y "vivienda unifamiliar" en su memoria.
+ * - Concurso se marca solo con evidencia inequívoca: el slug empieza por
+ *   "concurso-", el proyecto tiene premio, o su subtítulo dice "Concurso".
+ *   Presentar una propuesta de concurso como obra construida es el riesgo
+ *   reputacional más alto del portafolio, y por eso la regla vive en el
+ *   generador y no en una lista escrita a mano.
+ */
+function categoriasDe(p: WixProject): Categoria[] {
+  const out = new Set<Categoria>()
+
+  for (const raw of p.categoria) {
+    const v = sinAcentos(raw)
+    const directa = MAPA_WIX[v]
+    if (directa) {
+      out.add(directa)
+      continue
+    }
+    if (v === 'residencial') {
+      const texto = sinAcentos(`${p.subtitulo ?? ''} ${p.memoria}`)
+      out.add(texto.includes('multifamiliar') ? 'vivienda' : 'casas')
+    }
+  }
+
+  if (
+    p.slug.startsWith('concurso-') ||
+    Boolean(p.premio) ||
+    sinAcentos(p.subtitulo ?? '').includes('concurso')
+  ) {
+    out.add('concursos')
+  }
+
+  return [...out]
 }
 
 /**
@@ -207,9 +250,7 @@ async function main() {
     if (!p.area_m2) areaFaltante.push(p.slug)
     totalImgs += galeria.length + (p.portada && portada ? 1 : 0)
 
-    const categorias = p.categoria
-      .map(normalizeCategoria)
-      .filter((c): c is Categoria => c !== null)
+    const categorias = categoriasDe(p)
 
     out.push({
       slug: p.slug,

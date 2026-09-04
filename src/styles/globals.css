@@ -185,4 +185,58 @@
   .measure-display {
     max-width: 52rem;
   }
+
+  /* --- Rótulo de proyecto -------------------------------------------------
+     Comportamiento único para el rótulo de CUALQUIER imagen de proyecto: grid
+     del portafolio, relacionados, destacados de la home.
+
+     La retícula se lee primero como plancha de fotos y se va acotando a medida
+     que el cursor la recorre, igual que se dimensiona un plano. El rótulo
+     aparece al pasar por encima y SE QUEDA: una vez acotado, un proyecto no
+     vuelve a quedar anónimo. En cada nuevo paso la línea de cota se vuelve a
+     trazar y el texto da un golpe corto —crece un punto y regresa— para señalar
+     qué se está mirando sin desordenar nada de lo ya leído.
+
+     El golpe se hace con `scale` y no con `font-size`: a 28 px, un punto son
+     +3,5 %, exactamente lo que hace este `scale`, pero animar el cuerpo de la
+     letra refluye la caja y puede repartir un título largo en otro número de
+     líneas a mitad de la animación. Mismo efecto, sin salto de maquetación.
+
+     `prefers-reduced-motion` ya anula toda animación en la base; el rótulo
+     igual aparece, solo que sin trazo ni golpe.                              */
+
+  .rotulo {
+    opacity: 0;
+    transition: opacity 320ms ease-out;
+  }
+
+  .rotulo[data-revelado='true'] {
+    opacity: 1;
+  }
+
+  /* Sin cursor no hay revelado posible: en un teléfono el rótulo va de entrada.
+     Si no, el portafolio vuelve a ser la pared de fotos anónimas de Wix. */
+  @media (hover: none) {
+    .rotulo {
+      opacity: 1;
+    }
+  }
+
+  .rotulo-texto {
+    display: inline-block;
+    transform-origin: left center;
+    animation: rotulo-pop 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes rotulo-pop {
+    0% {
+      transform: scale(1);
+    }
+    40% {
+      transform: scale(1.035);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 }

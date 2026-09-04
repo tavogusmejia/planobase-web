@@ -58,11 +58,19 @@
   },
   "categorias": {
     "todos": "Todos",
-    "cultural": "Cultural",
     "educativo": "Educativo",
+    "cultural": "Cultural",
     "institucional": "Institucional",
-    "residencial": "Residencial",
-    "urbano": "Urbano"
+    "urbano": "Espacio público",
+    "casas": "Casas",
+    "vivienda": "Vivienda",
+    "comercial": "Comercial",
+    "hoteleria": "Hotelería",
+    "interiorismo": "Interiorismo",
+    "diseno": "Diseño",
+    "concursos": "Concursos",
+    "sinProyectos": "Todavía no hay obra publicada en esta categoría. El portafolio se sigue alimentando.",
+    "etiqueta": "Filtrar el portafolio por categoría"
   },
   "footer": {
     "estudio": "Estudio",
@@ -76,10 +84,5 @@
     "cargando": "Cargando",
     "cambiarIdioma": "Cambiar idioma",
     "traduccionPendiente": "Contenido en español; la traducción al inglés está en curso."
-  },
-  "perfil": {
-    "estudio": "Estudio",
-    "oficina": "Oficina técnica",
-    "etiqueta": "Cambiar de perfil"
   }
 }

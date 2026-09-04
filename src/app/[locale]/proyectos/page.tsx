@@ -4,7 +4,12 @@ import { Link } from '@/i18n/navigation'
 import { ProjectCard } from '@/components/project/ProjectCard'
 import { Rule } from '@/components/ui/Rule'
 import { getCategoryCounts, getProjects } from '@/lib/data/projects'
-import { CATEGORIAS, type Categoria } from '@/lib/types'
+import {
+  CATEGORIAS,
+  CATEGORIAS_NATURALEZA,
+  CATEGORIAS_PROGRAMA,
+  type Categoria,
+} from '@/lib/types'
 import { cn } from '@/lib/utils'
 
 export async function generateMetadata({
@@ -28,11 +33,21 @@ function esCategoria(v: string | undefined): v is Categoria {
 }
 
 /**
- * El filtro del sitio de Wix devolvía los 24 proyectos para cualquier etiqueta.
+ * El portafolio.
  *
- * Aquí filtra de verdad, y lo hace en el servidor: cada categoría es un enlace
- * con su propia URL (`?categoria=educativo`), así que el estado es compartible,
- * indexable, funciona con el botón atrás y no necesita una línea de JavaScript.
+ * Dos cosas que el sitio de Wix no hacía. Una, el filtro devolvía los 24
+ * proyectos para cualquier etiqueta; aquí filtra de verdad y lo hace en el
+ * servidor: cada categoría es un enlace con su propia URL
+ * (`?categoria=educativo`), así que el estado es compartible, indexable,
+ * funciona con el botón atrás y no necesita una línea de JavaScript.
+ *
+ * Dos, la retícula. Va a sangre y sin aire entre piezas, separada apenas por el
+ * mismo filete de un cuadro de planchas: la fotografía manda y el conjunto se
+ * lee como una sola superficie. Los rótulos se revelan al recorrerla.
+ *
+ * La lista de categorías se muestra completa, con las vacías incluidas y su
+ * conteo en cero. No es un descuido: declara el alcance del estudio y deja el
+ * hueco donde va a entrar la obra que se publique después.
  */
 export default async function ProyectosPage({
   params,
@@ -59,55 +74,75 @@ export default async function ProyectosPage({
     ? todos.filter((p) => p.categorias.includes(activa))
     : todos
 
-  return (
-    <div className="mx-auto max-w-[100rem] px-gutter py-16 lg:px-10 lg:py-24">
-      <h1 className="text-h1 text-ink">{t('proyectosTitulo')}</h1>
-      <Rule className="mt-4 text-muted">
-        {visibles.length}
-        {activa ? ` / ${todos.length}` : ''}
-      </Rule>
+  const enlace = (c: Categoria | null) => {
+    const activo = activa === c
+    const n = c === null ? todos.length : (counts[c] ?? 0)
+    return (
+      <Link
+        href={c === null ? '/proyectos' : `/proyectos?categoria=${c}`}
+        aria-current={activo ? 'true' : undefined}
+        className={cn(
+          'text-small inline-flex items-baseline gap-2 whitespace-nowrap py-1 transition-colors',
+          activo
+            ? 'text-ink underline underline-offset-8'
+            : n === 0
+              ? 'text-line hover:text-muted'
+              : 'text-muted hover:text-accent',
+        )}
+      >
+        {c === null ? tcat('todos') : tcat(c)}
+        <span className="text-block tabular-nums">{n}</span>
+      </Link>
+    )
+  }
 
-      <nav aria-label="Filtrar por categoría" className="mt-12">
-        <ul className="flex flex-wrap gap-x-6 gap-y-3">
-          <li>
-            <Link
-              href="/proyectos"
-              aria-current={activa === null ? 'true' : undefined}
-              className={cn(
-                'text-small transition-colors',
-                activa === null
-                  ? 'text-ink underline underline-offset-8'
-                  : 'text-muted hover:text-accent',
-              )}
-            >
-              {tcat('todos')} <span className="tabular-nums">{todos.length}</span>
-            </Link>
-          </li>
-          {CATEGORIAS.map((c) => (
-            <li key={c}>
-              <Link
-                href={`/proyectos?categoria=${c}`}
-                aria-current={activa === c ? 'true' : undefined}
-                className={cn(
-                  'text-small transition-colors',
-                  activa === c
-                    ? 'text-ink underline underline-offset-8'
-                    : 'text-muted hover:text-accent',
-                )}
-              >
-                {tcat(c)}{' '}
-                <span className="tabular-nums">{counts[c] ?? 0}</span>
-              </Link>
-            </li>
+  return (
+    <div className="mx-auto max-w-[100rem] py-16 lg:py-24">
+      <div className="px-gutter lg:px-10">
+        <h1 className="text-h1 text-ink">{t('proyectosTitulo')}</h1>
+        <Rule className="mt-4 max-w-md text-muted">
+          {visibles.length}
+          {activa ? ` / ${todos.length}` : ''}
+        </Rule>
+      </div>
+
+      {/* La barra de categorías. En móvil corre en horizontal en vez de
+          apilarse en cuatro renglones y empujar la retícula fuera de pantalla. */}
+      <nav
+        aria-label={tcat('etiqueta')}
+        className="mt-12 border-y border-line"
+      >
+        <ul className="flex items-baseline gap-x-6 gap-y-2 overflow-x-auto px-gutter py-4 lg:flex-wrap lg:px-10">
+          <li>{enlace(null)}</li>
+          {CATEGORIAS_PROGRAMA.map((c) => (
+            <li key={c}>{enlace(c)}</li>
+          ))}
+          {/* Concursos cruza el eje del programa, así que va separado: un
+              proyecto puede ser Educativo y Concurso a la vez. */}
+          <li aria-hidden className="h-4 w-px shrink-0 self-center bg-line" />
+          {CATEGORIAS_NATURALEZA.map((c) => (
+            <li key={c}>{enlace(c)}</li>
           ))}
         </ul>
       </nav>
 
-      <div className="mt-16 grid gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
-        {visibles.map((p, i) => (
-          <ProjectCard key={p.slug} project={p} priority={i < 3} />
-        ))}
-      </div>
+      {visibles.length > 0 ? (
+        /* El filete entre piezas es el propio fondo asomando por el `gap`. */
+        <div className="grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+          {visibles.map((p, i) => (
+            <ProjectCard
+              key={p.slug}
+              project={p}
+              priority={i < 4}
+              sizes="(min-width: 1536px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            />
+          ))}
+        </div>
+      ) : (
+        <p className="text-lead measure px-gutter py-24 text-muted lg:px-10">
+          {tcat('sinProyectos')}
+        </p>
+      )}
     </div>
   )
 }

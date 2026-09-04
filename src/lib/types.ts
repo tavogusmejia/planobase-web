@@ -4,22 +4,63 @@
  * Supabase no obligue a tocar ni una página.
  */
 
+/**
+ * Taxonomía del portafolio.
+ *
+ * El grid se ordena por programa —qué es el edificio— igual que el de mk27, y
+ * la lista se declara completa desde ahora aunque hoy varias entradas estén en
+ * cero: la retícula es el sitio donde el estudio va a ir dejando obra, y una
+ * categoría vacía anuncia hacia dónde crece. Se marcan como vacías en la
+ * interfaz; no se ocultan.
+ *
+ * Del filtro de Wix venían cinco valores. Dos cambios, ambos sostenidos por el
+ * dato y no por criterio nuestro:
+ *
+ * - "Residencial" se parte en `casas` y `vivienda`. Casa Aguilar y Casa Aguilar
+ *   Castrillón son vivienda unifamiliar; Tirreno y Arezzo se describen en su
+ *   propio subtítulo como "Edificio multifamiliar". Mostrar una casa de campo y
+ *   dos torres de apartamentos bajo la misma palabra no le sirve a ninguno de
+ *   los dos clientes.
+ * - `concursos` no es un programa sino una naturaleza, y se cruza con las
+ *   demás: un proyecto puede ser Educativo y Concurso a la vez. Sale del dato
+ *   duro —slug, premio o subtítulo—, nunca de una suposición.
+ *
+ * "Oficinas" no se migra: el filtro de Wix la tenía y no había un solo proyecto.
+ */
 export type Categoria =
-  | 'cultural'
   | 'educativo'
+  | 'cultural'
   | 'institucional'
-  | 'residencial'
   | 'urbano'
+  | 'casas'
+  | 'vivienda'
+  | 'comercial'
+  | 'hoteleria'
+  | 'interiorismo'
+  | 'diseno'
+  | 'concursos'
 
-/** Del filtro de Wix existía además "Oficinas". No hay ni un proyecto de esa
- *  categoría, así que no se migra. */
-export const CATEGORIAS: readonly Categoria[] = [
-  'cultural',
+/** Programa. Es el eje principal del grid y su orden es el de la navegación. */
+export const CATEGORIAS_PROGRAMA = [
   'educativo',
+  'cultural',
   'institucional',
-  'residencial',
   'urbano',
-] as const
+  'casas',
+  'vivienda',
+  'comercial',
+  'hoteleria',
+  'interiorismo',
+  'diseno',
+] as const satisfies readonly Categoria[]
+
+/** Naturaleza del encargo. Va aparte en la navegación porque cruza el eje. */
+export const CATEGORIAS_NATURALEZA = ['concursos'] as const satisfies readonly Categoria[]
+
+export const CATEGORIAS: readonly Categoria[] = [
+  ...CATEGORIAS_PROGRAMA,
+  ...CATEGORIAS_NATURALEZA,
+]
 
 export type ProjectImage = {
   /** Ruta relativa dentro del bucket `media` y de `public/media`. */

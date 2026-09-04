@@ -26,17 +26,37 @@ export const contacto = {
 } as const
 
 /**
- * Navegación principal. Del menú de Wix se retira "Más": era un desplegable que
- * solo apuntaba a las páginas legacy que se eliminan en esta migración.
+ * Navegación principal.
+ *
+ * Un solo menú, plano. Hubo aquí un conmutador Estudio / Oficina técnica que
+ * partía el sitio en dos catálogos: la idea era evitar que el estudio pareciera
+ * un contratista de todo, pero le pedía al visitante que se clasificara antes
+ * de saber qué hay, y escondía la mitad del sitio a quien no tocara el
+ * conmutador. Esa confusión ya está resuelta donde tenía que resolverse: en
+ * cómo están redactados los servicios, que abren por la pregunta del cliente y
+ * no por la taxonomía interna del proveedor.
+ *
+ * Del menú de Wix se retira "Más": era un desplegable que solo apuntaba a las
+ * páginas legacy que se eliminan en esta migración.
  */
 export const navegacion = [
-  { key: 'proyectos', href: '/proyectos', perfil: 'estudio' },
-  { key: 'estudio', href: '/estudio', perfil: 'estudio' },
-  { key: 'servicios', href: '/servicios', perfil: 'oficina' },
-  { key: 'agendar', href: '/agendar', perfil: 'oficina' },
-  { key: 'blog', href: '/blog', perfil: 'ambos' },
-  { key: 'contacto', href: '/contacto', perfil: 'ambos' },
+  { key: 'proyectos', href: '/proyectos' },
+  { key: 'estudio', href: '/estudio' },
+  { key: 'servicios', href: '/servicios' },
+  { key: 'blog', href: '/blog' },
+  { key: 'contacto', href: '/contacto' },
 ] as const
+
+/**
+ * El proyecto con el que abre la home.
+ *
+ * Es una decisión editorial del estudio, no una consecuencia del dato: por año
+ * y por relevancia el orden dejaba primero a Villas del Progreso, y la primera
+ * pantalla del sitio es demasiado importante como para que la resuelva un
+ * desempate. Se declara aquí, se cambia en una línea, y si el slug deja de
+ * existir el hero simplemente vuelve a su orden por relevancia.
+ */
+export const heroApertura = 'casa-aguilar'
 
 /**
  * El manifiesto del estudio, literal del bloque de /estudio.

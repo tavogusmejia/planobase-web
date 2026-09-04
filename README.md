@@ -197,8 +197,12 @@ ruta que usará el bucket `media` de Storage.
    no reembolsable. El plan de Facebook Ads la anuncia como *"sin costo de consulta
    inicial"* y *"sin compromiso"*. **Se contradicen**, y es justo el punto donde se
    rompe el embudo. El valor vive en `content/site.ts` → `asesoria.precioCOP`.
-2. **Dirección pública.** El sitio dice Cali (Calle 18 # 61-29); el plan de
-   campaña pide poner Jamundí en Facebook.
+2. ~~**Dirección pública.**~~ **Resuelto (4/9/2026):** se queda Cali, Calle 18
+   # 61-29. Es la sede real y compite por «arquitectos en Cali», la consulta de
+   cabeza del negocio. Anotado el contrapeso: la pauta apunta a Jamundí, donde
+   el portafolio solo tiene dos proyectos. Si algún día se crea la ficha de
+   Google Business, esta es la dirección — y conviene no cambiarla después,
+   porque hacerlo resetea la antigüedad de la ficha.
 3. **Copia de `/agendar`.** Está redactada a partir de la descripción documentada
    del servicio y del plan de campaña. Debería leerla alguien del estudio antes de
    invertir en pauta.

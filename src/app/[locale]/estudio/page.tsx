@@ -126,7 +126,7 @@ export default async function EstudioPage({
       {/* ---- Reconocimientos ------------------------------------------------ */}
       <section className="mt-32">
         <h2 className="text-h2 measure-display text-ink">
-          Cuatro concursos públicos nacionales.
+          Cinco reconocimientos en concurso.
         </h2>
         <ol className="mt-12 border-t border-line">
           {[...reconocimientos]
@@ -142,6 +142,14 @@ export default async function EstudioPage({
                 <div>
                   <p className="text-h5 text-ink">
                     {r.puesto === 'primer' ? 'Primer puesto' : 'Segundo puesto'}
+                    {/* El ámbito se dice, no se esconde: cuatro públicos y uno
+                        privado es una credencial más creíble que cinco a secas
+                        ante quien va a verificarla. */}
+                    <span className="text-block ml-3 text-muted">
+                      {r.ambito === 'publico'
+                        ? 'concurso público'
+                        : 'concurso privado'}
+                    </span>
                   </p>
                   <p className="text-small measure mt-1 text-ink-soft">
                     {r.proyectoSlug ? (

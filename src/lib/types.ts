@@ -113,6 +113,9 @@ export type Award = {
   titulo: string
   anio: number
   proyectoSlug: string | null
+  /** Público o privado. Se distingue porque es lo primero que mira un evaluador
+   *  institucional, y presentarlos mezclados le resta al que sí fue público. */
+  ambito: 'publico' | 'privado'
 }
 
 export type Post = {

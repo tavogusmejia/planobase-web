@@ -146,12 +146,22 @@ export const reconocimientos: Award[] = [
     titulo: 'Alcaldía Local de Teusaquillo',
     anio: 2014,
     proyectoSlug: 'alcaldia-local-de-teusaquillo',
+    ambito: 'publico',
   },
   {
+    /* Estaba listado como «Colegio distrital y equipamiento urbano en Ciudad
+       Bolívar» y sin enlazar, mientras El Ensueño —un colegio con teatro en
+       Ciudad Bolívar, de 2014, primer puesto en concurso público nacional—
+       tenía el premio en su ficha y no aparecía en esta lista. Eran el mismo,
+       con dos nombres. Confirmado por Gustavo el 4/9/2026.
+
+       Importa más de lo que parece: es el premio más fuerte del estudio y su
+       única obra construida, y estaban desconectados. */
     puesto: 'primer',
-    titulo: 'Colegio distrital y equipamiento urbano en Ciudad Bolívar',
+    titulo: 'Colegio y teatro El Ensueño, Ciudad Bolívar',
     anio: 2014,
-    proyectoSlug: null,
+    proyectoSlug: 'colegio-y-teatro-el-ensueno',
+    ambito: 'publico',
   },
   {
     puesto: 'segundo',
@@ -159,14 +169,31 @@ export const reconocimientos: Award[] = [
       'Concurso Público Nacional Nuevos Espacios de Aprendizaje para el Siglo XXI. Colegio Pradera El Volcán',
     anio: 2015,
     proyectoSlug: 'colegio-pradera-el-volcan',
+    ambito: 'publico',
   },
   {
+    /* Añadido el 4/9/2026. Estaba en la ficha del proyecto y no en la lista,
+       probablemente porque el titular de la sección decía «concursos públicos»
+       y este fue privado. Se resuelve distinguiendo el ámbito en vez de
+       dejándolo fuera. */
+    puesto: 'segundo',
+    titulo: 'Teatro César Conto Ferrer',
+    anio: 2017,
+    proyectoSlug: 'teatro-cesar-conto-ferrer',
+    ambito: 'privado',
+  },
+  {
+    /* La lista dice 2021 y la ficha del proyecto dice 2022. Puede ser legítimo
+       —el fallo del concurso y el año del proyecto no tienen por qué coincidir—
+       pero conviene confirmarlo. */
     puesto: 'segundo',
     titulo: 'Casa de la cultura Colinas, San José del Guaviare',
     anio: 2021,
     proyectoSlug: 'casa-cultural-las-colinas',
+    ambito: 'publico',
   },
 ]
+
 
 /**
  * El primer escalón, y el destino del tráfico de campaña.

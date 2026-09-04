@@ -2,6 +2,7 @@
   "nav": {
     "proyectos": "Proyectos",
     "estudio": "Estudio",
+    "servicios": "Servicios",
     "blog": "Blog",
     "contacto": "Contáctanos",
     "abrirMenu": "Abrir menú",
@@ -14,10 +15,16 @@
     "contactar": "Contáctanos",
     "verProyecto": "Ver proyecto",
     "verTodos": "Ver los {count} proyectos",
-    "escribirWhatsapp": "Escríbenos por WhatsApp"
+    "escribirWhatsapp": "Escríbenos por WhatsApp",
+    "verServicios": "Ver el portafolio de servicios"
   },
   "home": {
     "heroSaltar": "Ver el portafolio",
+    "heroEtiqueta": "Proyectos destacados",
+    "heroPausar": "Pausar",
+    "heroReanudar": "Reanudar",
+    "heroIrA": "Ver",
+    "serviciosTitulo": "Arquitectura e ingeniería",
     "proyectosTitulo": "Proyectos",
     "cifrasTitulo": "El estudio en cifras",
     "cifraProyectos": "proyectos",

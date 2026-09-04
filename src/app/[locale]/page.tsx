@@ -1,15 +1,12 @@
-import Image from 'next/image'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
+import { Hero } from '@/components/home/Hero'
 import { ProjectCard } from '@/components/project/ProjectCard'
-import {
-  getFeatured,
-  getHeroProjects,
-  getStats,
-} from '@/lib/data/projects'
+import { getFeatured, getHeroProjects, getStats } from '@/lib/data/projects'
 import { asesoria, manifiesto } from '@content/site'
-import { formatCOP, mediaSrc } from '@/lib/utils'
+import { lineasServicio } from '@content/servicios'
+import { formatCOP } from '@/lib/utils'
 
 export default async function HomePage({
   params,
@@ -28,53 +25,13 @@ export default async function HomePage({
     getStats(),
   ])
 
-  const principal = hero[0]
-
   return (
     <>
       {/* ---- Hero -----------------------------------------------------------
-          Una sola imagen a sangre en vez del carrusel de Wix. El nombre del
-          proyecto va visible sobre la foto — en el sitio actual el hero es mudo
-          y no enlaza a ninguna parte. */}
-      {principal?.portada ? (
-        <section className="relative">
-          <Link
-            href={`/proyectos/${principal.slug}`}
-            className="group block"
-            aria-label={`${principal.titulo}, ${principal.anio}, ${principal.ciudad}`}
-          >
-            <div className="relative h-[78svh] min-h-[30rem] w-full bg-ink">
-              <Image
-                src={mediaSrc(principal.portada.path)}
-                alt={principal.portada.alt}
-                fill
-                sizes="100vw"
-                priority
-                placeholder="blur"
-                blurDataURL={principal.portada.blurDataURL}
-                className="object-cover"
-              />
-              {/* Los renders del estudio son claros y luminosos: con un velo
-                  suave el título blanco no alcanza contraste AA sobre el
-                  pavimento. Va más alto y más denso, con una parada intermedia
-                  para que la transición no se note como una banda. */}
-              <div
-                aria-hidden
-                className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink/85 via-ink/45 to-transparent"
-              />
-            </div>
-
-            <div className="absolute inset-x-0 bottom-0 px-gutter pb-10 lg:px-10">
-              <div className="mx-auto max-w-[100rem] text-paper">
-                <h1 className="text-display">{principal.titulo}</h1>
-                <Rule draw tone="paper" className="mt-3 max-w-3xl text-paper/80">
-                  {principal.anio} &nbsp; {principal.ciudad}
-                </Rule>
-              </div>
-            </div>
-          </Link>
-        </section>
-      ) : null}
+          Rotante, como el de Wix, pero con el nombre del proyecto visible y
+          enlazando a su ficha: el carrusel actual es mudo y no lleva a ningún
+          sitio. */}
+      <Hero projects={hero} />
 
       {/* ---- Declaración ----------------------------------------------------
           El sitio actual no dice en ninguna parte qué hace el estudio. Este es
@@ -83,8 +40,46 @@ export default async function HomePage({
         <p className="text-h3 measure text-ink">{manifiesto}</p>
       </section>
 
-      {/* ---- Proyectos ------------------------------------------------------ */}
+      {/* ---- Líneas de servicio --------------------------------------------
+          Va antes del portafolio: quien llega desde una campaña necesita saber
+          qué se puede contratar, no solo qué se ha construido. */}
       <section className="mx-auto max-w-[100rem] px-gutter lg:px-10">
+        <h2 className="text-h2 text-ink">{t('serviciosTitulo')}</h2>
+        <Rule className="mb-12 mt-4 text-muted">
+          {lineasServicio.reduce((n, l) => n + l.servicios.length, 0)}
+        </Rule>
+
+        <ul className="grid gap-x-8 gap-y-10 border-t border-line pt-10 md:grid-cols-2">
+          {lineasServicio.map((linea) => (
+            <li key={linea.slug}>
+              <Link
+                href={`/servicios/${linea.slug}`}
+                className="group block h-full"
+              >
+                <h3 className="text-h4 text-ink group-hover:text-accent">
+                  {linea.nombre}
+                </h3>
+                <Rule className="mt-2 text-muted">
+                  {linea.servicios.length}
+                </Rule>
+                <p className="text-small measure mt-4 text-ink-soft">
+                  {linea.intro}
+                </p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <Link
+          href="/servicios"
+          className="text-h5 mt-12 inline-block text-accent underline-offset-8 hover:underline"
+        >
+          {tc('verServicios')}
+        </Link>
+      </section>
+
+      {/* ---- Proyectos ------------------------------------------------------ */}
+      <section className="mx-auto mt-32 max-w-[100rem] px-gutter lg:px-10">
         <h2 className="text-h2 text-ink">{t('proyectosTitulo')}</h2>
         <Rule className="mb-12 mt-4 text-muted">
           {tc('verTodos', { count: stats.proyectos })}
@@ -156,7 +151,7 @@ export default async function HomePage({
       {/* ---- Cierre --------------------------------------------------------- */}
       <section className="mx-auto mt-32 max-w-[100rem] px-gutter lg:px-10">
         <div className="border-t border-line pt-12">
-          <h2 className="text-h2 measure text-ink">{t('cierreTitulo')}</h2>
+          <h2 className="text-h2 measure-display text-ink">{t('cierreTitulo')}</h2>
           <p className="text-lead mt-4 text-ink-soft">{t('cierreSub')}</p>
           <Link
             href="/contacto"

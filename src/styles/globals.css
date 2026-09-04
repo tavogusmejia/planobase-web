@@ -178,4 +178,11 @@
   .measure {
     max-width: var(--spacing-measure);
   }
+
+  /* Medida para titulares. `measure` está calibrado a 68 caracteres de cuerpo;
+     aplicado a 50 u 88 px deja siete palabras por línea y convierte cualquier
+     frase larga en una pared. Los titulares corren más anchos. */
+  .measure-display {
+    max-width: 52rem;
+  }
 }

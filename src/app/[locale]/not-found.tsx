@@ -9,7 +9,7 @@ export default async function NotFound() {
     <div className="mx-auto max-w-[100rem] px-gutter py-32 lg:px-10">
       <p className="text-display tabular-nums text-accent">404</p>
       <Rule className="mt-4 max-w-xl text-muted" />
-      <h1 className="text-h2 measure mt-10 text-ink">
+      <h1 className="text-h2 measure-display mt-10 text-ink">
         Esta página no existe. Puede que haya cambiado de dirección en la
         migración del sitio.
       </h1>

@@ -31,6 +31,7 @@ export const contacto = {
  */
 export const navegacion = [
   { key: 'proyectos', href: '/proyectos' },
+  { key: 'servicios', href: '/servicios' },
   { key: 'estudio', href: '/estudio' },
   { key: 'blog', href: '/blog' },
   { key: 'contacto', href: '/contacto' },

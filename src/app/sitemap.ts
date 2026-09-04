@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getAllSlugs } from '@/lib/data/projects'
 import { posts } from '@content/posts'
+import { lineasServicio } from '@content/servicios'
 import { CATEGORIAS } from '@/lib/types'
 import { routing } from '@/i18n/routing'
 
@@ -22,6 +23,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { path: '', priority: 1, freq: 'weekly' },
       { path: '/proyectos', priority: 0.9, freq: 'weekly' },
       { path: '/estudio', priority: 0.8, freq: 'monthly' },
+      { path: '/servicios', priority: 0.9, freq: 'monthly' },
+      ...lineasServicio.map((l) => ({
+        path: `/servicios/${l.slug}`,
+        priority: 0.8,
+        freq: 'monthly' as const,
+      })),
+      { path: '/servicios/asesoria-tecnica', priority: 0.8, freq: 'monthly' },
       { path: '/agendar', priority: 0.9, freq: 'monthly' },
       { path: '/contacto', priority: 0.7, freq: 'monthly' },
       { path: '/blog', priority: 0.5, freq: 'monthly' },

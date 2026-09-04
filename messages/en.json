@@ -2,6 +2,7 @@
   "nav": {
     "proyectos": "Projects",
     "estudio": "Studio",
+    "servicios": "Services",
     "blog": "Journal",
     "contacto": "Contact",
     "abrirMenu": "Open menu",
@@ -14,10 +15,16 @@
     "contactar": "Get in touch",
     "verProyecto": "View project",
     "verTodos": "View all {count} projects",
-    "escribirWhatsapp": "Message us on WhatsApp"
+    "escribirWhatsapp": "Message us on WhatsApp",
+    "verServicios": "View the full services portfolio"
   },
   "home": {
     "heroSaltar": "View the portfolio",
+    "heroEtiqueta": "Featured projects",
+    "heroPausar": "Pause",
+    "heroReanudar": "Resume",
+    "heroIrA": "View",
+    "serviciosTitulo": "Architecture and engineering",
     "proyectosTitulo": "Projects",
     "cifrasTitulo": "The studio in numbers",
     "cifraProyectos": "projects",

@@ -60,7 +60,7 @@ export default async function AgendarPage({
     <div className="mx-auto max-w-[100rem] px-gutter py-16 lg:px-10 lg:py-24">
       <div className="grid gap-16 lg:grid-cols-[1fr_24rem] lg:gap-24">
         <div>
-          <h1 className="text-h1 measure text-ink">{asesoria.tagline}</h1>
+          <h1 className="text-h1 measure-display text-ink">{asesoria.tagline}</h1>
           <p className="text-lead measure mt-8 text-ink-soft">
             {asesoria.descripcion}
           </p>

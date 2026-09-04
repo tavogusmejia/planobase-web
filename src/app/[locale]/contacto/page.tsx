@@ -31,7 +31,7 @@ export default async function ContactoPage({
 
   return (
     <div className="mx-auto max-w-[100rem] px-gutter py-16 lg:px-10 lg:py-24">
-      <h1 className="text-h1 measure text-ink">
+      <h1 className="text-h1 measure-display text-ink">
         Inicia tu proyecto con nosotros
       </h1>
       <p className="text-lead measure mt-6 text-ink-soft">

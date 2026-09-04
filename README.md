@@ -44,12 +44,23 @@ NEXT_PUBLIC_WHATSAPP_NUMBER=573014264603
 
 ## Estado
 
-**Hecho.** Sistema visual, i18n, home, `/proyectos` con filtro funcional, las 23
-fichas de proyecto, `/estudio`, `/agendar`, `/contacto`, `/blog`, sitemap con
-hreflang, robots, los 36 redirects 301 y JSON-LD de proyecto y artículo.
+**Hecho.** Sistema visual, i18n, home con hero rotante, `/proyectos` con filtro
+funcional, las 23 fichas de proyecto, `/servicios` con sus cuatro líneas,
+`/estudio`, `/agendar`, `/contacto`, `/blog`, sitemap con hreflang, robots, los
+36 redirects 301 y JSON-LD de proyecto, artículo y servicio.
 
 **Falta.** Supabase (esquema y `seed.ts`), el panel `/admin`, el envío de correo
 del formulario, el Pixel de Meta, la pasarela de pago y la auditoría Lighthouse.
+
+### Portafolio de servicios
+
+`content/servicios.ts` se genera desde `GPB - Portafolio de Servicios
+Completos.pdf` (OneDrive · Gerencia): 43 servicios en cuatro líneas, con su
+descripción y sus exclusiones. Cada línea tiene su propia URL indexable, que es
+lo que permite que alguien buscando "interventoría de obra Cali" llegue al sitio.
+
+Para regenerarlo tras un cambio del PDF hay que volver a correr el parser; el
+procedimiento está en el historial de git del commit que lo introdujo.
 
 ### De dónde salen los datos
 
@@ -80,6 +91,13 @@ ruta que usará el bucket `media` de Storage.
   impresión. Con la escala real (88/72/50 px) la jerarquía se sostiene sola.
 - **El filtro no usa JavaScript.** Cada categoría es un enlace con su URL, así
   que el estado es compartible, indexable y funciona con el botón atrás.
+- **El hero rota entre siete proyectos**, cinco segundos cada uno, con el
+  nombre visible y enlace a la ficha. Solo entran proyectos con portada de
+  1920 px o más: la regla vive en `src/lib/data/projects.ts` para que el sitio
+  no pueda degradarse solo cuando se suban fotos desde el panel.
+- **Los titulares usan `measure-display` (52rem), no `measure` (34rem).**
+  La medida de lectura calibrada a 68 caracteres de cuerpo, aplicada a 50 u
+  88 px, convierte cualquier frase larga en una pared.
 - **Las imágenes salen del juego de Wix**, no de los originales de OneDrive.
   Emparejar los dos juegos automáticamente arriesga poner la foto de un proyecto
   en la ficha de otro. Ver más abajo.
@@ -99,7 +117,16 @@ ruta que usará el bucket `media` de Storage.
 3. **Copia de `/agendar`.** Está redactada a partir de la descripción documentada
    del servicio y del plan de campaña. Debería leerla alguien del estudio antes de
    invertir en pauta.
-4. **Correo del estudio.** Confirmado `proyectos@planobase.co`. Las tarjetas de
+4. **Razón comercial.** El portafolio de servicios está firmado como **"Grupo
+   Plano Base"**; el sitio usa "Plano Base" por la decisión de una sola marca.
+   Confirmar cuál se anuncia.
+5. **Faltan dos servicios en el portafolio documentado.** Gustavo mencionó
+   logística de transporte de materiales y maquinaria, y no aparecen en el PDF.
+   Si son servicios reales, hay que añadirlos allí y regenerar el contenido.
+6. **Reducción mínima del logo.** El manual fija 240 px de ancho para el
+   imagotipo horizontal en digital. En la cabecera mide ~143 px, que es lo que
+   cabe en una web. Confirmar si ese mínimo aplica a pantalla o solo a impresión.
+7. **Correo del estudio.** Confirmado `proyectos@planobase.co`. Las tarjetas de
    presentación usan `@plba.studio`: decidir si ese dominio se anuncia o no.
 
 ### Datos del portafolio

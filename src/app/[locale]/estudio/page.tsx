@@ -37,9 +37,19 @@ export default async function EstudioPage({
   const tc = await getTranslations('cta')
   const [proyectos, stats] = await Promise.all([getFeatured(6), getStats()])
 
+  const corte = manifiesto.indexOf('. ') + 1
+  const declaracion = corte > 0 ? manifiesto.slice(0, corte) : manifiesto
+  const desarrollo = corte > 0 ? manifiesto.slice(corte).trim() : ''
+
   return (
     <div className="mx-auto max-w-[100rem] px-gutter py-16 lg:px-10 lg:py-24">
-      <h1 className="text-h1 measure text-ink">{manifiesto}</h1>
+      {/* El manifiesto entero a tamaño de titular eran 380 caracteres a 72 px:
+          una pared. Se parte en declaración y desarrollo — la primera frase
+          sostiene la jerarquía, el resto se lee. */}
+      <h1 className="text-h2 measure-display text-ink">{declaracion}</h1>
+      {desarrollo ? (
+        <p className="text-lead measure mt-8 text-ink-soft">{desarrollo}</p>
+      ) : null}
 
       {/* --- Equipo -------------------------------------------------------
           En el sitio actual los nombres están dentro de las imágenes: no son
@@ -117,7 +127,7 @@ export default async function EstudioPage({
       </section>
 
       <section className="mt-28 border-t border-line pt-12">
-        <h2 className="text-h2 measure text-ink">{t('cierreTitulo')}</h2>
+        <h2 className="text-h2 measure-display text-ink">{t('cierreTitulo')}</h2>
         <p className="text-lead mt-4 text-ink-soft">{t('cierreSub')}</p>
         <Link
           href="/contacto"

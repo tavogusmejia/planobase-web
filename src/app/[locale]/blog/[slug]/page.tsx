@@ -74,8 +74,8 @@ export default async function PostPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <header className="measure">
-        <h1 className="text-h1 text-ink">{post.titulo}</h1>
+      <header>
+        <h1 className="text-h1 measure-display text-ink">{post.titulo}</h1>
         <Rule className="mt-6 text-muted">
           <time dateTime={post.fecha}>
             {new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'es-CO', {

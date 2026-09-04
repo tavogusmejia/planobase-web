@@ -157,7 +157,7 @@ export default async function ProyectoPage({
         <header className="pt-12">
           <h1 className="text-display text-ink">{project.titulo}</h1>
           {project.subtitulo ? (
-            <p className="text-h3 measure mt-4 text-ink-soft">
+            <p className="text-h3 measure-display mt-4 text-ink-soft">
               {project.subtitulo}
             </p>
           ) : null}

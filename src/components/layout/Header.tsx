@@ -19,15 +19,18 @@ export function Header({ locale }: { locale: string }) {
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur-sm">
-      <div className="mx-auto flex h-20 max-w-[100rem] items-center justify-between px-gutter lg:px-10">
+      <div className="mx-auto flex h-24 max-w-[100rem] items-center justify-between px-gutter lg:px-10">
         <Link
           href="/"
           aria-label={t('irAlInicio')}
           className="shrink-0 text-ink transition-opacity hover:opacity-70"
         >
-          {/* 240 px es la reducción mínima del imagotipo horizontal según el
-              manual; por debajo de eso va el isotipo, no una versión apretada. */}
-          <Logotipo className="h-7 w-auto" />
+          {/* El manual fija 240 px de ancho como reducción mínima del imagotipo
+              horizontal en digital. El viewBox incluye el área de seguridad, así
+              que a h-12 el logo mide ~143 px: por debajo del mínimo del manual,
+              pero es lo que cabe en una cabecera web. Pendiente de confirmar si
+              ese mínimo aplica a pantalla o solo a impresión. */}
+          <Logotipo className="h-10 w-auto lg:h-12" />
         </Link>
 
         <nav

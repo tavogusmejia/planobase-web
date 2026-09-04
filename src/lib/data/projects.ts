@@ -24,9 +24,31 @@ export async function getAllSlugs(): Promise<string[]> {
   return publicados.map((p) => p.slug)
 }
 
-/** Los tres del hero, en el orden declarado del sitio. */
-export async function getHeroProjects(): Promise<Project[]> {
-  return publicados.filter((p) => p.enHeroHome)
+/**
+ * Ancho mínimo de portada para usarse a sangre. Por debajo de esto la imagen se
+ * ve blanda en pantalla completa, y hay cuatro proyectos del portafolio cuyo
+ * original es pequeño y no se puede recuperar. La regla vive en el código para
+ * que el sitio no pueda degradarse solo, ni ahora ni cuando se suban fotos
+ * nuevas desde el panel.
+ */
+const ANCHO_MINIMO_HERO = 1920
+
+/**
+ * Los proyectos del hero, por relevancia: primero los declarados en el sitio,
+ * luego los destacados, luego por año descendente. Solo entran los que tienen
+ * portada suficientemente grande.
+ */
+export async function getHeroProjects(limite = 7): Promise<Project[]> {
+  return publicados
+    .filter((p) => (p.portada?.width ?? 0) >= ANCHO_MINIMO_HERO)
+    .sort(
+      (a, b) =>
+        Number(b.enHeroHome) - Number(a.enHeroHome) ||
+        Number(b.destacado) - Number(a.destacado) ||
+        b.anio - a.anio ||
+        a.titulo.localeCompare(b.titulo, 'es'),
+    )
+    .slice(0, limite)
 }
 
 export async function getFeatured(limit = 6): Promise<Project[]> {

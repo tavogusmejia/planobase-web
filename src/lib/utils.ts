@@ -1,6 +1,7 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import type { Categoria } from '@/lib/types'
+import { creditosDiseno } from '@content/site'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -91,6 +92,39 @@ export function whatsappUrl(
 ): string {
   const texto = origen ? `${mensaje}\n\n· ${origen}` : mensaje
   return `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`
+}
+
+/**
+ * Los nombres que se nombran, en el orden en que vienen. Los que no están en el
+ * padrón no se listan: se resumen en «y otros».
+ */
+export function nombresDiseno(diseno: string[]): string[] {
+  return diseno.flatMap((n) => {
+    const publico = creditosDiseno[n]
+    return publico ? [publico] : []
+  })
+}
+
+/**
+ * La línea de crédito de la ficha.
+ *
+ *   ['Eduardo Mejía', 'Gabriel Romero Villota']
+ *     → "Arq. Eduardo Mejía Martínez y Gabriel Romero Villota"
+ *   ['Eduardo Mejía', 'Carlos García']
+ *     → "Arq. Eduardo Mejía Martínez y otros"
+ *
+ * El «y otros» no es un eufemismo: dice que hubo más manos sin nombrarlas, que
+ * es exactamente la decisión del estudio.
+ */
+export function creditoDiseno(diseno: string[]): string | null {
+  const nombres = nombresDiseno(diseno)
+  const hayOtros = nombres.length < diseno.length
+
+  if (nombres.length === 0) return diseno.length > 0 ? 'Otros' : null
+
+  if (hayOtros) return `${nombres.join(', ')} y otros`
+  if (nombres.length === 1) return nombres[0] ?? null
+  return `${nombres.slice(0, -1).join(', ')} y ${nombres[nombres.length - 1]}`
 }
 
 /**

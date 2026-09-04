@@ -105,6 +105,34 @@ export const equipo: TeamMember[] = [
 ]
 
 /**
+ * Cómo se acredita el diseño en la ficha de proyecto.
+ *
+ * El volcado de Wix trae cuatro nombres en el campo `diseno`: Eduardo Mejía
+ * (24 proyectos), Gabriel Romero Villota (23), Carlos García (6) y Henry Medina
+ * / Amalgama (1). El sitio los pintaba a los cuatro con el mismo peso, y el
+ * JSON-LD los declaraba coautores idénticos.
+ *
+ * Decisión de Gustavo (4/9/2026): se nombran Eduardo y Gabriel; el resto se
+ * agrupa en «y otros». Sin fechas ni calificación del vínculo.
+ *
+ * La clave es el nombre TAL COMO VIENE en el dato; el valor es cómo se publica.
+ * Eso resuelve de paso que el mismo hombre apareciera como «Eduardo Mejía» en
+ * las fichas y «Eduardo Mejía Martínez» en el equipo: para el sitio eran dos
+ * personas distintas.
+ *
+ * Quien no esté en este padrón no desaparece del dato —`content/projects.ts`
+ * sigue guardando los cuatro— pero no se nombra en la página.
+ *
+ * PENDIENTE: confirmar si Gabriel Romero Villota lleva también el tratamiento
+ * de «Arq.». Se le dio solo a Eduardo porque es el único cuyo título consta en
+ * el material del estudio.
+ */
+export const creditosDiseno: Record<string, string> = {
+  'Eduardo Mejía': 'Arq. Eduardo Mejía Martínez',
+  'Gabriel Romero Villota': 'Gabriel Romero Villota',
+}
+
+/**
  * Cuatro reconocimientos en concurso público. Son la credencial más fuerte del
  * estudio frente a clientes institucionales y hoy están enterrados en una lista.
  */

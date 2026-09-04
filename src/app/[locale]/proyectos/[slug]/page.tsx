@@ -13,7 +13,14 @@ import {
   getRelated,
 } from '@/lib/data/projects'
 import { routing } from '@/i18n/routing'
-import { absoluteUrl, etiquetaProyecto, formatArea, mediaSrc } from '@/lib/utils'
+import {
+  absoluteUrl,
+  creditoDiseno,
+  etiquetaProyecto,
+  formatArea,
+  mediaSrc,
+  nombresDiseno,
+} from '@/lib/utils'
 
 export async function generateStaticParams() {
   const slugs = await getAllSlugs()
@@ -91,6 +98,7 @@ export default async function ProyectoPage({
      un acordeón cerrado, que es donde nadie la ve. Los campos sin dato no se
      pintan: nunca aparece "0 m²" ni una etiqueta vacía. */
   const naturaleza = etiquetaProyecto(project)
+  const credito = creditoDiseno(project.diseno)
 
   const ficha: { etiqueta: string; valor: string }[] = [
     ...(naturaleza ? [{ etiqueta: 'Naturaleza', valor: naturaleza }] : []),
@@ -102,9 +110,9 @@ export default async function ProyectoPage({
         .join(', '),
     },
     ...(area ? [{ etiqueta: t('area'), valor: area }] : []),
-    ...(project.diseno.length
-      ? [{ etiqueta: t('diseno'), valor: project.diseno.join(', ') }]
-      : []),
+    // No es `diseno.join(', ')`: el estudio nombra a dos y agrupa al resto en
+    // «y otros». La regla vive en `creditosDiseno`, en content/site.ts.
+    ...(credito ? [{ etiqueta: t('diseno'), valor: credito }] : []),
     ...(project.cliente
       ? [{ etiqueta: t('cliente'), valor: project.cliente }]
       : []),
@@ -121,7 +129,12 @@ export default async function ProyectoPage({
     '@type': 'CreativeWork',
     name: project.titulo,
     dateCreated: String(project.anio),
-    creator: project.diseno.map((n) => ({ '@type': 'Person', name: n })),
+    // Mismos nombres que en la página. Ocultar a alguien en el HTML y
+    // declararlo en los datos estructurados sería publicarlo igual.
+    creator: nombresDiseno(project.diseno).map((n) => ({
+      '@type': 'Person',
+      name: n,
+    })),
     locationCreated: {
       '@type': 'Place',
       address: {

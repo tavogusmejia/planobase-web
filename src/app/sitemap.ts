@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { getAllSlugs } from '@/lib/data/projects'
+import { getAllSlugs, getCategoryCounts } from '@/lib/data/projects'
 import { posts } from '@content/posts'
 import { puertas } from '@content/puertas'
 import { CATEGORIAS } from '@/lib/types'
@@ -16,7 +16,10 @@ const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.planobase.co'
  * existe; cuando el contenido editorial se traduzca de verdad, esto no cambia.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const slugs = await getAllSlugs()
+  const [slugs, counts] = await Promise.all([
+    getAllSlugs(),
+    getCategoryCounts(),
+  ])
 
   const rutas: { path: string; priority: number; freq: 'weekly' | 'monthly' }[] =
     [
@@ -33,7 +36,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { path: '/agendar', priority: 0.9, freq: 'monthly' },
       { path: '/contacto', priority: 0.7, freq: 'monthly' },
       { path: '/blog', priority: 0.5, freq: 'monthly' },
-      ...CATEGORIAS.map((c) => ({
+      // Solo las categorías que tienen obra. Anunciar una vacía es pedirle al
+      // rastreador que visite una página que le va a devolver «todavía no hay
+      // obra publicada» — un soft-404 declarado por uno mismo.
+      ...CATEGORIAS.filter((c) => (counts[c] ?? 0) > 0).map((c) => ({
         path: `/proyectos?categoria=${c}`,
         priority: 0.7,
         freq: 'monthly' as const,

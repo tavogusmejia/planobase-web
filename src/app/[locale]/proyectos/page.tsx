@@ -11,20 +11,33 @@ import {
   type Categoria,
 } from '@/lib/types'
 import { cn } from '@/lib/utils'
+import { mostrarCategoriasVacias } from '@content/ajustes'
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>
+  searchParams: Promise<{ categoria?: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  const { categoria } = await searchParams
   const t = await getTranslations({ locale, namespace: 'home' })
+
+  const activa = esCategoria(categoria) ? categoria : null
+  const counts = await getCategoryCounts()
+  const vacia = activa !== null && (counts[activa] ?? 0) === 0
+
   return {
     title: t('proyectosTitulo'),
     description:
       'Portafolio de Plano Base Arquitectos: proyectos educativos, ' +
       'institucionales, culturales, residenciales y de espacio público en Colombia.',
     alternates: { canonical: `/${locale}/proyectos` },
+    // Una categoría sin obra devuelve «todavía no hay obra publicada». Indexar
+    // eso es sembrar soft-404, y acumularlos le baja la confianza a todo el
+    // dominio. Se puede ver y compartir; no se indexa hasta que tenga obra.
+    ...(vacia ? { robots: { index: false, follow: true } } : {}),
   }
 }
 
@@ -45,9 +58,11 @@ function esCategoria(v: string | undefined): v is Categoria {
  * mismo filete de un cuadro de planchas: la fotografía manda y el conjunto se
  * lee como una sola superficie. Los rótulos se revelan al recorrerla.
  *
- * La lista de categorías se muestra completa, con las vacías incluidas y su
- * conteo en cero. No es un descuido: declara el alcance del estudio y deja el
- * hueco donde va a entrar la obra que se publique después.
+ * Que las categorías vacías se muestren con su cero no es un descuido: declara
+ * el alcance del estudio y deja el hueco donde va a entrar la obra futura. Se
+ * apaga desde `mostrarCategoriasVacias`, en content/ajustes.ts. Con cualquiera
+ * de los dos valores, una categoría vacía nunca entra al sitemap y se sirve con
+ * `noindex`.
  */
 export default async function ProyectosPage({
   params,
@@ -114,7 +129,9 @@ export default async function ProyectosPage({
       >
         <ul className="flex items-baseline gap-x-6 gap-y-2 overflow-x-auto px-gutter py-4 lg:flex-wrap lg:px-10">
           <li>{enlace(null)}</li>
-          {CATEGORIAS_PROGRAMA.map((c) => (
+          {CATEGORIAS_PROGRAMA.filter(
+            (c) => mostrarCategoriasVacias || (counts[c] ?? 0) > 0,
+          ).map((c) => (
             <li key={c}>{enlace(c)}</li>
           ))}
           {/* Concursos cruza el eje del programa, así que va separado: un

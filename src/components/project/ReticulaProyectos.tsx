@@ -180,7 +180,7 @@ function Huevo({ revelado }: { revelado: boolean }) {
   )
 
   return (
-    <article className="bg-paper">
+    <article className="pieza">
       {/* Siempre el mismo elemento, nunca uno distinto según el estado: si al
           revelarse cambiara de `div` a `Link`, React lo remontaría y el
           desenfoque saltaría de golpe en vez de enfocarse. Lo que cambia son

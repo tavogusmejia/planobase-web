@@ -256,7 +256,7 @@ export default async function ProyectoPage({
         {relacionados.length ? (
           <section className="mt-24">
             <h2 className="text-h3 mb-10 text-ink">{t('relacionados')}</h2>
-            <div className="grid gap-px bg-line md:grid-cols-3">
+            <div className="grid gap-px overflow-hidden md:grid-cols-3">
               {relacionados.map((p) => (
                 <ProjectCard
                   key={p.slug}

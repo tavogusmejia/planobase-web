@@ -145,11 +145,11 @@ export default async function ProyectosPage({
       </nav>
 
       {visibles.length > 0 ? (
-        /* El filete entre piezas es el propio fondo asomando por el `gap`. */
+        /* Cada pieza dibuja su propio filete; ver `.pieza` en globals.css. */
         <ReticulaProyectos
           total={visibles.length}
           conHuevo={activa === null}
-          className="grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
+          className="grid gap-px overflow-hidden sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
         >
           {visibles.map((p, i) => (
             <ProjectCard

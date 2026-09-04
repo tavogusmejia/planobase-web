@@ -131,7 +131,7 @@ export default async function HomePage({
 
         {/* Misma retícula del portafolio: a filete, sin aire entre piezas.
             Los rótulos se revelan al recorrerla con el cursor. */}
-        <div className="grid gap-px bg-line md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-px overflow-hidden md:grid-cols-2 xl:grid-cols-3">
           {destacados.map((p, i) => (
             <ProjectCard
               key={p.slug}

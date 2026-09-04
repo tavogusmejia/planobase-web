@@ -39,7 +39,7 @@ export function ProjectCard({
   const etiqueta = etiquetaProyecto(project)
 
   return (
-    <article className="bg-paper">
+    <article className="pieza">
       <Link
         href={`/proyectos/${project.slug}`}
         {...disparadores}

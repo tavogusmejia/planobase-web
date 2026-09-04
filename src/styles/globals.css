@@ -269,6 +269,26 @@
     }
   }
 
+  /* --- Piezas de la retícula ----------------------------------------------
+     El filete entre fichas se dibujaba con el fondo de la retícula asomando por
+     el `gap`. Funciona mientras la retícula esté llena; en cuanto sobra un
+     hueco —23 proyectos no llenan 2, 3 ni 4 columnas— ese fondo se ve entero y
+     aparece un rectángulo gris del tamaño de una tarjeta.
+
+     Ahora cada pieza dibuja su propio filete con una sombra de 1 px que se
+     mete en el `gap`. Dos piezas contiguas la solapan exactamente ahí, así que
+     la línea sigue siendo de un píxel; y donde no hay pieza no hay nada que
+     dibujar, que es justo lo que se buscaba.
+
+     La sombra no ocupa espacio, así que la maquetación no se mueve. El
+     `overflow-hidden` de la retícula recorta las sombras del borde exterior,
+     para que el conjunto no gane un marco que antes no tenía.               */
+
+  .pieza {
+    background-color: var(--color-paper);
+    box-shadow: 0 0 0 1px var(--color-line);
+  }
+
   /* --- El huevo de pascua --------------------------------------------------
      Ocupa siempre el hueco de la última fila, porque un cuadro gris vacío se
      lee como un fallo de maquetación. Desenfocado se lee como lo que es: algo

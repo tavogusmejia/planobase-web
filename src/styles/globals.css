@@ -233,7 +233,7 @@
      borrar este bloque y esa bandera.
 
      El truco está en la demora del estado base, no en un temporizador: al salir
-     el cursor vuelve a aplicarse `.portada`, que espera 7 s antes de arrancar su
+     el cursor vuelve a aplicarse `.portada`, que espera 10 s antes de arrancar su
      transición de 0,9 s. Entrar es inmediato porque la regla de hover pone la
      demora en cero. Cero JavaScript, cero temporizadores por tarjeta, cero
      estado que sincronizar.
@@ -252,7 +252,7 @@
     transition-property: filter, transform;
     transition-duration: 900ms, 700ms;
     transition-timing-function: ease-out;
-    transition-delay: 7s, 0s;
+    transition-delay: 10s, 0s;
   }
 
   .group:hover .portada {
@@ -267,6 +267,33 @@
     .portada {
       filter: none;
     }
+  }
+
+  /* --- El huevo de pascua --------------------------------------------------
+     Ocupa siempre el hueco de la última fila, porque un cuadro gris vacío se
+     lee como un fallo de maquetación. Desenfocado se lee como lo que es: algo
+     que está ahí y todavía no toca.                                          */
+
+  .huevo {
+    filter: blur(14px);
+    opacity: 0.5;
+    transition:
+      filter 900ms ease-out,
+      opacity 900ms ease-out;
+  }
+
+  .huevo--revelado {
+    filter: blur(0);
+    opacity: 1;
+  }
+
+  /* Los 70 segundos de premio. Mientras dura, ninguna portada se va a gris
+     aunque el cursor esté lejos: es la recompensa de haber barrido las 23.
+     Va después de la regla de hover a propósito — misma especificidad, gana
+     la última, y así el premio manda sobre el estado normal.                 */
+  .reticula--premiada .portada {
+    filter: grayscale(0);
+    transition-delay: 0s, 0s;
   }
 
   /* El huevo de pascua del portafolio entra dibujándose, no apareciendo. */

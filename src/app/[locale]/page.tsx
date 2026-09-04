@@ -54,9 +54,13 @@ export default async function HomePage({
                 blurDataURL={principal.portada.blurDataURL}
                 className="object-cover"
               />
+              {/* Los renders del estudio son claros y luminosos: con un velo
+                  suave el título blanco no alcanza contraste AA sobre el
+                  pavimento. Va más alto y más denso, con una parada intermedia
+                  para que la transición no se note como una banda. */}
               <div
                 aria-hidden
-                className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/70 to-transparent"
+                className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink/85 via-ink/45 to-transparent"
               />
             </div>
 

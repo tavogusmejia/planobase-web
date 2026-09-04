@@ -28,7 +28,7 @@ export function Rule({
     tone === 'accent'
       ? 'bg-accent'
       : tone === 'paper'
-        ? 'bg-paper/60'
+        ? 'bg-paper/85'
         : 'bg-line'
 
   return (

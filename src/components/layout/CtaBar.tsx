@@ -16,12 +16,12 @@ export async function CtaBar() {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 border-t border-ink/10 bg-ink text-paper">
-      <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-4 px-gutter py-3 lg:px-10">
-        <p className="text-block hidden sm:block">
+      <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-3 px-gutter py-3 lg:px-10">
+        <p className="text-block hidden lg:block">
           {asesoria.nombre} · {formatCOP(asesoria.precioCOP)}
         </p>
 
-        <div className="flex flex-1 items-center justify-end gap-6">
+        <div className="flex min-w-0 flex-1 items-center justify-between gap-3 sm:justify-end sm:gap-6">
           <a
             href={whatsappUrl(
               contacto.whatsapp,
@@ -29,13 +29,16 @@ export async function CtaBar() {
             )}
             rel="noopener noreferrer"
             target="_blank"
-            className="text-block underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
+            className="text-block shrink-0 underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
           >
-            {t('escribirWhatsapp')}
+            {/* En móvil no cabe la frase completa y su desbordamiento hacía que
+                todo el documento tuviera scroll horizontal. */}
+            <span className="sm:hidden">WhatsApp</span>
+            <span className="hidden sm:inline">{t('escribirWhatsapp')}</span>
           </a>
           <Link
             href="/agendar"
-            className="text-block bg-paper px-5 py-2.5 uppercase tracking-[0.08em] text-ink transition-opacity hover:opacity-80"
+            className="text-block shrink-0 bg-paper px-4 py-2.5 uppercase tracking-[0.08em] text-ink transition-opacity hover:opacity-80 sm:px-5"
           >
             {t('reservar')}
           </Link>

@@ -27,3 +27,5 @@ media/
 
 # estado local del CLI de Supabase — cambia por máquina
 supabase/.temp/
+.vercel
+.env*

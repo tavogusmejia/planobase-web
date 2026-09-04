@@ -178,6 +178,19 @@ ruta que usará el bucket `media` de Storage.
 
 ## Pendiente de confirmar — no inventar
 
+### Hechos del estudio aportados en sesión, sin detalle todavía
+
+- **Experiencia internacional.** Gustavo confirmó (4/9/2026) que tanto él como Eduardo
+  tienen obra fuera de Colombia, **incluida residencial de ultra lujo en islas del
+  Caribe**. Hoy el sitio no lo menciona en ninguna parte, ni el volcado de Wix lo
+  recoge. Es la credencial que separa a un estudio regional de uno al que se le encarga
+  una casa de alto patrimonio, así que no puede quedarse fuera. Falta: qué proyectos,
+  dónde, cuándo, en qué rol y si hay material publicable.
+
+  Ojo con la tensión de posicionamiento antes de escribirlo: `/estudio` afirma que *"la
+  mayor parte de nuestra obra es pública"*, y esto abre una segunda línea de trabajo. No
+  se contradicen, pero hay que decidir cuál abre la página.
+
 ### Decisiones de negocio
 
 1. **Precio de la asesoría.** El sitio dice $50.000 COP con pago por adelantado y

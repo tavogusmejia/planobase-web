@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { esIndexable, routing } from '@/i18n/routing'
-import { entornoPublico } from '@/lib/env'
+import { entornoPublico, sitioIndexable } from '@/lib/env'
 import { notoSans } from '@/lib/fonts'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
@@ -60,7 +60,10 @@ export async function generateMetadata({
       ],
     },
     twitter: { card: 'summary_large_image' },
-    ...(esIndexable(locale)
+    // Dos motivos independientes para no indexar: que el idioma todavía sirva
+    // el cuerpo en español, o que el despliegue viva en un dominio de Vercel
+    // mientras el sitio de Wix sigue en pie. Basta uno.
+    ...(sitioIndexable() && esIndexable(locale)
       ? {}
       : { robots: { index: false, follow: true } }),
   }

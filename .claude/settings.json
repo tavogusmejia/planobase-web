@@ -66,14 +66,14 @@
       "Bash(bash wix-migration/07-tooling/dropbox-ignore.sh)",
       "Bash(bash scripts/:*)",
       "Edit",
-      "Write"
+      "Write",
+      "Bash(git push:*)"
     ],
     "deny": [
       "Read(./.env)",
       "Read(./.env.*)",
       "Edit(./.env)",
       "Edit(./.env.*)",
-      "Bash(git push:*)",
       "Bash(rm -rf:*)"
     ]
   }

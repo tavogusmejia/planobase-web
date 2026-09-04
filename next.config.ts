@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import createNextIntlPlugin from 'next-intl/plugin'
+import { sitioIndexable } from './src/lib/env'
 import type { NextConfig } from 'next'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -130,6 +131,22 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return buildRedirects()
+  },
+
+  async headers() {
+    if (sitioIndexable()) return []
+
+    // Mientras el sitio viva en un dominio de Vercel con el de Wix todavía en
+    // pie, nada de aquí debe indexarse. La etiqueta `noindex` de cada página
+    // solo cubre el HTML; esta cabecera cubre además el sitemap, las imágenes y
+    // cualquier respuesta que no sea una página. Desaparece sola en cuanto
+    // NEXT_PUBLIC_SITE_URL apunte al dominio real.
+    return [
+      {
+        source: '/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }],
+      },
+    ]
   },
 }
 

@@ -22,6 +22,31 @@ export const entornoPublico = {
   metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? '',
 } as const
 
+/**
+ * Si este despliegue debe aparecer en buscadores.
+ *
+ * Mientras el sitio viva en un dominio de Vercel, NO debe indexarse: el sitio de
+ * Wix sigue en producción en planobase.co con las mismas 23 memorias de
+ * proyecto y los mismos nombres. Dos sitios idénticos compitiendo hacen que
+ * Google elija uno y reparta las señales entre ambos, que es justo lo contrario
+ * de conservar el posicionamiento del dominio viejo mientras se prepara el
+ * traslado.
+ *
+ * Se deduce de `NEXT_PUBLIC_SITE_URL` en vez de pedir otra variable, para que no
+ * haya nada que recordar: el día que esa variable apunte al dominio real, la
+ * indexación se enciende sola. Y al revés — un despliegue de rama nunca podrá
+ * indexarse por descuido.
+ */
+export function sitioIndexable(): boolean {
+  try {
+    const host = new URL(entornoPublico.sitio).hostname
+    return !host.endsWith('.vercel.app') && host !== 'localhost'
+  } catch {
+    // URL mal formada: ante la duda, no se indexa.
+    return false
+  }
+}
+
 function enServidor(quien: string): void {
   if (typeof window !== 'undefined') {
     throw new Error(`${quien} se llamó desde el navegador. Solo servidor.`)

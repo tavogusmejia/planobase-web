@@ -1,0 +1,20 @@
+// GENERADO desde public/brand/isotipo.svg, que a su vez sale de
+// Illustrator/00-logoPBA-RGB.ai. No editar a mano: regenerar desde el .ai.
+//
+// Reduccion minima en digital segun el manual: 30 px de ancho.
+// Usa `currentColor`: hereda el color del contexto, así que sirve igual sobre
+// blanco (tinta) que sobre tinta (blanco). No recolorear con filtros CSS.
+
+export function Isotipo({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 596 674.977"
+      fill="currentColor"
+      role="img"
+      aria-label="Plano Base"
+      className={className}
+    >
+      <path fillRule="nonzero" d="M 459.664062 531.800781 L 113.757812 531.800781 L 113.757812 376.46875 L 216.089844 376.5 C 223.984375 376.503906 227.941406 366.957031 222.355469 361.378906 L 113.757812 252.808594 L 113.757812 138.746094 L 251.996094 138.746094 L 476.964844 363.71875 L 477.53125 364.625 C 481.3125 370.71875 481.46875 378.445312 477.9375 384.796875 C 474.378906 391.199219 467.855469 395.019531 460.484375 395.019531 L 393.511719 395.023438 C 385.625 395.023438 381.667969 404.554688 387.238281 410.140625 L 474.605469 497.707031 C 480.820312 503.921875 482.300781 513.433594 478.066406 521.328125 C 474.5 527.980469 467.214844 531.800781 459.664062 531.800781 " />
+    </svg>
+  )
+}

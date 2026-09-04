@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "proyectos": "Proyectos",
+    "estudio": "Estudio",
+    "blog": "Blog",
+    "contacto": "Contáctanos",
+    "abrirMenu": "Abrir menú",
+    "cerrarMenu": "Cerrar menú",
+    "irAlInicio": "Plano Base, ir al inicio",
+    "saltarAlContenido": "Saltar al contenido"
+  },
+  "cta": {
+    "reservar": "Reserva una asesoría",
+    "contactar": "Contáctanos",
+    "verProyecto": "Ver proyecto",
+    "verTodos": "Ver los {count} proyectos",
+    "escribirWhatsapp": "Escríbenos por WhatsApp"
+  },
+  "home": {
+    "heroSaltar": "Ver el portafolio",
+    "proyectosTitulo": "Proyectos",
+    "cifrasTitulo": "El estudio en cifras",
+    "cifraProyectos": "proyectos",
+    "cifraCiudades": "ciudades",
+    "cifraReconocimientos": "reconocimientos en concurso público",
+    "cifraDesde": "obra desde {anio}",
+    "servicioTitulo": "Asesoría técnica",
+    "servicioDuracion": "{minutos} minutos",
+    "cierreTitulo": "¿Cómo podemos ayudarte a diseñar tu próximo gran espacio?",
+    "cierreSub": "Estamos listos para ayudarte"
+  },
+  "proyecto": {
+    "anio": "Año",
+    "ciudad": "Ciudad",
+    "area": "Área",
+    "diseno": "Diseño",
+    "cliente": "Cliente",
+    "reconocimiento": "Reconocimiento",
+    "fotografia": "Fotografía",
+    "memoria": "Memoria",
+    "galeria": "Galería",
+    "anterior": "Proyecto anterior",
+    "siguiente": "Proyecto siguiente",
+    "relacionados": "Proyectos relacionados",
+    "verImagen": "Ampliar imagen",
+    "cerrarImagen": "Cerrar",
+    "imagenAnterior": "Imagen anterior",
+    "imagenSiguiente": "Imagen siguiente"
+  },
+  "categorias": {
+    "todos": "Todos",
+    "cultural": "Cultural",
+    "educativo": "Educativo",
+    "institucional": "Institucional",
+    "residencial": "Residencial",
+    "urbano": "Urbano"
+  },
+  "footer": {
+    "estudio": "Estudio",
+    "contacto": "Contacto",
+    "seguir": "Síguenos",
+    "instagram": "Instagram",
+    "whatsapp": "WhatsApp",
+    "correo": "Correo"
+  },
+  "comun": {
+    "cargando": "Cargando",
+    "cambiarIdioma": "Cambiar idioma",
+    "traduccionPendiente": "Contenido en español; la traducción al inglés está en curso."
+  }
+}

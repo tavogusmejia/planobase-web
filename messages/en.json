@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "proyectos": "Projects",
+    "estudio": "Studio",
+    "blog": "Journal",
+    "contacto": "Contact",
+    "abrirMenu": "Open menu",
+    "cerrarMenu": "Close menu",
+    "irAlInicio": "Plano Base, go to home",
+    "saltarAlContenido": "Skip to content"
+  },
+  "cta": {
+    "reservar": "Book a consultation",
+    "contactar": "Get in touch",
+    "verProyecto": "View project",
+    "verTodos": "View all {count} projects",
+    "escribirWhatsapp": "Message us on WhatsApp"
+  },
+  "home": {
+    "heroSaltar": "View the portfolio",
+    "proyectosTitulo": "Projects",
+    "cifrasTitulo": "The studio in numbers",
+    "cifraProyectos": "projects",
+    "cifraCiudades": "cities",
+    "cifraReconocimientos": "awards in public competitions",
+    "cifraDesde": "building since {anio}",
+    "servicioTitulo": "Technical consultation",
+    "servicioDuracion": "{minutos} minutes",
+    "cierreTitulo": "How can we help you design your next great space?",
+    "cierreSub": "We're ready to help"
+  },
+  "proyecto": {
+    "anio": "Year",
+    "ciudad": "City",
+    "area": "Area",
+    "diseno": "Design",
+    "cliente": "Client",
+    "reconocimiento": "Award",
+    "fotografia": "Photography",
+    "memoria": "Project notes",
+    "galeria": "Gallery",
+    "anterior": "Previous project",
+    "siguiente": "Next project",
+    "relacionados": "Related projects",
+    "verImagen": "Enlarge image",
+    "cerrarImagen": "Close",
+    "imagenAnterior": "Previous image",
+    "imagenSiguiente": "Next image"
+  },
+  "categorias": {
+    "todos": "All",
+    "cultural": "Cultural",
+    "educativo": "Educational",
+    "institucional": "Institutional",
+    "residencial": "Residential",
+    "urbano": "Urban"
+  },
+  "footer": {
+    "estudio": "Studio",
+    "contacto": "Contact",
+    "seguir": "Follow us",
+    "instagram": "Instagram",
+    "whatsapp": "WhatsApp",
+    "correo": "Email"
+  },
+  "comun": {
+    "cargando": "Loading",
+    "cambiarIdioma": "Change language",
+    "traduccionPendiente": "Content shown in Spanish; the English translation is in progress."
+  }
+}

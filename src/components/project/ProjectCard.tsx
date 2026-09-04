@@ -3,7 +3,8 @@
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { RotuloProyecto, useRotulo } from '@/components/project/RotuloProyecto'
-import { etiquetaProyecto, mediaSrc } from '@/lib/utils'
+import { cn, etiquetaProyecto, mediaSrc } from '@/lib/utils'
+import { portadasEnGrises } from '@content/ajustes'
 import type { Project } from '@/lib/types'
 
 /**
@@ -51,7 +52,14 @@ export function ProjectCard({
             priority={priority}
             placeholder="blur"
             blurDataURL={portada.blurDataURL}
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+            className={cn(
+              'object-cover group-hover:scale-[1.02]',
+              // `.portada` define sus propias transiciones —filtro y
+              // transformación— así que sustituye a las utilidades, no se suma.
+              portadasEnGrises
+                ? 'portada'
+                : 'transition-transform duration-700 ease-out',
+            )}
           />
 
           {/* Velo. Sube con el rótulo y solo bajo él: el resto de la fotografía

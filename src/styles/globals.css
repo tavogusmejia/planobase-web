@@ -228,6 +228,47 @@
     animation: rotulo-pop 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
+  /* --- Portadas en gris ---------------------------------------------------
+     ENSAYO, gobernado por `portadasEnGrises` en content/ajustes.ts. Quitarlo es
+     borrar este bloque y esa bandera.
+
+     El truco está en la demora del estado base, no en un temporizador: al salir
+     el cursor vuelve a aplicarse `.portada`, que espera 5 s antes de arrancar su
+     transición de 0,9 s. Entrar es inmediato porque la regla de hover pone la
+     demora en cero. Cero JavaScript, cero temporizadores por tarjeta, cero
+     estado que sincronizar.
+
+     Se declaran las propiedades por separado en vez de usar la forma corta
+     `transition:` porque la imagen también escala en hover: el atajo redefiniría
+     `transition-property` a solo `filter` y mataría ese movimiento.
+
+     El filtro va sobre la imagen y nunca sobre su contenedor. Sobre el
+     contenedor volvería gris también el rótulo —y con él la línea de cota, que
+     es azul— además de crear un bloque contenedor que rompe el posicionamiento
+     del velo.                                                                */
+
+  .portada {
+    filter: grayscale(1);
+    transition-property: filter, transform;
+    transition-duration: 900ms, 700ms;
+    transition-timing-function: ease-out;
+    transition-delay: 5s, 0s;
+  }
+
+  .group:hover .portada {
+    filter: grayscale(0);
+    transition-duration: 350ms, 700ms;
+    transition-delay: 0s, 0s;
+  }
+
+  /* Sin cursor no hay forma de revelarlas. En un teléfono, el portafolio en
+     gris permanente sería justo lo contrario de lo que busca el ensayo. */
+  @media (hover: none) {
+    .portada {
+      filter: none;
+    }
+  }
+
   @keyframes rotulo-pop {
     0% {
       transform: scale(1);

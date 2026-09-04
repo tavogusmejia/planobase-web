@@ -35,3 +35,24 @@ export function mediaSrc(path: string): string {
 export function whatsappUrl(numero: string, mensaje: string): string {
   return `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`
 }
+
+/**
+ * Etiqueta de naturaleza del proyecto.
+ *
+ * Presentar propuestas de concurso y obra construida sin distinguirlas es el
+ * riesgo reputacional más alto del portafolio: se cae en la primera visita.
+ *
+ * Pero el volcado de Wix trae `construido` marcado en UN solo proyecto de 24, y
+ * eso es un vacío del CMS, no la verdad — Casa Aguilar y Tirreno tienen
+ * fotografía de obra terminada. Así que solo se etiqueta donde la evidencia es
+ * inequívoca: el slug empieza por "concurso-" o el proyecto tiene premio. Del
+ * resto no se afirma nada hasta que el estudio lo confirme.
+ */
+export function etiquetaProyecto(p: {
+  slug: string
+  premio: string | null
+}): string | null {
+  if (p.slug.startsWith('concurso-')) return 'Concurso'
+  if (p.premio) return 'Concurso'
+  return null
+}

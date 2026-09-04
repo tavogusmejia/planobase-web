@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getAllSlugs } from '@/lib/data/projects'
 import { posts } from '@content/posts'
-import { lineasServicio } from '@content/servicios'
+import { puertas } from '@content/puertas'
 import { CATEGORIAS } from '@/lib/types'
 import { routing } from '@/i18n/routing'
 
@@ -24,8 +24,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { path: '/proyectos', priority: 0.9, freq: 'weekly' },
       { path: '/estudio', priority: 0.8, freq: 'monthly' },
       { path: '/servicios', priority: 0.9, freq: 'monthly' },
-      ...lineasServicio.map((l) => ({
-        path: `/servicios/${l.slug}`,
+      ...puertas.map((p) => ({
+        path: `/servicios/${p.slug}`,
         priority: 0.8,
         freq: 'monthly' as const,
       })),

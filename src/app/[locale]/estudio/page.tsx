@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
-import { Rule } from '@/components/ui/Rule'
-import { ProjectCard } from '@/components/project/ProjectCard'
-import { getFeatured, getStats } from '@/lib/data/projects'
-import { equipo, manifiesto, reconocimientos } from '@content/site'
+import {
+  equipo,
+  manifiesto,
+  reconocimientos,
+  sobreElEquipo,
+  vision,
+} from '@content/site'
 
 export async function generateMetadata({
   params,
@@ -15,16 +18,28 @@ export async function generateMetadata({
   return {
     title: 'Estudio',
     /* El title de Wix decía "Arquitectura bioclimática en Bogotá". El estudio
-       tiene sede en Cali y su mercado es el Valle del Cauca: era un error de
+       tiene sede en Cali y su obra es sobre todo pública: era un error de
        posicionamiento, no solo de redacción. */
     description:
-      'Plano Base es un estudio colaborativo de arquitectura con sede en Cali. ' +
-      'Diseño integral de proyectos educativos, institucionales, culturales y ' +
-      'residenciales, con cuatro reconocimientos en concurso público nacional.',
+      'Plano Base es un estudio de arquitectura con sede en Cali. Trabajamos ' +
+      'sobre todo en obra pública —colegios, centros culturales, sedes ' +
+      'administrativas y espacio público— con cuatro reconocimientos en ' +
+      'concurso público nacional.',
     alternates: { canonical: `/${locale}/estudio` },
   }
 }
 
+/**
+ * El estudio: visión de arquitectura.
+ *
+ * Deliberadamente sin rejilla de proyectos — el portafolio vive en /proyectos y
+ * repetirlo aquí diluye las dos páginas. Esta es la que responde por qué se
+ * hacen las cosas, no cuáles se han hecho.
+ *
+ * El texto de la visión es un borrador para que Eduardo lo corrija a su voz.
+ * Está construido sobre lo que el estudio ya escribió en sus memorias de
+ * proyecto, y cada tema lleva la cita literal de donde sale.
+ */
 export default async function EstudioPage({
   params,
 }: {
@@ -35,7 +50,6 @@ export default async function EstudioPage({
 
   const t = await getTranslations('home')
   const tc = await getTranslations('cta')
-  const [proyectos, stats] = await Promise.all([getFeatured(6), getStats()])
 
   const corte = manifiesto.indexOf('. ') + 1
   const declaracion = corte > 0 ? manifiesto.slice(0, corte) : manifiesto
@@ -43,21 +57,56 @@ export default async function EstudioPage({
 
   return (
     <div className="mx-auto max-w-[100rem] px-gutter py-16 lg:px-10 lg:py-24">
-      {/* El manifiesto entero a tamaño de titular eran 380 caracteres a 72 px:
-          una pared. Se parte en declaración y desarrollo — la primera frase
-          sostiene la jerarquía, el resto se lee. */}
       <h1 className="text-h2 measure-display text-ink">{declaracion}</h1>
       {desarrollo ? (
         <p className="text-lead measure mt-8 text-ink-soft">{desarrollo}</p>
       ) : null}
 
-      {/* --- Equipo -------------------------------------------------------
-          En el sitio actual los nombres están dentro de las imágenes: no son
-          texto, no los lee un buscador ni un lector de pantalla. Aquí van en
-          HTML. Son dos personas, no los cuatro retratos que mostraba Wix. */}
-      <section className="mt-28">
-        <h2 className="text-block mb-8 text-muted">Equipo</h2>
-        <ul className="grid gap-10 border-t border-line pt-10 sm:grid-cols-2 lg:max-w-4xl">
+      {/* ---- Visión ---------------------------------------------------------
+          Cuatro temas, cada uno con la frase literal de la memoria de proyecto
+          donde el estudio ya lo había escrito. */}
+      <div className="mt-32 space-y-28 lg:mt-40 lg:space-y-36">
+        {vision.map((tema) => (
+          <section key={tema.proyectoSlug}>
+            <div className="lg:grid lg:grid-cols-[1fr_1fr] lg:gap-20">
+              <div>
+                <h2 className="text-h2 measure-display text-ink">
+                  {tema.titulo}
+                </h2>
+              </div>
+              <div className="mt-8 lg:mt-2">
+                <p className="text-body measure text-ink">{tema.texto}</p>
+
+                <figure className="mt-12 border-l border-accent pl-6">
+                  <blockquote className="text-h5 measure text-ink-soft">
+                    {tema.cita}
+                  </blockquote>
+                  <figcaption className="text-block mt-4 text-muted">
+                    <Link
+                      href={`/proyectos/${tema.proyectoSlug}`}
+                      className="underline-offset-4 hover:text-accent hover:underline"
+                    >
+                      {tema.proyectoTitulo}
+                    </Link>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </section>
+        ))}
+      </div>
+
+      {/* ---- Equipo ---------------------------------------------------------
+          Los nombres van en HTML: en el sitio actual están dentro de las
+          imágenes y no los lee ni un buscador ni un lector de pantalla.
+          Son dos personas, y eso se enuncia como dedicación, no se disimula. */}
+      <section className="mt-36">
+        <h2 className="text-h2 measure-display text-ink">
+          Dos arquitectos responden con su nombre.
+        </h2>
+        <p className="text-body measure mt-8 text-ink-soft">{sobreElEquipo}</p>
+
+        <ul className="mt-14 grid gap-10 border-t border-line pt-10 sm:grid-cols-2 lg:max-w-4xl">
           {equipo.map((m) => (
             <li key={m.slug}>
               <h3 className="text-h3 text-ink">{m.nombre}</h3>
@@ -67,27 +116,28 @@ export default async function EstudioPage({
             </li>
           ))}
         </ul>
+        {/* TODO — matrícula profesional (CPNAA / COPNIA) de cada socio. Es la
+            casilla que verifica un comprador institucional antes de llamar. */}
       </section>
 
-      {/* --- Reconocimientos ----------------------------------------------
-          Cuatro concursos públicos nacionales. Es la credencial más fuerte
-          del estudio frente a una entidad y hoy está enterrada en una lista
-          suelta al final de la página. */}
-      <section className="mt-28">
-        <h2 className="text-block mb-8 text-muted">Reconocimientos</h2>
-        <ol className="border-t border-line">
+      {/* ---- Reconocimientos ------------------------------------------------ */}
+      <section className="mt-32">
+        <h2 className="text-h2 measure-display text-ink">
+          Cuatro concursos públicos nacionales.
+        </h2>
+        <ol className="mt-12 border-t border-line">
           {[...reconocimientos]
             .sort((a, b) => b.anio - a.anio)
             .map((r) => (
               <li
                 key={`${r.anio}-${r.titulo}`}
-                className="grid gap-2 border-b border-line py-7 sm:grid-cols-[6rem_1fr] sm:gap-8"
+                className="grid gap-2 border-b border-line py-8 sm:grid-cols-[7rem_1fr] sm:gap-10"
               >
-                <span className="text-h4 tabular-nums text-accent">
+                <span className="text-h3 tabular-nums text-accent">
                   {r.anio}
                 </span>
                 <div>
-                  <p className="text-h5 measure text-ink">
+                  <p className="text-h5 text-ink">
                     {r.puesto === 'primer' ? 'Primer puesto' : 'Segundo puesto'}
                   </p>
                   <p className="text-small measure mt-1 text-ink-soft">
@@ -108,33 +158,25 @@ export default async function EstudioPage({
         </ol>
       </section>
 
-      {/* --- Proyectos ------------------------------------------------------
-          Una sola vez. En el sitio actual este bloque se renderiza duplicado. */}
-      <section className="mt-28">
-        <h2 className="text-h2 text-ink">{t('proyectosTitulo')}</h2>
-        <Rule className="mb-12 mt-4 text-muted">{stats.proyectos}</Rule>
-        <div className="grid gap-x-8 gap-y-14 md:grid-cols-2 xl:grid-cols-3">
-          {proyectos.map((p) => (
-            <ProjectCard key={p.slug} project={p} />
-          ))}
-        </div>
-        <Link
-          href="/proyectos"
-          className="text-h5 mt-14 inline-block text-accent underline-offset-8 hover:underline"
-        >
-          {tc('verTodos', { count: stats.proyectos })}
-        </Link>
-      </section>
-
-      <section className="mt-28 border-t border-line pt-12">
+      <section className="mt-32 border-t border-line pt-12 lg:grid lg:grid-cols-2 lg:gap-16">
         <h2 className="text-h2 measure-display text-ink">{t('cierreTitulo')}</h2>
-        <p className="text-lead mt-4 text-ink-soft">{t('cierreSub')}</p>
-        <Link
-          href="/contacto"
-          className="text-h5 mt-8 inline-block text-accent underline-offset-8 hover:underline"
-        >
-          {tc('contactar')}
-        </Link>
+        <div className="mt-8 lg:mt-0">
+          <p className="text-lead text-ink-soft">{t('cierreSub')}</p>
+          <div className="mt-8 flex flex-wrap gap-8">
+            <Link
+              href="/proyectos"
+              className="text-h5 text-accent underline-offset-8 hover:underline"
+            >
+              {tc('verPortafolio')}
+            </Link>
+            <Link
+              href="/contacto"
+              className="text-h5 text-accent underline-offset-8 hover:underline"
+            >
+              {tc('contactar')}
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   )

@@ -8,7 +8,8 @@
     "abrirMenu": "Abrir menú",
     "cerrarMenu": "Cerrar menú",
     "irAlInicio": "Plano Base, ir al inicio",
-    "saltarAlContenido": "Saltar al contenido"
+    "saltarAlContenido": "Saltar al contenido",
+    "agendar": "Agendar"
   },
   "cta": {
     "reservar": "Reserva una asesoría",
@@ -16,7 +17,8 @@
     "verProyecto": "Ver proyecto",
     "verTodos": "Ver los {count} proyectos",
     "escribirWhatsapp": "Escríbenos por WhatsApp",
-    "verServicios": "Ver el portafolio de servicios"
+    "verServicios": "Ver todos los servicios",
+    "verPortafolio": "Ver el portafolio"
   },
   "home": {
     "heroSaltar": "Ver el portafolio",
@@ -74,5 +76,10 @@
     "cargando": "Cargando",
     "cambiarIdioma": "Cambiar idioma",
     "traduccionPendiente": "Contenido en español; la traducción al inglés está en curso."
+  },
+  "perfil": {
+    "estudio": "Estudio",
+    "oficina": "Oficina técnica",
+    "etiqueta": "Cambiar de perfil"
   }
 }

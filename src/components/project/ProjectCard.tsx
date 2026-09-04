@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
-import { mediaSrc } from '@/lib/utils'
+import { etiquetaProyecto, mediaSrc } from '@/lib/utils'
 import type { Project } from '@/lib/types'
 
 /**
@@ -23,6 +23,8 @@ export function ProjectCard({
   const { portada } = project
   if (!portada) return null
 
+  const etiqueta = etiquetaProyecto(project)
+
   return (
     <article>
       <Link href={`/proyectos/${project.slug}`} className="group block">
@@ -42,6 +44,7 @@ export function ProjectCard({
         <h3 className="text-h4 mt-5 text-ink">{project.titulo}</h3>
         <Rule className="mt-2 text-muted">
           {project.anio} &nbsp; {project.ciudad}
+          {etiqueta ? <> &nbsp; {etiqueta}</> : null}
         </Rule>
       </Link>
     </article>

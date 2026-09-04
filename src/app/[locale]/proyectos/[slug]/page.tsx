@@ -13,7 +13,7 @@ import {
   getRelated,
 } from '@/lib/data/projects'
 import { routing } from '@/i18n/routing'
-import { formatArea, mediaSrc } from '@/lib/utils'
+import { etiquetaProyecto, formatArea, mediaSrc } from '@/lib/utils'
 
 export async function generateStaticParams() {
   const slugs = await getAllSlugs()
@@ -90,7 +90,10 @@ export default async function ProyectoPage({
   /* La ficha técnica va visible de entrada. En el sitio actual vive dentro de
      un acordeón cerrado, que es donde nadie la ve. Los campos sin dato no se
      pintan: nunca aparece "0 m²" ni una etiqueta vacía. */
+  const naturaleza = etiquetaProyecto(project)
+
   const ficha: { etiqueta: string; valor: string }[] = [
+    ...(naturaleza ? [{ etiqueta: 'Naturaleza', valor: naturaleza }] : []),
     { etiqueta: t('anio'), valor: String(project.anio) },
     {
       etiqueta: t('ciudad'),

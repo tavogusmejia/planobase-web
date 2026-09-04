@@ -52,7 +52,24 @@ funcional, las 23 fichas de proyecto, `/servicios` con sus cuatro líneas,
 **Falta.** Supabase (esquema y `seed.ts`), el panel `/admin`, el envío de correo
 del formulario, el Pixel de Meta, la pasarela de pago y la auditoría Lighthouse.
 
-### Portafolio de servicios
+### Servicios: qué se publica y qué no
+
+`content/servicios.ts` guarda los **43 servicios** del PDF del estudio, completos,
+para propuestas y licitaciones. **La web no los publica todos.** `content/puertas.ts`
+selecciona **16** y los reagrupa en cinco puertas tituladas con la pregunta del
+cliente, no con la taxonomía interna del proveedor.
+
+Fuera de la web pública, sobre el informe de posicionamiento AEC:
+
+- **Mantenimiento operativo** (19, 20, 22–30) y **toda la fabricación** (33–43).
+  Mostrar "mantenimiento de piscinas" junto a un primer puesto de concurso
+  nacional no suma el mantenimiento: resta el premio.
+- **6 (LEED/EDGE) y 7 (BIM 7D)**, retirados por riesgo, no por estética:
+  anuncian acreditaciones que el estudio no tiene documentadas.
+
+Se ofrecen en propuesta, cuando el cliente ya está dentro.
+
+### Portafolio de servicios (catálogo completo)
 
 `content/servicios.ts` se genera desde `GPB - Portafolio de Servicios
 Completos.pdf` (OneDrive · Gerencia): 43 servicios en cuatro líneas, con su
@@ -98,6 +115,15 @@ ruta que usará el bucket `media` de Storage.
 - **Los titulares usan `measure-display` (52rem), no `measure` (34rem).**
   La medida de lectura calibrada a 68 caracteres de cuerpo, aplicada a 50 u
   88 px, convierte cualquier frase larga en una pared.
+- **Conmutador Estudio / Oficina técnica, no pantalla de bienvenida.** El perfil
+  se deriva de la ruta: `/servicios` y `/agendar` son Oficina, el resto Estudio.
+  No hay puerta que obligue a clasificarse antes de entrar — eso pierde entre el
+  20 y el 40 % del tráfico frío—, ni dos dominios que partan la autoridad SEO.
+  Un dominio, dos registros de lectura.
+- **Etiqueta "Concurso" solo con evidencia inequívoca.** El volcado de Wix trae
+  `construido` marcado en un solo proyecto de 24, y eso es un vacío del CMS: Casa
+  Aguilar y Tirreno tienen fotografía de obra terminada. Se etiqueta donde el
+  slug empieza por `concurso-` o hay premio; del resto no se afirma nada.
 - **Las imágenes salen del juego de Wix**, no de los originales de OneDrive.
   Emparejar los dos juegos automáticamente arriesga poner la foto de un proyecto
   en la ficha de otro. Ver más abajo.
@@ -126,7 +152,20 @@ ruta que usará el bucket `media` de Storage.
 6. **Reducción mínima del logo.** El manual fija 240 px de ancho para el
    imagotipo horizontal en digital. En la cabecera mide ~143 px, que es lo que
    cabe en una web. Confirmar si ese mínimo aplica a pantalla o solo a impresión.
-7. **Correo del estudio.** Confirmado `proyectos@planobase.co`. Las tarjetas de
+7. **Naturaleza de cada proyecto: construido o propuesta de concurso.** Es el
+   riesgo reputacional más alto del portafolio y hoy el dato no existe. Hay que
+   marcarlo proyecto por proyecto.
+8. **Precios de los peldaños 2 y 3** (estudio de viabilidad, anteproyecto). La
+   escalera de producto está publicada sin cifras porque solo el precio de la
+   asesoría está confirmado.
+9. **Matrícula profesional** (CPNAA / COPNIA) de los dos socios. Es la casilla
+   que verifica un comprador institucional antes de llamar.
+10. **La visión de `/estudio` es un borrador para Eduardo.** Los cuatro temas
+    salen de contar de qué habla el estudio en sus propias memorias, y cada uno
+    lleva una cita literal. Está escrito para que él lo corrija a su voz.
+11. **El mensaje de campaña puede estar describiendo al estudio equivocado.**
+    «Bioclimático» aparece 10 veces en las 24 memorias; «público y comunidad», 97.
+12. **Correo del estudio.** Confirmado `proyectos@planobase.co`. Las tarjetas de
    presentación usan `@plba.studio`: decidir si ese dominio se anuncia o no.
 
 ### Datos del portafolio

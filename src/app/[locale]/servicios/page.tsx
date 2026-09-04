@@ -1,15 +1,10 @@
 import type { Metadata } from 'next'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
-import { lineasServicio } from '@content/servicios'
+import { escalera, puertas } from '@content/puertas'
 import { asesoria, contacto } from '@content/site'
 import { formatCOP, whatsappUrl } from '@/lib/utils'
-
-const totalServicios = lineasServicio.reduce(
-  (n, l) => n + l.servicios.length,
-  0,
-)
 
 export async function generateMetadata({
   params,
@@ -20,30 +15,20 @@ export async function generateMetadata({
   return {
     title: 'Servicios',
     description:
-      `Arquitectura e ingeniería: ${totalServicios} servicios en consultoría y ` +
-      'gestión técnica, diseño arquitectónico, mantenimiento integral de ' +
-      'edificaciones y obra y fabricación. Interventoría, presupuestos, ' +
-      'compras técnicas y trámites, en Cali y el Valle del Cauca.',
+      'Diseño arquitectónico, estudios de viabilidad, diagnóstico de ' +
+      'edificaciones e interventoría de obra en Cali, Jamundí y el Valle del ' +
+      'Cauca. Empezamos por su pregunta, no por nuestro catálogo.',
     alternates: { canonical: `/${locale}/servicios` },
   }
 }
 
 /**
- * Portafolio de servicios.
+ * Servicios, organizados por la pregunta que trae al cliente.
  *
- * Registro comercial: más densidad de información que el portafolio de obra y
- * una sola acción dominante. Quien llega aquí quiere saber qué se puede
- * contratar, no admirar fotos.
- *
- * El contenido sale de "GPB - Portafolio de Servicios Completos.pdf", el
- * documento del estudio. No hay una sola línea inventada.
- *
- * TODO — el PDF está firmado como "Grupo Plano Base"; el sitio usa "Plano Base"
- * por la decisión de una sola marca. Confirmar cuál es la razón comercial.
- *
- * TODO — Gustavo mencionó además logística de transporte de materiales y
- * maquinaria. No aparecen en el portafolio documentado: si son servicios reales,
- * hay que añadirlos al PDF y regenerar `content/servicios.ts`.
+ * La versión anterior era la lista de los 43 servicios del portafolio. Nadie lee
+ * 43 títulos: es la taxonomía interna del proveedor puesta en una página. Aquí
+ * el titular de cada bloque es la frase con la que la persona llega, y el
+ * catálogo completo queda para la propuesta formal.
  */
 export default async function ServiciosPage({
   params,
@@ -53,18 +38,15 @@ export default async function ServiciosPage({
   const { locale } = await params
   setRequestLocale(locale)
 
-  const t = await getTranslations('home')
-
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Portafolio de servicios de Plano Base',
-    numberOfItems: totalServicios,
-    itemListElement: lineasServicio.map((l, i) => ({
+    name: 'Servicios de Plano Base',
+    itemListElement: puertas.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      name: l.nombre,
-      description: l.intro,
+      name: p.nombre,
+      description: p.respuesta,
     })),
   }
 
@@ -75,90 +57,108 @@ export default async function ServiciosPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <h1 className="text-h1 measure-display text-ink">{t('serviciosTitulo')}</h1>
+      <h1 className="text-h1 measure-display text-ink">
+        Empezamos por su pregunta, no por nuestro catálogo.
+      </h1>
       <p className="text-lead measure mt-8 text-ink-soft">
-        Acompañamos un proyecto en cualquier punto de su vida: desde la
-        formulación y el diseño hasta la ejecución, la puesta en marcha y el
-        mantenimiento. {totalServicios} servicios organizados en cuatro líneas,
-        con alcance técnico y exclusiones definidas por escrito.
+        Cada proyecto llega con una pregunta distinta. Elija la que se parece a
+        la suya y le decimos qué implica, cuánto toma y cuánto cuesta antes de
+        que firme nada.
       </p>
 
-      <div className="mt-20 space-y-20">
-        {lineasServicio.map((linea) => (
-          <section key={linea.slug} className="border-t border-line pt-10">
-            <div className="lg:grid lg:grid-cols-[24rem_1fr] lg:gap-16">
+      {/* ---- Las puertas ---------------------------------------------------
+          Cada bloque abre con la frase del cliente, no con el nombre del
+          servicio. Es la diferencia entre "Consultoría y Gestión Técnica" y
+          "Necesito que alguien vigile mi obra". */}
+      <div className="mt-24">
+        {puertas.map((p) => (
+          <article key={p.slug} className="border-t border-line">
+            <Link
+              href={`/servicios/${p.slug}`}
+              className="group block py-12 lg:grid lg:grid-cols-[1fr_26rem] lg:gap-16"
+            >
               <div>
-                <h2 className="text-h3 text-ink">
-                  <Link
-                    href={`/servicios/${linea.slug}`}
-                    className="underline-offset-8 hover:text-accent hover:underline"
-                  >
-                    {linea.nombre}
-                  </Link>
+                <h2 className="text-h2 measure-display text-ink transition-colors group-hover:text-accent">
+                  {p.pregunta}
                 </h2>
-                <Rule className="mt-3 text-muted">
-                  {linea.servicios.length}
-                </Rule>
-                <p className="text-small measure mt-6 text-ink-soft">
-                  {linea.intro}
-                </p>
+                <Rule className="mt-5 max-w-md text-muted">{p.nombre}</Rule>
               </div>
-
-              {/* Los títulos completos, no una selección: quien evalúa a un
-                  proveedor busca el servicio exacto que necesita. */}
-              <ul className="mt-8 lg:mt-0">
-                {linea.servicios.map((s) => (
-                  <li key={s.n} className="border-b border-line py-3">
-                    <Link
-                      href={`/servicios/${linea.slug}#s${s.n}`}
-                      className="text-small text-ink underline-offset-4 hover:text-accent hover:underline"
-                    >
-                      {s.titulo}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
+              <div className="mt-6 lg:mt-2">
+                <p className="text-body text-ink-soft">{p.respuesta}</p>
+                <p className="text-block mt-5 text-muted">{p.para}</p>
+              </div>
+            </Link>
+          </article>
         ))}
+        <div className="border-t border-line" />
       </div>
 
+      {/* ---- La escalera ---------------------------------------------------
+          Esto sí es una secuencia, y por eso lleva números: cada peldaño existe
+          para que el siguiente sea una decisión pequeña. */}
+      <section className="mt-28">
+        <h2 className="text-h2 measure-display text-ink">
+          Nadie firma un proyecto completo el primer día.
+        </h2>
+        <p className="text-lead measure mt-6 text-ink-soft">
+          Se avanza por pasos, y en cada uno usted decide si sigue. El primero
+          cuesta {formatCOP(asesoria.precioCOP)} y dura una hora.
+        </p>
+
+        <ol className="mt-14 border-t border-line">
+          {escalera.map((paso) => (
+            <li
+              key={paso.n}
+              className="grid gap-3 border-b border-line py-7 sm:grid-cols-[3rem_16rem_1fr] sm:gap-8"
+            >
+              <span className="text-h4 tabular-nums text-accent">
+                {String(paso.n).padStart(2, '0')}
+              </span>
+              <h3 className="text-h5 text-ink">
+                {paso.nombre}
+                {paso.precioCOP ? (
+                  <span className="text-block mt-1 block tabular-nums text-muted">
+                    {formatCOP(paso.precioCOP)}
+                  </span>
+                ) : null}
+              </h3>
+              <p className="text-small measure text-ink-soft">{paso.entrega}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
       {/* ---- Acción -------------------------------------------------------- */}
-      <section className="mt-24 border-t-2 border-signal pt-10">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-16">
-          <div>
-            <h2 className="text-h2 measure-display text-ink">
-              ¿No sabes cuál de todos necesitas?
-            </h2>
-            <p className="text-lead measure mt-6 text-ink-soft">
-              Para eso existe la asesoría técnica. En {asesoria.duracionMin}{' '}
-              minutos revisamos tu caso y te decimos qué servicio aplica, si el
-              proyecto es viable y qué sigue.
-            </p>
-          </div>
-          <div className="mt-10 lg:mt-0">
-            <p className="text-h3 tabular-nums text-ink">
-              {formatCOP(asesoria.precioCOP)}
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/agendar"
-                className="text-block bg-signal px-7 py-4 uppercase tracking-[0.08em] text-paper transition-opacity hover:opacity-90"
-              >
-                Agendar asesoría
-              </Link>
-              <a
-                href={whatsappUrl(
-                  contacto.whatsapp,
-                  'Hola Plano Base, quiero preguntar por un servicio del portafolio.',
-                )}
-                rel="noopener noreferrer"
-                target="_blank"
-                className="text-block border border-accent px-7 py-4 uppercase tracking-[0.08em] text-accent transition-colors hover:bg-accent hover:text-paper"
-              >
-                Preguntar por WhatsApp
-              </a>
-            </div>
+      <section className="mt-24 border-t-2 border-signal pt-10 lg:grid lg:grid-cols-2 lg:gap-16">
+        <h2 className="text-h2 measure-display text-ink">
+          Si no sabe cuál de todas es su pregunta, esa es la primera hora.
+        </h2>
+        <div className="mt-10 lg:mt-0">
+          <p className="text-h3 tabular-nums text-ink">
+            {formatCOP(asesoria.precioCOP)}
+          </p>
+          <p className="text-small measure mt-3 text-ink-soft">
+            {asesoria.duracionMin} minutos con un arquitecto. Sale con un
+            diagnóstico y un rango de costos, por escrito.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              href="/agendar"
+              className="text-block bg-signal px-7 py-4 uppercase tracking-[0.08em] text-paper transition-opacity hover:opacity-90"
+            >
+              Agendar asesoría
+            </Link>
+            <a
+              href={whatsappUrl(
+                contacto.whatsapp,
+                'Hola Plano Base, quiero preguntar por un servicio.',
+              )}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="text-block border border-accent px-7 py-4 uppercase tracking-[0.08em] text-accent transition-colors hover:bg-accent hover:text-paper"
+            >
+              Preguntar por WhatsApp
+            </a>
           </div>
         </div>
       </section>

@@ -5,7 +5,7 @@ import { Hero } from '@/components/home/Hero'
 import { ProjectCard } from '@/components/project/ProjectCard'
 import { getFeatured, getHeroProjects, getStats } from '@/lib/data/projects'
 import { asesoria, manifiesto } from '@content/site'
-import { lineasServicio } from '@content/servicios'
+import { puertas } from '@content/puertas'
 import { formatCOP } from '@/lib/utils'
 
 export default async function HomePage({
@@ -40,31 +40,29 @@ export default async function HomePage({
         <p className="text-h3 measure text-ink">{manifiesto}</p>
       </section>
 
-      {/* ---- Líneas de servicio --------------------------------------------
-          Va antes del portafolio: quien llega desde una campaña necesita saber
-          qué se puede contratar, no solo qué se ha construido. */}
+      {/* ---- Servicios ------------------------------------------------------
+          Cinco puertas, tituladas con la pregunta del cliente. La lista de 43
+          servicios del portafolio queda para la propuesta formal: publicarla
+          entera hace ver al estudio como un contratista de todo. */}
       <section className="mx-auto max-w-[100rem] px-gutter lg:px-10">
-        <h2 className="text-h2 text-ink">{t('serviciosTitulo')}</h2>
-        <Rule className="mb-12 mt-4 text-muted">
-          {lineasServicio.reduce((n, l) => n + l.servicios.length, 0)}
+        <h2 className="text-h2 measure-display text-ink">
+          Empezamos por su pregunta, no por nuestro catálogo.
+        </h2>
+        <Rule className="mb-2 mt-6 max-w-md text-muted">
+          {puertas.length}
         </Rule>
 
-        <ul className="grid gap-x-8 gap-y-10 border-t border-line pt-10 md:grid-cols-2">
-          {lineasServicio.map((linea) => (
-            <li key={linea.slug}>
+        <ul className="mt-10 border-t border-line">
+          {puertas.map((p) => (
+            <li key={p.slug} className="border-b border-line">
               <Link
-                href={`/servicios/${linea.slug}`}
-                className="group block h-full"
+                href={`/servicios/${p.slug}`}
+                className="group block py-7 lg:grid lg:grid-cols-[1fr_20rem] lg:gap-12"
               >
-                <h3 className="text-h4 text-ink group-hover:text-accent">
-                  {linea.nombre}
+                <h3 className="text-h3 text-ink transition-colors group-hover:text-accent">
+                  {p.pregunta}
                 </h3>
-                <Rule className="mt-2 text-muted">
-                  {linea.servicios.length}
-                </Rule>
-                <p className="text-small measure mt-4 text-ink-soft">
-                  {linea.intro}
-                </p>
+                <p className="text-block mt-2 text-muted lg:mt-3">{p.nombre}</p>
               </Link>
             </li>
           ))}

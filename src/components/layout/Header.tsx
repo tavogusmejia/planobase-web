@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link, usePathname } from '@/i18n/navigation'
 import { Logotipo } from '@/components/brand/Logotipo'
+import { PerfilSwitch, perfilDeRuta } from '@/components/layout/PerfilSwitch'
 import { navegacion } from '@content/site'
 import { routing } from '@/i18n/routing'
 import { cn } from '@/lib/utils'
@@ -14,12 +15,19 @@ export function Header({ locale }: { locale: string }) {
   const pathname = usePathname()
   const [abierto, setAbierto] = useState(false)
 
+  const perfil = perfilDeRuta(pathname)
   const activa = (href: string) =>
     pathname === href || pathname.startsWith(`${href}/`)
 
+  /* El menú muestra el lado en el que estás más lo que es común a los dos.
+     Así el visitante no ve nunca el catálogo entero del estudio de golpe. */
+  const items = navegacion.filter(
+    (i) => i.perfil === perfil || i.perfil === 'ambos',
+  )
+
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur-sm">
-      <div className="mx-auto flex h-24 max-w-[100rem] items-center justify-between px-gutter lg:px-10">
+      <div className="mx-auto flex h-24 max-w-[100rem] items-center justify-between gap-8 px-gutter lg:px-10">
         <Link
           href="/"
           aria-label={t('irAlInicio')}
@@ -33,17 +41,19 @@ export function Header({ locale }: { locale: string }) {
           <Logotipo className="h-10 w-auto lg:h-12" />
         </Link>
 
+        <PerfilSwitch className="hidden shrink-0 md:block" />
+
         <nav
           aria-label="Principal"
-          className="hidden items-center gap-9 md:flex"
+          className="hidden items-center gap-8 md:flex"
         >
-          {navegacion.map((item) => (
+          {items.map((item) => (
             <Link
               key={item.key}
               href={item.href}
               aria-current={activa(item.href) ? 'page' : undefined}
               className={cn(
-                'text-small text-ink transition-colors hover:text-accent',
+                'text-small whitespace-nowrap text-ink transition-colors hover:text-accent',
                 activa(item.href) && 'text-accent',
               )}
             >
@@ -51,7 +61,7 @@ export function Header({ locale }: { locale: string }) {
             </Link>
           ))}
 
-          <div className="ml-2 flex items-center gap-2 border-l border-line pl-5">
+          <div className="flex items-center gap-2 border-l border-line pl-5">
             {routing.locales.map((l) => (
               <Link
                 key={l}
@@ -60,9 +70,7 @@ export function Header({ locale }: { locale: string }) {
                 aria-label={`${tc('cambiarIdioma')}: ${l.toUpperCase()}`}
                 className={cn(
                   'text-block uppercase transition-colors',
-                  l === locale
-                    ? 'text-ink'
-                    : 'text-muted hover:text-accent',
+                  l === locale ? 'text-ink' : 'text-muted hover:text-accent',
                 )}
               >
                 {l}
@@ -86,9 +94,10 @@ export function Header({ locale }: { locale: string }) {
         <nav
           id="menu-movil"
           aria-label="Principal"
-          className="border-t border-line px-gutter pb-8 pt-2 md:hidden"
+          className="border-t border-line px-gutter pb-8 pt-6 md:hidden"
         >
-          {navegacion.map((item) => (
+          <PerfilSwitch className="mb-6 max-w-xs" />
+          {items.map((item) => (
             <Link
               key={item.key}
               href={item.href}

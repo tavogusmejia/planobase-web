@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { RotuloProyecto, useRotulo } from '@/components/project/RotuloProyecto'
+import { usePortadaColoreada } from '@/components/project/ReticulaProyectos'
 import { cn, etiquetaProyecto, mediaSrc } from '@/lib/utils'
 import { portadasEnGrises } from '@content/ajustes'
 import type { Project } from '@/lib/types'
@@ -31,6 +32,7 @@ export function ProjectCard({
 }) {
   const { portada } = project
   const { revelado, pulso, disparadores } = useRotulo()
+  const color = usePortadaColoreada(project.slug)
 
   if (!portada) return null
 
@@ -41,6 +43,11 @@ export function ProjectCard({
       <Link
         href={`/proyectos/${project.slug}`}
         {...disparadores}
+        {...color}
+        onMouseEnter={() => {
+          disparadores.onMouseEnter()
+          color.onMouseEnter?.()
+        }}
         className="group block"
       >
         <div className="relative aspect-[4/3] overflow-hidden bg-mist">

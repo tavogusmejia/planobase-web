@@ -27,7 +27,7 @@ export const mostrarCategoriasVacias = true
  * ENSAYO — las portadas del portafolio en gris hasta que el cursor las toca.
  *
  * Entra el cursor y la imagen toma color en 0,35 s; mientras esté encima se
- * queda; al salir aguanta 5 segundos y se desvanece a gris en 0,9 s. Se resuelve
+ * queda; al salir aguanta 7 segundos y se desvanece a gris en 0,9 s. Se resuelve
  * con tres reglas de CSS y ninguna línea de JavaScript: no hay temporizadores
  * por tarjeta que puedan quedarse colgados ni estado que sincronizar.
  *
@@ -38,6 +38,10 @@ export const mostrarCategoriasVacias = true
  * En pantallas sin cursor las portadas van a color de entrada: sin hover no hay
  * forma de revelarlas, y dejar el portafolio en gris permanente en un teléfono
  * sería exactamente lo contrario de lo que se busca.
+ *
+ * De esos siete segundos depende además el huevo de pascua del portafolio: son
+ * los que hacen posible barrer la retícula entera y tener las 23 portadas a
+ * color a la vez. Acortarlos mucho lo vuelve inalcanzable.
  *
  * `false` devuelve el portafolio a color, sin más efecto que ese.
  */

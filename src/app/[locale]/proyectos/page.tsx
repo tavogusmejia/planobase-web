@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { ProjectCard } from '@/components/project/ProjectCard'
+import { ReticulaProyectos } from '@/components/project/ReticulaProyectos'
 import { Rule } from '@/components/ui/Rule'
 import { getCategoryCounts, getProjects } from '@/lib/data/projects'
 import {
@@ -145,7 +146,11 @@ export default async function ProyectosPage({
 
       {visibles.length > 0 ? (
         /* El filete entre piezas es el propio fondo asomando por el `gap`. */
-        <div className="grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+        <ReticulaProyectos
+          total={visibles.length}
+          conHuevo={activa === null}
+          className="grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
+        >
           {visibles.map((p, i) => (
             <ProjectCard
               key={p.slug}
@@ -154,7 +159,7 @@ export default async function ProyectosPage({
               sizes="(min-width: 1536px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             />
           ))}
-        </div>
+        </ReticulaProyectos>
       ) : (
         <p className="text-lead measure px-gutter py-24 text-muted lg:px-10">
           {tcat('sinProyectos')}

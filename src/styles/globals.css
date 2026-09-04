@@ -233,7 +233,7 @@
      borrar este bloque y esa bandera.
 
      El truco está en la demora del estado base, no en un temporizador: al salir
-     el cursor vuelve a aplicarse `.portada`, que espera 5 s antes de arrancar su
+     el cursor vuelve a aplicarse `.portada`, que espera 7 s antes de arrancar su
      transición de 0,9 s. Entrar es inmediato porque la regla de hover pone la
      demora en cero. Cero JavaScript, cero temporizadores por tarjeta, cero
      estado que sincronizar.
@@ -252,7 +252,7 @@
     transition-property: filter, transform;
     transition-duration: 900ms, 700ms;
     transition-timing-function: ease-out;
-    transition-delay: 5s, 0s;
+    transition-delay: 7s, 0s;
   }
 
   .group:hover .portada {
@@ -266,6 +266,18 @@
   @media (hover: none) {
     .portada {
       filter: none;
+    }
+  }
+
+  /* El huevo de pascua del portafolio entra dibujándose, no apareciendo. */
+  @keyframes huevo {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem) scale(0.94);
+    }
+    to {
+      opacity: 1;
+      transform: none;
     }
   }
 

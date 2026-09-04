@@ -1,0 +1,68 @@
+{
+  "site": {
+    "name": "Plano Base Arquitectos",
+    "legal_name": "Plano Base Arquitectos S.A.S",
+    "domain": "www.planobase.co",
+    "platform_actual": "Wix",
+    "idioma": "es-CO",
+    "founded": 2020,
+    "copyright": "© 2025 Plano Base, todos los derechos reservados"
+  },
+  "contacto": {
+    "direccion": "Calle 18 # 61-29, Cali, Colombia",
+    "linea_corporativa": "+57 301 426 4603",
+    "correo": "proyectos@planobase.co",
+    "redes": ["Instagram", "WhatsApp", "Email"]
+  },
+  "navegacion_principal": [
+    {"label": "Proyectos", "href": "/proyectos"},
+    {"label": "Estudio", "href": "/estudio"},
+    {"label": "Blog", "href": "/blog"},
+    {"label": "Contáctanos", "href": "/contacto"},
+    {"label": "Más", "href": null, "nota": "dropdown"}
+  ],
+  "cta_global": {
+    "label": "RESERVA UNA ASESORÍA AHORA",
+    "href": "/booking-calendar/asesoria-tecnica",
+    "ubicacion": "barra fija inferior en todas las páginas"
+  },
+  "cta_secundario": {
+    "bloque": "¿Cómo podemos ayudarte a diseñar tu próximo gran espacio? / ¿Te imaginas tu proyecto con resultados como estos?",
+    "sub": "Estamos listos para ayudarte",
+    "label": "CONTÁCTANOS AQUÍ",
+    "href": "/contacto"
+  },
+  "servicio_reservable": {
+    "nombre": "Asesoria técnica",
+    "tagline": "Contar con la asesoría de un arquitecto no debe ser costoso.",
+    "duracion": "1 h",
+    "precio": "$ 50.000 COP",
+    "descripcion": "Agenda una reunión virtual de una hora con un arquitecto de Plano Base. Ideal para resolver dudas técnicas, evaluar daños, entender procesos o recibir orientación profesional sin compromisos.",
+    "url_servicio": "/service-page/asesoria-tecnica",
+    "url_reserva": "/booking-calendar/asesoria-tecnica",
+    "politicas": {
+      "reserva_previa": "Mínimo 48 horas de anticipación.",
+      "pago": "Pago total por adelantado al momento de la reserva.",
+      "confirmacion": "Correo o mensaje de confirmación con fecha, hora y duración.",
+      "cambios": "Un cambio de fecha u hora con mínimo 24 h de anticipación, sujeto a disponibilidad.",
+      "no_reembolsable": "El pago no es reembolsable ante cancelaciones, inasistencias sin aviso o cambios con menos de 24 h.",
+      "inasistencia": "Se considera cancelada y se pierde el depósito.",
+      "cancelacion_proveedor": "Reprogramación sin costo o reembolso completo del depósito."
+    }
+  },
+  "taxonomia_proyectos": {
+    "filtro_label": "Filtrar por Etiquetas / Todos los tipos de proyectos",
+    "categorias": ["Todo", "Cultural", "Educativo", "Institucional", "Oficinas", "Residencial", "Urbano"]
+  },
+  "campos_cms_proyecto": ["titulo", "subtitulo", "anio", "area", "ciudad", "diseno", "memoria", "galeria", "categoria", "slug", "portada"],
+  "equipo": {
+    "socios_visibles": ["Eduardo Mejía", "Gabriel Romero Villota", "Carlos García"],
+    "nota": "La sección Equipo del /estudio muestra 4 retratos (Eduardo, Gustavo, Miguel, Laura). Los nombres están en la imagen o en hover, no en el DOM: confirmar con Eduardo antes de migrar."
+  },
+  "reconocimientos": [
+    "Segundo Puesto — Concurso Público Nacional Nuevos Espacios de Aprendizaje para el Siglo XXI. Colegio Pradera El Volcán. 2015",
+    "Primer Puesto — Alcaldía Local de Teusaquillo. 2014",
+    "Primer Puesto — Colegio distrital y equipamiento urbano en Ciudad Bolívar. 2014",
+    "Segundo Puesto — Casa de la cultura Colinas, San José del Guaviare. 2021"
+  ]
+}

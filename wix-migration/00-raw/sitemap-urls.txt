@@ -1,0 +1,51 @@
+# sitemap index: https://www.planobase.co/sitemap.xml   (leído 2026-09-04)
+# sub-sitemaps:
+#   pages-sitemap.xml                 lastmod 2026-07-18
+#   blog-posts-sitemap.xml            lastmod 2025-04-08
+#   blog-categories-sitemap.xml       lastmod 2022-10-02   (devuelve HTTP 400 — roto)
+#   booking-services-sitemap.xml      lastmod 2025-07-30
+#   dynamic-portafolio-2_..._0_5000-sitemap.xml   lastmod 2025-09-24
+
+## Páginas estáticas (9)
+https://www.planobase.co
+https://www.planobase.co/estudio
+https://www.planobase.co/proyectos
+https://www.planobase.co/contacto
+https://www.planobase.co/contactanos1
+https://www.planobase.co/blog
+https://www.planobase.co/landing-educativo
+https://www.planobase.co/portafolio
+https://www.planobase.co/portafolio-1
+
+## Blog (1)
+https://www.planobase.co/post/bienvenidos_a_plano_base
+
+## Servicio reservable (1)
+https://www.planobase.co/service-page/asesoria-técnica
+https://www.planobase.co/booking-calendar/asesoria-técnica   (no listada en sitemap, enlazada desde el CTA global)
+
+## Colección dinámica de proyectos (24)
+https://www.planobase.co/portafolio-2/comedor-universidad-del-valle
+https://www.planobase.co/portafolio-2/concurso-5inco-sena-ipiales
+https://www.planobase.co/portafolio-2/concurso-5inco-sena-kennedy
+https://www.planobase.co/portafolio-2/concurso-colegio-villas-del-progreso
+https://www.planobase.co/portafolio-2/concurso-uva-orfelinato
+https://www.planobase.co/portafolio-2/plaza-de-los-libaneses
+https://www.planobase.co/portafolio-2/colegio-próspero-pinzón
+https://www.planobase.co/portafolio-2/colegio-francisco-antonio-zea-(metrovivienda)
+https://www.planobase.co/portafolio-2/alcadía-local-de-teusaquillo
+https://www.planobase.co/portafolio-2/casa-aguilar
+https://www.planobase.co/portafolio-2/casa-aguilar-castrillón
+https://www.planobase.co/portafolio-2/colegio-bolívar
+https://www.planobase.co/portafolio-2/institución-educativa-departamental-pompilio-martínez
+https://www.planobase.co/portafolio-2/colegio-pradera-el-volcán
+https://www.planobase.co/portafolio-2/recuperación-del-espacio-público-del-centro-de-cali
+https://www.planobase.co/portafolio-2/colegio-y-teatro-el-ensueño
+https://www.planobase.co/portafolio-2/casa-cultural-en-el-centro-poblado-las-colinas-jaime-pardo-leal
+https://www.planobase.co/portafolio-2/tirreno
+https://www.planobase.co/portafolio-2/jardín-infantil-los-álamos
+https://www.planobase.co/portafolio-2/alcaldía-local-de-santa-fe
+https://www.planobase.co/portafolio-2/teatro-césar-conto-ferrer
+https://www.planobase.co/portafolio-2/cefe-tunal
+https://www.planobase.co/portafolio-2/arezzo
+https://www.planobase.co/portafolio-2/colegio-bicentenario-de-la-independencia

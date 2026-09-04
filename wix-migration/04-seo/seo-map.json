@@ -1,0 +1,241 @@
+{
+  "_meta": {
+    "nota": "title/description tal como están hoy en Wix, + propuesta para el sitio nuevo. Longitudes objetivo: title <= 60 car., description 140-158 car."
+  },
+  "rutas": [
+    {
+      "ruta": "/",
+      "title_actual": "Plano Base Arquitectos Colombia | Estudio en Cali y más ciudades",
+      "description_actual": "En Plano Base, arquitectos en Colombia, transformamos espacios con diseño funcional y sostenible. ¡Contáctanos hoy!",
+      "estado": "activa"
+    },
+    {
+      "ruta": "/estudio",
+      "title_actual": "Arquitectura bioclimática en Bogotá | Plano Base Estudio",
+      "description_actual": "Diseñamos proyectos de arquitectura bioclimática en Bogotá que optimizan confort y energía; solicita una asesoría con Plano Base.",
+      "estado": "activa"
+    },
+    {
+      "ruta": "/proyectos",
+      "title_actual": "Proyectos | Plano Base Arquitectos",
+      "description_actual": "Esta es Nuestra Experiencia: desde lo residencial hasta grandes proyectos de infraestructura. Oficinas, Colegios, Teatros, Auditorios, Casas, Apartamentos, Museos, Aeropuertos.",
+      "estado": "activa"
+    },
+    {
+      "ruta": "/contacto",
+      "title_actual": "Contáctanos | Plano Base Arquitectos",
+      "description_actual": "Contáctanos para ayudarte a hacer realidad tus proyectos.",
+      "estado": "activa"
+    },
+    {
+      "ruta": "/contactanos1",
+      "title_actual": "Contáctanos | Plano Base Arquitectos",
+      "description_actual": null,
+      "estado": "DUPLICADA / OBSOLETA"
+    },
+    {
+      "ruta": "/blog",
+      "title_actual": "Blog | Plano Base Arquitectos S.A.S",
+      "description_actual": "pensamientos, criticas, analisis y opiniones sobre arquitectura diseño y emprendimiento.",
+      "estado": "activa"
+    },
+    {
+      "ruta": "/service-page/asesoria-técnica",
+      "title_actual": "Asesoria técnica | Plano Base",
+      "description_actual": "Agenda una reunión virtual de una hora con un arquitecto de Plano Base. Ideal para resolver dudas técnicas, evaluar daños, entender procesos o recibir orientación profesional sin compromisos.",
+      "estado": "activa"
+    },
+    {
+      "ruta": "/booking-calendar/asesoria-técnica",
+      "title_actual": null,
+      "description_actual": null,
+      "estado": "activa"
+    },
+    {
+      "ruta": "/portafolio",
+      "title_actual": null,
+      "description_actual": null,
+      "estado": "OBSOLETA — CONTIENE LOREM IPSUM"
+    },
+    {
+      "ruta": "/portafolio-1",
+      "title_actual": null,
+      "description_actual": null,
+      "estado": "OBSOLETA"
+    },
+    {
+      "ruta": "/landing-educativo",
+      "title_actual": "Landing-Educativo | Plano Base",
+      "description_actual": null,
+      "estado": "VACÍA"
+    },
+    {
+      "ruta": "/portafolio-2/comedor-universidad-del-valle",
+      "title_actual": "Comedor Universidad del Valle | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Comedor Universidad del Valle: Diseño arquitectónico. Ampliación Comedor universitario Universidad del Valle. Cali, 2019. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/concurso-5inco-sena-ipiales",
+      "title_actual": "Concurso 5inco Sena Ipiales | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Concurso 5inco Sena Ipiales: Propuesta Concurso 5inco Sena Ipiales. Ipiales, 2024. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/concurso-5inco-sena-kennedy",
+      "title_actual": "Concurso 5inco Sena Kennedy | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Concurso 5inco Sena Kennedy: Propuesta Concurso 5inco Sena Kennedy. Bogotá D.C., 2024. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/concurso-colegio-villas-del-progreso",
+      "title_actual": "Concurso Colegio Villas del Progreso | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Concurso Colegio Villas del Progreso: Propuesta concurso público Colegio Villas del Progreso. Bogotá D.C., 2022. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/concurso-uva-orfelinato",
+      "title_actual": "Concurso UVA Orfelinato | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Concurso UVA Orfelinato: Propuesta concurso público Uva Orfelinato. Medellín, 2013. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/plaza-de-los-libaneses",
+      "title_actual": "Plaza de los Libaneses | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Plaza de los Libaneses: Propuesta de espacio público Plaza de los Libaneses. Cali, 2018. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/colegio-próspero-pinzón",
+      "title_actual": "Colegio Próspero Pinzón | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Colegio Próspero Pinzón: Diseño arquitectónico y consultoría integral Colegio Próspero Pinzón. Bogotá D.C., 2016. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/colegio-francisco-antonio-zea-(metrovivienda)",
+      "title_actual": "Colegio Francisco Antonio Zea (Metrovivienda) | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Colegio Francisco Antonio Zea (Metrovivienda): Diseño arquitectónico y consultoría integral para el colegio Francisco Antonio Z. Bogotá D.C., 2016. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/alcadía-local-de-teusaquillo",
+      "title_actual": "Alcaldía Local de Teusaquillo | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Alcaldía Local de Teusaquillo: Primer puesto, concurso público arquitectónico para la nueva Alcaldía Local de T. Bogotá D.C., 2014. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/casa-aguilar",
+      "title_actual": "Casa Aguilar | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Casa Aguilar: Casa Aguilar. Jamundí, 2018. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/casa-aguilar-castrillón",
+      "title_actual": "Casa Aguilar Castrillón | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Casa Aguilar Castrillón: Propuesta Casa Castrillón. Jamundí, 2018. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/colegio-bolívar",
+      "title_actual": "Colegio Bolívar | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Colegio Bolívar: Propuesta concurso privado para el diseño arquitectónico del Colegio Bolívar. Cali, 2014. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/institución-educativa-departamental-pompilio-martínez",
+      "title_actual": "Institución Educativa Departamental Pompilio Martínez | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Institución Educativa Departamental Pompilio Martínez: Propuesta concurso público de anteproyecto arquitectónico. Nuevo auditorio y caf. Cajicá, 2016. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/colegio-pradera-el-volcán",
+      "title_actual": "Colegio Pradera El Volcán | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Colegio Pradera El Volcán: Segundo puesto, concurso público de anteproyecto arquitectónico Colegio Pradera . Cali, 2015. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/recuperación-del-espacio-público-del-centro-de-cali",
+      "title_actual": "Recuperación del espacio público del Centro de Cali | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Recuperación del espacio público del Centro de Cali: Propuesta concurso privado para recuperación del espacio público del Centro de C. Cali, 2015. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/colegio-y-teatro-el-ensueño",
+      "title_actual": "Colegio y teatro El Ensueño | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Colegio y teatro El Ensueño: Primer puesto: concurso público nacional de anteproyecto arquitectónico para el . Bogotá D.C., 2014. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/casa-cultural-en-el-centro-poblado-las-colinas-jaime-pardo-leal",
+      "title_actual": "Casa cultural en el Centro Poblado Las Colinas Jaime Pardo Leal | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Casa cultural en el Centro Poblado Las Colinas Jaime Pardo Leal: Segundo puesto: concurso de ideas para el diseño arquitectónico Casa Cultural La. San José del Guaviare, 2022. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/tirreno",
+      "title_actual": "Tirreno | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Tirreno: Edificio multifamiliar Tirreno. Cali, 2016. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/jardín-infantil-los-álamos",
+      "title_actual": "Jardín Infantil Los Álamos | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Jardín Infantil Los Álamos: Propuesta concurso: Ambientes innovadores y sostenibles para la educación inicia. Bogotá D.C., 2022. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/alcaldía-local-de-santa-fe",
+      "title_actual": "Alcaldía Local de Santa Fe | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Alcaldía Local de Santa Fe: Propuesta Alcaldía Local de Santa Fe. Bogotá D.C., 2018. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/teatro-césar-conto-ferrer",
+      "title_actual": "Teatro César Conto Ferrer | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Teatro César Conto Ferrer: Segundo puesto, concurso privado: Teatro César Conto Ferrer. Quibdó, 2017. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/cefe-tunal",
+      "title_actual": "CEFE Tunal | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "CEFE Tunal: Propuesta Concurso CEFE Tunal. Bogotá D.C., 2017. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/arezzo",
+      "title_actual": "Arezzo | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Arezzo: Edificio multifamiliar Arezzo. Cali, 2017. Plano Base Arquitectos."
+    },
+    {
+      "ruta": "/portafolio-2/colegio-bicentenario-de-la-independencia",
+      "title_actual": "Colegio Bicentenario de la Independencia | Plano Base",
+      "description_actual": null,
+      "problema": "Las 24 fichas de proyecto NO tienen meta description. Google está inventando el snippet.",
+      "description_propuesta": "Colegio Bicentenario de la Independencia: Colegio Bicentenario de la Independencia. Bogotá D.C., 2015. Plano Base Arquitectos."
+    }
+  ]
+}

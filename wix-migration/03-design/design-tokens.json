@@ -1,0 +1,69 @@
+{
+  "source": "www.planobase.co (Wix) — extraído del DOM en vivo, 2026-09-04",
+  "palette_raw_wix": {
+    "color_11_bg_primary": "255,255,255",
+    "color_12_bg_secondary": "255,255,255",
+    "color_13": "145,148,150",
+    "color_14_text_secondary": "85,131,155",
+    "color_15_text_primary": "35,40,44",
+    "color_16": "201,211,214",
+    "color_17": "146,167,173",
+    "color_18_action": "35,40,44",
+    "color_19": "146,159,167",
+    "color_20": "32,40,43",
+    "color_26": "248,248,248",
+    "color_27": "225,230,234",
+    "color_31": "240,247,249",
+    "color_32": "225,239,242",
+    "color_33": "144,196,207",
+    "color_34": "71,147,163",
+    "color_35": "35,73,81",
+    "color_45_title": "35,40,44",
+    "color_46_subtitle": "35,40,44",
+    "color_47_line": "85,131,155"
+  },
+  "tokens": {
+    "--pb-ink":        "#23282C",
+    "--pb-ink-soft":   "#5A5E61",
+    "--pb-accent":     "#55839B",
+    "--pb-accent-dk":  "#234951",
+    "--pb-accent-lt":  "#90C4CF",
+    "--pb-muted":      "#919496",
+    "--pb-line":       "#C8C9CA",
+    "--pb-surface":    "#FFFFFF",
+    "--pb-surface-2":  "#F8F8F8",
+    "--pb-surface-3":  "#E1E6EA",
+    "--pb-tint":       "#F0F7F9",
+    "--pb-tint-2":     "#E1EFF2",
+    "--pb-steel":      "#929FA7",
+    "--pb-steel-lt":   "#C9D3D6"
+  },
+  "typography": {
+    "families": {
+      "primary": "Wix Madefor Text  ->  reemplazo libre sugerido: 'Inter' o 'Manrope' (grotesca humanista)",
+      "secondary": "Futura LT Light  ->  reemplazo libre sugerido: 'Jost' o 'Poppins' (geométrica)"
+    },
+    "scale_wix": {
+      "font_3_display": "88px / 1.2em",
+      "font_4_h1":      "72px / 1.25em",
+      "font_5_h2":      "50px / 1.34em",
+      "font_6_h3":      "30px / 1.35em",
+      "font_2_h4":      "28px / 1.375em",
+      "font_0_h5":      "22px / 1.41em",
+      "font_7_body_lg": "20px / 1.67em",
+      "font_8_body_md": "18px / 1.75em",
+      "font_9_body_sm": "15px / 1.875em",
+      "font_1_body_xs": "14px / 1.79em (Futura LT Light)"
+    },
+    "observed_in_use": {
+      "body_p": "16px / 400 / #23282C",
+      "h2_section": "22px o 30px / 400 / #23282C",
+      "footer_copy": "13px / 400"
+    }
+  },
+  "notes": [
+    "Todo el sitio usa peso 400: no hay negritas. La jerarquía se construye con tamaño y espacio, no con weight.",
+    "Paleta casi monocroma: tinta gris-azulada oscura sobre blanco, con un único acento azul acero (#55839B).",
+    "El acento aparece en líneas, links y texto secundario, nunca como fondo grande."
+  ]
+}

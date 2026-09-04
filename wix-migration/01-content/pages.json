@@ -1,0 +1,134 @@
+{
+  "_meta": {
+    "fuente": "www.planobase.co",
+    "extraido": "2026-09-04",
+    "nota": "El sitio actual es Wix con render de cliente: el HTML del servidor solo trae header y footer. Todo el contenido de abajo se leyó del DOM ya hidratado."
+  },
+  "paginas": [
+    {
+      "ruta": "/",
+      "nombre": "Home",
+      "title": "Plano Base Arquitectos Colombia | Estudio en Cali y más ciudades",
+      "description": "En Plano Base, arquitectos en Colombia, transformamos espacios con diseño funcional y sostenible. ¡Contáctanos hoy!",
+      "og_image": "faef14_bcfc5de1ea7b4d06b8cbef9fabdd7243~mv2.jpg",
+      "estructura": [
+        {"bloque": "header", "contenido": "logo PlanoBase + nav (Proyectos, Estudio, Blog, Contáctanos, Más)"},
+        {"bloque": "hero", "tipo": "slideshow a pantalla completa, sin texto encima", "slides": ["Casa Aguilar", "Tirreno", "Colegio Villas del Progreso"], "enlace": "/proyectos"},
+        {"bloque": "cta_fija", "texto": "RESERVA UNA ASESORÍA AHORA", "href": "/booking-calendar/asesoria-tecnica"},
+        {"bloque": "footer", "contenido": "iconos Instagram / WhatsApp / correo + © 2025 Plano Base, todos los derechos reservados"}
+      ],
+      "observacion": "La home es prácticamente solo imagen. No hay propuesta de valor escrita, ni servicios, ni proyectos destacados con texto. Es la mayor oportunidad de mejora de la migración."
+    },
+    {
+      "ruta": "/estudio",
+      "nombre": "Estudio",
+      "title": "Arquitectura bioclimática en Bogotá | Plano Base Estudio",
+      "description": "Diseñamos proyectos de arquitectura bioclimática en Bogotá que optimizan confort y energía; solicita una asesoría con Plano Base.",
+      "estructura": [
+        {"bloque": "manifiesto", "texto": "Somos Plano Base, un estudio colaborativo de arquitectura dedicado al desarrollo integral de proyectos arquitectónicos en sectores como el educativo, institucional, comercial y residencial. Nuestro compromiso y enfoque considera cada detalle: el contexto, las necesidades del usuario, la materialidad, la espacialidad y la viabilidad económica en cada etapa del proceso."},
+        {"bloque": "equipo", "titulo": "Equipo", "items": 4, "nota": "4 retratos; los nombres NO están en el DOM. Fotos: 1626877012054.jpeg, 00gustavo_edited.jpg, 00Miguel_edited.jpg, 00laura.png. Confirmar nombres y cargos."},
+        {"bloque": "reconocimientos", "titulo": "Reconocimientos", "items": [
+          "Segundo Puesto “Concurso Público Nacional Nuevos Espacios de Aprendizaje para el Siglo XXI. Colegio Pradera El Volcán.” Año 2015",
+          "Primer Puesto “Alcaldía Local de Teusaquillo” Año 2014",
+          "Primer Puesto “Colegio distrital y equipamiento urbano en ciudad Bolívar” Año 2014",
+          "Segundo Puesto “Casa de la cultura Colinas San José del Guaviare” Año 2021"
+        ]},
+        {"bloque": "cta", "titulo": "¿Cómo podemos ayudarte a diseñar tu próximo gran espacio?", "sub": "Estamos listos para ayudarte", "boton": "CONTÁCTANOS AQUÍ"},
+        {"bloque": "carrusel_proyectos", "titulo": "Conoce nuestros proyectos", "nota": "lista los 23 proyectos con título + 'año. ciudad, departamento'. Se renderiza DOS VECES en la página (bug del sitio actual)."}
+      ]
+    },
+    {
+      "ruta": "/proyectos",
+      "nombre": "Proyectos",
+      "title": "Proyectos | Plano Base Arquitectos",
+      "description": "Esta es Nuestra Experiencia: desde lo residencial hasta grandes proyectos de infraestructura. Oficinas, Colegios, Teatros, Auditorios, Casas, Apartamentos, Museos, Aeropuertos.",
+      "estructura": [
+        {"bloque": "titulo", "texto": "Proyectos"},
+        {"bloque": "filtro", "label": "Filtrar por Etiquetas", "control": "select nativo", "placeholder": "Todos los tipos de proyectos", "opciones": ["Todo", "Cultural", "Educativo", "Institucional", "Oficinas", "Residencial", "Urbano"]},
+        {"bloque": "galeria", "tipo": "Wix Pro Gallery, grid de imágenes con hover zoom", "items": 23, "nota": "sin títulos visibles sobre las tarjetas: solo foto"}
+      ],
+      "observacion": "El filtro NO funciona: al elegir cualquier etiqueta devuelve los 23 proyectos. Las tarjetas tampoco muestran nombre del proyecto."
+    },
+    {
+      "ruta": "/contacto",
+      "nombre": "Contáctanos",
+      "title": "Contáctanos | Plano Base Arquitectos",
+      "description": "Contáctanos para ayudarte a hacer realidad tus proyectos.",
+      "estructura": [
+        {"bloque": "datos", "direccion": "Calle 18 # 61-29, Cali, Colombia", "linea": "+57 3014264603", "correo": "proyectos@planobase.co", "redes_titulo": "Nuestras redes"},
+        {"bloque": "intro_formulario", "titulo": "Inicia tu proyecto con nosotros, estamos listos para ayudarte", "subtitulo": "Diseño arquitectónico y consultoría personalizada", "parrafos": [
+          "En Plano Base Arquitectos trabajamos en el diseño arquitectónico y la consultoría técnica de proyectos de distinta escala y complejidad.",
+          "Este formulario nos permite conocer tu caso y darte una respuesta clara y ajustada a lo que necesitas.",
+          "Completarlo no implica ningún compromiso. Solo necesitamos algunos datos clave para entender tu idea, tus expectativas y tu presupuesto."
+        ]},
+        {"bloque": "formulario", "boton": "ENVIAR PROYECTO", "campos": [
+          {"label": "Nombre completo", "req": true, "ayuda": "Es necesario para dirigirnos a ti correctamente", "tipo": "text"},
+          {"label": "Correo electrónico", "req": true, "ayuda": "Necesario para enviarte la propuesta o información inicial", "tipo": "email"},
+          {"label": "¿En qué ciudad se ubica el proyecto?", "req": true, "ayuda": "Esto nos permite analizar el contexto y la normativa local", "tipo": "text"},
+          {"label": "Cuéntanos brevemente tu idea o necesidad", "req": true, "ayuda": "Puedes incluir tu presupuesto, esta información no compromete nada. Nos ayuda a darte una propuesta realista.", "tipo": "textarea"},
+          {"label": "Declaro que la información que he facilitado es exacta y completa.", "req": true, "tipo": "checkbox"}
+        ]},
+        {"bloque": "servicio", "titulo": "Asesoria técnica", "tagline": "Contar con la asesoría de un arquitecto no debe ser costoso.", "meta": "1 h · $ 50.000 COP", "botones": ["Leer más", "RESERVA SESIÓN"]}
+      ]
+    },
+    {
+      "ruta": "/contactanos1",
+      "nombre": "Contáctanos (versión antigua)",
+      "title": "Contáctanos | Plano Base Arquitectos",
+      "estado": "DUPLICADA / OBSOLETA",
+      "observacion": "Mismos datos de contacto, sin el formulario nuevo, con el bloque 'Nuestros servicios' vacío. No migrar: redirigir 301 a /contacto."
+    },
+    {
+      "ruta": "/blog",
+      "nombre": "Blog",
+      "title": "Blog | Plano Base Arquitectos S.A.S",
+      "description": "pensamientos, criticas, analisis y opiniones sobre arquitectura diseño y emprendimiento.",
+      "estructura": [
+        {"bloque": "encabezado", "titulo": "Blog", "sub": "Explora contenido valioso sobre diseño arquitectónico e innovación", "sub2": "¡Te invitamos a inspirarte y aprender con nosotros!"},
+        {"bloque": "listado", "posts": 1, "meta_visible": "autor, fecha, minutos de lectura, visualizaciones, comentarios"}
+      ],
+      "observacion": "Una sola entrada, de octubre de 2022. La meta description tiene errores de tildes."
+    },
+    {
+      "ruta": "/service-page/asesoria-técnica",
+      "nombre": "Página de servicio: Asesoría técnica",
+      "title": "Asesoria técnica | Plano Base",
+      "description": "Agenda una reunión virtual de una hora con un arquitecto de Plano Base. Ideal para resolver dudas técnicas, evaluar daños, entender procesos o recibir orientación profesional sin compromisos.",
+      "estructura": [
+        {"bloque": "cabecera", "titulo": "Asesoria técnica", "tagline": "Contar con la asesoría de un arquitecto no debe ser costoso.", "duracion": "1 h", "precio": "$ 50.000 COP", "boton": "RESERVAR AHORA"},
+        {"bloque": "descripcion", "titulo": "Descripción del servicio"},
+        {"bloque": "politicas", "titulo": "Política de cancelación", "detalle": "ver site.json > servicio_reservable.politicas"}
+      ],
+      "observacion": "Falta la tilde en 'Asesoria' en el título del servicio."
+    },
+    {
+      "ruta": "/booking-calendar/asesoria-técnica",
+      "nombre": "Calendario de reserva",
+      "observacion": "Widget de Wix Bookings con pago. Es la única función del sitio que NO se resuelve con HTML: hay que reemplazarla (ver prompt maestro, fase 5)."
+    },
+    {
+      "ruta": "/portafolio",
+      "nombre": "Plantilla legacy de proyecto",
+      "estado": "OBSOLETA — CONTIENE LOREM IPSUM",
+      "observacion": "Muestra el Colegio Bicentenario con tres párrafos de Lorem Ipsum y placeholders 'Función y forma'. Está indexable. Eliminar y redirigir 301 a /proyectos."
+    },
+    {
+      "ruta": "/portafolio-1",
+      "nombre": "Plantilla legacy de proyecto (2)",
+      "estado": "OBSOLETA",
+      "observacion": "Placeholders 'Nombre del proyecto', 'Título especifico [Descripción]' con el texto real de Teusaquillo dentro. Además su <title> dice 'Contáctanos', SEO roto. Eliminar y redirigir 301 a /proyectos."
+    },
+    {
+      "ruta": "/landing-educativo",
+      "nombre": "Landing Educativo",
+      "title": "Landing-Educativo | Plano Base",
+      "estado": "VACÍA",
+      "observacion": "Sin contenido, sin meta description, una sola imagen. Está en el sitemap. Decidir: construirla de verdad (landing por vertical, buena idea comercial) o borrarla."
+    }
+  ],
+  "enlaces_externos": {
+    "instagram": "https://www.instagram.com/planobase.co",
+    "whatsapp": "https://wa.me/573014264603",
+    "correo": "mailto:proyectos@planobase.co"
+  }
+}

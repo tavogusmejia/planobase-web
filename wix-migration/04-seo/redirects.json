@@ -1,0 +1,193 @@
+{
+  "_meta": {
+    "nota": "Mapa de redirecciones 301 Wix -> sitio nuevo. Los paths de Wix llevan tildes y paréntesis sin codificar; en Next.js hay que registrarlos también en su forma percent-encoded.",
+    "idioma_base": "es",
+    "estrategia_i18n": "/es/... y /en/... con redirect de la raíz según Accept-Language; las URLs viejas (sin prefijo) apuntan a /es/..."
+  },
+  "redirects": [
+    {
+      "from": "/",
+      "to": "/es",
+      "permanent": true
+    },
+    {
+      "from": "/estudio",
+      "to": "/es/estudio",
+      "permanent": true
+    },
+    {
+      "from": "/proyectos",
+      "to": "/es/proyectos",
+      "permanent": true
+    },
+    {
+      "from": "/contacto",
+      "to": "/es/contacto",
+      "permanent": true
+    },
+    {
+      "from": "/contactanos1",
+      "to": "/es/contacto",
+      "permanent": true,
+      "nota": "página duplicada, se elimina"
+    },
+    {
+      "from": "/blog",
+      "to": "/es/blog",
+      "permanent": true
+    },
+    {
+      "from": "/post/bienvenidos_a_plano_base",
+      "to": "/es/blog/bienvenidos-a-plano-base",
+      "permanent": true
+    },
+    {
+      "from": "/service-page/asesoria-técnica",
+      "to": "/es/servicios/asesoria-tecnica",
+      "permanent": true
+    },
+    {
+      "from": "/booking-calendar/asesoria-técnica",
+      "to": "/es/agendar",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio",
+      "to": "/es/proyectos",
+      "permanent": true,
+      "nota": "plantilla legacy con Lorem Ipsum, se elimina"
+    },
+    {
+      "from": "/portafolio-1",
+      "to": "/es/proyectos",
+      "permanent": true,
+      "nota": "plantilla legacy, se elimina"
+    },
+    {
+      "from": "/landing-educativo",
+      "to": "/es/proyectos",
+      "permanent": true,
+      "nota": "vacía; cambiar destino si se decide construir la landing"
+    },
+    {
+      "from": "/portafolio-2/comedor-universidad-del-valle",
+      "to": "/es/proyectos/comedor-universidad-del-valle",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/concurso-5inco-sena-ipiales",
+      "to": "/es/proyectos/concurso-5inco-sena-ipiales",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/concurso-5inco-sena-kennedy",
+      "to": "/es/proyectos/concurso-5inco-sena-kennedy",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/concurso-colegio-villas-del-progreso",
+      "to": "/es/proyectos/concurso-colegio-villas-del-progreso",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/concurso-uva-orfelinato",
+      "to": "/es/proyectos/concurso-uva-orfelinato",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/plaza-de-los-libaneses",
+      "to": "/es/proyectos/plaza-de-los-libaneses",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/colegio-próspero-pinzón",
+      "to": "/es/proyectos/colegio-prospero-pinzon",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/colegio-francisco-antonio-zea-(metrovivienda)",
+      "to": "/es/proyectos/colegio-francisco-antonio-zea",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/alcadía-local-de-teusaquillo",
+      "to": "/es/proyectos/alcaldia-local-de-teusaquillo",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/casa-aguilar",
+      "to": "/es/proyectos/casa-aguilar",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/casa-aguilar-castrillón",
+      "to": "/es/proyectos/casa-aguilar-castrillon",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/colegio-bolívar",
+      "to": "/es/proyectos/colegio-bolivar",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/institución-educativa-departamental-pompilio-martínez",
+      "to": "/es/proyectos/ied-pompilio-martinez",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/colegio-pradera-el-volcán",
+      "to": "/es/proyectos/colegio-pradera-el-volcan",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/recuperación-del-espacio-público-del-centro-de-cali",
+      "to": "/es/proyectos/espacio-publico-centro-de-cali",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/colegio-y-teatro-el-ensueño",
+      "to": "/es/proyectos/colegio-y-teatro-el-ensueno",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/casa-cultural-en-el-centro-poblado-las-colinas-jaime-pardo-leal",
+      "to": "/es/proyectos/casa-cultural-las-colinas",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/tirreno",
+      "to": "/es/proyectos/tirreno",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/jardín-infantil-los-álamos",
+      "to": "/es/proyectos/jardin-infantil-los-alamos",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/alcaldía-local-de-santa-fe",
+      "to": "/es/proyectos/alcaldia-local-de-santa-fe",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/teatro-césar-conto-ferrer",
+      "to": "/es/proyectos/teatro-cesar-conto-ferrer",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/cefe-tunal",
+      "to": "/es/proyectos/cefe-tunal",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/arezzo",
+      "to": "/es/proyectos/arezzo",
+      "permanent": true
+    },
+    {
+      "from": "/portafolio-2/colegio-bicentenario-de-la-independencia",
+      "to": "/es/proyectos/colegio-bicentenario-de-la-independencia",
+      "permanent": true
+    }
+  ]
+}

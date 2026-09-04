@@ -1,0 +1,310 @@
+#!/usr/bin/env bash
+# Descarga todos los assets de imagen de planobase.co (Wix) en su resolución original.
+# Uso:  bash descargar-assets.sh  [carpeta_destino]
+# Requiere red. Corre esto en tu Mac, no dentro de la sesión de Claude.
+set -euo pipefail
+DEST="${1:-./assets-originales}"
+mkdir -p "$DEST/proyectos" "$DEST/marca" "$DEST/equipo" "$DEST/blog"
+BASE="https://static.wixstatic.com/media"
+dl () { # $1 = archivo remoto, $2 = ruta local
+  if [ -f "$2" ]; then echo "skip $2"; return; fi
+  curl -fsSL -A "Mozilla/5.0" "$BASE/$1" -o "$2" && echo "ok   $2" || echo "FALLO $1"
+}
+
+# --- marca / ui ---
+dl "faef14_c33b89013ae247a480fb9a5fd86f94aa~mv2.png" "$DEST/marca/logo-planobase.png"
+dl "faef14_bcfc5de1ea7b4d06b8cbef9fabdd7243~mv2.jpg" "$DEST/marca/og-default.jpg"
+dl "faef14_0160436137b6436aba43910b3a7d9728~mv2.png" "$DEST/marca/ui-1.png"
+dl "11062b_ca1d837ce7194421b781ee7384061a8e~mv2.png" "$DEST/marca/ui-2.png"
+dl "11062b_7268d2bd4cf9497b997234c7cb71f24b~mv2.png" "$DEST/marca/ui-3.png"
+dl "faef14_ca8033abb2a2411c92115330c1b54ae8~mv2.png" "$DEST/marca/ui-4.png"
+
+# --- equipo ---
+dl "faef14_6605c0c064a241abb7dfa94a4c2ed92d~mv2.jpeg" "$DEST/equipo/miembro-1.jpeg"
+dl "faef14_1d7a128cc265401ea9ddc283322e55e5~mv2.jpg" "$DEST/equipo/miembro-2.jpg"
+dl "faef14_8bc790ea999b462789f87a78bd6ec0cc~mv2.jpg" "$DEST/equipo/miembro-3.jpg"
+dl "faef14_985048709fb44705a4e64d848b3ce7cd~mv2.png" "$DEST/equipo/miembro-4.png"
+
+# --- blog ---
+dl "faef14_2b38efea6d5c4468bddac80ca67118cc~mv2.png" "$DEST/blog/faef14_2b38efea6d5c4468bddac80ca67118cc~mv2.png"
+
+# --- Comedor Universidad del Valle ---
+mkdir -p "$DEST/proyectos/comedor-universidad-del-valle"
+
+# --- Concurso 5inco Sena Ipiales ---
+mkdir -p "$DEST/proyectos/concurso-5inco-sena-ipiales"
+dl "faef14_b07c638bcf9e434fb6601593d57009fe~mv2.jpg" "$DEST/proyectos/concurso-5inco-sena-ipiales/01.jpg"
+dl "faef14_d41bfe85c6cb4de291c65cbf97c35a32~mv2.jpg" "$DEST/proyectos/concurso-5inco-sena-ipiales/02.jpg"
+dl "faef14_16a0a5e827dd4ae4a73f3f8f965defc0~mv2.jpg" "$DEST/proyectos/concurso-5inco-sena-ipiales/03.jpg"
+dl "faef14_66f81a098a7b4536a3bfd0c8c3aa2dfc~mv2.jpg" "$DEST/proyectos/concurso-5inco-sena-ipiales/04.jpg"
+dl "faef14_91986e2e3ec24ba9881fdac0630d18c2~mv2.jpg" "$DEST/proyectos/concurso-5inco-sena-ipiales/05.jpg"
+dl "faef14_533d0b60c8424c1a8bb2c3d478c75ae1~mv2.jpg" "$DEST/proyectos/concurso-5inco-sena-ipiales/06.jpg"
+dl "faef14_1586d45460a348a8826ad98d8e0bd56e~mv2.jpg" "$DEST/proyectos/concurso-5inco-sena-ipiales/07.jpg"
+
+# --- Concurso 5inco Sena Kennedy ---
+mkdir -p "$DEST/proyectos/concurso-5inco-sena-kennedy"
+dl "faef14_189524f228fd4da0beac0ece20dd59db~mv2.jpg" "$DEST/proyectos/concurso-5inco-sena-kennedy/01.jpg"
+dl "faef14_477685d025d04180a1dfdb78afdbcf9b~mv2.jpg" "$DEST/proyectos/concurso-5inco-sena-kennedy/02.jpg"
+dl "faef14_9c9c628ff12d460aba0ec3e393e05767~mv2.jpg" "$DEST/proyectos/concurso-5inco-sena-kennedy/03.jpg"
+dl "faef14_fa07463007ac4f0e86a0ac63853b2345~mv2.jpg" "$DEST/proyectos/concurso-5inco-sena-kennedy/04.jpg"
+dl "faef14_d17b67d1d82846fa8085ee5feae55bc3~mv2.jpg" "$DEST/proyectos/concurso-5inco-sena-kennedy/05.jpg"
+dl "faef14_3743413c34154c2da14c87bd2bddbc5b~mv2.jpg" "$DEST/proyectos/concurso-5inco-sena-kennedy/06.jpg"
+dl "faef14_cdb4d586392a429ab22fab6ecccbaf37~mv2.png" "$DEST/proyectos/concurso-5inco-sena-kennedy/07.png"
+
+# --- Concurso Colegio Villas del Progreso ---
+mkdir -p "$DEST/proyectos/concurso-colegio-villas-del-progreso"
+dl "faef14_58aa6a0b3df641fa88ab373e48d42999~mv2.png" "$DEST/proyectos/concurso-colegio-villas-del-progreso/01.png"
+dl "faef14_dad30dcca18d401e968e176bd2b32c05~mv2.png" "$DEST/proyectos/concurso-colegio-villas-del-progreso/02.png"
+dl "faef14_54a68c1fea6a4d2db2a2c7e439d59f42~mv2.png" "$DEST/proyectos/concurso-colegio-villas-del-progreso/03.png"
+dl "faef14_355db691c92540ac8572ce6654be55b3~mv2.png" "$DEST/proyectos/concurso-colegio-villas-del-progreso/04.png"
+dl "faef14_d42ef83fac7b44a6a4f1a17e992ae9d9~mv2.png" "$DEST/proyectos/concurso-colegio-villas-del-progreso/05.png"
+dl "faef14_b05717f2e2ce4ac39e8246936b7585cd~mv2.jpg" "$DEST/proyectos/concurso-colegio-villas-del-progreso/06.jpg"
+dl "faef14_48234e63545e410bafaa5e67fda0c1d2~mv2.jpg" "$DEST/proyectos/concurso-colegio-villas-del-progreso/07.jpg"
+dl "faef14_3bc746392ea84e1883a09b61560acd3df000.jpg" "$DEST/proyectos/concurso-colegio-villas-del-progreso/08.jpg"
+dl "faef14_86deca9ef40c433d86324a73ff160facf000.jpg" "$DEST/proyectos/concurso-colegio-villas-del-progreso/09.jpg"
+dl "faef14_40b54e8f3049436da481ae91998231f5~mv2.png" "$DEST/proyectos/concurso-colegio-villas-del-progreso/10.png"
+dl "faef14_dda1b5326e7f468cbf790a65b6b87600~mv2.jpg" "$DEST/proyectos/concurso-colegio-villas-del-progreso/11.jpg"
+dl "faef14_6e2ae7cbfd6241d1be96f34d75b5a225~mv2.png" "$DEST/proyectos/concurso-colegio-villas-del-progreso/12.png"
+
+# --- Concurso UVA Orfelinato ---
+mkdir -p "$DEST/proyectos/concurso-uva-orfelinato"
+dl "faef14_efcfc04237184d04a214a5e9cfa835fc~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/01.jpg"
+dl "faef14_7ea69351e1624c2fbfe5b41b92992756~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/02.jpg"
+dl "faef14_bd3237034cd34e16bb8d903275903680~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/03.jpg"
+dl "faef14_faaba99143234b7b94293fa69f7a5197~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/04.jpg"
+dl "faef14_1b9865979e174fd3968dbafecc444ed8~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/05.jpg"
+dl "faef14_a901108cf7cf4151924d6151af5b5422~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/06.jpg"
+dl "faef14_dcef7d20023a48dab5132a35392fe6e3~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/07.jpg"
+dl "faef14_2bcf04294c3e415991d632ed19849c59~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/08.jpg"
+dl "faef14_2e2fa097567f47c5a9f58c11ed304183~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/09.jpg"
+dl "faef14_4db5c4ff6b31474e8f01fec595ffa5dd~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/10.jpg"
+dl "faef14_b8ba26997a6c47bd8ee1fb8783ff4928~mv2.gif" "$DEST/proyectos/concurso-uva-orfelinato/11.gif"
+dl "faef14_d69e2c31145141d0b50f094f740959e0~mv2.gif" "$DEST/proyectos/concurso-uva-orfelinato/12.gif"
+dl "faef14_717d9e731f91413baa24e6e01db6bc4b~mv2.png" "$DEST/proyectos/concurso-uva-orfelinato/13.png"
+dl "faef14_d476c132772a4b2a8cd85323a1e6a3dd~mv2.png" "$DEST/proyectos/concurso-uva-orfelinato/14.png"
+dl "faef14_bfc896faeeab48d6b6a18f497cfb4f06~mv2.gif" "$DEST/proyectos/concurso-uva-orfelinato/15.gif"
+dl "faef14_6e182fc323394d0a9a1a9ec9ae0ccef9~mv2.png" "$DEST/proyectos/concurso-uva-orfelinato/16.png"
+dl "faef14_d6ece51e1ade4f868b7d50fc5ae4da13f000.jpg" "$DEST/proyectos/concurso-uva-orfelinato/17.jpg"
+dl "faef14_97e09dc8fb34468093b483ea730dc3fdf000.jpg" "$DEST/proyectos/concurso-uva-orfelinato/18.jpg"
+dl "faef14_ae0c85fcef7d428d98c79fd04608d724f000.jpg" "$DEST/proyectos/concurso-uva-orfelinato/19.jpg"
+dl "faef14_f938e5bf4d7846529a17dc7d9426ce77f000.jpg" "$DEST/proyectos/concurso-uva-orfelinato/20.jpg"
+dl "faef14_7b0abcf635f6442892c80f954486494c~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/21.jpg"
+dl "faef14_d99a881d41284886a78addf91be4cdf4~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/22.jpg"
+dl "faef14_508f38ef1e514957babcc0c933cb19ee~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/23.jpg"
+dl "faef14_60f8fbdbefb443009c25ec11029ded4a~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/24.jpg"
+dl "faef14_e6dd510495ea445284d778af30d1ee63~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/25.jpg"
+dl "faef14_0ca8e9b74bad4b90ad3be3fad2660c37~mv2.jpg" "$DEST/proyectos/concurso-uva-orfelinato/26.jpg"
+
+# --- Plaza de los Libaneses ---
+mkdir -p "$DEST/proyectos/plaza-de-los-libaneses"
+dl "faef14_67633a7840904f5b860a6dbb16b20504~mv2.jpg" "$DEST/proyectos/plaza-de-los-libaneses/01.jpg"
+dl "faef14_5126959931fa4eec83a52d4ca24e856b~mv2.jpg" "$DEST/proyectos/plaza-de-los-libaneses/02.jpg"
+
+# --- Colegio Próspero Pinzón ---
+mkdir -p "$DEST/proyectos/colegio-prospero-pinzon"
+dl "faef14_5d0087ebb1a64140a448dde0608f24f1~mv2.jpg" "$DEST/proyectos/colegio-prospero-pinzon/01.jpg"
+dl "faef14_494c644b79c94ef5b307b0d93294a6cb~mv2.jpg" "$DEST/proyectos/colegio-prospero-pinzon/02.jpg"
+dl "faef14_6d317094d26e4ccf916f8d49a8c5564a~mv2.jpg" "$DEST/proyectos/colegio-prospero-pinzon/03.jpg"
+dl "faef14_bef309d47e6b4f58898149700a535d56~mv2.jpg" "$DEST/proyectos/colegio-prospero-pinzon/04.jpg"
+dl "faef14_13b5cefc04bf4c47b664af35cd7bd58d~mv2.jpg" "$DEST/proyectos/colegio-prospero-pinzon/05.jpg"
+dl "faef14_4422ceab6a804f7a92bd102a2adfc259~mv2.jpg" "$DEST/proyectos/colegio-prospero-pinzon/06.jpg"
+dl "faef14_056f9ae8171f4c0bb195cabade8340e4~mv2.jpg" "$DEST/proyectos/colegio-prospero-pinzon/07.jpg"
+
+# --- Colegio Francisco Antonio Zea (Metrovivienda) ---
+mkdir -p "$DEST/proyectos/colegio-francisco-antonio-zea"
+dl "faef14_e3af4d1a8ad94ae29e9f9195b980a206~mv2.jpg" "$DEST/proyectos/colegio-francisco-antonio-zea/01.jpg"
+dl "faef14_3f2d3366baea41d1b4a25dabee7cca5e~mv2.jpg" "$DEST/proyectos/colegio-francisco-antonio-zea/02.jpg"
+dl "faef14_203a74f32f3945a9935f7e20e9aa5f84~mv2.jpg" "$DEST/proyectos/colegio-francisco-antonio-zea/03.jpg"
+dl "faef14_ab63c045f49040588161693d511e4a38~mv2.jpg" "$DEST/proyectos/colegio-francisco-antonio-zea/04.jpg"
+dl "faef14_125c6ec365ec498fa2d07ebaf5d32047~mv2.jpg" "$DEST/proyectos/colegio-francisco-antonio-zea/05.jpg"
+dl "faef14_4096d54523c748398a6d6bd8f25c6034~mv2.jpg" "$DEST/proyectos/colegio-francisco-antonio-zea/06.jpg"
+dl "faef14_812cc0faaa8241bc9697e39b84ae5164~mv2.jpeg" "$DEST/proyectos/colegio-francisco-antonio-zea/07.jpeg"
+
+# --- Alcaldía Local de Teusaquillo ---
+mkdir -p "$DEST/proyectos/alcaldia-local-de-teusaquillo"
+dl "faef14_920259406c964e4c8a0836425cafa30a~mv2.jpg" "$DEST/proyectos/alcaldia-local-de-teusaquillo/01.jpg"
+dl "faef14_a18530d528f749329eb0adc29886c625~mv2.jpg" "$DEST/proyectos/alcaldia-local-de-teusaquillo/02.jpg"
+dl "faef14_fdabae31219445439ee54b4b008dfd01~mv2.jpg" "$DEST/proyectos/alcaldia-local-de-teusaquillo/03.jpg"
+dl "faef14_6bb36906908e4c08935108d9f099b179~mv2.jpg" "$DEST/proyectos/alcaldia-local-de-teusaquillo/04.jpg"
+dl "faef14_b67cd97c18994a99807cf9813f855112~mv2.jpg" "$DEST/proyectos/alcaldia-local-de-teusaquillo/05.jpg"
+dl "faef14_cb9bd3854db44fae89028d008653798e~mv2.png" "$DEST/proyectos/alcaldia-local-de-teusaquillo/06.png"
+dl "faef14_c0f4621fe8ac45b98b5bcc005b913a5f~mv2.jpg" "$DEST/proyectos/alcaldia-local-de-teusaquillo/07.jpg"
+
+# --- Casa Aguilar ---
+mkdir -p "$DEST/proyectos/casa-aguilar"
+dl "faef14_2e484d9f90f3439b8c9c127a2d5d93c1~mv2.png" "$DEST/proyectos/casa-aguilar/01.png"
+dl "faef14_75bc6ad7a4a04f73a4ff4efc166faac9~mv2.jpg" "$DEST/proyectos/casa-aguilar/02.jpg"
+dl "faef14_8d036fb312534b38831b9194b6b27bfb~mv2.jpg" "$DEST/proyectos/casa-aguilar/03.jpg"
+dl "faef14_33e66f0fb8d04967b197b4a892392d91~mv2.jpg" "$DEST/proyectos/casa-aguilar/04.jpg"
+dl "faef14_be01dc1fbac2477992d3ec68fd5924bc~mv2.jpg" "$DEST/proyectos/casa-aguilar/05.jpg"
+dl "faef14_73e1c7cdfc954291b8e8ef9f1cc543d3~mv2.jpg" "$DEST/proyectos/casa-aguilar/06.jpg"
+dl "faef14_05e8bd026be74235a2ded87c9637921f~mv2.jpg" "$DEST/proyectos/casa-aguilar/07.jpg"
+dl "faef14_e5925f6d599d493490f8b83b7f2f944a~mv2.jpg" "$DEST/proyectos/casa-aguilar/08.jpg"
+dl "faef14_6e97ac0dc2634e1da652eb8d08614107~mv2.jpg" "$DEST/proyectos/casa-aguilar/09.jpg"
+dl "faef14_7dab127034124e1e905ea0dcfc6dfcee~mv2.jpg" "$DEST/proyectos/casa-aguilar/10.jpg"
+dl "faef14_d189ad2bd4af44b3995319da0682647d~mv2.jpg" "$DEST/proyectos/casa-aguilar/11.jpg"
+dl "faef14_50feef8861a3448cb3227b6b834fe0d0~mv2.png" "$DEST/proyectos/casa-aguilar/12.png"
+dl "faef14_f07ad6869cad4685a3a990f2973b2e52~mv2.png" "$DEST/proyectos/casa-aguilar/13.png"
+
+# --- Casa Aguilar Castrillón ---
+mkdir -p "$DEST/proyectos/casa-aguilar-castrillon"
+dl "faef14_263477b392714b40b9dcdd134c57d400~mv2.png" "$DEST/proyectos/casa-aguilar-castrillon/01.png"
+dl "faef14_06edd3406cdb4eb8865d9a2b3bf13cb1~mv2.png" "$DEST/proyectos/casa-aguilar-castrillon/02.png"
+dl "faef14_7ae11dcdb37447cc9cb7d3334a992a8b~mv2.png" "$DEST/proyectos/casa-aguilar-castrillon/03.png"
+dl "faef14_ab1e32ca04f649ffbad68b6e0cd91a06~mv2.png" "$DEST/proyectos/casa-aguilar-castrillon/04.png"
+dl "faef14_621982b3213b498dacece4cd107fc8f3~mv2.png" "$DEST/proyectos/casa-aguilar-castrillon/05.png"
+dl "faef14_cbd5c61ca3d349139940c117babcbb75~mv2.png" "$DEST/proyectos/casa-aguilar-castrillon/06.png"
+dl "faef14_12586b2576ea494d879a86014d8fb412~mv2.png" "$DEST/proyectos/casa-aguilar-castrillon/07.png"
+dl "faef14_a5169a7d26a24c2b864a16661b1049cff000.jpg" "$DEST/proyectos/casa-aguilar-castrillon/08.jpg"
+dl "faef14_3f1f58c54ccd41078f1664112d104d31~mv2.png" "$DEST/proyectos/casa-aguilar-castrillon/09.png"
+dl "faef14_ce846c43092b460983d9dbc24c39d4e6~mv2.png" "$DEST/proyectos/casa-aguilar-castrillon/10.png"
+
+# --- Colegio Bolívar ---
+mkdir -p "$DEST/proyectos/colegio-bolivar"
+dl "faef14_8ec111cc09bc452db55dc59609d5ca73~mv2.jpg" "$DEST/proyectos/colegio-bolivar/01.jpg"
+dl "faef14_382cc93a24134c04870e06c12d206199~mv2.jpg" "$DEST/proyectos/colegio-bolivar/02.jpg"
+dl "faef14_31682346c38447de9775b101a5cd219b~mv2.jpg" "$DEST/proyectos/colegio-bolivar/03.jpg"
+dl "faef14_91f538b25e82467ba089e457311cfb9b~mv2.jpg" "$DEST/proyectos/colegio-bolivar/04.jpg"
+dl "faef14_5b25d49add3f45b1833685752d17b072~mv2.jpg" "$DEST/proyectos/colegio-bolivar/05.jpg"
+dl "faef14_a6274181d5714f18a805d3c54a9dd2c6~mv2.jpg" "$DEST/proyectos/colegio-bolivar/06.jpg"
+
+# --- Institución Educativa Departamental Pompilio Martínez ---
+mkdir -p "$DEST/proyectos/ied-pompilio-martinez"
+dl "faef14_92d488472aa14ceebe5771edc85d3f17~mv2.jpg" "$DEST/proyectos/ied-pompilio-martinez/01.jpg"
+dl "faef14_4eef83b449764477880a65ef767c9a51~mv2.jpg" "$DEST/proyectos/ied-pompilio-martinez/02.jpg"
+dl "faef14_8a59b3afa0d441d486b40ce30b6af54c~mv2.png" "$DEST/proyectos/ied-pompilio-martinez/03.png"
+dl "faef14_59884a9b6bb9448cbc4f28c049763494~mv2.gif" "$DEST/proyectos/ied-pompilio-martinez/04.gif"
+dl "faef14_5f3460e8a3e740a9b6d6613652e8bafc~mv2.png" "$DEST/proyectos/ied-pompilio-martinez/05.png"
+dl "faef14_5775d63af9924532b7e6f76a08f89acb~mv2.png" "$DEST/proyectos/ied-pompilio-martinez/06.png"
+dl "faef14_2bb9c925813a4d78a99c15a57508e71d~mv2.png" "$DEST/proyectos/ied-pompilio-martinez/07.png"
+
+# --- Colegio Pradera El Volcán ---
+mkdir -p "$DEST/proyectos/colegio-pradera-el-volcan"
+dl "faef14_ca372324168e48048e105ccef7d7ad64~mv2.jpg" "$DEST/proyectos/colegio-pradera-el-volcan/01.jpg"
+dl "faef14_5d9c3af360fe4ae7afd32aeb8bb5ece9~mv2.jpg" "$DEST/proyectos/colegio-pradera-el-volcan/02.jpg"
+dl "faef14_594796747c7a457599418ae70c21f3ef~mv2.jpg" "$DEST/proyectos/colegio-pradera-el-volcan/03.jpg"
+dl "faef14_98864184d7c6416086150dba56dac544~mv2.jpg" "$DEST/proyectos/colegio-pradera-el-volcan/04.jpg"
+dl "faef14_a1c9426ca85e4c0aad5b9c500ef2d277~mv2.jpg" "$DEST/proyectos/colegio-pradera-el-volcan/05.jpg"
+dl "faef14_0062a208effe4ceea64eb9d4200c8362~mv2.jpg" "$DEST/proyectos/colegio-pradera-el-volcan/06.jpg"
+dl "faef14_acef5fe738cb4f27a3f7e01f91d45ff1~mv2.jpg" "$DEST/proyectos/colegio-pradera-el-volcan/07.jpg"
+dl "faef14_fd3c01266e224b269b8d482bc5239ef8~mv2.gif" "$DEST/proyectos/colegio-pradera-el-volcan/08.gif"
+dl "faef14_6deffa3ba2b6479080a4deb9178a84e8~mv2.jpg" "$DEST/proyectos/colegio-pradera-el-volcan/09.jpg"
+dl "faef14_35f3c33c6e404ef5b7bf5dbb397e5ba6~mv2.gif" "$DEST/proyectos/colegio-pradera-el-volcan/10.gif"
+dl "faef14_4c3dc577907b4002b142b54116d7f5fd~mv2.png" "$DEST/proyectos/colegio-pradera-el-volcan/11.png"
+dl "faef14_1b223c4e3cd5457ebff8eee91ed57113~mv2.png" "$DEST/proyectos/colegio-pradera-el-volcan/12.png"
+dl "faef14_26988c4cf4364f80a704eb3448af90b5~mv2.png" "$DEST/proyectos/colegio-pradera-el-volcan/13.png"
+dl "faef14_cd567671dc424227837398b11baf22d9~mv2.png" "$DEST/proyectos/colegio-pradera-el-volcan/14.png"
+
+# --- Recuperación del espacio público del Centro de Cali ---
+mkdir -p "$DEST/proyectos/espacio-publico-centro-de-cali"
+dl "faef14_aad509a2e6d84b0e819d1424421ad8f6~mv2.png" "$DEST/proyectos/espacio-publico-centro-de-cali/01.png"
+dl "faef14_a3b8ba6e34864a7cbb6a660b1fe7d5c5~mv2.png" "$DEST/proyectos/espacio-publico-centro-de-cali/02.png"
+dl "faef14_32175b1d4cfa468b87b8da1ddb348e5e~mv2.png" "$DEST/proyectos/espacio-publico-centro-de-cali/03.png"
+
+# --- Colegio y teatro El Ensueño ---
+mkdir -p "$DEST/proyectos/colegio-y-teatro-el-ensueno"
+dl "faef14_00c67508f135450294286dec8efdf29b~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/01.jpg"
+dl "faef14_010015aaa4014ac9b2a189d27f08fcad~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/02.jpg"
+dl "faef14_7afe911d1cd34f18bd5f6bd4209fa2bc~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/03.jpg"
+dl "faef14_4579f95dee954231a2ac6bea1c42f5b2~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/04.jpg"
+dl "faef14_a7dbc5307252445a89173620a469eb54~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/05.jpg"
+dl "faef14_e38767e1b77c4e50a88014472f03b052~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/06.jpg"
+dl "faef14_03caa32ddfca40e2acb75e5f3cd2e5d1~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/07.jpg"
+dl "faef14_35e2059318bf4532ad4319e72d661394~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/08.jpg"
+dl "faef14_7224aeefd9f64ccfab772b57e06809a9~mv2.jpeg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/09.jpeg"
+dl "faef14_3198cbc8bc4f4609975318c761d81947~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/10.jpg"
+dl "faef14_53b29bb8185c4ab4870fff297b3df9e3~mv2.jpeg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/11.jpeg"
+dl "faef14_0cc32c838b99471794caed0c301292f2~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/12.jpg"
+dl "faef14_627060df32b14b4598a9fdd99c277e33~mv2.jpeg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/13.jpeg"
+dl "faef14_4c1c7ee5575646b9b47316e405ed3817~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/14.jpg"
+dl "faef14_6572c90129c04fe49e41ee823fb52436~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/15.jpg"
+dl "faef14_ec8deb56c01841288be85d2e95d3c113~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/16.jpg"
+dl "faef14_ac6590223b36452ba5389a77bd35f0de~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/17.jpg"
+dl "faef14_825312f15e5b4492bb9d1e9c7c6f83c7~mv2.jpeg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/18.jpeg"
+dl "faef14_b541b218ea7d4cdcbaea250a0c6e56d3~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/19.jpg"
+dl "faef14_548a3f41b4fd4ab9800df58e38132dea~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/20.jpg"
+dl "faef14_81419c8b640a45b4b4e592765713507d~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/21.jpg"
+dl "faef14_1f8f6b23cb064cb7b6d1220300d07c1c~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/22.jpg"
+dl "faef14_a987590a11da4803a7f521f40b1f48eb~mv2.jpg" "$DEST/proyectos/colegio-y-teatro-el-ensueno/23.jpg"
+dl "faef14_4e6380250cf94cf895d27268624f40f4~mv2.gif" "$DEST/proyectos/colegio-y-teatro-el-ensueno/24.gif"
+dl "faef14_04f227e47a464d3495238b0a06a7c56a~mv2.gif" "$DEST/proyectos/colegio-y-teatro-el-ensueno/25.gif"
+
+# --- Casa cultural en el Centro Poblado Las Colinas Jaime Pardo Leal ---
+mkdir -p "$DEST/proyectos/casa-cultural-las-colinas"
+dl "faef14_8108ddffb7e64e2f8d04d45417072221~mv2.jpg" "$DEST/proyectos/casa-cultural-las-colinas/01.jpg"
+dl "faef14_d982b2d6c197411987b29e240c3e4e69~mv2.jpg" "$DEST/proyectos/casa-cultural-las-colinas/02.jpg"
+dl "faef14_37ffd3400ff44900bb199918586cbe05~mv2.jpg" "$DEST/proyectos/casa-cultural-las-colinas/03.jpg"
+dl "faef14_2462776da143435f8341ed289ae84a17~mv2.png" "$DEST/proyectos/casa-cultural-las-colinas/04.png"
+dl "faef14_5a035a7f05824371b1c96a22be4cfb4a~mv2.png" "$DEST/proyectos/casa-cultural-las-colinas/05.png"
+dl "faef14_eec5bda150a74f12ad3e6fd793a7221b~mv2.jpg" "$DEST/proyectos/casa-cultural-las-colinas/06.jpg"
+dl "faef14_60ba8237b0384254a7ef6d2e3cc4b049~mv2.png" "$DEST/proyectos/casa-cultural-las-colinas/07.png"
+
+# --- Tirreno ---
+mkdir -p "$DEST/proyectos/tirreno"
+dl "faef14_04dc863b1ca8414f82a64d29a88ec2fd~mv2.jpg" "$DEST/proyectos/tirreno/01.jpg"
+dl "faef14_4a6571d551f844b7a2170d94524dd5d6~mv2.jpg" "$DEST/proyectos/tirreno/02.jpg"
+dl "faef14_b9bf75822faf4b8d9eabcd35c4330ae1~mv2.jpg" "$DEST/proyectos/tirreno/03.jpg"
+dl "faef14_35f4ce6330b04d698ea7d32833e37be8~mv2.jpeg" "$DEST/proyectos/tirreno/04.jpeg"
+dl "faef14_9eb0f9cc302845ffbd82ba4ffc2ad45d~mv2.jpeg" "$DEST/proyectos/tirreno/05.jpeg"
+dl "faef14_381781230d714c3593df547b9c21c36e~mv2.jpg" "$DEST/proyectos/tirreno/06.jpg"
+dl "faef14_4332e07a3d564256ae1d5ef6c244a231~mv2.jpg" "$DEST/proyectos/tirreno/07.jpg"
+
+# --- Jardín Infantil Los Álamos ---
+mkdir -p "$DEST/proyectos/jardin-infantil-los-alamos"
+dl "faef14_53ba231f85394bd88c2e0bbde224bd9e~mv2.png" "$DEST/proyectos/jardin-infantil-los-alamos/01.png"
+dl "faef14_dca5d712867145068ebc3322b9b3dd7c~mv2.png" "$DEST/proyectos/jardin-infantil-los-alamos/02.png"
+dl "faef14_168b49c84669432aaa1a797b25c9399f~mv2.png" "$DEST/proyectos/jardin-infantil-los-alamos/03.png"
+dl "faef14_8ac41ff366dd4beebbd44fc00d0c5f74~mv2.png" "$DEST/proyectos/jardin-infantil-los-alamos/04.png"
+dl "faef14_1dcb820ce05049469539af7ae753f14f~mv2.png" "$DEST/proyectos/jardin-infantil-los-alamos/05.png"
+dl "faef14_35c69ed67787492595b07dd7504c4cc9~mv2.png" "$DEST/proyectos/jardin-infantil-los-alamos/06.png"
+dl "faef14_8ac666345b0f48f28ca12eb75dd109bf~mv2.png" "$DEST/proyectos/jardin-infantil-los-alamos/07.png"
+dl "faef14_8f0a3019ef354297a95056ddbce14c91~mv2.png" "$DEST/proyectos/jardin-infantil-los-alamos/08.png"
+dl "faef14_d4f75d9eeacb44ba88c10a8871a512cc~mv2.png" "$DEST/proyectos/jardin-infantil-los-alamos/09.png"
+dl "faef14_8caeb16576c6439f9b4a24e7df4b29dc~mv2.png" "$DEST/proyectos/jardin-infantil-los-alamos/10.png"
+dl "faef14_2500e49ca6a64b299c99e80ebe1e48e1~mv2.png" "$DEST/proyectos/jardin-infantil-los-alamos/11.png"
+dl "faef14_06ed7bdc27584ce19ea85c57c82f25ba~mv2.gif" "$DEST/proyectos/jardin-infantil-los-alamos/12.gif"
+dl "faef14_30f8fb306c45470baadbe432396fd250~mv2.png" "$DEST/proyectos/jardin-infantil-los-alamos/13.png"
+dl "faef14_7cf653594e984b27bff025677ee9170b~mv2.png" "$DEST/proyectos/jardin-infantil-los-alamos/14.png"
+dl "faef14_8f0b0b2dcda4445db7ea7c3223552618~mv2.png" "$DEST/proyectos/jardin-infantil-los-alamos/15.png"
+
+# --- Alcaldía Local de Santa Fe ---
+mkdir -p "$DEST/proyectos/alcaldia-local-de-santa-fe"
+dl "faef14_cda5c7562dd14c19ada9f9d0d9f3fa93~mv2.png" "$DEST/proyectos/alcaldia-local-de-santa-fe/01.png"
+dl "faef14_735af68729e94136b46318d45b20c20f~mv2.png" "$DEST/proyectos/alcaldia-local-de-santa-fe/02.png"
+dl "faef14_6bfd16f00bb0467ab25dfdd86c5c29e7~mv2.png" "$DEST/proyectos/alcaldia-local-de-santa-fe/03.png"
+dl "faef14_2709f0a74a764abca3d045b6edb0f9c2~mv2.png" "$DEST/proyectos/alcaldia-local-de-santa-fe/04.png"
+dl "faef14_c4d65e2a946647769419eec25fa1e904~mv2.png" "$DEST/proyectos/alcaldia-local-de-santa-fe/05.png"
+dl "faef14_9535c78f77e24bd19bfd80606a6eac05~mv2.png" "$DEST/proyectos/alcaldia-local-de-santa-fe/06.png"
+
+# --- Teatro César Conto Ferrer ---
+mkdir -p "$DEST/proyectos/teatro-cesar-conto-ferrer"
+dl "faef14_7534e7bff0e243f59205c1c266c1270a~mv2.png" "$DEST/proyectos/teatro-cesar-conto-ferrer/01.png"
+dl "faef14_7471469cc32b4d8baacef94a8b313f73~mv2.png" "$DEST/proyectos/teatro-cesar-conto-ferrer/02.png"
+dl "faef14_bac4ac02c23e42e0988d2999e8f1421d~mv2.gif" "$DEST/proyectos/teatro-cesar-conto-ferrer/03.gif"
+
+# --- CEFE Tunal ---
+mkdir -p "$DEST/proyectos/cefe-tunal"
+dl "faef14_041bbe4b884d47aea6fa35513ca97b48~mv2.jpg" "$DEST/proyectos/cefe-tunal/01.jpg"
+dl "faef14_3722a6ff20404772829a254f6b77d21e~mv2.jpg" "$DEST/proyectos/cefe-tunal/02.jpg"
+dl "faef14_992498df0af7412f9debd43ac659d6c3~mv2.jpg" "$DEST/proyectos/cefe-tunal/03.jpg"
+dl "faef14_b56cebe2724947ecb96d4e530aabc36f~mv2.jpg" "$DEST/proyectos/cefe-tunal/04.jpg"
+dl "faef14_dae19ca1ea6b4b559529a30977d9a7ef~mv2.jpg" "$DEST/proyectos/cefe-tunal/05.jpg"
+dl "faef14_f3e3b35ef128474aaf3ab88f450cbdc4~mv2.png" "$DEST/proyectos/cefe-tunal/06.png"
+dl "faef14_6aa443d3bb8f44ba81045ec07f547e4f~mv2.jpg" "$DEST/proyectos/cefe-tunal/07.jpg"
+
+# --- Arezzo ---
+mkdir -p "$DEST/proyectos/arezzo"
+dl "faef14_9025429f445e4578ba875d7f708da8b8~mv2.jpg" "$DEST/proyectos/arezzo/01.jpg"
+dl "faef14_0631feee1858438ca48756952ba905eb~mv2.jpg" "$DEST/proyectos/arezzo/02.jpg"
+dl "faef14_5ce72cc1d77340849ac9002319432bd0~mv2.jpg" "$DEST/proyectos/arezzo/03.jpg"
+dl "faef14_e86ccb9850ba42619007683819b2c251~mv2.png" "$DEST/proyectos/arezzo/04.png"
+dl "faef14_744c8554f01f459dad441b0e05bd6af7~mv2.jpg" "$DEST/proyectos/arezzo/05.jpg"
+
+# --- Colegio Bicentenario de la Independencia ---
+mkdir -p "$DEST/proyectos/colegio-bicentenario-de-la-independencia"
+dl "faef14_5198b944410849b2830254d4fa9620b4~mv2.jpg" "$DEST/proyectos/colegio-bicentenario-de-la-independencia/01.jpg"
+dl "faef14_5bfa29b640f6494c8ba6f70591bf7d06~mv2.jpg" "$DEST/proyectos/colegio-bicentenario-de-la-independencia/02.jpg"
+dl "faef14_7903786768ab44e0b9e56691e9148d63~mv2.jpg" "$DEST/proyectos/colegio-bicentenario-de-la-independencia/03.jpg"
+dl "faef14_dcf3d6d823d9493da440e17d618edf8c~mv2.jpg" "$DEST/proyectos/colegio-bicentenario-de-la-independencia/04.jpg"
+
+echo "Listo. Archivos en $DEST"

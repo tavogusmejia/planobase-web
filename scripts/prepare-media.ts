@@ -28,6 +28,14 @@ const OUT = join(ROOT, 'public/media/proyectos')
 const MAX_EDGE = 2560
 const QUALITY = 82
 
+/**
+ * El proyecto del que sale la imagen por defecto para compartir. Debe coincidir
+ * con la primera lámina de `heroSlides` en content/site.ts; no se importa de
+ * allí porque este
+ * script corre fuera del resolutor de alias de Next.
+ */
+const SLUG_OG = 'casa-aguilar'
+
 type WixProject = {
   slug: string
   titulo: string
@@ -201,6 +209,36 @@ async function heroSlugs(proyectos: WixProject[]): Promise<Set<string>> {
   return out
 }
 
+/**
+ * Imagen por defecto para compartir (Open Graph), 1200x630.
+ *
+ * WhatsApp es el canal principal de este negocio y hasta ahora los enlaces se
+ * compartían pelados: sin tarjeta, sin imagen, sin descripción. Ese es
+ * literalmente el paso entre "el arquitecto le pasa el link al cliente" y "el
+ * cliente entra".
+ *
+ * Va a `public/og/`, que sí se versiona — el patrón `media/` de .gitignore no lo
+ * captura—, porque es un solo archivo y tiene que viajar al despliegue.
+ *
+ * Sin rótulo ni logotipo encima: componer texto aquí obligaría a incrustar la
+ * tipografía y a que el resultado dependa de cómo la resuelva sharp. La
+ * fotografía sola no se rompe nunca.
+ */
+async function generarOgPorDefecto(): Promise<boolean> {
+  const origen = join(OUT, SLUG_OG, '00-portada.webp')
+  if (!(await exists(origen))) return false
+
+  const destino = join(ROOT, 'public/og/default.jpg')
+  await mkdir(dirname(destino), { recursive: true })
+
+  await sharp(origen)
+    .resize({ width: 1200, height: 630, fit: 'cover', position: 'attention' })
+    .jpeg({ quality: 82, mozjpeg: true })
+    .toFile(destino)
+
+  return true
+}
+
 async function main() {
   const raw = await readFile(
     join(ROOT, 'wix-migration/01-content/projects.json'),
@@ -299,6 +337,9 @@ export const projects: Project[] = `
   console.log(`  imágenes       ${totalImgs}`)
   console.log(`  sin imagen     ${sinImagen.join(', ') || '—'}`)
   console.log(`  sin área       ${areaFaltante.length} proyectos`)
+
+  const og = await generarOgPorDefecto()
+  console.log(`  og por defecto ${og ? 'public/og/default.jpg' : 'sin portada de origen'}`)
   console.log(`  → content/projects.ts\n`)
 }
 

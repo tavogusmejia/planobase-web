@@ -4,7 +4,8 @@ import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { escalera, puertas } from '@content/puertas'
 import { asesoria, contacto } from '@content/site'
-import { formatCOP, whatsappUrl } from '@/lib/utils'
+import { formatCOP } from '@/lib/utils'
+import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
 export async function generateMetadata({
   params,
@@ -148,17 +149,14 @@ export default async function ServiciosPage({
             >
               Agendar asesoría
             </Link>
-            <a
-              href={whatsappUrl(
-                contacto.whatsapp,
-                'Hola Plano Base, quiero preguntar por un servicio.',
-              )}
-              rel="noopener noreferrer"
-              target="_blank"
+            <WhatsAppLink
+              numero={contacto.whatsapp}
+              mensaje="Hola Plano Base, quiero preguntar por un servicio."
+              origen="web/servicios"
               className="text-block border border-accent px-7 py-4 uppercase tracking-[0.08em] text-accent transition-colors hover:bg-accent hover:text-paper"
             >
               Preguntar por WhatsApp
-            </a>
+            </WhatsAppLink>
           </div>
         </div>
       </section>

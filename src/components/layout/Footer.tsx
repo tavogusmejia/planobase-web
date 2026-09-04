@@ -2,7 +2,7 @@ import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Isotipo } from '@/components/brand/Isotipo'
 import { contacto, navegacion, site } from '@content/site'
-import { whatsappUrl } from '@/lib/utils'
+import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
 export async function Footer() {
   const t = await getTranslations('footer')
@@ -67,17 +67,14 @@ export async function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href={whatsappUrl(
-                    contacto.whatsapp,
-                    'Hola Plano Base, quiero información sobre un proyecto.',
-                  )}
-                  rel="noopener noreferrer"
-                  target="_blank"
+                <WhatsAppLink
+                  numero={contacto.whatsapp}
+                  mensaje="Hola Plano Base, quiero información sobre un proyecto."
+                  origen="web/pie"
                   className="text-small text-ink transition-colors hover:text-accent"
                 >
                   {t('whatsapp')}
-                </a>
+                </WhatsAppLink>
               </li>
             </ul>
           </div>

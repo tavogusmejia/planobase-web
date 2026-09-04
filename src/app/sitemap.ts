@@ -3,7 +3,7 @@ import { getAllSlugs } from '@/lib/data/projects'
 import { posts } from '@content/posts'
 import { puertas } from '@content/puertas'
 import { CATEGORIAS } from '@/lib/types'
-import { routing } from '@/i18n/routing'
+import { LOCALES_INDEXABLES, routing } from '@/i18n/routing'
 
 const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.planobase.co'
 
@@ -52,18 +52,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const ahora = new Date()
 
+  // hreflang solo entre idiomas que se indexan. Con uno solo no hay
+  // alternativas que declarar, y un clúster hreflang donde un miembro va
+  // `noindex` Google lo ignora entero: declararlo sería ruido, no señal.
+  const hayAlternativas = LOCALES_INDEXABLES.length > 1
+
   return rutas.map(({ path, priority, freq }) => ({
     url: `${base}/${routing.defaultLocale}${path}`,
     lastModified: ahora,
     changeFrequency: freq,
     priority,
-    alternates: {
-      languages: {
-        ...Object.fromEntries(
-          routing.locales.map((l) => [l, `${base}/${l}${path}`]),
-        ),
-        'x-default': `${base}/${routing.defaultLocale}${path}`,
-      },
-    },
+    ...(hayAlternativas
+      ? {
+          alternates: {
+            languages: {
+              ...Object.fromEntries(
+                LOCALES_INDEXABLES.map((l) => [l, `${base}/${l}${path}`]),
+              ),
+              'x-default': `${base}/${routing.defaultLocale}${path}`,
+            },
+          },
+        }
+      : {}),
   }))
 }

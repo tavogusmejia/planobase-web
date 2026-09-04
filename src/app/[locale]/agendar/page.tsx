@@ -3,7 +3,8 @@ import { setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { asesoria, contacto } from '@content/site'
-import { formatCOP, whatsappUrl } from '@/lib/utils'
+import { formatCOP } from '@/lib/utils'
+import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
 export async function generateMetadata({
   params,
@@ -43,10 +44,7 @@ export default async function AgendarPage({
   const { locale } = await params
   setRequestLocale(locale)
 
-  const wa = whatsappUrl(
-    contacto.whatsapp,
-    `Hola Plano Base, quiero agendar una ${asesoria.nombre.toLowerCase()}.`,
-  )
+  const mensajeWa = `Hola Plano Base, quiero agendar una ${asesoria.nombre.toLowerCase()}.`
 
   /* Lo que la persona recibe. Sale del plan de campaña: es exactamente lo que
      el anuncio promete, así que la página tiene que sostenerlo. */
@@ -109,14 +107,14 @@ export default async function AgendarPage({
               {formatCOP(asesoria.precioCOP)}
             </p>
 
-            <a
-              href={wa}
-              rel="noopener noreferrer"
-              target="_blank"
+            <WhatsAppLink
+              numero={contacto.whatsapp}
+              mensaje={mensajeWa}
+              origen="web/agendar"
               className="text-block mt-8 block bg-signal px-7 py-4 text-center uppercase tracking-[0.08em] text-paper transition-opacity hover:opacity-90"
             >
               Agendar por WhatsApp
-            </a>
+            </WhatsAppLink>
             <p className="text-block mt-3 text-muted">
               Respondemos dentro de la siguiente hora hábil.
             </p>

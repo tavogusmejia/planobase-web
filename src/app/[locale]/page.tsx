@@ -1,12 +1,50 @@
+import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { Hero } from '@/components/home/Hero'
 import { ProjectCard } from '@/components/project/ProjectCard'
 import { getFeatured, getHeroProjects, getStats } from '@/lib/data/projects'
-import { asesoria, manifiesto } from '@content/site'
+import { asesoria, contacto, manifiesto, site } from '@content/site'
 import { puertas } from '@content/puertas'
 import { formatCOP } from '@/lib/utils'
+
+/**
+ * La home no tenía metadatos propios: heredaba los del layout, sin canonical.
+ * Es la página con más autoridad del dominio y la que compite por la consulta de
+ * cabeza del negocio —«arquitectos en Cali»—, así que merece los suyos.
+ */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const titulo = `${site.nombreLargo} | Estudio de arquitectura en Cali`
+
+  return {
+    // `absolute` evita que la plantilla del layout lo convierta en
+    // "... | Plano Base | Plano Base".
+    title: { absolute: titulo },
+    alternates: { canonical: `/${locale}` },
+    // La imagen se repite aquí aunque el layout ya la declare: Next mezcla los
+    // metadatos de forma SUPERFICIAL, así que un `openGraph` en una página
+    // reemplaza entero el del layout en vez de completarlo. Sin esta línea, la
+    // página más compartida del sitio es la única que se comparte sin imagen.
+    openGraph: {
+      title: titulo,
+      url: `/${locale}`,
+      images: [
+        {
+          url: '/og/default.jpg',
+          width: 1200,
+          height: 630,
+          alt: `${site.nombreLargo}, Cali`,
+        },
+      ],
+    },
+  }
+}
 
 export default async function HomePage({
   params,
@@ -31,6 +69,14 @@ export default async function HomePage({
           Rotante, como el de Wix, pero con el nombre del proyecto visible y
           enlazando a su ficha: el carrusel actual es mudo y no lleva a ningún
           sitio. */}
+      {/* El encabezado real de la página. Va oculto a la vista porque quien
+          manda visualmente es la fotografía a sangre, pero la home tenía SIETE
+          <h1>, todos nombres de proyecto: para un rastreador, la página
+          principal del estudio se titulaba "Casa Aguilar". */}
+      <h1 className="sr-only">
+        {site.nombreLargo}, estudio de arquitectura en {contacto.ciudad}
+      </h1>
+
       <Hero projects={hero} />
 
       {/* ---- Declaración ----------------------------------------------------

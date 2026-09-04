@@ -48,15 +48,29 @@ export const navegacion = [
 ] as const
 
 /**
- * El proyecto con el que abre la home.
+ * Las láminas del hero, en orden. La primera es la que abre la home.
  *
- * Es una decisión editorial del estudio, no una consecuencia del dato: por año
- * y por relevancia el orden dejaba primero a Villas del Progreso, y la primera
- * pantalla del sitio es demasiado importante como para que la resuelva un
- * desempate. Se declara aquí, se cambia en una línea, y si el slug deja de
- * existir el hero simplemente vuelve a su orden por relevancia.
+ * Antes esto lo resolvía un algoritmo —destacados, luego año descendente— y la
+ * portada del sitio dependía de un desempate por fecha. Un portafolio se abre
+ * con lo que uno quiere enseñar primero, así que la decisión se escribe.
+ * Reordenar el hero es reordenar esta lista; quitar una lámina es borrar una
+ * línea.
+ *
+ * Regla que sigue viva: una portada por debajo de 1920 px de ancho se ve blanda
+ * a pantalla completa y se descarta aunque esté declarada aquí, con un aviso en
+ * desarrollo. La lista manda sobre el orden, no sobre la calidad.
+ *
+ * Si queda vacía, el hero vuelve a ordenarse solo por relevancia.
  */
-export const heroApertura = 'casa-aguilar'
+export const heroSlides: string[] = [
+  'casa-aguilar',
+  'concurso-colegio-villas-del-progreso',
+  'tirreno',
+  'concurso-5inco-sena-ipiales',
+  'concurso-5inco-sena-kennedy',
+  'jardin-infantil-los-alamos',
+  'alcaldia-local-de-santa-fe',
+]
 
 /**
  * El manifiesto del estudio, literal del bloque de /estudio.

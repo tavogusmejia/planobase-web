@@ -6,7 +6,8 @@ import { Rule } from '@/components/ui/Rule'
 import { puertas, puertaPorSlug, serviciosDe } from '@content/puertas'
 import { asesoria, contacto, reconocimientos } from '@content/site'
 import { routing } from '@/i18n/routing'
-import { formatCOP, whatsappUrl } from '@/lib/utils'
+import { formatCOP } from '@/lib/utils'
+import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -160,17 +161,14 @@ export default async function PuertaPage({
             >
               Agendar asesoría
             </Link>
-            <a
-              href={whatsappUrl(
-                contacto.whatsapp,
-                `Hola Plano Base, mi caso es: ${puerta.pregunta.toLowerCase()}`,
-              )}
-              rel="noopener noreferrer"
-              target="_blank"
+            <WhatsAppLink
+              numero={contacto.whatsapp}
+              mensaje={`Hola Plano Base, mi caso es: ${puerta.pregunta.toLowerCase()}`}
+              origen={`web/servicios/${puerta.slug}`}
               className="text-block border border-accent px-7 py-4 uppercase tracking-[0.08em] text-accent transition-colors hover:bg-accent hover:text-paper"
             >
               Preguntar por WhatsApp
-            </a>
+            </WhatsAppLink>
           </div>
         </div>
       </section>

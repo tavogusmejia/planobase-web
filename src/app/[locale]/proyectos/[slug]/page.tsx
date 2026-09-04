@@ -13,7 +13,7 @@ import {
   getRelated,
 } from '@/lib/data/projects'
 import { routing } from '@/i18n/routing'
-import { etiquetaProyecto, formatArea, mediaSrc } from '@/lib/utils'
+import { absoluteUrl, etiquetaProyecto, formatArea, mediaSrc } from '@/lib/utils'
 
 export async function generateStaticParams() {
   const slugs = await getAllSlugs()
@@ -131,7 +131,7 @@ export default async function ProyectoPage({
         addressCountry: 'CO',
       },
     },
-    ...(project.portada ? { image: mediaSrc(project.portada.path) } : {}),
+    ...(project.portada ? { image: absoluteUrl(mediaSrc(project.portada.path)) } : {}),
   }
 
   return (

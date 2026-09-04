@@ -3,7 +3,8 @@ import { setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { asesoria, contacto } from '@content/site'
-import { formatCOP, whatsappUrl } from '@/lib/utils'
+import { formatCOP } from '@/lib/utils'
+import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
 export async function generateMetadata({
   params,
@@ -91,17 +92,14 @@ export default async function AsesoriaTecnicaPage({
         >
           Reservar sesión
         </Link>
-        <a
-          href={whatsappUrl(
-            contacto.whatsapp,
-            `Hola Plano Base, quiero agendar una ${asesoria.nombre.toLowerCase()}.`,
-          )}
-          rel="noopener noreferrer"
-          target="_blank"
+        <WhatsAppLink
+          numero={contacto.whatsapp}
+          mensaje={`Hola Plano Base, quiero agendar una ${asesoria.nombre.toLowerCase()}.`}
+          origen="web/asesoria-tecnica"
           className="text-block border border-accent px-7 py-4 uppercase tracking-[0.08em] text-accent transition-colors hover:bg-accent hover:text-paper"
         >
           Preguntar por WhatsApp
-        </a>
+        </WhatsAppLink>
       </div>
     </div>
   )

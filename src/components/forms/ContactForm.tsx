@@ -6,7 +6,9 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { leadSchema, type LeadInput } from '@/lib/schemas'
 import { enviarLead } from '@/app/actions/leads'
 import { etapasProyecto, municipios, contacto } from '@content/site'
-import { cn, whatsappUrl } from '@/lib/utils'
+import { cn } from '@/lib/utils'
+import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
+import { track } from '@/lib/analytics'
 
 const campoBase =
   'w-full border-0 border-b border-line bg-transparent px-0 py-3 text-body ' +
@@ -48,17 +50,14 @@ export function ContactForm() {
           Te escribimos por WhatsApp dentro de la próxima hora hábil. Si prefieres
           adelantar la conversación, puedes escribirnos ahora mismo.
         </p>
-        <a
-          href={whatsappUrl(
-            contacto.whatsapp,
-            'Hola Plano Base, acabo de enviar el formulario de la web.',
-          )}
-          rel="noopener noreferrer"
-          target="_blank"
+        <WhatsAppLink
+          numero={contacto.whatsapp}
+          mensaje="Hola Plano Base, acabo de enviar el formulario de la web."
+          origen="web/formulario-enviado"
           className="text-block mt-8 inline-block bg-signal px-7 py-4 uppercase tracking-[0.08em] text-paper transition-opacity hover:opacity-90"
         >
           Escribir por WhatsApp
-        </a>
+        </WhatsAppLink>
       </div>
     )
   }
@@ -70,6 +69,12 @@ export function ContactForm() {
         setGeneral(null)
         const res = await enviarLead(data)
         if (res.ok) {
+          // Las dos dimensiones con las que se compara el costo por lead entre
+          // anuncios: de dónde es y en qué etapa está.
+          track('Lead', {
+            content_name: data.municipio,
+            content_category: data.etapa,
+          })
           setEnviado(true)
           return
         }

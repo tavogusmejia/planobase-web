@@ -43,11 +43,45 @@ export function mediaSrc(path: string): string {
 }
 
 /**
+ * URL absoluta a partir de una ruta del sitio.
+ *
+ * Existe por los datos estructurados: schema.org exige URL absoluta en `image`,
+ * y hasta ahora las 23 fichas de proyecto emitían una ruta relativa, con lo que
+ * el campo era inválido. Los metadatos de Next no la necesitan —resuelve las
+ * relativas contra `metadataBase`—, así que esto es solo para el JSON-LD.
+ *
+ * La guarda de `http` no es defensiva por si acaso: `mediaSrc()` devuelve una
+ * URL absoluta del bucket en producción y una relativa en local, y esta función
+ * tiene que dar lo correcto en los dos casos.
+ */
+export function absoluteUrl(path: string): string {
+  if (/^https?:\/\//i.test(path)) return path
+  const base = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.planobase.co')
+    .replace(/\/+$/, '')
+  return `${base}${path.startsWith('/') ? path : `/${path}`}`
+}
+
+/**
  * Enlace de WhatsApp con mensaje prellenado. El plan de campaña fija un SLA de
  * respuesta de 1 hora, así que este es el canal principal, no un extra.
+ *
+ * `origen` viaja dentro del propio texto porque WhatsApp no transporta nada más:
+ * no hay UTMs, ni referer, ni cookie que sobreviva al salto a la aplicación. El
+ * texto prellenado es literalmente el único canal por el que puede pasar de qué
+ * página salió la conversación, y sin eso no hay forma de saber si el chat vino
+ * de la barra fija, de una ficha de servicio o del pie.
+ *
+ * El costo es que la marca se ve: la persona la lee en su mensaje antes de
+ * enviarlo. Se deja discreta y en una sola línea; quitarla es borrar el
+ * argumento aquí.
  */
-export function whatsappUrl(numero: string, mensaje: string): string {
-  return `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`
+export function whatsappUrl(
+  numero: string,
+  mensaje: string,
+  origen?: string,
+): string {
+  const texto = origen ? `${mensaje}\n\n· ${origen}` : mensaje
+  return `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`
 }
 
 /**

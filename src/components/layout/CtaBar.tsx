@@ -1,7 +1,8 @@
 import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { asesoria, contacto } from '@content/site'
-import { formatCOP, whatsappUrl } from '@/lib/utils'
+import { formatCOP } from '@/lib/utils'
+import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
 /**
  * Barra fija inferior. Es lo único del sitio de Wix que funcionaba y convertía,
@@ -22,20 +23,17 @@ export async function CtaBar() {
         </p>
 
         <div className="flex min-w-0 flex-1 items-center justify-between gap-3 sm:justify-end sm:gap-6">
-          <a
-            href={whatsappUrl(
-              contacto.whatsapp,
-              `Hola Plano Base, quiero agendar una ${asesoria.nombre.toLowerCase()}.`,
-            )}
-            rel="noopener noreferrer"
-            target="_blank"
+          <WhatsAppLink
+            numero={contacto.whatsapp}
+            mensaje={`Hola Plano Base, quiero agendar una ${asesoria.nombre.toLowerCase()}.`}
+            origen="web/barra-fija"
             className="text-block shrink-0 underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
           >
             {/* En móvil no cabe la frase completa y su desbordamiento hacía que
                 todo el documento tuviera scroll horizontal. */}
             <span className="sm:hidden">WhatsApp</span>
             <span className="hidden sm:inline">{t('escribirWhatsapp')}</span>
-          </a>
+          </WhatsAppLink>
           <Link
             href="/agendar"
             className="text-block shrink-0 bg-paper px-4 py-2.5 uppercase tracking-[0.08em] text-ink transition-opacity hover:opacity-80 sm:px-5"

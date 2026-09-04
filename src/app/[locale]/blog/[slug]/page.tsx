@@ -5,7 +5,7 @@ import { setRequestLocale } from 'next-intl/server'
 import { Rule } from '@/components/ui/Rule'
 import { posts } from '@content/posts'
 import { routing } from '@/i18n/routing'
-import { mediaSrc } from '@/lib/utils'
+import { absoluteUrl, mediaSrc } from '@/lib/utils'
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -64,7 +64,7 @@ export default async function PostPage({
     author: { '@type': 'Person', name: post.autor },
     publisher: { '@type': 'Organization', name: 'Plano Base Arquitectos' },
     description: post.resumen,
-    ...(post.portada ? { image: mediaSrc(post.portada.path) } : {}),
+    ...(post.portada ? { image: absoluteUrl(mediaSrc(post.portada.path)) } : {}),
   }
 
   return (

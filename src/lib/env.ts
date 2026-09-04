@@ -18,6 +18,8 @@ export const entornoPublico = {
   supabaseAnonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? '',
   /** Sin barra final: `mediaSrc()` la pone. Vacío = servir de `public/media/`. */
   origenMedia: (process.env.NEXT_PUBLIC_MEDIA_ORIGIN ?? '').replace(/\/+$/, ''),
+  /** Vacío = el sitio no monta el Pixel. */
+  metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? '',
 } as const
 
 function enServidor(quien: string): void {

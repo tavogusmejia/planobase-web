@@ -4,7 +4,8 @@ import { Link } from '@/i18n/navigation'
 import { ContactForm } from '@/components/forms/ContactForm'
 import { Rule } from '@/components/ui/Rule'
 import { asesoria, contacto } from '@content/site'
-import { formatCOP, whatsappUrl } from '@/lib/utils'
+import { formatCOP } from '@/lib/utils'
+import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
 export async function generateMetadata({
   params,
@@ -57,17 +58,14 @@ export default async function ContactoPage({
           <h2 className="text-block mt-10 text-muted">Directo</h2>
           <ul className="mt-3 space-y-2">
             <li>
-              <a
-                href={whatsappUrl(
-                  contacto.whatsapp,
-                  'Hola Plano Base, quiero información sobre un proyecto.',
-                )}
-                rel="noopener noreferrer"
-                target="_blank"
+              <WhatsAppLink
+                numero={contacto.whatsapp}
+                mensaje="Hola Plano Base, quiero información sobre un proyecto."
+                origen="web/contacto"
                 className="text-small text-ink underline-offset-4 hover:text-accent hover:underline"
               >
                 WhatsApp {contacto.telefono}
-              </a>
+              </WhatsAppLink>
             </li>
             <li>
               <a

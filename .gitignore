@@ -24,3 +24,6 @@ media/
 .DS_Store
 *.log
 .leads/
+
+# estado local del CLI de Supabase — cambia por máquina
+supabase/.temp/

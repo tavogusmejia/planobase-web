@@ -1,5 +1,5 @@
 import { projects } from '@content/projects'
-import { heroApertura, reconocimientos } from '@content/site'
+import { heroSlides, reconocimientos } from '@content/site'
 import { CATEGORIAS, type Categoria, type Project } from '@/lib/types'
 
 /**
@@ -34,17 +34,38 @@ export async function getAllSlugs(): Promise<string[]> {
 const ANCHO_MINIMO_HERO = 1920
 
 /**
- * Los proyectos del hero: abre el declarado en `heroApertura` y el resto sigue
- * por relevancia —primero los declarados en el sitio, luego los destacados,
- * luego por año descendente—. Solo entran los que tienen portada
- * suficientemente grande.
+ * Las láminas del hero. Manda la lista declarada en `heroSlides`; si está vacía
+ * o ninguna pasa el mínimo de ancho, se cae al orden por relevancia para que la
+ * home nunca quede sin portada.
  */
 export async function getHeroProjects(limite = 7): Promise<Project[]> {
-  return publicados
-    .filter((p) => (p.portada?.width ?? 0) >= ANCHO_MINIMO_HERO)
+  const suficientes = publicados.filter(
+    (p) => (p.portada?.width ?? 0) >= ANCHO_MINIMO_HERO,
+  )
+  const porSlug = new Map(suficientes.map((p) => [p.slug, p]))
+
+  const declaradas = heroSlides
+    .map((slug) => porSlug.get(slug))
+    .filter((p): p is Project => p !== undefined)
+
+  if (process.env.NODE_ENV !== 'production') {
+    const descartadas = heroSlides.filter((slug) => !porSlug.has(slug))
+    if (descartadas.length > 0) {
+      // Aviso y no error: que una portada nueva sea pequeña no debe tumbar la
+      // home, pero tampoco puede degradarla en silencio.
+      console.warn(
+        `[hero] Fuera de las láminas declaradas: ${descartadas.join(', ')}. ` +
+          `No existen, no están publicadas, o su portada no llega a ${ANCHO_MINIMO_HERO} px.`,
+      )
+    }
+  }
+
+  if (declaradas.length > 0) return declaradas.slice(0, limite)
+
+  return suficientes
+    .slice()
     .sort(
       (a, b) =>
-        Number(b.slug === heroApertura) - Number(a.slug === heroApertura) ||
         Number(b.enHeroHome) - Number(a.enHeroHome) ||
         Number(b.destacado) - Number(a.destacado) ||
         b.anio - a.anio ||

@@ -32,16 +32,23 @@ function buildRedirects() {
   )
   const { redirects } = JSON.parse(raw) as { redirects: WixRedirect[] }
 
-  const out: { source: string; destination: string; permanent: boolean }[] = []
+  const out: { source: string; destination: string; statusCode: 301 }[] = []
   const seen = new Set<string>()
 
   for (const r of redirects) {
     if (r.from === '/') continue
 
     for (const source of [r.from, encodeURI(r.from)]) {
-      if (seen.has(source)) continue
-      seen.add(source)
-      out.push({ source, destination: r.to, permanent: r.permanent !== false })
+      // Los paréntesis son sintaxis de grupo en path-to-regexp: si van crudos,
+      // la ruta /colegio-francisco-antonio-zea-(metrovivienda) no se compila
+      // como literal. Se escapan.
+      const safe = source.replace(/[()]/g, (c) => `\\${c}`)
+      if (seen.has(safe)) continue
+      seen.add(safe)
+      // `permanent: true` emite 308. Google trata 308 como 301, pero el criterio
+      // de aceptación de la migración pide 301 explícito y hay rastreadores
+      // viejos que solo entienden ese. Se fija a mano.
+      out.push({ source: safe, destination: r.to, statusCode: 301 })
     }
   }
 

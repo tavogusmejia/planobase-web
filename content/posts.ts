@@ -15,6 +15,10 @@ import { post as diezPreguntasConstructor } from './blog/diez-preguntas-antes-de
 import { post as delLoteALaLicencia } from './blog/del-lote-a-la-licencia'
 import { post as reformarEnPH } from './blog/reformar-en-propiedad-horizontal'
 import { post as construiSinLicencia } from './blog/construi-sin-licencia'
+import { post as estudioPatologico } from './blog/cuando-un-edificio-necesita-un-estudio-patologico'
+import { post as informeTecnicoSerio } from './blog/que-debe-contener-un-informe-tecnico-serio'
+import { post as docePartidas } from './blog/doce-partidas-que-se-olvidan-al-presupuestar'
+import { post as curaduriaUrbana } from './blog/curaduria-urbana-que-es-cual-elegir-y-que-documentos-pide'
 import { post as obraSeSaleDelPresupuesto } from './blog/por-que-la-obra-se-sale-del-presupuesto'
 import { post as reforzamientoEstructural } from './blog/reforzamiento-estructural-y-nsr-10'
 
@@ -50,6 +54,10 @@ const registro: Post[] = [
   construiSinLicencia,
   obraSeSaleDelPresupuesto,
   reforzamientoEstructural,
+  estudioPatologico,
+  informeTecnicoSerio,
+  docePartidas,
+  curaduriaUrbana,
 ]
 
 /** Ordenados del más reciente al más antiguo. Es el orden de lectura. */

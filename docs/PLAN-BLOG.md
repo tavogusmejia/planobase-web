@@ -114,7 +114,7 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | 1 | Cuánto cuesta construir una casa por m² en Colombia | pendiente |
 | 2 | Cuánto cobra un arquitecto en Colombia | **publicado** · 20/8/2026 |
 | 3 | Cuánto cuesta remodelar, por ambiente | pendiente |
-| 4 | Las doce partidas que todo el mundo olvida al presupuestar | pendiente |
+| 4 | Las doce partidas que todo el mundo olvida al presupuestar | **publicado** · 23/9/2025 |
 | 5 | Por qué la obra se sale del presupuesto | **publicado** · 11/3/2026 |
 
 ### Pilar 2 · Trámites y norma — autoridad natural
@@ -124,7 +124,7 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | 6 | Licencia de construcción en Bogotá: curadurías, tiempos y costos | pendiente |
 | 7 | Licencia de construcción en Jamundí: sin curaduría y sin expensas | **publicado** · 22/7/2026 |
 | 8 | Qué puedo construir en mi lote | **publicado** · 11/6/2024 |
-| 9 | Curaduría urbana: qué es, cuál elegir, qué documentos pide | pendiente |
+| 9 | Curaduría urbana: qué es, cuál elegir, qué documentos pide | **publicado** · 13/5/2025 |
 | 74 | Qué pasa con su licencia si cambia el POT de Cali | **publicado** · 4/9/2026 |
 | 10 | Construí sin licencia: qué sanción hay y cómo se legaliza | **publicado** · 8/7/2025 |
 | 11 | Reforzamiento estructural: qué exige la norma y qué cuesta el trámite | **publicado** · 15/10/2025 |
@@ -137,8 +137,8 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | 13 | Fisuras en muros: cuáles son peligrosas y cuáles no | **publicado** · 2/9/2026 |
 | 14 | Filtraciones en cubierta: las cinco causas reales | pendiente |
 | 15 | Humedad en muros: ascendente, condensación o filtración | pendiente |
-| 16 | Cuándo un edificio necesita un estudio patológico | pendiente |
-| 17 | Qué debe contener un informe técnico serio | pendiente |
+| 16 | Cuándo un edificio necesita un estudio patológico | **publicado** · 27/1/2026 |
+| 17 | Qué debe contener un informe técnico serio | **publicado** · 11/11/2025 |
 
 ### Pilar 4 · Proceso y decisión
 

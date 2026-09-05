@@ -59,7 +59,11 @@ export default async function ExpensasPage({
   const h = herramientaPorSlug.get(SLUG)!
   const puerta = puertas.find((p) => p.slug === h.puerta)
   const vencido = estaVencido(UVT) || estaVencido(FACTOR_MUNICIPAL)
-  const conCuraduria = MUNICIPIOS.filter(
+  /* Municipios con al menos un despacho con curador designado en el
+     directorio. Es un piso y no una cifra exacta: desde el Decreto 1107 de
+     2026 un despacho vacante en la lista puede tener al saliente ejerciendo
+     provisionalmente. */
+  const conCuradorDesignado = MUNICIPIOS.filter(
     (m) => m.vacantes.length < m.despachos,
   ).length
 
@@ -138,14 +142,26 @@ export default async function ExpensasPage({
           <strong className="font-normal text-ink">
             {MUNICIPIOS.length} municipios
           </strong>{' '}
-          con factor asignado, de los cuales{' '}
-          <strong className="font-normal text-ink">{conCuraduria}</strong>{' '}
-          tienen hoy curaduría en operación. En el resto del país —más de mil
-          municipios— la licencia la expide la oficina de planeación y{' '}
+          con factor asignado, y en{' '}
+          <strong className="font-normal text-ink">
+            {conCuradorDesignado}
+          </strong>{' '}
+          de ellos el directorio oficial muestra curador designado. En el resto
+          del país —más de mil municipios— la licencia la expide la oficina de
+          planeación y{' '}
           <strong className="font-normal text-ink">
             está prohibido cobrar expensas
           </strong>
           .
+        </p>
+        <p className="text-body mt-5 text-ink-soft">
+          Esa cifra es un piso, no un dato exacto. El Decreto 1107 del 6 de
+          agosto de 2026 permite que el curador saliente continúe
+          provisionalmente en el cargo hasta que el concurso de méritos designe
+          al nuevo, y el directorio no distingue un despacho realmente sin
+          proveer de uno cuyo titular sigue ejerciendo. Por eso, donde la
+          calculadora dice que no hay curador, manda confirmarlo en la alcaldía
+          en vez de dar por hecho que la licencia sale sin expensas.
         </p>
         <p className="text-body mt-5 text-ink-soft">
           Las cifras se comprobaron contra las tablas de expensas que publican

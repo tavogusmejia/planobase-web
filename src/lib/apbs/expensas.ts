@@ -79,8 +79,23 @@ export function buscarMunicipio(codigo: string): Municipio | null {
   return MUNICIPIO_POR_CODIGO.get(codigo) ?? null
 }
 
-/** Todos los despachos vacantes: la alcaldía asume y no cobra. */
-function sinCuradorEnOperacion(m: Municipio): boolean {
+/**
+ * Todos los despachos figuran vacantes en el último directorio.
+ *
+ * **Ojo con lo que esto significa desde agosto de 2026.** El Decreto 1107 del
+ * 6 de agosto adicionó el artículo 2.2.6.6.2.4 al Decreto 1077: al terminar su
+ * periodo de cinco años, el curador saliente *puede continuar provisionalmente
+ * en el cargo* hasta que el concurso de méritos designe al nuevo. Antes de esa
+ * norma, un despacho sin curador designado quedaba sin servicio y la alcaldía
+ * lo asumía; ahora puede haber un curador ejerciendo y cobrando aunque el
+ * directorio muestre el despacho vacante.
+ *
+ * El directorio no distingue las dos situaciones —periodo vencido con saliente
+ * que continúa, frente a despacho realmente sin proveer—, así que esta función
+ * ya no puede afirmar que no se cobra. Solo dice lo que sabe, y el resultado lo
+ * enuncia como tal.
+ */
+function sinCuradorEnDirectorio(m: Municipio): boolean {
   return m.vacantes.length >= m.despachos
 }
 
@@ -106,18 +121,22 @@ export function calcular(s: Solicitud, uvt: number): Resultado {
     }
   }
 
-  if (sinCuradorEnOperacion(municipio)) {
+  if (sinCuradorEnDirectorio(municipio)) {
     return {
       tipo: 'sin-expensas',
       municipio,
-      titular: 'Hoy no se pagan expensas en este municipio',
+      titular: 'Aquí hay que confirmar antes de presupuestar',
       motivo:
         `${municipio.nombre} tiene curadurías creadas y factor municipal ` +
-        'asignado, pero según el último directorio oficial ninguna tiene ' +
-        'curador designado. Mientras siga así, la administración municipal ' +
-        'asume el servicio y no puede cobrar expensas. Confírmelo en la ' +
-        'alcaldía antes de presupuestar: el dato cambia cuando se provee la ' +
-        'curaduría.',
+        'asignado, pero en el último directorio oficial ninguna aparece con ' +
+        'curador designado. Si de verdad no hay curador ejerciendo, la ' +
+        'licencia la expide la oficina de planeación y no se pagan expensas. ' +
+        'Pero desde el 6 de agosto de 2026, el artículo 2.2.6.6.2.4 del ' +
+        'Decreto 1077 permite que el curador saliente continúe ' +
+        'provisionalmente hasta que el concurso designe al nuevo, y el ' +
+        'directorio no distingue un caso del otro. Llame a la alcaldía y ' +
+        'pregunte si hay curador en ejercicio: la respuesta va de cero a ' +
+        'varios cientos de miles de pesos.',
     }
   }
 

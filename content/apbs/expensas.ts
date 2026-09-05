@@ -40,9 +40,14 @@ export type Municipio = {
   m: number
   fuente: FuenteFactor
   /**
-   * Despachos de curaduría creados, y cuáles estaban vacantes en el último
-   * directorio oficial. Si todos están vacantes, la alcaldía asume el servicio
-   * y **no cobra expensas**.
+   * Despachos de curaduría creados, y cuáles figuraban vacantes en el último
+   * directorio oficial.
+   *
+   * «Vacante» ya no equivale a «sin servicio»: desde el Decreto 1107 del 6 de
+   * agosto de 2026, el curador saliente puede continuar provisionalmente al
+   * vencer su periodo, y el directorio no distingue ese caso del despacho sin
+   * proveer. Con todos vacantes, la calculadora deja de afirmar que no se cobra
+   * y manda confirmar en la alcaldía.
    */
   despachos: number
   vacantes: number[]

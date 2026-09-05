@@ -114,9 +114,13 @@ export const DIRECTORIO_CURADORES: DatoConVigencia<'50 municipios con curaduría
   comoActualizar:
     'Descargue el directorio más reciente de la Superintendencia y compare ' +
     'los despachos vacantes. Atención especial a Jamundí, Chía, Madrid, ' +
-    'Sabaneta, Zipaquirá y Girardota: hoy figuran sin curador y la ' +
-    'calculadora responde «no se pagan expensas». El concurso de méritos en ' +
-    'curso no produce lista de elegibles antes de 2027.',
+    'Sabaneta, Zipaquirá y Girardota: hoy figuran sin curador. El concurso de ' +
+    'méritos en curso no produce lista de elegibles antes de 2027. Y desde el ' +
+    'Decreto 1107 del 6 de agosto de 2026 el directorio dejó de bastar por sí ' +
+    'solo: el curador saliente puede continuar provisionalmente, así que un ' +
+    'despacho vacante en la lista puede tener a alguien ejerciendo. Si ' +
+    'consigue confirmarlo municipio por municipio, ese dato vale más que el ' +
+    'directorio.',
 }
 
 /**

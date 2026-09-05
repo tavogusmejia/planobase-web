@@ -1071,3 +1071,125 @@ Seis auditorías independientes sobre el repositorio y el mercado:
 | Producción | Auditoría técnica con `pnpm build` real, 28 tareas priorizadas |
 | SEO Colombia | Volúmenes, competencia y normativa vigente |
 | Geografía | Reencuadre de regional a nacional, y plan de entrada al Caribe |
+
+---
+
+## 14. Los 32 artículos que faltan por escribir
+
+Estado al cierre de la sesión del 5 de septiembre de 2026: **43 de 75
+publicados, y los 43 en español e inglés.** Faltan estos 32.
+
+La cadena de tandas que produjo los últimos 21 sigue siendo la forma de
+escribirlos: un agente por tanda, contexto fresco, verificación contra fuente
+primaria, y lo que no se pueda verificar se declara dentro del artículo en vez
+de rellenarse. El contrato completo —incluido el bilingüe— está en el
+comentario de cabecera de `content/blog/en/index.ts`, y **desde ahora cada
+artículo nuevo se escribe en los dos idiomas en la misma pasada**: traducirlos
+después obliga a releer la investigación entera.
+
+### Obra pública (2)
+
+| | Artículo |
+|---|---|
+| 25 | Cómo se diseña un colegio en Colombia (NTC 4595 y 4596) |
+| 28 | Cómo se estructuran los pliegos de un equipamiento público |
+
+**Aviso**: la NTC 4595 solo se puede citar por su adopción ministerial. El
+catálogo de ICONTEC no es consultable públicamente, y ya está establecido en
+este proyecto que **no se cita una NTC por número sin haberla leído**.
+
+### Casos propios (5)
+
+| | Artículo |
+|---|---|
+| 29 | Alcaldía Local de Teusaquillo: cómo se gana un concurso |
+| 30 | Pradera El Volcán: un colegio pensado como pieza de barrio |
+| 31 | Casa de la Cultura Las Colinas, Guaviare |
+| 32 | CEFE Tunal |
+| 33 | Casa Aguilar: el método explicado al cliente particular |
+
+**Los cinco siguen bloqueados por la decisión 0.6**: hasta que no se marque en
+`docs/PROYECTOS-CONSTRUIDO.md` cuáles de los 23 proyectos están construidos y
+cuáles son propuesta de concurso, un artículo de caso no puede decir qué es lo
+que cuenta. El 29 lleva además su propio bloqueo: tendría que declarar el
+ámbito del concurso, que es el dato en disputa de §1.6.
+
+Es media hora de trabajo de Gustavo y libera cinco artículos.
+
+### Casa y casa campestre (4)
+
+| | Artículo |
+|---|---|
+| 42 | Aguas residuales sin alcantarillado |
+| 46 | Cuánto cuesta ampliar un segundo piso, y si la casa lo aguanta |
+| 47 | Cubiertas: barro, termoacústica, verde o placa |
+| 49 | Casa de descanso o renta corta: qué cambia en el diseño |
+
+El 42 quedó a medias en una tanda anterior: la Resolución 0330 de 2017 es un
+escaneo sin capa de texto y no se pudo leer. Si sigue igual, el artículo se
+escribe declarándolo, como se hizo con el del agua.
+
+### Piscinas y jacuzzis (10)
+
+| | Artículo |
+|---|---|
+| 51 | Cuánto cuesta una piscina en Colombia, y su costo mensual real |
+| 52 | Concreto, fibra de vidrio o prefabricada |
+| 53 | Piscina de borde infinito: qué exige y por qué cuesta el doble |
+| 54 | El cuarto de máquinas: la partida que más se subestima |
+| 55 | Calentar la piscina: solar, bomba de calor o gas |
+| 56 | Sal o cloro: el mito del agua salada y el costo real |
+| 57 | Piscina en terraza: carga estructural e impermeabilización |
+| 60 | Jacuzzi de obra o portátil: carga, desagüe y requisitos eléctricos |
+| 61 | Piscina y jacuzzi juntos: compartir equipos, y cuándo sale mal |
+| 62 | Mantenimiento de piscina: el costo mensual real |
+
+**Es el pilar con la credencial que ningún competidor tiene**: quince años
+diseñando sistemas hidráulicos y construyendo piscinas de borde infinito. Regla
+de encuadre que no cambia: **la experiencia es de la persona, no del portafolio
+del estudio.**
+
+Vocabulario ya fijado en `ley-1209-piscinas-copropiedad` y
+`necesito-licencia-para-construir-una-piscina`; los términos que faltan por
+fijar son antivórtice, borde infinito, skimmer y rebosadero.
+
+### Caribe insular (11)
+
+| | Artículo |
+|---|---|
+| 63 | Construir en una isla: por qué todo cuesta tres veces más |
+| 64 | Diseño resistente a huracanes: cargas, vidrio de impacto, anclaje |
+| 65 | Bermuda y sus cubiertas blancas: el edificio como captación de agua |
+| 66 | Agua dulce donde no hay ríos: cisternas y ósmosis inversa |
+| 67 | La sal se lo come todo: materiales y el costo de equivocarse |
+| 68 | Cimentar sobre roca coralina y suelo kárstico |
+| 69 | Piedra coralina como material de proyecto |
+| 70 | Retiros de la línea de más alta marea y zona costera |
+| 71 | Fuera de red por obligación: solar, almacenamiento y agua |
+| 72 | Cuánto cuesta el m² en Bahamas, Bermuda y Turks & Caicos |
+| 73 | Lo que el Caribe insular le enseña a Barú, San Andrés y Santa Marta |
+
+Los once **también dependen de la decisión 0.6**, y de la separación de etapas
+de la sección «Correcciones de atribución»: XMC Caribbean (2019-2022) no es
+Edospina (Bogotá, 2007-2012), y solo la primera es caribeña.
+
+Es el único contenido del plan **sin competencia en el país**, y es la razón por
+la que el sitio se tradujo: un cliente de Bahamas no lee español.
+
+### Lo que hay que saber antes de retomar
+
+1. **El presupuesto de búsquedas web se agotó** en la sesión que escribió los
+   últimos. Ya está subido a 1.000 en `~/.claude/settings.json`, pero **solo
+   surte efecto en una sesión nueva**. Sin él, un agente solo puede investigar
+   con `curl` contra fuentes que ya conoce.
+2. **Nueve errores del español salieron de traducirlo**, y ninguno lo podía
+   cazar una guarda del build porque ninguna afirmación era falsa por sí sola:
+   lo que estaba mal era la relación entre piezas. La misma cita de ley
+   recortada en cuatro artículos y mal parafraseada en un quinto; cinco
+   llamando gratis a un documento de 8,34 UVT; una tabla contradiciendo su
+   propia nota y pidiéndole a una casa un dispositivo que la ley no le exige.
+   **El patrón: un dato que se repite entre artículos se copia, y al copiarse
+   deja de verificarse.** Cuando se escriban estos 32, conviene auditar cada
+   cifra repetida contra la pieza que la introdujo.
+3. **Escribir bilingüe desde el origen no es opcional.** Está en el contrato y
+   lo comprueba `scripts/check-traducciones.ts`.

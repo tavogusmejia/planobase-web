@@ -9,6 +9,7 @@ import { post as queConstruirEnMiLote } from './blog/que-puedo-construir-en-mi-l
 import { post as quienHaceQue } from './blog/arquitecto-maestro-de-obra-o-constructora'
 import { post as queEsUnAnteproyecto } from './blog/que-es-un-anteproyecto'
 import { post as contratoDeDiseno } from './blog/contrato-de-diseno-arquitectonico'
+import { post as interventoriaDeObra } from './blog/interventoria-de-obra'
 
 /**
  * El índice del blog.
@@ -34,6 +35,7 @@ const registro: Post[] = [
   quienHaceQue,
   queEsUnAnteproyecto,
   contratoDeDiseno,
+  interventoriaDeObra,
 ]
 
 /** Ordenados del más reciente al más antiguo. Es el orden de lectura. */

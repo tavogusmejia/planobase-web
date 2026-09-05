@@ -1,7 +1,8 @@
 # Plan del blog · Plano Base
 
 73 temas en diez pilares. Estado, prioridad y calendario editorial.
-Última actualización: 5 de septiembre de 2026.
+Última actualización: 5 de septiembre de 2026 — §2 corregido tras la respuesta
+A8 del dueño.
 
 ---
 
@@ -30,12 +31,18 @@ El dossier profesional de Gustavo Mejía documenta 15+ años en construcción
 internacional, y dos líneas son directamente aprovechables:
 
 **Piscinas y sistemas hidráulicos — es su profesión, no un tema adyacente.**
-Diseño de plantas de agua potable y aguas residuales, piscinas y juegos
-acuáticos en Edospina (2007-2012); después, en XMC Caribbean (2019-2022):
-piscinas de borde infinito, spas, cascadas y sus sistemas de fondo — redes de
-tubería, plantas de filtración, bombas, cuartos de máquinas.
+Son dos etapas, en dos lugares distintos, y **no se pueden mezclar**:
 
-**Caribe insular — con proyectos, cifras y nombres.**
+| Etapa | Años | Dónde | Qué se hizo |
+|---|---|---|---|
+| **Edospina** | 2007-2012 | **Bogotá** | Diseño de plantas de agua potable y aguas residuales, piscinas y juegos acuáticos |
+| **XMC Caribbean** | 2019-2022 | **Bahamas, Bermuda, Turks & Caicos, Miami** | Piscinas de borde infinito, spas, cascadas y sus sistemas de fondo: redes de tubería, plantas de filtración, bombas, cuartos de máquinas |
+
+Lo que las dos comparten, y es la credencial que sostiene el pilar 9: quince
+años de diseño de sistemas hidráulicos y cuerpos de agua. **Esa continuidad es
+real; la geográfica no.**
+
+**Caribe insular — con proyectos, cifras y nombres. Todos de XMC Caribbean.**
 
 | Proyecto | Lugar | Valor |
 |---|---|---|
@@ -51,9 +58,21 @@ programación de proyectos internacionales de construcción.
 
 ### Regla de encuadre, innegociable
 
-**Estos proyectos son de Gustavo, ejecutados en XMC Caribbean y Edospina. No
-son portafolio de Plano Base.** Los artículos dicen «quien dirige esta línea en
-Plano Base trae quince años en…», nunca «Plano Base construyó en Bahamas».
+**Corregido el 5/9/2026.** La redacción anterior decía «ejecutados en XMC
+Caribbean y Edospina» encabezando la tabla de proyectos caribeños, y eso
+atribuía a Edospina un trabajo que no hizo. Gustavo lo señaló: *«La experiencia
+es de Gustavo Mejía. Edospina no fue un trabajo en el Caribe.»* Queda separado
+arriba para que no se repita.
+
+**Estos proyectos son de Gustavo, ejecutados en XMC Caribbean. No son portafolio
+de Plano Base.** Los artículos dicen «quien dirige esta línea en Plano Base trae
+quince años en…», nunca «Plano Base construyó en Bahamas».
+
+**Dos errores distintos, y hay que evitar los dos:**
+
+1. Atribuir al **estudio** lo que hizo la **persona**.
+2. Atribuir a **Edospina** —Bogotá— lo que se hizo en **XMC Caribbean**
+   —el Caribe—.
 
 Bien encuadrado no pierde nada de fuerza, y no deja flanco. Es la misma
 disciplina que el README exige para distinguir obra construida de propuesta de
@@ -165,7 +184,7 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 
 | # | Título | Estado |
 |---|---|---|
-| 29 | Alcaldía Local de Teusaquillo: cómo se gana un concurso | pendiente |
+| 29 | Alcaldía Local de Teusaquillo: cómo se gana un concurso | pendiente · **no se escribe hasta cerrar `PLAN-MAESTRO.md` §1.6**: el artículo tendría que declarar el ámbito del concurso, que es justo el dato en disputa |
 | 30 | Pradera El Volcán: un colegio pensado como pieza de barrio | pendiente |
 | 31 | Casa de la Cultura Las Colinas, Guaviare | pendiente |
 | 32 | CEFE Tunal | pendiente |
@@ -215,7 +234,13 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | 61 | Piscina y jacuzzi juntos: compartir equipos, y cuándo sale mal | pendiente |
 | 62 | Mantenimiento de piscina: el costo mensual real | pendiente |
 
-### Pilar 10 · Caribe insular de ultra lujo — entrada lenta, en inglés primero
+### Pilar 10 · Caribe insular de ultra lujo — entrada lenta
+
+**Nota del 5/9/2026:** este pilar decía «en inglés primero». Ya no. El dueño
+decidió **deshabilitar `/en`** hasta que se traduzca el cuerpo editorial de
+verdad, así que estos artículos, cuando lleguen, salen **en español** — y el
+pilar entero sigue bloqueado por la decisión de marcar `construido` en los 23
+proyectos. Ver `PLAN-MAESTRO.md` §1.11 y §9.
 
 | # | Título | Estado |
 |---|---|---|
@@ -241,7 +266,7 @@ del 5/9/2026) y entran a la hoja de ruta como fase propia.
 | # | Pieza | Estado | Por qué |
 |---|---|---|---|
 | **P1** | **Calculadora de expensas de curaduría** | **aprobada** | La única calculadora funcional del país en este nicho es anónima, no publica su tabla base y **tiene la UVT de 2026 equivocada**. La fórmula del Decreto 1890, la UVT verificada por dos vías y las tarifas publicadas ya están en mano. Es el activo más difícil de copiar del plan, y es código, no redacción |
-| **P2** | **Página de credenciales institucionales** | **aprobada** | Los 24 proyectos en formato m² / entidad / año / modalidad. Un blog no captura al comprador institucional —ese llega por SECOP, no por Google—; una página de credenciales con cifras sí lo convierte. **Depende de marcar `construido`** |
+| **P2** | **Página de credenciales institucionales** | **aprobada, bloqueada** | Los 24 proyectos en formato m² / entidad / año / modalidad. Un blog no captura al comprador institucional —ese llega por SECOP, no por Google—; una página de credenciales con cifras sí lo convierte. **Depende de marcar `construido`** → la tabla para llenar está en `docs/PROYECTOS-CONSTRUIDO.md`. Y la modalidad de cada concurso depende además del conflicto abierto de `PLAN-MAESTRO.md` §1.6 |
 | **P3** | **Publicar en ArchDaily / Plataforma Arquitectura** | **aprobada** | El estudio no tiene ni una publicación, y buscar «Plano Base arquitectos Colombia» devuelve Plan:b de Medellín. Es el enlace de mayor autoridad temática del sector. Esfuerzo bajo, retorno alto y duradero |
 | P4 | Calculadora de presupuesto de obra | pendiente | El imán de leads que hoy no existe: pide el correo para entregar el resultado |
 | P5 | PDF «Antes de comprar un lote» | pendiente | Verificación descargable a cambio del correo |
@@ -343,7 +368,13 @@ Comparar un precio de venta con un costo de obra induce a error.
    fuente enlazada y licencia). Nunca una imagen sin licencia verificable,
    nunca enlaces a Wix. El crédito no es cortesía: es la condición bajo la que
    se puede publicar, y el modelo de datos lo hace obligatorio.
-7. **Nada de experiencia internacional atribuida al estudio.** Ver §2.
+7. **Nada de experiencia internacional atribuida al estudio.** Ver §2. Y dentro
+   de la experiencia de la persona, **no mezclar Edospina (Bogotá, 2007-2012)
+   con XMC Caribbean (Caribe, 2019-2022)**.
+8. **Registro y fechas.** Las fechas se reparten hacia atrás, confirmado por el
+   dueño el 5/9/2026: el beneficio buscado es de percepción —que el blog se vea
+   establecido—, no de posicionamiento, y la guarda de `scripts/check-fechas.ts`
+   impide citar hechos posteriores a la fecha declarada.
 
 ---
 

@@ -1,7 +1,8 @@
 # Hoja de ruta · Plano Base Web
 
 Qué falta, por fases. Una línea por cosa.
-Última actualización: 5 de septiembre de 2026.
+Última actualización: 5 de septiembre de 2026 — con las respuestas del dueño
+registradas.
 
 El detalle de cada frente está en `PLAN-MAESTRO.md` y `PLAN-BLOG.md`.
 Este documento es solo el orden.
@@ -12,18 +13,35 @@ Este documento es solo el orden.
 
 Ninguna la puede tomar el equipo técnico.
 
-| | Decisión | Bloquea |
-|---|---|---|
-| 0.1 | **Precio de la primera llamada.** Hay tres cifras en circulación: $0, $50.000 y $300.000 | Reservas y pagos |
-| 0.2 | **¿`proyectos@planobase.co` está en Google Workspace de pago?** | Toda la arquitectura del calendario |
-| 0.3 | **Verificar `planobase.co` en Resend.** Hoy el correo de confirmación al cliente no saldría | Reservas, formulario, todo lo que notifique |
-| 0.4 | **Abrir cuenta de comercio Wompi.** El trámite tarda más que el desarrollo | Pagos |
-| 0.5 | **Dirección pública: ¿Cali o Jamundí?** Cambiarla después de crear la ficha de Google resetea su antigüedad | Ficha de Google Business |
-| 0.6 | **Marcar `construido` en los 23 proyectos.** Hoy solo 1 está marcado | Tráfico frío, reencuadre, credenciales, Caribe |
-| 0.7 | **Reformular «cuatro reconocimientos en concurso público nacional».** El dato no lo sostiene | Confianza institucional |
-| 0.8 | **Registro de trato: usted en todo el sitio** | Pasada de redacción |
-| 0.9 | **Aprobar la copia pendiente.** Solo dos puertas llevan sello de aprobación | Pauta |
-| 0.10 | **Bogotá no es Cundinamarca.** Corrección de dato, no decisión — se aplica sin consultar | — |
+**Respondidas por Gustavo Mejía el 5 de septiembre de 2026.** Las respuestas
+literales están al final del documento, en «Para usted». Esta tabla registra
+solo el efecto: qué quedó cerrado, qué sigue abierto y qué se desbloquea.
+
+| | Decisión | Estado tras la respuesta | Efecto |
+|---|---|---|---|
+| 0.1 | **Precio de la primera llamada.** Había tres cifras en circulación: $0, $50.000 y $300.000 | **Cerrada.** La llamada inicial de 15 minutos es **sin costo**. Los $50.000 eran el precio anterior y se descartan. Los $300.000 son el precio de lista de la **visita técnica con informe**. Acepta construir el calendario genérico y activar el pago solo cuando el precio sea mayor que cero | **Desbloquea** la Entrega A sin tener que esperar a Wompi |
+| 0.2 | **¿`proyectos@planobase.co` está en Google Workspace de pago?** | **Cerrada. Sí, de pago** | **Desbloquea toda la arquitectura del calendario.** Cuenta de servicio con delegación de dominio, $0 adicionales, sin la trampa del token que caduca cada 7 días. Solo falta el trámite B3 |
+| 0.3 | **Verificar `planobase.co` en Resend.** El correo de confirmación al cliente no saldría | **Cerrada en el trámite, abierta en el trabajo.** «Ya está funcionando». Faltan las plantillas de correo | **Desbloquea** el envío. Queda pendiente redactar y montar las plantillas → tarea 1.7 |
+| 0.4 | **Abrir cuenta de comercio Wompi.** El trámite tarda más que el desarrollo | **Abierta por decisión de orden.** «Se debe hacer, pero no en esta fase; primero empezar a pautar. Déjalo como tarea crítica» | El calendario sale **sin pago** (Entrega A) y la Entrega B espera. No bloquea la pauta |
+| 0.5 | **Dirección pública: ¿Cali o Jamundí?** Cambiarla después de crear la ficha resetea su antigüedad | **Cerrada. Cali** | **Desbloquea** la ficha de Google Business y cierra la contradicción H7. La dirección publicada hoy —Calle 18 # 61-29, Cali— no se toca |
+| 0.6 | **Marcar `construido` en los 23 proyectos.** Hoy solo 1 está marcado | **Abierta.** Pidió la lista para llenarla | Entregada en **`docs/PROYECTOS-CONSTRUIDO.md`**. Sigue bloqueando tráfico frío, reencuadre, credenciales y Caribe |
+| 0.7 | **Reformular «cuatro reconocimientos en concurso público nacional».** El dato no lo sostiene | **En conflicto, sin cerrar.** Él afirma que **los cuatro son concursos nacionales**; los subtítulos publicados de los propios proyectos dicen otra cosa | **No se toca el texto en ninguna dirección.** Se cierra con términos de referencia o acta de cada concurso. Detalle y transcripciones literales en `PLAN-MAESTRO.md` §1.6 |
+| 0.8 | **Registro de trato: usted en todo el sitio** | **Cerrada. Usted** | **Desbloquea** las 32 reescrituras de la tarea 5.2 |
+| 0.9 | **Aprobar la copia pendiente.** Solo dos puertas llevan sello de aprobación | **Abierta.** «Necesito revisar todo» | Falta **fijar fecha** de la sesión de lectura con Eduardo. Sigue bloqueando la pauta sobre `/agendar` |
+| 0.10 | **Bogotá no es Cundinamarca.** Corrección de dato, no decisión | Sin cambios — se aplica sin consultar | — |
+| 0.11 | **¿Qué hacemos con `/en`?** *(era la pregunta A7)* | **Cerrada. Deshabilitar por ahora.** Se traduce de verdad cuando el desarrollo llegue «a un punto estable o de bajo volumen» | **Desbloquea** el cierre del frente de inglés → tarea 5.5. La etapa 9.5 del Caribe queda explícitamente aplazada |
+| 0.12 | **Facturación electrónica DIAN** *(era el trámite B5)* | **Cerrada en el rumbo, abierta en el plan.** Ya hay un sistema de facturación; quiere un **plan para hacerla con Odoo**, y se puede posponer «casi hasta lo último del roadmap» | Falta escribir ese plan → tarea 3.4 |
+| 0.13 | **Ficha de Google Business** *(era el trámite B4)* | **Matizada, no cerrada.** «No me interesa arquitectos en Cali, me interesa arquitectos en Colombia» | La ficha es local por definición y no posiciona a nivel nacional; el encuadre nacional se resuelve en la tarea 5.1, no en la ficha. **Falta confirmar si se crea o no.** Si se crea, la dirección ya está fijada por 0.5 |
+
+### Otras respuestas registradas, que no son decisiones de fase 0
+
+- **Fechas del blog repartidas hacia atrás:** confirmado. Lo que busca es el
+  beneficio de percepción, con el matiz de Google ya entendido y aceptado.
+- **Capacidad para atender el volumen post-sismo:** confirmado. «Sí, estamos en
+  condiciones» — diagnóstico de edificaciones y visita técnica con informe.
+- **Experiencia en el Caribe:** es de **Gustavo Mejía**, no del estudio. Y
+  **Edospina no fue trabajo en el Caribe** — ver «Correcciones de atribución»
+  al final de esta hoja.
 
 ---
 
@@ -39,11 +57,11 @@ Once tareas, ~7-8 días. Sin esto, el dinero entra a un sitio que no mide, no se
 | 1.4 | Corte de dominio: DNS, variables, 301 desde Wix, Search Console |
 | 1.5 | Páginas de error — hoy no hay ninguna |
 | 1.6 | Monitoreo de errores y alerta de lead perdido |
-| 1.7 | Resend verificado y acuse de recibo al cliente |
+| 1.7 | **Plantillas de correo.** Resend ya está verificado y funcionando *(0.3)*; falta redactar y montar las plantillas: acuse de recibo del formulario y confirmación de reserva |
 | 1.8 | Cabeceras de seguridad — en producción no se envía ninguna |
 | 1.9 | Open Graph por página — hoy todo se comparte con la misma tarjeta |
 | 1.10 | URLs de campaña con `/es/` explícito y UTMs |
-| 1.11 | Marcar construido vs. concurso en los 23 proyectos *(= decisión 0.6)* |
+| 1.11 | Marcar construido vs. concurso en los 23 proyectos *(= decisión 0.6)* — la tabla para llenar está en `docs/PROYECTOS-CONSTRUIDO.md` |
 
 ---
 
@@ -51,8 +69,8 @@ Once tareas, ~7-8 días. Sin esto, el dinero entra a un sitio que no mide, no se
 
 | | Entrega | Esfuerzo |
 |---|---|---|
-| 2.1 | **Entrega A.** Calendario propio, disponibilidad por reglas, Google Meet automático, correo con `.ics`, gestión por token. **Sin pago** | 4-5 días |
-| 2.2 | **Entrega B.** Wompi: retención del cupo, checkout, webhook idempotente, reprogramación con la regla de 24 h | 3-4 días |
+| 2.1 | **Entrega A.** Calendario propio, disponibilidad por reglas, Google Meet automático, correo con `.ics`, gestión por token. **Sin pago**. *Desbloqueada por 0.1 y 0.2: la llamada es gratuita y hay Workspace de pago, así que la vía de la cuenta de servicio está confirmada* | 4-5 días |
+| 2.2 | **Entrega B.** Wompi: retención del cupo, checkout, webhook idempotente, reprogramación con la regla de 24 h. **Diferida por 0.4** — se hace después de encender la pauta | 3-4 días |
 
 Con la entrega A el embudo cierra. Sumada a la fase 1, **ahí se puede encender la pauta**.
 
@@ -65,7 +83,7 @@ Con la entrega A el embudo cierra. Sumada a la fase 1, **ahí se puede encender 
 | 3.1 | Supabase Auth con lista de acceso por tabla. **Es la primera sesión del proyecto**, y la misma que después autentica a los clientes |
 | 3.2 | Panel `/admin/pagos` con links de pago de Wompi |
 | 3.3 | Webhook con verificación de firma, reconsulta e idempotencia |
-| 3.4 | Facturación electrónica DIAN — obligación del estudio, no de la pasarela |
+| 3.4 | Facturación electrónica DIAN — obligación del estudio, no de la pasarela. **Rumbo fijado en 0.12: plan de facturación electrónica con Odoo.** Ya hay sistema de facturación andando, así que esto va casi al final de la hoja de ruta, pero el plan hay que escribirlo |
 | 3.5 | Términos y política de reembolso |
 
 ---
@@ -101,15 +119,72 @@ Una sola pasada, no tres. Tocan los mismos archivos.
 |---|---|
 | 5.1 | Encuadre nacional: `h1` de la home, selector de ciudades, puertas, verticales, JSON-LD |
 | 5.2 | Unificación en «usted»: 32 reescrituras ya redactadas |
-| 5.3 | Las siete contradicciones de hecho: años, nombres, reconocimientos, basura del PDF |
+| 5.3 | Las siete contradicciones de hecho: años, nombres, reconocimientos, basura del PDF. **Dos ya están resueltas** —la dirección pública es Cali (0.5) y el registro es «usted» (0.8)—; **la de los reconocimientos queda fuera de esta pasada** hasta cerrar 0.7 |
 | 5.4 | Unificar rótulos: hoy hay cuatro nombres para un botón y cuatro para un producto |
-| 5.5 | Aviso en `/en` mientras el contenido siga en español — la cadena ya existe y nadie la pinta |
+| 5.5 | **Deshabilitar `/en`** *(decisión 0.11)*. Reemplaza al plan anterior de pintar el aviso «Content shown in Spanish». Detalle abajo |
+
+### 5.5 · Deshabilitar `/en` — qué implica exactamente
+
+**No implementado. Queda escrito para ejecutarlo cuando se decida la pasada de
+redacción.**
+
+El mecanismo vive en `src/i18n/routing.ts`: `locales: ['es', 'en']`,
+`defaultLocale: 'es'`, `localePrefix: 'always'`, `localeDetection: true`, más la
+lista blanca `LOCALES_INDEXABLES = ['es']` que hoy ya mantiene `/en` en
+`noindex, follow`. De ahí cuelga todo lo demás: `src/middleware.ts` monta el
+middleware de `next-intl` con ese objeto, y **todos los `generateStaticParams`
+del proyecto recorren `routing.locales`** — proyectos, fichas, categorías,
+servicios, blog, temas del blog y dossier. Quitar `'en'` de esa lista retira las
+páginas del build de golpe, sin tocar ninguna página.
+
+**Qué pasa con las URLs existentes.** Hay dos caminos y hay que elegir a
+conciencia:
+
+1. **Retirarlas del build sin más.** `/en/...` deja de generarse y responde 404.
+   Es lo más limpio de mantener, pero devuelve 404 a cualquier enlace externo o
+   marcador que ya apunte allí.
+2. **Retirarlas del build y redirigir `/en/*` a `/es/*` con 301.** Es lo
+   recomendable: la estructura de rutas es idéntica en los dos idiomas —los
+   slugs de proyecto son nombres propios y no cambian—, así que la
+   correspondencia es uno a uno y ningún visitante cae en una página muerta. Va
+   en `next.config.ts`, junto a los 36 redirects de Wix, y con el mismo cuidado
+   que ya se tuvo allí con las rutas codificadas.
+
+**Riesgo de SEO: bajo.** `/en` va `noindex` hoy y el sitio entero va `noindex`
+mientras el dominio sea `*.vercel.app`, así que no hay autoridad orgánica que
+perder. Es el momento más barato para hacerlo.
+
+**Qué hay que recordar el día que se traduzca de verdad:**
+
+- Volver a añadir `'en'` a `routing.locales` **y** a `LOCALES_INDEXABLES`. Son
+  dos listas distintas a propósito: la primera dice qué existe, la segunda qué
+  se indexa. Añadir solo la primera repite exactamente el problema de hoy.
+- Retirar el redirect `/en/* → /es/*`, o quedará atrapando el idioma nuevo.
+- El `hreflang` del sitemap se enciende solo: `src/app/sitemap.ts` declara
+  alternativas únicamente cuando `LOCALES_INDEXABLES.length > 1`.
+- `messages/en.json` está completo y bien traducido — **no se borra**. Lo que
+  falta no es la interfaz, es el cuerpo editorial escrito a mano en español
+  dentro de los componentes: memorias de los 23 proyectos, textos de servicios y
+  blog. Ese es el trabajo de 3-5 días que se aplaza.
+- La cadena de aviso «Content shown in Spanish; the English translation is in
+  progress» deja de tener sentido y se puede retirar con el resto.
+- **La etapa 9.5 del Caribe depende de esto** y queda formalmente aplazada.
+
 
 ---
 
 ## Fase 6 · Primer mes de pauta
 
 Meta CAPI · contraste de color · `/agendar` con obra y reconocimientos · datos estructurados que faltan · ficha de Google Business · aligerar `/contacto` · accesibilidad del formulario · antispam · respaldo de leads · métricas de rendimiento.
+
+**Nota sobre la ficha de Google Business (decisión 0.13):** la dirección ya está
+fijada —Cali—, pero él dijo que le interesa «arquitectos en Colombia», no
+«arquitectos en Cali». Conviene decirlo sin adornos: una ficha de Google
+Business **solo posiciona por proximidad**; no existe una ficha nacional. El
+alcance nacional se gana con la tarea 5.1 y con las páginas de ciudad de
+`PLAN-MAESTRO.md` §9, no con la ficha. **Falta que confirme si aun así quiere
+crearla** — para «arquitectos en Cali» el paquete de mapas se lleva la mayor
+parte de los clics, y ese tráfico no compite con el nacional: se suma.
 
 ~9-10 días.
 
@@ -157,7 +232,7 @@ Por etapas, cada una con criterio de avance. Nada público hasta cerrar 0.6.
 | 9.2 | Un párrafo en `/estudio` | Que sobreviva 60 días sin confundir al cliente institucional |
 | 9.3 | El artículo técnico del blog | Que traiga tráfico o una conversación |
 | 9.4 | Página de servicio «Vivienda costera» | Un encargo costero colombiano firmado |
-| 9.5 | Sección en inglés e indexación de `/en` | Que `/en` sea traducción real |
+| 9.5 | Sección en inglés e indexación de `/en` | Que `/en` sea traducción real. **Aplazada por 0.11:** `/en` se deshabilita ahora y vuelve cuando se traduzca el cuerpo editorial |
 
 ---
 
@@ -179,6 +254,14 @@ Por etapas, cada una con criterio de avance. Nada público hasta cerrar 0.6.
 Responda sobre esta misma sección. Todo lo de abajo bloquea trabajo que no
 puedo hacer solo. Ordenado por urgencia.
 
+> **Respondido el 5 de septiembre de 2026.** Las respuestas se dejan aquí
+> literales, tal como las escribió, y no se editan: son el registro de la
+> decisión. Su efecto está volcado en la Fase 0, arriba, y el desarrollo de cada
+> una en `PLAN-MAESTRO.md` §1.
+>
+> **Ninguna de las cinco casillas de trámite quedó marcada.** El estado real se
+> lee en la prosa de cada respuesta, y así se registró.
+
 ---
 
 ## A. Preguntas
@@ -190,20 +273,20 @@ depende si el calendario nace con pasarela de pago o sin ella.
 *Mi recomendación: construirlo genérico y activar el pago solo cuando el precio
 sea mayor que cero. Así no hay que elegir hoy.*
 
-**R/:**
+**R/:** La llamada de 15 minutos inicial no cuesta nada, 50.000 es el precio que teniamos anteriormente, no es relevante. 300.000 es el precio de lista para la visita tecnica con informe. COncuerdo con que debemos construirlo genérico y activar el pago solo cuando el preciosea mayor que cero. Así no hay que elegir hoy.
 
 ### A2 · ¿`proyectos@planobase.co` está en Google Workspace de pago?
 Si sí, el calendario con Google Meet cuesta **$0 adicionales** y no se rompe
 nunca. Si no, hay que contratarlo (~$34.000/mes) o ir por un camino que **falla
 en silencio cada 7 días**.
 
-**R/:**
+**R/:** Si, esta en google workspace de pago.
 
 ### A3 · ¿La dirección pública es Cali o Jamundí?
 Hay que fijarla **antes** de crear la ficha de Google Business. Cambiarla
 después resetea la antigüedad de la ficha.
 
-**R/:**
+**R/:** La direccion publica es Cali.
 
 ### A4 · «Cuatro reconocimientos en concurso público nacional» — ¿cómo lo reformulamos?
 El dato no lo sostiene: solo dos se declaran nacionales. Teusaquillo es concurso
@@ -211,14 +294,21 @@ de una alcaldía **local** y Las Colinas es concurso **de ideas**. Cuatro
 reconocimientos en concurso siguen siendo cuatro; hay que decirlo de un modo que
 sea cierto y siga siendo fuerte.
 
-**R/:**
+**R/:** Los 4 son concursos nacionales.
+
+> **Registrado como conflicto abierto, no como decisión.** Los subtítulos
+> publicados de los propios proyectos dicen otra cosa, y esta es la credencial
+> que un comprador institucional verifica. **El texto del sitio no se toca en
+> ninguna dirección** hasta ver los términos de referencia o el acta de cada
+> concurso. Las cuatro transcripciones literales y lo que haría falta para
+> cerrarlo están en `PLAN-MAESTRO.md` §1.6.
 
 ### A5 · ¿Tratamos de «usted» en todo el sitio?
 Hoy hay 32 frases en «tú» y 21 en «usted». Recomiendo unificar en **usted**: es
 donde está la copia ya aprobada y la columna vertebral comercial. Ya están
 redactadas las 32 reescrituras.
 
-**R/:**
+**R/:** usted.
 
 ### A6 · La copia pendiente de aprobación
 Solo dos puertas llevan sello. Están sin aprobar: la visión de `/estudio`, los
@@ -226,7 +316,7 @@ siete textos de vertical, las políticas de la asesoría, el peldaño 2 de la
 escalera y **`/agendar` entera** — que es la página que va a recibir la pauta.
 ¿Cuándo la leen usted y Eduardo?
 
-**R/:**
+**R/:** Necesito revisar todo.
 
 ### A7 · ¿Qué hacemos con `/en`?
 Hoy sirve la interfaz en inglés y el contenido en español: una página bilingüe
@@ -234,7 +324,11 @@ accidental. O se traduce el cuerpo editorial de verdad (3-5 días), o se retira
 del build hasta que haya demanda. Mantener 22 páginas fantasma es lo peor de las
 dos opciones.
 
-**R/:**
+**R/:** Por ahora deshabilita el /en, vamos a hacer desarrollo hasta un punto estable o de bajo volumen, y ahi si traducimos todo.
+
+> **Registrado como decisión 0.11 y tarea 5.5.** No implementado todavía: la
+> tarea está escrita con el mecanismo exacto, qué pasa con las URLs existentes y
+> qué hay que recordar el día que se traduzca.
 
 ### A8 · Experiencia en el Caribe: ¿de quién es?
 Los proyectos del dossier son suyos, ejecutados en XMC Caribbean y Edospina. ¿Se
@@ -242,7 +336,12 @@ enuncian como experiencia de las personas —que es lo honesto y lo que compra u
 cliente de alto patrimonio— o hay obra ejecutada por Plano Base que yo no
 conozco?
 
-**R/:**
+**R/:** La experiencia es de Gustavo Mejia. Lee bien el dossier al detalle, Edospina no fue un trabajo en el caribe.
+
+> **Corrección aplicada.** La pregunta de arriba está mal formulada: decía «XMC
+> Caribbean y Edospina» como si las dos etapas fueran caribeñas. No lo son, y la
+> misma mezcla estaba en `PLAN-BLOG.md` §2. Corregido allí y separado de forma
+> explícita — ver «Correcciones de atribución» al final de este documento.
 
 ### A9 · ¿Publicamos el blog con las fechas repartidas hacia atrás?
 Ya está hecho así y funciona, con una guarda que impide citar el futuro. Solo
@@ -250,7 +349,11 @@ quiero que sepa el matiz: Google usa la fecha en que descubre la página, no la
 declarada. El beneficio es de percepción —el blog se ve establecido—, no de
 posicionamiento.
 
-**R/:**
+**R/:** si, con las fechas repartidas hacia atras. Correcto, lo que quiero es el beneficio de percepcion.
+
+> **Registrado.** Se mantiene lo hecho. La guarda `scripts/check-fechas.ts` sigue
+> corriendo en cada build para que ningún artículo cite un hecho posterior a su
+> fecha declarada. Anotado también como regla 8 en `PLAN-BLOG.md` §7.
 
 ---
 
@@ -261,32 +364,59 @@ posicionamiento.
 correo llega al cliente**: ni la confirmación de reserva ni el acuse del
 formulario de contacto.
 
-- [ ] Hecho **R/:**
+- [ ] Hecho **R/:**Ya esta funcionando. Necesitamos los templates.
+
+> **Registrado.** El bloqueo desaparece. Las plantillas —acuse del formulario y
+> confirmación de reserva con `.ics`— pasan a ser la tarea 1.7.
 
 ### B2 · Abrir cuenta de comercio Wompi
 Persona jurídica, RUT y cuenta bancaria a nombre de la S.A.S. El papeleo tarda
 más que el desarrollo. Hay ambiente de pruebas para avanzar mientras tanto.
 
-- [ ] Iniciado **R/:**
+- [ ] Iniciado **R/:** Si, esto se debe hacer, pero no en esta fase, debemos primero empezar a pautar, asi que dejalo como una tarea critica.
+
+> **Registrado como decisión de orden, no como pendiente.** Wompi sale del camino
+> crítico: la primera llamada es gratuita, así que el embudo cierra sin pasarela.
+> Queda como tarea crítica diferida (2.2). Vale la pena iniciar el papeleo en
+> paralelo de todos modos: tarda más que el desarrollo.
 
 ### B3 · Credenciales de Google
 Depende de A2. Si hay Workspace: proyecto en Google Cloud, habilitar Calendar
 API, cuenta de servicio, delegación de dominio con un solo permiso, y un
 calendario nuevo «Asesorías Plano Base». Le paso el paso a paso cuando confirme.
 
-- [ ] Hecho **R/:**
+- [ ] Hecho **R/:** si hay workspace pagado.
+
+> **Registrado: responde A2, no cierra el trámite.** Con Workspace confirmado,
+> la ruta es la buena —cuenta de servicio con delegación de dominio, $0
+> adicionales— pero **hay que ejecutarla**: proyecto en Google Cloud, Calendar
+> API, cuenta de servicio, delegación con un solo scope y el calendario
+> «Asesorías Plano Base». **Es el trámite que sigue**, y sin él no hay Entrega A.
 
 ### B4 · Ficha de Google Business
 **Después de A3.** Para «arquitectos en Cali» el paquete de mapas se lleva la
 mayor parte de los clics.
 
-- [ ] Hecho **R/:**
+- [ ] Hecho **R/:** no me interesa arquitectos en cali, me interesa arquitectos en colombia.
+
+> **Registrado como matización, no como cierre.** La intención es correcta y es
+> exactamente el reencuadre de la tarea 5.1. Pero una ficha de Google Business
+> **solo posiciona por proximidad**: no existe una ficha nacional, y declarar
+> presencia local donde no hay oficina atendida es causal de suspensión. Las dos
+> cosas no compiten, se suman. **Falta que confirme si aun así quiere crearla**;
+> la dirección ya está fijada en Cali.
 
 ### B5 · Facturación electrónica DIAN
 Wompi es la pasarela, **no factura por el comercio**. Hay que decidir si se
 emite a mano o con proveedor, antes de cobrar el primer peso.
 
-- [ ] Resuelto **R/:**
+- [ ] Resuelto **R/:** Ya tenemos un sistema de facturacion, pero me gustaria que generes un plan para que hagamos la facturacion electronica con odoo. esto se puede posponercasi hasta lo ultimo del roadmap.
+
+> **Registrado: el rumbo está cerrado, el plan no existe todavía.** Corrige un
+> supuesto de los documentos —daban por hecho que no había sistema de
+> facturación—, así que esto **deja de bloquear** el primer cobro. Queda por
+> escribir el plan de facturación electrónica con Odoo (tarea 3.4 / pendiente
+> N2), casi al final de la hoja de ruta.
 
 ---
 
@@ -303,7 +433,12 @@ del Caribe. Es la tarea de mayor efecto palanca de este documento.
 
 *Sugerencia: una tabla de 23 filas y dos columnas. Media hora con Eduardo.*
 
-- [ ] Hecho **R/:**
+- [ ] Hecho **R/:** dame una lista, o donde la encuentro.
+
+> **Entregada: `docs/PROYECTOS-CONSTRUIDO.md`.** Tabla de los 23 proyectos
+> publicados, ordenada por ciudad y año, con una columna vacía para marcar
+> construido · propuesta · concurso. Es para llenar a mano; nadie fuera del
+> estudio puede hacerlo.
 
 ### C2 · Los dos servicios que hoy tienen más demanda
 Tras el sismo, el **diagnóstico de edificaciones** y la **visita técnica con
@@ -315,8 +450,73 @@ la década en el Valle.
 urgencia manifiesta **elimina la convocatoria y el contratista se escoge**.
 Quien no está ya en el radar de la entidad, no aparece.
 
-**R/:**
+**R/:** Si, estamos en condiciones.
+
+> **Registrado.** Confirma la lectura del `PLAN-MAESTRO.md` §0: el diagnóstico de
+> edificaciones y la visita técnica con informe son hoy los servicios de mayor
+> demanda real, y el estudio puede atenderlos. Refuerza el orden de publicación
+> del blog (`PLAN-BLOG.md` §6) y no cambia ninguna fase.
 
 ---
 
-*Cuando responda, actualizo la hoja de ruta y arranco lo que se desbloquee.*
+*Respondido el 5/9/2026. Hoja de ruta actualizada; lo desbloqueado está marcado
+en la Fase 0.*
+
+---
+
+# Correcciones de atribución
+
+Registradas el 5 de septiembre de 2026 a partir de la respuesta A8. Se dejan
+aquí, y no solo en el archivo corregido, para que la mezcla no se repita.
+
+## Dos etapas distintas, dos lugares distintos
+
+| Etapa | Años | Dónde | Qué se hizo |
+|---|---|---|---|
+| **Edospina** | 2007-2012 | **Bogotá** | Diseño de plantas de agua potable y aguas residuales, piscinas y juegos acuáticos |
+| **XMC Caribbean** | 2019-2022 | **Bahamas, Bermuda, Turks & Caicos, Miami** | Piscinas de borde infinito, spas, cascadas y sus sistemas de fondo: redes de tubería, plantas de filtración, bombas, cuartos de máquinas |
+
+**Edospina no fue trabajo en el Caribe.** La experiencia caribeña —Bakers Bay,
+The Pointe Hotel, LF Wade International Airport, Mary Brickell Mall— es
+íntegramente de XMC Caribbean.
+
+Lo que las dos etapas sí comparten, y es lo que sostiene el pilar de piscinas:
+quince años de diseño de sistemas hidráulicos y cuerpos de agua. Esa credencial
+es continua; el Caribe no.
+
+## Y la regla que no cambia
+
+**Toda esa experiencia es de Gustavo Mejía, no de Plano Base.** Los artículos
+dicen «quien dirige esta línea en el estudio trae quince años en…», nunca «Plano
+Base construyó en Bahamas». Un cliente de alto patrimonio compra a personas; el
+encuadre honesto es también el más fuerte, y no deja flanco.
+
+## Qué se corrigió y qué ya estaba bien
+
+| Dónde | Estado |
+|---|---|
+| `docs/PLAN-BLOG.md` §2 | **Corregido.** Decía «ejecutados en XMC Caribbean y Edospina» sobre la tabla de proyectos caribeños. Ahora separa las dos etapas y su geografía |
+| `docs/HOJA-DE-RUTA.md`, pregunta A8 | La pregunta original arrastraba la misma mezcla. Se deja literal —es el registro— con la corrección anotada debajo |
+| `docs/PLAN-MAESTRO.md` §9, «Caribe insular» | **Sin error de atribución.** Ya decía «se atribuye la experiencia a las personas y no al estudio». Se le añadió la separación de las dos etapas para que quede explícita |
+| `content/pilares.ts`, pilar `piscinas` | **Correcto, no se toca.** «Quien dirige esta línea en el estudio trae quince años diseñando sistemas hidráulicos y construyendo piscinas de borde infinito y cuerpos de agua en el Caribe» — atribuye a la persona y no nombra a Edospina |
+| `content/pilares.ts`, pilar `caribe` | **Correcto, no se toca.** Habla de lo que exige construir en una isla, sin afirmar obra del estudio |
+| `content/blog/ley-1209-piscinas-copropiedad.ts` | **Correcto, no se toca.** «Quien firma lleva quince años diseñando sistemas hidráulicos y construyendo piscinas y cuerpos de agua» — sin geografía y sin atribuir al estudio |
+
+Ningún archivo de código o de contenido del sitio se modificó. Las dos últimas
+filas se revisaron precisamente porque eran las candidatas a tener el mismo
+problema, y no lo tienen.
+
+---
+
+# Pendientes anotados, no ejecutados
+
+Cosas que salieron al registrar las respuestas y que hay que hacer, pero que no
+se tocaron para no mezclar documentación con código:
+
+| | Qué | Dónde |
+|---|---|---|
+| N1 | **Deshabilitar `/en`.** Escrito con todo el detalle en la tarea 5.5 | `src/i18n/routing.ts` · `next.config.ts` |
+| N2 | **Escribir el plan de facturación electrónica con Odoo** *(decisión 0.12)*. No existe todavía como documento | `docs/` |
+| N3 | **Confirmar si se crea la ficha de Google Business** *(decisión 0.13)*. La dirección ya está fijada en Cali | Trámite |
+| N4 | **El comentario de cabecera de `reconocimientos` en `content/site.ts` dice «Cuatro reconocimientos en concurso público» y la lista tiene cinco entradas** —cuatro públicas y una privada, el Teatro César Conto Ferrer—. Es la contradicción H6 del `PLAN-MAESTRO.md` §6, y se resuelve en la misma pasada que 0.7. No se tocó | `content/site.ts` |
+| N5 | **Plantillas de correo de Resend** *(decisión 0.3)*: acuse de recibo del formulario y confirmación de reserva con `.ics` | Tarea 1.7 |

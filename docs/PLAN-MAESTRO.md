@@ -1,7 +1,8 @@
 # Plan maestro · Plano Base Web
 
 Estado del proyecto y hoja de ruta completa.
-Última actualización: 5 de septiembre de 2026.
+Última actualización: 5 de septiembre de 2026 — con las decisiones del dueño
+registradas en §1.
 
 Este documento reúne el trabajo de seis auditorías hechas sobre el repositorio
 y sobre el mercado. No hay que leerlo de una sentada: cada frente es
@@ -90,6 +91,17 @@ Tipo obligatorios (ver §9 bis).
 
 Nada avanza sin estas. Están ordenadas por urgencia real.
 
+**Respondidas por Gustavo Mejía el 5 de septiembre de 2026.** Cada apartado
+conserva el contexto que explicaba por qué la decisión importaba —eso es lo que
+hace auditable la decisión más adelante— y añade abajo qué se decidió y qué
+desbloquea. Las respuestas literales están en `HOJA-DE-RUTA.md`, sección «Para
+usted».
+
+**Resumen:** cerradas 0.1, 0.2, 0.5, 0.8, más `/en` y el rumbo de la facturación
+electrónica. Abiertas: 0.6 (marcar `construido`), 0.9 (aprobar la copia) y el
+trámite de Wompi, este último abierto por decisión de orden y no por falta de
+respuesta. **En conflicto sin cerrar: 0.7, los reconocimientos.**
+
 ### 1.1 · El precio de la primera llamada — BLOQUEA reservas y pagos
 
 Hay **tres cifras distintas** para el mismo momento del embudo:
@@ -108,6 +120,22 @@ precio es mayor que cero. La llamada gratuita sale ya; la visita técnica de
 $300.000 se cobra cuando usted quiera; si mañana decide cobrar $50.000 por la
 asesoría es cambiar un número.
 
+#### DECIDIDO · 5/9/2026 — CERRADA
+
+- **La llamada inicial de 15 minutos es sin costo.** Es lo que ya publica
+  `content/site.ts` y lo que ya dice `/agendar`: no hay nada que cambiar.
+- **Los $50.000 eran el precio anterior y se descartan.** El volcado de Wix
+  queda como registro histórico, no como fuente. Deja de ser una contradicción
+  viva y pasa a ser un dato viejo.
+- **Los $300.000 son el precio de lista de la visita técnica con informe**, que
+  vive en la escalera de `content/puertas.ts`, no en la primera llamada.
+- **Acepta el calendario genérico** con el pago activado solo cuando el precio
+  sea mayor que cero.
+
+**Qué desbloquea:** la Entrega A completa. El calendario puede salir a
+producción **sin esperar a Wompi**, porque el único servicio que recibe tráfico
+frío hoy cuesta cero. La decisión 1.4 deja de estar en el camino crítico.
+
 ### 1.2 · ¿`proyectos@planobase.co` está en Google Workspace de pago? — BLOQUEA Google Meet
 
 - **Sí** → cuenta de servicio con delegación de dominio. $0 adicionales. No
@@ -119,16 +147,73 @@ asesoría es cambiar un número.
 
 Para algo que sostiene tráfico pagado, la vía de los 7 días no es opción.
 
+#### DECIDIDO · 5/9/2026 — CERRADA
+
+**Sí: `proyectos@planobase.co` está en Google Workspace de pago.**
+
+**Qué desbloquea, y es la respuesta de mayor efecto de toda esta sección:**
+
+- **Cambia toda la arquitectura del calendario.** Se va por cuenta de servicio
+  con delegación de dominio, que es la vía buena: no caduca, no hay pantalla de
+  consentimiento, no hay verificación de app y no hay refresh token que renovar.
+- **Elimina el modo de falla más peligroso del proyecto.** La vía de OAuth con
+  un Gmail normal habría seguido creando reservas después de que el token
+  caducara, pero sin enlace de Meet. Un fallo silencioso sobre tráfico pagado.
+  Ese riesgo desaparece por completo.
+- **Costo adicional: $0.** No hay que contratar los ~$34.000 COP/mes.
+- **Confirma el paso a paso de credenciales** del §3, que estaba escrito
+  suponiendo Workspace. Lo único que queda es ejecutarlo: proyecto de Google
+  Cloud, Calendar API, cuenta de servicio, delegación con un solo scope y un
+  calendario nuevo «Asesorías Plano Base».
+
 ### 1.3 · Verificar `planobase.co` en Resend — URGENTE, y no es un pulido
 
 **Hoy el correo de confirmación al cliente no saldría.** Mientras el dominio no
 esté verificado, Resend solo permite escribir a la dirección de la propia
 cuenta. El sistema cobraría y no confirmaría. Son unos registros DNS.
 
+#### DECIDIDO · 5/9/2026 — CERRADA EN EL TRÁMITE, ABIERTA EN EL TRABAJO
+
+**«Ya está funcionando. Necesitamos los templates.»**
+
+El dominio está verificado, así que el bloqueo desaparece: el correo ya puede
+salir a cualquier destinatario.
+
+**Lo que queda abierto son las plantillas**, y no es un pulido: son dos correos
+que forman parte del producto.
+
+1. **Acuse de recibo del formulario de contacto.** Hoy un lead envía el
+   formulario y no recibe nada.
+2. **Confirmación de reserva con el `.ics` adjunto y el enlace de Meet.** Es la
+   pieza que cierra la Entrega A, y el motivo por el que se desactiva a
+   propósito el correo automático de Google: el cliente debe recibir **un solo
+   correo**, el del estudio.
+
+Sigue siendo la tarea 1.7, con el alcance cambiado de «verificar el dominio» a
+«redactar y montar las plantillas».
+
 ### 1.4 · Abrir la cuenta de comercio Wompi — el trámite tarda más que el código
 
 Persona jurídica, RUT y cuenta bancaria a nombre de Plano Base Arquitectos
 S.A.S. Hay ambiente de pruebas para avanzar mientras tanto.
+
+#### DECIDIDO · 5/9/2026 — ABIERTA POR DECISIÓN DE ORDEN
+
+**«Sí, esto se debe hacer, pero no en esta fase. Debemos primero empezar a
+pautar, así que déjalo como una tarea crítica.»**
+
+No es una respuesta pendiente: es una decisión de secuencia. **Wompi sale del
+camino crítico** y queda como tarea crítica diferida, después de encender la
+pauta.
+
+**Por qué esto ahora es viable y antes no:** la decisión 1.1 dejó la primera
+llamada en cero. Un embudo cuyo primer peldaño es gratuito **no necesita
+pasarela para cerrar**. La Entrega A basta.
+
+**El aviso original sigue en pie, y por eso se marca como crítica:** el papeleo
+tarda más que el desarrollo. Si se inicia el trámite el día que se necesite la
+Entrega B, la Entrega B espera al banco. Vale la pena arrancarlo en paralelo
+aunque no se use durante semanas — no cuesta nada tenerlo listo y esperando.
 
 ### 1.5 · La dirección pública: ¿Cali o Jamundí?
 
@@ -138,7 +223,24 @@ el JSON-LD, el pie, `/contacto`, el dossier y las 23 hojas de proyecto.
 **Importa el orden:** si se crea la ficha de Google Business y después se cambia
 la dirección, se resetea la antigüedad de la ficha. Decidir primero.
 
-### 1.6 · La afirmación de los cuatro reconocimientos
+#### DECIDIDO · 5/9/2026 — CERRADA
+
+**La dirección pública es Cali.**
+
+Coincide con lo que el sitio ya publica —Calle 18 # 61-29, Cali— en el JSON-LD,
+el pie, `/contacto`, el dossier y las 23 hojas de proyecto. **No hay que cambiar
+nada**, y la contradicción H7 del §6 queda cerrada.
+
+**Qué desbloquea:** la ficha de Google Business puede crearse sin riesgo de
+perder antigüedad. Pero ver la matización del §1.13, más abajo: él dijo que le
+interesa «arquitectos en Colombia», no «arquitectos en Cali», y eso cambia la
+pregunta de si crearla.
+
+**Y no confundir la sede con la identidad.** Cali es la sede real, y ese dato
+debe coincidir carácter por carácter con la futura ficha. Lo que el reencuadre
+del §9 cambia es quién la usa y cómo se enuncia el alcance, no la dirección.
+
+### 1.6 · La afirmación de los cuatro reconocimientos — CONFLICTO ABIERTO
 
 El sitio dice «cuatro reconocimientos en **concurso público nacional**». El dato
 no lo sostiene: solo dos se declaran nacionales (El Ensueño y Pradera El
@@ -150,9 +252,126 @@ README ya identifica esto como el riesgo reputacional más alto del portafolio.
 Hay que reformularla a algo cierto y que siga siendo fuerte — cuatro
 reconocimientos en concurso siguen siendo cuatro.
 
+#### La respuesta, y por qué no cierra el asunto
+
+**«Los 4 son concursos nacionales.» — Gustavo Mejía, 5/9/2026.**
+
+Esa afirmación **contradice los datos del propio repositorio**, y por eso no se
+registra como decisión cerrada sino como conflicto abierto. Ni se cambió el
+texto del sitio para ajustarlo a la memoria, ni se cambió para ajustarlo a la
+auditoría. **Nada se tocó.**
+
+No es exceso de celo. Es precisamente el dato que un comprador institucional
+verifica —lo puede verificar, porque los términos de referencia y las actas de
+un concurso público son documentos públicos—, y si lo verifica y no cuadra, no
+pierde solo esa afirmación: pierde la confianza en todo el portafolio.
+
+#### Qué dice cada proyecto sobre su propio concurso
+
+Transcripción literal del campo `subtitulo` de `content/projects.ts`. **Los
+cinco coinciden carácter por carácter con `wix-migration/01-content/projects.json`**,
+así que no hay pérdida en la migración: es lo que el estudio venía publicando en
+Wix.
+
+| Proyecto · slug | `subtitulo` publicado, literal | `premio` | Año |
+|---|---|---|---|
+| `alcaldia-local-de-teusaquillo` | «Primer puesto, concurso público arquitectónico para la nueva Alcaldía Local de Teusaquillo» | `"Primer puesto"` | 2014 |
+| `colegio-y-teatro-el-ensueno` | «Primer puesto: concurso público **nacional** de anteproyecto arquitectónico para el diseño de El Ensueño» | `"Primer puesto"` | 2014 |
+| `colegio-pradera-el-volcan` | «Segundo puesto, concurso público de anteproyecto arquitectónico Colegio Pradera El Volcán» | `"Segundo puesto"` | 2015 |
+| `casa-cultural-las-colinas` | «Segundo puesto: concurso **de ideas** para el diseño arquitectónico Casa Cultural Las Colinas» | `"Segundo puesto"` | 2022 |
+| `teatro-cesar-conto-ferrer` *(el quinto, privado)* | «Segundo puesto, concurso **privado**: Teatro César Conto Ferrer» | `"Segundo puesto"` | 2017 |
+
+Y en `content/site.ts`, la lista `reconocimientos` los titula así:
+
+| Entrada | `titulo` en `site.ts`, literal | `ambito` |
+|---|---|---|
+| 1 | «Alcaldía Local de Teusaquillo» | `'publico'` |
+| 2 | «Colegio y teatro El Ensueño, Ciudad Bolívar» | `'publico'` |
+| 3 | «Concurso Público **Nacional** Nuevos Espacios de Aprendizaje para el Siglo XXI. Colegio Pradera El Volcán» | `'publico'` |
+| 4 | «Teatro César Conto Ferrer» | `'privado'` |
+| 5 | «Casa de la cultura Colinas, San José del Guaviare» | `'publico'` |
+
+#### Qué dicen los datos, en limpio
+
+- **Solo uno de los cinco lleva la palabra «nacional» en su propio subtítulo:**
+  El Ensueño.
+- **Pradera El Volcán es el segundo «nacional», pero por otra vía:** la palabra
+  no está en su subtítulo, está en el título del concurso tal como lo recoge
+  `site.ts` —«Concurso Público **Nacional** Nuevos Espacios de Aprendizaje para
+  el Siglo XXI»—, y esa misma redacción viene del volcado de Wix
+  (`site.json` y `pages.json`). Es el nombre propio del concurso, y como
+  evidencia es **más fuerte** que un adjetivo suelto.
+- **Teusaquillo dice «concurso público arquitectónico», sin ámbito.** No dice
+  «local»; tampoco dice «nacional». El calificativo de «local» del análisis
+  anterior venía del nombre del proyecto —Alcaldía **Local** de Teusaquillo, que
+  es el nombre de la entidad, una alcaldía local de Bogotá—, no del subtítulo del
+  concurso. **Ese matiz corrige parcialmente a favor de Gustavo:** el dato
+  publicado no afirma que el concurso fuera local, solo no afirma que fuera
+  nacional.
+- **Las Colinas dice «concurso de ideas».** Aquí la tensión es de otro tipo, y no
+  se resuelve con la palabra «nacional»: un concurso de ideas y un concurso de
+  anteproyecto no son lo mismo, y un jurado institucional lo sabe. Puede ser
+  perfectamente un concurso de ideas de convocatoria nacional; las dos cosas no
+  se excluyen.
+- **El quinto es privado y él mismo lo declara así.** Nadie lo discute — pero
+  ver más abajo la contradicción del «cuatro» contra el «cinco».
+
+**Resumen del conflicto:** de los cuatro concursos públicos, **dos tienen
+respaldo documental de ser nacionales en el propio sitio** y dos no lo tienen.
+Que no lo tengan **no prueba que no lo sean**: prueba que el subtítulo se
+escribió sin ese dato. La afirmación de Gustavo es perfectamente posible; lo que
+falta es la prueba.
+
+#### Qué haría falta para cerrarlo
+
+Un documento por concurso, y con uno solo por proyecto basta:
+
+1. **Los términos de referencia o el pliego de la convocatoria** — es donde se
+   declara el ámbito y quién podía presentarse. Es el documento que zanja la
+   discusión.
+2. **El acta de fallo del jurado**, que suele repetir el nombre completo y
+   oficial del concurso.
+3. Alternativamente, **la resolución o el aviso de convocatoria** de la entidad,
+   o la ficha del concurso en la SCA si fue arbitrado por la Sociedad Colombiana
+   de Arquitectos.
+
+Con eso en mano, la afirmación del sitio se reescribe **una sola vez** y con el
+nombre oficial de cada concurso, que además es mejor copia que cualquier
+adjetivo: «Primer puesto en el Concurso Público Nacional de Anteproyecto
+Arquitectónico para…» convence más que «cuatro reconocimientos nacionales».
+
+**Mientras tanto:** el texto queda como está. No se sube la afirmación ni se
+baja. Si hiciera falta encender la pauta antes de encontrar los documentos, la
+salida honesta y sin costo es la que ya era la recomendación —**«cuatro
+reconocimientos en concurso público»**, sin adjetivo—, que es cierta bajo las
+dos versiones de los hechos y no pierde fuerza.
+
+#### Y una contradicción aparte, que se resuelve en la misma pasada
+
+`content/site.ts` encabeza la lista con el comentario «**Cuatro** reconocimientos
+en concurso público» y a continuación define **cinco** entradas: cuatro públicas
+y una privada. `estudio/page.tsx` dice «**Cinco** reconocimientos en concurso» y
+la metadescripción de esa misma página dice «**cuatro** reconocimientos en
+concurso público nacional». Las dos cifras son correctas y hablan de cosas
+distintas; el problema es que conviven sin explicarse. Es la contradicción H6 del
+§6, y se cierra junto con esta.
+
 ### 1.7 · Registro de trato: usted en todo el sitio
 
 Ver §6. Requiere su visto bueno porque toca copia ya aprobada.
+
+#### DECIDIDO · 5/9/2026 — CERRADA
+
+**«Usted.»**
+
+**Qué desbloquea:** las **32 reescrituras** del §6, que ya están redactadas con
+el texto exacto viejo → nuevo. Es trabajo de aplicar, no de decidir. Entra en la
+pasada única de redacción de la fase 5, junto con el reencuadre geográfico y las
+siete contradicciones de hecho — son los mismos archivos y no tiene sentido
+tocarlos tres veces.
+
+Y confirma el criterio del §6: no había que reabrir la copia ya aprobada, porque
+esa copia ya estaba usteada.
 
 ### 1.8 · Aprobación de la copia pendiente
 
@@ -163,6 +382,27 @@ las políticas de la asesoría, el peldaño 2 de la escalera y `/agendar` entera
 
 Es el texto que va a recibir el tráfico pagado. Necesita una sesión de lectura
 con Eduardo y con usted.
+
+#### RESPONDIDO · 5/9/2026 — SIGUE ABIERTA
+
+**«Necesito revisar todo.»**
+
+Es un compromiso, no una fecha. **Lo que falta es agendar la sesión de lectura**
+con Eduardo, y sigue siendo un bloqueo real de la pauta: `/agendar` entera está
+sin aprobar y es exactamente la página que va a recibir el dinero.
+
+El material a leer, para que la sesión tenga alcance conocido:
+
+- La visión de `/estudio`, marcada en su propio código como «BORRADOR PARA
+  EDUARDO».
+- Los siete textos de vertical.
+- Las políticas de la asesoría.
+- El peldaño 2 de la escalera.
+- **`/agendar` entera** — la prioritaria.
+
+**Conviene leerla después de la pasada de redacción de la fase 5, no antes.** Si
+se aprueba el texto de hoy y luego se unifica en «usted» y se reencuadra a
+nacional, hay que volver a aprobarlo. Aprobar una vez, sobre el texto final.
 
 ### 1.9 · Marcar cuáles proyectos están construidos — PRERREQUISITO DE CASI TODO
 
@@ -177,12 +417,106 @@ internacional. Un estudio que aún no distingue obra de propuesta en su propio
 portafolio no puede permitirse una afirmación nueva: si un cliente tira del
 hilo, pierde las dos.
 
+#### RESPONDIDO · 5/9/2026 — SIGUE ABIERTA
+
+**«Dame una lista, o dónde la encuentro.»**
+
+Justo: señalar un archivo de TypeScript no sirve para una tarea que se hace con
+Eduardo en media hora sobre una mesa.
+
+**Entregado: `docs/PROYECTOS-CONSTRUIDO.md`.** Los 23 proyectos publicados en una
+tabla, ordenada por ciudad y dentro de cada ciudad por año, con el título tal
+como se publica, ciudad, año, categorías, lo que hoy dice el dato `construido`,
+una columna vacía para marcar **construido · propuesta · concurso** y una
+columna de nota para el caso raro. Al final dice dónde vive el dato en el código
+por si prefiere editarlo directamente.
+
+**Sigue siendo el mayor bloqueo del proyecto.** La lista no lo resuelve; solo
+quita la excusa. Hasta que las 23 filas estén marcadas siguen bloqueados: el
+tráfico frío al portafolio, el reencuadre nacional, la página de credenciales
+institucionales (P2 del `PLAN-BLOG.md`), el pilar de casos propios y toda la
+entrada al Caribe.
+
 ### 1.10 · Bogotá no es Cundinamarca
 
 Los 10 proyectos de Bogotá llevan `departamento: 'Cundinamarca'`. Bogotá es
 Distrito Capital. Sale impreso en la ficha, en la hoja imprimible y en los
 datos estructurados de cada proyecto. Es corrección de dato, no decisión — se
 aplica sin consultar.
+
+**Sin cambios.** No se preguntó y no hacía falta. Un detalle de ejecución: el
+dato vive en `content/projects.ts`, que está generado por `pnpm media` desde
+`wix-migration/01-content/projects.json`. La corrección va **en el origen o en
+el script**, no en el archivo generado, o el siguiente `pnpm media` la borra.
+
+---
+
+## 1 bis. Decisiones nuevas, que no estaban en esta lista
+
+Salieron de las preguntas A7, B4 y B5 de la hoja de ruta.
+
+### 1.11 · Deshabilitar `/en` — CERRADA
+
+**«Por ahora deshabilita el /en. Vamos a hacer desarrollo hasta un punto estable
+o de bajo volumen, y ahí sí traducimos todo.»**
+
+El §6 describe el problema: `messages/en.json` está completo y bien traducido,
+pero el cuerpo editorial está escrito a mano en español dentro de los
+componentes, así que `/en` sirve **la cáscara en inglés y el contenido en
+español**. Había dos salidas —traducir de verdad (3-5 días) o retirarla— y
+mantener 22 páginas fantasma era lo peor de las dos.
+
+**Se elige retirarla**, y con eso queda obsoleta la salida intermedia que
+proponía este documento: pintar la cadena de aviso «Content shown in Spanish».
+Ya no hace falta.
+
+**Qué desbloquea:** cierra el frente de inglés y saca de la lista de «después»
+la tarea «decidir el destino de `/en`» del §7. **Y aplaza formalmente la etapa 5
+de la entrada al Caribe** (§9), que dependía de que `/en` fuera traducción real.
+
+El plan de ejecución detallado —mecanismo en `src/i18n/routing.ts`, qué hacer con
+las URLs existentes, y qué recordar el día que se traduzca— está en la tarea 5.5
+de `HOJA-DE-RUTA.md`. **No se ha implementado.**
+
+### 1.12 · Facturación electrónica: rumbo Odoo — CERRADA EN EL RUMBO
+
+**«Ya tenemos un sistema de facturación, pero me gustaría que generes un plan
+para que hagamos la facturación electrónica con Odoo. Esto se puede posponer casi
+hasta lo último del roadmap.»**
+
+Corrige un supuesto de este documento: el §4 daba por hecho que había que decidir
+«a mano o con proveedor». **Ya hay sistema de facturación andando**, así que
+cobrar el primer peso no queda bloqueado por esto.
+
+Lo que queda es un trabajo nuevo, no un bloqueo: **escribir el plan de
+facturación electrónica con Odoo** —proveedor tecnológico habilitado ante la
+DIAN, resolución de numeración, ambiente de habilitación, y el enganche con los
+pagos de Wompi para que una transacción confirmada genere su factura—. Va casi al
+final de la hoja de ruta, después de la Entrega B.
+
+### 1.13 · La ficha de Google Business — MATIZADA, NO CERRADA
+
+**«No me interesa arquitectos en Cali, me interesa arquitectos en Colombia.»**
+
+La intención es la correcta y coincide con todo el §9: el estudio es nacional y
+el sitio lo esconde. Pero la respuesta trata la ficha como si fuera una palanca
+de alcance, y no lo es.
+
+**Una ficha de Google Business solo posiciona por proximidad.** No existe una
+ficha nacional, y declarar `LocalBusiness` en ciudades donde no hay oficina
+física atendida es causal de suspensión —está advertido en el §9—. El alcance
+nacional se gana por otra vía y ya está planificado: el reencuadre del `h1`, el
+selector de ciudades, las verticales y el JSON-LD (tarea 5.1), más las páginas
+de ciudad con contenido normativo real, que hoy solo aprueban **Bogotá** y
+**Cali**.
+
+**Y las dos cosas no compiten: se suman.** Para «arquitectos en Cali» el paquete
+de mapas se lleva la mayor parte de los clics, y ese es tráfico que hoy el
+estudio no recibe y que no le resta nada al posicionamiento nacional.
+
+**Qué falta:** que confirme si aun así quiere crear la ficha. La dirección ya
+está fijada por §1.5 —Cali—, así que si la respuesta es sí, no hay nada más que
+decidir.
 
 ---
 
@@ -268,7 +602,9 @@ el cliente reciba un solo correo, el del estudio.
 
 ### Credenciales de Google que hay que conseguir
 
-Ruta recomendada (con Workspace):
+**Confirmado el 5/9/2026: hay Workspace de pago (§1.2), así que esta es la ruta,
+no una de dos.** Es el trámite B3 de la hoja de ruta y sigue pendiente de
+ejecutar.
 
 1. Proyecto nuevo en Google Cloud, `planobase-reservas`.
 2. Habilitar **Google Calendar API**. Es la única. La «Google Meet API» no hace
@@ -279,9 +615,17 @@ Ruta recomendada (con Workspace):
    `https://www.googleapis.com/auth/calendar.events` y nada más.
 6. Crear un calendario nuevo «Asesorías Plano Base», no usar el principal.
 
+**La alternativa de OAuth con Gmail queda descartada**, y con ella el fallo
+silencioso del token de 7 días.
+
 ---
 
 ## 4. Frente · Pagos con Wompi
+
+**Estado tras las decisiones del 5/9/2026:** todo este frente queda **diferido**.
+La primera llamada es gratuita (§1.1) y la cuenta de comercio se abre después de
+encender la pauta (§1.4), así que el embudo cierra sin pasarela. Lo de abajo
+sigue siendo válido y no cambia; solo cambia cuándo se hace.
 
 ### Fase 1: solo links de pago
 
@@ -322,6 +666,16 @@ DIAN sigue siendo obligación de Plano Base. Hay que decidir si se emite a mano
 o con un proveedor, antes de cobrar el primer peso. Y hay que publicar términos
 y política de reembolso: las políticas de hoy están escritas para una llamada
 gratuita.
+
+**Corregido el 5/9/2026 (§1.12):** el estudio **ya tiene un sistema de
+facturación**, así que esta obligación no bloquea el primer cobro. La decisión
+tomada es el rumbo —**facturación electrónica con Odoo**— y lo que falta es
+escribir ese plan, casi al final de la hoja de ruta.
+
+Lo que **no** queda cubierto y sigue en pie: publicar términos y política de
+reembolso antes de cobrar. Las políticas de hoy están escritas para una llamada
+gratuita, y con la primera llamada confirmada en cero (§1.1) siguen siendo
+correctas hasta el día que se active el cobro de la visita técnica.
 
 ---
 
@@ -376,11 +730,11 @@ Son 32 reescrituras, con el texto exacto viejo → nuevo ya redactado.
 |---|---|
 | H1 | Las Colinas figura como 2021 en `site.ts` y 2022 en `projects.ts`. Las dos cifras se ven en pantalla a la vez |
 | H2 | El mismo proyecto con dos nombres. El enlace de `/estudio` anuncia uno y aterriza en otro |
-| H3 | «Cuatro reconocimientos en concurso público nacional» — ver §1.6 |
+| H3 | «Cuatro reconocimientos en concurso público nacional» — ver §1.6. **En conflicto abierto tras la respuesta del 5/9/2026: no se toca hasta ver los documentos del concurso** |
 | H4 | Basura del PDF dentro de un dato: el pie del InDesign quedó pegado al último «no incluye» de Obra y Fabricación. Hoy no se pinta, pero está armado para salir |
 | H5 | El blog arrastra pies de imagen de Wix como párrafos sueltos, uno duplicado con dos redacciones |
-| H6 | «Cinco» y «cuatro» reconocimientos conviven sin explicarse en cinco lugares |
-| H7 | Dirección pública sin decidir — ver §1.5 |
+| H6 | «Cinco» y «cuatro» reconocimientos conviven sin explicarse en cinco lugares. Las dos cifras son ciertas —cuatro concursos públicos y uno privado— pero nada lo explica. Se cierra junto con H3 |
+| H7 | ~~Dirección pública sin decidir~~ — **cerrada el 5/9/2026: Cali.** Coincide con lo publicado, no hay nada que cambiar (§1.5) |
 
 ### Inconsistencias
 
@@ -409,6 +763,11 @@ cáscara en inglés y el contenido en español**: una página bilingüe accident
 Está contenida (`/en` va `noindex`), pero existe la cadena de aviso exacta
 —«Content shown in Spanish; the English translation is in progress»— y **ningún
 componente la pinta.** Ponerla es una línea.
+
+**DECIDIDO · 5/9/2026 (§1.11): se deshabilita `/en`.** El aviso deja de tener
+sentido y no se pinta. `messages/en.json` no se borra: se conserva para el día
+que se traduzca el cuerpo editorial de verdad. El plan de ejecución está en la
+tarea 5.5 de `HOJA-DE-RUTA.md`, y **no se ha implementado**.
 
 ---
 
@@ -597,6 +956,33 @@ a las personas y no al estudio, se dice explícitamente por qué no está en el
 portafolio —eso es lo que desactiva la sospecha— y se cierra en el mercado
 ejecutable hoy: Barú, Rosario, Santa Marta, San Andrés.
 
+#### De quién es la experiencia, y de qué etapa · confirmado 5/9/2026
+
+**«La experiencia es de Gustavo Mejía. Lee bien el dossier al detalle: Edospina
+no fue un trabajo en el Caribe.»**
+
+Confirma la regla de encuadre que este documento ya sostenía, y **corrige una
+mezcla de dos etapas** que se había colado en `PLAN-BLOG.md` §2:
+
+| Etapa | Años | Dónde | Qué se hizo |
+|---|---|---|---|
+| **Edospina** | 2007-2012 | **Bogotá** | Diseño de plantas de agua potable y aguas residuales, piscinas y juegos acuáticos |
+| **XMC Caribbean** | 2019-2022 | **Bahamas, Bermuda, Turks & Caicos, Miami** | Piscinas de borde infinito, spas, cascadas y sus sistemas de fondo: redes de tubería, plantas de filtración, bombas, cuartos de máquinas |
+
+**Bakers Bay, The Pointe Hotel, LF Wade International Airport y Mary Brickell
+Mall son íntegramente de XMC Caribbean.** Edospina no aparece en ninguna
+afirmación caribeña.
+
+Lo que las dos etapas sí comparten —y es la credencial que sostiene el pilar de
+piscinas— son quince años de diseño de sistemas hidráulicos y cuerpos de agua.
+Esa continuidad es real; la geográfica no.
+
+**Y sigue en pie lo de siempre:** toda esa experiencia es de Gustavo, no de Plano
+Base. Se enuncia «quien dirige esta línea en el estudio trae quince años en…»,
+nunca «Plano Base construyó en Bahamas». El texto publicado hoy en
+`content/pilares.ts` y en el artículo de la Ley 1209 ya lo hace bien y **no hay
+que tocarlo**.
+
 ---
 
 ## 10. Frente · Pauta (Facebook y Google Ads)
@@ -618,11 +1004,16 @@ Resend, hacer el corte de DNS y aprobar la política de datos.
 
 ## 11. Cronograma propuesto
 
+**Actualizado el 5/9/2026 con lo que quedó decidido.** Lo tachado ya no aplica.
+
 ```
-AHORA (usted)     Verificar planobase.co en Resend
-                  Abrir cuenta Wompi
-                  Decidir: precio · Workspace sí/no · dirección pública
-                  Sesión de lectura de la copia con Eduardo
+AHORA (usted)     ~~Verificar planobase.co en Resend~~ HECHO
+                  ~~Decidir: precio · Workspace · dirección~~ HECHO
+                  Marcar construido en los 23  →  docs/PROYECTOS-CONSTRUIDO.md
+                  Ejecutar el trámite B3: credenciales de Google
+                  Agendar la sesión de lectura de la copia con Eduardo
+                  Buscar los términos de referencia de los cuatro concursos
+                  (Wompi: iniciar el papeleo en paralelo, sin bloquear nada)
 
 SEMANA 1-2        Reencuadre geográfico nacional
                   Pasada única de redacción (registro + 7 contradicciones
@@ -641,20 +1032,30 @@ SEMANA 5-8        Entrega B: panel /admin + Wompi
                   Cadencia de blog
 
 DESPUÉS           Intranet: clientes, proyectos, RFI, planos, comunicaciones
+                  Plan de facturación electrónica con Odoo (§1.12)
 ```
+
+**Lo que cambió de orden:** Wompi sale del camino crítico y la Entrega A puede
+empezar ya, porque la primera llamada es gratuita y hay Workspace confirmado.
+Las plantillas de correo entran en la semana 1-2 junto con la Entrega A, no
+después.
 
 ---
 
 ## 12. Anexo · Trámites a iniciar ya
 
-| Trámite | Por qué ahora |
-|---|---|
-| Verificar `planobase.co` en Resend | Sin esto no sale ningún correo al cliente |
-| Cuenta de comercio Wompi | El papeleo tarda más que el desarrollo |
-| Google Workspace (si no lo hay) | Decide toda la arquitectura del calendario |
-| Ficha de Google Business | **Después** de decidir la dirección |
-| Registro ante la SIC (RNBD) | Verificar si aplica a la S.A.S. |
-| Factura electrónica DIAN | Obligación al cobrar el primer peso |
+**Actualizado el 5/9/2026.**
+
+| Trámite | Estado | Por qué |
+|---|---|---|
+| Verificar `planobase.co` en Resend | **Hecho.** Faltan las plantillas | Sin esto no salía ningún correo al cliente |
+| Google Workspace | **Ya existe, de pago** | Decidía toda la arquitectura del calendario. Resuelto |
+| **Credenciales de Google (proyecto, Calendar API, cuenta de servicio, delegación)** | **Pendiente. Es el trámite que sigue** | Sin esto no hay Entrega A |
+| Cuenta de comercio Wompi | **Diferido a propósito.** Crítico, pero después de pautar | El papeleo tarda más que el desarrollo: conviene iniciarlo en paralelo aunque no se use |
+| Ficha de Google Business | **Sin confirmar.** Dirección ya fijada: Cali | Ver §1.13 — la ficha no da alcance nacional, pero el tráfico local se suma |
+| Registro ante la SIC (RNBD) | Pendiente | Verificar si aplica a la S.A.S. |
+| Factura electrónica DIAN | **Ya hay sistema de facturación.** Falta el plan con Odoo | Ver §1.12. Va casi al final |
+| **Términos de referencia o actas de los cuatro concursos** | **Pendiente, y es el que desbloquea §1.6** | Es lo único que cierra el conflicto de los reconocimientos |
 
 ---
 

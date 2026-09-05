@@ -88,7 +88,8 @@ Tipo obligatorios (ver §9 bis).
 | 20 minutos | Lo anterior, §2 Estado actual y §11 Cronograma |
 | Una tarde | Todo, en orden |
 
-**Leyenda.** ✅ terminado y en producción · 🟡 empezado, falta parte · ⬜ sin
+**Leyenda.** ✅ terminado y en producción · ⏳ terminado y commiteado en la
+rama, esperando el lote de publicación · 🟡 empezado, falta parte · ⬜ sin
 empezar · 🔴 bloqueado esperando una decisión suya.
 
 ---
@@ -97,6 +98,13 @@ empezar · 🔴 bloqueado esperando una decisión suya.
 
 Lo que sigue es la foto del día. Cada línea con ✅ está desplegada en
 `www.planobase.co`, no solo escrita.
+
+**Con una excepción, marcada abajo con ⏳.** Las seis últimas filas de la tabla
+salieron de la pasada de redacción del 5/9 por la tarde y están **commiteadas en
+la rama, sin publicar**: el trabajo se acumula por lotes y Gustavo pide la
+publicación cuando la quiere. Están terminadas y verificadas contra el HTML
+generado —`pnpm build` en verde, con sus cuatro guardas—, pero todavía no las ve
+nadie fuera del repositorio.
 
 ### Terminado ✅
 
@@ -113,13 +121,18 @@ Lo que sigue es la foto del día. Cada línea con ✅ está desplegada en
 | ✅ | Contraste de color corregido: texto secundario, enlaces y campos de formulario *(tarea de §7)* |
 | ✅ | Bogotá deja de figurar en Cundinamarca *(decisión 1.10)* |
 | ✅ | Los 32 artículos que faltan, listados y priorizados *(§14)* |
+| ⏳ | **Registro «usted» en todo el sitio** *(decisión 1.7)*. Quedaban seis cadenas en tú, no 32: las pasadas anteriores ya habían limpiado el resto |
+| ⏳ | **Las contradicciones H1, H2 y H4** del §6, y H5 ya venía resuelta desde la migración |
+| ⏳ | **Las inconsistencias del §6**: un rótulo de botón, una ventana de respuesta, áreas en metros enteros, y el número deja de ir en letra y cifra en la misma pantalla |
+| ⏳ | **El `h1` de `/agendar` dice el precio** en vez de argumentar que no debería ser caro |
+| ⏳ | **Los tres nodos del JSON-LD** *(§9)*: zona de servicio nacional y una sola entidad de organización |
+| ⏳ | **Siete fugas del bilingüe**: rótulos y contadores escritos en español a mano dentro de `[locale]`, que `/en` pintaba en español |
 
 ### Empezado, falta parte 🟡
 
 | | Qué | Qué falta |
 |---|---|---|
-| 🟡 | **Registro «usted»** *(decisión 1.7)* | Hecho en el formulario, `/contacto`, la portada y los rótulos del blog. Falta el resto del sitio |
-| 🟡 | **Encuadre nacional** *(§9)* | Hechas las puertas, `/agendar`, la descripción de tres páginas y el `h1` de la portada. Comprobado además que **dos verticales dicen bien «Valle del Cauca» y «Cali»**: es donde está esa obra, y ensancharlo sería inventar proyectos |
+| 🟡 | **Encuadre nacional** *(§9)* | Hechas las puertas, `/agendar`, la descripción de tres páginas, el `h1` de la portada y **los tres nodos del JSON-LD**. Comprobado además que **dos verticales dicen bien «Valle del Cauca» y «Cali»**: es donde está esa obra, y ensancharlo sería inventar proyectos. Solo queda pendiente lo que depende de marcar `construido` |
 | 🟡 | **Resend** *(decisión 1.3)* | El dominio está verificado y el correo sale. Faltan las plantillas: acuse al cliente y confirmación de reserva |
 | 🟡 | **El blog** *(§8)* | 43 de 75. Diez de los 32 que faltan están bloqueados por la decisión 1.9 |
 
@@ -823,11 +836,11 @@ Son 32 reescrituras, con el texto exacto viejo → nuevo ya redactado.
 
 | # | Problema |
 |---|---|
-| H1 | Las Colinas figura como 2021 en `site.ts` y 2022 en `projects.ts`. Las dos cifras se ven en pantalla a la vez |
-| H2 | El mismo proyecto con dos nombres. El enlace de `/estudio` anuncia uno y aterriza en otro |
+| H1 | ~~Las Colinas figura como 2021 en `site.ts` y 2022 en `projects.ts`~~ — **✅ cerrada.** Se alineó a 2022, que es lo que dice la ficha y el volcado de Wix. El argumento: los otros cuatro reconocimientos copian exacto el año de su proyecto, así que un desvío de uno entre cinco es transcripción, no dato. **Si el fallo del jurado fue de verdad en 2021**, son dos datos distintos y hay que guardarlos por separado |
+| H2 | ~~El mismo proyecto con dos nombres~~ — **✅ cerrada.** Era la misma fila que H1: `/estudio` anunciaba «Casa de la cultura Colinas» y aterrizaba en «Casa cultural en el Centro Poblado Las Colinas Jaime Pardo Leal». Ahora sigue el patrón de El Ensueño —nombre corto más lugar— y comparte palabras con la ficha |
 | H3 | «Cuatro reconocimientos en concurso público nacional» — ver §1.6. **En conflicto abierto tras la respuesta del 5/9/2026: no se toca hasta ver los documentos del concurso** |
-| H4 | Basura del PDF dentro de un dato: el pie del InDesign quedó pegado al último «no incluye» de Obra y Fabricación. Hoy no se pinta, pero está armado para salir |
-| H5 | El blog arrastra pies de imagen de Wix como párrafos sueltos, uno duplicado con dos redacciones |
+| H4 | ~~Basura del PDF dentro de un dato~~ — **✅ cerrada.** El pie del InDesign se cortó a mano y queda el aviso en la cabecera de `servicios.ts`: si algún día se regenera desde el PDF, hay que volver a cortarlo |
+| H5 | ~~El blog arrastra pies de imagen de Wix~~ — **✅ ya estaba resuelta**, y antes de esta pasada: la cabecera de `bienvenidos-a-plano-base.ts` documenta que los dos párrafos huérfanos se retiraron al migrar |
 | H6 | «Cinco» y «cuatro» reconocimientos conviven sin explicarse en cinco lugares. Las dos cifras son ciertas —cuatro concursos públicos y uno privado— pero nada lo explica. Se cierra junto con H3 |
 | H7 | ~~Dirección pública sin decidir~~ — **cerrada el 5/9/2026: Cali.** Coincide con lo publicado, no hay nada que cambiar (§1.5) |
 
@@ -890,6 +903,19 @@ página.
 | ✅ | Open Graph propio por página | — |
 | ⬜ | URLs de campaña con `/es/` explícito y UTMs | 3 h |
 | 🔴 | Marcar construido vs. concurso en los 23 proyectos | 0,5 d |
+| ⬜ | **Los tres errores de envío del formulario salen siempre en español** | 1 h |
+
+**Sobre los errores del formulario, que salió al hacer la pasada de redacción
+y no estaba en esta lista.** Los mensajes de campo —«Escriba su nombre
+completo», «Revise el correo»— sí se traducen: viven en `messages/`. Pero los
+tres mensajes generales que devuelve el Server Action de `leads.ts` están
+escritos en español dentro del código, así que **un visitante de `/en` cuyo
+envío falle lee el error en español**, justo en el momento en que ya perdió el
+mensaje. Es la misma clase de fuga que los seis rótulos que esta pasada corrigió,
+pero se dejó fuera porque cambia el contrato del Server Action —hay que devolver
+una clave y traducirla en el formulario, no una frase ya redactada— y eso es
+código, no redacción. Es de una hora, y va en el bloque de antes de la pauta
+porque el formulario es donde aterriza el dinero.
 
 El 404 de raíz **no se hace y no es un olvido**: el middleware de idioma
 redirige cualquier ruta sin prefijo, así que `[locale]/not-found.tsx` la
@@ -997,7 +1023,7 @@ Cali; el servicio se presta en todo el país.»*
 | ✅ | `content/site.ts` · selector de municipios | Solo Valle. **Un lead de Bogotá —el 43 % del portafolio— solo podía marcarse «Otro».** Ahora es un selector en cascada sobre los 1.103 municipios del DANE, que guarda el código y no el nombre |
 | ✅ | `page.tsx` · el `h1` de la home | Decía «estudio de arquitectura en Cali». Ahora dice alcance en Colombia **y** sede en Cali: no compiten, y es un `sr-only`, la cadena con más peso de SEO del dominio |
 | ✅ | `puertas.ts` · puerta principal | Decía «Jamundí, Cali, Palmira y el resto del Valle». Ahora, Colombia |
-| ⬜ | JSON-LD, tres nodos | Zona de servicio declarada como regional. Además redeclara la organización en cada página, creando entidades anónimas que compiten con la del sitio |
+| ✅ | JSON-LD, tres nodos | Las dos páginas de servicio redeclaraban la organización **sin `@id`**: una entidad anónima por página, compitiendo con la del sitio en vez de sumarle. Ahora referencian `/#estudio`, como ya hacían el blog y APBS. La zona de servicio pasa de Cali, Jamundí y Palmira a Colombia. **La sede sigue siendo Cali y eso lo dice `address`, no `areaServed`**: son dos campos y dicen cosas distintas |
 | ✅ | `verticales.ts` | Revisadas las siete y traducidas. **Dos se quedan como estaban, y a conciencia**: «casas» dice Valle del Cauca y «vivienda multifamiliar» dice Cali porque es donde está esa obra —dos casas en Jamundí, dos conjuntos en Cali—. Una vertical describe obra construida, y ensancharla sería inventar proyectos |
 | ✅ | `estudio/page.tsx` | Ahora abre por el alcance: «con sede en Cali y obra en todo el país» |
 | ✅ | `agendar/page.tsx` | Prometía «un rango real de costos para el Valle del Cauca» en la página donde se convierte. Ahora dice «para su municipio», que además es más preciso |

@@ -16,6 +16,15 @@ export const site = {
     `© ${year} Plano Base, todos los derechos reservados`,
 } as const
 
+/**
+ * El título del navegador y de los resultados de búsqueda.
+ *
+ * Vivía escrito dos veces —en el layout y en la home— y ahora vive aquí una
+ * sola vez. La plantilla del layout lo completa en las páginas interiores:
+ * «Proyectos | Plano Base».
+ */
+export const tituloSitio = 'Plano Base | Estudio de Arquitectura'
+
 export const contacto = {
   direccion: 'Calle 18 # 61-29',
   ciudad: 'Cali, Colombia',

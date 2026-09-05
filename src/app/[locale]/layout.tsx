@@ -12,7 +12,7 @@ import { CtaBar } from '@/components/layout/CtaBar'
 import { BarraFija } from '@/components/layout/BarraFija'
 import { DatosOrganizacion } from '@/components/seo/DatosOrganizacion'
 import { MetaPixel } from '@/components/analytics/MetaPixel'
-import { site } from '@content/site'
+import { site, tituloSitio } from '@content/site'
 import '@/styles/globals.css'
 
 export function generateStaticParams() {
@@ -34,19 +34,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
 
-  const titulo = `${site.nombreLargo} | Estudio de arquitectura en Cali`
   const descripcion =
     'Estudio colaborativo de arquitectura dedicado al desarrollo integral de ' +
     'proyectos educativos, institucionales, culturales y residenciales en Colombia.'
 
   return {
     metadataBase: new URL(entornoPublico.sitio),
-    title: { default: titulo, template: `%s | ${site.nombre}` },
+    title: { default: tituloSitio, template: `%s | ${site.nombre}` },
     description: descripcion,
     openGraph: {
       type: 'website',
       siteName: site.nombreLargo,
-      title: titulo,
+      title: tituloSitio,
       description: descripcion,
       locale: locale === 'en' ? 'en_US' : 'es_CO',
       // Ruta relativa a propósito: Next la resuelve contra `metadataBase`, que

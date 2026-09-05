@@ -60,6 +60,24 @@ export const puertas: Puerta[] = [
     para: 'Quien ya vive en el inmueble y necesita más espacio o cambiarlo.',
   },
   {
+    /* PENDIENTE DE APROBACIÓN — texto redactado el 5/9/2026, no viene de
+       ningún documento del estudio.
+       Es la única puerta que no arranca de un problema concreto sino de una
+       intención sin forma. Por eso la respuesta no promete un plano: promete
+       ordenar el encargo, que es lo que de verdad falta cuando alguien llega
+       sin saber por dónde empezar. */
+    slug: 'diseno-a-medida',
+    pregunta: 'Quiero un diseño personalizado y no sé por dónde empezar.',
+    nombre: 'Diseño a medida',
+    respuesta:
+      'Se empieza por cómo quiere vivir o trabajar, no por un plano. Ordenamos ' +
+      'el programa, el presupuesto y los tiempos, y eso se convierte en algo ' +
+      'que se puede mirar y corregir —volumetría, plantas, imágenes— antes de ' +
+      'comprometerse con nada.',
+    servicios: [11, 12, 18, 13],
+    para: 'Quien tiene clara la intención y todavía no el encargo.',
+  },
+  {
     slug: 'diagnostico-de-edificaciones',
     pregunta: 'Se está fisurando. Se filtra. Algo va mal.',
     nombre: 'Diagnóstico de edificaciones',
@@ -91,6 +109,24 @@ export const puertas: Puerta[] = [
       'reconocimientos en concurso público nacional.',
     servicios: [14, 11, 12, 18],
     para: 'Entidades públicas, cajas de compensación, constructoras y fundaciones.',
+  },
+  {
+    /* PENDIENTE DE APROBACIÓN — texto redactado el 5/9/2026.
+       Va la última a propósito: es la puerta de quien no se reconoce en
+       ninguna de las anteriores. Y no compite con la asesoría gratuita, la
+       usa como entrada —contradecirla sería cobrar por lo que el primer
+       peldaño de la escalera ya regala—; lo que se cobra, si el caso lo pide,
+       es el concepto por escrito. */
+    slug: 'opinion-profesional',
+    pregunta: 'Necesito la opinión profesional de un experto.',
+    nombre: 'Opinión profesional',
+    respuesta:
+      'Un arquitecto mira lo que usted ya tiene —un plano, una cotización, el ' +
+      'informe de otro— y le dice qué está bien, qué falta y qué preguntaría ' +
+      'antes de firmar. La primera conversación no cuesta nada. Si el caso ' +
+      'pide más, se entrega un concepto técnico por escrito.',
+    servicios: [5, 4, 8, 9],
+    para: 'Quien va a tomar una decisión cara y quiere una lectura independiente.',
   },
 ]
 

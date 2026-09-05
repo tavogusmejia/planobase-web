@@ -5,7 +5,7 @@ import { Rule } from '@/components/ui/Rule'
 import { Hero } from '@/components/home/Hero'
 import { ProjectCard } from '@/components/project/ProjectCard'
 import { getFeatured, getHeroProjects, getStats } from '@/lib/data/projects'
-import { asesoria, contacto, manifiesto, site } from '@content/site'
+import { asesoria, contacto, manifiesto, site, tituloSitio } from '@content/site'
 import { puertas } from '@content/puertas'
 import { etiquetaPrecio } from '@/lib/utils'
 
@@ -20,19 +20,18 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const titulo = `${site.nombreLargo} | Estudio de arquitectura en Cali`
 
   return {
     // `absolute` evita que la plantilla del layout lo convierta en
     // "... | Plano Base | Plano Base".
-    title: { absolute: titulo },
+    title: { absolute: tituloSitio },
     alternates: { canonical: `/${locale}` },
     // La imagen se repite aquí aunque el layout ya la declare: Next mezcla los
     // metadatos de forma SUPERFICIAL, así que un `openGraph` en una página
     // reemplaza entero el del layout en vez de completarlo. Sin esta línea, la
     // página más compartida del sitio es la única que se comparte sin imagen.
     openGraph: {
-      title: titulo,
+      title: tituloSitio,
       url: `/${locale}`,
       images: [
         {

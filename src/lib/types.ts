@@ -248,3 +248,108 @@ export type Service = {
   precioCOP: number
   politicas: { clave: string; texto: string }[]
 }
+
+/* ==========================================================================
+   Traducción
+
+   El sitio es bilingüe (es/en) y el español es la fuente editorial. Las
+   traducciones **no viven dentro del contenido** sino en `content/en/`,
+   indexadas por el mismo `slug` o `id`, por una razón que no es de gusto: los
+   dos archivos de contenido más grandes son generados —`content/projects.ts`
+   por `pnpm media` y `content/servicios.ts` desde el PDF del portafolio—, así
+   que un campo `{ es, en }` dentro de ellos obligaría a cambiar sus dos
+   generadores y sus dos formatos de origen. Una superposición paralela sirve
+   igual para lo generado y para lo escrito a mano, que es lo único uniforme.
+
+   Todo lo de aquí es *superposición*: solo lo traducible. Lo que no se traduce
+   —fechas, fuentes, rutas de imagen, `blurDataURL`, el `nivel` de un título, el
+   `ordenada` de una lista— se toma siempre del español. No es una comodidad:
+   es lo que impide que una traducción corrompa un dato estructural o que las
+   fechas diverjan entre idiomas.
+   ========================================================================== */
+
+/**
+ * Un bloque traducido.
+ *
+ * Es `Bloque` sin lo que no es texto. Un bloque de imagen aporta solo su `alt`,
+ * porque la ruta, el tamaño y el placeholder son los mismos en los dos idiomas
+ * y repetirlos solo abre la puerta a que se desincronicen.
+ *
+ * El orden y los tipos deben coincidir uno a uno con el cuerpo español. Lo
+ * verifica `scripts/check-traducciones.ts`: es la forma de detectar una
+ * traducción truncada, que es el fallo silencioso probable cuando el texto lo
+ * escribe un agente.
+ */
+export type BloqueTraducido =
+  | { tipo: 'titulo'; texto: string }
+  | { tipo: 'parrafo'; texto: string }
+  | { tipo: 'lista'; items: string[] }
+  | { tipo: 'tabla'; cabeceras: string[]; filas: string[][]; nota?: string }
+  | { tipo: 'cita'; texto: string; fuente?: string }
+  | { tipo: 'imagen'; alt: string }
+  | { tipo: 'nota'; texto: string }
+  | { tipo: 'dato'; valor: string; etiqueta: string; fuente: string }
+  | { tipo: 'diagrama'; svg: string; titulo: string; pie: string }
+
+/**
+ * Un artículo traducido.
+ *
+ * No redeclara `fecha`, `fuentes`, `pilar`, `etiquetas`, `puerta` ni `portada`,
+ * y eso es deliberado por dos motivos duros:
+ *
+ * 1. Las fechas y las fuentes no pueden divergir entre idiomas. Con una sola
+ *    fuente de verdad, `scripts/check-fechas.ts` sigue siendo válido.
+ * 2. `content/blog/hechos.ts` casa patrones de texto **en español**. Si el
+ *    inglés fuera un `Post` completo dentro del mismo registro, el calendario
+ *    de hechos lo dejaría pasar sin mirar: la guarda más valiosa del proyecto
+ *    quedaría ciega sobre la mitad del blog.
+ */
+export type TraduccionPost = {
+  /** El mismo slug del artículo español. Es la llave, y la guarda verifica que
+   *  exista y que coincida con el nombre del archivo. */
+  slug: string
+  titulo: string
+  resumen: string
+  metaDescripcion: string
+  cuerpo: BloqueTraducido[]
+
+  /**
+   * Cuándo se tradujo, ISO. No es decorativo: alimenta el `lastModified` del
+   * sitemap y el `dateModified` del JSON-LD. Sin esto, un artículo traducido
+   * hoy le diría a Google que cambió en 2023, que es la fecha del español.
+   */
+  traducido: string
+
+  /**
+   * Solo el título de una fuente, y solo si esa fuente tiene edición inglesa
+   * publicada. Por defecto se hereda el español: una ley colombiana se cita por
+   * su nombre real, «Ley 675 de 2001», no traducida.
+   *
+   * La fecha, el editor y la URL no se duplican nunca: gobiernan
+   * `scripts/check-fechas.ts` y deben tener una sola fuente de verdad.
+   */
+  fuentes?: { url: string; titulo: string }[]
+
+  /** La portada es española; su texto alternativo sí se traduce. */
+  portadaAlt?: string
+
+  /**
+   * Escotilla para el chequeo de estructura, cuando una traducción necesita de
+   * verdad partir o unir bloques. Debe ser rarísima: al ir declarada, aparece
+   * en el diff y alguien la mira.
+   */
+  estructuraLibre?: boolean
+}
+
+/**
+ * Un proyecto traducido.
+ *
+ * Los textos alternativos de las imágenes no están aquí a propósito: son ~200 y
+ * los genera `altFor()` en `scripts/prepare-media.ts` a partir del título y del
+ * lugar. Traducir el título basta para que se generen también en inglés.
+ */
+export type TraduccionProyecto = {
+  titulo: string
+  subtitulo: string | null
+  memoria: string
+}

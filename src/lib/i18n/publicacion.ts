@@ -1,6 +1,6 @@
 import type { Categoria } from '@/lib/types'
 import { hayTraduccion } from '@/lib/data/posts'
-import { paginaTraducida } from '@/lib/data/contenido'
+import { paginaTraducida, puertaTraducida } from '@/lib/data/contenido'
 
 /**
  * Qué se publica en qué idioma.
@@ -70,11 +70,12 @@ export function traducida(e: RutaTraducible, idioma: string): boolean {
       return hayTraduccion(e.slug, idioma)
     case 'pagina':
       return paginaTraducida(e.ruta, idioma)
+    case 'puerta':
+      return puertaTraducida(e.slug, idioma)
     // Pendientes de `content/en/`.
     case 'proyecto':
     case 'tema':
     case 'vertical':
-    case 'puerta':
     case 'herramienta':
       return false
   }

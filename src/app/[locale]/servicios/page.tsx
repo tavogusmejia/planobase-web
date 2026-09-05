@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
-import { escalera, puertas } from '@content/puertas'
+import { copiaDe, escaleraDe, puertasDe } from '@/lib/data/contenido'
 import { asesoria, contacto } from '@content/site'
 import { etiquetaPrecio } from '@/lib/precio'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
@@ -15,12 +15,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const ruta = `/${locale}/servicios`
-  const descripcion =
-    'Diseño arquitectónico, estudios de viabilidad, diagnóstico de ' +
-    'edificaciones e interventoría de obra en Colombia. Empezamos por su ' +
-    'pregunta, no por nuestro catálogo.'
+  const copiaMeta = copiaDe('/servicios', locale)
+  const descripcion = copiaMeta.metaDescripcion
   return {
-    title: 'Servicios',
+    title: copiaMeta.titulo,
     description: descripcion,
     /* Canonical autorreferenciado, hreflang solo de lo traducido y el
        `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
@@ -31,7 +29,7 @@ export async function generateMetadata({
     openGraph: tarjeta({
       locale,
       ruta,
-      titulo: 'Servicios de Plano Base',
+      titulo: copiaMeta.tarjetaTitulo,
       descripcion,
     }),
   }
@@ -52,6 +50,11 @@ export default async function ServiciosPage({
 }) {
   const { locale } = await params
   setRequestLocale(locale)
+
+  const tc = await getTranslations('cta')
+  const copia = copiaDe('/servicios', locale)
+  const puertas = puertasDe(locale)
+  const escalera = escaleraDe(locale)
 
   /* Los precios de la escalera se resuelven antes del JSX: la etiqueta es
      asíncrona —consulta idioma y traducción— y dentro de un `map` no se puede
@@ -82,12 +85,10 @@ export default async function ServiciosPage({
       />
 
       <h1 className="text-h1 measure-display text-ink">
-        Empezamos por su pregunta, no por nuestro catálogo.
+        {copia.titular}
       </h1>
       <p className="text-lead measure mt-8 text-ink-soft">
-        Cada proyecto llega con una pregunta distinta. Elija la que se parece a
-        la suya y le decimos qué implica, cuánto toma y cuánto cuesta antes de
-        que firme nada.
+        {copia.entrada}
       </p>
 
       {/* ---- Las puertas ---------------------------------------------------
@@ -122,7 +123,7 @@ export default async function ServiciosPage({
           para que el siguiente sea una decisión pequeña. */}
       <section className="mt-28">
         <h2 className="text-h2 measure-display text-ink">
-          Nadie firma un proyecto completo el primer día.
+          {copia.escaleraTitular}
         </h2>
         <p className="text-lead measure mt-6 text-ink-soft">
           Se avanza por pasos, y en cada uno usted decide si sigue. El primero
@@ -155,7 +156,7 @@ export default async function ServiciosPage({
       {/* ---- Acción -------------------------------------------------------- */}
       <section className="mt-24 border-t-2 border-signal pt-10 lg:grid lg:grid-cols-2 lg:gap-16">
         <h2 className="text-h2 measure-display text-ink">
-          Si no sabe cuál de todas es su pregunta, esa es la primera llamada.
+          {copia.cierre}
         </h2>
         <div className="mt-10 lg:mt-0">
           <p className="text-h3 text-ink">
@@ -170,7 +171,7 @@ export default async function ServiciosPage({
               href="/agendar"
               className="text-block bg-signal px-7 py-4 uppercase tracking-[0.08em] text-paper transition-opacity hover:opacity-90"
             >
-              Agendar asesoría
+              {tc('reservar')}
             </Link>
             <WhatsAppLink
               numero={contacto.whatsapp}
@@ -178,7 +179,7 @@ export default async function ServiciosPage({
               origen="web/servicios"
               className="text-block border border-accent px-7 py-4 uppercase tracking-[0.08em] text-accent transition-colors hover:bg-accent hover:text-paper"
             >
-              Preguntar por WhatsApp
+              {tc('escribirWhatsapp')}
             </WhatsAppLink>
           </div>
         </div>

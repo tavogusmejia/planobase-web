@@ -14,7 +14,9 @@ import {
   vision,
   type TemaVision,
 } from '@content/site'
+import { escalera, puertas, type Peldano, type Puerta } from '@content/puertas'
 import * as ingles from '@content/en/site'
+import * as inglesPuertas from '@content/en/puertas'
 
 /**
  * El contenido corto del sitio, en el idioma que se pida.
@@ -73,6 +75,30 @@ export function equipoDe(idioma: string): TeamMember[] {
   return equipo.map((m) => fusionar(m, { cargo: ingles.cargos[m.slug] }))
 }
 
+export function puertasDe(idioma: string): Puerta[] {
+  if (ES_ESPANOL(idioma)) return puertas
+  return puertas.map((p) => fusionar<Puerta>(p, inglesPuertas.puertas[p.slug]))
+}
+
+export function puertaDe(idioma: string, slug: string): Puerta | null {
+  return puertasDe(idioma).find((p) => p.slug === slug) ?? null
+}
+
+export function escaleraDe(idioma: string): Peldano[] {
+  if (ES_ESPANOL(idioma)) return escalera
+  return escalera.map((p) => fusionar<Peldano>(p, inglesPuertas.escalera[p.n]))
+}
+
+/** Una puerta está lista cuando sus cuatro campos de texto están traducidos. */
+function puertaCompleta(slug: string): boolean {
+  const t = inglesPuertas.puertas[slug]
+  return Boolean(t?.pregunta && t.nombre && t.respuesta && t.para)
+}
+
+export function puertaTraducida(slug: string, idioma: string): boolean {
+  return ES_ESPANOL(idioma) ? true : puertaCompleta(slug)
+}
+
 // ── Completitud, ruta por ruta ─────────────────────────────────────────────
 
 /**
@@ -83,6 +109,15 @@ export function equipoDe(idioma: string): TeamMember[] {
  * contenido que de verdad la llena. Cada entrada dice qué se lee en esa página.
  */
 const COMPLETITUD: Record<RutaConCopia, () => boolean> = {
+  /* Las siete puertas y los seis peldaños: la página de servicios los pinta
+     todos, así que traducir seis de siete la deja a medias. */
+  '/servicios': () =>
+    puertas.every((p) => puertaCompleta(p.slug)) &&
+    escalera.every((p) => {
+      const t = inglesPuertas.escalera[p.n]
+      return Boolean(t?.nombre && t.entrega)
+    }),
+
   // Solo se consulta para el inglés: el español es la fuente y siempre está.
   '/estudio': () =>
     oCae(ingles.manifiesto, '') !== '' &&

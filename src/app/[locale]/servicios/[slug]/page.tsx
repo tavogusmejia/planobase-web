@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
-import { puertas, puertaPorSlug, serviciosDe } from '@content/puertas'
+import { puertas, serviciosDe } from '@content/puertas'
+import { puertaDe, puertasDe } from '@/lib/data/contenido'
 import { asesoria, contacto, reconocimientos } from '@content/site'
 import { routing } from '@/i18n/routing'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
@@ -21,7 +22,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>
 }): Promise<Metadata> {
   const { locale, slug } = await params
-  const puerta = puertaPorSlug(slug)
+  const puerta = puertaDe(locale, slug)
   if (!puerta) return {}
 
   const ruta = `/${locale}/servicios/${slug}`
@@ -54,11 +55,13 @@ export default async function PuertaPage({
   const { locale, slug } = await params
   setRequestLocale(locale)
 
-  const puerta = puertaPorSlug(slug)
+  const puerta = puertaDe(locale, slug)
   if (!puerta) notFound()
 
+  const tc = await getTranslations('cta')
+
   const servicios = serviciosDe(puerta)
-  const otras = puertas.filter((p) => p.slug !== slug)
+  const otras = puertasDe(locale).filter((p) => p.slug !== slug)
   const esInstitucional = slug === 'espacio-publico-y-equipamientos'
 
   const jsonLd = {
@@ -175,7 +178,7 @@ export default async function PuertaPage({
               href="/agendar"
               className="text-block bg-signal px-7 py-4 uppercase tracking-[0.08em] text-paper transition-opacity hover:opacity-90"
             >
-              Agendar asesoría
+              {tc('reservar')}
             </Link>
             <WhatsAppLink
               numero={contacto.whatsapp}
@@ -183,7 +186,7 @@ export default async function PuertaPage({
               origen={`web/servicios/${puerta.slug}`}
               className="text-block border border-accent px-7 py-4 uppercase tracking-[0.08em] text-accent transition-colors hover:bg-accent hover:text-paper"
             >
-              Preguntar por WhatsApp
+              {tc('escribirWhatsapp')}
             </WhatsAppLink>
           </div>
         </div>

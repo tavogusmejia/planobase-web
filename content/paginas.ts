@@ -16,6 +16,22 @@
  * `src/lib/i18n/publicacion.ts`.
  */
 export const copiaPaginas = {
+  '/servicios': {
+    titulo: 'Servicios',
+    tarjetaTitulo: 'Servicios de Plano Base',
+    metaDescripcion:
+      'Diseño arquitectónico, estudios de viabilidad, diagnóstico de ' +
+      'edificaciones e interventoría de obra en Colombia. Empezamos por su ' +
+      'pregunta, no por nuestro catálogo.',
+    titular: 'Empezamos por su pregunta, no por nuestro catálogo.',
+    entrada:
+      'Cada proyecto llega con una pregunta distinta. Elija la que se parece ' +
+      'a la suya y le decimos qué implica, cuánto toma y cuánto cuesta antes ' +
+      'de que firme nada.',
+    escaleraTitular: 'Nadie firma un proyecto completo el primer día.',
+    cierre: 'Si no sabe cuál de todas es su pregunta, esa es la primera llamada.',
+  },
+
   '/estudio': {
     /* El title de Wix decía «Arquitectura bioclimática en Bogotá». El estudio
        tiene sede en Cali y su obra es sobre todo pública: era un error de

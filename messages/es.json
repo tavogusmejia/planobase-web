@@ -15,11 +15,11 @@
     "apbs": "APBS"
   },
   "cta": {
-    "reservar": "Reserva una asesoría",
+    "reservar": "Agendar asesoría",
     "contactar": "Contáctanos",
     "verProyecto": "Ver proyecto",
     "verTodos": "Ver los {count} proyectos",
-    "escribirWhatsapp": "Escríbenos por WhatsApp",
+    "escribirWhatsapp": "Escríbanos por WhatsApp",
     "verServicios": "Ver todos los servicios",
     "verPortafolio": "Ver el portafolio"
   },

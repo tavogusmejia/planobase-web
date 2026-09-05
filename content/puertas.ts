@@ -46,7 +46,7 @@ export const puertas: Puerta[] = [
       'cuánto cuesta, antes de dibujar nada. Después desarrollamos el proyecto ' +
       'completo hasta los planos con los que se pide la licencia.',
     servicios: [4, 11, 12, 15, 10],
-    para: 'Propietarios con lote en Jamundí, Cali, Palmira y el resto del Valle.',
+    para: 'Propietarios con lote en cualquier parte de Colombia.',
   },
   {
     slug: 'remodelacion-y-ampliacion',

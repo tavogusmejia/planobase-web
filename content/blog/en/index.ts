@@ -32,7 +32,12 @@ import type { TraduccionPost } from '@/lib/types'
  *   de 2001», «NSR-10», «Decreto 1077 de 2015»— se citan por su nombre real y
  *   se glosan en el texto corrido la primera vez. Lo mismo con las
  *   instituciones: DANE, DIAN, curaduría urbana. Y las cifras son las mismas
- *   cifras; solo cambian los separadores.
+ *   cifras.
+ *
+ * - **Los separadores sí cambian, y eso incluye el decimal.** «1,50 m» se
+ *   escribe «1.50 m» y «2.640 m» se escribe «2,640 m». Es lo que más fácil se
+ *   cuela dentro de una tabla, donde una coma decimal española convierte metro
+ *   y medio en mil quinientos y nadie lo nota leyendo por encima.
  *
  * - **Los enlaces internos se escriben `/blog/<slug>`, sin prefijo de idioma,
  *   también en inglés.** El `Link` de `@/i18n/navigation` antepone el idioma de

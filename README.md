@@ -53,6 +53,13 @@ LEADS_NOTIFY_TO=proyectos@planobase.co
 LEAD_IP_SALT=<openssl rand -hex 16>
 # LEADS_NOTIFY_FROM=Plano Base <web@planobase.co>   # tras verificar el dominio
 # RESEND_API_KEY=<opcional; sin ella el lead se guarda pero no se avisa>
+
+# --- apbs ---
+# Protege el cron que avisa cuando un dato de las calculadoras va a caducar.
+# Vercel lo manda como `Authorization: Bearer <valor>`. Sin esta variable el
+# endpoint responde 401 y no hace nada: es preferible un cron mudo a uno que
+# cualquiera pueda disparar.
+CRON_SECRET=<openssl rand -hex 32>
 ```
 
 `pnpm seed` imprime el valor exacto de `NEXT_PUBLIC_MEDIA_ORIGIN` al terminar.

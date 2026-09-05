@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "tsx scripts/check-redirects.ts && tsx scripts/check-fechas.ts && next build",
+    "build": "tsx scripts/check-redirects.ts && tsx scripts/check-fechas.ts && tsx scripts/check-vigencia.ts && next build",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",

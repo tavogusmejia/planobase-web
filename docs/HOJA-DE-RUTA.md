@@ -31,7 +31,7 @@ solo el efecto: qué quedó cerrado, qué sigue abierto y qué se desbloquea.
 | 0.10 | **Bogotá no es Cundinamarca.** Corrección de dato, no decisión | Sin cambios — se aplica sin consultar | — |
 | 0.11 | **¿Qué hacemos con `/en`?** *(era la pregunta A7)* | **Cerrada. Deshabilitar por ahora.** Se traduce de verdad cuando el desarrollo llegue «a un punto estable o de bajo volumen» | **Desbloquea** el cierre del frente de inglés → tarea 5.5. La etapa 9.5 del Caribe queda explícitamente aplazada |
 | 0.12 | **Facturación electrónica DIAN** *(era el trámite B5)* | **Cerrada en el rumbo, abierta en el plan.** Ya hay un sistema de facturación; quiere un **plan para hacerla con Odoo**, y se puede posponer «casi hasta lo último del roadmap» | Falta escribir ese plan → tarea 3.4 |
-| 0.13 | **Ficha de Google Business** *(era el trámite B4)* | **Matizada, no cerrada.** «No me interesa arquitectos en Cali, me interesa arquitectos en Colombia» | La ficha es local por definición y no posiciona a nivel nacional; el encuadre nacional se resuelve en la tarea 5.1, no en la ficha. **Falta confirmar si se crea o no.** Si se crea, la dirección ya está fijada por 0.5 |
+| 0.13 | **Ficha de Google Business** *(era el trámite B4)* | **Cerrada. Sí se crea.** «Mi idea es ser el más fuerte nacionalmente, pero debemos empezar con proximidad» | La estrategia queda en dos tiempos que se suman: la ficha gana el paquete de mapas en Cali —donde está la sede y donde ya hay dirección fijada por 0.5— mientras el encuadre nacional se gana por contenido, en la tarea 5.1 y en el blog. No compiten. **Se crea con el NAP exacto de `content/site.ts`, carácter por carácter.** |
 
 ### Otras respuestas registradas, que no son decisiones de fase 0
 
@@ -397,7 +397,8 @@ calendario nuevo «Asesorías Plano Base». Le paso el paso a paso cuando confir
 **Después de A3.** Para «arquitectos en Cali» el paquete de mapas se lleva la
 mayor parte de los clics.
 
-- [ ] Hecho **R/:** no me interesa arquitectos en cali, me interesa arquitectos en colombia.
+- [x] **Decidido: sí se crea.** «Mi idea es ser el más fuerte nacionalmente,
+      pero debemos empezar con proximidad.» Falta ejecutarlo.
 
 > **Registrado como matización, no como cierre.** La intención es correcta y es
 > exactamente el reencuadre de la tarea 5.1. Pero una ficha de Google Business
@@ -517,6 +518,6 @@ se tocaron para no mezclar documentación con código:
 |---|---|---|
 | N1 | **Deshabilitar `/en`.** Escrito con todo el detalle en la tarea 5.5 | `src/i18n/routing.ts` · `next.config.ts` |
 | N2 | **Escribir el plan de facturación electrónica con Odoo** *(decisión 0.12)*. No existe todavía como documento | `docs/` |
-| N3 | **Confirmar si se crea la ficha de Google Business** *(decisión 0.13)*. La dirección ya está fijada en Cali | Trámite |
+| N3 | ~~Confirmar si se crea la ficha de Google Business~~ **Confirmado el 5/9/2026: sí.** Queda ejecutarlo, con el NAP exacto de `content/site.ts` | Trámite |
 | N4 | **El comentario de cabecera de `reconocimientos` en `content/site.ts` dice «Cuatro reconocimientos en concurso público» y la lista tiene cinco entradas** —cuatro públicas y una privada, el Teatro César Conto Ferrer—. Es la contradicción H6 del `PLAN-MAESTRO.md` §6, y se resuelve en la misma pasada que 0.7. No se tocó | `content/site.ts` |
 | N5 | **Plantillas de correo de Resend** *(decisión 0.3)*: acuse de recibo del formulario y confirmación de reserva con `.ics` | Tarea 1.7 |

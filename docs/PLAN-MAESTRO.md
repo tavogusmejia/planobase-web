@@ -84,6 +84,7 @@ Tipo obligatorios (ver §9 bis).
 | Si tiene | Lea |
 |---|---|
 | 1 minuto | El estado de aquí abajo |
+| 5 minutos, y no va a escribir código | `docs/TRAMITES-EXTERNOS.md`: lo que hay que pedirle a alguien de fuera |
 | 5 minutos | El estado y §1 Decisiones que dependen de usted |
 | 20 minutos | Lo anterior, §2 Estado actual y §11 Cronograma |
 | Una tarde | Todo, en orden |
@@ -142,14 +143,27 @@ nadie fuera del repositorio.
 | 🟡 | **Encuadre nacional** *(§9)* | Hechas las puertas, `/agendar`, la descripción de tres páginas, el `h1` de la portada y **los tres nodos del JSON-LD**. Comprobado además que **dos verticales dicen bien «Valle del Cauca» y «Cali»**: es donde está esa obra, y ensancharlo sería inventar proyectos. Solo queda pendiente lo que depende de marcar `construido` |
 | 🟡 | **El blog** *(§8)* | 43 de 75. Diez de los 32 que faltan están bloqueados por la decisión 1.9 |
 
+### Bloqueado esperando a un tercero 🔴
+
+**Todo lo que depende de alguien de fuera —abogado, contador, banco, Google,
+Meta o una entidad pública— está en `docs/TRAMITES-EXTERNOS.md`**, con qué hay
+que llevar a cada uno, qué desbloquea y en qué estado está. Son nueve trámites.
+Tres bloquean cosas que ya están construidas y esperando:
+
+| | Trámite | Bloquea |
+|---|---|---|
+| 🔴 | **Que un abogado lea la política de datos** | La pauta. El código está hecho |
+| 🔴 | **Las credenciales de Google del calendario** | La Entrega A entera. La plantilla del correo ya está escrita y probada |
+| 🔴 | **Los términos de referencia de los cuatro concursos** | La contradicción H3/H6 y el artículo 29 |
+
 ### Bloqueado esperando una decisión suya 🔴
 
 | | Qué | A qué bloquea |
 |---|---|---|
 | 🔴 | **1.9 · Marcar cuáles proyectos están construidos** | Diez artículos —los cinco casos propios y los once del Caribe—, la página de credenciales, y buena parte de §8. **Es media hora en `docs/PROYECTOS-CONSTRUIDO.md`** y es, con diferencia, lo que más desbloquea |
-| 🔴 | **1.6 · Los cuatro reconocimientos** | El artículo 29 y la corrección de la contradicción H6 |
+| 🔴 | **1.6 · Los cuatro reconocimientos** — lo que falta son los documentos, y pedirlos es un trámite: ver `docs/TRAMITES-EXTERNOS.md` | El artículo 29 y la corrección de la contradicción H6 |
 | 🔴 | **1.8 · La copia pendiente de aprobación** | Los textos marcados «PENDIENTE DE APROBACIÓN» en `content/` |
-| 🔴 | **1.4 · Cuenta de comercio Wompi** | El frente de pagos entero (§4) |
+| ⬜ | **1.4 · Cuenta de comercio Wompi** — no espera una decisión: la decisión fue diferirla. Es un trámite, y está en `docs/TRAMITES-EXTERNOS.md` | El frente de pagos (§4), que a propósito ya no está en el camino crítico |
 
 ### Sin empezar ⬜
 
@@ -1225,6 +1239,14 @@ después.
 
 **Actualizado el 5/9/2026.**
 
+**El detalle de cada uno está en `docs/TRAMITES-EXTERNOS.md`**: quién lo hace,
+qué hay que llevarle, cuánto tarda y qué desbloquea. Esta tabla es el resumen
+de una línea; ese documento es el que se abre para ejecutarlos.
+
+Se separó porque son dos lecturas distintas. Este plan lo lee quien va a
+escribir código; la lista de trámites la lee quien va a hacer llamadas, y
+enterrada dentro de un documento de mil cuatrocientas líneas no la abre nadie.
+
 | Trámite | Estado | Por qué |
 |---|---|---|
 | Verificar `planobase.co` en Resend | **Hecho, y las plantillas también** | Sin esto no salía ningún correo al cliente |
@@ -1237,6 +1259,8 @@ después.
 | **Cuentas de GA4 y Google Ads** | Pendiente | El código ya las espera detrás del consentimiento. Son cuatro variables de entorno, documentadas en el README |
 | Factura electrónica DIAN | **Ya hay sistema de facturación.** Falta el plan con Odoo | Ver §1.12. Va casi al final |
 | **Términos de referencia o actas de los cuatro concursos** | **Pendiente, y es el que desbloquea §1.6** | Es lo único que cierra el conflicto de los reconocimientos |
+| Cuenta de un servicio de monitoreo de errores | Pendiente | Una de las tres tareas de §7 que siguen abiertas antes de la pauta |
+| Token de la API de conversiones de Meta | Pendiente | Bloque del primer mes. Hoy se pierde entre el 30 y el 50 % de las señales |
 
 ---
 

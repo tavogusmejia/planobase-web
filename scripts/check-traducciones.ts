@@ -178,10 +178,11 @@ const RASTROS = /[¿¡]|\b(que|para|según|sin embargo|del|los|las|una)\b/i
  * «Serranía de *los* Motilones»—, que es justo una de las palabras que se
  * buscan. Así que se toma la cadena completa: una palabra en mayúscula y todo
  * lo que la sigue enlazado por conectores en minúscula. Son varios y no uno:
- * «Serranía **de los** Motilones» encadena dos.
+ * «Serranía **de los** Motilones» encadena dos, y «Concepto Unificado de
+ * Impuesto **sobre las** Ventas» mete una preposición que no es «de».
  */
 const NOMBRE_PROPIO =
-  /\p{Lu}[\p{L}\p{M}·.'-]*(?:(?:\s+(?:de|del|la|las|los|el|y|e|da|do))*\s+\p{Lu}[\p{L}\p{M}·.'-]*)*/gu
+  /\p{Lu}[\p{L}\p{M}·.'-]*(?:(?:\s+(?:de|del|la|las|los|el|y|e|da|do|sobre|para|en|con|al))*\s+\p{Lu}[\p{L}\p{M}·.'-]*)*/gu
 
 function sinLoQueNoSeTraduce(texto: string): string {
   return texto.replace(/\]\([^)]*\)/g, ']').replace(NOMBRE_PROPIO, ' ')

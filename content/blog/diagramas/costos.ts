@@ -13,8 +13,8 @@
  * que nadie mide. Las bandas van iguales a propósito, y el pie de la figura lo
  * dice.
  *
- * Las dos primeras figuras tienen versión inglesa, porque las usa la traducción
- * del artículo de costo por m². Van en este mismo archivo y sobre la misma
+ * Tres figuras tienen versión inglesa: las dos del artículo de costo por m² y
+ * el corte del predio campestre. Van en este mismo archivo y sobre la misma
  * constante de trazado: si el dibujo viviera duplicado dentro de `en/`, el día
  * que alguien corrija una cota la corregiría en un solo idioma.
  */
@@ -195,17 +195,8 @@ ${DIBUJO_ANATOMIA}
 </svg>
 `
 
-/**
- * Dónde está la frontera de una remodelación.
- *
- * Tres plantas del mismo apartamento. La primera cambia acabados; la segunda
- * mueve un muro divisorio; la tercera toca el muro portante. El salto de
- * régimen —de reparación locativa a licencia de modificación— ocurre entre la
- * primera y la segunda, no donde la gente lo supone.
- */
-export const FRONTERA_DE_LA_REMODELACION = `
-<svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg" fill="none"
-     stroke="currentColor" font-family="inherit">
+/** Geometría de la frontera de la remodelación. Solo cambian los `<text>`. */
+const DIBUJO_FRONTERA = `
   <g stroke-width="2">
     <rect x="20" y="20" width="240" height="140"/>
     <rect x="330" y="20" width="240" height="140"/>
@@ -235,7 +226,20 @@ export const FRONTERA_DE_LA_REMODELACION = `
     <path d="M780 120 L800 140"/>
     <path d="M800 120 L780 140"/>
   </g>
+`
 
+/**
+ * Dónde está la frontera de una remodelación.
+ *
+ * Tres plantas del mismo apartamento. La primera cambia acabados; la segunda
+ * mueve un muro divisorio; la tercera toca el muro portante. El salto de
+ * régimen —de reparación locativa a licencia de modificación— ocurre entre la
+ * primera y la segunda, no donde la gente lo supone.
+ */
+export const FRONTERA_DE_LA_REMODELACION = `
+<svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg" fill="none"
+     stroke="currentColor" font-family="inherit">
+${DIBUJO_FRONTERA}
   <g fill="currentColor" stroke="none" font-size="13">
     <text x="20" y="186">Cambia enchapes y pintura</text>
     <text x="330" y="186">Tumba un muro divisorio</text>
@@ -252,17 +256,29 @@ export const FRONTERA_DE_LA_REMODELACION = `
 </svg>
 `
 
-/**
- * Lo que hay que llevar hasta una casa campestre y en la ciudad ya estaba.
- *
- * Un corte esquemático del predio: la vía de acceso, la línea eléctrica con
- * sus postes, la fuente de agua con su tanque, el sistema de tratamiento de
- * aguas residuales y el corte del terreno. No es un diseño: es el inventario
- * de las cinco partidas que no existen en un lote urbano.
- */
-export const LO_QUE_NO_HAY_EN_EL_CAMPO = `
-<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" fill="none"
+/** La misma frontera, rotulada en inglés. */
+export const FRONTERA_DE_LA_REMODELACION_EN = `
+<svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg" fill="none"
      stroke="currentColor" font-family="inherit">
+${DIBUJO_FRONTERA}
+  <g fill="currentColor" stroke="none" font-size="13">
+    <text x="20" y="186">Changes tiling and paint</text>
+    <text x="330" y="186">Takes out a partition wall</text>
+    <text x="640" y="186">Takes out a load-bearing wall</text>
+  </g>
+  <g fill="currentColor" stroke="none" font-size="11" opacity="0.6">
+    <text x="20" y="206">Locative repairs.</text>
+    <text x="20" y="220">No permit.</text>
+    <text x="330" y="206">Changes the interior layout:</text>
+    <text x="330" y="220">permit for modification.</text>
+    <text x="640" y="206">Modification with a signed</text>
+    <text x="640" y="220">structural design, or nothing.</text>
+  </g>
+</svg>
+`
+
+/** Geometría del corte del predio campestre. Solo cambian los `<text>`. */
+const DIBUJO_CAMPO = `
   <g stroke-width="1.5">
     <path d="M20 230 L200 230 L320 190 L520 190 L640 150 L880 150"/>
   </g>
@@ -299,7 +315,20 @@ export const LO_QUE_NO_HAY_EN_EL_CAMPO = `
     <path d="M20 262 L200 262"/>
     <path d="M200 262 L200 236"/>
   </g>
+`
 
+/**
+ * Lo que hay que llevar hasta una casa campestre y en la ciudad ya estaba.
+ *
+ * Un corte esquemático del predio: la vía de acceso, la línea eléctrica con
+ * sus postes, la fuente de agua con su tanque, el sistema de tratamiento de
+ * aguas residuales y el corte del terreno. No es un diseño: es el inventario
+ * de las cinco partidas que no existen en un lote urbano.
+ */
+export const LO_QUE_NO_HAY_EN_EL_CAMPO = `
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" fill="none"
+     stroke="currentColor" font-family="inherit">
+${DIBUJO_CAMPO}
   <g fill="currentColor" stroke="none" font-size="12">
     <text x="24" y="140">Acometida eléctrica: postes y transformador</text>
     <text x="642" y="100">Tanque</text>
@@ -309,6 +338,24 @@ export const LO_QUE_NO_HAY_EN_EL_CAMPO = `
   </g>
   <g fill="currentColor" stroke="none" font-size="11" opacity="0.6">
     <text x="452" y="88">Casa en el corte del terreno</text>
+  </g>
+</svg>
+`
+
+/** El mismo corte, rotulado en inglés. */
+export const LO_QUE_NO_HAY_EN_EL_CAMPO_EN = `
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" fill="none"
+     stroke="currentColor" font-family="inherit">
+${DIBUJO_CAMPO}
+  <g fill="currentColor" stroke="none" font-size="12">
+    <text x="24" y="140">Electricity supply: poles and transformer</text>
+    <text x="642" y="100">Tank</text>
+    <text x="770" y="230">Borehole or shallow well</text>
+    <text x="330" y="296">Wastewater treatment</text>
+    <text x="24" y="284">Access track</text>
+  </g>
+  <g fill="currentColor" stroke="none" font-size="11" opacity="0.6">
+    <text x="452" y="88">House on the cut in the ground</text>
   </g>
 </svg>
 `

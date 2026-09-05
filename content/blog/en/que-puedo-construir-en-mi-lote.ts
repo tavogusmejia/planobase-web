@@ -362,12 +362,14 @@ export const traduccion: TraduccionPost = {
     {
       tipo: 'cita',
       texto:
-        'Rural properties may not be divided below the extent determined as ' +
-        'the Unidad Agrícola Familiar for the municipality or zone ' +
+        '**Save for the exceptions set out in the following article**, rural ' +
+        'properties may not be divided below the extent determined by INCORA ' +
+        'as the Unidad Agrícola Familiar for the municipality or zone ' +
         'concerned. Consequently, **on pain of absolute nullity of the act ' +
         'or contract**, no action or transaction may be carried out ' +
-        'resulting in the division of a rural property into surfaces below ' +
-        'the one indicated.',
+        'resulting in the division of a rural property into areas smaller ' +
+        'than the one set as the Unidad Agrícola Familiar for the ' +
+        'corresponding municipality by INCORA.',
       fuente: 'Ley 160 de 1994, article 44',
     },
     {

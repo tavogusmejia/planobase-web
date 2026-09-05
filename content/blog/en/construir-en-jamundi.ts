@@ -152,10 +152,12 @@ export const traduccion: TraduccionPost = {
     {
       tipo: 'parrafo',
       texto:
-        'On rural land in Jamundí there also applies the limit that voids ' +
-        'deeds: rural properties may not be divided below the Unidad Agrícola ' +
-        'Familiar, **on pain of absolute nullity of the act or contract**. It ' +
-        'is not a fine; it is that the transaction never existed.',
+        'On rural land in Jamundí there also applies the limit that voids deeds: ' +
+        'save for the four exceptions in article 45 of Ley 160, rural ' +
+        'properties may not be divided below the Unidad Agrícola Familiar, ' +
+        '**on pain of absolute nullity of the act or contract**. It is not a ' +
+        'fine; it is that the transaction never existed. The exceptions are in ' +
+        '[buying a rural plot](/blog/comprar-lote-rural-que-verificar-antes-de-firmar).',
     },
     {
       tipo: 'nota',

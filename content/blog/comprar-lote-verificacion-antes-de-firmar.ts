@@ -191,8 +191,10 @@ export const post: Post = {
       tipo: 'parrafo',
       texto:
         'Es la fotografía de lo que la norma permite en ese predio: uso, ' +
-        'tratamiento urbanístico, índices, alturas, aislamientos. Es gratuito y ' +
-        'es el punto de partida de todo lo demás.',
+        'tratamiento urbanístico, índices, alturas, aislamientos. La consulta ' +
+        'verbal es gratuita por norma; el concepto por escrito, que es el que ' +
+        'sirve para reclamar, cuesta 8,34 UVT donde hay curaduría. Es el punto ' +
+        'de partida de todo lo demás.',
     },
     {
       tipo: 'parrafo',

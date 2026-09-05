@@ -320,12 +320,14 @@ export const post: Post = {
     {
       tipo: 'cita',
       texto:
-        'Los predios rurales no podrán fraccionarse por debajo de la extensión ' +
-        'determinada como Unidad Agrícola Familiar para el respectivo municipio ' +
-        'o zona. En consecuencia, **so pena de nulidad absoluta del acto o ' +
-        'contrato**, no podrá llevarse a cabo actuación o negocio alguno del ' +
-        'cual resulte la división de un inmueble rural cuyas superficies sean ' +
-        'inferiores a la señalada.',
+        '**Salvo las excepciones que se señalan en el artículo siguiente**, los ' +
+        'predios rurales no podrán fraccionarse por debajo de la extensión ' +
+        'determinada por el INCORA como Unidad Agrícola Familiar para el ' +
+        'respectivo municipio o zona. En consecuencia, **so pena de nulidad ' +
+        'absoluta del acto o contrato**, no podrá llevarse a cabo actuación o ' +
+        'negocio alguno del cual resulte la división de un inmueble rural ' +
+        'cuyas superficies sean inferiores a la señalada como Unidad Agrícola ' +
+        'Familiar para el correspondiente municipio por el INCORA.',
       fuente: 'Ley 160 de 1994, artículo 44',
     },
     {

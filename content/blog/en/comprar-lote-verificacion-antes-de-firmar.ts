@@ -197,8 +197,9 @@ export const traduccion: TraduccionPost = {
       tipo: 'parrafo',
       texto:
         'It is the photograph of what the rules allow on that property: use, ' +
-        'planning treatment, ratios, heights, setbacks. It is free of charge ' +
-        'and it is the starting point for everything else.',
+        'planning treatment, ratios, heights, setbacks. The verbal enquiry is ' +
+        'free by law; the written ruling, which is the one you can rely on if ' +
+        'you have to make a claim, costs 8.34 UVT wherever there is a curaduría. It is the starting point for everything else.',
     },
     {
       tipo: 'parrafo',

@@ -35,7 +35,7 @@ export const post: Post = {
   titulo: 'Construir en Jamundí: crecimiento, suelo y norma',
   pilar: 'local',
   fecha: '2025-12-10',
-  actualizado: null,
+  actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:
     'El municipio creció más rápido que sus instrumentos: un ordenamiento de ' +
@@ -146,9 +146,11 @@ export const post: Post = {
       tipo: 'parrafo',
       texto:
         'En el rural de Jamundí aplica además el límite que anula escrituras: ' +
-        'los predios rurales no pueden fraccionarse por debajo de la unidad ' +
+        'salvo las cuatro excepciones del artículo 45 de la Ley 160, los ' +
+        'predios rurales no pueden fraccionarse por debajo de la unidad ' +
         'agrícola familiar, **so pena de nulidad absoluta del acto o contrato**. ' +
-        'No es una multa; es que el negocio no existió.',
+        'No es una multa; es que el negocio no existió. Las excepciones están ' +
+        'en [comprar un lote rural](/blog/comprar-lote-rural-que-verificar-antes-de-firmar).',
     },
     {
       tipo: 'nota',

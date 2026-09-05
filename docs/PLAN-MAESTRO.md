@@ -130,6 +130,10 @@ nadie fuera del repositorio.
 | ⏳ | **Las dos plantillas de Resend** *(decisión 1.3)*: el acuse de recibo del formulario y la confirmación de reserva con el `.ics`. En español e inglés |
 | ⏳ | **Los errores del formulario dejan de salir siempre en español**, que era el hallazgo abierto de la pasada anterior |
 | ⏳ | **Quinta guarda de build**, `check-correos.ts`: valida el `.ics` contra la RFC y que el texto del visitante salga inerte |
+| ⏳ | **La política de tratamiento de datos** *(Ley 1581)*, en `/politica-de-datos` y en los dos idiomas. **Pendiente de revisión jurídica** |
+| ⏳ | **La autorización expresa en el formulario**, con la prueba guardada: qué autorizó, cuándo y qué política estaba vigente |
+| ⏳ | **El banner de consentimiento.** Ninguna etiqueta se carga sin un sí explícito |
+| ⏳ | **GA4 y la etiqueta de conversión de Google Ads**, montadas detrás de ese mismo consentimiento |
 
 ### Empezado, falta parte 🟡
 
@@ -150,13 +154,22 @@ nadie fuera del repositorio.
 ### Sin empezar ⬜
 
 Reservas con calendario y Meet *(§3)* · Pagos *(§4)* · CRM e intranet *(§5)* ·
-Pauta *(§10)* · Y de §7: política de datos de la Ley 1581, banner de
-consentimiento, GA4 y la etiqueta de conversión, monitoreo de errores,
+Pauta *(§10)* · Y de §7: monitoreo de errores y alerta de lead perdido,
 cabeceras de seguridad, y URLs de campaña.
 
-**Nada de la pauta puede encenderse todavía**: sin la política de datos, el
-banner y la medición, el dinero entra a un sitio que no mide y que puede perder
-leads en silencio.
+**El bloqueo de la pauta ya no es de código.** La política, el banner y la
+medición están montados. Lo que falta para encenderla son cuatro cosas que no
+se escriben en el repositorio:
+
+1. **Que un abogado lea la política.** Está redactada contra el texto de la
+   norma y trae los seis contenidos obligatorios, pero responde ante la
+   Superintendencia y eso lo firma un abogado.
+2. **Crear las cuentas de GA4 y de Google Ads** y poner las cuatro variables.
+   El código ya las espera y no hay que tocarlo.
+3. **Verificar si aplica el registro ante el RNBD**, que depende del tamaño de
+   activos de la sociedad. Es una pregunta para el contador.
+4. **Las tres tareas de §7 que siguen abiertas:** monitoreo de errores,
+   cabeceras de seguridad y URLs de campaña.
 
 ---
 
@@ -925,9 +938,9 @@ página.
 
 | | Tarea | Esfuerzo |
 |---|---|---|
-| ⬜ | Política de tratamiento de datos + autorización expresa (Ley 1581) | 1-1,5 d |
-| ⬜ | Banner de consentimiento y arranque condicionado de etiquetas | 1 d |
-| ⬜ | GA4 + etiqueta de conversión de Google Ads | 1 d |
+| ✅ | Política de tratamiento de datos + autorización expresa (Ley 1581) — **falta que la lea un abogado** | — |
+| ✅ | Banner de consentimiento y arranque condicionado de etiquetas | — |
+| ✅ | GA4 + etiqueta de conversión de Google Ads — **falta crear las cuentas y poner las variables** | — |
 | ✅ | Corte de dominio: DNS, variables, 301 desde Wix, Search Console | — |
 | ✅ | Páginas de error (`error.tsx`, `global-error.tsx`) | — |
 | ⬜ | Monitoreo de errores + alerta de lead perdido + uptime | 0,5 d |
@@ -1219,7 +1232,9 @@ después.
 | **Credenciales de Google (proyecto, Calendar API, cuenta de servicio, delegación)** | **Pendiente. Es el trámite que sigue** | Sin esto no hay Entrega A |
 | Cuenta de comercio Wompi | **Diferido a propósito.** Crítico, pero después de pautar | El papeleo tarda más que el desarrollo: conviene iniciarlo en paralelo aunque no se use |
 | Ficha de Google Business | **Sin confirmar.** Dirección ya fijada: Cali | Ver §1.13 — la ficha no da alcance nacional, pero el tráfico local se suma |
-| Registro ante la SIC (RNBD) | Pendiente | Verificar si aplica a la S.A.S. |
+| Registro ante la SIC (RNBD) | **Pendiente, y ahora es lo que falta** | Verificar si aplica a la S.A.S. La política ya está publicada; el registro de la base de datos es un trámite aparte |
+| **Revisión jurídica de la política de datos** | **Pendiente. Es lo único que separa a la pauta de encenderse** | El borrador completo está en `content/legal.ts`. No hay que escribirlo, hay que leerlo |
+| **Cuentas de GA4 y Google Ads** | Pendiente | El código ya las espera detrás del consentimiento. Son cuatro variables de entorno, documentadas en el README |
 | Factura electrónica DIAN | **Ya hay sistema de facturación.** Falta el plan con Odoo | Ver §1.12. Va casi al final |
 | **Términos de referencia o actas de los cuatro concursos** | **Pendiente, y es el que desbloquea §1.6** | Es lo único que cierra el conflicto de los reconocimientos |
 

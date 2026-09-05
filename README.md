@@ -54,6 +54,19 @@ LEAD_IP_SALT=<openssl rand -hex 16>
 # LEADS_NOTIFY_FROM=Plano Base <web@planobase.co>   # tras verificar el dominio
 # RESEND_API_KEY=<opcional; sin ella el lead se guarda pero no se avisa>
 
+# --- medición ---
+# Las cuatro son opcionales y todas están detrás del consentimiento: si no hay
+# ninguna, el sitio no monta etiquetas y tampoco pregunta nada, porque pedir
+# permiso para algo que no se va a hacer gasta la única oportunidad de
+# preguntarlo bien.
+# NEXT_PUBLIC_META_PIXEL_ID=<solo dígitos>
+# NEXT_PUBLIC_GA4_ID=G-XXXXXXXXXX
+# NEXT_PUBLIC_GOOGLE_ADS_ID=AW-XXXXXXXXX
+# La etiqueta de la conversión «lead» dentro de esa cuenta de Ads. Va aparte
+# porque se genera en otro sitio de la interfaz; sin ella, Ads recibe la
+# conversión y no sabe clasificarla, así que no la cuenta.
+# NEXT_PUBLIC_GOOGLE_ADS_LEAD_LABEL=<etiqueta>
+
 # --- apbs ---
 # Protege el cron que avisa cuando un dato de las calculadoras va a caducar.
 # Vercel lo manda como `Authorization: Bearer <valor>`. Sin esta variable el

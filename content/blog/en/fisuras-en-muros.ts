@@ -80,7 +80,7 @@ export const traduccion: TraduccionPost = {
       tipo: 'diagrama',
       svg: ANCHOS_EN,
       titulo: 'The three widths that govern the official scale',
-      pie: 'To scale. A 0.2 mm crack is the thickness of a hair; at 3 mm the tip of a pencil fits into it.',
+      pie: 'The three strokes are comparable to each other, not a true measurement: at 0.2 mm nothing would show on screen. A 0.2 mm crack is the thickness of a hair; at 3 mm the tip of a pencil fits into it.',
     },
     {
       tipo: 'nota',
@@ -122,6 +122,16 @@ export const traduccion: TraduccionPost = {
         'Guía Técnica AIS–IDIGER, fourth edition. From "heavy" onwards the ' +
         'scale stops measuring millimetres and starts describing what you ' +
         'see: the bar, the crushing, the wall leaning.',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'Notice that the reinforced concrete column **changes criterion** at ' +
+        'the strong level: the first three rows measure a width and the fourth ' +
+        'looks at whether reinforcement is showing. That leaves a band with no ' +
+        'row of its own — a crack wider than 2 mm in concrete, with no ' +
+        'reinforcement visible, falls into none of them. Until an engineer ' +
+        'says otherwise, treat it as the level above.',
     },
     {
       tipo: 'nota',

@@ -28,7 +28,7 @@ export const post: Post = {
   titulo: 'Fisuras en muros: cuáles son peligrosas y cuáles no',
   pilar: 'patologias',
   fecha: '2026-09-02',
-  actualizado: null,
+  actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:
     'El ancho no es lo único que importa, y el umbral que repite media ' +
@@ -80,7 +80,7 @@ export const post: Post = {
       tipo: 'diagrama',
       svg: ANCHOS,
       titulo: 'Los tres anchos que gobiernan la escala oficial',
-      pie: 'A escala. Una fisura de 0,2 mm es del grosor de un cabello; a 3 mm cabe la punta de un lápiz.',
+      pie: 'Los tres trazos son comparables entre sí, no una medida real: a 0,2 mm no se vería nada en pantalla. Una fisura de 0,2 mm es del grosor de un cabello; a 3 mm cabe la punta de un lápiz.',
     },
     {
       tipo: 'nota',
@@ -115,6 +115,16 @@ export const post: Post = {
         'Guía Técnica AIS–IDIGER, cuarta edición. A partir de «fuerte», la ' +
         'escala deja de medir milímetros y pasa a describir lo que se ve: ' +
         'la varilla, el aplastamiento, el desplome.',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'Fíjese en que la columna de concreto reforzado **cambia de criterio** ' +
+        'en el nivel fuerte: las tres primeras filas miden un ancho y la cuarta ' +
+        'mira si asoma la varilla. Eso deja un tramo sin fila propia — una ' +
+        'fisura de más de 2 mm en concreto, sin varilla a la vista, no cae en ' +
+        'ninguna—. Mientras un ingeniero no diga otra cosa, trátela como el ' +
+        'nivel siguiente.',
     },
     {
       tipo: 'nota',

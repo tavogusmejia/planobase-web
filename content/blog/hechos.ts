@@ -78,9 +78,36 @@ export const hechos: Hecho[] = [
   {
     id: 'pot-cali-nulidad',
     descripcion:
-      'Nulidad del POT de Cali (Acuerdo 0373 de 2014) con efectos diferidos',
-    fecha: '2024-05-30',
-    patrones: ['nulidad del pot', 'pot de cali fue declarado nulo', 'efectos diferidos'],
+      'Sentencia 129 del Tribunal Administrativo del Valle: nulidad del POT de Cali con efectos diferidos',
+    fecha: '2024-04-25',
+    patrones: ['nulidad del pot', 'pot de cali fue declarado nulo', 'efectos diferidos', 'sentencia 129'],
+  },
+  {
+    id: 'pot-cali-nuevo-ctp',
+    descripcion: 'El POT nuevo de Cali se radica ante el Consejo Territorial de Planeación',
+    fecha: '2026-08-03',
+    patrones: ['consejo territorial de planeacion', 'pot nuevo'],
+  },
+  {
+    id: 'jamundi-concurso-adenda-04',
+    descripcion:
+      'Adenda 04 al concurso de curadores urbanos: inscripciones hasta el 16 de octubre de 2026',
+    fecha: '2026-06-26',
+    patrones: ['adenda 04', '16 de octubre de 2026'],
+  },
+  {
+    id: 'decreto-74-2025-vencido',
+    descripcion:
+      'Cierre de la segunda prórroga extraordinaria de licencias del Decreto 74 de 2025',
+    fecha: '2026-06-30',
+    patrones: ['segunda prorroga', 'decreto 74 de 2025', 'decreto 0074'],
+  },
+  {
+    id: 'jamundi-sentencia-125',
+    descripcion:
+      'Sentencia 125 del Juzgado Segundo Administrativo de Cali: suspensión de licencias en Jamundí',
+    fecha: '2021-11-17',
+    patrones: ['sentencia 125', 'acuavalle'],
   },
   {
     id: 'icoced',
@@ -91,7 +118,7 @@ export const hechos: Hecho[] = [
   {
     id: 'decreto-1783-2021',
     descripcion:
-      'Decreto 1783 de 2021: la licencia de construcción pasa a 36 meses',
+      'Decreto 1783 de 2021: la licencia de obra nueva pasa a 36 meses',
     fecha: '2021-12-21',
     patrones: ['decreto 1783', 'treinta y seis meses', '36 meses'],
   },

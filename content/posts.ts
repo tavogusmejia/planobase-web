@@ -1,6 +1,8 @@
 import type { Bloque, Post } from '@/lib/types'
 import { post as bienvenidosAPlanoBase } from './blog/bienvenidos-a-plano-base'
 import { post as fisurasEnMuros } from './blog/fisuras-en-muros'
+import { post as licenciaJamundi } from './blog/licencia-de-construccion-en-jamundi'
+import { post as potDeCali } from './blog/pot-de-cali-y-su-licencia'
 
 /**
  * El índice del blog.
@@ -15,7 +17,12 @@ import { post as fisurasEnMuros } from './blog/fisuras-en-muros'
  * `pnpm build` se encarga del resto —comprueba que ningún artículo se fecha
  * antes de la fuente más reciente que cita, y que su slug siga resolviendo—.
  */
-const registro: Post[] = [bienvenidosAPlanoBase, fisurasEnMuros]
+const registro: Post[] = [
+  bienvenidosAPlanoBase,
+  fisurasEnMuros,
+  licenciaJamundi,
+  potDeCali,
+]
 
 /** Ordenados del más reciente al más antiguo. Es el orden de lectura. */
 export const posts: Post[] = [...registro].sort((a, b) =>

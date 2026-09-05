@@ -122,9 +122,10 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | # | Título | Estado |
 |---|---|---|
 | 6 | Licencia de construcción en Bogotá: curadurías, tiempos y costos | pendiente |
-| 7 | Licencia de construcción en Cali y en Jamundí | pendiente |
+| 7 | Licencia de construcción en Jamundí: sin curaduría y sin expensas | **publicado** · 22/7/2026 |
 | 8 | Qué puedo construir en mi lote: ocupación, construcción, aislamientos | pendiente |
 | 9 | Curaduría urbana: qué es, cuál elegir, qué documentos pide | pendiente |
+| 74 | Qué pasa con su licencia si cambia el POT de Cali | **publicado** · 4/9/2026 |
 | 10 | Construí sin licencia: sanciones y cómo se legaliza | pendiente |
 | 11 | Reforzamiento estructural y NSR-10, para quien no es ingeniero | pendiente |
 | 12 | Reformar en propiedad horizontal: qué autoriza la asamblea (Ley 675) | pendiente |
@@ -290,7 +291,8 @@ tiene mal**. Corregirlo es autoridad instantánea.
 
 | Hecho | Por qué importa |
 |---|---|
-| **La licencia de construcción dura 36 meses**, no 24 (Decreto 1783 de 2021) | Casi todo el contenido web sigue diciendo 24 — **incluida la propia Curaduría 3 de Cali** |
+| **La licencia de obra nueva dura 36 meses**; las demás modalidades, 24 (Decreto 1783 de 2021, art. 27) | Casi todo el contenido web dice 24 para todo. Pero corregirlo a «36 para todo» es un error nuevo: los 36 meses solo cubren urbanización, parcelación y construcción en **obra nueva**. Ampliación, adecuación, modificación, restauración, reforzamiento y demolición siguen en 24 |
+| **La segunda prórroga extraordinaria del Decreto 74 de 2025 venció el 30 de junio de 2026** | Contenido que la presente como vigente está desactualizado |
 | **En Jamundí la licencia la expide la Secretaría de Planeación, no una curaduría. Y no se pagan expensas** | Verificable, con impacto económico directo, y no lo publica nadie |
 | **Cali tiene tres curadurías**, no cuatro | Dato básico que se repite mal |
 | **El POT de Cali fue declarado nulo** en 2024; sigue vigente por efectos diferidos hasta ~noviembre de 2026 | Cualquier proyecto que se radique ahora puede quedar entre dos normas |

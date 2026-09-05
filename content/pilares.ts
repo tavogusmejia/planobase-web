@@ -61,9 +61,10 @@ export const pilares: Pilar[] = [
     titulo: 'Licencias, curadurías y norma urbana',
     entrada:
       'Buena parte de lo que se lee en internet sobre licencias en Colombia ' +
-      'está desactualizado: se sigue diciendo que la licencia dura veinticuatro ' +
-      'meses cuando desde 2021 dura treinta y seis. Aquí cada dato lleva el ' +
-      'decreto que lo sostiene y la fecha en que se verificó.',
+      'está desactualizado, y lo que lo corrige suele quedarse corto: la ' +
+      'licencia de obra nueva dura treinta y seis meses desde 2021, pero una ' +
+      'de ampliación o reforzamiento sigue durando veinticuatro. Aquí cada ' +
+      'dato lleva el decreto que lo sostiene y la fecha en que se verificó.',
     metaTitulo: 'Licencia de construcción y norma urbana en Colombia',
     metaDescripcion:
       'Licencia de construcción, curadurías urbanas, POT y qué se puede ' +

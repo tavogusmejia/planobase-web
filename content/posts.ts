@@ -39,6 +39,9 @@ import { post as filtracionesEnCubierta } from './blog/filtraciones-en-cubierta'
 import { post as humedadEnMuros } from './blog/humedad-en-muros-origen-antes-de-reparar'
 import { post as comprarLoteRural } from './blog/comprar-lote-rural-que-verificar-antes-de-firmar'
 import { post as aguaEnElCampo } from './blog/agua-en-el-campo-que-permiso-necesita'
+import { post as casaBioclimatica } from './blog/casa-bioclimatica-por-piso-termico'
+import { post as mamposteriaOPrefabricado } from './blog/mamposteria-o-prefabricado-que-conviene'
+import { post as loteConPendiente } from './blog/construir-en-lote-con-pendiente'
 
 /**
  * El índice del blog.
@@ -94,6 +97,9 @@ const registro: Post[] = [
   humedadEnMuros,
   comprarLoteRural,
   aguaEnElCampo,
+  casaBioclimatica,
+  mamposteriaOPrefabricado,
+  loteConPendiente,
 ]
 
 /** Ordenados del más reciente al más antiguo. Es el orden de lectura. */

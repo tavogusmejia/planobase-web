@@ -54,7 +54,16 @@ import type { TraduccionPost } from '@/lib/types'
  */
 import { traduccion as comprarLoteRural } from './comprar-lote-rural-que-verificar-antes-de-firmar'
 import { traduccion as aguaEnElCampo } from './agua-en-el-campo-que-permiso-necesita'
+import { traduccion as casaBioclimatica } from './casa-bioclimatica-por-piso-termico'
+import { traduccion as mamposteriaOPrefabricado } from './mamposteria-o-prefabricado-que-conviene'
+import { traduccion as loteConPendiente } from './construir-en-lote-con-pendiente'
 
-const registro: TraduccionPost[] = [comprarLoteRural, aguaEnElCampo]
+const registro: TraduccionPost[] = [
+  comprarLoteRural,
+  aguaEnElCampo,
+  casaBioclimatica,
+  mamposteriaOPrefabricado,
+  loteConPendiente,
+]
 
 export const traduccionesPost = new Map(registro.map((t) => [t.slug, t]))

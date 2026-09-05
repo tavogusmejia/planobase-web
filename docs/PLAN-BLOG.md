@@ -3,7 +3,8 @@
 
 73 temas en diez pilares. Estado, prioridad y calendario editorial.
 Última actualización: 5 de septiembre de 2026 — §2 corregido tras la respuesta
-A8 del dueño.
+A8 del dueño, y §4, §6 bis y §6 ter actualizados con la tanda 5 (temas 43, 44
+y 45, publicados en español e inglés en la misma pasada).
 
 ---
 
@@ -209,9 +210,9 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | 40 | Licencia de construcción en suelo rural: por qué tarda el doble | **publicado** · 11/2/2025 |
 | 41 | Agua en el campo: concesión, pozo profundo, recolección de lluvia | **publicado** · 13/1/2026 · **es + en** |
 | 42 | Aguas residuales sin alcantarillado | pendiente |
-| 43 | Casa bioclimática por piso térmico | pendiente |
-| 44 | Casa en pendiente: cimentación, cortes y muros de contención | pendiente |
-| 45 | Prefabricada, contenedor o mampostería: costos y vida útil | pendiente |
+| 43 | Casa bioclimática por piso térmico | **publicado** · 31/3/2026 · **es + en** |
+| 44 | Casa en pendiente: cimentación, cortes y muros de contención | **publicado** · 7/7/2026 · **es + en** |
+| 45 | Prefabricada, contenedor o mampostería: costos y vida útil | **publicado** · 9/6/2026 · **es + en** · el contenedor sale del alcance: no está en la tabla de sistemas de la NSR-10 y no se pudo verificar nada citable |
 | 46 | Cuánto cuesta ampliar un segundo piso, y si la casa lo aguanta | pendiente |
 | 47 | Cubiertas: barro, termoacústica, verde o placa | pendiente |
 | 48 | Cuánto tarda construir una casa, etapa por etapa | **publicado** · 14/3/2023 |
@@ -346,6 +347,19 @@ tiene mal**. Corregirlo es autoridad instantánea.
 | **Código Civil, art. 2060 num. 4:** el recibo del dueño al terminar la obra solo significa que la aprueba como exteriormente ajustada al plan y a las reglas del arte, y **no exime al constructor** de la responsabilidad decenal | Haber firmado la entrega no cierra nada |
 | **Ley 675, arts. 22 y 23:** terrazas, cubiertas, patios interiores y retiros pueden asignarse como **bien común de uso exclusivo**. Entonces las **reparaciones locativas por desgaste** son de quien las disfruta, y las **mejoras necesarias** siguen siendo expensas comunes, salvo que deba responder el constructor | La discusión real no es «común o privado», es «reparación locativa o mejora necesaria» |
 | **La Resolución 0549 de 2015 de Minvivienda no exige nada sobre condensación intersticial ni sobre barrera de vapor.** Ninguna de las dos expresiones aparece en su anexo técnico de 85 páginas | La condensación en Colombia no está regulada. Lo que se haga contra ella es criterio profesional, y hay que pedirlo por contrato |
+| **La Resolución 0549 de 2015 le aplica a una casa unifamiliar.** Su artículo segundo fija la escala de la «vivienda no VIS» en «Todas»: no hay umbral de área ni de número de unidades. Los demás usos sí lo tienen —centros comerciales sobre 6.000 m², oficinas sobre 1.500 m², hoteles de más de 50 habitaciones, educativos de más de 1.500 alumnos, hospitales desde 5.000 m²— | Casi todo el contenido que circula la presenta como cosa de edificios grandes. Aplica a las licencias en modalidad de obra nueva radicadas después de su vigencia |
+| **El ahorro mínimo de energía de una vivienda no VIS es 45 % en clima cálido húmedo y 25 % en frío, templado y cálido seco** (Tabla No. 2 del art. 5). En agua, 25 / 25 / 20 / 20. Los porcentajes de VIS y VIP son indicativos y de cumplimiento optativo, y el art. 4 aclara que estas medidas no constituyen normas urbanísticas | Es la única cifra oficial del tema. La costa no pide un poco más: pide casi el doble |
+| **La clasificación climática oficial no son pisos térmicos.** El Anexo 2 de la Resolución 0549 es un mapa del IDEAM «según la Temperatura y la Humedad Relativa» con cuatro clases —frío, templado, cálido seco y cálido húmedo— y listado municipal con altitud. Cartagena y Santa Marta están las dos al nivel del mar en clases distintas; Jamundí (975 m) es cálido seco y Palmira (1.001 m) es templado | Deshace la idea de que la altura decide el diseño. Y el parágrafo 2 del art. 6 permite declarar en el formulario de licencia que el predio está en otra zona climática, sin trámite adicional |
+| **La certificación de las medidas pasivas es la firma del diseñador en los planos arquitectónicos**, que el art. 7 declara certificación bajo juramento. Si en el formulario no se dice nada, se entiende que se aplicarán medidas activas | No hay certificador ni auditoría que pagar, y el silencio empuja al camino caro |
+| **La relación ventana-pared no debe exceder el 40 % en promedio**, medida fachada por fachada e incluyendo marcos y parteluces (Anexo 1, numeral 2.2.1) | Es la única cifra dura de diseño pasivo del documento |
+| **NSR-10, H.1.1.2:** los estudios geotécnicos definitivos son obligatorios para todas las edificaciones urbanas y suburbanas de cualquier grupo de uso, y para las edificaciones en terrenos no aptos para el uso urbano **de los grupos de uso II, III y IV**. La segunda mitad se cae siempre que alguien resume la frase | Recortarla convierte una regla con contorno en una prohibición absoluta que no existe. Es el mismo error que ya se detectó con la cita de ley de la tanda anterior |
+| **NSR-10, tablas H.3.1-1 y H.3.2-1:** una casa es unidad de construcción de categoría baja —hasta 3 niveles o cargas menores de 800 kN— y eso fija un mínimo de **3 sondeos de 6 m**. Media: 4 de 15 m. Alta: 4 de 25 m. Especial: 5 de 30 m. El mínimo absoluto de un estudio es 3 sondeos | Le pone cifra al «pida estudio de suelos» que todo el mundo repite sin número |
+| **NSR-10, H.4.1:** «En ningún caso puede apoyarse sobre la capa vegetal, rellenos sueltos, materiales degradables o inestables…», y a renglón seguido admite «rellenos artificiales, que no incluyan materiales degradables, debidamente compactados» | El lleno no está prohibido; el lleno flojo sí. Citar solo la primera mitad es otro recorte que cambia el sentido |
+| **NSR-10, H.6.5: «Los muros de contención deberán siempre dotarse de un sistema de filtros y drenajes colocados atrás del muro»**, y aun con drenaje el efecto de las fuerzas de filtración puede ser significativo. Los factores de seguridad de taludes son 1,50 en condición estática de diseño y 1,05 en seudo-estática (Tabla H.2.4-1) | «Siempre» es una palabra que el reglamento casi no usa, y es justo lo que falta en los muros que fallan |
+| **NSR-10, Tabla A.3-1:** en zona de amenaza sísmica alta la **mampostería confinada** está limitada a grupo de uso I y **2 pisos**; la no reforzada solo se permite en zona baja donde Aa ≤ 0,05, grupo I, uno y dos pisos; los muros de concreto DMO no se permiten en zona alta. Y **la mampostería de muros diafragma no se permite para edificaciones nuevas** (D.2.1.6) | La zona sísmica descarta sistemas antes de que el cliente mire una cotización |
+| **NSR-10, Título E: «Muros divisorios — Son muros que no llevan más carga que su peso propio, no cumplen ninguna función estructural».** Y A.10.1.3.1: el sistema estructural no sufre modificación cuando hay reparaciones y cambios menores que no afecten el sistema de resistencia sísmica ni la integridad estructural | Es el test que decide si tumbar un muro es una obra menor o una intervención de estructura |
+| **La frontera de la reparación locativa no está en «si toca redes» sino en la estructura portante y la distribución interior** (Decreto 1077, art. 2.2.6.1.1.10). Tumbar un muro cambia la distribución interior aunque el muro no sostenga nada | Ya estaba en §6 bis por el lado de las redes; aquí se cierra por el lado del muro |
+| **El Título E de la NSR-10 cubre casas de uno y dos pisos en mampostería confinada y bahareque encementado, grupo de uso I, en programas de máximo 15 viviendas y menos de 3.000 m²** (E.1.1.1.1, con remisión a A.1.3.11). El steel framing sí está en el reglamento: Título F, capítulo F.4, perfiles de lámina formada en frío | Dos límites que se citan mal: el del Título E por exceso y el del steel framing por defecto —se repite que «está fuera de norma» y no lo está— |
 | **Sigue vigente la NSR-10.** Último decreto modificatorio: 1580 de 2023. La agenda regulatoria de Minvivienda actualizada al 31/8/2026 no tiene ningún proyecto sobre sismo resistencia. **AIS 100-24 es documento técnico de la AIS, sin decreto de adopción** | Confirma §6 bis con verificación de 2026 |
 
 ---
@@ -386,6 +400,25 @@ decidir presupuesto de pauta, hay que pagar una pasada de herramienta.
   expedición. No se pudo establecer si cubre aguas lluvias de edificación.
 - **Promedios de humedad relativa por ciudad del IDEAM.** El portal devuelve 404
   en las rutas probadas. No hay cifra citable.
+- **Los umbrales numéricos de temperatura y humedad relativa** que separan
+  las cuatro clases climáticas. El Anexo 2 de la Resolución 0549 publica el
+  mapa y el listado municipal, no la regla de corte. **El artículo 43 lo
+  declara dentro del texto y no da ninguna cifra de humedad.**
+- **El rastro de modificaciones de la Resolución 0549 de 2015.** Se leyó su
+  texto completo en el PDF escaneado de diez hojas que publica Minvivienda
+  —y sus dos anexos, que sí tienen capa de texto—, pero no se pudo verificar
+  si ha tenido reformas posteriores. El artículo cita el articulado y no
+  afirma que sea lo único vigente sobre la materia.
+- **Cualquier pendiente máxima de acceso vehicular.** No es materia de la
+  NSR-10 y no existe cifra nacional: la fija cada POT. El artículo 44 lo
+  declara en vez de inventar un número.
+- **Cualquier costo por m² o plazo de obra por sistema constructivo**, y
+  cualquier dato de conductividad térmica o aislamiento acústico por
+  material. El artículo 45 publica una comparación cualitativa declarada como
+  criterio profesional, y nada más.
+- **El contenedor marítimo como sistema de vivienda.** No aparece en la tabla
+  de sistemas estructurales de la NSR-10 y no se encontró fuente primaria
+  citable. Queda fuera del artículo 45, que cambió de título por eso.
 - **Los titulares de las curadurías urbanas de Bogotá.** Solo dos de los cinco
   despachos tienen acto de designación publicado y localizable en el Régimen
   Legal. **El artículo de Bogotá no nombra curadores.**

@@ -75,6 +75,13 @@ import { traduccion as costoPorM2 } from './cuanto-cuesta-construir-por-m2-en-co
 import { traduccion as honorariosArquitecto } from './cuanto-cobra-un-arquitecto'
 import { traduccion as curaduriaUrbana } from './curaduria-urbana-que-es-cual-elegir-y-que-documentos-pide'
 import { traduccion as licenciaBogota } from './licencia-de-construccion-en-bogota'
+import { traduccion as delLoteALaLicencia } from './del-lote-a-la-licencia'
+import { traduccion as queEsUnAnteproyecto } from './que-es-un-anteproyecto'
+import { traduccion as diezPreguntasConstructor } from './diez-preguntas-antes-de-firmar-con-un-constructor'
+import { traduccion as comoLeerUnPlano } from './como-leer-un-plano'
+import { traduccion as interventoriaDeObra } from './interventoria-de-obra'
+import { traduccion as contratoDeDiseno } from './contrato-de-diseno-arquitectonico'
+import { traduccion as arquitectoMaestroConstructora } from './arquitecto-maestro-de-obra-o-constructora'
 
 const registro: TraduccionPost[] = [
   comprarLoteRural,
@@ -86,6 +93,13 @@ const registro: TraduccionPost[] = [
   honorariosArquitecto,
   curaduriaUrbana,
   licenciaBogota,
+  delLoteALaLicencia,
+  queEsUnAnteproyecto,
+  diezPreguntasConstructor,
+  comoLeerUnPlano,
+  interventoriaDeObra,
+  contratoDeDiseno,
+  arquitectoMaestroConstructora,
 ]
 
 export const traduccionesPost = new Map(registro.map((t) => [t.slug, t]))

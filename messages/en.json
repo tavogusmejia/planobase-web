@@ -60,7 +60,8 @@
     "imagenSiguiente": "Next image",
     "concurso": "Competition entry",
     "otros": "others",
-    "naturaleza": "Nature"
+    "naturaleza": "Nature",
+    "ficha": "Experience sheet"
   },
   "categorias": {
     "todos": "All",

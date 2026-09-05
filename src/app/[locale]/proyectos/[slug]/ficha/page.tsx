@@ -17,6 +17,16 @@ import { routing } from '@/i18n/routing'
  * No se indexa: no es contenido del sitio, es una herramienta de trabajo.
  */
 /**
+ * Sin parámetros dinámicos: lo que no está en `generateStaticParams` da 404.
+ *
+ * Hace falta porque esta hoja solo se genera en el idioma editorial. Con el
+ * valor por defecto de `dynamicParams`, `/en/...` no daba 404 sino algo peor:
+ * el documento en español servido bajo una URL inglesa, que es justo lo que la
+ * restricción quería evitar.
+ */
+export const dynamicParams = false
+
+/**
  * Solo en el idioma editorial.
  *
  * Es un documento para el papel: se adjunta a una propuesta o a un pliego

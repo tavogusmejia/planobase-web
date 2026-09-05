@@ -201,13 +201,19 @@ export default async function ProyectoPage({
             </dl>
 
             {/* El documento que el estudio adjunta a una propuesta. Sale del
-                mismo dato que esta página, así que no se desactualiza. */}
-            <Link
-              href={`/proyectos/${project.slug}/ficha`}
-              className="text-block mt-6 inline-block text-accent underline-offset-4 hover:underline"
-            >
-              Ficha de experiencia
-            </Link>
+                mismo dato que esta página, así que no se desactualiza.
+
+                Solo en el idioma editorial: la hoja se imprime en español para
+                un pliego colombiano y desde d84485a no se genera en inglés.
+                Enlazarla desde `/en` llevaría a un 404. */}
+            {locale === routing.defaultLocale ? (
+              <Link
+                href={`/proyectos/${project.slug}/ficha`}
+                className="text-block mt-6 inline-block text-accent underline-offset-4 hover:underline"
+              >
+                {t('ficha')}
+              </Link>
+            ) : null}
           </div>
 
           <div className="border-t border-line pt-6">

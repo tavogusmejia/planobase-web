@@ -91,6 +91,12 @@ import { traduccion as diezErroresCasaCampestre } from './diez-errores-mas-caros
 import { traduccion as queConstruirEnSueloRural } from './que-puedo-construir-en-suelo-rural'
 import { traduccion as cuantoTardaConstruir } from './cuanto-tarda-construir-una-casa'
 import { traduccion as licenciaSueloRural } from './licencia-de-construccion-en-suelo-rural'
+import { traduccion as queConstruirEnMiLote } from './que-puedo-construir-en-mi-lote'
+import { traduccion as licenciaJamundi } from './licencia-de-construccion-en-jamundi'
+import { traduccion as potDeCali } from './pot-de-cali-y-su-licencia'
+import { traduccion as reforzamientoEstructural } from './reforzamiento-estructural-y-nsr-10'
+import { traduccion as reformarEnPropiedadHorizontal } from './reformar-en-propiedad-horizontal'
+import { traduccion as construiSinLicencia } from './construi-sin-licencia'
 
 const registro: TraduccionPost[] = [
   comprarLoteRural,
@@ -118,6 +124,12 @@ const registro: TraduccionPost[] = [
   queConstruirEnSueloRural,
   cuantoTardaConstruir,
   licenciaSueloRural,
+  queConstruirEnMiLote,
+  licenciaJamundi,
+  potDeCali,
+  reforzamientoEstructural,
+  reformarEnPropiedadHorizontal,
+  construiSinLicencia,
 ]
 
 export const traduccionesPost = new Map(registro.map((t) => [t.slug, t]))

@@ -123,7 +123,7 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 |---|---|---|
 | 6 | Licencia de construcción en Bogotá: curadurías, tiempos y costos | pendiente |
 | 7 | Licencia de construcción en Jamundí: sin curaduría y sin expensas | **publicado** · 22/7/2026 |
-| 8 | Qué puedo construir en mi lote: ocupación, construcción, aislamientos | pendiente |
+| 8 | Qué puedo construir en mi lote | **publicado** · 11/6/2024 |
 | 9 | Curaduría urbana: qué es, cuál elegir, qué documentos pide | pendiente |
 | 74 | Qué pasa con su licencia si cambia el POT de Cali | **publicado** · 4/9/2026 |
 | 10 | Construí sin licencia: sanciones y cómo se legaliza | pendiente |

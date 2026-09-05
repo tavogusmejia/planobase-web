@@ -5,6 +5,7 @@ import { post as licenciaJamundi } from './blog/licencia-de-construccion-en-jamu
 import { post as potDeCali } from './blog/pot-de-cali-y-su-licencia'
 import { post as cuantoCobraArquitecto } from './blog/cuanto-cobra-un-arquitecto'
 import { post as ley1209Piscinas } from './blog/ley-1209-piscinas-copropiedad'
+import { post as queConstruirEnMiLote } from './blog/que-puedo-construir-en-mi-lote'
 
 /**
  * El índice del blog.
@@ -26,6 +27,7 @@ const registro: Post[] = [
   potDeCali,
   cuantoCobraArquitecto,
   ley1209Piscinas,
+  queConstruirEnMiLote,
 ]
 
 /** Ordenados del más reciente al más antiguo. Es el orden de lectura. */

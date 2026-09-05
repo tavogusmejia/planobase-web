@@ -17,7 +17,7 @@ export const post: Post = {
   titulo: 'Qué es un anteproyecto y por qué no se puede saltar',
   pilar: 'proceso',
   fecha: '2023-09-12',
-  actualizado: null,
+  actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:
     '«Mándeme unos planos para pedir la licencia» es la petición que se salta ' +
@@ -66,7 +66,7 @@ export const post: Post = {
         ],
         [
           '**Anteproyecto**',
-          '«La idea general del proyecto»: plantas, cortes y fachadas suficientes para entender el edificio, **sin incluir planos para poder ejecutar la obra**',
+          '«La idea general del proyecto»: plantas, cortes y fachadas suficientes para entender el edificio, **sin incluir planos suficientes para poder ejecutar la obra**',
           'hasta 15 %',
         ],
         [

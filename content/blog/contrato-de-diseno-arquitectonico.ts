@@ -269,7 +269,7 @@ export const post: Post = {
       texto:
         'Para ejercer la arquitectura en Colombia hace falta tarjeta de ' +
         'matrícula profesional, y la ley exige que **para suscribir contratos ' +
-        'se presente la matrícula e se indique su número en el contrato**.',
+        'se presente la matrícula y se indique su número en el contrato**.',
     },
     {
       tipo: 'parrafo',

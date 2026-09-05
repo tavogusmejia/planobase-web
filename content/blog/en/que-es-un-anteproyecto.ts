@@ -68,7 +68,7 @@ export const traduccion: TraduccionPost = {
         ],
         [
           '**Concept design**',
-          '"The general idea of the project": floor plans, sections and elevations enough to understand the building, **without including drawings to execute the works**',
+          '"The general idea of the project": floor plans, sections and elevations enough to understand the building, **without including drawings sufficient to execute the works**',
           'up to 15%',
         ],
         [

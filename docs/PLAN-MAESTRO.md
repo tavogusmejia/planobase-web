@@ -127,13 +127,15 @@ nadie fuera del repositorio.
 | ⏳ | **El `h1` de `/agendar` dice el precio** en vez de argumentar que no debería ser caro |
 | ⏳ | **Los tres nodos del JSON-LD** *(§9)*: zona de servicio nacional y una sola entidad de organización |
 | ⏳ | **Siete fugas del bilingüe**: rótulos y contadores escritos en español a mano dentro de `[locale]`, que `/en` pintaba en español |
+| ⏳ | **Las dos plantillas de Resend** *(decisión 1.3)*: el acuse de recibo del formulario y la confirmación de reserva con el `.ics`. En español e inglés |
+| ⏳ | **Los errores del formulario dejan de salir siempre en español**, que era el hallazgo abierto de la pasada anterior |
+| ⏳ | **Quinta guarda de build**, `check-correos.ts`: valida el `.ics` contra la RFC y que el texto del visitante salga inerte |
 
 ### Empezado, falta parte 🟡
 
 | | Qué | Qué falta |
 |---|---|---|
 | 🟡 | **Encuadre nacional** *(§9)* | Hechas las puertas, `/agendar`, la descripción de tres páginas, el `h1` de la portada y **los tres nodos del JSON-LD**. Comprobado además que **dos verticales dicen bien «Valle del Cauca» y «Cali»**: es donde está esa obra, y ensancharlo sería inventar proyectos. Solo queda pendiente lo que depende de marcar `construido` |
-| 🟡 | **Resend** *(decisión 1.3)* | El dominio está verificado y el correo sale. Faltan las plantillas: acuse al cliente y confirmación de reserva |
 | 🟡 | **El blog** *(§8)* | 43 de 75. Diez de los 32 que faltan están bloqueados por la decisión 1.9 |
 
 ### Bloqueado esperando una decisión suya 🔴
@@ -262,6 +264,37 @@ que forman parte del producto.
 
 Sigue siendo la tarea 1.7, con el alcance cambiado de «verificar el dominio» a
 «redactar y montar las plantillas».
+
+#### ✅ HECHA · 5/9/2026 — las dos plantillas están montadas
+
+**Cerrada del todo.** Las dos viven en `src/lib/correo/`, con la copia en
+`content/correos.ts` y su inglés en `content/en/correos.ts`.
+
+- **El acuse de recibo ya sale.** Va después de responderle al navegador y es
+  best-effort: si Resend falla se anota en el log y el lead se da por bueno
+  igual. Perder un encargo por no poder mandar un acuse sería cambiar el
+  problema pequeño por el caro.
+- **La confirmación de reserva está escrita y probada, y no espera al
+  calendario.** Recibe una reserva ya hecha —quién, cuándo, con qué enlace— y
+  devuelve el correo con el `.ics` adjunto. Cuando lleguen las credenciales de
+  Google, lo que hay que escribir es quien la llama, no la plantilla. Contempla
+  que el enlace de Meet falte: sale igual diciendo que llega aparte, porque una
+  confirmación sin enlace sirve y una reserva sin confirmación no.
+- **El `.ics` se escribe a mano y no con una biblioteca**, y hay una guarda de
+  build que lo valida contra la RFC 5545 en lo que de verdad rompe: CRLF,
+  plegado a 75 octetos y escapado. Un calendario mal formado lo acepta Gmail y
+  lo rechaza Outlook, que es el cliente de las entidades públicas.
+
+**Y arrastró consigo el idioma del lead.** Para escribir el acuse en el idioma
+correcto la Server Action necesita saber en cuál estaba el visitante, así que el
+idioma entra en el esquema. Con eso, los tres mensajes de error generales del
+formulario pasaron de frases en español a claves, y el hallazgo que la pasada de
+redacción había dejado anotado queda cerrado en la misma pasada.
+
+**Lo que queda pendiente y no es de esta tarea:** cuando el calendario exista,
+hay que **desactivar el correo automático de Google Calendar**. Si salen los
+dos, el que llega primero es el de Google, con su remitente y su maqueta, y la
+reserva parece hecha por Google con el estudio de invitado.
 
 ### 1.4 · Abrir la cuenta de comercio Wompi — el trámite tarda más que el código
 
@@ -898,12 +931,12 @@ página.
 | ✅ | Corte de dominio: DNS, variables, 301 desde Wix, Search Console | — |
 | ✅ | Páginas de error (`error.tsx`, `global-error.tsx`) | — |
 | ⬜ | Monitoreo de errores + alerta de lead perdido + uptime | 0,5 d |
-| 🟡 | Resend verificado ✅ + acuse de recibo al cliente ⬜ | 4 h |
+| ✅ | Resend verificado ✅ + acuse de recibo al cliente ✅ + confirmación de reserva ✅ | — |
 | ⬜ | Cabeceras de seguridad (CSP, HSTS, resto) | 4-6 h |
 | ✅ | Open Graph propio por página | — |
 | ⬜ | URLs de campaña con `/es/` explícito y UTMs | 3 h |
 | 🔴 | Marcar construido vs. concurso en los 23 proyectos | 0,5 d |
-| ⬜ | **Los tres errores de envío del formulario salen siempre en español** | 1 h |
+| ✅ | ~~Los tres errores de envío del formulario salen siempre en español~~ — cerrado al montar las plantillas: el idioma entró en el esquema y con él las claves | — |
 
 **Sobre los errores del formulario, que salió al hacer la pasada de redacción
 y no estaba en esta lista.** Los mensajes de campo —«Escriba su nombre
@@ -1181,7 +1214,7 @@ después.
 
 | Trámite | Estado | Por qué |
 |---|---|---|
-| Verificar `planobase.co` en Resend | **Hecho.** Faltan las plantillas | Sin esto no salía ningún correo al cliente |
+| Verificar `planobase.co` en Resend | **Hecho, y las plantillas también** | Sin esto no salía ningún correo al cliente |
 | Google Workspace | **Ya existe, de pago** | Decidía toda la arquitectura del calendario. Resuelto |
 | **Credenciales de Google (proyecto, Calendar API, cuenta de servicio, delegación)** | **Pendiente. Es el trámite que sigue** | Sin esto no hay Entrega A |
 | Cuenta de comercio Wompi | **Diferido a propósito.** Crítico, pero después de pautar | El papeleo tarda más que el desarrollo: conviene iniciarlo en paralelo aunque no se use |

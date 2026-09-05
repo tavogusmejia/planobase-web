@@ -176,8 +176,8 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | # | Título | Estado |
 |---|---|---|
 | 25 | Cómo se diseña un colegio en Colombia (NTC 4595 y 4596) | pendiente |
-| 26 | Concursos públicos de arquitectura: cómo funcionan por dentro | pendiente |
-| 27 | Interventoría de obra pública: marco normativo | pendiente |
+| 26 | Concursos públicos de arquitectura: cómo funcionan por dentro | **publicado** · 14/4/2026 |
+| 27 | Interventoría de obra pública: marco normativo | **publicado** · 13/8/2025 |
 | 28 | Cómo se estructuran los pliegos de un equipamiento público | pendiente |
 
 ### Pilar 6 · Casos propios con cifras
@@ -194,9 +194,9 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 
 | # | Título | Estado |
 |---|---|---|
-| 34 | Construir en Jamundí: crecimiento, suelo y norma | pendiente |
-| 35 | Comprar lote: la verificación de doce puntos antes de firmar | pendiente |
-| 36 | Cómo elegir arquitecto, y qué señales indican que no es el indicado | pendiente |
+| 34 | Construir en Jamundí: crecimiento, suelo y norma | **publicado** · 10/12/2025 |
+| 35 | Comprar lote: la verificación de doce puntos antes de firmar | **publicado** · 16/1/2023 |
+| 36 | Cómo elegir arquitecto, y qué señales indican que no es el indicado | **publicado** · 17/6/2025 |
 
 ### Pilar 8 · Casa y casa campestre
 
@@ -204,8 +204,8 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 |---|---|---|
 | 37 | Cuánto cuesta construir una casa campestre en Colombia | pendiente |
 | 38 | Comprar lote rural: la verificación antes de firmar | pendiente |
-| 39 | Qué puedo construir en suelo rural | pendiente |
-| 40 | Licencia de construcción en suelo rural: por qué tarda el doble | pendiente |
+| 39 | Qué puedo construir en suelo rural | **publicado** · 9/7/2024 |
+| 40 | Licencia de construcción en suelo rural: por qué tarda el doble | **publicado** · 11/2/2025 |
 | 41 | Agua en el campo: concesión, pozo profundo, recolección de lluvia | pendiente |
 | 42 | Aguas residuales sin alcantarillado | pendiente |
 | 43 | Casa bioclimática por piso térmico | pendiente |
@@ -213,9 +213,9 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | 45 | Prefabricada, contenedor o mampostería: costos y vida útil | pendiente |
 | 46 | Cuánto cuesta ampliar un segundo piso, y si la casa lo aguanta | pendiente |
 | 47 | Cubiertas: barro, termoacústica, verde o placa | pendiente |
-| 48 | Cuánto tarda construir una casa, etapa por etapa | pendiente |
+| 48 | Cuánto tarda construir una casa, etapa por etapa | **publicado** · 14/3/2023 |
 | 49 | Casa de descanso o renta corta: qué cambia en el diseño | pendiente |
-| 50 | Los diez errores más caros al construir una casa campestre | pendiente |
+| 50 | Los diez errores más caros al construir una casa campestre | **publicado** · 19/11/2024 |
 
 ### Pilar 9 · Piscinas y jacuzzis — respaldado por experiencia directa
 
@@ -228,7 +228,7 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | 55 | Calentar la piscina: solar, bomba de calor o gas | pendiente |
 | 56 | Sal o cloro: el mito del agua salada y el costo real | pendiente |
 | 57 | Piscina en terraza: carga estructural e impermeabilización | pendiente |
-| 58 | ¿Necesito licencia para construir una piscina? | pendiente |
+| 58 | ¿Necesito licencia para construir una piscina? | **publicado** · 22/4/2025 |
 | 59 | Ley 1209: qué obliga de verdad a una copropiedad con piscina | **publicado** · 18/3/2025 |
 | 60 | Jacuzzi de obra o portátil: carga, desagüe y requisitos eléctricos | pendiente |
 | 61 | Piscina y jacuzzi juntos: compartir equipos, y cuándo sale mal | pendiente |

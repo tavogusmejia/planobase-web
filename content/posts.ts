@@ -21,6 +21,16 @@ import { post as docePartidas } from './blog/doce-partidas-que-se-olvidan-al-pre
 import { post as curaduriaUrbana } from './blog/curaduria-urbana-que-es-cual-elegir-y-que-documentos-pide'
 import { post as obraSeSaleDelPresupuesto } from './blog/por-que-la-obra-se-sale-del-presupuesto'
 import { post as reforzamientoEstructural } from './blog/reforzamiento-estructural-y-nsr-10'
+import { post as comprarLote } from './blog/comprar-lote-verificacion-antes-de-firmar'
+import { post as comoElegirArquitecto } from './blog/como-elegir-arquitecto'
+import { post as construirEnJamundi } from './blog/construir-en-jamundi'
+import { post as construirEnSueloRural } from './blog/que-puedo-construir-en-suelo-rural'
+import { post as licenciaEnSueloRural } from './blog/licencia-de-construccion-en-suelo-rural'
+import { post as cuantoTardaConstruir } from './blog/cuanto-tarda-construir-una-casa'
+import { post as erroresCasaCampestre } from './blog/diez-errores-mas-caros-casa-campestre'
+import { post as licenciaParaPiscina } from './blog/necesito-licencia-para-construir-una-piscina'
+import { post as concursosPublicos } from './blog/concursos-publicos-de-arquitectura'
+import { post as interventoriaObraPublica } from './blog/interventoria-de-obra-publica'
 
 /**
  * El índice del blog.
@@ -58,6 +68,16 @@ const registro: Post[] = [
   informeTecnicoSerio,
   docePartidas,
   curaduriaUrbana,
+  comprarLote,
+  comoElegirArquitecto,
+  construirEnJamundi,
+  construirEnSueloRural,
+  licenciaEnSueloRural,
+  cuantoTardaConstruir,
+  erroresCasaCampestre,
+  licenciaParaPiscina,
+  concursosPublicos,
+  interventoriaObraPublica,
 ]
 
 /** Ordenados del más reciente al más antiguo. Es el orden de lectura. */

@@ -4,6 +4,7 @@ import { post as fisurasEnMuros } from './blog/fisuras-en-muros'
 import { post as licenciaJamundi } from './blog/licencia-de-construccion-en-jamundi'
 import { post as potDeCali } from './blog/pot-de-cali-y-su-licencia'
 import { post as cuantoCobraArquitecto } from './blog/cuanto-cobra-un-arquitecto'
+import { post as ley1209Piscinas } from './blog/ley-1209-piscinas-copropiedad'
 
 /**
  * El índice del blog.
@@ -24,6 +25,7 @@ const registro: Post[] = [
   licenciaJamundi,
   potDeCali,
   cuantoCobraArquitecto,
+  ley1209Piscinas,
 ]
 
 /** Ordenados del más reciente al más antiguo. Es el orden de lectura. */

@@ -210,7 +210,7 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | 56 | Sal o cloro: el mito del agua salada y el costo real | pendiente |
 | 57 | Piscina en terraza: carga estructural e impermeabilización | pendiente |
 | 58 | ¿Necesito licencia para construir una piscina? | pendiente |
-| 59 | Ley 1209: qué obliga a una copropiedad | pendiente |
+| 59 | Ley 1209: qué obliga de verdad a una copropiedad con piscina | **publicado** · 18/3/2025 |
 | 60 | Jacuzzi de obra o portátil: carga, desagüe y requisitos eléctricos | pendiente |
 | 61 | Piscina y jacuzzi juntos: compartir equipos, y cuándo sale mal | pendiente |
 | 62 | Mantenimiento de piscina: el costo mensual real | pendiente |

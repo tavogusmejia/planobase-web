@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 import { getAllSlugs } from '@/lib/data/projects'
 import { posts, postsDelPilar } from '@content/posts'
 import { pilares } from '@content/pilares'
+import { herramientasDisponibles } from '@content/herramientas'
 import { puertas } from '@content/puertas'
 import { LOCALES_INDEXABLES, routing } from '@/i18n/routing'
 import { verticales } from '@content/verticales'
@@ -50,6 +51,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { path: '/agendar', priority: 0.9, freq: 'monthly' },
       { path: '/contacto', priority: 0.7, freq: 'monthly' },
       { path: '/blog', priority: 0.5, freq: 'monthly' },
+      { path: '/apbs', priority: 0.7, freq: 'monthly' },
+      // Solo las herramientas que ya calculan algo. Una página que anuncia
+      // una herramienta y no la tiene es una página delgada.
+      ...herramientasDisponibles.map((h) => ({
+        path: `/apbs/${h.slug}`,
+        priority: 0.8,
+        freq: 'monthly' as const,
+      })),
       // Las verticales, que son páginas de verdad con su propio texto. Antes
       // aquí iban las URLs con parámetro, que además se autocanonicalizaban a
       // /proyectos: se pedía indexar siete páginas que decían ser otra.

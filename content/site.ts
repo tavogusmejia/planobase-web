@@ -54,6 +54,9 @@ export const navegacion = [
   { key: 'estudio', href: '/estudio' },
   { key: 'servicios', href: '/servicios' },
   { key: 'blog', href: '/blog' },
+  // APBS. Va después del blog y antes del contacto a propósito: es la sección
+  // que da algo sin pedir nada, así que conviene que se encuentre sola.
+  { key: 'apbs', href: '/apbs' },
   { key: 'contacto', href: '/contacto' },
 ] as const
 

@@ -77,6 +77,23 @@ function nombreMunicipio(codigo: string): string {
   return etiquetaMunicipio(codigo) ?? codigo
 }
 
+/**
+ * De dónde vino el lead, incluido el entorno.
+ *
+ * La clave de servicio de Supabase está configurada también en Preview, así
+ * que un envío de prueba desde un despliegue de vista previa entra en la misma
+ * tabla que un encargo real y, sin esto, es indistinguible de él. Cuando la
+ * bandeja de leads sea la que alimente la pauta y el CRM, cada prueba
+ * contaminaría el costo por lead.
+ *
+ * `VERCEL_ENV` lo pone la plataforma; fuera de Vercel no existe y el valor es
+ * el de siempre.
+ */
+function origenActual(): string {
+  const entorno = process.env.VERCEL_ENV
+  return !entorno || entorno === 'production' ? 'web' : `web-${entorno}`
+}
+
 function huellaIp(ip: string, sal: string): string | null {
   if (!sal || ip === 'desconocida') return null
   return createHash('sha256').update(`${ip}${sal}`).digest('hex')
@@ -223,7 +240,7 @@ export async function enviarLead(raw: unknown): Promise<LeadResult> {
     etapa: lead.etapa,
     mensaje: lead.mensaje,
     declaracion: lead.declaracion,
-    origen: 'web',
+    origen: origenActual(),
     utm_source: lead.utmSource ?? null,
     utm_campaign: lead.utmCampaign ?? null,
     promo: lead.promo ?? null,

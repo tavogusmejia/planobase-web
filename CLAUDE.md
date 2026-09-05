@@ -15,6 +15,10 @@ Next.js 15 (App Router) · TypeScript estricto · Tailwind v4 · Supabase · Ver
 - Español es el idioma base. Inglés cae a español si falta la traducción.
 - En la conversación, tutear a Gustavo. El sitio va en «usted»: son cosas
   distintas y mezclarlas confunde sobre a quién se refiere cada frase.
+- Cuando te detengas y necesites su respuesta, **dilo explícitamente y en una
+  línea suelta**: «por ahora en stand by, ¿sigo con la portada?». Sin eso no hay
+  forma de distinguir una pausa que espera algo de una pausa que solo informa,
+  y la primera se queda parada sin que nadie lo note.
 
 ## Fuente de verdad del contenido
 `wix-migration/`. No inventes contenido. No uses lorem ipsum.

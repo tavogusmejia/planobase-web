@@ -34,6 +34,9 @@ import { post as interventoriaObraPublica } from './blog/interventoria-de-obra-p
 import { post as costoPorM2 } from './blog/cuanto-cuesta-construir-por-m2-en-colombia'
 import { post as casaCampestreCosto } from './blog/cuanto-cuesta-una-casa-campestre'
 import { post as costoRemodelar } from './blog/cuanto-cuesta-remodelar-ambiente-por-ambiente'
+import { post as licenciaBogota } from './blog/licencia-de-construccion-en-bogota'
+import { post as filtracionesEnCubierta } from './blog/filtraciones-en-cubierta'
+import { post as humedadEnMuros } from './blog/humedad-en-muros-origen-antes-de-reparar'
 
 /**
  * El índice del blog.
@@ -84,6 +87,9 @@ const registro: Post[] = [
   costoPorM2,
   casaCampestreCosto,
   costoRemodelar,
+  licenciaBogota,
+  filtracionesEnCubierta,
+  humedadEnMuros,
 ]
 
 /** Ordenados del más reciente al más antiguo. Es el orden de lectura. */

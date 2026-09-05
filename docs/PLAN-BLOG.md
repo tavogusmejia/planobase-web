@@ -1,3 +1,4 @@
+
 # Plan del blog · Plano Base
 
 73 temas en diez pilares. Estado, prioridad y calendario editorial.
@@ -140,7 +141,7 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 
 | # | Título | Estado |
 |---|---|---|
-| 6 | Licencia de construcción en Bogotá: curadurías, tiempos y costos | pendiente |
+| 6 | Licencia de construcción en Bogotá: curadurías, tiempos y costos | **publicado** · 27/8/2026 |
 | 7 | Licencia de construcción en Jamundí: sin curaduría y sin expensas | **publicado** · 22/7/2026 |
 | 8 | Qué puedo construir en mi lote | **publicado** · 11/6/2024 |
 | 9 | Curaduría urbana: qué es, cuál elegir, qué documentos pide | **publicado** · 13/5/2025 |
@@ -154,8 +155,8 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | # | Título | Estado |
 |---|---|---|
 | 13 | Fisuras en muros: cuáles son peligrosas y cuáles no | **publicado** · 2/9/2026 |
-| 14 | Filtraciones en cubierta: las cinco causas reales | pendiente |
-| 15 | Humedad en muros: ascendente, condensación o filtración | pendiente |
+| 14 | Filtraciones en cubierta: las cinco causas reales | **publicado** · 17/2/2026 |
+| 15 | Humedad en muros: ascendente, condensación o filtración | **publicado** · 5/5/2026 |
 | 16 | Cuándo un edificio necesita un estudio patológico | **publicado** · 27/1/2026 |
 | 17 | Qué debe contener un informe técnico serio | **publicado** · 11/11/2025 |
 
@@ -327,6 +328,24 @@ tiene mal**. Corregirlo es autoridad instantánea.
 | **Zonas de amenaza sísmica verificadas en el apéndice A-4 de la NSR-10:** Barranquilla y Cartagena Aa=Av=0,10 (baja); Bogotá y Medellín Aa=0,15 Av=0,20 (intermedia); Cali, Bucaramanga, Jamundí y Palmira Aa≥0,25 (alta). Ojo: las capitales están en la tabla A.2.3-2 y **los demás municipios solo en el apéndice A-4** — citar la tabla equivocada es un error verificable | Sostiene el argumento de que el mismo m² no cuesta igual por plaza |
 | **En zona de amenaza sísmica alta el reglamento prohíbe los sistemas de menor disipación de energía** (tablas A.3-1 a A.3-4: pórtico de concreto DMO «no se permite» en zona alta; DMI, ni en alta ni en intermedia) | Es la prueba dura de que la zona cambia el diseño. **La NSR-10 no menciona costos en ninguna parte:** el salto al costo es inferencia profesional y hay que declararlo |
 | **NSR-10, Título H, H.5.2.1:** una edificación sobre, **al borde o al pie** de una ladera obliga a análisis de estabilidad con asesoría de un geólogo y a **diseñar las obras de estabilización**. Y H.7.1.3(b): con pendiente del terreno **superior al 10 %** los efectos topográficos son relevantes y exigen modelos numéricos 2D o 3D | Tres partidas que nunca están en un presupuesto de casa campestre |
+| **El POT de Bogotá nunca lo suspendió el Consejo de Estado.** Ese caso no llegó nunca allí: fue una nulidad simple del art. 137 del CPACA. La suspensión provisional la decretó el **Juzgado Quinto Administrativo Oral del Circuito de Bogotá el 14/6/2022** (rad. 11001333400520220006600) y la **revocó el Tribunal Administrativo de Cundinamarca el 22/8/2022** | Es la corrección de mayor valor de toda la serie de trámites. La atribución al Consejo de Estado se repite en prensa y en todo el contenido web |
+| **Los efectos del POT de Bogotá estuvieron suspendidos entre el 16 de junio y el 31 de agosto de 2022, y en ese periodo volvió a regir el Decreto Distrital 190 de 2004.** Concepto 2202413038 de la Secretaría Jurídica Distrital, 13/9/2024 | Fechas exactas, de pronunciamiento oficial. Cualquier licencia radicada en esa ventana se tramitó con otra norma |
+| **No consta sentencia de fondo** en ese proceso. El Régimen Legal no registra providencia posterior a agosto de 2022 y la Consulta de Procesos de la Rama Judicial es inaccesible | Se declara como no verificado dentro del artículo. Ni «el POT está anulado» ni «el asunto está cerrado» se pueden sostener |
+| **El DUDOT (Decreto Distrital 670 de 2025) NO derogó el POT**, solo sus decretos reglamentarios. El Decreto 555 de 2021 no está en su lista de derogatorias | Suena a lo contrario de lo que es, y se va a citar mal |
+| **Bogotá derogó y compiló en diciembre de 2025 casi todo lo que se cita de memoria**: Decretos Únicos Sectoriales 646 (Ambiente), 649 (Cultura) y 653 (Hábitat), todos del 22/12/2025. Caen el 531 de 2010, el 173 de 2014, el 70 de 2015 y el 522 de 2023 | Cualquier guía de trámites de Bogotá anterior a esa fecha cita norma derogada |
+| **Decreto Nacional 1107 del 6 de agosto de 2026:** el número de curadores urbanos lo determina ahora el Ministerio de Vivienda —a solicitud del municipio o de oficio—; el curador saliente **puede continuar provisionalmente** al vencer su periodo de cinco años; y el Ministerio queda obligado a actualizar por resolución **toda la tabla de factores municipales** | Cambia el régimen de curadores y le pone fecha de caducidad a la calculadora de expensas |
+| **El Decreto 1077 que publica el Gestor Normativo de Función Pública está congelado en diciembre de 2023** y todavía muestra la redacción anterior del art. 2.2.6.6.2.1 | Es la fuente que usa casi todo el mundo. Citar el capítulo de curadores desde ahí hoy es citar mal |
+| **La «consulta preliminar» no existe** como figura del trámite de licencias. Cero coincidencias en el Decreto 1077, la Ley 388, el Decreto 1203 de 2017, el Decreto 1783 de 2021 y el Decreto 1107 de 2026. En Bogotá fue una etapa de los planes de implantación, y el POT solo la trata en régimen de transición con plazo vencido | Es la palabra que todo el mundo usa mal. Desmentirla vale más que explicarla |
+| **Concepto de norma urbanística 8,34 UVT y concepto de uso del suelo 1,67 UVT** (art. 2.2.6.6.8.15, sustituido por el art. 5 del Decreto 1890 de 2021). **Si se piden dentro del trámite de la licencia no se cobran aparte**, y la consulta verbal es gratuita siempre | Dos reglas con impacto económico directo que casi nadie usa |
+| **Bogotá tiene el factor municipal más alto de la tabla, m = 0,938**, compartido con Cali, Medellín, Chía, Funza, Mosquera y Sabaneta | A igual área y estrato, licenciar en Bogotá cuesta más por decreto, no por criterio del curador |
+| **En la Sabana, Chía, Madrid y Zipaquirá tienen los dos despachos de curaduría vacantes: asume la alcaldía y no se pagan expensas.** La Calera y Sopó nunca han tenido factor asignado. Directorio de la Superintendencia, edición del 6/3/2026 | Dato con impacto económico directo que no publica nadie. Y el más volátil: un despacho provisto lo cambia todo |
+| **En Bogotá el DADEP no expide la licencia de intervención y ocupación del espacio público.** La expiden IDU, IDRD, IDPC e IDARTES según el tipo de intervención (POT, art. 145). Y los andenes colindantes van dentro de la propia licencia de construcción | Error muy frecuente que cuesta semanas |
+| **La autorización de intervención de patrimonio es previa y bloqueante**, y no se puede sustituir por ninguna licencia urbanística (Ley 397 art. 11; Decreto 1077 art. 2.2.6.1.1.7 par. 7) | Hay que empezar por ahí, no por el curador |
+| **Intervenir cubiertas, fachadas, paramentos, pórticos o antejardines de un predio privado que hagan parte del espacio público NO requiere licencia de intervención y ocupación del espacio público** (art. 2.2.6.1.1.12 par. 3) | Mucha gente tramita las dos |
+| **Ninguna de las tres fuentes de garantía dice «filtración» ni «humedad».** El art. 2060 num. 3 del Código Civil exige que el edificio **perezca o amenace ruina**; la Ley 1480 de 2011 separa **estabilidad de la obra a diez años** de **acabados a un año**; la Ley 1796 de 2016 **no modifica el 2060, lo remite** | Si una gotera está cubierta no se contesta leyendo la norma. Decirlo así es lo que nadie hace |
+| **Código Civil, art. 2060 num. 4:** el recibo del dueño al terminar la obra solo significa que la aprueba como exteriormente ajustada al plan y a las reglas del arte, y **no exime al constructor** de la responsabilidad decenal | Haber firmado la entrega no cierra nada |
+| **Ley 675, arts. 22 y 23:** terrazas, cubiertas, patios interiores y retiros pueden asignarse como **bien común de uso exclusivo**. Entonces las **reparaciones locativas por desgaste** son de quien las disfruta, y las **mejoras necesarias** siguen siendo expensas comunes, salvo que deba responder el constructor | La discusión real no es «común o privado», es «reparación locativa o mejora necesaria» |
+| **La Resolución 0549 de 2015 de Minvivienda no exige nada sobre condensación intersticial ni sobre barrera de vapor.** Ninguna de las dos expresiones aparece en su anexo técnico de 85 páginas | La condensación en Colombia no está regulada. Lo que se haga contra ella es criterio profesional, y hay que pedirlo por contrato |
 | **Sigue vigente la NSR-10.** Último decreto modificatorio: 1580 de 2023. La agenda regulatoria de Minvivienda actualizada al 31/8/2026 no tiene ningún proyecto sobre sismo resistencia. **AIS 100-24 es documento técnico de la AIS, sin decreto de adopción** | Confirma §6 bis con verificación de 2026 |
 
 ---
@@ -351,6 +370,25 @@ decidir presupuesto de pauta, hay que pagar una pasada de herramienta.
   boletín.
 - Todo el bloque de sitios de contenido generado en masa, con fechas que se
   contradicen dentro de la misma página.
+
+- **Cualquier número de NTC tomado de un listado de terceros.** El catálogo de
+  ICONTEC se renderiza por JavaScript y no publica un listado en HTML plano, así
+  que no se pudo leer literalmente el título de ninguna norma. Quedaron sin
+  verificar todas las que se citan habitualmente en impermeabilización,
+  cubiertas y fontanería. **Los dos artículos de patología no citan ni un
+  número de NTC**, y lo declaran dentro del texto.
+- **Lo que dicen los Títulos B, J y K de la NSR-10 sobre cargas de agua
+  empozada, humedad o impermeabilización.** La cadena de decretos está
+  confirmada —926 de 2010, más 1711 de 2021, 1401 de 2023 y 1580 de 2023—, pero
+  el anexo técnico supera el límite de descarga y no se pudo leer.
+- **La Resolución 0330 de 2017 (RAS).** El PDF que publica Minvivienda son siete
+  páginas escaneadas sin capa de texto, con metadatos anteriores a la
+  expedición. No se pudo establecer si cubre aguas lluvias de edificación.
+- **Promedios de humedad relativa por ciudad del IDEAM.** El portal devuelve 404
+  en las rutas probadas. No hay cifra citable.
+- **Los titulares de las curadurías urbanas de Bogotá.** Solo dos de los cinco
+  despachos tienen acto de designación publicado y localizable en el Régimen
+  Legal. **El artículo de Bogotá no nombra curadores.**
 
 **Las cifras públicas de costo por m² se contradicen por un factor de 2 a 3
 para la misma ciudad y el mismo año.** Esa contradicción es exactamente el

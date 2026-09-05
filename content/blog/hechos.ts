@@ -146,6 +146,62 @@ export const hechos: Hecho[] = [
     patrones: ['decreto 1890', 'expensas en uvt'],
   },
   {
+    id: 'decreto-1107-2026',
+    descripcion:
+      'Decreto Nacional 1107 de 2026: el Ministerio de Vivienda pasa a determinar el número de curadores urbanos, el curador saliente puede continuar provisionalmente, y toda la tabla de factores municipales queda con fecha de caducidad',
+    fecha: '2026-08-06',
+    patrones: ['decreto 1107', 'decreto nacional 1107'],
+  },
+  {
+    id: 'dudot-bogota',
+    descripcion:
+      'Decreto Distrital 670 de 2025, Decreto Unico Distrital de Ordenamiento Territorial de Bogota. Compila los reglamentarios del POT, no el POT',
+    fecha: '2025-12-27',
+    patrones: ['dudot', 'decreto distrital 670'],
+  },
+  {
+    id: 'bogota-decretos-unicos-sectoriales-2025',
+    descripcion:
+      'Decretos Unicos Sectoriales de Bogota 646 (Ambiente), 649 (Cultura) y 653 (Habitat) de 2025, que derogaron y compilaron los decretos distritales que se citan habitualmente',
+    fecha: '2025-12-22',
+    patrones: [
+      'decreto distrital 646',
+      'decreto distrital 649',
+      'decreto distrital 653',
+    ],
+  },
+  {
+    id: 'concepto-sjd-pot-bogota',
+    descripcion:
+      'Concepto 2202413038 de la Secretaria Juridica Distrital: fija la ventana en que estuvieron suspendidos los efectos del POT de Bogota',
+    fecha: '2024-09-13',
+    patrones: ['concepto 2202413038'],
+  },
+  {
+    id: 'pot-bogota-suspension-2022',
+    descripcion:
+      'Suspension provisional del POT de Bogota decretada el 14 de junio de 2022 por el Juzgado Quinto Administrativo Oral del Circuito de Bogota y revocada el 22 de agosto de 2022 por el Tribunal Administrativo de Cundinamarca. Los efectos estuvieron suspendidos entre el 16 de junio y el 31 de agosto de 2022',
+    fecha: '2022-08-22',
+    patrones: [
+      'tribunal administrativo de cundinamarca',
+      'juzgado quinto administrativo oral',
+    ],
+  },
+  {
+    id: 'pot-bogota-555-2021',
+    descripcion:
+      'Decreto Distrital 555 de 2021, revision general del POT de Bogota. Vigente desde el 30 de diciembre de 2021',
+    fecha: '2021-12-29',
+    patrones: ['decreto distrital 555', 'decreto 555 de 2021'],
+  },
+  {
+    id: 'ley-1480-2011',
+    descripcion:
+      'Ley 1480 de 2011, estatuto del consumidor: garantia legal de diez anos sobre la estabilidad de la obra y de un ano sobre los acabados',
+    fecha: '2011-10-12',
+    patrones: ['ley 1480', 'estatuto del consumidor'],
+  },
+  {
     id: 'guia-ais-idiger-2018',
     descripcion:
       'Guía Técnica AIS–IDIGER para inspección después de un sismo, cuarta edición',

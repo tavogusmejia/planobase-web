@@ -1,18 +1,14 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { permanentRedirect } from 'next/navigation'
 import { Link } from '@/i18n/navigation'
 import { ProjectCard } from '@/components/project/ProjectCard'
+import { BarraCategorias } from '@/components/project/BarraCategorias'
 import { ReticulaProyectos } from '@/components/project/ReticulaProyectos'
 import { Rule } from '@/components/ui/Rule'
 import { getCategoryCounts, getProjects } from '@/lib/data/projects'
-import {
-  CATEGORIAS,
-  CATEGORIAS_NATURALEZA,
-  CATEGORIAS_PROGRAMA,
-  type Categoria,
-} from '@/lib/types'
-import { cn } from '@/lib/utils'
-import { mostrarCategoriasVacias } from '@content/ajustes'
+import { CATEGORIAS, type Categoria } from '@/lib/types'
+import { verticalDe } from '@content/verticales'
 
 export async function generateMetadata({
   params,
@@ -78,39 +74,25 @@ export default async function ProyectosPage({
   const { categoria } = await searchParams
   const activa = esCategoria(categoria) ? categoria : null
 
+  /* Las categorías con vertical tienen su propia página. Se redirige aquí y no
+     en next.config porque un redirect de configuración arrastra el parámetro
+     original a la URL nueva —`/categoria/educativo?categoria=educativo`—, y
+     esta ruta lo deja limpio. Las categorías sin vertical, que son las vacías,
+     se siguen resolviendo abajo con su mensaje de «todavía no hay obra». */
+  if (activa && verticalDe(activa)) {
+    // Permanente, no temporal: estas URLs se retiran. Un 307 le diría al
+    // buscador que siga visitándolas y que no traspase las señales a la buena.
+    permanentRedirect(`/${locale}/proyectos/categoria/${activa}`)
+  }
+
   const t = await getTranslations('home')
   const tcat = await getTranslations('categorias')
 
-  const [todos, counts] = await Promise.all([
-    getProjects(),
-    getCategoryCounts(),
-  ])
+  const todos = await getProjects()
 
   const visibles = activa
     ? todos.filter((p) => p.categorias.includes(activa))
     : todos
-
-  const enlace = (c: Categoria | null) => {
-    const activo = activa === c
-    const n = c === null ? todos.length : (counts[c] ?? 0)
-    return (
-      <Link
-        href={c === null ? '/proyectos' : `/proyectos?categoria=${c}`}
-        aria-current={activo ? 'true' : undefined}
-        className={cn(
-          'text-small inline-flex items-baseline gap-2 whitespace-nowrap py-1 transition-colors',
-          activo
-            ? 'text-ink underline underline-offset-8'
-            : n === 0
-              ? 'text-line hover:text-muted'
-              : 'text-muted hover:text-accent',
-        )}
-      >
-        {c === null ? tcat('todos') : tcat(c)}
-        <span className="text-block tabular-nums">{n}</span>
-      </Link>
-    )
-  }
 
   return (
     <div className="mx-auto max-w-[100rem] py-16 lg:py-24">
@@ -133,27 +115,7 @@ export default async function ProyectosPage({
         ) : null}
       </div>
 
-      {/* La barra de categorías. En móvil corre en horizontal en vez de
-          apilarse en cuatro renglones y empujar la retícula fuera de pantalla. */}
-      <nav
-        aria-label={tcat('etiqueta')}
-        className="mt-12 border-y border-line"
-      >
-        <ul className="flex items-baseline gap-x-6 gap-y-2 overflow-x-auto px-gutter py-4 lg:flex-wrap lg:px-10">
-          <li>{enlace(null)}</li>
-          {CATEGORIAS_PROGRAMA.filter(
-            (c) => mostrarCategoriasVacias || (counts[c] ?? 0) > 0,
-          ).map((c) => (
-            <li key={c}>{enlace(c)}</li>
-          ))}
-          {/* Concursos cruza el eje del programa, así que va separado: un
-              proyecto puede ser Educativo y Concurso a la vez. */}
-          <li aria-hidden className="h-4 w-px shrink-0 self-center bg-line" />
-          {CATEGORIAS_NATURALEZA.map((c) => (
-            <li key={c}>{enlace(c)}</li>
-          ))}
-        </ul>
-      </nav>
+      <BarraCategorias activa={activa} />
 
       {visibles.length > 0 ? (
         /* Cada pieza dibuja su propio filete; ver `.pieza` en globals.css. */

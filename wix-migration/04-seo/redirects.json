@@ -71,7 +71,7 @@
     },
     {
       "from": "/portafolio-2/comedor-universidad-del-valle",
-      "to": "/es/proyectos?categoria=educativo",
+      "to": "/es/proyectos/categoria/educativo",
       "permanent": true,
       "nota": "El proyecto no está publicado: no tiene ni una imagen, y su ficha saldría vacía. Era la única URL del volcado con memoria completa y área registrada, así que estaba indexada y este 301 moría en un 404. Se manda a su categoría, que es lo más cercano que sí existe. Cuando el estudio consiga las imágenes, el destino vuelve a la ficha."
     },

@@ -18,6 +18,7 @@ import { projects } from '../content/projects'
 import { posts } from '../content/posts'
 import { puertas } from '../content/puertas'
 import { CATEGORIAS, type Categoria } from '../src/lib/types'
+import { verticales } from '../content/verticales'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 
@@ -41,6 +42,7 @@ const slugsPublicados = new Set(
 )
 const slugsPost = new Set(posts.map((p) => p.slug))
 const slugsPuerta = new Set(puertas.map((p) => p.slug))
+const slugsVertical = new Set<string>(verticales.map((v) => v.categoria))
 
 /** Devuelve el motivo del fallo, o null si el destino resuelve. */
 function motivoDeFallo(destino: string): string | null {
@@ -59,6 +61,13 @@ function motivoDeFallo(destino: string): string | null {
   }
 
   if (ESTATICAS.has(ruta)) return null
+
+  const vertical = ruta.match(/^\/proyectos\/categoria\/(.+)$/)
+  if (vertical?.[1]) {
+    return slugsVertical.has(vertical[1])
+      ? null
+      : `vertical inexistente: ${vertical[1]}`
+  }
 
   const proyecto = ruta.match(/^\/proyectos\/(.+)$/)
   if (proyecto?.[1]) {

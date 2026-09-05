@@ -1,9 +1,9 @@
 import type { MetadataRoute } from 'next'
-import { getAllSlugs, getCategoryCounts } from '@/lib/data/projects'
+import { getAllSlugs } from '@/lib/data/projects'
 import { posts } from '@content/posts'
 import { puertas } from '@content/puertas'
-import { CATEGORIAS } from '@/lib/types'
 import { LOCALES_INDEXABLES, routing } from '@/i18n/routing'
+import { verticales } from '@content/verticales'
 
 const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.planobase.co'
 
@@ -16,10 +16,7 @@ const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.planobase.co'
  * existe; cuando el contenido editorial se traduzca de verdad, esto no cambia.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [slugs, counts] = await Promise.all([
-    getAllSlugs(),
-    getCategoryCounts(),
-  ])
+  const slugs = await getAllSlugs()
 
   const rutas: { path: string; priority: number; freq: 'weekly' | 'monthly' }[] =
     [
@@ -36,12 +33,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { path: '/agendar', priority: 0.9, freq: 'monthly' },
       { path: '/contacto', priority: 0.7, freq: 'monthly' },
       { path: '/blog', priority: 0.5, freq: 'monthly' },
-      // Solo las categorías que tienen obra. Anunciar una vacía es pedirle al
-      // rastreador que visite una página que le va a devolver «todavía no hay
-      // obra publicada» — un soft-404 declarado por uno mismo.
-      ...CATEGORIAS.filter((c) => (counts[c] ?? 0) > 0).map((c) => ({
-        path: `/proyectos?categoria=${c}`,
-        priority: 0.7,
+      // Las verticales, que son páginas de verdad con su propio texto. Antes
+      // aquí iban las URLs con parámetro, que además se autocanonicalizaban a
+      // /proyectos: se pedía indexar siete páginas que decían ser otra.
+      ...verticales.map((v) => ({
+        path: `/proyectos/categoria/${v.categoria}`,
+        priority: 0.8,
         freq: 'monthly' as const,
       })),
       ...slugs.map((s) => ({

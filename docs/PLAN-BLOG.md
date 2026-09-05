@@ -1,0 +1,382 @@
+# Plan del blog · Plano Base
+
+73 temas en diez pilares. Estado, prioridad y calendario editorial.
+Última actualización: 5 de septiembre de 2026.
+
+---
+
+## 1. Punto de partida
+
+El blog tiene **una sola entrada**, de octubre de 2022: «Bienvenidos a Plano
+Base», de Eduardo Mejía. Es buena y se queda.
+
+### Dos públicos que casi no se cruzan
+
+| Público | Qué busca | Volumen | Ticket | Decisión |
+|---|---|---|---|---|
+| Particular | Lote, remodelación, fisuras, filtraciones, piscina | Alto | Bajo | Rápida |
+| Institucional | Colegios, teatros, sedes, espacio público | Bajísimo | Enorme | Lenta |
+
+La tentación es escribir para el segundo, porque ahí está la obra y los
+reconocimientos. Sería un error de SEO: **ese público no busca en Google, busca
+en SECOP.** El blog se escribe para el primero; el segundo se captura con las
+páginas de vertical que ya existen, más un par de piezas específicas.
+
+---
+
+## 2. La credencial que cambia dos pilares
+
+El dossier profesional de Gustavo Mejía documenta 15+ años en construcción
+internacional, y dos líneas son directamente aprovechables:
+
+**Piscinas y sistemas hidráulicos — es su profesión, no un tema adyacente.**
+Diseño de plantas de agua potable y aguas residuales, piscinas y juegos
+acuáticos en Edospina (2007-2012); después, en XMC Caribbean (2019-2022):
+piscinas de borde infinito, spas, cascadas y sus sistemas de fondo — redes de
+tubería, plantas de filtración, bombas, cuartos de máquinas.
+
+**Caribe insular — con proyectos, cifras y nombres.**
+
+| Proyecto | Lugar | Valor |
+|---|---|---|
+| Bakers Bay Development | Bahamas | USD $7M+ |
+| The Pointe Hotel | Nassau, Bahamas | USD $2M |
+| LF Wade International Airport | Bermuda | USD $1,2M |
+| Mary Brickell Mall | Miami | USD $450K |
+| Varios | Bermuda, Caimán, Turks & Caicos, Dominica | USD $2M |
+
+Formación: ingeniero mecánico de la Universidad Nacional; maestría en Gerencia
+de Proyectos en Univalle (junio 2026), con tesis sobre complejidad en la
+programación de proyectos internacionales de construcción.
+
+### Regla de encuadre, innegociable
+
+**Estos proyectos son de Gustavo, ejecutados en XMC Caribbean y Edospina. No
+son portafolio de Plano Base.** Los artículos dicen «quien dirige esta línea en
+Plano Base trae quince años en…», nunca «Plano Base construyó en Bahamas».
+
+Bien encuadrado no pierde nada de fuerza, y no deja flanco. Es la misma
+disciplina que el README exige para distinguir obra construida de propuesta de
+concurso.
+
+---
+
+## 3. Estrategia geográfica
+
+El estudio es **nacional**, no vallecaucano. Bogotá tiene más obra que Cali.
+
+**La trampa:** no hacer treinta páginas de ciudad iguales cambiando el nombre.
+Google las llama *doorway pages* y las hunde. Una página de ciudad se sostiene
+solo si trae la norma local, la curaduría, el costo real de esa plaza, el suelo
+y el clima. Eso es investigación de verdad, y por eso funciona: casi nadie la
+hace.
+
+### Nivel 1 — Donde hay obra
+
+Bogotá y la Sabana (Cajicá, Chía, Cota, Zipaquirá, Sopó, Mosquera, Funza,
+Madrid, La Calera) · Cali y su área (Jamundí, Palmira, Yumbo, Candelaria) ·
+Medellín y el Valle de Aburrá (Envigado, Sabaneta, Rionegro, El Retiro,
+Llanogrande) · Barranquilla y su área (Puerto Colombia, Soledad, Galapa).
+
+### Nivel 2 — Ciudades prospecto
+
+Entrada legítima: la **guía de trámite**, no la página de «arquitectos en X».
+
+Cartagena · Santa Marta · Bucaramanga y Floridablanca · Pereira, Armenia y
+Manizales · Villavicencio · Cúcuta · Ibagué · Neiva · Montería · Popayán ·
+Pasto.
+
+### Nivel 3 — Corredores de vivienda campestre
+
+El ticket más alto por metro cuadrado y casi sin competencia editorial:
+
+Llanogrande y Rionegro · Anapoima, La Mesa y El Colegio · Villeta y Guaduas ·
+Melgar y Carmen de Apicalá · Girardot y Ricaurte · Cerritos · Santa Elena ·
+Villa de Leyva · Guatavita y Sesquilé · Barú y las Islas del Rosario · Minca.
+
+### Plantilla por plaza — cuatro piezas distintas de verdad
+
+1. Cuánto cuesta construir por m² en **[ciudad]**
+2. Licencia de construcción en **[ciudad]**: curadurías, tiempos y documentos
+3. Qué permite el POT de **[ciudad]** en su lote
+4. Construir en **[ciudad]**: suelo, clima y las tres cosas que encarecen la obra
+
+---
+
+## 4. Los 73 temas
+
+Estado: `pendiente` · `en curso` · `verificando` · `publicado`
+
+### Pilar 1 · Costos — el imán de tráfico
+
+| # | Título | Estado |
+|---|---|---|
+| 1 | Cuánto cuesta construir una casa por m² en Colombia | pendiente |
+| 2 | Cuánto cobra un arquitecto en Colombia | pendiente |
+| 3 | Cuánto cuesta remodelar, por ambiente | pendiente |
+| 4 | Las doce partidas que todo el mundo olvida al presupuestar | pendiente |
+| 5 | Por qué la obra se sale del presupuesto | pendiente |
+
+### Pilar 2 · Trámites y norma — autoridad natural
+
+| # | Título | Estado |
+|---|---|---|
+| 6 | Licencia de construcción en Bogotá: curadurías, tiempos y costos | pendiente |
+| 7 | Licencia de construcción en Cali y en Jamundí | pendiente |
+| 8 | Qué puedo construir en mi lote: ocupación, construcción, aislamientos | pendiente |
+| 9 | Curaduría urbana: qué es, cuál elegir, qué documentos pide | pendiente |
+| 10 | Construí sin licencia: sanciones y cómo se legaliza | pendiente |
+| 11 | Reforzamiento estructural y NSR-10, para quien no es ingeniero | pendiente |
+| 12 | Reformar en propiedad horizontal: qué autoriza la asamblea (Ley 675) | pendiente |
+
+### Pilar 3 · Patologías — la mejor conversión del sitio
+
+| # | Título | Estado |
+|---|---|---|
+| 13 | Fisuras en muros: cuáles son peligrosas y cuáles no | pendiente |
+| 14 | Filtraciones en cubierta: las cinco causas reales | pendiente |
+| 15 | Humedad en muros: ascendente, condensación o filtración | pendiente |
+| 16 | Cuándo un edificio necesita un estudio patológico | pendiente |
+| 17 | Qué debe contener un informe técnico serio | pendiente |
+
+### Pilar 4 · Proceso y decisión
+
+| # | Título | Estado |
+|---|---|---|
+| 18 | Del lote a la licencia: el recorrido completo con tiempos reales | pendiente |
+| 19 | Qué es un anteproyecto y por qué no se puede saltar | pendiente |
+| 20 | Cómo leer un plano arquitectónico | pendiente |
+| 21 | Arquitecto, maestro de obra o constructora: quién hace qué | pendiente |
+| 22 | Diez preguntas antes de firmar con un constructor | pendiente |
+| 23 | Interventoría: por qué el que construye no puede ser el que vigila | pendiente |
+| 24 | El contrato de diseño arquitectónico: qué tiene que decir | pendiente |
+
+### Pilar 5 · Institucional
+
+| # | Título | Estado |
+|---|---|---|
+| 25 | Cómo se diseña un colegio en Colombia (NTC 4595 y 4596) | pendiente |
+| 26 | Concursos públicos de arquitectura: cómo funcionan por dentro | pendiente |
+| 27 | Interventoría de obra pública: marco normativo | pendiente |
+| 28 | Cómo se estructuran los pliegos de un equipamiento público | pendiente |
+
+### Pilar 6 · Casos propios con cifras
+
+| # | Título | Estado |
+|---|---|---|
+| 29 | Alcaldía Local de Teusaquillo: cómo se gana un concurso | pendiente |
+| 30 | Pradera El Volcán: un colegio pensado como pieza de barrio | pendiente |
+| 31 | Casa de la Cultura Las Colinas, Guaviare | pendiente |
+| 32 | CEFE Tunal | pendiente |
+| 33 | Casa Aguilar: el método explicado al cliente particular | pendiente |
+
+### Pilar 7 · Local y mapa
+
+| # | Título | Estado |
+|---|---|---|
+| 34 | Construir en Jamundí: crecimiento, suelo y norma | pendiente |
+| 35 | Comprar lote: la verificación de doce puntos antes de firmar | pendiente |
+| 36 | Cómo elegir arquitecto, y qué señales indican que no es el indicado | pendiente |
+
+### Pilar 8 · Casa y casa campestre
+
+| # | Título | Estado |
+|---|---|---|
+| 37 | Cuánto cuesta construir una casa campestre en Colombia | pendiente |
+| 38 | Comprar lote rural: la verificación antes de firmar | pendiente |
+| 39 | Qué puedo construir en suelo rural | pendiente |
+| 40 | Licencia de construcción en suelo rural: por qué tarda el doble | pendiente |
+| 41 | Agua en el campo: concesión, pozo profundo, recolección de lluvia | pendiente |
+| 42 | Aguas residuales sin alcantarillado | pendiente |
+| 43 | Casa bioclimática por piso térmico | pendiente |
+| 44 | Casa en pendiente: cimentación, cortes y muros de contención | pendiente |
+| 45 | Prefabricada, contenedor o mampostería: costos y vida útil | pendiente |
+| 46 | Cuánto cuesta ampliar un segundo piso, y si la casa lo aguanta | pendiente |
+| 47 | Cubiertas: barro, termoacústica, verde o placa | pendiente |
+| 48 | Cuánto tarda construir una casa, etapa por etapa | pendiente |
+| 49 | Casa de descanso o renta corta: qué cambia en el diseño | pendiente |
+| 50 | Los diez errores más caros al construir una casa campestre | pendiente |
+
+### Pilar 9 · Piscinas y jacuzzis — respaldado por experiencia directa
+
+| # | Título | Estado |
+|---|---|---|
+| 51 | Cuánto cuesta una piscina en Colombia, y su costo mensual real | pendiente |
+| 52 | Concreto, fibra de vidrio o prefabricada | pendiente |
+| 53 | Piscina de borde infinito: qué exige y por qué cuesta el doble | pendiente |
+| 54 | El cuarto de máquinas: la partida que más se subestima | pendiente |
+| 55 | Calentar la piscina: solar, bomba de calor o gas | pendiente |
+| 56 | Sal o cloro: el mito del agua salada y el costo real | pendiente |
+| 57 | Piscina en terraza: carga estructural e impermeabilización | pendiente |
+| 58 | ¿Necesito licencia para construir una piscina? | pendiente |
+| 59 | Ley 1209: qué obliga a una copropiedad | pendiente |
+| 60 | Jacuzzi de obra o portátil: carga, desagüe y requisitos eléctricos | pendiente |
+| 61 | Piscina y jacuzzi juntos: compartir equipos, y cuándo sale mal | pendiente |
+| 62 | Mantenimiento de piscina: el costo mensual real | pendiente |
+
+### Pilar 10 · Caribe insular de ultra lujo — entrada lenta, en inglés primero
+
+| # | Título | Estado |
+|---|---|---|
+| 63 | Construir en una isla: por qué todo cuesta tres veces más | pendiente |
+| 64 | Diseño resistente a huracanes: cargas, vidrio de impacto, anclaje | pendiente |
+| 65 | Bermuda y sus cubiertas blancas: el edificio como captación de agua | pendiente |
+| 66 | Agua dulce donde no hay ríos: cisternas y ósmosis inversa | pendiente |
+| 67 | La sal se lo come todo: materiales y el costo de equivocarse | pendiente |
+| 68 | Cimentar sobre roca coralina y suelo kárstico | pendiente |
+| 69 | Piedra coralina como material de proyecto | pendiente |
+| 70 | Retiros de la línea de más alta marea y zona costera | pendiente |
+| 71 | Fuera de red por obligación: solar, almacenamiento y agua | pendiente |
+| 72 | Cuánto cuesta el m² en Bahamas, Bermuda y Turks & Caicos | pendiente |
+| 73 | Lo que el Caribe insular le enseña a Barú, San Andrés y Santa Marta | pendiente |
+
+---
+
+## 5. Los tres que no son artículos
+
+Rinden más que cualquier entrada, y el README ya los pedía:
+
+- **Calculadora de presupuesto de obra** — pide el correo para entregar el
+  resultado. Es el imán de leads que hoy no existe.
+- **PDF descargable «Antes de comprar un lote»** — verificación a cambio del
+  correo.
+- **Página de costos actualizada por trimestre**, con la fecha visible. Google
+  premia el contenido fresco y esta se refresca sola cuatro veces al año.
+
+---
+
+## 6. Orden de publicación
+
+**Reordenado tras la investigación de mercado del 5/9/2026.** El sismo del 10 de
+agosto cambió qué está buscando la gente, y la investigación encontró huecos de
+competencia que no estaban en el plan original.
+
+### Las siete primeras, por relación valor/esfuerzo
+
+| Orden | Tema | Por qué va aquí |
+|---|---|---|
+| 1 | **Mi edificio quedó en amarillo: qué significa y qué sigue** | Demanda masiva hoy, competencia local **nula**. El semáforo de la Circular 073, las tres fases, quién firma cada una, y el procedimiento de reporte de Cali |
+| 2 | **Qué pasa con mi licencia si cambia el POT de Cali** | **Ventana de semanas.** El POT nuevo se radica ante el Concejo en octubre y el plazo diferido de la nulidad del Acuerdo 0373 vence hacia noviembre. Nadie lo explica bien |
+| 3 | **Licencia de construcción en Jamundí: sin curaduría y sin expensas** | Dato verificable, con impacto económico directo, que **no publica nadie**. Con la nota de que el concurso de curadores puede cambiarlo en octubre |
+| 4 | **Fisuras en muros: cuáles son peligrosas y cuáles no** | El original. Se mantiene alto, pero con eje post-sismo y sin competir de frente con los medios nacionales |
+| 5 | **Cuánto cuesta construir en Cali y en Bogotá** | Con valor propio declarado como propio, estructura de capítulos, e indexación trimestral por el ICOCED |
+| 6 | **Qué cambió en la NTC 4595:2025** | SERP verificadamente vacía. Es la prueba de competencia más directa ante el público institucional |
+| 7 | **Cuánto cobra un arquitecto en Colombia** | Desactiva la objeción antes de la llamada |
+
+El resto del listado de §4 sigue vigente y se publica después, en el orden que
+ya tenía.
+
+### Y tres cosas que no son artículos, ahora con más razón
+
+1. **Calculadora de expensas de curaduría de Cali**, con comparación contra
+   Jamundí. La única calculadora funcional del país en este nicho es anónima,
+   no publica su tabla base y **tiene la UVT de 2026 equivocada**. Una hecha
+   bien es el activo más difícil de copiar de todo el plan.
+2. **Página de credenciales institucionales** con los 24 proyectos en formato
+   m² / entidad / año / modalidad de contratación. Un blog no captura al
+   público institucional; una página de credenciales con cifras sí lo convierte.
+3. **Publicar en ArchDaily / Plataforma Arquitectura.** El estudio no tiene ni
+   una publicación, y buscar «Plano Base arquitectos Colombia» devuelve
+   **Plan:b arquitectos** de Medellín. Para un estudio con reconocimientos en
+   concurso público, es capital desaprovechado. Esfuerzo bajo, retorno alto y
+   duradero.
+
+---
+
+## 6 bis. Hechos verificados que valen como contenido
+
+Todo esto salió de fuente oficial y **la mayor parte de la web colombiana lo
+tiene mal**. Corregirlo es autoridad instantánea.
+
+| Hecho | Por qué importa |
+|---|---|
+| **La licencia de construcción dura 36 meses**, no 24 (Decreto 1783 de 2021) | Casi todo el contenido web sigue diciendo 24 — **incluida la propia Curaduría 3 de Cali** |
+| **En Jamundí la licencia la expide la Secretaría de Planeación, no una curaduría. Y no se pagan expensas** | Verificable, con impacto económico directo, y no lo publica nadie |
+| **Cali tiene tres curadurías**, no cuatro | Dato básico que se repite mal |
+| **El POT de Cali fue declarado nulo** en 2024; sigue vigente por efectos diferidos hasta ~noviembre de 2026 | Cualquier proyecto que se radique ahora puede quedar entre dos normas |
+| **No hay NSR nueva.** La AIS 100-24 existe pero no es obligatoria; le falta decreto | Circulan tres cosas distintas mezcladas |
+| **La Ley 675 no ha sido reformada.** «Ley 675 reformada 2025» es un titular falso muy difundido | |
+| **Art. 46 Ley 675: 70 % de los coeficientes del conjunto**, no de los presentes | Casi todo el mundo se equivoca |
+| **NTC 4595:2025** es edición nueva (nov-2025) y cambió el título | «Colegio 10» del MEN está desactualizado frente a ella |
+| **Documentos Tipo de Infraestructura Social** obligatorios desde el 16 de febrero de 2026 | Tocan los dos sectores fuertes del estudio y cambian cómo se acredita experiencia. Fuera de los PDF oficiales no hay nada que lo explique |
+| **Garantía decenal**: diez años desde el Certificado Técnico de Ocupación (Ley 1796 de 2016) | |
+| **El dominio «Cali AU» del DANE es Cali, Jamundí, Palmira y Yumbo** | El dominio estadístico oficial cubre exactamente el territorio del estudio. Nadie lo usa |
+| **La mano de obra subió 13,96 % anual contra 6,60 % del índice total** | Un presupuesto indexado con el índice total **subestima sistemáticamente la mano de obra** |
+
+---
+
+## 6 ter. Cifras que NO se pueden publicar
+
+**Ningún volumen de búsqueda de la investigación está verificado.** Google
+Keyword Planner solo entrega datos a cuentas con inversión activa. Todas las
+estimaciones son bandas de orden de magnitud. Si hace falta una cifra para
+decidir presupuesto de pauta, hay que pagar una pasada de herramienta.
+
+**Y estas están verificadamente mal, circulan mucho, y no se usan:**
+
+- **Cualquier tabla de COP/m² atribuida a Camacol.** Camacol **no publica
+  costos absolutos en $/m² en ninguna parte**. Los rangos que se los atribuyen
+  son falsos o no rastreables.
+- **El DANE tampoco publica pesos por m².** Solo índices y variaciones. Sirve
+  para actualizar un valor propio, no para obtenerlo. Esto hay que declararlo
+  en la página de costos.
+- El 44,97 % de encarecimiento en estratos bajos de Cali — no está en ningún
+  boletín.
+- Todo el bloque de sitios de contenido generado en masa, con fechas que se
+  contradicen dentro de la misma página.
+
+**Las cifras públicas de costo por m² se contradicen por un factor de 2 a 3
+para la misma ciudad y el mismo año.** Esa contradicción es exactamente el
+hueco de mercado: un estudio real que publique su propio valor, lo declare como
+propio, muestre la estructura de capítulos y lo indexe trimestralmente citando
+boletín y fecha, gana por diferencia de honestidad.
+
+**Un matiz que da credibilidad inmediata y casi nadie hace:** el costo de obra
+excluye lote, diseño, licencias y trámites, que suman **25-40 % adicional**.
+Comparar un precio de venta con un costo de obra induce a error.
+
+---
+
+## 7. Reglas de escritura
+
+1. **Cada artículo dirige a lo que hace Plano Base.** Al final, la puerta de
+   servicio que corresponde y el peldaño de la escalera. Sin vender a mitad del
+   texto: primero se responde la pregunta, completa y honestamente.
+2. **Un segundo agente verifica los hechos** antes de publicar: normas, cifras,
+   plazos, artículos de ley. Lo que no se pueda verificar, no se publica.
+3. **Las cifras llevan fecha y fuente.** Un costo por m² sin fecha es una
+   mentira con vencimiento.
+4. **Registro: usted.** Igual que el resto del sitio (ver PLAN-MAESTRO §6).
+5. **Sin marketing hueco, sin admiraciones, frases cortas.** El tono del sitio.
+6. **Imágenes: obra propia o diagrama.** Nunca banco de imágenes, nunca enlaces
+   a Wix. Ver §8.
+7. **Nada de experiencia internacional atribuida al estudio.** Ver §2.
+
+---
+
+## 8. Qué falta construir antes de publicar
+
+Esto es prerrequisito, no adorno.
+
+| Pieza | Estado hoy |
+|---|---|
+| Renderizador de cuerpo con títulos, listas, tablas, enlaces e imágenes | **No existe.** El cuerpo se parte por saltos de línea y se pinta como párrafos planos |
+| Casa del contenido fuera de `wix-migration/` | No existe. Hoy los posts se generan desde la carpeta de migración |
+| Modelo de datos con pilar, actualización, metadescripción y tiempo de lectura | Parcial |
+| Índice del blog organizado por pilar | Hoy es una rejilla plana |
+| Imágenes | **Una sola** en todo el repositorio |
+| Datos estructurados de artículo completos | Faltan logo del editor, `dateModified` y `mainEntityOfPage` |
+
+### Sobre las imágenes
+
+No hay archivo fotográfico para 73 artículos, y no se va a usar banco de
+imágenes. Dos fuentes legítimas:
+
+- **Obra propia.** 24 proyectos y unas 350 imágenes procesadas. Sirve para los
+  pilares 4, 5, 6 y 7, y de paso dirige a lo que hace el estudio.
+- **Diagramas dibujados.** Para patologías, piscinas, aislamientos y sistemas.
+  Encajan con el lenguaje gráfico del sitio —líneas de cota, peso 400— y
+  explican mejor que una fotografía. Es la respuesta correcta para los pilares
+  1, 2, 3, 8 y 9.
+
+**Decisión pendiente:** confirmar esta vía antes de producir en volumen.

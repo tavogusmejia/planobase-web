@@ -62,6 +62,10 @@ import { traduccion as aguaEnElCampo } from './agua-en-el-campo-que-permiso-nece
 import { traduccion as casaBioclimatica } from './casa-bioclimatica-por-piso-termico'
 import { traduccion as mamposteriaOPrefabricado } from './mamposteria-o-prefabricado-que-conviene'
 import { traduccion as loteConPendiente } from './construir-en-lote-con-pendiente'
+import { traduccion as costoPorM2 } from './cuanto-cuesta-construir-por-m2-en-colombia'
+import { traduccion as honorariosArquitecto } from './cuanto-cobra-un-arquitecto'
+import { traduccion as curaduriaUrbana } from './curaduria-urbana-que-es-cual-elegir-y-que-documentos-pide'
+import { traduccion as licenciaBogota } from './licencia-de-construccion-en-bogota'
 
 const registro: TraduccionPost[] = [
   comprarLoteRural,
@@ -69,6 +73,10 @@ const registro: TraduccionPost[] = [
   casaBioclimatica,
   mamposteriaOPrefabricado,
   loteConPendiente,
+  costoPorM2,
+  honorariosArquitecto,
+  curaduriaUrbana,
+  licenciaBogota,
 ]
 
 export const traduccionesPost = new Map(registro.map((t) => [t.slug, t]))

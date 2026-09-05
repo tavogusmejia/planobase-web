@@ -12,19 +12,15 @@
  * de una obra, así que dibujar bandas de alturas distintas insinuaría un dato
  * que nadie mide. Las bandas van iguales a propósito, y el pie de la figura lo
  * dice.
+ *
+ * Las dos primeras figuras tienen versión inglesa, porque las usa la traducción
+ * del artículo de costo por m². Van en este mismo archivo y sobre la misma
+ * constante de trazado: si el dibujo viviera duplicado dentro de `en/`, el día
+ * que alguien corrija una cota la corregiría en un solo idioma.
  */
 
-/**
- * Lo que mide un índice de costos, y lo que no.
- *
- * Es el diagrama que sostiene el argumento central del artículo: la serie
- * oficial describe una pendiente, no una altura. Por eso el eje vertical de la
- * izquierda está rotulado en por ciento y el de la derecha, en pesos, aparece
- * vacío y con el enlace tachado entre los dos.
- */
-export const INDICE_NO_ES_PRECIO = `
-<svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" fill="none"
-     stroke="currentColor" font-family="inherit">
+/** Geometría de la figura del índice. Solo cambian los `<text>`. */
+const DIBUJO_INDICE = `
   <g stroke-width="1" opacity="0.35">
     <path d="M60 30 L60 190 L390 190"/>
     <path d="M560 30 L560 190 L890 190"/>
@@ -47,7 +43,20 @@ export const INDICE_NO_ES_PRECIO = `
     <path d="M462 92 L488 128"/>
     <path d="M488 92 L462 128"/>
   </g>
+`
 
+/**
+ * Lo que mide un índice de costos, y lo que no.
+ *
+ * Es el diagrama que sostiene el argumento central del artículo: la serie
+ * oficial describe una pendiente, no una altura. Por eso el eje vertical de la
+ * izquierda está rotulado en por ciento y el de la derecha, en pesos, aparece
+ * vacío y con el enlace tachado entre los dos.
+ */
+export const INDICE_NO_ES_PRECIO = `
+<svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" fill="none"
+     stroke="currentColor" font-family="inherit">
+${DIBUJO_INDICE}
   <g fill="currentColor" stroke="none" font-size="13">
     <text x="60" y="216">Lo que sí publica el DANE</text>
     <text x="560" y="216">Lo que usted preguntó</text>
@@ -69,17 +78,34 @@ export const INDICE_NO_ES_PRECIO = `
 </svg>
 `
 
-/**
- * La anatomía de un costo por metro cuadrado.
- *
- * Dentro de la caja, los seis capítulos constructivos con los que el DANE
- * describe la construcción de una edificación. Fuera de la caja, con llave,
- * lo que un costo de obra por definición no incluye. Las bandas son iguales:
- * el reparto real cambia con cada proyecto y nadie lo publica.
- */
-export const ANATOMIA_DEL_M2 = `
-<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" fill="none"
+/** La misma figura, rotulada en inglés. */
+export const INDICE_NO_ES_PRECIO_EN = `
+<svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" fill="none"
      stroke="currentColor" font-family="inherit">
+${DIBUJO_INDICE}
+  <g fill="currentColor" stroke="none" font-size="13">
+    <text x="60" y="216">What DANE does publish</text>
+    <text x="560" y="216">What you asked</text>
+  </g>
+  <g fill="currentColor" stroke="none" font-size="11" opacity="0.6">
+    <text x="60" y="234">Month-on-month price change in a</text>
+    <text x="60" y="248">basket of construction inputs</text>
+    <text x="560" y="234">How many pesos a built square</text>
+    <text x="560" y="248">metre costs today, right here</text>
+    <text x="24" y="34">%</text>
+    <text x="524" y="34">$</text>
+    <text x="404" y="146">does not follow</text>
+  </g>
+  <g fill="currentColor" stroke="none" font-size="11" opacity="0.45">
+    <text x="640" y="64">?</text>
+    <text x="640" y="104">?</text>
+    <text x="640" y="144">?</text>
+  </g>
+</svg>
+`
+
+/** Geometría de la anatomía del m². Solo cambian los `<text>`. */
+const DIBUJO_ANATOMIA = `
   <g stroke-width="1.5">
     <rect x="60" y="20" width="300" height="240"/>
   </g>
@@ -92,6 +118,28 @@ export const ANATOMIA_DEL_M2 = `
     <path d="M60 226 L360 226"/>
   </g>
 
+  <g stroke-width="1" opacity="0.5">
+    <path d="M395 20 L410 20 L410 260 L395 260"/>
+    <path d="M410 140 L440 140"/>
+  </g>
+
+  <g stroke-width="1" opacity="0.5">
+    <path d="M540 20 L525 20 L525 260 L540 260" stroke-dasharray="4 5"/>
+  </g>
+`
+
+/**
+ * La anatomía de un costo por metro cuadrado.
+ *
+ * Dentro de la caja, los seis capítulos constructivos con los que el DANE
+ * describe la construcción de una edificación. Fuera de la caja, con llave,
+ * lo que un costo de obra por definición no incluye. Las bandas son iguales:
+ * el reparto real cambia con cada proyecto y nadie lo publica.
+ */
+export const ANATOMIA_DEL_M2 = `
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" fill="none"
+     stroke="currentColor" font-family="inherit">
+${DIBUJO_ANATOMIA}
   <g fill="currentColor" stroke="none" font-size="12">
     <text x="74" y="42">Preliminares</text>
     <text x="74" y="76">Excavación y cimentación</text>
@@ -100,15 +148,6 @@ export const ANATOMIA_DEL_M2 = `
     <text x="74" y="179">Acabados tipo 1</text>
     <text x="74" y="213">Acabados tipo 2</text>
     <text x="74" y="248">Acabados tipo 3</text>
-  </g>
-
-  <g stroke-width="1" opacity="0.5">
-    <path d="M395 20 L410 20 L410 260 L395 260"/>
-    <path d="M410 140 L440 140"/>
-  </g>
-
-  <g stroke-width="1" opacity="0.5">
-    <path d="M540 20 L525 20 L525 260 L540 260" stroke-dasharray="4 5"/>
   </g>
   <g fill="currentColor" stroke="none" font-size="12">
     <text x="556" y="45">El lote</text>
@@ -122,6 +161,36 @@ export const ANATOMIA_DEL_M2 = `
   <g fill="currentColor" stroke="none" font-size="11" opacity="0.6">
     <text x="60" y="286">Costo de obra</text>
     <text x="525" y="286">Fuera del costo de obra, y se paga igual</text>
+  </g>
+</svg>
+`
+
+/** La misma anatomía, rotulada en inglés. */
+export const ANATOMIA_DEL_M2_EN = `
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" fill="none"
+     stroke="currentColor" font-family="inherit">
+${DIBUJO_ANATOMIA}
+  <g fill="currentColor" stroke="none" font-size="12">
+    <text x="74" y="42">Site preliminaries</text>
+    <text x="74" y="76">Excavation and foundations</text>
+    <text x="74" y="111">Structure and roof</text>
+    <text x="74" y="145">Masonry and rendering</text>
+    <text x="74" y="179">Finishes, type 1</text>
+    <text x="74" y="213">Finishes, type 2</text>
+    <text x="74" y="248">Finishes, type 3</text>
+  </g>
+  <g fill="currentColor" stroke="none" font-size="12">
+    <text x="556" y="45">The land</text>
+    <text x="556" y="85">The engineering designs</text>
+    <text x="556" y="125">Permit fees and taxes</text>
+    <text x="556" y="165">Utility connections</text>
+    <text x="556" y="205">Bonds and laboratory tests</text>
+    <text x="556" y="245">Time, and any VAT that applies</text>
+  </g>
+
+  <g fill="currentColor" stroke="none" font-size="11" opacity="0.6">
+    <text x="60" y="286">Construction cost</text>
+    <text x="525" y="286">Outside the construction cost, and paid anyway</text>
   </g>
 </svg>
 `

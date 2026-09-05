@@ -188,7 +188,29 @@ export default async function ProyectoPage({
         </header>
 
         {/* Rótulo a la izquierda, memoria a la derecha — la lógica de una
-            plancha. En móvil el rótulo va arriba, nunca escondido. */}
+            plancha. En móvil el rótulo va arriba, nunca escondido.
+
+            EXACTAMENTE DOS HIJOS DIRECTOS. Un tercero suelto lo coloca la
+            rejilla en la fila siguiente y manda la memoria a leerse dentro de la
+            columna de 16 rem; pasó con el enlace a la ficha y lo arregló 35bf6f7.
+
+            La memoria se reparte en dos columnas de lectura cuando la columna
+            `1fr` da para dos: ver `.memoria` en globals.css. La cuenta, con el
+            contenedor de la página (`max-w-[100rem] px-gutter lg:px-10`) y este
+            `gap-20`, es que `1fr` mide el ancho útil menos 336 px —256 del
+            rótulo y 80 del hueco—:
+
+              1280 px → útil 1200, 1fr 864  → una columna,  sobran 320
+              1440 px → útil 1360, 1fr 1024 → dos de 480,   sobran 0
+              1600 px → útil 1520, 1fr 1184 → dos de 560,   sobran 0
+              2000 px → útil 1520 (tope),   → dos de 560,   sobran 0, y los
+                        480 px restantes se reparten como margen simétrico
+
+            Antes de esto la memoria medía siempre 544 —el `.measure`— y lo demás
+            quedaba en blanco: 640 px a 1600, y a 2000 el texto terminaba a media
+            pantalla. A 1280 sigue habiendo una sola columna porque dos de 25 rem
+            romperían el renglón de lectura, y 320 px sobre 1280 es un margen de
+            página normal, no un hueco. */}
         <div className="mt-20 grid gap-12 lg:grid-cols-[16rem_1fr] lg:gap-20">
           <div className="h-fit">
             <dl className="border-t border-line pt-6">
@@ -218,12 +240,19 @@ export default async function ProyectoPage({
 
           <div className="border-t border-line pt-6">
             <h2 className="text-block mb-6 text-muted">{t('memoria')}</h2>
-            {project.memoria.split(/\n{2,}/).map((parrafo, i) => (
-              <p key={i} className="text-body measure mb-6 text-ink">
-                {parrafo}
-              </p>
-            ))}
+            {/* El `.measure` de cada párrafo se queda: con una sola columna es
+                quien acota el renglón, y con dos garantiza que ninguna línea
+                pase de 34 rem aunque la columna salga un poco más ancha. */}
+            <div className="memoria">
+              {project.memoria.split(/\n{2,}/).map((parrafo, i) => (
+                <p key={i} className="text-body measure mb-6 text-ink">
+                  {parrafo}
+                </p>
+              ))}
+            </div>
 
+            {/* Fuera de `.memoria`: un vídeo dentro de un texto a dos columnas
+                se parte por la mitad al saltar de columna. */}
             {project.videoUrl ? (
               <div className="mt-12 aspect-video w-full bg-mist">
                 <iframe

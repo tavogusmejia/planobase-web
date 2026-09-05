@@ -233,6 +233,138 @@
     max-width: 52rem;
   }
 
+  /* --- Memoria a dos columnas ---------------------------------------------
+     `.measure` fija el renglón en 34 rem porque es lo que se lee cómodo, y eso
+     no se toca. Lo que estaba mal era el contenedor: la memoria vive en la
+     columna `1fr` de la plancha del proyecto, que en un monitor de 1600 px mide
+     1184 px mientras el renglón seguía midiendo 544. Los otros 640 —el 54 % de
+     la columna— quedaban en blanco, y a 2000 px el texto terminaba a media
+     pantalla.
+
+     El arreglo no es estirar el renglón sino repartirlo: dos columnas de
+     lectura, que es como se compone una memoria en una monografía. Cada columna
+     mide su renglón cómodo y entre las dos ocupan el ancho.
+
+     `columns: 30rem 2` no necesita punto de ruptura: el navegador pone dos
+     columnas solo si caben dos de 30 rem y una en cuanto no caben. Con la
+     plancha de este sitio eso ocurre a partir de 1440 px de pantalla; por debajo
+     hay una sola columna y `.measure` la sigue acotando. El `.measure` de cada
+     párrafo se queda puesto justamente por eso, y porque garantiza que ningún
+     renglón pase de 34 rem aunque la columna crezca un poco más.
+
+     La memoria del proyecto más largo son 2083 caracteres en cinco párrafos:
+     partida en dos, cada columna queda en unas quince líneas. No hay aquí el
+     riesgo clásico del texto a dos columnas —bajar hasta el pie y volver a
+     subir—, porque la altura de la caja no llega a una pantalla.               */
+
+  .memoria {
+    columns: 30rem 2;
+    column-gap: 4rem;
+    orphans: 2;
+    widows: 2;
+  }
+
+  /* El margen del último párrafo, si cae al final de la primera columna, abre un
+     hueco que descuadra el pie de las dos. */
+  .memoria > p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* --- Retícula irregular de la galería -----------------------------------
+     Filas justificadas. Dentro de una fila todas las piezas comparten altura y
+     su ancho es proporcional a la proporción real de la foto: nada se recorta y
+     ninguna imagen queda a todo el ancho de la página.
+
+     Qué va en cada fila lo decide `componer()` en Gallery.tsx, en el servidor y
+     sin azar. Aquí solo se reparte: `flex-grow` proporcional a la proporción de
+     la imagen hace que, con `flex-basis: 0`, los anchos salgan proporcionales a
+     ella, que es la definición de fila justificada. Se hace así y no con anchos
+     en porcentaje porque el `gap` se descuenta solo; con porcentajes habría que
+     restarlo a mano y una décima de más rompe la fila a la línea siguiente.
+
+     En móvil no hay filas: una columna, cada foto a su proporción, que es como
+     se ve bien hoy. Por eso todo el reparto vive dentro del `@media`.
+
+     Las filas arrancan en 768 y no en 640, que es donde la retícula anterior
+     abría su segunda columna. El motivo es medible: en el corpus hay seis fotos
+     verticales de proporción 0,47 a 0,56, y en una fila de tres bajan al 14-17 %
+     del ancho. A 768 son piezas de 100 a 122 px; a 640 serían de 81. Por debajo
+     de 768 la foto va sola a todo el ancho, que es exactamente la presentación
+     de móvil que hoy funciona.                                                 */
+
+  .galeria {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .galeria-fila {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .galeria-pieza {
+    min-width: 0;
+  }
+
+  @media (min-width: 48rem) {
+    .galeria-fila {
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    .galeria-pieza {
+      flex-grow: var(--ar);
+      flex-shrink: 1;
+      flex-basis: 0;
+    }
+
+    /* Relleno de la última fila. Sin esto, una galería de tres fotos deja la
+       tercera sola y estirada a todo el ancho: exactamente la imagen enorme que
+       veníamos a quitar. Se declara solo cuando hace falta —de ahí el selector
+       por atributo—: un `::after` permanente metería un `gap` de más al final de
+       TODAS las filas y desalinearía el borde derecho de la retícula.          */
+    .galeria-fila[data-relleno]::after {
+      content: '';
+      flex-grow: var(--relleno);
+      flex-shrink: 1;
+      flex-basis: 0;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .galeria-fila {
+      gap: 1.5rem;
+    }
+  }
+
+  /* --- Visor ---------------------------------------------------------------
+     `touch-action: none` es obligatorio: sin él, el navegador se queda con el
+     arrastre y con el pellizco antes de que llegue un solo `pointermove`, y el
+     zoom no existe. La escena está en un diálogo a pantalla completa con el
+     `body` bloqueado, así que no hay desplazamiento propio que sacrificar.
+
+     La transición del transform vive aquí y no en una utilidad para que la
+     apague la regla de `prefers-reduced-motion` de la base, que es global.     */
+
+  .visor-escena {
+    touch-action: none;
+    overscroll-behavior: contain;
+  }
+
+  .visor-lienzo {
+    transform-origin: center center;
+    will-change: transform;
+    transition: transform 150ms ease-out;
+  }
+
+  /* Mientras se arrastra o se pellizca, el transform tiene que seguir al dedo
+     sin interpolar: una transición de por medio se siente como retraso. */
+  .visor-lienzo[data-directo='true'] {
+    transition: none;
+  }
+
   /* --- Rótulo de proyecto -------------------------------------------------
      Comportamiento único para el rótulo de CUALQUIER imagen de proyecto: grid
      del portafolio, relacionados, destacados de la home.

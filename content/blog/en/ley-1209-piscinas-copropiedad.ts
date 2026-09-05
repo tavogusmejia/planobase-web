@@ -112,7 +112,7 @@ export const traduccion: TraduccionPost = {
         ['Immersion alarm or motion sensor', 'Yes', '**Yes**, outside opening hours', '**Yes**'],
         ['Anti-entrapment cover on the drains', 'Yes', '**Yes**', 'No'],
         ['Vacuum release system', 'Yes', '**Yes**', '**Yes**'],
-        ['Manual pump stop, visible and signposted', 'Yes', 'Yes', 'Yes'],
+        ['Manual pump stop, visible and signposted', 'Yes', 'Yes', 'No'],
         [
           'Certified lifeguard',
           'Permanent',
@@ -282,7 +282,7 @@ export const traduccion: TraduccionPost = {
         'I searched for that technical regulation in the complete normative ' +
         'repository of the health ministry — more than seven thousand ' +
         'documents — and **found no trace that it was ever issued**. The 2016 ' +
-        'decree, ten years after the law, still writes it in the future ' +
+        'decree, eight years after the law, still writes it in the future ' +
         'tense: the regulation "to be issued".',
     },
     {

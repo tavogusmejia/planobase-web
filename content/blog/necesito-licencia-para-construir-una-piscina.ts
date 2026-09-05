@@ -30,7 +30,7 @@ export const post: Post = {
   titulo: '¿Necesito licencia para construir una piscina?',
   pilar: 'piscinas',
   fecha: '2025-04-22',
-  actualizado: null,
+  actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:
     'No existe la «licencia de piscina»: ninguna norma nacional la nombra. La ' +
@@ -201,7 +201,7 @@ export const post: Post = {
         ['Sistema de liberación de vacío', '**Sí**', '**Sí**'],
         ['Cerramiento con control de acceso', 'No', '**Sí**'],
         ['Cubierta antiatrapamiento en los drenajes', 'No', '**Sí**'],
-        ['Paro manual de la bomba, visible y señalizado', 'Sí', 'Sí'],
+        ['Paro manual de la bomba, visible y señalizado', 'Sí', 'No'],
         ['Botiquín, flotadores, bastón con gancho, citófono', 'No', '**Sí**'],
         ['Plan de seguridad y reglamento de uso', 'No', '**Sí**'],
       ],

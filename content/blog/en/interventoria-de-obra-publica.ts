@@ -259,7 +259,7 @@ export const traduccion: TraduccionPost = {
     {
       tipo: 'lista',
       items: [
-        '**Independent technical supervision** of buildings above 2,000 m², which is a different thing from the contractual interventoría and comes from the seismic-resistant building regime.',
+        '**Independent technical supervision** of buildings whose plot allows more than 2,000 m² of built area, which is a different thing from the contractual interventoría and comes from the seismic-resistant building regime.',
         '**Independent review of the structural designs**, by a professional other than the designer and independent of them in employment terms.',
       ],
     },

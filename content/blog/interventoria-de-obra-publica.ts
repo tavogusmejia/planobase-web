@@ -32,7 +32,7 @@ export const post: Post = {
   titulo: 'Interventoría de obra pública: marco normativo',
   pilar: 'institucional',
   fecha: '2025-08-13',
-  actualizado: null,
+  actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:
     'Supervisión e interventoría no son lo mismo, y la diferencia decide quién ' +
@@ -237,7 +237,7 @@ export const post: Post = {
     {
       tipo: 'lista',
       items: [
-        '**La supervisión técnica independiente** de las edificaciones que superan los 2.000 m², que es distinta de la interventoría contractual y viene del régimen de construcciones sismo resistentes.',
+        '**La supervisión técnica independiente** de las edificaciones cuyo predio permita superar los 2.000 m² de área construida, que es distinta de la interventoría contractual y viene del régimen de construcciones sismo resistentes.',
         '**La revisión independiente de los diseños estructurales**, por un profesional distinto del diseñador e independiente laboralmente de él.',
       ],
     },

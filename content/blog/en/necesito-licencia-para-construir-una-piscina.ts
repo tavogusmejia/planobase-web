@@ -210,7 +210,7 @@ export const traduccion: TraduccionPost = {
         ['Vacuum release system', '**Yes**', '**Yes**'],
         ['Enclosure with access control', 'No', '**Yes**'],
         ['Anti-entrapment cover on the drains', 'No', '**Yes**'],
-        ['Manual pump stop, visible and signposted', 'Yes', 'Yes'],
+        ['Manual pump stop, visible and signposted', 'Yes', 'No'],
         ['First-aid kit, lifebuoys, shepherd’s crook, entryphone', 'No', '**Yes**'],
         ['Safety plan and rules of use', 'No', '**Yes**'],
       ],

@@ -27,7 +27,7 @@ export const post: Post = {
   titulo: 'Ley 1209: qué obliga de verdad a una copropiedad con piscina',
   pilar: 'piscinas',
   fecha: '2025-03-18',
-  actualizado: null,
+  actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:
     'Casi todo lo que se repite sobre esta ley está mal: ni exige cerramiento ' +
@@ -97,7 +97,7 @@ export const post: Post = {
         ['Alarma de inmersión o sensor de movimiento', 'Sí', '**Sí**, en horario de no servicio', '**Sí**'],
         ['Cubierta antiatrapamiento en los drenajes', 'Sí', '**Sí**', 'No'],
         ['Sistema de liberación de vacío', 'Sí', '**Sí**', '**Sí**'],
-        ['Paro manual de la bomba, visible y señalizado', 'Sí', 'Sí', 'Sí'],
+        ['Paro manual de la bomba, visible y señalizado', 'Sí', 'Sí', 'No'],
         ['Salvavidas certificado', 'Permanente', '**Solo** fines de semana, vacaciones, eventos con menores de 14, o más de 10 menores a la vez', 'No'],
         ['Botiquín, dos flotadores con cuerda y bastón con gancho', 'Sí', '**Sí**', 'No'],
         ['Teléfono o citófono 24 horas', 'Sí', '**Sí**', 'No'],
@@ -257,7 +257,7 @@ export const post: Post = {
       texto:
         'Busqué ese reglamento técnico en el repositorio normativo completo del ' +
         'Ministerio de Salud —más de siete mil documentos— y **no encontré ' +
-        'rastro de que se haya expedido jamás**. El decreto de 2016, diez años ' +
+        'rastro de que se haya expedido jamás**. El decreto de 2016, ocho años ' +
         'después de la ley, sigue redactándolo en futuro: «que expida».',
     },
     {

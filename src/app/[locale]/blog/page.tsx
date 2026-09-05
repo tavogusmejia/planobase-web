@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { TarjetaPost } from '@/components/blog/TarjetaPost'
 import { posts, postsDelPilar } from '@content/posts'
-import { pilares } from '@content/pilares'
+import { pilaresDe } from '@/lib/data/contenido'
 import { postsDe } from '@/lib/data/posts'
+import { copiaDe } from '@/lib/data/contenido'
 import { absoluteUrl } from '@/lib/utils'
 import { alternativas } from '@/lib/metadatos'
 
@@ -16,10 +17,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const url = `/${locale}/blog`
-  const descripcion =
-    'Cómo se lee una fisura, cuánto cuesta construir por metro cuadrado y qué ' +
-    'exige una licencia en cada ciudad. Notas técnicas de un estudio de ' +
-    'arquitectura colombiano, con las fuentes a la vista.'
+  const descripcion = copiaDe('/blog', locale).metaDescripcion
 
   return {
     title: 'Blog',
@@ -65,6 +63,9 @@ export default async function BlogPage({
 
   /* El listado va traducido; las cuentas de más abajo no lo necesitan,
      porque cuántos artículos hay no depende del idioma. */
+  const tb = await getTranslations('blog')
+  const copia = copiaDe('/blog', locale)
+  const pilares = pilaresDe(locale)
   const [ultimo, ...resto] = postsDe(locale)
   const conArticulos = pilares
     .map((p) => ({ pilar: p, cuenta: postsDelPilar(p.id).length }))
@@ -75,18 +76,16 @@ export default async function BlogPage({
       <header>
         <h1 className="text-h1 text-ink">Blog</h1>
         <p className="text-lead measure mt-8 text-ink-soft">
-          Cómo se lee una fisura, cuánto cuesta construir por metro cuadrado y
-          qué exige una licencia en cada ciudad. Notas técnicas, con las fuentes
-          a la vista.
+          {copia.entrada}
         </p>
         <Rule className="mt-8 text-muted">
-          {posts.length} {posts.length === 1 ? 'entrada' : 'entradas'}
+          {tb('entradas', { count: posts.length })}
         </Rule>
       </header>
 
       {ultimo ? (
         <section className="mt-16 lg:mt-20">
-          <h2 className="sr-only">Lo último</h2>
+          <h2 className="sr-only">{copia.ultimo}</h2>
           <div className="lg:max-w-[60rem]">
             <TarjetaPost post={ultimo} locale={locale} destacada />
           </div>
@@ -94,7 +93,7 @@ export default async function BlogPage({
       ) : null}
 
       {conArticulos.length ? (
-        <nav aria-label="Temas" className="mt-20 lg:mt-24">
+        <nav aria-label={tb('temas')} className="mt-20 lg:mt-24">
           <h2 className="text-block text-muted">Temas</h2>
           <ul className="mt-6 border-t border-line">
             {conArticulos.map(({ pilar, cuenta }) => (
@@ -118,7 +117,7 @@ export default async function BlogPage({
 
       {resto.length ? (
         <section className="mt-20 lg:mt-24">
-          <h2 className="text-block text-muted">Más entradas</h2>
+          <h2 className="text-block text-muted">{copia.masEntradas}</h2>
           <ul className="mt-8 grid gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
             {resto.map((post) => (
               <li key={post.slug}>

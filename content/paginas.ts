@@ -16,6 +16,33 @@
  * `src/lib/i18n/publicacion.ts`.
  */
 export const copiaPaginas = {
+  '/blog': {
+    metaDescripcion:
+      'Cómo se lee una fisura, cuánto cuesta construir por metro cuadrado y ' +
+      'qué exige una licencia en cada ciudad. Notas técnicas de un estudio ' +
+      'de arquitectura colombiano, con las fuentes a la vista.',
+    entrada:
+      'Cómo se lee una fisura, cuánto cuesta construir por metro cuadrado y ' +
+      'qué exige una licencia en cada ciudad. Notas técnicas, con las fuentes ' +
+      'a la vista.',
+    ultimo: 'Lo último',
+    masEntradas: 'Más entradas',
+  },
+
+  '/apbs': {
+    titulo: 'APBS',
+    tarjetaTitulo: 'APBS · Herramientas de Plano Base',
+    metaDescripcion:
+      'Herramientas que hacen el cálculo, no que lo expliquen: expensas de ' +
+      'curaduría, verificaciones de trámite y lo que vaya haciendo falta. Con ' +
+      'la fórmula del decreto y la fuente a la vista.',
+    faltaTitular: '¿Falta alguna?',
+    faltaTexto:
+      'Estas herramientas salen de preguntas que nos hacen. Si hay un cálculo ' +
+      'que usted repite a mano cada vez, escríbanos y lo miramos.',
+    escribirnos: 'Escribirnos',
+  },
+
   '': {
     /* El `h1` de la portada, que solo leen el rastreador y los lectores de
        pantalla. Dice las dos cosas a propósito: el alcance es nacional y la

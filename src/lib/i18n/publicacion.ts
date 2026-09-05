@@ -4,6 +4,8 @@ import {
   paginaTraducida,
   proyectoTraducido,
   puertaTraducida,
+  temaTraducido,
+  verticalTraducida,
 } from '@/lib/data/contenido'
 
 /**
@@ -78,9 +80,11 @@ export function traducida(e: RutaTraducible, idioma: string): boolean {
       return puertaTraducida(e.slug, idioma)
     case 'proyecto':
       return proyectoTraducido(e.slug, idioma)
-    // Pendientes de `content/en/`.
     case 'tema':
+      return temaTraducido(e.slug, idioma)
     case 'vertical':
+      return verticalTraducida(e.categoria, idioma)
+    // Pendiente de `content/en/`: la calculadora de expensas y su índice.
     case 'herramienta':
       return false
   }

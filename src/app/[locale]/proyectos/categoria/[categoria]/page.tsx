@@ -9,7 +9,8 @@ import { Rule } from '@/components/ui/Rule'
 import { getByCategory } from '@/lib/data/projects'
 import { reconocimientos } from '@content/site'
 import { puertaPorSlug } from '@content/puertas'
-import { verticales, verticalDe } from '@content/verticales'
+import { verticales } from '@content/verticales'
+import { verticalDe } from '@/lib/data/contenido'
 import { routing } from '@/i18n/routing'
 import { alternativas } from '@/lib/metadatos'
 
@@ -37,7 +38,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string; categoria: string }>
 }): Promise<Metadata> {
   const { locale, categoria } = await params
-  const v = verticalDe(categoria)
+  const v = verticalDe(locale, categoria)
   if (!v) return {}
 
   return {
@@ -65,7 +66,7 @@ export default async function VerticalPage({
   const { locale, categoria } = await params
   setRequestLocale(locale)
 
-  const v = verticalDe(categoria)
+  const v = verticalDe(locale, categoria)
   if (!v) notFound()
 
   const proyectos = await getByCategory(locale, v.categoria)

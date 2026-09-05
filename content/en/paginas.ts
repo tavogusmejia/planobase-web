@@ -8,6 +8,34 @@ import type { CopiaDe, RutaConCopia } from '@content/paginas'
  * entra al índice inglés. Ver `src/lib/data/contenido.ts`.
  */
 export const copiaPaginasEn: { [R in RutaConCopia]?: Partial<CopiaDe<R>> } = {
+  '/blog': {
+    metaDescripcion:
+      'How to read a crack, what it costs to build per square metre, and what ' +
+      'a building permit demands in each city. Technical notes from a ' +
+      'Colombian architecture studio, with the sources in plain sight.',
+    entrada:
+      'How to read a crack, what it costs to build per square metre, and what ' +
+      'a building permit demands in each city. Technical notes, with the ' +
+      'sources in plain sight.',
+    ultimo: 'Latest',
+    masEntradas: 'More entries',
+  },
+
+  '/apbs': {
+    titulo: 'APBS',
+    tarjetaTitulo: 'APBS · Tools by Plano Base',
+    metaDescripcion:
+      'Tools that do the calculation rather than explain it: curaduría ' +
+      'charges, permit checks and whatever else turns out to be needed. With ' +
+      'the formula from the decree and the source in plain sight.',
+    faltaTitular: 'Is one missing?',
+    faltaTexto:
+      'These tools come out of questions people ask us. If there is a ' +
+      'calculation you repeat by hand every time, write to us and we will ' +
+      'look at it.',
+    escribirnos: 'Write to us',
+  },
+
   '': {
     h1: 'Plano Base Arquitectos, an architecture studio in Colombia, based in Cali',
     metaDescripcion:

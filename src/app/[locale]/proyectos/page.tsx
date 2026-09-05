@@ -8,7 +8,7 @@ import { ReticulaProyectos } from '@/components/project/ReticulaProyectos'
 import { Rule } from '@/components/ui/Rule'
 import { getCategoryCounts, getProjects } from '@/lib/data/projects'
 import { CATEGORIAS, type Categoria } from '@/lib/types'
-import { verticalDe } from '@content/verticales'
+import { verticalDe } from '@/lib/data/contenido'
 import { alternativas, tarjeta } from '@/lib/metadatos'
 
 export async function generateMetadata({
@@ -94,7 +94,7 @@ export default async function ProyectosPage({
      original a la URL nueva —`/categoria/educativo?categoria=educativo`—, y
      esta ruta lo deja limpio. Las categorías sin vertical, que son las vacías,
      se siguen resolviendo abajo con su mensaje de «todavía no hay obra». */
-  if (activa && verticalDe(activa)) {
+  if (activa && verticalDe(locale, activa)) {
     // Permanente, no temporal: estas URLs se retiran. Un 307 le diría al
     // buscador que siga visitándolas y que no traspase las señales a la buena.
     permanentRedirect(`/${locale}/proyectos/categoria/${activa}`)

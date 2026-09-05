@@ -5,7 +5,8 @@ import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { TarjetaPost } from '@/components/blog/TarjetaPost'
 import { postsDelPilar } from '@content/posts'
-import { pilarPorSlug, pilares } from '@content/pilares'
+import { pilares } from '@content/pilares'
+import { pilarDe } from '@/lib/data/contenido'
 import { puertas } from '@content/puertas'
 import { postsDelPilarDe } from '@/lib/data/posts'
 import { routing } from '@/i18n/routing'
@@ -34,7 +35,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string; pilar: string }>
 }): Promise<Metadata> {
   const { locale, pilar: slug } = await params
-  const pilar = pilarPorSlug.get(slug)
+  const pilar = pilarDe(locale, slug)
   if (!pilar) return {}
 
   const url = `/${locale}/blog/tema/${slug}`
@@ -67,7 +68,7 @@ export default async function PilarPage({
   const { locale, pilar: slug } = await params
   setRequestLocale(locale)
 
-  const pilar = pilarPorSlug.get(slug)
+  const pilar = pilarDe(locale, slug)
   if (!pilar) notFound()
 
   const delPilar = postsDelPilarDe(locale, pilar.id)

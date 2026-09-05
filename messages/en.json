@@ -131,5 +131,9 @@
       "declaracion": "We need you to confirm the declaration to continue.",
       "largo": "That text is too long."
     }
+  },
+  "blog": {
+    "entradas": "{count, plural, one {# entry} other {# entries}}",
+    "temas": "Topics"
   }
 }

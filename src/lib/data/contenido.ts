@@ -16,9 +16,13 @@ import {
 } from '@content/site'
 import { escalera, puertas, type Peldano, type Puerta } from '@content/puertas'
 import { asesoria } from '@content/site'
+import { verticales, type Vertical } from '@content/verticales'
+import { pilares, type Pilar } from '@content/pilares'
 import * as ingles from '@content/en/site'
 import * as inglesPuertas from '@content/en/puertas'
 import { proyectos as inglesProyectos } from '@content/en/proyectos'
+import { verticales as inglesVerticales } from '@content/en/verticales'
+import { pilares as inglesPilares } from '@content/en/pilares'
 
 /**
  * El contenido corto del sitio, en el idioma que se pida.
@@ -117,6 +121,44 @@ export function proyectoTraducido(slug: string, idioma: string): boolean {
   return Boolean(inglesProyectos[slug]?.memoria)
 }
 
+// ── Verticales del portafolio y temas del blog ─────────────────────────────
+
+export function verticalesDe(idioma: string): Vertical[] {
+  if (ES_ESPANOL(idioma)) return verticales
+  return verticales.map((v) =>
+    fusionar<Vertical>(v, inglesVerticales[v.categoria]),
+  )
+}
+
+export function verticalDe(idioma: string, categoria: string): Vertical | null {
+  return verticalesDe(idioma).find((v) => v.categoria === categoria) ?? null
+}
+
+/** Se lee el titular, la entrada y los dos metadatos: los cuatro o ninguno. */
+export function verticalTraducida(categoria: string, idioma: string): boolean {
+  if (ES_ESPANOL(idioma)) return true
+  const t = inglesVerticales[categoria]
+  return Boolean(t?.titulo && t.entrada && t.metaTitulo && t.metaDescripcion)
+}
+
+export function pilaresDe(idioma: string): Pilar[] {
+  if (ES_ESPANOL(idioma)) return pilares
+  return pilares.map((p) => fusionar<Pilar>(p, inglesPilares[p.id]))
+}
+
+export function pilarDe(idioma: string, slug: string): Pilar | null {
+  return pilaresDe(idioma).find((p) => p.slug === slug) ?? null
+}
+
+export function temaTraducido(slug: string, idioma: string): boolean {
+  if (ES_ESPANOL(idioma)) return true
+  const p = pilares.find((x) => x.slug === slug)
+  const t = p ? inglesPilares[p.id] : undefined
+  return Boolean(
+    t?.nombre && t.titulo && t.entrada && t.metaTitulo && t.metaDescripcion,
+  )
+}
+
 // ── Completitud, ruta por ruta ─────────────────────────────────────────────
 
 /**
@@ -127,6 +169,11 @@ export function proyectoTraducido(slug: string, idioma: string): boolean {
  * contenido que de verdad la llena. Cada entrada dice qué se lee en esa página.
  */
 const COMPLETITUD: Record<RutaConCopia, () => boolean> = {
+  /* El índice del blog pinta los diez temas; el de APBS, la ficha de cada
+     herramienta disponible. */
+  '/blog': () => pilares.every((p) => temaTraducido(p.slug, 'en')),
+  '/apbs': () => false,
+
   /* La portada pinta el manifiesto, las siete puertas y la asesoría. Las
      tarjetas de proyecto no cuentan: solo muestran título, año y ciudad, que
      son nombres propios y no se traducen. */

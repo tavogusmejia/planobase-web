@@ -349,7 +349,14 @@ export type TraduccionPost = {
  * lugar. Traducir el título basta para que se generen también en inglés.
  */
 export type TraduccionProyecto = {
-  titulo: string
-  subtitulo: string | null
+  /**
+   * Opcional, y casi siempre ausente. «Colegio Pradera El Volcán» y «Concurso
+   * UVA Orfelinato» son nombres propios de obras y de certámenes colombianos:
+   * se citan como son, igual que una ley. Solo se traduce cuando el nombre es
+   * puramente descriptivo y no un nombre.
+   */
+  titulo?: string
+  /** Descriptivo, no un nombre: este sí se traduce. */
+  subtitulo?: string | null
   memoria: string
 }

@@ -67,9 +67,63 @@ export const UVT: DatoConVigencia<number> = {
     'antes de la resolución: circulan como proyección.',
 }
 
+/**
+ * Tabla del factor municipal.
+ *
+ * El **Decreto 1107 del 6 de agosto de 2026** adicionó dos parágrafos al art.
+ * 2.2.6.6.8.4: el Ministerio de Vivienda debe expedir una metodología de
+ * actualización antes del 6 de agosto de 2027, y actualizar todos los factores
+ * por resolución dentro de los doce meses siguientes. Es decir: **toda la
+ * tabla tiene fecha de caducidad**, y no por descuido de nadie sino por
+ * mandato expreso.
+ */
+export const FACTOR_MUNICIPAL: DatoConVigencia<'tabla de 53 municipios'> = {
+  valor: 'tabla de 53 municipios',
+  anio: 2026,
+  fuente:
+    'Decreto 1077 de 2015, art. 2.2.6.6.8.4, más las resoluciones del ' +
+    'Ministerio de Vivienda que asignaron factor a municipios posteriores',
+  url: 'https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=77216',
+  vigenteHasta: '2028-08-06',
+  avisarConDias: 120,
+  comoActualizar:
+    'El Decreto 1107 de 2026 obliga al Ministerio de Vivienda a actualizar ' +
+    'todos los factores municipales por resolución antes de esta fecha. ' +
+    'Busque esa resolución y reemplace la tabla completa en ' +
+    'content/apbs/expensas.ts. Hasta que salga, la tabla vigente es la que ' +
+    'está.',
+}
+
+/**
+ * Directorio de curadores urbanos.
+ *
+ * De él depende la respuesta más valiosa de la calculadora —«en su municipio
+ * no se pagan expensas»— y también la más frágil: la Superintendencia lo
+ * actualiza varias veces al año, y una curaduría que se provee cambia la
+ * respuesta de gratis a varios cientos de miles de pesos.
+ */
+export const DIRECTORIO_CURADORES: DatoConVigencia<'50 municipios con curaduría'> = {
+  valor: '50 municipios con curaduría',
+  anio: 2026,
+  fuente:
+    'Directorio de Curadores Urbanos de la Superintendencia de Notariado y ' +
+    'Registro, edición del 6 de marzo de 2026',
+  url: 'https://www.supernotariado.gov.co/superintendencia-delegada-para-curadores-urbanos/',
+  vigenteHasta: '2027-03-06',
+  avisarConDias: 60,
+  comoActualizar:
+    'Descargue el directorio más reciente de la Superintendencia y compare ' +
+    'los despachos vacantes. Atención especial a Jamundí, Chía, Madrid, ' +
+    'Sabaneta, Zipaquirá y Girardota: hoy figuran sin curador y la ' +
+    'calculadora responde «no se pagan expensas». El concurso de méritos en ' +
+    'curso no produce lista de elegibles antes de 2027.',
+}
+
 /** Todo lo que caduca, en un solo lugar. Las tres capas recorren esta lista. */
 export const DATOS_CON_VIGENCIA = [
   { id: 'uvt', nombre: 'Valor de la UVT', dato: UVT },
+  { id: 'factor-municipal', nombre: 'Factor municipal de expensas', dato: FACTOR_MUNICIPAL },
+  { id: 'directorio-curadores', nombre: 'Directorio de curadores urbanos', dato: DIRECTORIO_CURADORES },
 ] as const
 
 export function estaVencido(d: DatoConVigencia<unknown>, hoy = new Date()): boolean {

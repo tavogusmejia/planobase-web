@@ -55,7 +55,7 @@ export const herramientas: Herramienta[] = [
       'La UVT cambia cada año, por resolución de la DIAN de diciembre. El ' +
       'factor municipal y las tarifas en UVT solo cambian si se modifica el ' +
       'decreto.',
-    estado: 'en-construccion',
+    estado: 'disponible',
     puerta: 'proyecto-nuevo',
   },
 ]

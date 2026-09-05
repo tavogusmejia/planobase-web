@@ -119,11 +119,40 @@ export const DIRECTORIO_CURADORES: DatoConVigencia<'50 municipios con curaduría
     'curso no produce lista de elegibles antes de 2027.',
 }
 
+/**
+ * División político-administrativa.
+ *
+ * Se vigila por la misma razón que la tabla del decreto de curadurías: es un
+ * dato oficial con corte, no una constante. El DANE crea, suprime y renombra
+ * municipios —Barrancominas en 2019, Nuevo Belén de Bajirá en 2022— y un
+ * selector con una lista vieja deja fuera a gente real.
+ *
+ * El corte que se cargó es el de diciembre de 2024, y no se pudo confirmar si
+ * existe uno posterior: el geoportal del DANE no respondió. Se declara esa
+ * fecha en vez de dar el dato por perpetuo.
+ */
+export const DIVIPOLA_DANE: DatoConVigencia<'1.122 entradas territoriales'> = {
+  valor: '1.122 entradas territoriales',
+  anio: 2024,
+  fuente: 'DIVIPOLA del DANE, corte del 30 de diciembre de 2024, vía datos.gov.co',
+  url: 'https://www.datos.gov.co/d/vcjz-niiq',
+  vigenteHasta: '2027-06-30',
+  avisarConDias: 90,
+  comoActualizar:
+    'Descargue el corte vigente de DIVIPOLA del geoportal del DANE o de ' +
+    'datos.gov.co y reemplace content/apbs/divipola.ts. Valide contra un ' +
+    'segundo conjunto del DANE antes de confiar en él: el de municipios que ' +
+    'circula en datos abiertos aparece atribuido a una gobernación, no al ' +
+    'DANE. Y verifique que los 53 municipios con curaduría sigan resolviendo ' +
+    'por código.',
+}
+
 /** Todo lo que caduca, en un solo lugar. Las tres capas recorren esta lista. */
 export const DATOS_CON_VIGENCIA = [
   { id: 'uvt', nombre: 'Valor de la UVT', dato: UVT },
   { id: 'factor-municipal', nombre: 'Factor municipal de expensas', dato: FACTOR_MUNICIPAL },
   { id: 'directorio-curadores', nombre: 'Directorio de curadores urbanos', dato: DIRECTORIO_CURADORES },
+  { id: 'divipola', nombre: 'División municipal del DANE', dato: DIVIPOLA_DANE },
 ] as const
 
 export function estaVencido(d: DatoConVigencia<unknown>, hoy = new Date()): boolean {

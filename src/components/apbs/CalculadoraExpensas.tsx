@@ -2,12 +2,11 @@
 
 import { useMemo, useState } from 'react'
 import { Rule } from '@/components/ui/Rule'
+import { GRATUITO } from '@content/apbs/expensas'
 import {
-  DEPARTAMENTOS,
-  GRATUITO,
-  OTRO_MUNICIPIO,
-  municipiosDe,
-} from '@content/apbs/expensas'
+  DEPARTAMENTOS_DANE,
+  municipiosDelDepartamento,
+} from '@content/apbs/divipola'
 import { calcular, type Tramite, type Uso } from '@/lib/apbs/expensas'
 
 /**
@@ -16,11 +15,12 @@ import { calcular, type Tramite, type Uso } from '@/lib/apbs/expensas'
  *
  * Dos decisiones de interfaz que importan más de lo que parece:
  *
- * 1. **El selector es en cascada y cubre el país entero.** Los treinta y dos
- *    departamentos están todos, aunque en la mayoría no haya curaduría, y cada
- *    uno ofrece siempre la opción «cualquier otro municipio». Sin eso, quien
- *    vive en cualquiera de los más de mil municipios sin curaduría se quedaría
- *    sin la respuesta que más le sirve — que es, justamente, que no paga.
+ * 1. **El selector es en cascada y trae los 1.103 municipios del país**, no
+ *    solo los cincuenta y tres que tienen curaduría. Eso importa porque en
+ *    todos los demás la respuesta correcta no es «no lo sé» sino «no se pagan
+ *    expensas», y esa es la que más plata le ahorra a alguien. Se cruza por
+ *    código DANE y nunca por nombre: Puerto Colombia está en Atlántico y en
+ *    Guainía, Rionegro en Antioquia y en Santander.
  * 2. **Se muestra la descomposición, no solo el total.** Es lo que hacen las
  *    curadurías en sus tablas, y es lo que permite que alguien audite su
  *    liquidación real contra esto. Una cifra sola no se puede discutir.
@@ -38,15 +38,17 @@ export function CalculadoraExpensas({ uvt, anioUvt }: { uvt: number; anioUvt: nu
   const areaNum = Number(area.replace(',', '.'))
   const usaFormula = tramite === 'construccion' || tramite === 'urbanizacion'
 
-  const conCuraduria = useMemo(() => municipiosDe(departamento), [departamento])
+  const municipios = useMemo(
+    () => municipiosDelDepartamento(departamento),
+    [departamento],
+  )
 
   const resultado = useMemo(() => {
     if (!departamento || !municipio) return null
     if (usaFormula && (!Number.isFinite(areaNum) || areaNum <= 0)) return null
     return calcular(
       {
-        departamento,
-        municipio,
+        codigoMunicipio: municipio,
         tramite,
         uso,
         estrato,
@@ -86,49 +88,39 @@ export function CalculadoraExpensas({ uvt, anioUvt }: { uvt: number; anioUvt: nu
           <select
             value={departamento}
             onChange={(e) => {
-              setDepartamento(e.target.value)
-              setMunicipio('')
+              const d = e.target.value
+              setDepartamento(d)
+              // Bogotá es departamento y municipio a la vez. Obligar a
+              // elegirla dos veces sería absurdo, así que se autoselecciona.
+              const ms = municipiosDelDepartamento(d)
+              setMunicipio(ms.length === 1 ? (ms[0]?.codigo ?? '') : '')
             }}
             className="w-full border-b border-line bg-transparent py-2 text-ink outline-none focus:border-accent"
           >
             <option value="">Elija el departamento</option>
-            {DEPARTAMENTOS.map((d) => (
-              <option key={d} value={d}>
-                {d}
+            {DEPARTAMENTOS_DANE.map((d) => (
+              <option key={d.codigo} value={d.codigo}>
+                {d.nombre}
               </option>
             ))}
           </select>
         </Campo>
 
-        <Campo
-          etiqueta="Municipio"
-          ayuda={
-            departamento && conCuraduria.length === 0
-              ? 'En este departamento no hay ninguna curaduría urbana.'
-              : undefined
-          }
-        >
+        <Campo etiqueta="Municipio">
           <select
             value={municipio}
             onChange={(e) => setMunicipio(e.target.value)}
-            disabled={!departamento}
+            disabled={!departamento || municipios.length <= 1}
             className="w-full border-b border-line bg-transparent py-2 text-ink outline-none focus:border-accent disabled:text-muted"
           >
             <option value="">
               {departamento ? 'Elija el municipio' : 'Elija antes el departamento'}
             </option>
-            {conCuraduria.map((m) => (
-              <option key={m.nombre} value={m.nombre}>
+            {municipios.map((m) => (
+              <option key={m.codigo} value={m.codigo}>
                 {m.nombre}
               </option>
             ))}
-            {departamento ? (
-              <option value={OTRO_MUNICIPIO}>
-                {conCuraduria.length > 0
-                  ? 'Cualquier otro municipio del departamento'
-                  : `Cualquier municipio de ${departamento}`}
-              </option>
-            ) : null}
           </select>
         </Campo>
 

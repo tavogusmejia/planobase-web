@@ -29,6 +29,11 @@ export type FuenteFactor =
   | { tipo: 'resolucion'; norma: string; anio: number }
 
 export type Municipio = {
+  /** Código DANE de cinco dígitos. Es la clave real: hay municipios con el
+   *  mismo nombre en departamentos distintos —Puerto Colombia está en
+   *  Atlántico y en Guainía, Rionegro en Antioquia y en Santander—, así que
+   *  cruzar por nombre produce el municipio equivocado. */
+  codigo: string
   nombre: string
   departamento: string
   /** Factor m de la fórmula. */
@@ -62,60 +67,60 @@ const res = (norma: string, anio: number): FuenteFactor => ({
  * forma larga y se aceptan las dos al buscar.
  */
 export const MUNICIPIOS: Municipio[] = [
-  { nombre: 'Armenia', departamento: 'Quindío', m: 0.641, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Barrancabermeja', departamento: 'Santander', m: 0.85, fuente: DECRETO, despachos: 1, vacantes: [] },
-  { nombre: 'Barranquilla', departamento: 'Atlántico', m: 0.855, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Bello', departamento: 'Antioquia', m: 0.765, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Bogotá D.C.', departamento: 'Bogotá D.C.', m: 0.938, fuente: DECRETO, despachos: 5, vacantes: [] },
-  { nombre: 'Bucaramanga', departamento: 'Santander', m: 0.76, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Buenaventura', departamento: 'Valle del Cauca', m: 0.638, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Guadalajara de Buga', departamento: 'Valle del Cauca', m: 0.574, fuente: DECRETO, despachos: 1, vacantes: [] },
-  { nombre: 'Santiago de Cali', departamento: 'Valle del Cauca', m: 0.938, fuente: DECRETO, despachos: 3, vacantes: [] },
-  { nombre: 'Cartagena de Indias', departamento: 'Bolívar', m: 0.9, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Cartago', departamento: 'Valle del Cauca', m: 0.638, fuente: DECRETO, despachos: 1, vacantes: [] },
-  { nombre: 'San José de Cúcuta', departamento: 'Norte de Santander', m: 0.9, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Dosquebradas', departamento: 'Risaralda', m: 0.72, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Duitama', departamento: 'Boyacá', m: 0.638, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Envigado', departamento: 'Antioquia', m: 0.76, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Floridablanca', departamento: 'Santander', m: 0.675, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Ibagué', departamento: 'Tolima', m: 0.76, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Itagüí', departamento: 'Antioquia', m: 0.765, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Manizales', departamento: 'Caldas', m: 0.81, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Medellín', departamento: 'Antioquia', m: 0.938, fuente: DECRETO, despachos: 4, vacantes: [] },
-  { nombre: 'Montería', departamento: 'Córdoba', m: 0.574, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Neiva', departamento: 'Huila', m: 0.608, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Palmira', departamento: 'Valle del Cauca', m: 0.72, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Pasto', departamento: 'Nariño', m: 0.608, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Pereira', departamento: 'Risaralda', m: 0.76, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Popayán', departamento: 'Cauca', m: 0.608, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Santa Marta', departamento: 'Magdalena', m: 0.638, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Sincelejo', departamento: 'Sucre', m: 0.638, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Soacha', departamento: 'Cundinamarca', m: 0.675, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Sogamoso', departamento: 'Boyacá', m: 0.574, fuente: DECRETO, despachos: 2, vacantes: [1] },
-  { nombre: 'Soledad', departamento: 'Atlántico', m: 0.765, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Tuluá', departamento: 'Valle del Cauca', m: 0.51, fuente: DECRETO, despachos: 2, vacantes: [2] },
-  { nombre: 'Tunja', departamento: 'Boyacá', m: 0.54, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Valledupar', departamento: 'Cesar', m: 0.608, fuente: DECRETO, despachos: 2, vacantes: [] },
-  { nombre: 'Villavicencio', departamento: 'Meta', m: 0.54, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '63001', nombre: 'Armenia', departamento: 'Quindío', m: 0.641, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '68081', nombre: 'Barrancabermeja', departamento: 'Santander', m: 0.85, fuente: DECRETO, despachos: 1, vacantes: [] },
+  { codigo: '08001', nombre: 'Barranquilla', departamento: 'Atlántico', m: 0.855, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '05088', nombre: 'Bello', departamento: 'Antioquia', m: 0.765, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '11001', nombre: 'Bogotá D.C.', departamento: 'Bogotá D.C.', m: 0.938, fuente: DECRETO, despachos: 5, vacantes: [] },
+  { codigo: '68001', nombre: 'Bucaramanga', departamento: 'Santander', m: 0.76, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '76109', nombre: 'Buenaventura', departamento: 'Valle del Cauca', m: 0.638, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '76111', nombre: 'Guadalajara de Buga', departamento: 'Valle del Cauca', m: 0.574, fuente: DECRETO, despachos: 1, vacantes: [] },
+  { codigo: '76001', nombre: 'Santiago de Cali', departamento: 'Valle del Cauca', m: 0.938, fuente: DECRETO, despachos: 3, vacantes: [] },
+  { codigo: '13001', nombre: 'Cartagena de Indias', departamento: 'Bolívar', m: 0.9, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '76147', nombre: 'Cartago', departamento: 'Valle del Cauca', m: 0.638, fuente: DECRETO, despachos: 1, vacantes: [] },
+  { codigo: '54001', nombre: 'San José de Cúcuta', departamento: 'Norte de Santander', m: 0.9, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '66170', nombre: 'Dosquebradas', departamento: 'Risaralda', m: 0.72, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '15238', nombre: 'Duitama', departamento: 'Boyacá', m: 0.638, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '05266', nombre: 'Envigado', departamento: 'Antioquia', m: 0.76, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '68276', nombre: 'Floridablanca', departamento: 'Santander', m: 0.675, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '73001', nombre: 'Ibagué', departamento: 'Tolima', m: 0.76, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '05360', nombre: 'Itagüí', departamento: 'Antioquia', m: 0.765, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '17001', nombre: 'Manizales', departamento: 'Caldas', m: 0.81, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '05001', nombre: 'Medellín', departamento: 'Antioquia', m: 0.938, fuente: DECRETO, despachos: 4, vacantes: [] },
+  { codigo: '23001', nombre: 'Montería', departamento: 'Córdoba', m: 0.574, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '41001', nombre: 'Neiva', departamento: 'Huila', m: 0.608, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '76520', nombre: 'Palmira', departamento: 'Valle del Cauca', m: 0.72, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '52001', nombre: 'Pasto', departamento: 'Nariño', m: 0.608, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '66001', nombre: 'Pereira', departamento: 'Risaralda', m: 0.76, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '19001', nombre: 'Popayán', departamento: 'Cauca', m: 0.608, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '47001', nombre: 'Santa Marta', departamento: 'Magdalena', m: 0.638, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '70001', nombre: 'Sincelejo', departamento: 'Sucre', m: 0.638, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '25754', nombre: 'Soacha', departamento: 'Cundinamarca', m: 0.675, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '15759', nombre: 'Sogamoso', departamento: 'Boyacá', m: 0.574, fuente: DECRETO, despachos: 2, vacantes: [1] },
+  { codigo: '08758', nombre: 'Soledad', departamento: 'Atlántico', m: 0.765, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '76834', nombre: 'Tuluá', departamento: 'Valle del Cauca', m: 0.51, fuente: DECRETO, despachos: 2, vacantes: [2] },
+  { codigo: '15001', nombre: 'Tunja', departamento: 'Boyacá', m: 0.54, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '20001', nombre: 'Valledupar', departamento: 'Cesar', m: 0.608, fuente: DECRETO, despachos: 2, vacantes: [] },
+  { codigo: '50001', nombre: 'Villavicencio', departamento: 'Meta', m: 0.54, fuente: DECRETO, despachos: 2, vacantes: [] },
 
-  { nombre: 'Girón', departamento: 'Santander', m: 0.9, fuente: res('Resolución MVCT 0072 de 2014', 2014), despachos: 2, vacantes: [] },
-  { nombre: 'Piedecuesta', departamento: 'Santander', m: 0.713, fuente: res('Resolución MVCT 0199 de 2017', 2017), despachos: 2, vacantes: [] },
-  { nombre: 'Puerto Colombia', departamento: 'Atlántico', m: 0.6375, fuente: res('Resolución MVCT 0947 de 2017', 2017), despachos: 2, vacantes: [2] },
-  { nombre: 'Fusagasugá', departamento: 'Cundinamarca', m: 0.641, fuente: res('Resolución MVCT 0504 de 2019', 2019), despachos: 2, vacantes: [] },
-  { nombre: 'Yopal', departamento: 'Casanare', m: 0.608, fuente: res('Resolución MVCT 0505 de 2019', 2019), despachos: 2, vacantes: [] },
-  { nombre: 'Rionegro', departamento: 'Antioquia', m: 0.855, fuente: res('Resolución MVCT 0681 de 2019', 2019), despachos: 2, vacantes: [] },
-  { nombre: 'Yumbo', departamento: 'Valle del Cauca', m: 0.81, fuente: res('Resolución MVCT 0750 de 2019', 2019), despachos: 2, vacantes: [] },
-  { nombre: 'Cajicá', departamento: 'Cundinamarca', m: 0.641, fuente: res('Resolución MVCT 0036 de 2020', 2020), despachos: 2, vacantes: [] },
-  { nombre: 'Funza', departamento: 'Cundinamarca', m: 0.938, fuente: res('Resolución MVCT 0068 de 2020', 2020), despachos: 2, vacantes: [] },
-  { nombre: 'Mosquera', departamento: 'Cundinamarca', m: 0.938, fuente: res('Resolución MVCT 0115 de 2020', 2020), despachos: 2, vacantes: [] },
-  { nombre: 'Tocancipá', departamento: 'Cundinamarca', m: 0.713, fuente: res('Resolución MVCT 0122 de 2020', 2020), despachos: 2, vacantes: [] },
-  { nombre: 'Cota', departamento: 'Cundinamarca', m: 0.713, fuente: res('Resolución MVCT 0785 de 2020', 2020), despachos: 2, vacantes: [] },
-  { nombre: 'Jamundí', departamento: 'Valle del Cauca', m: 0.608, fuente: res('Resolución MVCT 0387 de 2022', 2022), despachos: 2, vacantes: [1, 2] },
-  { nombre: 'Chía', departamento: 'Cundinamarca', m: 0.938, fuente: res('Resolución MVCT 0679 de 2024', 2024), despachos: 2, vacantes: [1, 2] },
-  { nombre: 'Madrid', departamento: 'Cundinamarca', m: 0.713, fuente: res('Resolución MVCT 0604 de 2025', 2025), despachos: 2, vacantes: [1, 2] },
-  { nombre: 'Sabaneta', departamento: 'Antioquia', m: 0.938, fuente: res('Resolución MVCT 0950 de 2025', 2025), despachos: 2, vacantes: [1, 2] },
-  { nombre: 'Zipaquirá', departamento: 'Cundinamarca', m: 0.675, fuente: res('Resolución MVCT 0989 de 2025', 2025), despachos: 2, vacantes: [1, 2] },
-  { nombre: 'Girardota', departamento: 'Antioquia', m: 0.638, fuente: res('Resolución MVCT 1050 de 2025', 2025), despachos: 2, vacantes: [1, 2] },
+  { codigo: '68307', nombre: 'Girón', departamento: 'Santander', m: 0.9, fuente: res('Resolución MVCT 0072 de 2014', 2014), despachos: 2, vacantes: [] },
+  { codigo: '68547', nombre: 'Piedecuesta', departamento: 'Santander', m: 0.713, fuente: res('Resolución MVCT 0199 de 2017', 2017), despachos: 2, vacantes: [] },
+  { codigo: '08573', nombre: 'Puerto Colombia', departamento: 'Atlántico', m: 0.6375, fuente: res('Resolución MVCT 0947 de 2017', 2017), despachos: 2, vacantes: [2] },
+  { codigo: '25290', nombre: 'Fusagasugá', departamento: 'Cundinamarca', m: 0.641, fuente: res('Resolución MVCT 0504 de 2019', 2019), despachos: 2, vacantes: [] },
+  { codigo: '85001', nombre: 'Yopal', departamento: 'Casanare', m: 0.608, fuente: res('Resolución MVCT 0505 de 2019', 2019), despachos: 2, vacantes: [] },
+  { codigo: '05615', nombre: 'Rionegro', departamento: 'Antioquia', m: 0.855, fuente: res('Resolución MVCT 0681 de 2019', 2019), despachos: 2, vacantes: [] },
+  { codigo: '76892', nombre: 'Yumbo', departamento: 'Valle del Cauca', m: 0.81, fuente: res('Resolución MVCT 0750 de 2019', 2019), despachos: 2, vacantes: [] },
+  { codigo: '25126', nombre: 'Cajicá', departamento: 'Cundinamarca', m: 0.641, fuente: res('Resolución MVCT 0036 de 2020', 2020), despachos: 2, vacantes: [] },
+  { codigo: '25286', nombre: 'Funza', departamento: 'Cundinamarca', m: 0.938, fuente: res('Resolución MVCT 0068 de 2020', 2020), despachos: 2, vacantes: [] },
+  { codigo: '25473', nombre: 'Mosquera', departamento: 'Cundinamarca', m: 0.938, fuente: res('Resolución MVCT 0115 de 2020', 2020), despachos: 2, vacantes: [] },
+  { codigo: '25817', nombre: 'Tocancipá', departamento: 'Cundinamarca', m: 0.713, fuente: res('Resolución MVCT 0122 de 2020', 2020), despachos: 2, vacantes: [] },
+  { codigo: '25214', nombre: 'Cota', departamento: 'Cundinamarca', m: 0.713, fuente: res('Resolución MVCT 0785 de 2020', 2020), despachos: 2, vacantes: [] },
+  { codigo: '76364', nombre: 'Jamundí', departamento: 'Valle del Cauca', m: 0.608, fuente: res('Resolución MVCT 0387 de 2022', 2022), despachos: 2, vacantes: [1, 2] },
+  { codigo: '25175', nombre: 'Chía', departamento: 'Cundinamarca', m: 0.938, fuente: res('Resolución MVCT 0679 de 2024', 2024), despachos: 2, vacantes: [1, 2] },
+  { codigo: '25430', nombre: 'Madrid', departamento: 'Cundinamarca', m: 0.713, fuente: res('Resolución MVCT 0604 de 2025', 2025), despachos: 2, vacantes: [1, 2] },
+  { codigo: '05631', nombre: 'Sabaneta', departamento: 'Antioquia', m: 0.938, fuente: res('Resolución MVCT 0950 de 2025', 2025), despachos: 2, vacantes: [1, 2] },
+  { codigo: '25899', nombre: 'Zipaquirá', departamento: 'Cundinamarca', m: 0.675, fuente: res('Resolución MVCT 0989 de 2025', 2025), despachos: 2, vacantes: [1, 2] },
+  { codigo: '05308', nombre: 'Girardota', departamento: 'Antioquia', m: 0.638, fuente: res('Resolución MVCT 1050 de 2025', 2025), despachos: 2, vacantes: [1, 2] },
 ]
 
 /**
@@ -173,6 +178,8 @@ export function municipiosDe(departamento: string): Municipio[] {
 
 /** Valor del selector para «cualquier otro municipio del departamento». */
 export const OTRO_MUNICIPIO = '__otro__'
+
+export const MUNICIPIO_POR_CODIGO = new Map(MUNICIPIOS.map((m) => [m.codigo, m]))
 
 /** Nombres alternativos que la gente escribe, y a qué municipio corresponden. */
 export const ALIAS: Record<string, string> = {

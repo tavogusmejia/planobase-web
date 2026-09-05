@@ -1,11 +1,9 @@
 import {
-  ALIAS,
   CARGO_FIJO_UVT,
   CARGO_VARIABLE_UVT,
   FACTOR_I_VIVIENDA,
   IVA,
-  MUNICIPIOS,
-  OTRO_MUNICIPIO,
+  MUNICIPIO_POR_CODIGO,
   TARIFAS_PLANAS_UVT,
   factorIOtrosUsos,
   factorJConstruccion,
@@ -34,10 +32,9 @@ export type Tramite =
   | 'concepto-uso'
 
 export type Solicitud = {
-  departamento: string
-  /** Nombre del municipio, o `OTRO_MUNICIPIO` para cualquier otro del
-   *  departamento — que es el caso de más de mil municipios del país. */
-  municipio: string
+  /** Código DANE de cinco dígitos del municipio. Se cruza por código y no por
+   *  nombre porque hay municipios homónimos en departamentos distintos. */
+  codigoMunicipio: string
   tramite: Tramite
   uso: Uso
   /** Solo si el uso es vivienda. */
@@ -77,21 +74,9 @@ export type Resultado =
       avisos: string[]
     }
 
-/** Busca por nombre, tolerando alias, acentos y mayúsculas. */
-export function buscarMunicipio(entrada: string): Municipio | null {
-  const normalizar = (s: string) =>
-    s
-      .trim()
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[̀-ͯ]/g, '')
-
-  const buscado = normalizar(ALIAS[entrada.trim()] ?? entrada)
-  return (
-    MUNICIPIOS.find((m) => normalizar(m.nombre) === buscado) ??
-    MUNICIPIOS.find((m) => normalizar(m.nombre).startsWith(buscado)) ??
-    null
-  )
+/** Si el municipio tiene curaduría con factor asignado, lo devuelve. */
+export function buscarMunicipio(codigo: string): Municipio | null {
+  return MUNICIPIO_POR_CODIGO.get(codigo) ?? null
 }
 
 /** Todos los despachos vacantes: la alcaldía asume y no cobra. */
@@ -102,8 +87,7 @@ function sinCuradorEnOperacion(m: Municipio): boolean {
 const pesos = (uvt: number, veces = 1) => Math.round(uvt * veces)
 
 export function calcular(s: Solicitud, uvt: number): Resultado {
-  const municipio =
-    s.municipio === OTRO_MUNICIPIO ? null : buscarMunicipio(s.municipio)
+  const municipio = buscarMunicipio(s.codigoMunicipio)
 
   // Sin curaduría no hay expensas. Es norma, no ausencia de dato, y por eso se
   // responde como resultado y no como error.

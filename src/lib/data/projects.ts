@@ -1,4 +1,5 @@
 import { projects } from '@content/projects'
+import { proyectos as traducciones } from '@content/en/proyectos'
 import { heroSlides, reconocimientos } from '@content/site'
 import { CATEGORIAS, type Categoria, type Project } from '@/lib/types'
 
@@ -12,12 +13,40 @@ import { CATEGORIAS, type Categoria, type Project } from '@/lib/types'
 
 const publicados = projects.filter((p) => p.publicado)
 
-export async function getProjects(): Promise<Project[]> {
-  return ordenar(publicados)
+/**
+ * El proyecto en un idioma.
+ *
+ * El nombre no se traduce —«Concurso UVA Orfelinato» es un nombre propio— pero
+ * el subtítulo y la memoria sí, y viven en `content/en/proyectos.ts` porque
+ * `content/projects.ts` lo regenera `pnpm media` y lo escrito a mano dentro se
+ * perdería.
+ *
+ * Los textos alternativos de las imágenes se quedan como están: los genera
+ * `altFor()` en el script de medios a partir del título, que es el campo que no
+ * cambia de idioma.
+ */
+function traducir(p: Project, idioma: string): Project {
+  if (idioma !== 'en') return p
+  const t = traducciones[p.slug]
+  if (!t) return p
+  return {
+    ...p,
+    titulo: t.titulo ?? p.titulo,
+    subtitulo: t.subtitulo !== undefined ? t.subtitulo : p.subtitulo,
+    memoria: t.memoria,
+  }
 }
 
-export async function getProject(slug: string): Promise<Project | null> {
-  return projects.find((p) => p.slug === slug && p.publicado) ?? null
+export async function getProjects(idioma: string): Promise<Project[]> {
+  return ordenar(publicados.map((p) => traducir(p, idioma)), idioma)
+}
+
+export async function getProject(
+  idioma: string,
+  slug: string,
+): Promise<Project | null> {
+  const p = projects.find((x) => x.slug === slug && x.publicado)
+  return p ? traducir(p, idioma) : null
 }
 
 export async function getAllSlugs(): Promise<string[]> {
@@ -38,7 +67,10 @@ const ANCHO_MINIMO_HERO = 1920
  * o ninguna pasa el mínimo de ancho, se cae al orden por relevancia para que la
  * home nunca quede sin portada.
  */
-export async function getHeroProjects(limite = 7): Promise<Project[]> {
+export async function getHeroProjects(
+  idioma: string,
+  limite = 7,
+): Promise<Project[]> {
   const suficientes = publicados.filter(
     (p) => (p.portada?.width ?? 0) >= ANCHO_MINIMO_HERO,
   )
@@ -69,24 +101,34 @@ export async function getHeroProjects(limite = 7): Promise<Project[]> {
         Number(b.enHeroHome) - Number(a.enHeroHome) ||
         Number(b.destacado) - Number(a.destacado) ||
         b.anio - a.anio ||
-        a.titulo.localeCompare(b.titulo, 'es'),
+        a.titulo.localeCompare(b.titulo, idioma),
     )
     .slice(0, limite)
 }
 
-export async function getFeatured(limit = 6): Promise<Project[]> {
-  return ordenar(publicados).slice(0, limit)
+export async function getFeatured(idioma: string, limit = 6): Promise<Project[]> {
+  return ordenar(publicados.map((p) => traducir(p, idioma)), idioma).slice(0, limit)
 }
 
-export async function getByCategory(categoria: Categoria): Promise<Project[]> {
-  return ordenar(publicados.filter((p) => p.categorias.includes(categoria)))
+export async function getByCategory(
+  idioma: string,
+  categoria: Categoria,
+): Promise<Project[]> {
+  return ordenar(
+    publicados.filter((p) => p.categorias.includes(categoria)).map((p) => traducir(p, idioma)),
+    idioma,
+  )
 }
 
 /**
  * Tres proyectos de la misma categoría, excluyendo el actual. Si no alcanzan,
  * completa con los más recientes para no dejar el bloque a medias.
  */
-export async function getRelated(project: Project, limit = 3): Promise<Project[]> {
+export async function getRelated(
+  idioma: string,
+  project: Project,
+  limit = 3,
+): Promise<Project[]> {
   const mismos = publicados.filter(
     (p) =>
       p.slug !== project.slug &&
@@ -95,12 +137,14 @@ export async function getRelated(project: Project, limit = 3): Promise<Project[]
   const resto = publicados.filter(
     (p) => p.slug !== project.slug && !mismos.includes(p),
   )
-  return [...ordenar(mismos), ...ordenar(resto)].slice(0, limit)
+  return [...ordenar(mismos, idioma), ...ordenar(resto, idioma)]
+    .slice(0, limit)
+    .map((p) => traducir(p, idioma))
 }
 
 /** Anterior y siguiente en el orden del portafolio. */
-export async function getNeighbours(slug: string) {
-  const lista = ordenar(publicados)
+export async function getNeighbours(idioma: string, slug: string) {
+  const lista = ordenar(publicados.map((p) => traducir(p, idioma)), idioma)
   const i = lista.findIndex((p) => p.slug === slug)
   if (i === -1) return { anterior: null, siguiente: null }
   return {
@@ -142,11 +186,14 @@ export async function getCategoryCounts(): Promise<Record<Categoria, number>> {
 }
 
 /** Destacados primero, luego año descendente, luego alfabético. */
-function ordenar(lista: Project[]): Project[] {
+/* Se traduce ANTES de ordenar. El desempate final es por título, así que
+   ordenar primero dejaría el portafolio inglés en orden de títulos españoles:
+   invisible, y mal. */
+function ordenar(lista: Project[], idioma: string): Project[] {
   return [...lista].sort(
     (a, b) =>
       Number(b.destacado) - Number(a.destacado) ||
       b.anio - a.anio ||
-      a.titulo.localeCompare(b.titulo, 'es'),
+      a.titulo.localeCompare(b.titulo, idioma),
   )
 }

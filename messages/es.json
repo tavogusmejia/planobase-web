@@ -61,7 +61,11 @@
     "concurso": "Concurso",
     "otros": "otros",
     "naturaleza": "Naturaleza",
-    "ficha": "Ficha de experiencia"
+    "ficha": "Ficha de experiencia",
+    "acercar": "Acercar",
+    "alejar": "Alejar",
+    "restablecerZoom": "Tamaño original",
+    "ayudaZoom": "Rueda o pellizco para ampliar · doble clic para alternar · arrastre para desplazar"
   },
   "categorias": {
     "todos": "Todos",

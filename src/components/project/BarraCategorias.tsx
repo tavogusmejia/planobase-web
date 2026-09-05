@@ -9,6 +9,7 @@ import {
 import { mostrarCategoriasVacias } from '@content/ajustes'
 import { verticalDe } from '@content/verticales'
 import { cn } from '@/lib/utils'
+import { routing } from '@/i18n/routing'
 
 /**
  * La navegación del portafolio. La comparten el índice y cada vertical, para
@@ -25,7 +26,13 @@ export async function BarraCategorias({
   activa: Categoria | null
 }) {
   const tcat = await getTranslations('categorias')
-  const [todos, counts] = await Promise.all([getProjects(), getCategoryCounts()])
+  /* De la lista solo se usa `todos.length`, y cuántos proyectos hay no depende
+     del idioma. Se pide en el editorial para no tener que enhebrar el locale
+     hasta aquí por un número. */
+  const [todos, counts] = await Promise.all([
+    getProjects(routing.defaultLocale),
+    getCategoryCounts(),
+  ])
 
   const enlace = (c: Categoria | null) => {
     const activo = activa === c

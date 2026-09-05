@@ -41,7 +41,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>
 }): Promise<Metadata> {
   const { locale, slug } = await params
-  const project = await getProject(slug)
+  const project = await getProject(locale, slug)
   if (!project) return {}
 
   const area = formatArea(locale, project.areaM2)
@@ -90,13 +90,13 @@ export default async function ProyectoPage({
   const { locale, slug } = await params
   setRequestLocale(locale)
 
-  const project = await getProject(slug)
+  const project = await getProject(locale, slug)
   if (!project) notFound()
 
   const t = await getTranslations('proyecto')
   const [{ anterior, siguiente }, relacionados] = await Promise.all([
-    getNeighbours(slug),
-    getRelated(project),
+    getNeighbours(locale, slug),
+    getRelated(locale, project),
   ])
 
   const area = formatArea(locale, project.areaM2)

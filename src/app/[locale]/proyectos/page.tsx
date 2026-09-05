@@ -103,7 +103,7 @@ export default async function ProyectosPage({
   const t = await getTranslations('home')
   const tcat = await getTranslations('categorias')
 
-  const todos = await getProjects()
+  const todos = await getProjects(locale)
 
   const visibles = activa
     ? todos.filter((p) => p.categorias.includes(activa))

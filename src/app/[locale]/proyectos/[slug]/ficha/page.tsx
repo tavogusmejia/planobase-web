@@ -48,8 +48,8 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; slug: string }>
 }): Promise<Metadata> {
-  const { slug } = await params
-  const project = await getProject(slug)
+  const { locale, slug } = await params
+  const project = await getProject(locale, slug)
   return {
     title: project ? `Ficha · ${project.titulo}` : 'Ficha',
     robots: { index: false, follow: false },
@@ -64,7 +64,7 @@ export default async function FichaPage({
   const { locale, slug } = await params
   setRequestLocale(locale)
 
-  const project = await getProject(slug)
+  const project = await getProject(locale, slug)
   if (!project) notFound()
 
   return (

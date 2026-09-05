@@ -68,7 +68,7 @@ export default async function VerticalPage({
   const v = verticalDe(categoria)
   if (!v) notFound()
 
-  const proyectos = await getByCategory(v.categoria)
+  const proyectos = await getByCategory(locale, v.categoria)
   if (proyectos.length === 0) notFound()
 
   const puerta = puertaPorSlug(v.puerta)

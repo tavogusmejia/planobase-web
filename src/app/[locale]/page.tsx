@@ -78,8 +78,8 @@ export default async function HomePage({
   const tc = await getTranslations('cta')
 
   const [hero, destacados, stats] = await Promise.all([
-    getHeroProjects(),
-    getFeatured(6),
+    getHeroProjects(locale),
+    getFeatured(locale, 6),
     getStats(),
   ])
 

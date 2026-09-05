@@ -308,8 +308,7 @@ export function Gallery({ images }: { images: ProjectImage[] }) {
       if (e.key === 'Escape') cerrar()
       if (e.key === 'ArrowRight') mover(1)
       if (e.key === 'ArrowLeft') mover(-1)
-      // Sin esto el zoom sería exclusivo del ratón y del dedo. No lleva rótulo
-      // en pantalla porque el rótulo necesita una clave de `messages/`.
+      // El mismo zoom que los botones de la barra, para quien no usa ratón.
       if (e.key === '+' || e.key === '=') ampliarCentro((s) => s * 1.4)
       if (e.key === '-' || e.key === '_') ampliarCentro((s) => s / 1.4)
       if (e.key === '0') ampliarCentro(() => 1)
@@ -503,6 +502,39 @@ export function Gallery({ images }: { images: ProjectImage[] }) {
             <span className="text-block tabular-nums">
               {(abierta ?? 0) + 1} / {images.length}
             </span>
+
+            {/* El zoom existía por rueda, pellizco y teclado, y era
+                indescubrible: nada en pantalla lo anunciaba. Estos tres botones
+                son la única forma de que alguien sepa que puede mirar el
+                detalle de un plano. */}
+            <div className="flex items-center gap-5">
+              <button
+                type="button"
+                onClick={() => ampliarCentro((s) => s / 1.4)}
+                disabled={!ampliada}
+                aria-label={t('alejar')}
+                className="text-block uppercase tracking-[0.08em] transition-opacity hover:opacity-70 disabled:opacity-30"
+              >
+                −
+              </button>
+              <button
+                type="button"
+                onClick={() => ampliarCentro(() => 1)}
+                disabled={!ampliada}
+                className="text-block tabular-nums uppercase tracking-[0.08em] transition-opacity hover:opacity-70 disabled:opacity-30"
+              >
+                {t('restablecerZoom')}
+              </button>
+              <button
+                type="button"
+                onClick={() => ampliarCentro((s) => s * 1.4)}
+                aria-label={t('acercar')}
+                className="text-block uppercase tracking-[0.08em] transition-opacity hover:opacity-70"
+              >
+                +
+              </button>
+            </div>
+
             <button
               ref={cerrarRef}
               type="button"
@@ -561,6 +593,11 @@ export function Gallery({ images }: { images: ProjectImage[] }) {
             </button>
             <p className="text-block hidden max-w-lg text-center text-paper/70 sm:block">
               {actual.alt}
+              {/* Una sola línea, y solo mientras no se haya ampliado: en cuanto
+                  alguien usa el zoom deja de necesitar que se lo expliquen. */}
+              {ampliada ? null : (
+                <span className="mt-1 block text-paper/50">{t('ayudaZoom')}</span>
+              )}
             </p>
             <button
               type="button"

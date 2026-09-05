@@ -80,7 +80,7 @@ export default async function DossierPage({
   setRequestLocale(locale)
   if (!esCategoria(categoria)) notFound()
 
-  const proyectos = await getByCategory(categoria)
+  const proyectos = await getByCategory(locale, categoria)
   if (proyectos.length === 0) notFound()
 
   const t = await getTranslations('categorias')

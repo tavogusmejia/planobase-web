@@ -18,6 +18,7 @@ import { escalera, puertas, type Peldano, type Puerta } from '@content/puertas'
 import { asesoria } from '@content/site'
 import * as ingles from '@content/en/site'
 import * as inglesPuertas from '@content/en/puertas'
+import { proyectos as inglesProyectos } from '@content/en/proyectos'
 
 /**
  * El contenido corto del sitio, en el idioma que se pida.
@@ -102,6 +103,18 @@ function puertaCompleta(slug: string): boolean {
 
 export function puertaTraducida(slug: string, idioma: string): boolean {
   return ES_ESPANOL(idioma) ? true : puertaCompleta(slug)
+}
+
+/**
+ * Un proyecto está listo cuando su memoria está traducida.
+ *
+ * El título no cuenta: es un nombre propio y no se traduce. El subtítulo
+ * tampoco es condición —hay proyectos que no tienen—. La memoria es lo que se
+ * lee, y es lo único que puede quedar en español bajo una URL inglesa.
+ */
+export function proyectoTraducido(slug: string, idioma: string): boolean {
+  if (ES_ESPANOL(idioma)) return true
+  return Boolean(inglesProyectos[slug]?.memoria)
 }
 
 // ── Completitud, ruta por ruta ─────────────────────────────────────────────

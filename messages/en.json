@@ -61,7 +61,11 @@
     "concurso": "Competition entry",
     "otros": "others",
     "naturaleza": "Nature",
-    "ficha": "Experience sheet"
+    "ficha": "Experience sheet",
+    "acercar": "Zoom in",
+    "alejar": "Zoom out",
+    "restablecerZoom": "Actual size",
+    "ayudaZoom": "Scroll or pinch to zoom · double-click to toggle · drag to pan"
   },
   "categorias": {
     "todos": "All",

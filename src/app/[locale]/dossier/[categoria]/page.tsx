@@ -26,12 +26,25 @@ function esCategoria(v: string): v is Categoria {
   return CATEGORIAS.includes(v as Categoria)
 }
 
+/**
+ * Solo en el idioma editorial.
+ *
+ * Es un documento para el papel: se adjunta a una propuesta o a un pliego
+ * colombiano y sus rótulos —Año, Ubicación, Naturaleza— se leen en español. Va
+ * en `noindex, nofollow`, así que su versión inglesa no tendría ninguna vía a
+ * indexarse y solo serviría el mismo español bajo otra URL. Generarla es gastar
+ * build en las únicas páginas que mostrarían español bajo `/en` sin remedio.
+ *
+ * Consecuencia que hay que respetar: en estas rutas **no se pinta el conmutador
+ * de idioma**, o enlazaría a un 404.
+ */
 export async function generateStaticParams() {
   const counts = await getCategoryCounts()
   const conObra = CATEGORIAS.filter((c) => (counts[c] ?? 0) > 0)
-  return routing.locales.flatMap((locale) =>
-    conObra.map((categoria) => ({ locale, categoria })),
-  )
+  return conObra.map((categoria) => ({
+    locale: routing.defaultLocale,
+    categoria,
+  }))
 }
 
 export async function generateMetadata({

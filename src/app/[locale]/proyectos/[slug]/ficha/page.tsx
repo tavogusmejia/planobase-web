@@ -16,11 +16,21 @@ import { routing } from '@/i18n/routing'
  *
  * No se indexa: no es contenido del sitio, es una herramienta de trabajo.
  */
+/**
+ * Solo en el idioma editorial.
+ *
+ * Es un documento para el papel: se adjunta a una propuesta o a un pliego
+ * colombiano y sus rótulos —Año, Ubicación, Naturaleza— se leen en español. Va
+ * en `noindex, nofollow`, así que su versión inglesa no tendría ninguna vía a
+ * indexarse y solo serviría el mismo español bajo otra URL. Generarla es gastar
+ * build en las únicas páginas que mostrarían español bajo `/en` sin remedio.
+ *
+ * Consecuencia que hay que respetar: en estas rutas **no se pinta el conmutador
+ * de idioma**, o enlazaría a un 404.
+ */
 export async function generateStaticParams() {
   const slugs = await getAllSlugs()
-  return routing.locales.flatMap((locale) =>
-    slugs.map((slug) => ({ locale, slug })),
-  )
+  return slugs.map((slug) => ({ locale: routing.defaultLocale, slug }))
 }
 
 export async function generateMetadata({

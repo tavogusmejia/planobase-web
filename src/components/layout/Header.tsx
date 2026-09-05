@@ -29,6 +29,13 @@ export function Header({ locale }: { locale: string }) {
      que la portada es `/` en los dos idiomas. */
   const enPortada = pathname === '/'
 
+  /* Las hojas para el papel —el dossier y la ficha de experiencia— se generan
+     solo en el idioma editorial, así que aquí el conmutador enlazaría a un 404.
+     Se oculta. Es coherente con lo que son: documentos que se adjuntan a un
+     pliego colombiano, no páginas del sitio. */
+  const soloEnEspanol =
+    pathname.startsWith('/dossier') || pathname.endsWith('/ficha')
+
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur-sm">
       <div className="mx-auto flex h-24 max-w-[100rem] items-center justify-between gap-8 px-gutter lg:px-10">
@@ -80,22 +87,24 @@ export function Header({ locale }: { locale: string }) {
             </Link>
           ))}
 
-          <div className="flex items-center gap-2 border-l border-line pl-5">
-            {routing.locales.map((l) => (
-              <Link
-                key={l}
-                href={pathname}
-                locale={l}
-                aria-label={`${tc('cambiarIdioma')}: ${l.toUpperCase()}`}
-                className={cn(
-                  'text-block uppercase transition-colors',
-                  l === locale ? 'text-ink' : 'text-muted hover:text-accent',
-                )}
-              >
-                {l}
-              </Link>
-            ))}
-          </div>
+          {soloEnEspanol ? null : (
+            <div className="flex items-center gap-2 border-l border-line pl-5">
+              {routing.locales.map((l) => (
+                <Link
+                  key={l}
+                  href={pathname}
+                  locale={l}
+                  aria-label={`${tc('cambiarIdioma')}: ${l.toUpperCase()}`}
+                  className={cn(
+                    'text-block uppercase transition-colors',
+                    l === locale ? 'text-ink' : 'text-muted hover:text-accent',
+                  )}
+                >
+                  {l}
+                </Link>
+              ))}
+            </div>
+          )}
         </nav>
 
         <button
@@ -135,22 +144,24 @@ export function Header({ locale }: { locale: string }) {
               {t(item.key)}
             </Link>
           ))}
-          <div className="flex gap-4 pt-6">
-            {routing.locales.map((l) => (
-              <Link
-                key={l}
-                href={pathname}
-                locale={l}
-                onClick={() => setAbierto(false)}
-                className={cn(
-                  'text-block uppercase',
-                  l === locale ? 'text-ink' : 'text-muted',
-                )}
-              >
-                {l}
-              </Link>
-            ))}
-          </div>
+          {soloEnEspanol ? null : (
+            <div className="flex gap-4 pt-6">
+              {routing.locales.map((l) => (
+                <Link
+                  key={l}
+                  href={pathname}
+                  locale={l}
+                  onClick={() => setAbierto(false)}
+                  className={cn(
+                    'text-block uppercase',
+                    l === locale ? 'text-ink' : 'text-muted',
+                  )}
+                >
+                  {l}
+                </Link>
+              ))}
+            </div>
+          )}
         </nav>
       ) : null}
     </header>

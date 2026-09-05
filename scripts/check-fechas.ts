@@ -130,6 +130,13 @@ for (const post of posts) {
   }
 
   if (post.cuerpo.length === 0) marca('no tiene cuerpo.')
+  // El tipo ya impide una etiqueta inventada; esto solo impide el olvido.
+  if (post.etiquetas.length === 0) {
+    marca('no tiene etiquetas. Ver content/etiquetas.ts.')
+  }
+  if (new Set(post.etiquetas).size !== post.etiquetas.length) {
+    marca('tiene etiquetas repetidas.')
+  }
   if (post.metaDescripcion.length > 165) {
     marca(
       `metaDescripcion de ${post.metaDescripcion.length} caracteres; ` +
@@ -155,7 +162,8 @@ if (fallos.length > 0) {
 }
 
 const conFuentes = posts.filter((p) => p.fuentes.length > 0).length
+const etiquetasUsadas = new Set(posts.flatMap((p) => p.etiquetas)).size
 console.log(
   `  blog           ${posts.length} artículos · ${conFuentes} con fuentes · ` +
-    `${hechos.length} hechos vigilados · fechas coherentes`,
+    `${hechos.length} hechos vigilados · ${etiquetasUsadas} etiquetas en uso`,
 )

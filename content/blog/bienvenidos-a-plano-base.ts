@@ -36,6 +36,7 @@ export const post: Post = {
       'data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADwAQCdASoQAAoAA4BaJZQCdAEO4W9BH2AA/vcFWfqteVYKp6ypUtmEVP+CjHEEmEi4AA==',
     alt: 'Planta del centro cultural en Guaviare, dibujo del proyecto.',
   },
+  etiquetas: ['nacional'],
   fuentes: [],
   cuerpo: [
     {

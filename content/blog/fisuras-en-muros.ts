@@ -539,6 +539,7 @@ export const post: Post = {
         'desde una pantalla. Llame a alguien.',
     },
   ],
+  etiquetas: ['cali', 'propietario', 'administrador', 'patologia', 'sismo', 'estructura'],
   fuentes: [
     {
       titulo:

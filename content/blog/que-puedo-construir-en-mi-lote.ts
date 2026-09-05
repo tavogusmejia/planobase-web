@@ -460,6 +460,7 @@ export const post: Post = {
         'pantalla.',
     },
   ],
+  etiquetas: ['nacional', 'bogota', 'cali', 'propietario', 'norma-urbana', 'suelo-rural'],
   fuentes: [
     {
       titulo: 'Ley 388 de 1997, de desarrollo territorial',

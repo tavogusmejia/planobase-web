@@ -115,7 +115,30 @@ Meta CAPI · contraste de color · `/agendar` con obra y reconocimientos · dato
 
 ---
 
-## Fase 7 · CRM e intranet
+## Fase 7 · Navegación del blog
+
+Con diez artículos el índice por pilares alcanza. Con setenta y cinco, no: el
+pilar de casa campestre solo tiene catorce, y alguien que busca «Bogotá» o
+«copropiedad» los encuentra repartidos en cinco pilares distintos.
+
+| | Tarea |
+|---|---|
+| 7.1 | **Etiquetas transversales.** Un segundo eje que cruza los pilares: ciudad, tipo de lector, tipo de trámite. **El dato ya se está capturando** —vocabulario cerrado en `content/etiquetas.ts` y campo obligatorio en cada artículo—, así que esta fase construye la interfaz, no rellena setenta y cinco fichas |
+| 7.2 | **Buscador por palabras.** Índice pregenerado en el build y cargado bajo demanda, para no engordar el paquete del índice. Con setenta y cinco artículos cortos no hace falta backend |
+| 7.3 | **Filtros combinados** en el índice, y estado reflejado en la URL para que un filtro se pueda compartir |
+
+**La decisión que hay que tomar al construirlo, no después:** una etiqueta solo
+tiene página propia indexable si reúne suficientes artículos. Las demás filtran
+sin crear URL. Es el mismo criterio que ya se aplicó a las verticales del
+portafolio y a los pilares del blog — treinta páginas de etiqueta con dos
+artículos cada una son treinta páginas delgadas, y eso le baja la confianza al
+dominio entero.
+
+No es prioritario. Entra cuando el inventario de artículos esté cerrado o cerca.
+
+---
+
+## Fase 8 · CRM e intranet
 
 El cliente ve su proyecto, sus RFI, sus planos y sus comunicaciones; el equipo ve leads y proyectos. Cuelga de la tabla `clientes` que ya prevé la fase 3.
 
@@ -123,18 +146,18 @@ El cliente ve su proyecto, sus RFI, sus planos y sus comunicaciones; el equipo v
 
 ---
 
-## Fase 8 · Caribe insular
+## Fase 9 · Caribe insular
 
 Por etapas, cada una con criterio de avance. Nada público hasta cerrar 0.6.
 
 | Etapa | Qué se publica | Señal para avanzar |
 |---|---|---|
-| 8.0 | Nada. Se marca `construido` y se recogen los hechos | Los 23 marcados |
-| 8.1 | Solo las opciones de ciudad en el formulario | Tres leads costeros o internacionales |
-| 8.2 | Un párrafo en `/estudio` | Que sobreviva 60 días sin confundir al cliente institucional |
-| 8.3 | El artículo técnico del blog | Que traiga tráfico o una conversación |
-| 8.4 | Página de servicio «Vivienda costera» | Un encargo costero colombiano firmado |
-| 8.5 | Sección en inglés e indexación de `/en` | Que `/en` sea traducción real |
+| 9.0 | Nada. Se marca `construido` y se recogen los hechos | Los 23 marcados |
+| 9.1 | Solo las opciones de ciudad en el formulario | Tres leads costeros o internacionales |
+| 9.2 | Un párrafo en `/estudio` | Que sobreviva 60 días sin confundir al cliente institucional |
+| 9.3 | El artículo técnico del blog | Que traiga tráfico o una conversación |
+| 9.4 | Página de servicio «Vivienda costera» | Un encargo costero colombiano firmado |
+| 9.5 | Sección en inglés e indexación de `/en` | Que `/en` sea traducción real |
 
 ---
 
@@ -144,7 +167,7 @@ Por etapas, cada una con criterio de avance. Nada público hasta cerrar 0.6.
 0 decisiones → 1 antes de pauta → 2A calendario → PAUTA
                                 → 5 redacción (en paralelo)
                                 → 4 contenido (continuo)
-        → 2B pagos → 3 panel → 6 primer mes → 7 CRM → 8 Caribe
+        → 2B pagos → 3 panel → 6 primer mes → 7 navegación → 8 CRM → 9 Caribe
 ```
 
 **Lo más urgente y lo más barato:** verificar `planobase.co` en Resend (0.3). Son unos registros DNS, y sin eso ningún correo llega al cliente.

@@ -370,6 +370,7 @@ export const post: Post = {
         'tomar una decisión que dependa de alguna, confírmela antes.',
     },
   ],
+  etiquetas: ['cali', 'propietario', 'constructora', 'licencia', 'norma-urbana'],
   fuentes: [
     {
       titulo: 'Revisión y ajuste del Plan de Ordenamiento Territorial: proyecto de acuerdo y considerandos',

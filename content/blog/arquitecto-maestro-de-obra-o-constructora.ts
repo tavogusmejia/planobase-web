@@ -295,6 +295,7 @@ export const post: Post = {
         'cotizando puede firmarlo.** Con eso, la decisión se toma sola.',
     },
   ],
+  etiquetas: ['nacional', 'propietario', 'contrato', 'estructura'],
   fuentes: [
     {
       titulo: 'Ley 400 de 1997, normas sobre construcciones sismo resistentes',

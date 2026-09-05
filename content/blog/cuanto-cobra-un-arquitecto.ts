@@ -487,6 +487,7 @@ export const post: Post = {
         'los mínimos ligados al salario— cambian cada año.',
     },
   ],
+  etiquetas: ['nacional', 'propietario', 'costos', 'contrato'],
   fuentes: [
     {
       titulo: 'Decreto 2090 de 1989: honorarios para trabajos de arquitectura',

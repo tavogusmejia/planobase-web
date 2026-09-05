@@ -408,6 +408,7 @@ export const post: Post = {
         'las de su publicación.',
     },
   ],
+  etiquetas: ['jamundi', 'propietario', 'constructora', 'licencia', 'costos'],
   fuentes: [
     {
       titulo: 'Decreto 1077 de 2015, sector Vivienda, Ciudad y Territorio (texto compilado)',

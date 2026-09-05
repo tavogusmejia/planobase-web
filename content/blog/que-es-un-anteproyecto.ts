@@ -249,6 +249,7 @@ export const post: Post = {
         'escrito, y antes.',
     },
   ],
+  etiquetas: ['nacional', 'propietario', 'contrato'],
   fuentes: [
     {
       titulo: 'Decreto 2090 de 1989, honorarios para trabajos de arquitectura',

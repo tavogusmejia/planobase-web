@@ -304,6 +304,7 @@ export const post: Post = {
         'dos partes, dice bastante más que cualquier referencia.',
     },
   ],
+  etiquetas: ['nacional', 'propietario', 'contrato'],
   fuentes: [
     {
       titulo: 'Ley 23 de 1982 sobre derechos de autor, artículos 20, 30, 43 y 183',

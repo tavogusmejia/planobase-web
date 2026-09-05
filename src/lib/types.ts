@@ -1,3 +1,4 @@
+import type { Etiqueta } from '@content/etiquetas'
 /**
  * Modelo de dominio. Estas formas son deliberadamente equivalentes a las tablas
  * de `01-supabase-schema.sql`, para que cambiar la fuente de datos de local a
@@ -226,6 +227,15 @@ export type Post = {
   portada: ImagenBlog | null
   /** Slug de la puerta de servicio a la que dirige. Ver `content/puertas.ts`. */
   puerta: string | null
+  /**
+   * Segundo eje de navegación, transversal a los pilares: dónde, para quién y
+   * de qué. Vocabulario cerrado en `content/etiquetas.ts`.
+   *
+   * El filtro y el buscador se construyen en la fase 7 de la hoja de ruta. El
+   * campo existe desde ahora para que los artículos se etiqueten al
+   * escribirlos, en vez de tener que releer setenta y cinco después.
+   */
+  etiquetas: Etiqueta[]
   fuentes: Fuente[]
 }
 

@@ -547,6 +547,7 @@ export const post: Post = {
         'pesos cambia cada año.',
     },
   ],
+  etiquetas: ['nacional', 'administrador', 'propiedad-horizontal', 'seguridad'],
   fuentes: [
     {
       titulo: 'Ley 1209 de 2008, por la cual se establecen normas de seguridad en piscinas',

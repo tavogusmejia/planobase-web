@@ -113,6 +113,8 @@ Lo que sigue es la foto del día. Cada línea con ✅ está desplegada en
 | ✅ | Contraste de color corregido: texto secundario, enlaces y campos de formulario *(tarea de §7)* |
 | ✅ | Bogotá deja de figurar en Cundinamarca *(decisión 1.10)* |
 | ✅ | Los 32 artículos que faltan, listados y priorizados *(§14)* |
+| ✅ | **Cabeceras de seguridad.** Hasta ahora, en el dominio real no salía ni una *(tarea de §7)* |
+| ✅ | El vídeo de Tirreno, que llevaba desde la migración sin verse |
 
 ### Empezado, falta parte 🟡
 
@@ -136,8 +138,8 @@ Lo que sigue es la foto del día. Cada línea con ✅ está desplegada en
 
 Reservas con calendario y Meet *(§3)* · Pagos *(§4)* · CRM e intranet *(§5)* ·
 Pauta *(§10)* · Y de §7: política de datos de la Ley 1581, banner de
-consentimiento, GA4 y la etiqueta de conversión, monitoreo de errores,
-cabeceras de seguridad, y URLs de campaña.
+consentimiento, GA4 y la etiqueta de conversión, monitoreo de errores, y URLs
+de campaña.
 
 **Nada de la pauta puede encenderse todavía**: sin la política de datos, el
 banner y la medición, el dinero entra a un sitio que no mide y que puede perder
@@ -886,7 +888,7 @@ página.
 | ✅ | Páginas de error (`error.tsx`, `global-error.tsx`) | — |
 | ⬜ | Monitoreo de errores + alerta de lead perdido + uptime | 0,5 d |
 | 🟡 | Resend verificado ✅ + acuse de recibo al cliente ⬜ | 4 h |
-| ⬜ | Cabeceras de seguridad (CSP, HSTS, resto) | 4-6 h |
+| ✅ | Cabeceras de seguridad (CSP, HSTS, resto) | — |
 | ✅ | Open Graph propio por página | — |
 | ⬜ | URLs de campaña con `/es/` explícito y UTMs | 3 h |
 | 🔴 | Marcar construido vs. concurso en los 23 proyectos | 0,5 d |
@@ -919,8 +921,10 @@ hecho: se traduce todo** · Teclado en el menú móvil.
 - **El gris de todo el sitio no pasa accesibilidad.** Contraste 2,71:1 cuando el
   mínimo es 4,5:1, y aparece **65 veces**. La corrección es cambiar dos
   variables de color.
-- **En producción no se envía ninguna cabecera de seguridad.** El bloque
-  devuelve un array vacío en cuanto el sitio pasa al dominio real.
+- ~~**En producción no se envía ninguna cabecera de seguridad.** El bloque
+  devuelve un array vacío en cuanto el sitio pasa al dominio real.~~ ✅
+  **Corregido.** Salen CSP, X-Frame-Options, nosniff, Referrer-Policy,
+  Permissions-Policy, COOP y —solo en el dominio real— HSTS a un año.
 - **`/contacto` es la página más pesada del sitio** (165 kB de JavaScript) y es
   la página donde se decide todo.
 

@@ -16,7 +16,7 @@ import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { track } from '@/lib/analytics'
 
 const campoBase =
-  'w-full border-0 border-b border-line bg-transparent px-0 py-3 text-body ' +
+  'w-full border-0 border-b border-line-control bg-transparent px-0 py-3 text-body ' +
   'text-ink outline-none transition-colors placeholder:text-muted ' +
   'focus:border-accent focus:ring-0'
 

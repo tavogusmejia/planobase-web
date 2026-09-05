@@ -95,7 +95,7 @@ export function CalculadoraExpensas({ uvt, anioUvt }: { uvt: number; anioUvt: nu
               const ms = municipiosDelDepartamento(d)
               setMunicipio(ms.length === 1 ? (ms[0]?.codigo ?? '') : '')
             }}
-            className="w-full border-b border-line bg-transparent py-2 text-ink outline-none focus:border-accent"
+            className="w-full border-b border-line-control bg-transparent py-2 text-ink outline-none focus:border-accent"
           >
             <option value="">Elija el departamento</option>
             {DEPARTAMENTOS_DANE.map((d) => (
@@ -111,7 +111,7 @@ export function CalculadoraExpensas({ uvt, anioUvt }: { uvt: number; anioUvt: nu
             value={municipio}
             onChange={(e) => setMunicipio(e.target.value)}
             disabled={!departamento || municipios.length <= 1}
-            className="w-full border-b border-line bg-transparent py-2 text-ink outline-none focus:border-accent disabled:text-muted"
+            className="w-full border-b border-line-control bg-transparent py-2 text-ink outline-none focus:border-accent disabled:text-muted"
           >
             <option value="">
               {departamento ? 'Elija el municipio' : 'Elija antes el departamento'}
@@ -128,7 +128,7 @@ export function CalculadoraExpensas({ uvt, anioUvt }: { uvt: number; anioUvt: nu
           <select
             value={tramite}
             onChange={(e) => setTramite(e.target.value as Tramite)}
-            className="w-full border-b border-line bg-transparent py-2 text-ink outline-none focus:border-accent"
+            className="w-full border-b border-line-control bg-transparent py-2 text-ink outline-none focus:border-accent"
           >
             <option value="construccion">Licencia de construcción</option>
             <option value="urbanizacion">Licencia de urbanización o parcelación</option>
@@ -145,7 +145,7 @@ export function CalculadoraExpensas({ uvt, anioUvt }: { uvt: number; anioUvt: nu
               <select
                 value={uso}
                 onChange={(e) => setUso(e.target.value as Uso)}
-                className="w-full border-b border-line bg-transparent py-2 text-ink outline-none focus:border-accent"
+                className="w-full border-b border-line-control bg-transparent py-2 text-ink outline-none focus:border-accent"
               >
                 <option value="vivienda">Vivienda</option>
                 <option value="otros">Comercio, industria o institucional</option>
@@ -159,7 +159,7 @@ export function CalculadoraExpensas({ uvt, anioUvt }: { uvt: number; anioUvt: nu
                   onChange={(e) =>
                     setEstrato(Number(e.target.value) as 1 | 2 | 3 | 4 | 5 | 6)
                   }
-                  className="w-full border-b border-line bg-transparent py-2 text-ink outline-none focus:border-accent"
+                  className="w-full border-b border-line-control bg-transparent py-2 text-ink outline-none focus:border-accent"
                 >
                   {[1, 2, 3, 4, 5, 6].map((n) => (
                     <option key={n} value={n}>
@@ -186,7 +186,7 @@ export function CalculadoraExpensas({ uvt, anioUvt }: { uvt: number; anioUvt: nu
                 min={1}
                 value={area}
                 onChange={(e) => setArea(e.target.value)}
-                className="w-full border-b border-line bg-transparent py-2 tabular-nums text-ink outline-none focus:border-accent"
+                className="w-full border-b border-line-control bg-transparent py-2 tabular-nums text-ink outline-none focus:border-accent"
               />
             </Campo>
           </>

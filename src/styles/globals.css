@@ -9,13 +9,35 @@
 @theme {
   /* --- Color -------------------------------------------------------------
      Nombres del manual. El acento nunca es fondo de bloque grande: vive en
-     líneas, enlaces y texto secundario.                                      */
+     líneas, enlaces y texto secundario.
+
+     Dos tonos se oscurecieron respecto del manual, por legibilidad. La regla
+     de accesibilidad pide 4,5:1 entre texto y fondo, y el sitio tiene un solo
+     peso tipográfico —400— así que no hay negrita que compense un gris flojo:
+     el contraste es lo único que separa lo legible de lo que se adivina.
+
+       · «Gris cadete» #929fa7 daba 2,71:1 sobre blanco. Es el color de los
+         textos de ayuda del formulario, justo los que explican qué escribir.
+       · «Azul de la fuerza aérea» #55839b daba 4,11:1. Es el color de todos
+         los enlaces del sitio.
+
+     Los dos se bajaron por el camino más corto —mismo tono, menos luz— hasta
+     cruzar el umbral sobre el peor fondo claro que se usa de verdad, que es
+     `paper-2`. El escalón de jerarquía entre `ink`, `ink-soft` y `muted` se
+     conserva: 14,9 · 6,6 · 4,8 sobre blanco.                                 */
   --color-ink: #23282c; /* Bronce */
   --color-ink-soft: #5a5e61;
-  --color-accent: #55839b; /* Azul de la fuerza aérea */
+  --color-accent: #4e778d; /* Azul de la fuerza aérea, oscurecido a 4,8:1 */
   --color-accent-deep: #234951;
-  --color-muted: #929fa7; /* Gris cadete */
+  --color-muted: #6a747a; /* Gris cadete, oscurecido a 4,8:1 */
   --color-line: #c8c9ca;
+
+  /* El filete de un campo de formulario no es decoración: es el borde de un
+     control, y ahí la regla pide 3:1. `line` da 1,66:1, que como cota fina de
+     plano está bien y como borde de un campo donde hay que escribir, no. Este
+     tono existe solo para los controles; las 71 líneas de dibujo del sitio
+     siguen usando `line`.                                                    */
+  --color-line-control: #8f9091;
   --color-paper: #ffffff;
   --color-paper-2: #f8f8f8;
   --color-mist: #e1e6ea; /* Blanco anti-flash */

@@ -556,7 +556,11 @@ Seis cambios, todos en la rama `blog/seccion-y-articulos`, sin push.
    propósito: en el formulario porque alguien puede tener un proyecto ahí, y en
    la calculadora porque el resultado correcto es «sin expensas».
 
-4. **El contraste de `--color-muted` sigue en 2,7:1** sobre blanco, y hace falta
-   4,5:1. Se usa en 65 sitios. No se tocó porque cambiar un color de marca es
-   decisión suya, no mía. La corrección más cercana en la misma familia de tono
-   es `#6b7880`, que da 4,54:1 y conserva el escalón frente a `--color-ink-soft`.
+4. **El contraste está corregido.** Usted decidió que el manual de marca es guía
+   y que prima la experiencia del usuario, así que se aplicó. Eran tres cosas y
+   no una: el gris de los textos de ayuda (2,71 → 4,78), el azul de **todos los
+   enlaces** del sitio, que también fallaba (4,11 → 4,83), y el filete de los
+   campos de formulario, que como borde de un control necesita 3:1 y daba 1,66.
+   Ese último no se arregló oscureciendo `line` —son 71 líneas de dibujo y ahí
+   el trazo fino es el lenguaje del sitio—, sino con un tono aparte que existe
+   solo para los controles.

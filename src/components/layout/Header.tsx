@@ -95,6 +95,16 @@ export function Header({ locale }: { locale: string }) {
           aria-label="Principal"
           className="border-t border-line px-gutter pb-8 pt-2 lg:hidden"
         >
+          {/* Aquí sí va «Inicio»: con el menú abierto el logotipo queda tapado
+              por la lista, así que deja de ser el acceso evidente que sí es en
+              escritorio. */}
+          <Link
+            href="/"
+            onClick={() => setAbierto(false)}
+            className="block border-b border-line py-4 text-h4 text-ink"
+          >
+            {t('inicio')}
+          </Link>
           {navegacion.map((item) => (
             <Link
               key={item.key}

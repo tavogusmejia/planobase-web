@@ -16,7 +16,14 @@ export async function CtaBar() {
   const t = await getTranslations('cta')
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-ink/10 bg-ink text-paper">
+    <div
+      /* Fuera del papel. Las reglas de impresión ocultan cabecera, pie y lo
+         marcado así; sin esto, «Asesoría técnica · Sin costo» salía estampado
+         encima de la ficha de experiencia y del dossier — justo el documento
+         que se adjunta a una propuesta formal. */
+      data-sin-imprimir
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-ink/10 bg-ink text-paper"
+    >
       <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-3 px-gutter py-3 lg:px-10">
         <p className="text-block hidden lg:block">
           {asesoria.nombre} · {etiquetaPrecio(asesoria.precioCOP)}

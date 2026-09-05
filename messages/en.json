@@ -1,5 +1,6 @@
 {
   "nav": {
+    "inicio": "Home",
     "proyectos": "Projects",
     "estudio": "Studio",
     "servicios": "Services",
@@ -9,7 +10,8 @@
     "cerrarMenu": "Close menu",
     "irAlInicio": "Plano Base, go to home",
     "saltarAlContenido": "Skip to content",
-    "agendar": "Book"
+    "agendar": "Book",
+    "volverArriba": "Back to top"
   },
   "cta": {
     "reservar": "Book a consultation",

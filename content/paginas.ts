@@ -16,6 +16,36 @@
  * `src/lib/i18n/publicacion.ts`.
  */
 export const copiaPaginas = {
+  '/contacto': {
+    titulo: 'Contáctenos',
+    tarjetaTitulo: 'Hablemos de su proyecto',
+    metaDescripcion:
+      'Cuéntenos su proyecto. Diseño arquitectónico y consultoría técnica ' +
+      'para proyectos de distinta escala en Bogotá, Medellín, Barranquilla, ' +
+      'Cali y el resto de Colombia.',
+    titular: 'Inicie su proyecto con nosotros',
+    entrada:
+      'Diseño arquitectónico y consultoría técnica de proyectos de distinta ' +
+      'escala y complejidad. Completar el formulario no implica ningún ' +
+      'compromiso: solo necesitamos algunos datos para entender su idea, sus ' +
+      'expectativas y su presupuesto.',
+  },
+
+  '/agendar': {
+    /* Los tres puntos son exactamente lo que promete el anuncio, así que la
+       página tiene que sostenerlos. El segundo decía «para el Valle del
+       Cauca» y el estudio trabaja en todo el país: es la tarea 5.1 en la
+       página donde se convierte. */
+    incluyeTitular: 'Qué se lleva de la sesión',
+    incluye1: 'Si su proyecto es técnicamente viable, y qué lo condiciona.',
+    incluye2: 'Un rango real de costos para su municipio, sin cifras de catálogo.',
+    incluye3: 'Los pasos concretos para empezar, en orden y con tiempos.',
+    condiciones: 'Condiciones',
+    porWhatsapp: 'Agendar por WhatsApp',
+    respuesta: 'Respondemos dentro de la siguiente hora hábil.',
+    porFormulario: 'Prefiero escribir por el formulario',
+  },
+
   '/servicios': {
     titulo: 'Servicios',
     tarjetaTitulo: 'Servicios de Plano Base',

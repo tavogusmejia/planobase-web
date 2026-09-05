@@ -5,6 +5,13 @@ import { MUNICIPIO_DANE } from '@content/apbs/divipola'
 /**
  * Formulario de contacto.
  *
+ * **Los mensajes de error son claves, no frases.** El esquema lo usan el
+ * navegador y la Server Action, y ninguno de los dos puede resolver un idioma:
+ * uno no tiene `await` y el otro no sabe en qué idioma está mirando el
+ * visitante. Así que aquí van las claves del espacio `formulario.errores` de
+ * `messages/`, y quien las pinta —`ContactForm`— las traduce. Antes eran frases
+ * en español, y en `/en` el formulario validaba en español.
+ *
  * Parte de los 5 campos que ya existen en el sitio de Wix y añade dos que el
  * plan de campaña necesita:
  *
@@ -24,22 +31,22 @@ export const leadSchema = z.object({
   nombre: z
     .string()
     .trim()
-    .min(2, 'Escribe tu nombre completo.')
-    .max(120, 'El nombre es demasiado largo.'),
+    .min(2, 'errores.nombre')
+    .max(120, 'errores.nombreLargo'),
 
   correo: z
     .string()
     .trim()
     .toLowerCase()
-    .email('Revisa el correo: parece que falta algo.')
-    .max(160),
+    .email('errores.correo')
+    .max(160, 'errores.largo'),
 
   whatsapp: z
     .string()
     .trim()
-    .min(7, 'Necesitamos un número para responderte.')
-    .max(25)
-    .regex(/^[\d\s+()-]+$/, 'El número solo puede llevar dígitos y + ( ) -'),
+    .min(7, 'errores.whatsapp')
+    .max(25, 'errores.largo')
+    .regex(/^[\d\s+()-]+$/, 'errores.whatsappFormato'),
 
   /**
    * Código DANE de cinco dígitos, o `EX000` si el proyecto está fuera del país.
@@ -56,21 +63,21 @@ export const leadSchema = z.object({
   codigoMunicipio: z
     .string()
     .refine((c) => c === FUERA_DE_COLOMBIA.codigo || MUNICIPIO_DANE.has(c), {
-      message: 'Elige dónde se ubica el proyecto.',
+      message: 'errores.municipio',
     }),
 
   etapa: z.enum(etapasProyecto, {
-    message: 'Cuéntanos en qué etapa está.',
+    message: 'errores.etapa',
   }),
 
   mensaje: z
     .string()
     .trim()
-    .min(10, 'Cuéntanos un poco más, aunque sean dos líneas.')
-    .max(4000),
+    .min(10, 'errores.mensaje')
+    .max(4000, 'errores.largo'),
 
   declaracion: z.literal(true, {
-    message: 'Necesitamos que confirmes la declaración para continuar.',
+    message: 'errores.declaracion',
   }),
 
   /** Trampa antibots. Invisible para una persona; si viene llena, se descarta

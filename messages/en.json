@@ -92,5 +92,39 @@
     "traduccionPendiente": "Content shown in Spanish; the English translation is in progress.",
     "sinCosto": "Free",
     "desdePrecio": "from {precio}"
+  },
+  "formulario": {
+    "nombre": "Full name",
+    "nombreAyuda": "So we address you properly.",
+    "correo": "Email",
+    "correoAyuda": "So we can send you the proposal or the initial information.",
+    "whatsapp": "WhatsApp",
+    "whatsappAyuda": "It is where we answer fastest.",
+    "ubicacion": "Where is the project?",
+    "ubicacionAyuda": "The rules change from one municipality to the next. Knowing which one lets us come to the first call having read the local plan.",
+    "departamento": "Department",
+    "municipio": "Municipality",
+    "etapa": "What stage is it at?",
+    "elegir": "Choose one",
+    "mensaje": "Tell us your idea or what you need",
+    "mensajeAyuda": "You can include your budget. It commits you to nothing and helps us give you a realistic proposal.",
+    "declaracion": "I declare that the information I have given is accurate and complete.",
+    "trampa": "Do not fill in",
+    "enviar": "Send project",
+    "enviando": "Sending",
+    "recibido": "We have your message.",
+    "recibidoTexto": "We will write to you on WhatsApp within the next working hour. If you would rather get ahead of the conversation, you can write to us now.",
+    "errores": {
+      "nombre": "Please write your full name.",
+      "nombreLargo": "That name is too long.",
+      "correo": "Check the email address: something looks missing.",
+      "whatsapp": "We need a number to reply to you.",
+      "whatsappFormato": "The number can only contain digits and + ( ) -",
+      "municipio": "Choose where the project is.",
+      "etapa": "Tell us what stage it is at.",
+      "mensaje": "Tell us a little more, even if it is two lines.",
+      "declaracion": "We need you to confirm the declaration to continue.",
+      "largo": "That text is too long."
+    }
   }
 }

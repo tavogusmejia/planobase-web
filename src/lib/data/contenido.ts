@@ -1,4 +1,4 @@
-import type { TeamMember } from '@/lib/types'
+import type { Service, TeamMember } from '@/lib/types'
 import { fusionar, oCae } from '@/lib/i18n/fusionar'
 import {
   copiaPaginas,
@@ -15,6 +15,7 @@ import {
   type TemaVision,
 } from '@content/site'
 import { escalera, puertas, type Peldano, type Puerta } from '@content/puertas'
+import { asesoria } from '@content/site'
 import * as ingles from '@content/en/site'
 import * as inglesPuertas from '@content/en/puertas'
 
@@ -75,6 +76,10 @@ export function equipoDe(idioma: string): TeamMember[] {
   return equipo.map((m) => fusionar(m, { cargo: ingles.cargos[m.slug] }))
 }
 
+export function asesoriaDe(idioma: string): Service {
+  return ES_ESPANOL(idioma) ? asesoria : fusionar<Service>(asesoria, ingles.asesoria)
+}
+
 export function puertasDe(idioma: string): Puerta[] {
   if (ES_ESPANOL(idioma)) return puertas
   return puertas.map((p) => fusionar<Puerta>(p, inglesPuertas.puertas[p.slug]))
@@ -109,6 +114,11 @@ export function puertaTraducida(slug: string, idioma: string): boolean {
  * contenido que de verdad la llena. Cada entrada dice qué se lee en esa página.
  */
 const COMPLETITUD: Record<RutaConCopia, () => boolean> = {
+  /* Estas dos se llenan con su propia copia y con `asesoria` de site.ts, que
+     es el mismo producto en los dos idiomas salvo su descripción. */
+  '/contacto': () => Boolean(ingles.asesoria.descripcion),
+  '/agendar': () => Boolean(ingles.asesoria.descripcion),
+
   /* Las siete puertas y los seis peldaños: la página de servicios los pinta
      todos, así que traducir seis de siete la deja a medias. */
   '/servicios': () =>

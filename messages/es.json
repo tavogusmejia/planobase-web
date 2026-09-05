@@ -92,5 +92,39 @@
     "traduccionPendiente": "Contenido en español; la traducción al inglés está en curso.",
     "sinCosto": "Sin costo",
     "desdePrecio": "desde {precio}"
+  },
+  "formulario": {
+    "nombre": "Nombre completo",
+    "nombreAyuda": "Para dirigirnos a usted correctamente.",
+    "correo": "Correo electrónico",
+    "correoAyuda": "Para enviarle la propuesta o la información inicial.",
+    "whatsapp": "WhatsApp",
+    "whatsappAyuda": "Es por donde respondemos más rápido.",
+    "ubicacion": "¿Dónde se ubica el proyecto?",
+    "ubicacionAyuda": "La norma cambia de un municipio a otro. Saber cuál es nos deja llegar a la primera llamada con el POT leído.",
+    "departamento": "Departamento",
+    "municipio": "Municipio",
+    "etapa": "¿En qué etapa está?",
+    "elegir": "Elige una opción",
+    "mensaje": "Cuéntenos su idea o necesidad",
+    "mensajeAyuda": "Puede incluir su presupuesto. No compromete nada y nos ayuda a darle una propuesta realista.",
+    "declaracion": "Declaro que la información que he facilitado es exacta y completa.",
+    "trampa": "No rellenar",
+    "enviar": "Enviar proyecto",
+    "enviando": "Enviando",
+    "recibido": "Recibimos su mensaje.",
+    "recibidoTexto": "Le escribimos por WhatsApp dentro de la próxima hora hábil. Si prefiere adelantar la conversación, puede escribirnos ahora mismo.",
+    "errores": {
+      "nombre": "Escriba su nombre completo.",
+      "nombreLargo": "El nombre es demasiado largo.",
+      "correo": "Revise el correo: parece que falta algo.",
+      "whatsapp": "Necesitamos un número para responderle.",
+      "whatsappFormato": "El número solo puede llevar dígitos y + ( ) -",
+      "municipio": "Elija dónde se ubica el proyecto.",
+      "etapa": "Cuéntenos en qué etapa está.",
+      "mensaje": "Cuéntenos un poco más, aunque sean dos líneas.",
+      "declaracion": "Necesitamos que confirme la declaración para continuar.",
+      "largo": "Ese texto es demasiado largo."
+    }
   }
 }

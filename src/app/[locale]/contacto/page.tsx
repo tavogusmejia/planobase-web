@@ -3,10 +3,11 @@ import { setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { ContactForm } from '@/components/forms/ContactForm'
 import { Rule } from '@/components/ui/Rule'
-import { asesoria, contacto } from '@content/site'
+import { contacto } from '@content/site'
 import { etiquetaPrecio } from '@/lib/precio'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { alternativas, tarjeta } from '@/lib/metadatos'
+import { asesoriaDe, copiaDe } from '@/lib/data/contenido'
 
 export async function generateMetadata({
   params,
@@ -15,12 +16,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const ruta = `/${locale}/contacto`
-  const descripcion =
-    'Cuéntanos tu proyecto. Diseño arquitectónico y consultoría técnica ' +
-    'para proyectos de distinta escala en Bogotá, Medellín, Barranquilla, ' +
-    'Cali y el resto de Colombia.'
+  const copiaMeta = copiaDe('/contacto', locale)
+  const descripcion = copiaMeta.metaDescripcion
   return {
-    title: 'Contáctanos',
+    title: copiaMeta.titulo,
     description: descripcion,
     /* Canonical autorreferenciado, hreflang solo de lo traducido y el
        `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
@@ -31,7 +30,7 @@ export async function generateMetadata({
     openGraph: tarjeta({
       locale,
       ruta,
-      titulo: 'Hablemos de su proyecto',
+      titulo: copiaMeta.tarjetaTitulo,
       descripcion,
     }),
   }
@@ -45,16 +44,16 @@ export default async function ContactoPage({
   const { locale } = await params
   setRequestLocale(locale)
 
+  const copia = copiaDe('/contacto', locale)
+  const asesoria = asesoriaDe(locale)
+
   return (
     <div className="mx-auto max-w-[100rem] px-gutter py-16 lg:px-10 lg:py-24">
       <h1 className="text-h1 measure-display text-ink">
-        Inicia tu proyecto con nosotros
+        {copia.titular}
       </h1>
       <p className="text-lead measure mt-6 text-ink-soft">
-        Diseño arquitectónico y consultoría técnica de proyectos de distinta
-        escala y complejidad. Completar el formulario no implica ningún
-        compromiso: solo necesitamos algunos datos para entender tu idea, tus
-        expectativas y tu presupuesto.
+        {copia.entrada}
       </p>
 
       <div className="mt-20 grid gap-16 lg:grid-cols-[1fr_22rem] lg:gap-24">

@@ -2,10 +2,11 @@ import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
-import { asesoria, contacto } from '@content/site'
+import { contacto } from '@content/site'
 import { etiquetaPrecio } from '@/lib/precio'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { alternativas, tarjeta } from '@/lib/metadatos'
+import { asesoriaDe, copiaDe } from '@/lib/data/contenido'
 
 export async function generateMetadata({
   params,
@@ -13,6 +14,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  const asesoria = asesoriaDe(locale)
   const ruta = `/${locale}/agendar`
   const descripcion = asesoria.descripcion.slice(0, 300)
   return {
@@ -59,15 +61,14 @@ export default async function AgendarPage({
   const { locale } = await params
   setRequestLocale(locale)
 
+  const copia = copiaDe('/agendar', locale)
+  const asesoria = asesoriaDe(locale)
+
   const mensajeWa = `Hola Plano Base, quiero agendar una ${asesoria.nombre.toLowerCase()}.`
 
   /* Lo que la persona recibe. Sale del plan de campaña: es exactamente lo que
      el anuncio promete, así que la página tiene que sostenerlo. */
-  const incluye = [
-    'Si tu proyecto es técnicamente viable, y qué lo condiciona.',
-    'Un rango real de costos para el Valle del Cauca, sin cifras de catálogo.',
-    'Los pasos concretos para empezar, en orden y con tiempos.',
-  ]
+  const incluye = [copia.incluye1, copia.incluye2, copia.incluye3]
 
   return (
     <div className="mx-auto max-w-[100rem] px-gutter py-16 lg:px-10 lg:py-24">
@@ -80,7 +81,7 @@ export default async function AgendarPage({
 
           <section className="mt-16">
             <h2 className="text-block text-muted">
-              Qué te llevas de la sesión
+              {copia.incluyeTitular}
             </h2>
             <ul className="mt-6 border-t border-line">
               {incluye.map((punto) => (
@@ -128,17 +129,17 @@ export default async function AgendarPage({
               origen="web/agendar"
               className="text-block mt-8 block bg-signal px-7 py-4 text-center uppercase tracking-[0.08em] text-paper transition-opacity hover:opacity-90"
             >
-              Agendar por WhatsApp
+              {copia.porWhatsapp}
             </WhatsAppLink>
             <p className="text-block mt-3 text-muted">
-              Respondemos dentro de la siguiente hora hábil.
+              {copia.respuesta}
             </p>
 
             <Link
               href="/contacto"
               className="text-small mt-8 block text-accent underline-offset-4 hover:underline"
             >
-              Prefiero escribir por el formulario
+              {copia.porFormulario}
             </Link>
           </div>
 

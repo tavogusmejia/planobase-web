@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { leadSchema, type LeadInput } from '@/lib/schemas'
@@ -21,6 +22,14 @@ const campoBase =
   'focus:border-accent focus:ring-0'
 
 export function ContactForm() {
+  const t = useTranslations('formulario')
+  const tc = useTranslations('cta')
+
+  /* El esquema devuelve claves y no frases: lo usan el navegador y la Server
+     Action, y ninguno de los dos puede resolver el idioma. Aquí sí. */
+  const err = (clave?: string) =>
+    clave ? t(clave as Parameters<typeof t>[0]) : undefined
+
   const [enviado, setEnviado] = useState(false)
   const [general, setGeneral] = useState<string | null>(null)
 
@@ -75,10 +84,9 @@ export function ContactForm() {
   if (enviado) {
     return (
       <div className="border-t border-accent pt-8">
-        <h3 className="text-h3 text-ink">Recibimos tu mensaje.</h3>
+        <h3 className="text-h3 text-ink">{t('recibido')}</h3>
         <p className="text-body measure mt-4 text-ink-soft">
-          Te escribimos por WhatsApp dentro de la próxima hora hábil. Si prefieres
-          adelantar la conversación, puedes escribirnos ahora mismo.
+          {t('recibidoTexto')}
         </p>
         <WhatsAppLink
           numero={contacto.whatsapp}
@@ -86,7 +94,7 @@ export function ContactForm() {
           origen="web/formulario-enviado"
           className="text-block mt-8 inline-block bg-signal px-7 py-4 uppercase tracking-[0.08em] text-paper transition-opacity hover:opacity-90"
         >
-          Escribir por WhatsApp
+          {tc('escribirWhatsapp')}
         </WhatsAppLink>
       </div>
     )
@@ -119,9 +127,9 @@ export function ContactForm() {
     >
       <Campo
         id="nombre"
-        label="Nombre completo"
-        ayuda="Para dirigirnos a ti correctamente."
-        error={errors.nombre?.message}
+        label={t('nombre')}
+        ayuda={t('nombreAyuda')}
+        error={err(errors.nombre?.message)}
       >
         <input
           id="nombre"
@@ -133,9 +141,9 @@ export function ContactForm() {
 
       <Campo
         id="correo"
-        label="Correo electrónico"
-        ayuda="Para enviarte la propuesta o la información inicial."
-        error={errors.correo?.message}
+        label={t('correo')}
+        ayuda={t('correoAyuda')}
+        error={err(errors.correo?.message)}
       >
         <input
           id="correo"
@@ -148,9 +156,9 @@ export function ContactForm() {
 
       <Campo
         id="whatsapp"
-        label="WhatsApp"
-        ayuda="Es por donde respondemos más rápido."
-        error={errors.whatsapp?.message}
+        label={t('whatsapp')}
+        ayuda={t('whatsappAyuda')}
+        error={err(errors.whatsapp?.message)}
       >
         <input
           id="whatsapp"
@@ -165,20 +173,20 @@ export function ContactForm() {
 
       <Campo
         id="departamento"
-        label="¿Dónde se ubica el proyecto?"
-        ayuda="La norma cambia de un municipio a otro. Saber cuál es nos deja llegar a la primera llamada con el POT leído."
-        error={errors.codigoMunicipio?.message}
+        label={t('ubicacion')}
+        ayuda={t('ubicacionAyuda')}
+        error={err(errors.codigoMunicipio?.message)}
       >
         <div className="grid gap-5 sm:grid-cols-2">
           <select
             id="departamento"
-            aria-label="Departamento"
+            aria-label={t('departamento')}
             value={departamento}
             className={campoBase}
             onChange={(e) => setDepartamento(e.target.value)}
           >
             <option value="" disabled>
-              Departamento
+              {t('departamento')}
             </option>
             {DEPARTAMENTOS_DANE.map((d) => (
               <option key={d.codigo} value={d.codigo}>
@@ -192,14 +200,14 @@ export function ContactForm() {
 
           <select
             id="codigoMunicipio"
-            aria-label="Municipio"
+            aria-label={t('municipio')}
             defaultValue=""
             disabled={departamento === ''}
             className={cn(campoBase, departamento === '' && 'opacity-50')}
             {...register('codigoMunicipio')}
           >
             <option value="" disabled>
-              Municipio
+              {t('municipio')}
             </option>
             {opciones.map((m) => (
               <option key={m.codigo} value={m.codigo}>
@@ -212,8 +220,8 @@ export function ContactForm() {
 
       <Campo
         id="etapa"
-        label="¿En qué etapa está?"
-        error={errors.etapa?.message}
+        label={t('etapa')}
+        error={err(errors.etapa?.message)}
       >
         <select
           id="etapa"
@@ -222,7 +230,7 @@ export function ContactForm() {
           {...register('etapa')}
         >
           <option value="" disabled>
-            Elige una opción
+            {t('elegir')}
           </option>
           {etapasProyecto.map((e) => (
             <option key={e} value={e}>
@@ -234,9 +242,9 @@ export function ContactForm() {
 
       <Campo
         id="mensaje"
-        label="Cuéntanos tu idea o necesidad"
-        ayuda="Puedes incluir tu presupuesto. No compromete nada y nos ayuda a darte una propuesta realista."
-        error={errors.mensaje?.message}
+        label={t('mensaje')}
+        ayuda={t('mensajeAyuda')}
+        error={err(errors.mensaje?.message)}
       >
         <textarea
           id="mensaje"
@@ -249,7 +257,7 @@ export function ContactForm() {
       {/* Trampa antibots. Fuera de pantalla, no oculta con display:none, para
           que los lectores de pantalla la salten pero los bots la rellenen. */}
       <div aria-hidden className="absolute left-[-9999px]">
-        <label htmlFor="sitioWeb">No rellenar</label>
+        <label htmlFor="sitioWeb">{t('trampa')}</label>
         <input
           id="sitioWeb"
           tabIndex={-1}
@@ -266,7 +274,7 @@ export function ContactForm() {
             {...register('declaracion')}
           />
           <span className="text-small text-ink">
-            Declaro que la información que he facilitado es exacta y completa.
+            {t('declaracion')}
           </span>
         </label>
         {errors.declaracion?.message ? (
@@ -290,7 +298,7 @@ export function ContactForm() {
         disabled={isSubmitting}
         className="text-block bg-ink px-8 py-4 uppercase tracking-[0.08em] text-paper transition-opacity hover:opacity-85 disabled:opacity-50"
       >
-        {isSubmitting ? 'Enviando' : 'Enviar proyecto'}
+        {isSubmitting ? t('enviando') : t('enviar')}
       </button>
     </form>
   )

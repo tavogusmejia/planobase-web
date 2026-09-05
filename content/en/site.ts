@@ -1,3 +1,4 @@
+import type { Service } from '@/lib/types'
 import type { TemaVision } from '@content/site'
 
 /**
@@ -80,4 +81,38 @@ export const vision: Record<string, TemaTraducible> = {
 export const cargos: Record<string, string[]> = {
   'eduardo-mejia-martinez': ['Principal Architect', 'Legal Representative'],
   'gustavo-mejia-martinez': ['Project Manager', 'Technical Consultant'],
+}
+
+/**
+ * La asesoría técnica, en inglés.
+ *
+ * Es el primer peldaño y el producto que sostiene el embudo, así que va entero:
+ * el gancho, la descripción y las tres condiciones. La duración y el precio no
+ * están aquí porque no son texto.
+ */
+export const asesoria: Partial<
+  Pick<Service, 'nombre' | 'tagline' | 'descripcion' | 'politicas'>
+> = {
+  nombre: 'Technical consultation',
+  tagline: 'Getting an architect’s advice should not be expensive.',
+  descripcion:
+    'Fifteen minutes with an architect from Plano Base, free and with no ' +
+    'commitment. You tell us your case, we tell you whether we can help, what ' +
+    'it involves and what the next step is. If someone needs to visit the ' +
+    'site, we say so on this call.',
+  politicas: [
+    {
+      clave: 'Booking',
+      texto: 'Over WhatsApp. We confirm the date and time the same day.',
+    },
+    {
+      clave: 'Length',
+      texto:
+        'Fifteen minutes. If the case warrants more, we tell you right there.',
+    },
+    {
+      clave: 'No commitment',
+      texto: 'There is no cost and no obligation to hire anything afterwards.',
+    },
+  ],
 }

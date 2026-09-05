@@ -5,6 +5,7 @@ import { Rule } from '@/components/ui/Rule'
 import { TarjetaPost } from '@/components/blog/TarjetaPost'
 import { posts, postsDelPilar } from '@content/posts'
 import { pilares } from '@content/pilares'
+import { postsDe } from '@/lib/data/posts'
 import { absoluteUrl } from '@/lib/utils'
 
 export async function generateMetadata({
@@ -56,7 +57,9 @@ export default async function BlogPage({
   const { locale } = await params
   setRequestLocale(locale)
 
-  const [ultimo, ...resto] = posts
+  /* El listado va traducido; las cuentas de más abajo no lo necesitan,
+     porque cuántos artículos hay no depende del idioma. */
+  const [ultimo, ...resto] = postsDe(locale)
   const conArticulos = pilares
     .map((p) => ({ pilar: p, cuenta: postsDelPilar(p.id).length }))
     .filter((x) => x.cuenta > 0)

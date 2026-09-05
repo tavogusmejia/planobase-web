@@ -7,6 +7,7 @@ import { TarjetaPost } from '@/components/blog/TarjetaPost'
 import { postsDelPilar } from '@content/posts'
 import { pilarPorSlug, pilares } from '@content/pilares'
 import { puertas } from '@content/puertas'
+import { postsDelPilarDe } from '@/lib/data/posts'
 import { routing } from '@/i18n/routing'
 import { absoluteUrl } from '@/lib/utils'
 
@@ -63,7 +64,7 @@ export default async function PilarPage({
   const pilar = pilarPorSlug.get(slug)
   if (!pilar) notFound()
 
-  const delPilar = postsDelPilar(pilar.id)
+  const delPilar = postsDelPilarDe(locale, pilar.id)
   if (delPilar.length === 0) notFound()
 
   const puerta = pilar.puerta

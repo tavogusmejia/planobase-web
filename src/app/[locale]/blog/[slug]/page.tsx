@@ -5,9 +5,10 @@ import { setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Cuerpo } from '@/components/blog/Cuerpo'
 import { Rule } from '@/components/ui/Rule'
-import { minutosDeLectura, postPorSlug, posts } from '@content/posts'
+import { minutosDeLectura, posts } from '@content/posts'
 import { pilarPorId } from '@content/pilares'
 import { puertas } from '@content/puertas'
+import { postDe } from '@/lib/data/posts'
 import { routing } from '@/i18n/routing'
 import { absoluteUrl, mediaSrc } from '@/lib/utils'
 import { fechaLarga } from '@/lib/formato'
@@ -24,7 +25,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>
 }): Promise<Metadata> {
   const { locale, slug } = await params
-  const post = postPorSlug.get(slug)
+  const post = postDe(locale, slug)
   if (!post) return {}
 
   const url = `/${locale}/blog/${slug}`
@@ -75,7 +76,7 @@ export default async function PostPage({
   const { locale, slug } = await params
   setRequestLocale(locale)
 
-  const post = postPorSlug.get(slug)
+  const post = postDe(locale, slug)
   if (!post) notFound()
 
   const pilar = pilarPorId.get(post.pilar)

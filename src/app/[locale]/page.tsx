@@ -5,8 +5,13 @@ import { Rule } from '@/components/ui/Rule'
 import { Hero } from '@/components/home/Hero'
 import { ProjectCard } from '@/components/project/ProjectCard'
 import { getFeatured, getHeroProjects, getStats } from '@/lib/data/projects'
-import { asesoria, contacto, manifiesto, site, tituloSitio } from '@content/site'
-import { puertas } from '@content/puertas'
+import { tituloSitio } from '@content/site'
+import {
+  asesoriaDe,
+  copiaDe,
+  manifiestoDe,
+  puertasDe,
+} from '@/lib/data/contenido'
 import { etiquetaPrecio } from '@/lib/precio'
 import { alternativas } from '@/lib/metadatos'
 
@@ -21,11 +26,13 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  const copia = copiaDe('', locale)
 
   return {
     // `absolute` evita que la plantilla del layout lo convierta en
     // "... | Plano Base | Plano Base".
     title: { absolute: tituloSitio },
+    description: copia.metaDescripcion,
     /* Canonical autorreferenciado, hreflang solo de lo traducido y el
        `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
        `alternates` porque después solo vienen claves distintas: si
@@ -44,7 +51,7 @@ export async function generateMetadata({
           url: '/og/default.jpg',
           width: 1200,
           height: 630,
-          alt: `${site.nombreLargo}, Cali`,
+          alt: copia.ogAlt,
         },
       ],
     },
@@ -58,6 +65,14 @@ export default async function HomePage({
 }) {
   const { locale } = await params
   setRequestLocale(locale)
+
+  const manifiesto = manifiestoDe(locale)
+  const puertas = puertasDe(locale)
+  const asesoria = asesoriaDe(locale)
+  /* El titular de esta sección es el mismo de /servicios. Vivía escrito dos
+     veces —la tarea 5.4 de la hoja de ruta—: ahora sale de un solo sitio. */
+  const titularServicios = copiaDe('/servicios', locale).titular
+  const copiaHome = copiaDe('', locale)
 
   const t = await getTranslations('home')
   const tc = await getTranslations('cta')
@@ -78,9 +93,7 @@ export default async function HomePage({
           manda visualmente es la fotografía a sangre, pero la home tenía SIETE
           <h1>, todos nombres de proyecto: para un rastreador, la página
           principal del estudio se titulaba "Casa Aguilar". */}
-      <h1 className="sr-only">
-        {site.nombreLargo}, estudio de arquitectura en {contacto.ciudad}
-      </h1>
+      <h1 className="sr-only">{copiaHome.h1}</h1>
 
       <Hero projects={hero} />
 
@@ -97,7 +110,7 @@ export default async function HomePage({
           entera hace ver al estudio como un contratista de todo. */}
       <section className="mx-auto max-w-[100rem] px-gutter lg:px-10">
         <h2 className="text-h2 measure-display text-ink">
-          Empezamos por su pregunta, no por nuestro catálogo.
+          {titularServicios}
         </h2>
         <Rule className="mb-2 mt-6 max-w-md text-muted">
           {puertas.length}

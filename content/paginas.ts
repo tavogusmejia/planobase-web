@@ -16,6 +16,19 @@
  * `src/lib/i18n/publicacion.ts`.
  */
 export const copiaPaginas = {
+  '': {
+    /* El `h1` de la portada, que solo leen el rastreador y los lectores de
+       pantalla. Dice las dos cosas a propósito: el alcance es nacional y la
+       sede es Cali. La primera se gana por contenido y la segunda por
+       proximidad, y no compiten. */
+    h1: 'Plano Base Arquitectos, estudio de arquitectura en Colombia, con sede en Cali',
+    metaDescripcion:
+      'Estudio colaborativo de arquitectura dedicado al desarrollo integral ' +
+      'de proyectos educativos, institucionales, culturales y residenciales ' +
+      'en Colombia.',
+    ogAlt: 'Plano Base Arquitectos, arquitectura en Colombia',
+  },
+
   '/contacto': {
     titulo: 'Contáctenos',
     tarjetaTitulo: 'Hablemos de su proyecto',

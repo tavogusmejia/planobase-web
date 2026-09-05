@@ -8,6 +8,15 @@ import type { CopiaDe, RutaConCopia } from '@content/paginas'
  * entra al índice inglés. Ver `src/lib/data/contenido.ts`.
  */
 export const copiaPaginasEn: { [R in RutaConCopia]?: Partial<CopiaDe<R>> } = {
+  '': {
+    h1: 'Plano Base Arquitectos, an architecture studio in Colombia, based in Cali',
+    metaDescripcion:
+      'A collaborative architecture studio working on the full development ' +
+      'of educational, institutional, cultural and residential projects ' +
+      'across Colombia.',
+    ogAlt: 'Plano Base Arquitectos, architecture in Colombia',
+  },
+
   '/contacto': {
     titulo: 'Contact',
     tarjetaTitulo: 'Let us talk about your project',

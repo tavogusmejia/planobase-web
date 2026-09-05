@@ -114,6 +114,14 @@ export function puertaTraducida(slug: string, idioma: string): boolean {
  * contenido que de verdad la llena. Cada entrada dice qué se lee en esa página.
  */
 const COMPLETITUD: Record<RutaConCopia, () => boolean> = {
+  /* La portada pinta el manifiesto, las siete puertas y la asesoría. Las
+     tarjetas de proyecto no cuentan: solo muestran título, año y ciudad, que
+     son nombres propios y no se traducen. */
+  '': () =>
+    Boolean(ingles.manifiesto) &&
+    Boolean(ingles.asesoria.descripcion) &&
+    puertas.every((p) => puertaCompleta(p.slug)),
+
   /* Estas dos se llenan con su propia copia y con `asesoria` de site.ts, que
      es el mismo producto en los dos idiomas salvo su descripción. */
   '/contacto': () => Boolean(ingles.asesoria.descripcion),

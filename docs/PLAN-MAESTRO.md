@@ -1,8 +1,9 @@
 # Plan maestro · Plano Base Web
 
 Estado del proyecto y hoja de ruta completa.
-Última actualización: **5 de septiembre de 2026, al cierre de la jornada** — con
-las decisiones del dueño en §1 y lo ejecutado marcado a lo largo del documento.
+Última actualización: **5 de septiembre de 2026, tras la tanda de arreglos
+rápidos de la noche** — con las decisiones del dueño en §1 y lo ejecutado
+marcado a lo largo del documento.
 
 Este documento nació reuniendo seis auditorías sobre el repositorio y sobre el
 mercado. No hay que leerlo de una sentada: cada frente es independiente y está
@@ -120,7 +121,7 @@ Lo que sigue es la foto del día. Cada línea con ✅ está desplegada en
 
 | | Qué | Qué falta |
 |---|---|---|
-| 🟡 | **Registro «usted»** *(decisión 1.7)* | Hecho en el formulario, `/contacto`, la portada y los rótulos del blog. Falta el resto del sitio |
+| 🟡 | **Registro «usted»** *(decisión 1.7)* | Hecho en el formulario, `/contacto`, la portada, los rótulos del blog y —nuevo— la interfaz entera: `messages/es.json` y la copia de error del formulario quedan sin un solo tuteo, comprobado con un barrido. Falta el cuerpo de los artículos en `content/` |
 | 🟡 | **Encuadre nacional** *(§9)* | Hechas las puertas, `/agendar`, la descripción de tres páginas y el `h1` de la portada. Comprobado además que **dos verticales dicen bien «Valle del Cauca» y «Cali»**: es donde está esa obra, y ensancharlo sería inventar proyectos |
 | 🟡 | **Resend** *(decisión 1.3)* | El dominio está verificado y el correo sale. Faltan las plantillas: acuse al cliente y confirmación de reserva |
 | 🟡 | **El blog** *(§8)* | 43 de 75. Diez de los 32 que faltan están bloqueados por la decisión 1.9 |
@@ -927,6 +928,15 @@ hecho: se traduce todo** · Teclado en el menú móvil.
   Permissions-Policy, COOP y —solo en el dominio real— HSTS a un año.
 - **`/contacto` es la página más pesada del sitio** (165 kB de JavaScript) y es
   la página donde se decide todo.
+- **Cuando el formulario falla, el visitante inglés lee el error en español.**
+  Los mensajes de validación sí están traducidos —el esquema usa claves—, pero
+  los tres avisos de fallo general viven escritos a mano en
+  `src/app/actions/leads.ts`. Solo se ven cuando algo va mal, que es justo
+  cuando el lead está a punto de perderse. Arreglarlo es mover esas tres frases
+  a `messages/` y leerlas con `getTranslations` en la Server Action, con la
+  frase en español como red de seguridad si la traducción no resolviera:
+  media hora, y hay que escribir la copia inglesa. *(Encontrado el 5/9/2026;
+  sin hacer.)*
 
 ---
 

@@ -39,7 +39,21 @@ function buildRedirects() {
   for (const r of redirects) {
     if (r.from === '/') continue
 
-    for (const source of [r.from, encodeURI(r.from)]) {
+    // Tres formas de pedir la misma ruta vieja, y las tres tienen que
+    // redirigir:
+    //   1. cruda, tal cual estaba en Wix
+    //   2. con los acentos codificados, que es lo que manda un navegador
+    //   3. además con los paréntesis codificados
+    //
+    // La tercera hace falta porque `encodeURI` NO toca los paréntesis: son
+    // caracteres permitidos en una URL. Pero algunos clientes los codifican
+    // igual, y sin esta variante
+    // /colegio-francisco-antonio-zea-%28metrovivienda%29 se caía a un 404.
+    // Es la única ruta del volcado que los lleva.
+    const codificado = encodeURI(r.from)
+    const conParentesis = codificado.replace(/\(/g, '%28').replace(/\)/g, '%29')
+
+    for (const source of [r.from, codificado, conParentesis]) {
       // Los paréntesis son sintaxis de grupo en path-to-regexp: si van crudos,
       // la ruta /colegio-francisco-antonio-zea-(metrovivienda) no se compila
       // como literal. Se escapan.

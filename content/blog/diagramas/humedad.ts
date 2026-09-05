@@ -14,18 +14,18 @@
  * en sección.
  *
  * Ninguna figura está a escala ni representa una proporción medida.
+ *
+ * Cada figura se declara dos veces, en español y en inglés, sobre **una sola
+ * constante de trazado**: el dibujo no puede divergir mientras divergen los
+ * rótulos. Los cinco orígenes tienen nombre propio en inglés y se usan tal
+ * cual —*rising damp*, *penetrating damp*, *surface* e *interstitial
+ * condensation*, *plumbing leak*—, que es lo que impide que la traducción
+ * aplane la distinción entre el agua que entra por la envolvente y la que sale
+ * de una red.
  */
 
-/**
- * Los cinco orígenes, en sección y uno al lado del otro.
- *
- * Es el mapa del artículo de muros y la razón de ser de los dos: casi toda
- * reparación de humedad falla porque se ataca la mancha sin haber decidido
- * cuál de estos cinco dibujos es el que corresponde.
- */
-export const ORIGENES = `
-<svg viewBox="0 0 900 258" xmlns="http://www.w3.org/2000/svg" fill="none"
-     stroke="currentColor" font-family="inherit">
+/** Geometría de los cinco orígenes. Solo cambian los `<text>`. */
+const ORIGENES_DIBUJO = `
   <g stroke-width="1" opacity="0.35">
     <rect x="15" y="20" width="150" height="150"/>
     <rect x="195" y="20" width="150" height="150"/>
@@ -124,7 +124,19 @@ export const ORIGENES = `
   <g stroke-width="1.5" opacity="0.7" stroke-dasharray="5 4">
     <ellipse cx="810" cy="118" rx="19" ry="26"/>
   </g>
+`
 
+/**
+ * Los cinco orígenes, en sección y uno al lado del otro.
+ *
+ * Es el mapa del artículo de muros y la razón de ser de los dos: casi toda
+ * reparación de humedad falla porque se ataca la mancha sin haber decidido
+ * cuál de estos cinco dibujos es el que corresponde.
+ */
+export const ORIGENES = `
+<svg viewBox="0 0 900 258" xmlns="http://www.w3.org/2000/svg" fill="none"
+     stroke="currentColor" font-family="inherit">
+${ORIGENES_DIBUJO}
   <g fill="currentColor" stroke="none" font-size="13">
     <text x="15" y="196">Capilaridad</text>
     <text x="195" y="196">Filtración</text>
@@ -156,17 +168,47 @@ export const ORIGENES = `
 </svg>
 `.trim()
 
-/**
- * Los cinco puntos por donde falla una cubierta, en sección y en el orden en
- * que suelen fallar.
- *
- * El dibujo hace visible la tesis del artículo: ninguno de los cinco es un
- * problema del impermeabilizante. Cuatro son de diseño o de mantenimiento, y
- * la lámina solo entra en el quinto.
- */
-export const CUBIERTA = `
-<svg viewBox="0 0 900 336" xmlns="http://www.w3.org/2000/svg" fill="none"
+/** Los mismos cinco orígenes, rotulados en inglés. Los cinco nombres son
+ *  términos de oficio, no descripciones: *rising damp* y *penetrating damp*
+ *  son la pareja que en español separa capilaridad de filtración. */
+export const ORIGENES_EN = `
+<svg viewBox="0 0 900 258" xmlns="http://www.w3.org/2000/svg" fill="none"
      stroke="currentColor" font-family="inherit">
+${ORIGENES_DIBUJO}
+  <g fill="currentColor" stroke="none" font-size="13">
+    <text x="15" y="196">Rising damp</text>
+    <text x="195" y="196">Penetrating damp</text>
+    <text x="375" y="196">Condensation</text>
+    <text x="555" y="196">Interstitial</text>
+    <text x="735" y="196">Plumbing leak</text>
+  </g>
+  <g fill="currentColor" stroke="none" font-size="11" opacity="0.6">
+    <text x="15" y="214">Rises from the ground.</text>
+    <text x="15" y="228">Horizontal band with a</text>
+    <text x="15" y="242">sharp upper edge</text>
+
+    <text x="195" y="214">Comes in through the</text>
+    <text x="195" y="228">outer face. Comes and</text>
+    <text x="195" y="242">goes with the rain</text>
+
+    <text x="375" y="214">Forms on the cold inner</text>
+    <text x="375" y="228">face. Corners, behind</text>
+    <text x="375" y="242">furniture, black mould</text>
+
+    <text x="555" y="214">Forms inside the wall.</text>
+    <text x="555" y="228">No stain at first; it</text>
+    <text x="555" y="242">wets the insulation</text>
+
+    <text x="735" y="214">Escapes from a pipe.</text>
+    <text x="735" y="228">Local stain, damp all</text>
+    <text x="735" y="242">year round</text>
+  </g>
+</svg>
+`.trim()
+
+/** Geometría de la sección de cubierta. Los cinco números viven aquí porque
+ *  son los mismos en los dos idiomas; solo cambia la leyenda de abajo. */
+const CUBIERTA_DIBUJO = `
   <g stroke-width="1.5" opacity="0.55">
     <path d="M40 24 L40 128 L64 128"/>
     <path d="M64 24 L64 96"/>
@@ -226,7 +268,20 @@ export const CUBIERTA = `
     <path d="M700 187 L700 180"/>
     <path d="M800 97 L800 106"/>
   </g>
+`
 
+/**
+ * Los cinco puntos por donde falla una cubierta, en sección y en el orden en
+ * que suelen fallar.
+ *
+ * El dibujo hace visible la tesis del artículo: ninguno de los cinco es un
+ * problema del impermeabilizante. Cuatro son de diseño o de mantenimiento, y
+ * la lámina solo entra en el quinto.
+ */
+export const CUBIERTA = `
+<svg viewBox="0 0 900 336" xmlns="http://www.w3.org/2000/svg" fill="none"
+     stroke="currentColor" font-family="inherit">
+${CUBIERTA_DIBUJO}
   <g fill="currentColor" stroke="none" font-size="12">
     <text x="40" y="272">1 · Remate y encuentro con el muro</text>
     <text x="40" y="292">2 · Pendiente insuficiente y empozamiento</text>
@@ -234,6 +289,22 @@ export const CUBIERTA = `
     <text x="470" y="272">4 · Junta de dilatación mal resuelta</text>
     <text x="470" y="292">5 · Perforación posterior sin sellar</text>
     <text x="470" y="312">— y en último lugar, la lámina</text>
+  </g>
+</svg>
+`.trim()
+
+/** La misma sección, rotulada en inglés. */
+export const CUBIERTA_EN = `
+<svg viewBox="0 0 900 336" xmlns="http://www.w3.org/2000/svg" fill="none"
+     stroke="currentColor" font-family="inherit">
+${CUBIERTA_DIBUJO}
+  <g fill="currentColor" stroke="none" font-size="12">
+    <text x="40" y="272">1 · Upstand and junction with the wall</text>
+    <text x="40" y="292">2 · Too little fall, and ponding</text>
+    <text x="40" y="312">3 · Blocked outlet with no overflow</text>
+    <text x="470" y="272">4 · Movement joint badly detailed</text>
+    <text x="470" y="292">5 · Later penetration left unsealed</text>
+    <text x="470" y="312">— and last of all, the membrane</text>
   </g>
 </svg>
 `.trim()

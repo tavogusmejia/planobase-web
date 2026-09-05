@@ -82,6 +82,10 @@ import { traduccion as comoLeerUnPlano } from './como-leer-un-plano'
 import { traduccion as interventoriaDeObra } from './interventoria-de-obra'
 import { traduccion as contratoDeDiseno } from './contrato-de-diseno-arquitectonico'
 import { traduccion as arquitectoMaestroConstructora } from './arquitecto-maestro-de-obra-o-constructora'
+import { traduccion as fisurasEnMuros } from './fisuras-en-muros'
+import { traduccion as humedadEnMuros } from './humedad-en-muros-origen-antes-de-reparar'
+import { traduccion as filtracionesEnCubierta } from './filtraciones-en-cubierta'
+import { traduccion as estudioPatologico } from './cuando-un-edificio-necesita-un-estudio-patologico'
 
 const registro: TraduccionPost[] = [
   comprarLoteRural,
@@ -100,6 +104,10 @@ const registro: TraduccionPost[] = [
   interventoriaDeObra,
   contratoDeDiseno,
   arquitectoMaestroConstructora,
+  fisurasEnMuros,
+  humedadEnMuros,
+  filtracionesEnCubierta,
+  estudioPatologico,
 ]
 
 export const traduccionesPost = new Map(registro.map((t) => [t.slug, t]))

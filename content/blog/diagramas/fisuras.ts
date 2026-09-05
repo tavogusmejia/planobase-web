@@ -9,12 +9,19 @@
  * Son diagramas y no fotografías a propósito. Una foto de una fisura enseña
  * una fisura; el patrón —qué distingue una escalonada de una recta, o hacia
  * dónde se abre— solo se ve dibujado.
+ *
+ * Cada figura se declara dos veces, en español y en inglés, sobre **una sola
+ * constante de trazado**. Es la regla del índice de traducciones: el dibujo no
+ * puede divergir mientras divergen los rótulos, y un diagrama rotulado con el
+ * mismo SVG en los dos idiomas lo rechaza `scripts/check-traducciones.ts`.
+ *
+ * El corte entre fisura y grieta —0,2 mm— no tiene pareja de palabras en
+ * inglés: *crack* sirve para las dos. La versión inglesa lo resuelve con
+ * *hairline crack* frente a *crack*, y el artículo lo declara en el texto.
  */
 
-/** Cinco causas, cinco patrones. Es el mapa del artículo. */
-export const PATRONES = `
-<svg viewBox="0 0 900 235" xmlns="http://www.w3.org/2000/svg" fill="none"
-     stroke="currentColor" font-family="inherit">
+/** Geometría de los cinco patrones. Solo cambian los `<text>`. */
+const PATRONES_DIBUJO = `
   <g stroke-width="1" opacity="0.35">
     <rect x="15" y="20" width="150" height="150"/>
     <rect x="195" y="20" width="150" height="150"/>
@@ -43,7 +50,13 @@ export const PATRONES = `
     <path d="M555 20 L705 20 L705 34"/>
     <path d="M743 95 L877 95" stroke-dasharray="4 5"/>
   </g>
+`
 
+/** Cinco causas, cinco patrones. Es el mapa del artículo. */
+export const PATRONES = `
+<svg viewBox="0 0 900 235" xmlns="http://www.w3.org/2000/svg" fill="none"
+     stroke="currentColor" font-family="inherit">
+${PATRONES_DIBUJO}
   <g fill="currentColor" stroke="none" font-size="13">
     <text x="15" y="196">Retracción</text>
     <text x="195" y="196">Asentamiento</text>
@@ -66,11 +79,35 @@ export const PATRONES = `
 </svg>
 `.trim()
 
-/** Hacia dónde se abre la fisura: el criterio que separa un suelo que baja de
- *  uno que sube. Es diagnóstico, no ilustración. */
-export const APERTURA = `
-<svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg" fill="none"
+/** Los mismos cinco patrones, rotulados en inglés. */
+export const PATRONES_EN = `
+<svg viewBox="0 0 900 235" xmlns="http://www.w3.org/2000/svg" fill="none"
      stroke="currentColor" font-family="inherit">
+${PATRONES_DIBUJO}
+  <g fill="currentColor" stroke="none" font-size="13">
+    <text x="15" y="196">Shrinkage</text>
+    <text x="195" y="196">Settlement</text>
+    <text x="375" y="196">Shear</text>
+    <text x="555" y="196">Thermal</text>
+    <text x="735" y="196">Corrosion</text>
+  </g>
+  <g fill="currentColor" stroke="none" font-size="11" opacity="0.6">
+    <text x="15" y="214">Vertical, fairly regular,</text>
+    <text x="15" y="228">at the weak points</text>
+    <text x="195" y="214">Stepped along the joints,</text>
+    <text x="195" y="228">runs down to the footing</text>
+    <text x="375" y="214">Diagonal, in an X.</text>
+    <text x="375" y="228">Earthquake or storey drift</text>
+    <text x="555" y="214">Horizontal at the junction</text>
+    <text x="555" y="228">with the slab, top floor</text>
+    <text x="735" y="214">Longitudinal, parallel</text>
+    <text x="735" y="228">to the reinforcing bar</text>
+  </g>
+</svg>
+`.trim()
+
+/** Geometría de la dirección de apertura. */
+const APERTURA_DIBUJO = `
   <g stroke-width="1" opacity="0.35">
     <rect x="60" y="20" width="300" height="170"/>
     <rect x="540" y="20" width="300" height="170"/>
@@ -98,7 +135,14 @@ export const APERTURA = `
     <path d="M760 240 L760 214"/>
     <path d="M754 220 L760 213 L766 220"/>
   </g>
+`
 
+/** Hacia dónde se abre la fisura: el criterio que separa un suelo que baja de
+ *  uno que sube. Es diagnóstico, no ilustración. */
+export const APERTURA = `
+<svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg" fill="none"
+     stroke="currentColor" font-family="inherit">
+${APERTURA_DIBUJO}
   <g fill="currentColor" stroke="none" font-size="13">
     <text x="60" y="14">Ancha arriba</text>
     <text x="540" y="14">Ancha abajo</text>
@@ -116,11 +160,30 @@ export const APERTURA = `
 </svg>
 `.trim()
 
-/** Los tres anchos que gobiernan la escala oficial colombiana, a tamaño
- *  comparable. Verlos juntos evita la discusión de si «está muy ancha». */
-export const ANCHOS = `
-<svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" fill="none"
+/** La misma figura, rotulada en inglés. */
+export const APERTURA_EN = `
+<svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg" fill="none"
      stroke="currentColor" font-family="inherit">
+${APERTURA_DIBUJO}
+  <g fill="currentColor" stroke="none" font-size="13">
+    <text x="60" y="14">Wider at the top</text>
+    <text x="540" y="14">Wider at the bottom</text>
+  </g>
+  <g fill="currentColor" stroke="none" font-size="12" opacity="0.7">
+    <text x="150" y="212">the ground is sinking</text>
+    <text x="640" y="212">the ground is rising</text>
+  </g>
+  <g fill="currentColor" stroke="none" font-size="11" opacity="0.6">
+    <text x="60" y="236">Foundation settlement.</text>
+    <text x="60" y="250">Clay soil drying out.</text>
+    <text x="540" y="236">Heave. Clay taking up water</text>
+    <text x="540" y="250">again, or roots pushing up.</text>
+  </g>
+</svg>
+`.trim()
+
+/** Geometría de los tres anchos. */
+const ANCHOS_DIBUJO = `
   <g stroke-linecap="round" stroke="currentColor">
     <path d="M60 40 L60 130" stroke-width="1"/>
     <path d="M330 40 L330 130" stroke-width="4"/>
@@ -132,7 +195,14 @@ export const ANCHOS = `
     <path d="M300 150 L360 150"/>
     <path d="M580 150 L660 150"/>
   </g>
+`
 
+/** Los tres anchos que gobiernan la escala oficial colombiana, a tamaño
+ *  comparable. Verlos juntos evita la discusión de si «está muy ancha». */
+export const ANCHOS = `
+<svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" fill="none"
+     stroke="currentColor" font-family="inherit">
+${ANCHOS_DIBUJO}
   <g fill="currentColor" stroke="none" font-size="13">
     <text x="40" y="30">0,2 mm</text>
     <text x="300" y="30">1,0 mm</text>
@@ -145,6 +215,28 @@ export const ANCHOS = `
     <text x="300" y="186">Perceptible a simple vista.</text>
     <text x="580" y="172">En mampostería, a partir de aquí</text>
     <text x="580" y="186">el daño es fuerte.</text>
+  </g>
+</svg>
+`.trim()
+
+/** Los mismos tres anchos, en inglés. El separador decimal cambia con el
+ *  idioma: «0,2 mm» se rotula «0.2 mm». */
+export const ANCHOS_EN = `
+<svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" fill="none"
+     stroke="currentColor" font-family="inherit">
+${ANCHOS_DIBUJO}
+  <g fill="currentColor" stroke="none" font-size="13">
+    <text x="40" y="30">0.2 mm</text>
+    <text x="300" y="30">1.0 mm</text>
+    <text x="580" y="30">3.0 mm</text>
+  </g>
+  <g fill="currentColor" stroke="none" font-size="11" opacity="0.6">
+    <text x="40" y="172">Below this: hairline.</text>
+    <text x="40" y="186">Barely visible.</text>
+    <text x="300" y="172">End of slight damage.</text>
+    <text x="300" y="186">Plain to the naked eye.</text>
+    <text x="580" y="172">In masonry, from here on</text>
+    <text x="580" y="186">the damage is heavy.</text>
   </g>
 </svg>
 `.trim()

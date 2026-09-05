@@ -29,7 +29,7 @@ solo el efecto: qué quedó cerrado, qué sigue abierto y qué se desbloquea.
 | 0.8 | **Registro de trato: usted en todo el sitio** | **Cerrada. Usted** | **Desbloquea** las 32 reescrituras de la tarea 5.2 |
 | 0.9 | **Aprobar la copia pendiente.** Solo dos puertas llevan sello de aprobación | **Abierta.** «Necesito revisar todo» | Falta **fijar fecha** de la sesión de lectura con Eduardo. Sigue bloqueando la pauta sobre `/agendar` |
 | 0.10 | **Bogotá no es Cundinamarca.** Corrección de dato, no decisión | Sin cambios — se aplica sin consultar | **Aplicada** *(b4284ab)*: diez proyectos, sus textos alternativos y el JSON-LD |
-| 0.11 | **¿Qué hacemos con `/en`?** *(era la pregunta A7)* | **Cerrada. Deshabilitar por ahora.** Se traduce de verdad cuando el desarrollo llegue «a un punto estable o de bajo volumen» | **Desbloquea** el cierre del frente de inglés → tarea 5.5. La etapa 9.5 del Caribe queda explícitamente aplazada |
+| 0.11 | **¿Qué hacemos con `/en`?** *(era la pregunta A7)* | **Revertida el 5/9/2026. NO se deshabilita: se traduce todo.** «Prefiero mantener el inglés pero traducir todo, absolutamente todo» | Cambia el frente entero. La tarea 5.5 **se anula** y la sustituye el plan bilingüe. La etapa 9.5 del Caribe deja de estar aplazada: la desbloquea la traducción. Tres decisiones asociadas: se traduce también el blog *(el 74 % del volumen)*; los ~40 artículos que faltan se escriben bilingües desde el origen; y la indexación es **página por página**, no de golpe |
 | 0.12 | **Facturación electrónica DIAN** *(era el trámite B5)* | **Cerrada en el rumbo, abierta en el plan.** Ya hay un sistema de facturación; quiere un **plan para hacerla con Odoo**, y se puede posponer «casi hasta lo último del roadmap» | Falta escribir ese plan → tarea 3.4 |
 | 0.13 | **Ficha de Google Business** *(era el trámite B4)* | **Cerrada. Sí se crea.** «Mi idea es ser el más fuerte nacionalmente, pero debemos empezar con proximidad» | La estrategia queda en dos tiempos que se suman: la ficha gana el paquete de mapas en Cali —donde está la sede y donde ya hay dirección fijada por 0.5— mientras el encuadre nacional se gana por contenido, en la tarea 5.1 y en el blog. No compiten. **Se crea con el NAP exacto de `content/site.ts`, carácter por carácter.** |
 
@@ -121,55 +121,42 @@ Una sola pasada, no tres. Tocan los mismos archivos.
 | 5.2 | Unificación en «usted»: 32 reescrituras ya redactadas |
 | 5.3 | Las siete contradicciones de hecho: años, nombres, reconocimientos, basura del PDF. **Dos ya están resueltas** —la dirección pública es Cali (0.5) y el registro es «usted» (0.8)—; **la de los reconocimientos queda fuera de esta pasada** hasta cerrar 0.7 |
 | 5.4 | Unificar rótulos: hoy hay cuatro nombres para un botón y cuatro para un producto |
-| 5.5 | **Deshabilitar `/en`** *(decisión 0.11)*. Reemplaza al plan anterior de pintar el aviso «Content shown in Spanish». Detalle abajo |
+| 5.5 | ~~Deshabilitar `/en`~~ **ANULADA.** La decisión 0.11 se revirtió: se traduce todo. Ver abajo por qué esta tarea no puede ejecutarse nunca |
 
-### 5.5 · Deshabilitar `/en` — qué implica exactamente
+### 5.5 · ANULADA — y por qué no puede ejecutarse nunca
 
-**No implementado. Queda escrito para ejecutarlo cuando se decida la pasada de
-redacción.**
+**Esta tarea decía: retirar `/en` del build y redirigir `/en/*` a `/es/*` con un
+301.** La decisión 0.11 se revirtió el 5 de septiembre de 2026 y ahora se
+traduce el sitio entero.
 
-El mecanismo vive en `src/i18n/routing.ts`: `locales: ['es', 'en']`,
-`defaultLocale: 'es'`, `localePrefix: 'always'`, `localeDetection: true`, más la
-lista blanca `LOCALES_INDEXABLES = ['es']` que hoy ya mantiene `/en` en
-`noindex, follow`. De ahí cuelga todo lo demás: `src/middleware.ts` monta el
-middleware de `next-intl` con ese objeto, y **todos los `generateStaticParams`
-del proyecto recorren `routing.locales`** — proyectos, fichas, categorías,
-servicios, blog, temas del blog y dossier. Quitar `'en'` de esa lista retira las
-páginas del build de golpe, sin tocar ninguna página.
+**Queda escrita como advertencia, no como pendiente.** Si alguien la encuentra
+dentro de seis meses y la ejecuta, ese 301 atrapa el idioma nuevo: cada página
+inglesa recién traducida rebotaría al español, y como los redirects de
+`next.config.ts` corren **antes** del middleware, no habría forma de alcanzarla.
+Peor todavía si el 301 llegó a servirse: los navegadores lo cachean de forma
+agresiva y el visitante que ya pasó por ahí seguiría rebotando aunque se retire
+la regla.
 
-**Qué pasa con las URLs existentes.** Hay dos caminos y hay que elegir a
-conciencia:
+**Ninguna regla de redirect debe apuntar nunca de `/en` a `/es`.** Si en algún
+momento hace falta cerrar el inglés, se hace quitando `'en'` de
+`routing.locales`, no con redirects.
 
-1. **Retirarlas del build sin más.** `/en/...` deja de generarse y responde 404.
-   Es lo más limpio de mantener, pero devuelve 404 a cualquier enlace externo o
-   marcador que ya apunte allí.
-2. **Retirarlas del build y redirigir `/en/*` a `/es/*` con 301.** Es lo
-   recomendable: la estructura de rutas es idéntica en los dos idiomas —los
-   slugs de proyecto son nombres propios y no cambian—, así que la
-   correspondencia es uno a uno y ningún visitante cae en una página muerta. Va
-   en `next.config.ts`, junto a los 36 redirects de Wix, y con el mismo cuidado
-   que ya se tuvo allí con las rutas codificadas.
+Lo que sí sobrevive de esta sección, porque sigue siendo cierto y ahora importa
+al revés:
 
-**Riesgo de SEO: bajo.** `/en` va `noindex` hoy y el sitio entero va `noindex`
-mientras el dominio sea `*.vercel.app`, así que no hay autoridad orgánica que
-perder. Es el momento más barato para hacerlo.
-
-**Qué hay que recordar el día que se traduzca de verdad:**
-
-- Volver a añadir `'en'` a `routing.locales` **y** a `LOCALES_INDEXABLES`. Son
-  dos listas distintas a propósito: la primera dice qué existe, la segunda qué
-  se indexa. Añadir solo la primera repite exactamente el problema de hoy.
-- Retirar el redirect `/en/* → /es/*`, o quedará atrapando el idioma nuevo.
-- El `hreflang` del sitemap se enciende solo: `src/app/sitemap.ts` declara
-  alternativas únicamente cuando `LOCALES_INDEXABLES.length > 1`.
-- `messages/en.json` está completo y bien traducido — **no se borra**. Lo que
-  falta no es la interfaz, es el cuerpo editorial escrito a mano en español
-  dentro de los componentes: memorias de los 23 proyectos, textos de servicios y
-  blog. Ese es el trabajo de 3-5 días que se aplaza.
+- `LOCALES_INDEXABLES` y `routing.locales` son **dos listas distintas a
+  propósito**: la primera dice qué idiomas existen, la segunda cuáles pueden
+  indexarse. En el plan bilingüe la segunda pasa a `['es', 'en']` y el
+  interruptor real se mueve a `traducida(ruta, idioma)`, ruta por ruta.
+- `messages/en.json` está completo y bien traducido. Lo que falta no es la
+  interfaz sino el cuerpo editorial.
 - La cadena de aviso «Content shown in Spanish; the English translation is in
-  progress» deja de tener sentido y se puede retirar con el resto.
-- **La etapa 9.5 del Caribe depende de esto** y queda formalmente aplazada.
+  progress» existe en los dos JSON y **no la pinta ningún componente**. En el
+  plan bilingüe por fin se usa: es lo que ve una página todavía sin traducir.
 
+El plan completo —dónde viven las traducciones, cómo se indexa página por
+página, las seis fases y las trampas de este repositorio— está en el archivo de
+plan de la sesión, y sus dos primeras piezas ya están en `f70bd53`.
 
 ---
 
@@ -232,7 +219,7 @@ Por etapas, cada una con criterio de avance. Nada público hasta cerrar 0.6.
 | 9.2 | Un párrafo en `/estudio` | Que sobreviva 60 días sin confundir al cliente institucional |
 | 9.3 | El artículo técnico del blog | Que traiga tráfico o una conversación |
 | 9.4 | Página de servicio «Vivienda costera» | Un encargo costero colombiano firmado |
-| 9.5 | Sección en inglés e indexación de `/en` | Que `/en` sea traducción real. **Aplazada por 0.11:** `/en` se deshabilita ahora y vuelve cuando se traduzca el cuerpo editorial |
+| 9.5 | Sección en inglés e indexación de `/en` | **Desbloqueada por la reversión de 0.11.** Deja de ser una etapa del Caribe: la traducción del sitio entero va por su propio plan, y `/en` se indexa página por página según se traduce |
 
 ---
 
@@ -326,9 +313,24 @@ dos opciones.
 
 **R/:** Por ahora deshabilita el /en, vamos a hacer desarrollo hasta un punto estable o de bajo volumen, y ahi si traducimos todo.
 
-> **Registrado como decisión 0.11 y tarea 5.5.** No implementado todavía: la
-> tarea está escrita con el mecanismo exacto, qué pasa con las URLs existentes y
-> qué hay que recordar el día que se traduzca.
+**R/ (revisada, 5/9/2026):** Prefiero mantener el inglés pero traducir todo,
+absolutamente todo.
+
+> **Reversión registrada.** La respuesta de arriba se queda escrita porque
+> explica de dónde viene la tarea 5.5, que ahora está anulada. Manda la de
+> abajo: **no se deshabilita nada, se traduce el sitio entero.**
+>
+> Tres decisiones asociadas, tomadas con las cifras a la vista —86.100 palabras
+> hoy, camino de 150.000—:
+>
+> - **El blog se traduce también**, aun siendo el 74 % del volumen y siendo
+>   normativa colombiana.
+> - **Los ~40 artículos que faltan se escriben bilingües desde el origen**, en la
+>   misma pasada que los investiga. Es la decisión más barata que había
+>   disponible: traducirlos después obliga a releer 40 investigaciones enteras.
+> - **La indexación es página por página**: cada ruta entra al índice inglés
+>   cuando su contenido está traducido, y el resto sigue en `noindex` cayendo a
+>   español. Empieza a rendir desde la primera semana.
 
 ### A8 · Experiencia en el Caribe: ¿de quién es?
 Los proyectos del dossier son suyos, ejecutados en XMC Caribbean y Edospina. ¿Se
@@ -516,7 +518,7 @@ se tocaron para no mezclar documentación con código:
 
 | | Qué | Dónde |
 |---|---|---|
-| N1 | **Deshabilitar `/en`.** Escrito con todo el detalle en la tarea 5.5 | `src/i18n/routing.ts` · `next.config.ts` |
+| N1 | ~~Deshabilitar `/en`~~ **Anulada y sustituida** por el plan bilingüe. Ya en marcha: tipos de traducción y respaldo de mensajes en `f70bd53` | `src/lib/types.ts` · `src/i18n/request.ts` |
 | N2 | **Escribir el plan de facturación electrónica con Odoo** *(decisión 0.12)*. No existe todavía como documento | `docs/` |
 | N3 | ~~Confirmar si se crea la ficha de Google Business~~ **Confirmado el 5/9/2026: sí.** Queda ejecutarlo, con el NAP exacto de `content/site.ts` | Trámite |
 | N4 | **El comentario de cabecera de `reconocimientos` en `content/site.ts` dice «Cuatro reconocimientos en concurso público» y la lista tiene cinco entradas** —cuatro públicas y una privada, el Teatro César Conto Ferrer—. Es la contradicción H6 del `PLAN-MAESTRO.md` §6, y se resuelve en la misma pasada que 0.7. No se tocó | `content/site.ts` |

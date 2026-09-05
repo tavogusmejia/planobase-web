@@ -171,3 +171,152 @@ Por etapas, cada una con criterio de avance. Nada público hasta cerrar 0.6.
 ```
 
 **Lo más urgente y lo más barato:** verificar `planobase.co` en Resend (0.3). Son unos registros DNS, y sin eso ningún correo llega al cliente.
+
+---
+
+# Para usted
+
+Responda sobre esta misma sección. Todo lo de abajo bloquea trabajo que no
+puedo hacer solo. Ordenado por urgencia.
+
+---
+
+## A. Preguntas
+
+### A1 · ¿Cuánto cuesta la primera llamada?
+Hay tres cifras en circulación: **$0** (el contenido publicado hoy), **$50.000**
+(el volcado de Wix) y **$300.000** (la visita técnica con informe). De esto
+depende si el calendario nace con pasarela de pago o sin ella.
+*Mi recomendación: construirlo genérico y activar el pago solo cuando el precio
+sea mayor que cero. Así no hay que elegir hoy.*
+
+**R/:**
+
+### A2 · ¿`proyectos@planobase.co` está en Google Workspace de pago?
+Si sí, el calendario con Google Meet cuesta **$0 adicionales** y no se rompe
+nunca. Si no, hay que contratarlo (~$34.000/mes) o ir por un camino que **falla
+en silencio cada 7 días**.
+
+**R/:**
+
+### A3 · ¿La dirección pública es Cali o Jamundí?
+Hay que fijarla **antes** de crear la ficha de Google Business. Cambiarla
+después resetea la antigüedad de la ficha.
+
+**R/:**
+
+### A4 · «Cuatro reconocimientos en concurso público nacional» — ¿cómo lo reformulamos?
+El dato no lo sostiene: solo dos se declaran nacionales. Teusaquillo es concurso
+de una alcaldía **local** y Las Colinas es concurso **de ideas**. Cuatro
+reconocimientos en concurso siguen siendo cuatro; hay que decirlo de un modo que
+sea cierto y siga siendo fuerte.
+
+**R/:**
+
+### A5 · ¿Tratamos de «usted» en todo el sitio?
+Hoy hay 32 frases en «tú» y 21 en «usted». Recomiendo unificar en **usted**: es
+donde está la copia ya aprobada y la columna vertebral comercial. Ya están
+redactadas las 32 reescrituras.
+
+**R/:**
+
+### A6 · La copia pendiente de aprobación
+Solo dos puertas llevan sello. Están sin aprobar: la visión de `/estudio`, los
+siete textos de vertical, las políticas de la asesoría, el peldaño 2 de la
+escalera y **`/agendar` entera** — que es la página que va a recibir la pauta.
+¿Cuándo la leen usted y Eduardo?
+
+**R/:**
+
+### A7 · ¿Qué hacemos con `/en`?
+Hoy sirve la interfaz en inglés y el contenido en español: una página bilingüe
+accidental. O se traduce el cuerpo editorial de verdad (3-5 días), o se retira
+del build hasta que haya demanda. Mantener 22 páginas fantasma es lo peor de las
+dos opciones.
+
+**R/:**
+
+### A8 · Experiencia en el Caribe: ¿de quién es?
+Los proyectos del dossier son suyos, ejecutados en XMC Caribbean y Edospina. ¿Se
+enuncian como experiencia de las personas —que es lo honesto y lo que compra un
+cliente de alto patrimonio— o hay obra ejecutada por Plano Base que yo no
+conozco?
+
+**R/:**
+
+### A9 · ¿Publicamos el blog con las fechas repartidas hacia atrás?
+Ya está hecho así y funciona, con una guarda que impide citar el futuro. Solo
+quiero que sepa el matiz: Google usa la fecha en que descubre la página, no la
+declarada. El beneficio es de percepción —el blog se ve establecido—, no de
+posicionamiento.
+
+**R/:**
+
+---
+
+## B. Trámites — nadie más puede hacerlos
+
+### B1 · Verificar `planobase.co` en Resend
+**El más urgente y el más barato.** Son unos registros DNS. Sin esto **ningún
+correo llega al cliente**: ni la confirmación de reserva ni el acuse del
+formulario de contacto.
+
+- [ ] Hecho **R/:**
+
+### B2 · Abrir cuenta de comercio Wompi
+Persona jurídica, RUT y cuenta bancaria a nombre de la S.A.S. El papeleo tarda
+más que el desarrollo. Hay ambiente de pruebas para avanzar mientras tanto.
+
+- [ ] Iniciado **R/:**
+
+### B3 · Credenciales de Google
+Depende de A2. Si hay Workspace: proyecto en Google Cloud, habilitar Calendar
+API, cuenta de servicio, delegación de dominio con un solo permiso, y un
+calendario nuevo «Asesorías Plano Base». Le paso el paso a paso cuando confirme.
+
+- [ ] Hecho **R/:**
+
+### B4 · Ficha de Google Business
+**Después de A3.** Para «arquitectos en Cali» el paquete de mapas se lleva la
+mayor parte de los clics.
+
+- [ ] Hecho **R/:**
+
+### B5 · Facturación electrónica DIAN
+Wompi es la pasarela, **no factura por el comercio**. Hay que decidir si se
+emite a mano o con proveedor, antes de cobrar el primer peso.
+
+- [ ] Resuelto **R/:**
+
+---
+
+## C. El bloqueo más grande
+
+### C1 · Marcar `construido` en los 23 proyectos
+**Solo 1 de 23 está marcado hoy.** Nadie fuera del estudio puede hacerlo: hay
+que ir proyecto por proyecto y decir si está construido, si es propuesta o si es
+concurso.
+
+Desbloquea **cuatro cosas a la vez**: el tráfico frío al portafolio, el
+reencuadre nacional, la página de credenciales institucionales y todo el pilar
+del Caribe. Es la tarea de mayor efecto palanca de este documento.
+
+*Sugerencia: una tabla de 23 filas y dos columnas. Media hora con Eduardo.*
+
+- [ ] Hecho **R/:**
+
+### C2 · Los dos servicios que hoy tienen más demanda
+Tras el sismo, el **diagnóstico de edificaciones** y la **visita técnica con
+informe** son los de mayor demanda real en Cali, y la obra educativa e
+institucional del estudio coincide con la mayor ola de contratación pública de
+la década en el Valle.
+
+¿Está el estudio en condiciones de atender ese volumen? Y para obra pública: la
+urgencia manifiesta **elimina la convocatoria y el contratista se escoge**.
+Quien no está ya en el radar de la entidad, no aparece.
+
+**R/:**
+
+---
+
+*Cuando responda, actualizo la hoja de ruta y arranco lo que se desbloquee.*

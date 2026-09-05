@@ -9,7 +9,7 @@ import { Rule } from '@/components/ui/Rule'
 import { getCategoryCounts, getProjects } from '@/lib/data/projects'
 import { CATEGORIAS, type Categoria } from '@/lib/types'
 import { verticalDe } from '@content/verticales'
-import { tarjeta } from '@/lib/metadatos'
+import { alternativas, tarjeta } from '@/lib/metadatos'
 
 export async function generateMetadata({
   params,
@@ -34,7 +34,12 @@ export async function generateMetadata({
   return {
     title: t('proyectosTitulo'),
     description: descripcion,
-    alternates: { canonical: ruta },
+    /* Canonical autorreferenciado, hreflang solo de lo traducido y el
+       `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
+       `alternates` porque después solo vienen claves distintas: si
+       alguien añade luego un `alternates` o un `robots` propio, este se
+       pierde en silencio. */
+    ...alternativas({ locale, entidad: { tipo: 'pagina', ruta: '/proyectos' } }),
     openGraph: tarjeta({
       locale,
       ruta,

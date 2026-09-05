@@ -7,6 +7,7 @@ import { posts, postsDelPilar } from '@content/posts'
 import { pilares } from '@content/pilares'
 import { postsDe } from '@/lib/data/posts'
 import { absoluteUrl } from '@/lib/utils'
+import { alternativas } from '@/lib/metadatos'
 
 export async function generateMetadata({
   params,
@@ -23,7 +24,12 @@ export async function generateMetadata({
   return {
     title: 'Blog',
     description: descripcion,
-    alternates: { canonical: url },
+    /* Canonical autorreferenciado, hreflang solo de lo traducido y el
+       `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
+       `alternates` porque después solo vienen claves distintas: si
+       alguien añade luego un `alternates` o un `robots` propio, este se
+       pierde en silencio. */
+    ...alternativas({ locale, entidad: { tipo: 'pagina', ruta: '/blog' } }),
     openGraph: {
       type: 'website',
       url: absoluteUrl(url),

@@ -114,3 +114,9 @@ export function postDe(idioma: string, slug: string): Post | null {
 export function postsDelPilarDe(idioma: string, pilar: PilarId): Post[] {
   return postsDelPilar(pilar).map((p) => traducirPost(p, idioma))
 }
+
+/** Cuándo se tradujo, ISO. `null` si no hay traducción a ese idioma. */
+export function fechaDeTraduccion(slug: string, idioma: string): string | null {
+  if (idioma !== 'en') return null
+  return traduccionesPost.get(slug)?.traducido ?? null
+}

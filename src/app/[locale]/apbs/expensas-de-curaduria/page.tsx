@@ -9,6 +9,7 @@ import { MUNICIPIOS } from '@content/apbs/expensas'
 import { puertas } from '@content/puertas'
 import { routing } from '@/i18n/routing'
 import { absoluteUrl } from '@/lib/utils'
+import { alternativas } from '@/lib/metadatos'
 
 const SLUG = 'expensas-de-curaduria'
 
@@ -28,7 +29,12 @@ export async function generateMetadata({
   return {
     title: h.nombre,
     description: h.metaDescripcion,
-    alternates: { canonical: url },
+    /* Canonical autorreferenciado, hreflang solo de lo traducido y el
+       `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
+       `alternates` porque después solo vienen claves distintas: si
+       alguien añade luego un `alternates` o un `robots` propio, este se
+       pierde en silencio. */
+    ...alternativas({ locale, entidad: { tipo: 'herramienta', slug: SLUG } }),
     openGraph: {
       type: 'website',
       url: absoluteUrl(url),

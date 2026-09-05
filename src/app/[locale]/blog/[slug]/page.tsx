@@ -12,6 +12,7 @@ import { postDe } from '@/lib/data/posts'
 import { routing } from '@/i18n/routing'
 import { absoluteUrl, mediaSrc } from '@/lib/utils'
 import { fechaLarga } from '@/lib/formato'
+import { alternativas } from '@/lib/metadatos'
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -41,7 +42,12 @@ export async function generateMetadata({
   return {
     title: post.titulo,
     description: post.metaDescripcion,
-    alternates: { canonical: url },
+    /* Canonical autorreferenciado, hreflang solo de lo traducido y el
+       `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
+       `alternates` porque después solo vienen claves distintas: si
+       alguien añade luego un `alternates` o un `robots` propio, este se
+       pierde en silencio. */
+    ...alternativas({ locale, entidad: { tipo: 'articulo', slug } }),
     /* `openGraph` se declara COMPLETO, con `url` incluida. Next mezcla este
        objeto con el del layout de forma superficial: declarar solo `title` deja
        la imagen y la url del layout, y entonces todas las páginas se comparten

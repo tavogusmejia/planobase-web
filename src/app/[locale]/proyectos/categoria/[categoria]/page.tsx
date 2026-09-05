@@ -11,6 +11,7 @@ import { reconocimientos } from '@content/site'
 import { puertaPorSlug } from '@content/puertas'
 import { verticales, verticalDe } from '@content/verticales'
 import { routing } from '@/i18n/routing'
+import { alternativas } from '@/lib/metadatos'
 
 /**
  * Una vertical del portafolio.
@@ -42,8 +43,12 @@ export async function generateMetadata({
   return {
     title: v.metaTitulo,
     description: v.metaDescripcion,
-    // Apunta a sí misma. Ese es el arreglo: antes todas decían ser /proyectos.
-    alternates: { canonical: `/${locale}/proyectos/categoria/${categoria}` },
+    /* Canonical autorreferenciado, hreflang solo de lo traducido y el
+       `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
+       `alternates` porque después solo vienen claves distintas: si
+       alguien añade luego un `alternates` o un `robots` propio, este se
+       pierde en silencio. */
+    ...alternativas({ locale, entidad: { tipo: 'vertical', categoria: v.categoria } }),
     openGraph: {
       title: v.metaTitulo,
       description: v.metaDescripcion,

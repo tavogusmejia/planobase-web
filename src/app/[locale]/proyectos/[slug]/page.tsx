@@ -15,6 +15,7 @@ import {
 import { routing } from '@/i18n/routing'
 import { lugar } from '@/lib/lugar'
 import { formatArea } from '@/lib/formato'
+import { alternativas } from '@/lib/metadatos'
 import {
   absoluteUrl,
   creditoDiseno,
@@ -57,7 +58,12 @@ export async function generateMetadata({
   return {
     title: project.titulo,
     description,
-    alternates: { canonical: `/${locale}/proyectos/${slug}` },
+    /* Canonical autorreferenciado, hreflang solo de lo traducido y el
+       `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
+       `alternates` porque después solo vienen claves distintas: si
+       alguien añade luego un `alternates` o un `robots` propio, este se
+       pierde en silencio. */
+    ...alternativas({ locale, entidad: { tipo: 'proyecto', slug } }),
     openGraph: {
       title: project.titulo,
       description,

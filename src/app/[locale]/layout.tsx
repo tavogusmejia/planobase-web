@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 import { notFound } from 'next/navigation'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { esIndexable, routing } from '@/i18n/routing'
+import { routing } from '@/i18n/routing'
 import { entornoPublico, sitioIndexable } from '@/lib/env'
 import { notoSans } from '@/lib/fonts'
 import { Header } from '@/components/layout/Header'
@@ -60,10 +60,18 @@ export async function generateMetadata({
       ],
     },
     twitter: { card: 'summary_large_image' },
-    // Dos motivos independientes para no indexar: que el idioma todavía sirva
-    // el cuerpo en español, o que el despliegue viva en un dominio de Vercel
-    // mientras el sitio de Wix sigue en pie. Basta uno.
-    ...(sitioIndexable() && esIndexable(locale)
+    /* Denegación por defecto, y es el suelo y no la decisión.
+     *
+     * Cada página declara su propio `robots` con `alternativas()`, según su
+     * contenido esté traducido o no, y el suyo gana: los metadatos de Next se
+     * mezclan por clave de primer nivel y el segmento más profundo manda.
+     *
+     * Lo que queda aquí solo alcanza a una página que se olvide de llamar a
+     * `alternativas()`, y esa queda fuera del índice. Falla cerrada, que es lo
+     * correcto en un repositorio donde las páginas se añaden a mano: el
+     * descuido cuesta una página sin indexar, no una página en español
+     * indexada como inglesa. */
+    ...(sitioIndexable() && locale === routing.defaultLocale
       ? {}
       : { robots: { index: false, follow: true } }),
   }

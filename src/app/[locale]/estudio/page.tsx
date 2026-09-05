@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { mediaSrc } from '@/lib/utils'
-import { tarjeta } from '@/lib/metadatos'
+import { alternativas, tarjeta } from '@/lib/metadatos'
 import {
   equipo,
   manifiesto,
@@ -33,7 +33,12 @@ export async function generateMetadata({
   return {
     title: 'Estudio',
     description: descripcion,
-    alternates: { canonical: ruta },
+    /* Canonical autorreferenciado, hreflang solo de lo traducido y el
+       `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
+       `alternates` porque después solo vienen claves distintas: si
+       alguien añade luego un `alternates` o un `robots` propio, este se
+       pierde en silencio. */
+    ...alternativas({ locale, entidad: { tipo: 'pagina', ruta: '/estudio' } }),
     openGraph: tarjeta({
       locale,
       ruta,

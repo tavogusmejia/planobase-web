@@ -7,7 +7,7 @@ import { puertas, puertaPorSlug, serviciosDe } from '@content/puertas'
 import { asesoria, contacto, reconocimientos } from '@content/site'
 import { routing } from '@/i18n/routing'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
-import { tarjeta } from '@/lib/metadatos'
+import { alternativas, tarjeta } from '@/lib/metadatos'
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -29,7 +29,12 @@ export async function generateMetadata({
   return {
     title: puerta.nombre,
     description: descripcion,
-    alternates: { canonical: ruta },
+    /* Canonical autorreferenciado, hreflang solo de lo traducido y el
+       `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
+       `alternates` porque después solo vienen claves distintas: si
+       alguien añade luego un `alternates` o un `robots` propio, este se
+       pierde en silencio. */
+    ...alternativas({ locale, entidad: { tipo: 'puerta', slug } }),
     openGraph: tarjeta({
       locale,
       ruta,

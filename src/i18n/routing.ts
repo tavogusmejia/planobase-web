@@ -24,25 +24,28 @@ export const localeNames: Record<Locale, string> = {
 }
 
 /**
- * Qué idiomas se indexan. Lista blanca y nunca negación: si esto se escribiera
- * como «todos menos inglés», el día que entre un tercer idioma se indexaría solo
- * porque nadie se acordó de excluirlo, y un error aquí saca del buscador el
- * idioma principal del sitio.
+ * Qué idiomas **pueden** llegar a indexarse. Ya no es el interruptor.
  *
- * Hoy solo español. La interfaz inglesa está completa, pero el cuerpo editorial
- * —las memorias de los 23 proyectos, los titulares de servicios, el blog— sigue
- * en español y se sirve idéntico en /en. Indexarlo gasta presupuesto de rastreo
- * de un dominio nuevo justo cuando lo que necesita es que las 40 URLs en español
- * entren rápido. Y un estudio de dos personas en Cali, con cliente institucional
- * colombiano, no tiene hoy demanda en inglés que lo justifique.
+ * Antes esta lista decidía sola: con solo `['es']`, todo `/en` iba `noindex`
+ * porque la interfaz estaba traducida y el cuerpo editorial no. Esa decisión se
+ * revirtió —se traduce el sitio entero— y con ella cambió la forma de la
+ * pregunta. Ahora no se indexa un idioma, se indexa una ruta: cada página entra
+ * al índice inglés cuando su contenido está traducido de verdad, y el resto
+ * sigue fuera. Quién decide eso es `traducida(entidad, idioma)` en
+ * `src/lib/i18n/publicacion.ts`.
  *
- * La ruta sigue viva y navegable: esto es `noindex, follow`, no un `Disallow`.
- * Bloquear el rastreo sería peor — si el rastreador no puede leer la página,
- * nunca ve la etiqueta y las URLs ya indexadas se quedan donde están.
+ * Lo que esta lista conserva es su papel de lista blanca, y sigue escrita como
+ * lista y nunca como negación: si dijera «todos menos X», el día que entre un
+ * tercer idioma se indexaría solo porque nadie se acordó de excluirlo, y un
+ * error aquí saca del buscador el idioma principal del sitio. Un idioma que no
+ * esté aquí no se indexa por mucho que su contenido esté traducido.
  *
- * Cuando se traduzca el contenido de verdad, se añade 'en' a esta lista.
+ * La ruta sin traducir sigue viva y navegable: es `noindex, follow`, no un
+ * `Disallow`. Bloquear el rastreo sería peor — si el rastreador no puede leer
+ * la página, nunca ve la etiqueta y las URLs ya indexadas se quedan donde
+ * están.
  */
-export const LOCALES_INDEXABLES: readonly Locale[] = ['es']
+export const LOCALES_INDEXABLES: readonly Locale[] = ['es', 'en']
 
 export function esIndexable(locale: string): boolean {
   return LOCALES_INDEXABLES.includes(locale as Locale)

@@ -10,6 +10,7 @@ import { puertas } from '@content/puertas'
 import { postsDelPilarDe } from '@/lib/data/posts'
 import { routing } from '@/i18n/routing'
 import { absoluteUrl } from '@/lib/utils'
+import { alternativas } from '@/lib/metadatos'
 
 /**
  * Página de tema.
@@ -40,7 +41,12 @@ export async function generateMetadata({
   return {
     title: pilar.metaTitulo,
     description: pilar.metaDescripcion,
-    alternates: { canonical: url },
+    /* Canonical autorreferenciado, hreflang solo de lo traducido y el
+       `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
+       `alternates` porque después solo vienen claves distintas: si
+       alguien añade luego un `alternates` o un `robots` propio, este se
+       pierde en silencio. */
+    ...alternativas({ locale, entidad: { tipo: 'tema', slug } }),
     openGraph: {
       type: 'website',
       url: absoluteUrl(url),

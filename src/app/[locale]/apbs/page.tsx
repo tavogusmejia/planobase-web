@@ -4,6 +4,7 @@ import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { herramientas } from '@content/herramientas'
 import { absoluteUrl } from '@/lib/utils'
+import { alternativas } from '@/lib/metadatos'
 
 const DESCRIPCION =
   'Herramientas que hacen el cálculo, no que lo expliquen: expensas de ' +
@@ -20,7 +21,12 @@ export async function generateMetadata({
   return {
     title: 'APBS',
     description: DESCRIPCION,
-    alternates: { canonical: url },
+    /* Canonical autorreferenciado, hreflang solo de lo traducido y el
+       `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
+       `alternates` porque después solo vienen claves distintas: si
+       alguien añade luego un `alternates` o un `robots` propio, este se
+       pierde en silencio. */
+    ...alternativas({ locale, entidad: { tipo: 'pagina', ruta: '/apbs' } }),
     openGraph: {
       type: 'website',
       url: absoluteUrl(url),

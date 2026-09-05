@@ -8,6 +8,7 @@ import { getFeatured, getHeroProjects, getStats } from '@/lib/data/projects'
 import { asesoria, contacto, manifiesto, site, tituloSitio } from '@content/site'
 import { puertas } from '@content/puertas'
 import { etiquetaPrecio } from '@/lib/precio'
+import { alternativas } from '@/lib/metadatos'
 
 /**
  * La home no tenía metadatos propios: heredaba los del layout, sin canonical.
@@ -25,7 +26,12 @@ export async function generateMetadata({
     // `absolute` evita que la plantilla del layout lo convierta en
     // "... | Plano Base | Plano Base".
     title: { absolute: tituloSitio },
-    alternates: { canonical: `/${locale}` },
+    /* Canonical autorreferenciado, hreflang solo de lo traducido y el
+       `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
+       `alternates` porque después solo vienen claves distintas: si
+       alguien añade luego un `alternates` o un `robots` propio, este se
+       pierde en silencio. */
+    ...alternativas({ locale, entidad: { tipo: 'pagina', ruta: '' } }),
     // La imagen se repite aquí aunque el layout ya la declare: Next mezcla los
     // metadatos de forma SUPERFICIAL, así que un `openGraph` en una página
     // reemplaza entero el del layout en vez de completarlo. Sin esta línea, la

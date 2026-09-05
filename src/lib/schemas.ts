@@ -84,6 +84,21 @@ export const leadSchema = z.object({
    *  en silencio. Sin captcha de terceros. */
   sitioWeb: z.string().max(0).optional(),
 
+  /**
+   * El idioma en el que el visitante rellenó el formulario.
+   *
+   * No es un dato del lead: es lo que decide en qué idioma se le escribe el
+   * acuse de recibo. La Server Action no puede averiguarlo por su cuenta —no
+   * tiene la ruta— y adivinarlo por la cabecera del navegador es peor que
+   * preguntarlo: alguien con el navegador en inglés que está leyendo el sitio
+   * en español recibiría el acuse en inglés.
+   *
+   * Es opcional y cae a español, que es la regla del sitio: un envío sin idioma
+   * —de una prueba, de un cliente viejo— manda el acuse en español antes que no
+   * mandarlo.
+   */
+  idioma: z.string().max(5).optional(),
+
   /** Atribución de campaña. Permite saber qué anuncio produjo cada asesoría,
    *  que es el CPL por anuncio que pide el plan de medición. */
   utmSource: z.string().max(120).optional(),
@@ -93,6 +108,15 @@ export const leadSchema = z.object({
 
 export type LeadInput = z.infer<typeof leadSchema>
 
+/**
+ * `general` es una **clave**, igual que los errores de campo.
+ *
+ * Eran frases en español dentro de la Server Action, así que un visitante de
+ * `/en` cuyo envío fallara leía el error en español, justo en el momento en que
+ * ya había perdido el mensaje. Es el mismo fallo que este archivo ya había
+ * corregido para los errores de campo, y por el mismo motivo: la acción no
+ * puede resolver un idioma y quien pinta sí.
+ */
 export type LeadResult =
   | { ok: true }
   | { ok: false; errores: Partial<Record<keyof LeadInput, string>>; general?: string }

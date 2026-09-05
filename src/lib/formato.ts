@@ -76,6 +76,41 @@ export function fechaLarga(idioma: string, iso: string): string {
 }
 
 /** «marzo de 2026» · «March 2026». Para la rejilla, donde el día sobra. */
+/**
+ * «viernes, 12 de septiembre de 2026, 10:00» · «Friday, 12 September 2026, 10:00».
+ *
+ * Lleva el día de la semana porque es un dato de cita, no de archivo: quien
+ * recibe una confirmación comprueba primero qué día cae, y leer «12/09» obliga
+ * a ir al calendario a averiguarlo.
+ *
+ * La hora se fija a la zona de Bogotá en los dos idiomas, y quien la pinta debe
+ * decir la zona al lado. Una cita a las 10:00 sin decir de dónde son esas diez
+ * es una cita que alguien va a perder: el sitio ya atiende leads de fuera del
+ * país, que su propio formulario contempla.
+ */
+export function fechaHoraLarga(idioma: string, cuando: Date): string {
+  return new Intl.DateTimeFormat(bcp47(idioma), {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+    timeZone: ZONA,
+  }).format(cuando)
+}
+
+/** Solo la hora, para el «de 10:00 a 10:15» de una reserva. */
+export function soloHora(idioma: string, cuando: Date): string {
+  return new Intl.DateTimeFormat(bcp47(idioma), {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+    timeZone: ZONA,
+  }).format(cuando)
+}
+
 export function mesYAno(idioma: string, iso: string): string {
   return new Intl.DateTimeFormat(bcp47(idioma), {
     month: 'long',

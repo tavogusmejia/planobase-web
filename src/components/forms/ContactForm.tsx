@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { leadSchema, type LeadInput } from '@/lib/schemas'
@@ -24,6 +24,7 @@ const campoBase =
 export function ContactForm() {
   const t = useTranslations('formulario')
   const tc = useTranslations('cta')
+  const idioma = useLocale()
 
   /* El esquema devuelve claves y no frases: lo usan el navegador y la Server
      Action, y ninguno de los dos puede resolver el idioma. Aquí sí. */
@@ -105,7 +106,9 @@ export function ContactForm() {
       noValidate
       onSubmit={handleSubmit(async (data) => {
         setGeneral(null)
-        const res = await enviarLead(data)
+        /* El idioma viaja con el envío: la Server Action lo necesita para
+           escribir el acuse de recibo, y no puede deducirlo. */
+        const res = await enviarLead({ ...data, idioma })
         if (res.ok) {
           // Las dos dimensiones con las que se compara el costo por lead entre
           // anuncios: de dónde es y en qué etapa está.
@@ -121,7 +124,10 @@ export function ContactForm() {
         for (const [campo, mensaje] of Object.entries(res.errores)) {
           setError(campo as keyof LeadInput, { message: mensaje })
         }
-        if (res.general) setGeneral(res.general)
+        /* `general` llega como clave, no como frase, por lo mismo que los
+           errores de campo: la acción no sabe en qué idioma está mirando el
+           visitante y aquí sí se sabe. */
+        if (res.general) setGeneral(err(res.general) ?? null)
       })}
       className="space-y-9"
     >

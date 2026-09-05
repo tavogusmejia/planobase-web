@@ -8,7 +8,8 @@ import { after } from 'next/server'
 import { configLeads, haySupabaseAdmin } from '@/lib/env'
 import { supabaseAdmin } from '@/lib/supabase/admin'
 import { leadSchema, type LeadInput, type LeadResult } from '@/lib/schemas'
-import { FUERA_DE_COLOMBIA } from '@content/site'
+import { contacto, FUERA_DE_COLOMBIA } from '@content/site'
+import { enviarAcuse } from '@/lib/correo/acuse'
 import { etiquetaMunicipio } from '@content/apbs/divipola'
 
 /**
@@ -147,7 +148,16 @@ function cuerpoCorreo(r: RegistroLead): string {
     .join('\n')
 }
 
-/** Devuelve si el correo salió. Sin SDK: es una plantilla y una petición. */
+/**
+ * Avisa al estudio. Devuelve si el correo salió.
+ *
+ * Este es el correo **crítico**: si el insert en Supabase falla, es lo único
+ * que evita que el lead se pierda, y por eso su resultado sí decide qué se le
+ * responde al visitante. El acuse al cliente, en cambio, nunca lo decide.
+ *
+ * Sigue en texto plano y a propósito: lo lee alguien del estudio en el móvil,
+ * dentro de la hora que promete el sitio, y una maqueta no le añade nada.
+ */
 async function notificar(r: RegistroLead): Promise<boolean> {
   const { notificarA, notificarDesde, resendApiKey } = configLeads()
   if (!resendApiKey || !notificarA) return false
@@ -175,6 +185,32 @@ async function notificar(r: RegistroLead): Promise<boolean> {
   } catch (error) {
     console.error('[leads] No se pudo notificar:', error)
     return false
+  }
+}
+
+/**
+ * Acusa recibo al visitante.
+ *
+ * **Best-effort, y su resultado no cambia nada.** El lead ya está guardado
+ * cuando esto corre. Si falla, se anota en el log y se sigue: perder un encargo
+ * porque no se pudo mandar un acuse sería cambiar el problema pequeño por el
+ * caro. Por eso devuelve `void` y no un booleano — no hay decisión que tomar
+ * con el resultado, y devolverlo invitaría a tomarla.
+ */
+async function acusarRecibo(r: RegistroLead, idioma: string): Promise<void> {
+  try {
+    const salio = await enviarAcuse({
+      idioma,
+      nombre: r.nombre,
+      correo: r.correo,
+      municipio: r.municipio,
+      etapa: r.etapa,
+      mensaje: r.mensaje,
+      enlaceWhatsapp: `https://wa.me/${contacto.whatsapp}`,
+    })
+    if (!salio) console.error('[leads] El acuse al cliente no salió.')
+  } catch (error) {
+    console.error('[leads] El acuse al cliente lanzó:', error)
   }
 }
 
@@ -227,10 +263,14 @@ export async function enviarLead(raw: unknown): Promise<LeadResult> {
     return {
       ok: false,
       errores: {},
-      general:
-        'Recibimos varios mensajes desde esta conexión. Espere unos minutos o escríbanos por WhatsApp.',
+      general: 'general.limite',
     }
   }
+
+  /* Cae a español, que es la regla del sitio: un envío sin idioma —de una
+     prueba, de un cliente viejo— manda el acuse en español antes que no
+     mandarlo. */
+  const idioma = lead.idioma === 'en' ? 'en' : 'es'
 
   const registro: RegistroLead = {
     nombre: lead.nombre,
@@ -254,34 +294,48 @@ export async function enviarLead(raw: unknown): Promise<LeadResult> {
     // Sin base configurada. En desarrollo ya quedó en disco; en producción el
     // correo es la última línea de defensa.
     if (process.env.NODE_ENV !== 'production') return { ok: true }
-    if (await notificar(registro)) return { ok: true }
+    if (await notificar(registro)) {
+      after(async () => {
+        await acusarRecibo(registro, idioma)
+      })
+      return { ok: true }
+    }
     console.error('[leads] Sin Supabase y sin Resend: el lead se perdió.')
     return {
       ok: false,
       errores: {},
-      general:
-        'No pudimos registrar su mensaje. Escríbanos por WhatsApp y lo resolvemos de inmediato.',
+      general: 'general.fallo',
     }
   }
 
   const { error } = await supabaseAdmin().from('leads').insert(registro)
 
   if (!error) {
-    // El visitante no espera a que Resend responda: el acuse va después.
+    /* El visitante no espera a que Resend responda: los dos correos van
+       después de devolverle el «ok».
+
+       Van en secuencia y no en paralelo a propósito: el aviso al estudio es el
+       que sostiene la promesa de responder en una hora, así que sale primero
+       aunque el acuse tarde o falle. */
     after(async () => {
       await notificar(registro)
+      await acusarRecibo(registro, idioma)
     })
     return { ok: true }
   }
 
   console.error('[leads] No se pudo insertar:', error.message)
 
-  if (await notificar(registro)) return { ok: true }
+  if (await notificar(registro)) {
+    after(async () => {
+      await acusarRecibo(registro, idioma)
+    })
+    return { ok: true }
+  }
 
   return {
     ok: false,
     errores: {},
-    general:
-      'No pudimos registrar su mensaje. Escríbanos por WhatsApp y lo resolvemos de inmediato.',
+    general: 'general.fallo',
   }
 }

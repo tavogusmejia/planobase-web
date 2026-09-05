@@ -123,6 +123,10 @@
     "enviando": "Sending",
     "recibido": "We have your message.",
     "recibidoTexto": "We will write to you on WhatsApp within the next working hour. If you would rather get ahead of the conversation, you can write to us now.",
+    "general": {
+      "limite": "We have received several messages from this connection. Please wait a few minutes or write to us on WhatsApp.",
+      "fallo": "We could not register your message. Write to us on WhatsApp and we will sort it out straight away."
+    },
     "errores": {
       "nombre": "Please write your full name.",
       "nombreLargo": "That name is too long.",

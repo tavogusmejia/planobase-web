@@ -123,6 +123,10 @@
     "enviando": "Enviando",
     "recibido": "Recibimos su mensaje.",
     "recibidoTexto": "Le escribimos por WhatsApp dentro de la siguiente hora hábil. Si prefiere adelantar la conversación, puede escribirnos ahora mismo.",
+    "general": {
+      "limite": "Recibimos varios mensajes desde esta conexión. Espere unos minutos o escríbanos por WhatsApp.",
+      "fallo": "No pudimos registrar su mensaje. Escríbanos por WhatsApp y lo resolvemos de inmediato."
+    },
     "errores": {
       "nombre": "Escriba su nombre completo.",
       "nombreLargo": "El nombre es demasiado largo.",

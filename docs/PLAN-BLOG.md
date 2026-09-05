@@ -233,16 +233,19 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 
 ---
 
-## 5. Los tres que no son artículos
+## 5. Las piezas que no son artículos
 
-Rinden más que cualquier entrada, y el README ya los pedía:
+Rinden más que cualquier entrada. **Las tres primeras están aprobadas** (decisión
+del 5/9/2026) y entran a la hoja de ruta como fase propia.
 
-- **Calculadora de presupuesto de obra** — pide el correo para entregar el
-  resultado. Es el imán de leads que hoy no existe.
-- **PDF descargable «Antes de comprar un lote»** — verificación a cambio del
-  correo.
-- **Página de costos actualizada por trimestre**, con la fecha visible. Google
-  premia el contenido fresco y esta se refresca sola cuatro veces al año.
+| # | Pieza | Estado | Por qué |
+|---|---|---|---|
+| **P1** | **Calculadora de expensas de curaduría** | **aprobada** | La única calculadora funcional del país en este nicho es anónima, no publica su tabla base y **tiene la UVT de 2026 equivocada**. La fórmula del Decreto 1890, la UVT verificada por dos vías y las tarifas publicadas ya están en mano. Es el activo más difícil de copiar del plan, y es código, no redacción |
+| **P2** | **Página de credenciales institucionales** | **aprobada** | Los 24 proyectos en formato m² / entidad / año / modalidad. Un blog no captura al comprador institucional —ese llega por SECOP, no por Google—; una página de credenciales con cifras sí lo convierte. **Depende de marcar `construido`** |
+| **P3** | **Publicar en ArchDaily / Plataforma Arquitectura** | **aprobada** | El estudio no tiene ni una publicación, y buscar «Plano Base arquitectos Colombia» devuelve Plan:b de Medellín. Es el enlace de mayor autoridad temática del sector. Esfuerzo bajo, retorno alto y duradero |
+| P4 | Calculadora de presupuesto de obra | pendiente | El imán de leads que hoy no existe: pide el correo para entregar el resultado |
+| P5 | PDF «Antes de comprar un lote» | pendiente | Verificación descargable a cambio del correo |
+| P6 | Página de costos por trimestre | pendiente | Con la fecha visible. Se refresca sola cuatro veces al año indexando con el ICOCED |
 
 ---
 
@@ -266,21 +269,6 @@ competencia que no estaban en el plan original.
 
 El resto del listado de §4 sigue vigente y se publica después, en el orden que
 ya tenía.
-
-### Y tres cosas que no son artículos, ahora con más razón
-
-1. **Calculadora de expensas de curaduría de Cali**, con comparación contra
-   Jamundí. La única calculadora funcional del país en este nicho es anónima,
-   no publica su tabla base y **tiene la UVT de 2026 equivocada**. Una hecha
-   bien es el activo más difícil de copiar de todo el plan.
-2. **Página de credenciales institucionales** con los 24 proyectos en formato
-   m² / entidad / año / modalidad de contratación. Un blog no captura al
-   público institucional; una página de credenciales con cifras sí lo convierte.
-3. **Publicar en ArchDaily / Plataforma Arquitectura.** El estudio no tiene ni
-   una publicación, y buscar «Plano Base arquitectos Colombia» devuelve
-   **Plan:b arquitectos** de Medellín. Para un estudio con reconocimientos en
-   concurso público, es capital desaprovechado. Esfuerzo bajo, retorno alto y
-   duradero.
 
 ---
 

@@ -29,6 +29,8 @@ Antes de escribir cualquier texto de página, lee el archivo correspondiente en
 pnpm dev · pnpm build · pnpm lint · pnpm typecheck · pnpm media · pnpm media:upload · pnpm seed
 
 ## Nunca
+- No hagas push ni merges a `main` por iniciativa propia. El trabajo se acumula
+  por lotes en la rama y Gustavo pide la publicación cuando la quiere.
 - No hagas commit de .env ni de assets-originales/
 - No enlaces imágenes a static.wixstatic.com
 - No avances de fase sin que yo confirme

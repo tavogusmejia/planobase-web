@@ -118,6 +118,62 @@ export const MUNICIPIOS: Municipio[] = [
   { nombre: 'Girardota', departamento: 'Antioquia', m: 0.638, fuente: res('Resolución MVCT 1050 de 2025', 2025), despachos: 2, vacantes: [1, 2] },
 ]
 
+/**
+ * Los 32 departamentos y el Distrito Capital.
+ *
+ * Están completos a propósito, aunque en la mayoría no haya curaduría: el
+ * selector tiene que servirle a todo el país, y el resultado «en su municipio
+ * no se pagan expensas» es tan válido como una cifra. Un selector que solo
+ * ofreciera los cincuenta y tres con curaduría dejaría fuera a mil municipios.
+ */
+export const DEPARTAMENTOS = [
+  'Amazonas',
+  'Antioquia',
+  'Arauca',
+  'Atlántico',
+  'Bogotá D.C.',
+  'Bolívar',
+  'Boyacá',
+  'Caldas',
+  'Caquetá',
+  'Casanare',
+  'Cauca',
+  'Cesar',
+  'Chocó',
+  'Córdoba',
+  'Cundinamarca',
+  'Guainía',
+  'Guaviare',
+  'Huila',
+  'La Guajira',
+  'Magdalena',
+  'Meta',
+  'Nariño',
+  'Norte de Santander',
+  'Putumayo',
+  'Quindío',
+  'Risaralda',
+  'San Andrés y Providencia',
+  'Santander',
+  'Sucre',
+  'Tolima',
+  'Valle del Cauca',
+  'Vaupés',
+  'Vichada',
+] as const
+
+export type Departamento = (typeof DEPARTAMENTOS)[number]
+
+/** Los municipios con curaduría de un departamento, ordenados. */
+export function municipiosDe(departamento: string): Municipio[] {
+  return MUNICIPIOS.filter((m) => m.departamento === departamento).sort((a, b) =>
+    a.nombre.localeCompare(b.nombre, 'es'),
+  )
+}
+
+/** Valor del selector para «cualquier otro municipio del departamento». */
+export const OTRO_MUNICIPIO = '__otro__'
+
 /** Nombres alternativos que la gente escribe, y a qué municipio corresponden. */
 export const ALIAS: Record<string, string> = {
   Buga: 'Guadalajara de Buga',

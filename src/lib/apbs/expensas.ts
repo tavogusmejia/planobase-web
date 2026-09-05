@@ -5,6 +5,7 @@ import {
   FACTOR_I_VIVIENDA,
   IVA,
   MUNICIPIOS,
+  OTRO_MUNICIPIO,
   TARIFAS_PLANAS_UVT,
   factorIOtrosUsos,
   factorJConstruccion,
@@ -33,6 +34,9 @@ export type Tramite =
   | 'concepto-uso'
 
 export type Solicitud = {
+  departamento: string
+  /** Nombre del municipio, o `OTRO_MUNICIPIO` para cualquier otro del
+   *  departamento — que es el caso de más de mil municipios del país. */
   municipio: string
   tramite: Tramite
   uso: Uso
@@ -98,20 +102,23 @@ function sinCuradorEnOperacion(m: Municipio): boolean {
 const pesos = (uvt: number, veces = 1) => Math.round(uvt * veces)
 
 export function calcular(s: Solicitud, uvt: number): Resultado {
-  const municipio = buscarMunicipio(s.municipio)
+  const municipio =
+    s.municipio === OTRO_MUNICIPIO ? null : buscarMunicipio(s.municipio)
 
-  // Sin curaduría no hay expensas. Es norma, no ausencia de dato.
+  // Sin curaduría no hay expensas. Es norma, no ausencia de dato, y por eso se
+  // responde como resultado y no como error.
   if (!municipio) {
     return {
       tipo: 'sin-expensas',
       municipio: null,
-      titular: 'En este municipio no se pagan expensas de curaduría',
+      titular: 'Ahí no se pagan expensas de curaduría',
       motivo:
-        'No tiene curaduría urbana, así que la licencia la expide la oficina ' +
-        'de planeación. El parágrafo 4 del artículo 2.2.6.6.8.1 del Decreto ' +
-        '1077 de 2015 dice que en ningún caso las autoridades municipales ' +
-        'están autorizadas para cobrar expensas. Sí puede haber otros costos ' +
-        'municipales, como el impuesto de delineación urbana.',
+        'Ese municipio no tiene curaduría urbana, así que la licencia la ' +
+        'expide la oficina de planeación. El parágrafo 4 del artículo ' +
+        '2.2.6.6.8.1 del Decreto 1077 de 2015 dice que en ningún caso las ' +
+        'autoridades municipales están autorizadas para hacer cobros de ' +
+        'expensas. Sí puede haber otros costos municipales, como el impuesto ' +
+        'de delineación urbana, que se liquida aparte.',
     }
   }
 

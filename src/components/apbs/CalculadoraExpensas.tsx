@@ -2,7 +2,12 @@
 
 import { useMemo, useState } from 'react'
 import { Rule } from '@/components/ui/Rule'
-import { MUNICIPIOS, GRATUITO } from '@content/apbs/expensas'
+import {
+  DEPARTAMENTOS,
+  GRATUITO,
+  OTRO_MUNICIPIO,
+  municipiosDe,
+} from '@content/apbs/expensas'
 import { calcular, type Tramite, type Uso } from '@/lib/apbs/expensas'
 
 /**
@@ -11,15 +16,17 @@ import { calcular, type Tramite, type Uso } from '@/lib/apbs/expensas'
  *
  * Dos decisiones de interfaz que importan más de lo que parece:
  *
- * 1. **El municipio se escribe, no se elige de una lista.** Con una lista de
- *    cincuenta y tres, quien vive en cualquiera de los otros mil municipios
- *    del país no encontraría el suyo y se iría sin respuesta. Escribiendo,
- *    recibe la que le sirve: en su municipio no se pagan expensas.
+ * 1. **El selector es en cascada y cubre el país entero.** Los treinta y dos
+ *    departamentos están todos, aunque en la mayoría no haya curaduría, y cada
+ *    uno ofrece siempre la opción «cualquier otro municipio». Sin eso, quien
+ *    vive en cualquiera de los más de mil municipios sin curaduría se quedaría
+ *    sin la respuesta que más le sirve — que es, justamente, que no paga.
  * 2. **Se muestra la descomposición, no solo el total.** Es lo que hacen las
  *    curadurías en sus tablas, y es lo que permite que alguien audite su
  *    liquidación real contra esto. Una cifra sola no se puede discutir.
  */
 export function CalculadoraExpensas({ uvt, anioUvt }: { uvt: number; anioUvt: number }) {
+  const [departamento, setDepartamento] = useState('')
   const [municipio, setMunicipio] = useState('')
   const [tramite, setTramite] = useState<Tramite>('construccion')
   const [uso, setUso] = useState<Uso>('vivienda')
@@ -31,11 +38,14 @@ export function CalculadoraExpensas({ uvt, anioUvt }: { uvt: number; anioUvt: nu
   const areaNum = Number(area.replace(',', '.'))
   const usaFormula = tramite === 'construccion' || tramite === 'urbanizacion'
 
+  const conCuraduria = useMemo(() => municipiosDe(departamento), [departamento])
+
   const resultado = useMemo(() => {
-    if (!municipio.trim()) return null
+    if (!departamento || !municipio) return null
     if (usaFormula && (!Number.isFinite(areaNum) || areaNum <= 0)) return null
     return calcular(
       {
+        departamento,
         municipio,
         tramite,
         uso,
@@ -46,7 +56,18 @@ export function CalculadoraExpensas({ uvt, anioUvt }: { uvt: number; anioUvt: nu
       },
       uvt,
     )
-  }, [municipio, tramite, uso, estrato, areaNum, reducida, sobreLoExistente, uvt, usaFormula])
+  }, [
+    departamento,
+    municipio,
+    tramite,
+    uso,
+    estrato,
+    areaNum,
+    reducida,
+    sobreLoExistente,
+    uvt,
+    usaFormula,
+  ])
 
   const pesos = (n: number) =>
     new Intl.NumberFormat('es-CO', {
@@ -61,21 +82,54 @@ export function CalculadoraExpensas({ uvt, anioUvt }: { uvt: number; anioUvt: nu
         className="measure-ancho grid gap-x-8 gap-y-6 sm:grid-cols-2"
         onSubmit={(e) => e.preventDefault()}
       >
-        <Campo etiqueta="Municipio" ayuda="Escríbalo. Funciona para todo el país.">
-          <input
-            type="text"
+        <Campo etiqueta="Departamento">
+          <select
+            value={departamento}
+            onChange={(e) => {
+              setDepartamento(e.target.value)
+              setMunicipio('')
+            }}
+            className="w-full border-b border-line bg-transparent py-2 text-ink outline-none focus:border-accent"
+          >
+            <option value="">Elija el departamento</option>
+            {DEPARTAMENTOS.map((d) => (
+              <option key={d} value={d}>
+                {d}
+              </option>
+            ))}
+          </select>
+        </Campo>
+
+        <Campo
+          etiqueta="Municipio"
+          ayuda={
+            departamento && conCuraduria.length === 0
+              ? 'En este departamento no hay ninguna curaduría urbana.'
+              : undefined
+          }
+        >
+          <select
             value={municipio}
             onChange={(e) => setMunicipio(e.target.value)}
-            list="municipios-con-curaduria"
-            placeholder="Medellín"
-            autoComplete="off"
-            className="w-full border-b border-line bg-transparent py-2 text-ink outline-none focus:border-accent"
-          />
-          <datalist id="municipios-con-curaduria">
-            {MUNICIPIOS.map((m) => (
-              <option key={m.nombre} value={m.nombre} />
+            disabled={!departamento}
+            className="w-full border-b border-line bg-transparent py-2 text-ink outline-none focus:border-accent disabled:text-muted"
+          >
+            <option value="">
+              {departamento ? 'Elija el municipio' : 'Elija antes el departamento'}
+            </option>
+            {conCuraduria.map((m) => (
+              <option key={m.nombre} value={m.nombre}>
+                {m.nombre}
+              </option>
             ))}
-          </datalist>
+            {departamento ? (
+              <option value={OTRO_MUNICIPIO}>
+                {conCuraduria.length > 0
+                  ? 'Cualquier otro municipio del departamento'
+                  : `Cualquier municipio de ${departamento}`}
+              </option>
+            ) : null}
+          </select>
         </Campo>
 
         <Campo etiqueta="Trámite">
@@ -184,7 +238,7 @@ export function CalculadoraExpensas({ uvt, anioUvt }: { uvt: number; anioUvt: nu
       <div className="measure-ancho mt-12" aria-live="polite">
         {resultado === null ? (
           <p className="text-small text-muted">
-            Escriba el municipio para ver el resultado.
+            Elija departamento y municipio para ver el resultado.
           </p>
         ) : resultado.tipo === 'sin-expensas' ? (
           <div className="border-t border-b border-line py-8">

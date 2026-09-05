@@ -34,6 +34,15 @@ import type { TraduccionPost } from '@/lib/types'
  *   instituciones: DANE, DIAN, curaduría urbana. Y las cifras son las mismas
  *   cifras.
  *
+ * - **La ortografía es británica.** `centre`, `programme`, `metre`, `organise`,
+ *   `neighbourhood`, `litre`, `authorisation`. Es la que ya usan
+ *   `messages/en.json` y todo `content/en/`, y mezclarla con la americana
+ *   dentro del mismo sitio se nota más que cualquiera de las dos.
+ *
+ * - **El espacio antes del `%` desaparece.** «6,33 %» se escribe `6.33%`,
+ *   pegado. Ese espacio es una convención tipográfica del español, no parte de
+ *   la cifra.
+ *
  * - **Los separadores sí cambian, y eso incluye el decimal.** «1,50 m» se
  *   escribe «1.50 m» y «2.640 m» se escribe «2,640 m». Es lo que más fácil se
  *   cuela dentro de una tabla, donde una coma decimal española convierte metro

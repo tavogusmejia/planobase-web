@@ -131,7 +131,7 @@ const DIBUJO_ANATOMIA = `
 /**
  * La anatomía de un costo por metro cuadrado.
  *
- * Dentro de la caja, los seis capítulos constructivos con los que el DANE
+ * Dentro de la caja, los siete capítulos constructivos con los que el DANE
  * describe la construcción de una edificación. Fuera de la caja, con llave,
  * lo que un costo de obra por definición no incluye. Las bandas son iguales:
  * el reparto real cambia con cada proyecto y nadie lo publica.

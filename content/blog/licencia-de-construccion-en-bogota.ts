@@ -31,7 +31,7 @@ export const post: Post = {
   titulo: 'La licencia de construcción en Bogotá, paso a paso',
   pilar: 'tramites',
   fecha: '2026-08-27',
-  actualizado: null,
+  actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:
     'Qué POT rige hoy y cuál es exactamente su situación judicial —que no es ' +
@@ -51,7 +51,7 @@ export const post: Post = {
         'norma. Es difícil por tres cosas que casi nadie le cuenta antes de ' +
         'empezar: que el plan de ordenamiento tiene una historia judicial que ' +
         'todavía no ha terminado, que el reloj de los plazos no arranca el día ' +
-        'que usted radica, y que hay por lo menos cuatro autorizaciones ' +
+        'que usted radica, y que hay por lo menos diez autorizaciones ' +
         'distintas que la gente confunde con la licencia y que las expide otra ' +
         'entidad.',
     },
@@ -659,7 +659,7 @@ export const post: Post = {
     {
       tipo: 'parrafo',
       texto:
-        'En Bogotá hay por lo menos ocho autorizaciones distintas que se ' +
+        'En Bogotá hay por lo menos diez autorizaciones distintas que se ' +
         'confunden con la licencia de construcción. Ninguna la reemplaza y ' +
         'ninguna la expide el curador. Saber a quién le corresponde cada una ' +
         'ahorra meses.',

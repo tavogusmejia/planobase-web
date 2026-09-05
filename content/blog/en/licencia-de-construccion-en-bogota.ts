@@ -42,7 +42,7 @@ export const traduccion: TraduccionPost = {
         'rules. It is difficult because of three things almost nobody tells ' +
         'you before you start: that the land-use plan has a court history ' +
         'that is still not over, that the clock on the deadlines does not ' +
-        'start the day you file, and that there are at least four different ' +
+        'start the day you file, and that there are at least ten different ' +
         'authorisations people confuse with the permit and that another body ' +
         'issues.',
     },
@@ -649,7 +649,7 @@ export const traduccion: TraduccionPost = {
     {
       tipo: 'parrafo',
       texto:
-        'In Bogotá there are at least eight different authorisations that ' +
+        'In Bogotá there are at least ten different authorisations that ' +
         'get confused with the building permit. None of them replaces it and ' +
         'none of them is issued by the curador. Knowing whose job each one ' +
         'is saves months.',

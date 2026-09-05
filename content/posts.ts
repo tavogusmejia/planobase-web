@@ -37,6 +37,8 @@ import { post as costoRemodelar } from './blog/cuanto-cuesta-remodelar-ambiente-
 import { post as licenciaBogota } from './blog/licencia-de-construccion-en-bogota'
 import { post as filtracionesEnCubierta } from './blog/filtraciones-en-cubierta'
 import { post as humedadEnMuros } from './blog/humedad-en-muros-origen-antes-de-reparar'
+import { post as comprarLoteRural } from './blog/comprar-lote-rural-que-verificar-antes-de-firmar'
+import { post as aguaEnElCampo } from './blog/agua-en-el-campo-que-permiso-necesita'
 
 /**
  * El índice del blog.
@@ -90,6 +92,8 @@ const registro: Post[] = [
   licenciaBogota,
   filtracionesEnCubierta,
   humedadEnMuros,
+  comprarLoteRural,
+  aguaEnElCampo,
 ]
 
 /** Ordenados del más reciente al más antiguo. Es el orden de lectura. */

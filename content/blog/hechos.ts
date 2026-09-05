@@ -133,6 +133,31 @@ export const hechos: Hecho[] = [
     patrones: ['icoced', 'cali au'],
   },
   {
+    id: 'vivienda-rural-dispersa',
+    descripcion:
+      'Decreto 1210 de 2020, que reglamenta el articulo 279 de la Ley 1955 de 2019: el uso de agua para consumo humano y domestico de la vivienda rural dispersa se inscribe en el Registro de Usuarios del Recurso Hidrico y esa inscripcion sustituye la concesion',
+    fecha: '2020-09-02',
+    patrones: [
+      'decreto 1210',
+      'registro de usuarios del recurso hidrico',
+      'vivienda rural dispersa',
+    ],
+  },
+  {
+    id: 'ley-1955-2019',
+    descripcion:
+      'Ley 1955 de 2019, plan nacional de desarrollo 2018-2022. Su articulo 279 sigue vigente: el articulo 372 de la Ley 2294 de 2023 enumera los articulos derogados y el 279 no esta en esa lista',
+    fecha: '2019-05-25',
+    patrones: ['ley 1955'],
+  },
+  {
+    id: 'ley-2294-2023',
+    descripcion:
+      'Ley 2294 de 2023, plan nacional de desarrollo 2022-2026. Su articulo 32 reescribio el articulo 10 de la Ley 388 y ordeno las determinantes de ordenamiento por niveles de prevalencia; su articulo 372 fija las derogatorias',
+    fecha: '2023-05-19',
+    patrones: ['ley 2294', 'nivel 1'],
+  },
+  {
     id: 'decreto-1783-2021',
     descripcion:
       'Decreto 1783 de 2021: la licencia de obra nueva pasa a 36 meses',

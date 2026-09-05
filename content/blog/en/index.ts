@@ -37,6 +37,9 @@ import type { TraduccionPost } from '@/lib/types'
  * Está vacío porque el mecanismo llega antes que el contenido, a propósito: la
  * primera traducción que entre ya encuentra la guarda montada.
  */
-const registro: TraduccionPost[] = []
+import { traduccion as comprarLoteRural } from './comprar-lote-rural-que-verificar-antes-de-firmar'
+import { traduccion as aguaEnElCampo } from './agua-en-el-campo-que-permiso-necesita'
+
+const registro: TraduccionPost[] = [comprarLoteRural, aguaEnElCampo]
 
 export const traduccionesPost = new Map(registro.map((t) => [t.slug, t]))

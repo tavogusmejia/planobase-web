@@ -204,10 +204,10 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | # | Título | Estado |
 |---|---|---|
 | 37 | Cuánto cuesta una casa campestre | **publicado** · 23/6/2026 |
-| 38 | Comprar lote rural: la verificación antes de firmar | pendiente |
+| 38 | Comprar lote rural: la verificación antes de firmar | **publicado** · 25/11/2025 · **es + en** |
 | 39 | Qué puedo construir en suelo rural | **publicado** · 9/7/2024 |
 | 40 | Licencia de construcción en suelo rural: por qué tarda el doble | **publicado** · 11/2/2025 |
-| 41 | Agua en el campo: concesión, pozo profundo, recolección de lluvia | pendiente |
+| 41 | Agua en el campo: concesión, pozo profundo, recolección de lluvia | **publicado** · 13/1/2026 · **es + en** |
 | 42 | Aguas residuales sin alcantarillado | pendiente |
 | 43 | Casa bioclimática por piso térmico | pendiente |
 | 44 | Casa en pendiente: cimentación, cortes y muros de contención | pendiente |

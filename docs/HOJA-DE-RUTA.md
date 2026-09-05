@@ -523,6 +523,7 @@ se tocaron para no mezclar documentación con código:
 | N3 | ~~Confirmar si se crea la ficha de Google Business~~ **Confirmado el 5/9/2026: sí.** Queda ejecutarlo, con el NAP exacto de `content/site.ts` | Trámite |
 | N4 | **El comentario de cabecera de `reconocimientos` en `content/site.ts` dice «Cuatro reconocimientos en concurso público» y la lista tiene cinco entradas** —cuatro públicas y una privada, el Teatro César Conto Ferrer—. Es la contradicción H6 del `PLAN-MAESTRO.md` §6, y se resuelve en la misma pasada que 0.7. No se tocó | `content/site.ts` |
 | N5 | **Plantillas de correo de Resend** *(decisión 0.3)*: acuse de recibo del formulario y confirmación de reserva con `.ics` | Tarea 1.7 |
+| N6 | **El enlace «Ficha de experiencia» se pinta también en inglés, y allí no lleva a ninguna parte buena.** Su rótulo está escrito a mano en el componente, sin `t()`, así que no tiene entrada en `messages/es.json` ni en `messages/en.json`. Y la hoja imprimible se genera solo en español desde `d84485a`: como `dynamicParams` conserva su valor por defecto, desde `/en` el enlace no da 404 sino algo peor —Next renderiza la hoja bajo demanda **en español bajo una URL `/en`**, que es justo lo que aquel commit quiso evitar—. **Decisión del 5/9/2026: se deja como está**, y se resuelve cuando las páginas de proyecto entren en `traducida()`. Salió al arreglar el hueco del grid, que era otra cosa y ya está corregido | `src/app/[locale]/proyectos/[slug]/page.tsx` |
 
 
 ---

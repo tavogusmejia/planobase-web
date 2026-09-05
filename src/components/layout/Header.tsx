@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link, usePathname } from '@/i18n/navigation'
 import { Logotipo } from '@/components/brand/Logotipo'
+import { IconoInicio } from '@/components/ui/IconoInicio'
 import { navegacion } from '@content/site'
 import { routing } from '@/i18n/routing'
 import { cn } from '@/lib/utils'
@@ -23,6 +24,10 @@ export function Header({ locale }: { locale: string }) {
 
   const activa = (href: string) =>
     pathname === href || pathname.startsWith(`${href}/`)
+
+  /* `usePathname` de next-intl devuelve la ruta sin el prefijo de idioma, así
+     que la portada es `/` en los dos idiomas. */
+  const enPortada = pathname === '/'
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur-sm">
@@ -46,6 +51,21 @@ export function Header({ locale }: { locale: string }) {
           aria-label="Principal"
           className="hidden items-center gap-8 lg:flex"
         >
+          {/* Solo fuera de la portada: ahí la redundancia con el logotipo no
+              aportaría nada. Lleva `title` además de `aria-label` porque un
+              control sin texto no dice qué hace, y el globo del navegador es la
+              única pista para quien no reconozca la forma. */}
+          {enPortada ? null : (
+            <Link
+              href="/"
+              aria-label={t('inicio')}
+              title={t('inicio')}
+              className="-m-2 p-2 text-ink transition-colors hover:text-accent"
+            >
+              <IconoInicio className="h-5 w-5" />
+            </Link>
+          )}
+
           {navegacion.map((item) => (
             <Link
               key={item.key}

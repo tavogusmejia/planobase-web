@@ -115,7 +115,7 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | 2 | Cuánto cobra un arquitecto en Colombia | **publicado** · 20/8/2026 |
 | 3 | Cuánto cuesta remodelar, por ambiente | pendiente |
 | 4 | Las doce partidas que todo el mundo olvida al presupuestar | pendiente |
-| 5 | Por qué la obra se sale del presupuesto | pendiente |
+| 5 | Por qué la obra se sale del presupuesto | **publicado** · 11/3/2026 |
 
 ### Pilar 2 · Trámites y norma — autoridad natural
 
@@ -127,7 +127,7 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | 9 | Curaduría urbana: qué es, cuál elegir, qué documentos pide | pendiente |
 | 74 | Qué pasa con su licencia si cambia el POT de Cali | **publicado** · 4/9/2026 |
 | 10 | Construí sin licencia: qué sanción hay y cómo se legaliza | **publicado** · 8/7/2025 |
-| 11 | Reforzamiento estructural y NSR-10, para quien no es ingeniero | pendiente |
+| 11 | Reforzamiento estructural: qué exige la norma y qué cuesta el trámite | **publicado** · 15/10/2025 |
 | 12 | Reformar en propiedad horizontal: qué autoriza la asamblea y qué no | **publicado** · 21/1/2025 |
 
 ### Pilar 3 · Patologías — la mejor conversión del sitio

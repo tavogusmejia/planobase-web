@@ -15,6 +15,8 @@ import { post as diezPreguntasConstructor } from './blog/diez-preguntas-antes-de
 import { post as delLoteALaLicencia } from './blog/del-lote-a-la-licencia'
 import { post as reformarEnPH } from './blog/reformar-en-propiedad-horizontal'
 import { post as construiSinLicencia } from './blog/construi-sin-licencia'
+import { post as obraSeSaleDelPresupuesto } from './blog/por-que-la-obra-se-sale-del-presupuesto'
+import { post as reforzamientoEstructural } from './blog/reforzamiento-estructural-y-nsr-10'
 
 /**
  * El índice del blog.
@@ -46,6 +48,8 @@ const registro: Post[] = [
   delLoteALaLicencia,
   reformarEnPH,
   construiSinLicencia,
+  obraSeSaleDelPresupuesto,
+  reforzamientoEstructural,
 ]
 
 /** Ordenados del más reciente al más antiguo. Es el orden de lectura. */

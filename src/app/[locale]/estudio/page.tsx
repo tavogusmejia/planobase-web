@@ -5,13 +5,14 @@ import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { mediaSrc } from '@/lib/utils'
 import { alternativas, tarjeta } from '@/lib/metadatos'
+import { reconocimientos } from '@content/site'
 import {
-  equipo,
-  manifiesto,
-  reconocimientos,
-  sobreElEquipo,
-  vision,
-} from '@content/site'
+  copiaDe,
+  equipoDe,
+  manifiestoDe,
+  sobreElEquipoDe,
+  visionDe,
+} from '@/lib/data/contenido'
 
 export async function generateMetadata({
   params,
@@ -20,18 +21,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const ruta = `/${locale}/estudio`
-  /* El title de Wix decía "Arquitectura bioclimática en Bogotá". El estudio
-     tiene sede en Cali y su obra es sobre todo pública: era un error de
-     posicionamiento, no solo de redacción. Lo que sí es cierto —y faltaba— es
-     que la obra está repartida por el país: diez de los veinticuatro proyectos
-     del portafolio están en Bogotá. */
-  const descripcion =
-    'Plano Base es un estudio de arquitectura con sede en Cali y obra en todo ' +
-    'el país. Trabajamos sobre todo en obra pública —colegios, centros ' +
-    'culturales, sedes administrativas y espacio público— con cuatro ' +
-    'reconocimientos en concurso público nacional.'
+  const copia = copiaDe('/estudio', locale)
+  const descripcion = copia.metaDescripcion
   return {
-    title: 'Estudio',
+    title: copia.titulo,
     description: descripcion,
     /* Canonical autorreferenciado, hreflang solo de lo traducido y el
        `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
@@ -66,6 +59,16 @@ export default async function EstudioPage({
 }) {
   const { locale } = await params
   setRequestLocale(locale)
+
+  /* Todo el contenido de esta página pasa por el resolutor: en inglés devuelve
+     la traducción, y lo que falte cae al español. Los nombres de los concursos
+     no pasan por ahí a propósito — son nombres propios de certámenes
+     colombianos y se citan como son. */
+  const manifiesto = manifiestoDe(locale)
+  const vision = visionDe(locale)
+  const equipo = equipoDe(locale)
+  const sobreElEquipo = sobreElEquipoDe(locale)
+  const copia = copiaDe('/estudio', locale)
 
   const t = await getTranslations('home')
   const tc = await getTranslations('cta')
@@ -135,7 +138,7 @@ export default async function EstudioPage({
           del material del estudio.                                            */}
       <section className="mt-36">
         <h2 className="text-h2 measure-display text-ink">
-          Un arquitecto y un gerente de proyectos.
+          {copia.equipoTitular}
         </h2>
         <p className="text-body measure mt-8 text-ink-soft">{sobreElEquipo}</p>
 
@@ -173,7 +176,7 @@ export default async function EstudioPage({
       {/* ---- Reconocimientos ------------------------------------------------ */}
       <section className="mt-32">
         <h2 className="text-h2 measure-display text-ink">
-          Cinco reconocimientos en concurso.
+          {copia.reconocimientosTitular}
         </h2>
         <ol className="mt-12 border-t border-line">
           {[...reconocimientos]
@@ -194,8 +197,8 @@ export default async function EstudioPage({
                         ante quien va a verificarla. */}
                     <span className="text-block ml-3 text-muted">
                       {r.ambito === 'publico'
-                        ? 'concurso público'
-                        : 'concurso privado'}
+                        ? copia.ambitoPublico
+                        : copia.ambitoPrivado}
                     </span>
                   </p>
                   <p className="text-small measure mt-1 text-ink-soft">

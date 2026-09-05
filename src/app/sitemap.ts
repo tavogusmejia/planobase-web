@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getAllSlugs } from '@/lib/data/projects'
-import { posts } from '@content/posts'
+import { posts, postsDelPilar } from '@content/posts'
+import { pilares } from '@content/pilares'
 import { puertas } from '@content/puertas'
 import { LOCALES_INDEXABLES, routing } from '@/i18n/routing'
 import { verticales } from '@content/verticales'
@@ -18,7 +19,23 @@ const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.planobase.co'
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const slugs = await getAllSlugs()
 
-  const rutas: { path: string; priority: number; freq: 'weekly' | 'monthly' }[] =
+  const ahora = new Date()
+
+  /**
+   * `lastModified` real por entidad.
+   *
+   * Antes todas las rutas llevaban la hora del build, así que cada despliegue
+   * le decía a Google que las 45 páginas habían cambiado. Repetido, Google deja
+   * de creer la señal — justo cuando un dominio nuevo la necesita para entrar
+   * rápido. Los artículos sí saben cuándo cambiaron; el resto se queda con la
+   * fecha del build hasta que tengan su propio dato.
+   */
+  const rutas: {
+    path: string
+    priority: number
+    freq: 'weekly' | 'monthly'
+    lastModified?: Date
+  }[] =
     [
       { path: '', priority: 1, freq: 'weekly' },
       { path: '/proyectos', priority: 0.9, freq: 'weekly' },
@@ -46,23 +63,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.8,
         freq: 'monthly' as const,
       })),
+      // Los temas del blog: páginas de verdad, con su propio texto y su
+      // propia dirección. Solo las que tienen artículos debajo.
+      ...pilares
+        .filter((pi) => postsDelPilar(pi.id).length > 0)
+        .map((pi) => ({
+          path: `/blog/tema/${pi.slug}`,
+          priority: 0.6,
+          freq: 'monthly' as const,
+          lastModified: fechaDelPilar(pi.id),
+        })),
       ...posts.map((p) => ({
         path: `/blog/${p.slug}`,
-        priority: 0.4,
+        priority: 0.6,
         freq: 'monthly' as const,
+        lastModified: new Date(`${p.actualizado ?? p.fecha}T12:00:00Z`),
       })),
     ]
-
-  const ahora = new Date()
 
   // hreflang solo entre idiomas que se indexan. Con uno solo no hay
   // alternativas que declarar, y un clúster hreflang donde un miembro va
   // `noindex` Google lo ignora entero: declararlo sería ruido, no señal.
   const hayAlternativas = LOCALES_INDEXABLES.length > 1
 
-  return rutas.map(({ path, priority, freq }) => ({
+  return rutas.map(({ path, priority, freq, lastModified }) => ({
     url: `${base}/${routing.defaultLocale}${path}`,
-    lastModified: ahora,
+    lastModified: lastModified ?? ahora,
     changeFrequency: freq,
     priority,
     ...(hayAlternativas
@@ -78,4 +104,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }
       : {}),
   }))
+}
+
+/** La fecha del artículo más reciente del tema. Es lo que de verdad cambió. */
+function fechaDelPilar(id: (typeof pilares)[number]['id']): Date {
+  const delPilar = postsDelPilar(id)
+  const masReciente = delPilar.reduce<string | null>((max, p) => {
+    const f = p.actualizado ?? p.fecha
+    return max === null || f > max ? f : max
+  }, null)
+  return new Date(`${masReciente ?? '2022-10-01'}T12:00:00Z`)
 }

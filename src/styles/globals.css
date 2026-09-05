@@ -179,6 +179,31 @@
     max-width: var(--spacing-measure);
   }
 
+  /* Lo que no se lee en renglón corrido —tabla, imagen, diagrama— se sale de
+     la columna de lectura. Dentro de 34 rem, una tabla de cinco columnas es
+     ilegible; a lo ancho de la pantalla, un párrafo también. */
+  .measure-ancho {
+    max-width: 48rem;
+  }
+
+  /* Enlace dentro del cuerpo de un artículo.
+
+     Subrayado con `text-underline-offset` en vez de borde inferior: respeta los
+     descendentes de la tipografía y se parte bien en dos renglones. El color no
+     cambia al pasar por encima —el sitio no tiene enlaces de otro color— sino
+     el grosor del trazo, que es el mismo recurso de la línea de cota. */
+  .enlace {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-thickness 120ms ease-out;
+  }
+
+  .enlace:hover {
+    text-decoration-thickness: 2px;
+  }
+
   /* Medida para titulares. `measure` está calibrado a 68 caracteres de cuerpo;
      aplicado a 50 u 88 px deja siete palabras por línea y convierte cualquier
      frase larga en una pared. Los titulares corren más anchos. */

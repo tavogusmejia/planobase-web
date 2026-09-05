@@ -1,23 +1,103 @@
-// GENERADO desde wix-migration/01-content/blog/*.md. No editar a mano.
-import type { Post } from '@/lib/types'
+import type { Bloque, Post } from '@/lib/types'
+import { post as bienvenidosAPlanoBase } from './blog/bienvenidos-a-plano-base'
+import { post as fisurasEnMuros } from './blog/fisuras-en-muros'
+import { post as licenciaJamundi } from './blog/licencia-de-construccion-en-jamundi'
+import { post as potDeCali } from './blog/pot-de-cali-y-su-licencia'
+import { post as cuantoCobraArquitecto } from './blog/cuanto-cobra-un-arquitecto'
+import { post as ley1209Piscinas } from './blog/ley-1209-piscinas-copropiedad'
+import { post as queConstruirEnMiLote } from './blog/que-puedo-construir-en-mi-lote'
+import { post as quienHaceQue } from './blog/arquitecto-maestro-de-obra-o-constructora'
+import { post as queEsUnAnteproyecto } from './blog/que-es-un-anteproyecto'
+import { post as contratoDeDiseno } from './blog/contrato-de-diseno-arquitectonico'
+import { post as interventoriaDeObra } from './blog/interventoria-de-obra'
+import { post as comoLeerUnPlano } from './blog/como-leer-un-plano'
+import { post as diezPreguntasConstructor } from './blog/diez-preguntas-antes-de-firmar-con-un-constructor'
+import { post as delLoteALaLicencia } from './blog/del-lote-a-la-licencia'
+import { post as reformarEnPH } from './blog/reformar-en-propiedad-horizontal'
+import { post as construiSinLicencia } from './blog/construi-sin-licencia'
+import { post as obraSeSaleDelPresupuesto } from './blog/por-que-la-obra-se-sale-del-presupuesto'
+import { post as reforzamientoEstructural } from './blog/reforzamiento-estructural-y-nsr-10'
 
-export type PostConAutor = Post & { autor: string; minutos: number }
-
-export const posts: PostConAutor[] = [
-  {
-    "slug": "bienvenidos-a-plano-base",
-    "titulo": "Bienvenidos a Plano Base",
-    "fecha": "2022-10-01",
-    "autor": "Eduardo Mejía",
-    "minutos": 3,
-    "resumen": "Por qué Plano Base existe: crear empresa desde la arquitectura, en pospandemia, con una misión concreta — agregar valor en cada proyecto, sea cual sea su escala.",
-    "cuerpo": "Llega un momento en la vida de un arquitecto en la que confluyen varias situaciones que lo obligan a encaminarse en la difícil tarea de crear empresa. Ese momento me llegó a mí hace rato; este es mi segundo intento.\n\nNo solo es difícil, desde el punto de vista del estrés que genera tener que salir del plano creativo en el que quisiera permanecer, sino que también, es como tener un hijo —spoiler alert!—; demanda de cuidado, mucho trabajo, mucha inversión, de mucha paciencia y por supuesto de mucho amor.\n\n*Planta centro cultural en Guaviare*\n\nHace 10 años me dedico a esta profesión, de los cuales llevo intentando crear empresa y hacerla funcionar, unos 8 años —porque dentro de lo difícil que es tener una empresa, lo fácil es crearla, lo realmente difícil es hacerla rentable—. Plano Base Arquitectos nace con la dificultad que trajo consigo la pandemia de COVID-19, nace sin proyectos, es decir nace siendo un proyecto en sí mismo, una labor a desarrollar en el tiempo. Aun así nace con la convicción de hacer las cosas bien, enfrentando las responsabilidades que trae consigo tomar la decisión de emprender. Y es que es emprender, buscar la forma de venderle arquitectura a la gente, porque como dicen las publicidades de mentores online que tira Instagram cada 2 o 3 reels… \"TODO SON VENTAS\". No importa lo románticos que quisiéramos ser con nuestra profesión, esa de crear belleza y forma, la de construir espacios con la luz, la de evocar y provocar, la de lo tectónico y estereotómico, al final necesitas un cliente, que te compra eso que vendes, que es un servicio, pero también un producto, es tangible e intangible.\n\nPor supuesto este oficio no es económico, pensar un edificio económico requiere de la más precisa de las arquitecturas y eso hace que los posibles clientes que contratan servicios de arquitectura sea más limitado, sobre todo en una economía como la colombiana, donde históricamente se ha visto a la arquitectura como algo superfluo, mas no como algo fundamental para desarrollar cualquier tipo de espacio que vaya a ser habitado de algún modo por un ser humano.\n\n*Propuesta para una Cabaña*\n\nCreo que la arquitectura no es solo indispensable para construir espacios habitables, sino que tiene una misión de suma importancia, que es agregar valor.\n\nUna casa vale más si fue diseñada con cuidado por un arquitecto y vale más si ese arquitecto es reconocido; el valor agregado es en principio el dominio técnico y la previsión a futuro que tenga el arquitecto diseñador, también es la manifestación del pensamiento de ese arquitecto, como un cuadro o una escultura para un artista y, como cualquier obra de arte, es un activo que si se conserva adecuadamente nunca perderá valor.\n\nEso hacemos los arquitectos, agregamos valor y esa es la misión de Plano Base: juntar mentes emprendedoras, creativas, visionarias y comprometidas para asegurarnos de agregar valor en cada proyecto.\n\nEn el cumplimiento de esa misión les estaré contando por dónde nos lleva el camino de este emprendimiento que se viene madurando desde 2020 y que apenas ahora empieza a tener forma y fondo; también les iré contando cómo llegamos hasta aquí, ¿por qué el nombre?, les contaré sobre nuestros métodos y nuestros procesos, porque además queremos que las personas entiendan todo lo que conlleva hacer arquitectura, pospandemia, emprendiendo desde cero.\n\nBienvenidos a este blog. Bienvenidos a Plano Base Arquitectos.",
-    "portada": {
-      "path": "blog/bienvenidos-a-plano-base.webp",
-      "width": 1004,
-      "height": 638,
-      "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADwAQCdASoQAAoAA4BaJZQCdAEO4W9BH2AA/vcFWfqteVYKp6ypUtmEVP+CjHEEmEi4AA==",
-      "alt": "Planta del centro cultural en Guaviare, dibujo del proyecto."
-    }
-  }
+/**
+ * El índice del blog.
+ *
+ * Antes este archivo se generaba desde `wix-migration/01-content/blog/*.md` y
+ * llevaba el aviso de «no editar a mano». Esa carpeta es el volcado de la
+ * migración y no puede ser la casa del contenido nuevo: lo que se escriba hoy
+ * no salió de Wix. Los artículos viven ahora en `content/blog/`, uno por
+ * archivo, y aquí solo se listan y se ordenan.
+ *
+ * Añadir un artículo son dos líneas: el `import` y su entrada en el arreglo.
+ * `pnpm build` se encarga del resto —comprueba que ningún artículo se fecha
+ * antes de la fuente más reciente que cita, y que su slug siga resolviendo—.
+ */
+const registro: Post[] = [
+  bienvenidosAPlanoBase,
+  fisurasEnMuros,
+  licenciaJamundi,
+  potDeCali,
+  cuantoCobraArquitecto,
+  ley1209Piscinas,
+  queConstruirEnMiLote,
+  quienHaceQue,
+  queEsUnAnteproyecto,
+  contratoDeDiseno,
+  interventoriaDeObra,
+  comoLeerUnPlano,
+  diezPreguntasConstructor,
+  delLoteALaLicencia,
+  reformarEnPH,
+  construiSinLicencia,
+  obraSeSaleDelPresupuesto,
+  reforzamientoEstructural,
 ]
+
+/** Ordenados del más reciente al más antiguo. Es el orden de lectura. */
+export const posts: Post[] = [...registro].sort((a, b) =>
+  b.fecha.localeCompare(a.fecha),
+)
+
+export const postPorSlug = new Map(posts.map((p) => [p.slug, p]))
+
+/** Palabras por minuto de lectura en prosa técnica en español. Se queda corto a
+ *  propósito: es preferible que la cifra sobre-estime el tiempo a que alguien
+ *  sienta que le mintieron. */
+const PPM = 180
+
+function palabrasDe(b: Bloque): number {
+  const contar = (s: string) => s.trim().split(/\s+/).filter(Boolean).length
+  switch (b.tipo) {
+    case 'titulo':
+    case 'parrafo':
+    case 'nota':
+      return contar(b.texto)
+    case 'cita':
+      return contar(b.texto) + (b.fuente ? contar(b.fuente) : 0)
+    case 'lista':
+      return b.items.reduce((n, i) => n + contar(i), 0)
+    case 'tabla':
+      // Una tabla se escanea, no se lee. Se cuenta la mitad.
+      return Math.round(
+        (b.cabeceras.reduce((n, c) => n + contar(c), 0) +
+          b.filas.reduce((n, f) => n + f.reduce((m, c) => m + contar(c), 0), 0)) /
+          2,
+      )
+    case 'dato':
+      return contar(b.etiqueta)
+    case 'imagen':
+    case 'diagrama':
+      // Mirar una figura cuesta tiempo aunque no tenga palabras.
+      return 20
+  }
+}
+
+/** Minutos de lectura, calculados y no escritos a mano: una cifra a mano se
+ *  queda vieja en cuanto alguien corrige un párrafo. */
+export function minutosDeLectura(post: Post): number {
+  const palabras = post.cuerpo.reduce((n, b) => n + palabrasDe(b), 0)
+  return Math.max(1, Math.round(palabras / PPM))
+}
+
+export function postsDelPilar(pilar: Post['pilar']): Post[] {
+  return posts.filter((p) => p.pilar === pilar)
+}

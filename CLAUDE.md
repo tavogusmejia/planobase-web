@@ -13,6 +13,8 @@ Next.js 15 (App Router) · TypeScript estricto · Tailwind v4 · Supabase · Ver
 - Todas las imágenes por next/image con `sizes` y `blurDataURL`.
 - Peso tipográfico 400 en todo el sitio. La jerarquía se hace con tamaño y aire.
 - Español es el idioma base. Inglés cae a español si falta la traducción.
+- En la conversación, tutear a Gustavo. El sitio va en «usted»: son cosas
+  distintas y mezclarlas confunde sobre a quién se refiere cada frase.
 
 ## Fuente de verdad del contenido
 `wix-migration/`. No inventes contenido. No uses lorem ipsum.

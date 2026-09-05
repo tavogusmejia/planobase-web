@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import { setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
-import { posts } from '@content/posts'
-import { mediaSrc } from '@/lib/utils'
+import { TarjetaPost } from '@/components/blog/TarjetaPost'
+import { posts, postsDelPilar } from '@content/posts'
+import { pilares } from '@content/pilares'
+import { absoluteUrl } from '@/lib/utils'
 
 export async function generateMetadata({
   params,
@@ -12,20 +13,40 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  const url = `/${locale}/blog`
+  const descripcion =
+    'Cómo se lee una fisura, cuánto cuesta construir por metro cuadrado y qué ' +
+    'exige una licencia en cada ciudad. Notas técnicas de un estudio de ' +
+    'arquitectura colombiano, con las fuentes a la vista.'
+
   return {
     title: 'Blog',
-    description:
-      'Apuntes del estudio sobre el oficio de hacer arquitectura en Colombia: ' +
-      'procesos, decisiones de proyecto y el camino de crear empresa.',
-    alternates: { canonical: `/${locale}/blog` },
+    description: descripcion,
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'website',
+      url: absoluteUrl(url),
+      siteName: 'Plano Base',
+      locale: locale === 'en' ? 'en_US' : 'es_CO',
+      title: 'Blog · Plano Base',
+      description: descripcion,
+      images: [{ url: absoluteUrl('/og/default.jpg'), width: 1200, height: 630 }],
+    },
   }
 }
 
 /**
- * Hay una sola entrada, de octubre de 2022. El plan de migración contemplaba
- * retirar el blog, pero el plan de campaña lo necesita: el contenido de
- * autoridad ("¿cuánto cuesta construir en Jamundí?") es uno de los cinco
- * pilares y también el imán de leads del día 7 del seguimiento.
+ * El índice del blog.
+ *
+ * Era una rejilla plana ordenada por fecha, que funciona con una entrada y se
+ * vuelve un muro con setenta y cinco. Ahora hay tres capas: la última pieza a
+ * tamaño grande, la lista de temas con su cuenta —que es la navegación real y,
+ * de paso, un bloque de enlaces internos hacia diez páginas que sí posicionan—,
+ * y lo reciente debajo.
+ *
+ * Los temas son rutas propias y no un parámetro de consulta, por lo mismo que
+ * las verticales del portafolio: un filtro que se autocanonicaliza al índice le
+ * pide a Google indexar diez páginas que dicen ser otra.
  */
 export default async function BlogPage({
   params,
@@ -35,48 +56,69 @@ export default async function BlogPage({
   const { locale } = await params
   setRequestLocale(locale)
 
-  const ordenados = [...posts].sort((a, b) => b.fecha.localeCompare(a.fecha))
+  const [ultimo, ...resto] = posts
+  const conArticulos = pilares
+    .map((p) => ({ pilar: p, cuenta: postsDelPilar(p.id).length }))
+    .filter((x) => x.cuenta > 0)
 
   return (
     <div className="mx-auto max-w-[100rem] px-gutter py-16 lg:px-10 lg:py-24">
-      <h1 className="text-h1 text-ink">Blog</h1>
-      <Rule className="mt-4 text-muted">{ordenados.length}</Rule>
+      <header>
+        <h1 className="text-h1 text-ink">Blog</h1>
+        <p className="text-lead measure mt-8 text-ink-soft">
+          Cómo se lee una fisura, cuánto cuesta construir por metro cuadrado y
+          qué exige una licencia en cada ciudad. Notas técnicas, con las fuentes
+          a la vista.
+        </p>
+        <Rule className="mt-8 text-muted">
+          {posts.length} {posts.length === 1 ? 'entrada' : 'entradas'}
+        </Rule>
+      </header>
 
-      <ul className="mt-16 grid gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
-        {ordenados.map((post) => (
-          <li key={post.slug}>
-            <Link href={`/blog/${post.slug}`} className="group block">
-              {post.portada ? (
-                <div className="relative aspect-[16/10] overflow-hidden bg-mist">
-                  <Image
-                    src={mediaSrc(post.portada.path)}
-                    alt={post.portada.alt}
-                    fill
-                    sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    placeholder="blur"
-                    blurDataURL={post.portada.blurDataURL}
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                  />
-                </div>
-              ) : null}
-              <h2 className="text-h4 mt-5 text-ink group-hover:text-accent">
-                {post.titulo}
-              </h2>
-              <Rule className="mt-2 text-muted">
-                <time dateTime={post.fecha}>
-                  {new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'es-CO', {
-                    year: 'numeric',
-                    month: 'long',
-                  }).format(new Date(post.fecha))}
-                </time>
-              </Rule>
-              <p className="text-small measure mt-4 text-ink-soft">
-                {post.resumen}
-              </p>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {ultimo ? (
+        <section className="mt-16 lg:mt-20">
+          <h2 className="sr-only">Lo último</h2>
+          <div className="lg:max-w-[60rem]">
+            <TarjetaPost post={ultimo} locale={locale} destacada />
+          </div>
+        </section>
+      ) : null}
+
+      {conArticulos.length ? (
+        <nav aria-label="Temas" className="mt-20 lg:mt-24">
+          <h2 className="text-block text-muted">Temas</h2>
+          <ul className="mt-6 border-t border-line">
+            {conArticulos.map(({ pilar, cuenta }) => (
+              <li key={pilar.id} className="border-b border-line">
+                <Link
+                  href={`/blog/tema/${pilar.slug}`}
+                  className="group flex items-baseline justify-between gap-6 py-5"
+                >
+                  <span className="text-h5 text-ink group-hover:text-accent">
+                    {pilar.titulo}
+                  </span>
+                  <span className="text-block shrink-0 tabular-nums text-muted">
+                    {cuenta}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ) : null}
+
+      {resto.length ? (
+        <section className="mt-20 lg:mt-24">
+          <h2 className="text-block text-muted">Más entradas</h2>
+          <ul className="mt-8 grid gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
+            {resto.map((post) => (
+              <li key={post.slug}>
+                <TarjetaPost post={post} locale={locale} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
     </div>
   )
 }

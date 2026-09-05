@@ -1,3 +1,4 @@
+import type { Etiqueta } from '@content/etiquetas'
 /**
  * Modelo de dominio. Estas formas son deliberadamente equivalentes a las tablas
  * de `01-supabase-schema.sql`, para que cambiar la fuente de datos de local a
@@ -118,13 +119,124 @@ export type Award = {
   ambito: 'publico' | 'privado'
 }
 
+// ── Blog ──────────────────────────────────────────────────────────────────
+//
+// El cuerpo de un artículo dejó de ser `string`. Lo era cuando el blog tenía
+// una entrada de 2022 que se partía por saltos de línea y se pintaba como
+// párrafos planos; con eso no se puede publicar una pieza que necesita
+// subtítulos, una tabla de umbrales y una fuente citada al pie.
+//
+// Es una unión discriminada y no markdown a propósito: el repositorio ya
+// escribe su propio .ics y llama a Resend con `fetch` crudo en vez de traer un
+// SDK. Un bloque tipado se valida en el build, no en el navegador, y hace
+// imposible publicar una tabla sin cabeceras o una imagen sin `alt`.
+
+/** Quién hizo una imagen que no es del estudio. Si la imagen no es propia, esto
+ *  no es opcional. */
+export type Credito = {
+  autor: string
+  /** Dónde está publicada: «Wikimedia Commons», el medio, el organismo. */
+  fuente: string
+  url: string
+  /** «CC BY-SA 4.0», «Dominio público», «Uso editorial con atribución». */
+  licencia: string
+}
+
+/** Imagen de artículo. Es una `ProjectImage` que además puede llevar crédito:
+ *  las del portafolio son propias y no lo necesitan. */
+export type ImagenBlog = ProjectImage & { credito?: Credito }
+
+/**
+ * Una fuente citada.
+ *
+ * `fecha` no es decorativa: `scripts/check-fechas.ts` la usa para impedir que
+ * un artículo se publique con fecha anterior al documento que cita. Sin eso,
+ * fechar los artículos hacia atrás produce piezas que citan el futuro.
+ */
+export type Fuente = {
+  titulo: string
+  /** Quién la publica. */
+  editor: string
+  url: string
+  /** Fecha del documento citado, ISO. `null` si es una norma sin fecha útil. */
+  fecha: string | null
+}
+
+/**
+ * Los bloques del cuerpo.
+ *
+ * `texto` admite formato en línea mínimo —`**fuerte**`, `*énfasis*` y
+ * `[texto](url)`— resuelto en `src/components/blog/EnLinea.tsx`. No hay más
+ * sintaxis a propósito: cada añadido es una forma nueva de que un artículo se
+ * rompa en silencio.
+ */
+export type Bloque =
+  | { tipo: 'titulo'; nivel: 2 | 3; texto: string }
+  | { tipo: 'parrafo'; texto: string }
+  | { tipo: 'lista'; ordenada?: boolean; items: string[] }
+  | { tipo: 'tabla'; cabeceras: string[]; filas: string[][]; nota?: string }
+  | { tipo: 'cita'; texto: string; fuente?: string }
+  | { tipo: 'imagen'; imagen: ImagenBlog }
+  /** Aparte del hilo: una advertencia, un matiz, algo que no se puede perder. */
+  | { tipo: 'nota'; texto: string }
+  /** Una cifra que se sostiene sola, con quién la publica y cuándo. */
+  | { tipo: 'dato'; valor: string; etiqueta: string; fuente: string }
+  /**
+   * Diagrama propio, en SVG.
+   *
+   * El SVG viaja como texto y se inyecta con `dangerouslySetInnerHTML`. Es
+   * seguro porque es una constante del repositorio escrita por nosotros y
+   * resuelta en el build: nunca hay entrada de usuario en este campo. La
+   * alternativa —un registro de componentes— parte cada artículo en dos
+   * archivos y no compra nada aquí.
+   *
+   * Debe usar `currentColor` para trazos y texto, y no fijar `width` ni
+   * `height`, para que herede el color del tema y escale con el contenedor.
+   */
+  | { tipo: 'diagrama'; svg: string; titulo: string; pie: string }
+
+/** Los diez pilares del plan editorial. Ver `docs/PLAN-BLOG.md`. */
+export type PilarId =
+  | 'costos'
+  | 'tramites'
+  | 'patologias'
+  | 'proceso'
+  | 'institucional'
+  | 'casos'
+  | 'local'
+  | 'casa-campestre'
+  | 'piscinas'
+  | 'caribe'
+
 export type Post = {
   slug: string
   titulo: string
-  fecha: string
+  /** El gancho. Es lo que se lee en la rejilla y decide si alguien entra. */
   resumen: string
-  cuerpo: string
-  portada: ProjectImage | null
+  /** Meta description propia: más corta que el resumen y con la consulta
+   *  dentro. Separadas porque cumplen funciones distintas. */
+  metaDescripcion: string
+  pilar: PilarId
+  /** Fecha de publicación, ISO. Nunca anterior a la fuente más reciente que
+   *  cita el artículo — lo verifica `pnpm build`. */
+  fecha: string
+  /** Última revisión. Las piezas de costos se reindexan por trimestre. */
+  actualizado: string | null
+  autor: string
+  cuerpo: Bloque[]
+  portada: ImagenBlog | null
+  /** Slug de la puerta de servicio a la que dirige. Ver `content/puertas.ts`. */
+  puerta: string | null
+  /**
+   * Segundo eje de navegación, transversal a los pilares: dónde, para quién y
+   * de qué. Vocabulario cerrado en `content/etiquetas.ts`.
+   *
+   * El filtro y el buscador se construyen en la fase 7 de la hoja de ruta. El
+   * campo existe desde ahora para que los artículos se etiqueten al
+   * escribirlos, en vez de tener que releer setenta y cinco después.
+   */
+  etiquetas: Etiqueta[]
+  fuentes: Fuente[]
 }
 
 export type Service = {

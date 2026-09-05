@@ -14,11 +14,11 @@ import {
 } from '@/lib/data/projects'
 import { routing } from '@/i18n/routing'
 import { lugar } from '@/lib/lugar'
+import { formatArea } from '@/lib/formato'
 import {
   absoluteUrl,
   creditoDiseno,
-  etiquetaProyecto,
-  formatArea,
+  esConcurso,
   mediaSrc,
   nombresDiseno,
 } from '@/lib/utils'
@@ -43,7 +43,7 @@ export async function generateMetadata({
   const project = await getProject(slug)
   if (!project) return {}
 
-  const area = formatArea(project.areaM2)
+  const area = formatArea(locale, project.areaM2)
   const description = [
     project.subtitulo ?? project.memoria.split('. ')[0],
     lugar(project.ciudad, project.departamento),
@@ -93,16 +93,16 @@ export default async function ProyectoPage({
     getRelated(project),
   ])
 
-  const area = formatArea(project.areaM2)
+  const area = formatArea(locale, project.areaM2)
 
   /* La ficha técnica va visible de entrada. En el sitio actual vive dentro de
      un acordeón cerrado, que es donde nadie la ve. Los campos sin dato no se
      pintan: nunca aparece "0 m²" ni una etiqueta vacía. */
-  const naturaleza = etiquetaProyecto(project)
-  const credito = creditoDiseno(project.diseno)
+  const naturaleza = esConcurso(project) ? t('concurso') : null
+  const credito = creditoDiseno(locale, project.diseno, t('otros'))
 
   const ficha: { etiqueta: string; valor: string }[] = [
-    ...(naturaleza ? [{ etiqueta: 'Naturaleza', valor: naturaleza }] : []),
+    ...(naturaleza ? [{ etiqueta: t('naturaleza'), valor: naturaleza }] : []),
     { etiqueta: t('anio'), valor: String(project.anio) },
     {
       etiqueta: t('ciudad'),

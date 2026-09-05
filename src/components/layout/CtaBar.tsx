@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { asesoria, contacto } from '@content/site'
-import { etiquetaPrecio } from '@/lib/utils'
+import { etiquetaPrecio } from '@/lib/precio'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
 /**
@@ -26,7 +26,7 @@ export async function CtaBar() {
     >
       <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-3 px-gutter py-3 lg:px-10">
         <p className="text-block hidden lg:block">
-          {asesoria.nombre} · {etiquetaPrecio(asesoria.precioCOP)}
+          {asesoria.nombre} · {await etiquetaPrecio(asesoria.precioCOP)}
         </p>
 
         <div className="flex min-w-0 flex-1 items-center justify-between gap-3 sm:justify-end sm:gap-6">

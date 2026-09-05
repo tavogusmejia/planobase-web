@@ -2,23 +2,10 @@ import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import type { Categoria } from '@/lib/types'
 import { creditosDiseno } from '@content/site'
+import { formatCOP, unirNombres } from '@/lib/formato'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
-}
-
-/** 5400 → "5.400 m²". Devuelve null si no hay dato: nunca se pinta "0 m²". */
-export function formatArea(m2: number | null): string | null {
-  if (!m2 || m2 <= 0) return null
-  return `${new Intl.NumberFormat('es-CO').format(m2)} m²`
-}
-
-export function formatCOP(value: number): string {
-  return new Intl.NumberFormat('es-CO', {
-    style: 'currency',
-    currency: 'COP',
-    maximumFractionDigits: 0,
-  }).format(value)
 }
 
 /**
@@ -39,12 +26,17 @@ const ORIGEN_MEDIA = (process.env.NEXT_PUBLIC_MEDIA_ORIGIN ?? '').replace(
 )
 
 /**
- * Precio para mostrar. Un servicio gratuito se anuncia como tal, no como "$ 0",
- * que se lee a medio camino entre un error y una promesa dudosa.
+ * Precio para mostrar, o `null` si el servicio es gratuito.
+ *
+ * Antes devolvía la cadena «Sin costo» y por tanto fijaba el español dentro de
+ * una función que no puede alcanzar las traducciones. Ahora devuelve `null` y
+ * quien pinta decide la palabra, que es quien sí tiene el `t`.
+ *
+ * Un servicio gratuito se anuncia como tal y nunca como «$ 0», que se lee a
+ * medio camino entre un error y una promesa dudosa.
  */
-export function etiquetaPrecio(cop: number, desde = false): string {
-  if (cop <= 0) return 'Sin costo'
-  return desde ? `desde ${formatCOP(cop)}` : formatCOP(cop)
+export function precioTexto(idioma: string, cop: number): string | null {
+  return cop <= 0 ? null : formatCOP(idioma, cop)
 }
 
 /** Ruta pública de una imagen del bucket `media`. */
@@ -116,15 +108,20 @@ export function nombresDiseno(diseno: string[]): string[] {
  * El «y otros» no es un eufemismo: dice que hubo más manos sin nombrarlas, que
  * es exactamente la decisión del estudio.
  */
-export function creditoDiseno(diseno: string[]): string | null {
+export function creditoDiseno(
+  idioma: string,
+  diseno: string[],
+  /** «otros» / «others», traducido por quien llama. */
+  otros: string,
+): string | null {
   const nombres = nombresDiseno(diseno)
   const hayOtros = nombres.length < diseno.length
 
-  if (nombres.length === 0) return diseno.length > 0 ? 'Otros' : null
+  if (nombres.length === 0) return diseno.length > 0 ? otros : null
 
-  if (hayOtros) return `${nombres.join(', ')} y otros`
-  if (nombres.length === 1) return nombres[0] ?? null
-  return `${nombres.slice(0, -1).join(', ')} y ${nombres[nombres.length - 1]}`
+  // La conjunción la pone `Intl.ListFormat`: «A, B y C» en español, «A, B and
+  // C» en inglés. Antes iba escrita a mano y era una «y» fija.
+  return unirNombres(idioma, hayOtros ? [...nombres, otros] : nombres)
 }
 
 /**
@@ -139,6 +136,6 @@ export function creditoDiseno(diseno: string[]): string | null {
  * proyecto de 24, y eso es un vacío del CMS y no la verdad, así que del resto
  * no se afirma nada hasta que el estudio lo confirme.
  */
-export function etiquetaProyecto(p: { categorias: Categoria[] }): string | null {
-  return p.categorias.includes('concursos') ? 'Concurso' : null
+export function esConcurso(p: { categorias: Categoria[] }): boolean {
+  return p.categorias.includes('concursos')
 }

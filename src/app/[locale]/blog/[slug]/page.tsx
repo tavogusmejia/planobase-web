@@ -10,6 +10,7 @@ import { pilarPorId } from '@content/pilares'
 import { puertas } from '@content/puertas'
 import { routing } from '@/i18n/routing'
 import { absoluteUrl, mediaSrc } from '@/lib/utils'
+import { fechaLarga } from '@/lib/formato'
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -84,13 +85,7 @@ export default async function PostPage({
   const minutos = minutosDeLectura(post)
   const url = absoluteUrl(`/${locale}/blog/${slug}`)
 
-  const fecha = (iso: string) =>
-    new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'es-CO', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      timeZone: 'America/Bogota',
-    }).format(new Date(`${iso}T12:00:00Z`))
+  const fecha = (iso: string) => fechaLarga(locale, iso)
 
   const jsonLd = [
     {

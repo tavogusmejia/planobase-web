@@ -2,12 +2,8 @@ import Image from 'next/image'
 import { Logotipo } from '@/components/brand/Logotipo'
 import { Rule } from '@/components/ui/Rule'
 import { contacto, site } from '@content/site'
-import {
-  creditoDiseno,
-  etiquetaProyecto,
-  formatArea,
-  mediaSrc,
-} from '@/lib/utils'
+import { creditoDiseno, esConcurso, mediaSrc } from '@/lib/utils'
+import { formatArea } from '@/lib/formato'
 import type { Project } from '@/lib/types'
 import { lugar } from '@/lib/lugar'
 
@@ -22,10 +18,20 @@ import { lugar } from '@/lib/lugar'
  * El contenido es el que pide un pliego o una propuesta formal, en ese orden:
  * qué es, dónde, cuándo, de qué tamaño, quién lo firma y qué se hizo.
  */
+/**
+ * La hoja se imprime en español y solo en español.
+ *
+ * No es un descuido de la traducción: es un documento que se adjunta a una
+ * propuesta o a un pliego colombiano, con rótulos —Año, Ubicación, Naturaleza—
+ * que ahí se leen en español. Por eso las dos rutas que la usan, `/dossier` y
+ * `/proyectos/*\/ficha`, se generan solo en el idioma editorial.
+ */
+const IDIOMA_DEL_PAPEL = 'es'
+
 export function HojaProyecto({ project }: { project: Project }) {
-  const area = formatArea(project.areaM2)
-  const naturaleza = etiquetaProyecto(project)
-  const credito = creditoDiseno(project.diseno)
+  const area = formatArea(IDIOMA_DEL_PAPEL, project.areaM2)
+  const naturaleza = esConcurso(project) ? 'Concurso' : null
+  const credito = creditoDiseno(IDIOMA_DEL_PAPEL, project.diseno, 'otros')
 
   const ficha: { etiqueta: string; valor: string }[] = [
     { etiqueta: 'Año', valor: String(project.anio) },

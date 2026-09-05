@@ -3,7 +3,7 @@ import { setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { asesoria, contacto } from '@content/site'
-import { etiquetaPrecio } from '@/lib/utils'
+import { etiquetaPrecio } from '@/lib/precio'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { tarjeta } from '@/lib/metadatos'
 
@@ -114,7 +114,7 @@ export default async function AgendarPage({
               {asesoria.duracionMin} min
             </Rule>
             <p className="text-h2 mt-8 tabular-nums text-ink">
-              {etiquetaPrecio(asesoria.precioCOP)}
+              {await etiquetaPrecio(asesoria.precioCOP)}
             </p>
 
             <WhatsAppLink

@@ -57,7 +57,10 @@
     "verImagen": "Ampliar imagen",
     "cerrarImagen": "Cerrar",
     "imagenAnterior": "Imagen anterior",
-    "imagenSiguiente": "Imagen siguiente"
+    "imagenSiguiente": "Imagen siguiente",
+    "concurso": "Concurso",
+    "otros": "otros",
+    "naturaleza": "Naturaleza"
   },
   "categorias": {
     "todos": "Todos",
@@ -86,6 +89,8 @@
   "comun": {
     "cargando": "Cargando",
     "cambiarIdioma": "Cambiar idioma",
-    "traduccionPendiente": "Contenido en español; la traducción al inglés está en curso."
+    "traduccionPendiente": "Contenido en español; la traducción al inglés está en curso.",
+    "sinCosto": "Sin costo",
+    "desdePrecio": "desde {precio}"
   }
 }

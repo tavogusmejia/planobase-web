@@ -1,10 +1,11 @@
 'use client'
 
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { RotuloProyecto, useRotulo } from '@/components/project/RotuloProyecto'
 import { usePortadaColoreada } from '@/components/project/ReticulaProyectos'
-import { cn, etiquetaProyecto, mediaSrc } from '@/lib/utils'
+import { cn, esConcurso, mediaSrc } from '@/lib/utils'
 import { portadasEnGrises } from '@content/ajustes'
 import type { Project } from '@/lib/types'
 
@@ -30,13 +31,14 @@ export function ProjectCard({
   priority?: boolean
   sizes?: string
 }) {
+  const t = useTranslations('proyecto')
   const { portada } = project
   const { revelado, pulso, disparadores } = useRotulo()
   const color = usePortadaColoreada(project.slug)
 
   if (!portada) return null
 
-  const etiqueta = etiquetaProyecto(project)
+  const etiqueta = esConcurso(project) ? t('concurso') : null
 
   return (
     <article className="pieza">

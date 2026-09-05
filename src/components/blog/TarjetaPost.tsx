@@ -5,6 +5,7 @@ import type { Post } from '@/lib/types'
 import { mediaSrc } from '@/lib/utils'
 import { minutosDeLectura } from '@content/posts'
 import { pilarPorId } from '@content/pilares'
+import { mesYAno } from '@/lib/formato'
 
 /**
  * La tarjeta de artículo. Una sola, compartida por el índice, las páginas de
@@ -61,11 +62,7 @@ export function TarjetaPost({
 
         <Rule className="mt-3 text-muted">
           <time dateTime={post.fecha}>
-            {new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'es-CO', {
-              year: 'numeric',
-              month: 'long',
-              timeZone: 'America/Bogota',
-            }).format(new Date(`${post.fecha}T12:00:00Z`))}
+            {mesYAno(locale, post.fecha)}
           </time>
         </Rule>
 

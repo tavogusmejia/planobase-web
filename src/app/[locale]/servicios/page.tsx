@@ -4,7 +4,7 @@ import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { escalera, puertas } from '@content/puertas'
 import { asesoria, contacto } from '@content/site'
-import { etiquetaPrecio } from '@/lib/utils'
+import { etiquetaPrecio } from '@/lib/precio'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { tarjeta } from '@/lib/metadatos'
 
@@ -47,6 +47,15 @@ export default async function ServiciosPage({
 }) {
   const { locale } = await params
   setRequestLocale(locale)
+
+  /* Los precios de la escalera se resuelven antes del JSX: la etiqueta es
+     asíncrona —consulta idioma y traducción— y dentro de un `map` no se puede
+     esperar. */
+  const preciosEscalera = await Promise.all(
+    escalera.map((paso) =>
+      paso.precioCOP !== null ? etiquetaPrecio(paso.precioCOP, paso.desde) : null,
+    ),
+  )
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -116,7 +125,7 @@ export default async function ServiciosPage({
         </p>
 
         <ol className="mt-14 border-t border-line">
-          {escalera.map((paso) => (
+          {escalera.map((paso, i) => (
             <li
               key={paso.n}
               className="grid gap-3 border-b border-line py-7 sm:grid-cols-[3rem_16rem_1fr] sm:gap-8"
@@ -126,9 +135,9 @@ export default async function ServiciosPage({
               </span>
               <h3 className="text-h5 text-ink">
                 {paso.nombre}
-                {paso.precioCOP !== null ? (
+                {preciosEscalera[i] ? (
                   <span className="text-block mt-1 block tabular-nums text-muted">
-                    {etiquetaPrecio(paso.precioCOP, paso.desde)}
+                    {preciosEscalera[i]}
                   </span>
                 ) : null}
               </h3>
@@ -145,7 +154,7 @@ export default async function ServiciosPage({
         </h2>
         <div className="mt-10 lg:mt-0">
           <p className="text-h3 text-ink">
-            {etiquetaPrecio(asesoria.precioCOP)}
+            {await etiquetaPrecio(asesoria.precioCOP)}
           </p>
           <p className="text-small measure mt-3 text-ink-soft">
             {asesoria.duracionMin} minutos con un arquitecto. Le decimos si

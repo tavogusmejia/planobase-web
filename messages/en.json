@@ -57,7 +57,10 @@
     "verImagen": "Enlarge image",
     "cerrarImagen": "Close",
     "imagenAnterior": "Previous image",
-    "imagenSiguiente": "Next image"
+    "imagenSiguiente": "Next image",
+    "concurso": "Competition entry",
+    "otros": "others",
+    "naturaleza": "Nature"
   },
   "categorias": {
     "todos": "All",
@@ -86,6 +89,8 @@
   "comun": {
     "cargando": "Loading",
     "cambiarIdioma": "Change language",
-    "traduccionPendiente": "Content shown in Spanish; the English translation is in progress."
+    "traduccionPendiente": "Content shown in Spanish; the English translation is in progress.",
+    "sinCosto": "Free",
+    "desdePrecio": "from {precio}"
   }
 }

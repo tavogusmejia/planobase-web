@@ -34,7 +34,7 @@ export const post: Post = {
   titulo: 'Comprar lote: la verificación de doce puntos antes de firmar',
   pilar: 'local',
   fecha: '2023-01-16',
-  actualizado: null,
+  actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:
     'Un lote se compra con documentos, no con una visita. Los doce puntos que ' +
@@ -129,20 +129,34 @@ export const post: Post = {
     {
       tipo: 'parrafo',
       texto:
-        'En el campo hay un límite de fraccionamiento que no admite ' +
-        'negociación, y su incumplimiento no se sanciona con multa sino con ' +
-        'algo peor:',
+        'En el campo hay un límite de fraccionamiento cuyo incumplimiento no ' +
+        'se sanciona con multa sino con algo peor:',
     },
     {
       tipo: 'cita',
       texto:
-        'Los predios rurales no podrán fraccionarse por debajo de la extensión ' +
-        'determinada como Unidad Agrícola Familiar para el respectivo municipio ' +
-        'o zona. En consecuencia, so pena de nulidad absoluta del acto o ' +
-        'contrato, no podrá llevarse a cabo actuación o negocio alguno del cual ' +
-        'resulte la división de un inmueble rural cuyas superficies sean ' +
-        'inferiores a la señalada.',
+        '**Salvo las excepciones que se señalan en el artículo siguiente**, los ' +
+        'predios rurales no podrán fraccionarse por debajo de la extensión ' +
+        'determinada por el INCORA como Unidad Agrícola Familiar para el ' +
+        'respectivo municipio o zona. En consecuencia, so pena de nulidad ' +
+        'absoluta del acto o contrato, no podrá llevarse a cabo actuación o ' +
+        'negocio alguno del cual resulte la división de un inmueble rural ' +
+        'cuyas superficies sean inferiores a la señalada como Unidad Agrícola ' +
+        'Familiar para el correspondiente municipio por el INCORA.',
       fuente: 'Ley 160 de 1994, artículo 44',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'Esa primera frase importa y esta pieza la había recortado. La ' +
+        'prohibición **no es absoluta**: el artículo 45 trae cuatro ' +
+        'excepciones, y una de ellas —los actos que constituyen propiedades ' +
+        'de superficie menor para un fin principal distinto a la explotación ' +
+        'agrícola— es justo la que suele aplicar a una casa campestre. Las ' +
+        'cuatro, con la condición de que quede constancia en la escritura, ' +
+        'están en [comprar un lote rural](/blog/comprar-lote-rural-que-verificar-antes-de-firmar). ' +
+        'El INCORA ya no existe: sus funciones sobre la unidad agrícola ' +
+        'familiar están hoy en la Agencia Nacional de Tierras.',
     },
     {
       tipo: 'parrafo',

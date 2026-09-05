@@ -34,8 +34,23 @@ import type { TraduccionPost } from '@/lib/types'
  *   instituciones: DANE, DIAN, curaduría urbana. Y las cifras son las mismas
  *   cifras; solo cambian los separadores.
  *
- * Está vacío porque el mecanismo llega antes que el contenido, a propósito: la
- * primera traducción que entre ya encuentra la guarda montada.
+ * - **Los enlaces internos se escriben `/blog/<slug>`, sin prefijo de idioma,
+ *   también en inglés.** El `Link` de `@/i18n/navigation` antepone el idioma de
+ *   la petición, así que escribir `/en/blog/...` produce `/en/en/blog/...`: un
+ *   404 que ninguna guarda detecta porque el texto está bien formado. Y el slug
+ *   es el mismo en los dos idiomas, así que va en español dentro del texto
+ *   inglés. Es correcto y es a propósito.
+ *
+ * - **Los diagramas viven en un solo archivo, con la geometría compartida.**
+ *   `content/blog/diagramas/<tema>.ts` exporta las dos versiones construidas
+ *   sobre la misma constante de trazado, y lo único que difiere son los
+ *   `<text>`. La alternativa —un archivo dentro de `en/`— duplica el dibujo y
+ *   lo deja envejecer por separado: el día que alguien corrija una cota, la
+ *   corrige en un idioma.
+ *
+ * Estas tres reglas salieron de escribir la primera tanda bilingüe. Las dos
+ * primeras estaban implícitas y costaron una deducción; la tercera fue una
+ * decisión que tomó el agente y que aquí queda fijada.
  */
 import { traduccion as comprarLoteRural } from './comprar-lote-rural-que-verificar-antes-de-firmar'
 import { traduccion as aguaEnElCampo } from './agua-en-el-campo-que-permiso-necesita'

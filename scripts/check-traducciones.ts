@@ -150,8 +150,42 @@ function textoEn(b: BloqueTraducido): string {
   }
 }
 
-/** Rastros de español en un texto que debería estar en inglés. */
-const RASTROS = /[¿¡ñ]|\b(que|para|según|sin embargo|del|los|las|una)\b/i
+/**
+ * Rastros de español en un texto que debería estar en inglés.
+ *
+ * Antes de buscarlos hay que quitar dos cosas que el propio contrato **exige**
+ * que estén en español, y que sin esto producían cinco avisos por tanda:
+ *
+ * 1. **El destino de un enlace.** Los slugs no se traducen, así que un enlace
+ *    interno legítimo lleva español dentro del texto inglés:
+ *    `[what you can build](/blog/que-puedo-construir-en-suelo-rural)`.
+ * 2. **Los nombres propios.** «Registro de Usuarios del Recurso Hídrico» y
+ *    «Serranía de los Motilones» son nombres que no se traducen, y sus
+ *    conectores disparaban la búsqueda.
+ *
+ * Se descartan quitando el paréntesis del enlace y las palabras con inicial
+ * mayúscula. Lo que queda es prosa corrida en minúscula, que es donde el
+ * español se filtra de verdad. Un aviso que salta siempre deja de leerse, y un
+ * detector que nadie lee no detecta nada.
+ */
+const RASTROS = /[¿¡]|\b(que|para|según|sin embargo|del|los|las|una)\b/i
+
+/**
+ * Un nombre propio entero, conectores incluidos.
+ *
+ * Quitar solo las palabras en mayúscula no basta: deja suelto el conector que
+ * va **dentro** del nombre —«Registro de Usuarios *del* Recurso Hídrico»,
+ * «Serranía de *los* Motilones»—, que es justo una de las palabras que se
+ * buscan. Así que se toma la cadena completa: una palabra en mayúscula y todo
+ * lo que la sigue enlazado por conectores en minúscula. Son varios y no uno:
+ * «Serranía **de los** Motilones» encadena dos.
+ */
+const NOMBRE_PROPIO =
+  /\p{Lu}[\p{L}\p{M}·.'-]*(?:(?:\s+(?:de|del|la|las|los|el|y|e|da|do))*\s+\p{Lu}[\p{L}\p{M}·.'-]*)*/gu
+
+function sinLoQueNoSeTraduce(texto: string): string {
+  return texto.replace(/\]\([^)]*\)/g, ']').replace(NOMBRE_PROPIO, ' ')
+}
 
 function revisarCuerpo(post: Post, t: TraduccionPost): void {
   const { slug } = post
@@ -224,7 +258,7 @@ function revisarCuerpo(post: Post, t: TraduccionPost): void {
     const tEn = textoEn(en)
     if (tEn.length > 25 && tEn === textoEs(es)) {
       falla(slug, `bloque ${i}: el texto inglés es idéntico al español`)
-    } else if (tEn.length > 25 && RASTROS.test(tEn)) {
+    } else if (tEn.length > 25 && RASTROS.test(sinLoQueNoSeTraduce(tEn))) {
       avisos.push(`${slug}, bloque ${i}: quedan rastros de español en el inglés`)
     }
   })

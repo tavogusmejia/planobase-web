@@ -120,6 +120,17 @@ export default async function ProyectosPage({
           {visibles.length}
           {activa ? ` / ${todos.length}` : ''}
         </Rule>
+
+        {/* El dossier del sector: portada más una hoja por proyecto, listo para
+            adjuntar a una propuesta. Solo cuando hay un sector elegido. */}
+        {activa && visibles.length > 0 ? (
+          <Link
+            href={`/dossier/${activa}`}
+            className="text-block mt-5 inline-block text-accent underline-offset-4 hover:underline"
+          >
+            Dossier de {tcat(activa).toLowerCase()}
+          </Link>
+        ) : null}
       </div>
 
       {/* La barra de categorías. En móvil corre en horizontal en vez de

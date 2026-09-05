@@ -192,7 +192,16 @@ export default async function ProyectoPage({
                 <dd className="text-small mt-1 text-ink">{f.valor}</dd>
               </div>
             ))}
-          </dl>
+            </dl>
+
+            {/* El documento que el estudio adjunta a una propuesta. Sale del
+                mismo dato que esta página, así que no se desactualiza. */}
+            <Link
+              href={`/proyectos/${project.slug}/ficha`}
+              className="text-block mt-6 inline-block text-accent underline-offset-4 hover:underline"
+            >
+              Ficha de experiencia
+            </Link>
 
           <div className="border-t border-line pt-6">
             <h2 className="text-block mb-6 text-muted">{t('memoria')}</h2>

@@ -340,3 +340,63 @@
     }
   }
 }
+
+/* ==========================================================================
+   Impresión
+   ==========================================================================
+
+   El estudio arma propuestas y ofertas a mano, cada vez, copiando datos que ya
+   están en el sitio. Estas reglas convierten dos rutas —la ficha de experiencia
+   de un proyecto y el dossier de un sector— en documentos que se guardan como
+   PDF desde el propio navegador.
+
+   Se hace con CSS y no con una librería de PDF a propósito: cero dependencias
+   nuevas, cero servicio que mantener, y el documento nunca se desincroniza del
+   sitio porque sale del mismo dato.                                           */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  /* La navegación no se imprime: en papel no lleva a ninguna parte. */
+  header,
+  footer,
+  [data-sin-imprimir] {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #fff;
+  }
+
+  body {
+    font-size: 10.5pt;
+  }
+
+  /* Los navegadores descartan fondos e imágenes de fondo al imprimir salvo que
+     se les pida lo contrario. Sin esto, la línea de cota desaparece del papel. */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .hoja {
+    break-after: page;
+  }
+
+  .hoja:last-of-type {
+    break-after: auto;
+  }
+
+  /* Nada que se pueda partir por la mitad debería partirse. */
+  .no-partir {
+    break-inside: avoid;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

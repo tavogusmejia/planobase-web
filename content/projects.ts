@@ -130,7 +130,7 @@ export const projects: Project[] = [
     "subtitulo": "Propuesta Concurso 5inco Sena Kennedy",
     "anio": 2024,
     "ciudad": "Bogotá D.C.",
-    "departamento": "Cundinamarca",
+    "departamento": "Bogotá D.C.",
     "localidad": null,
     "areaM2": 10007.3,
     "diseno": [
@@ -157,7 +157,7 @@ export const projects: Project[] = [
       "width": 2048,
       "height": 1946,
       "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACwAQCdASoQAA8AA4BaJbACdACbn/rYAPzXwm6vmKdT2KVNMK9E8ME5ZjoXpqnYdwKaf3TuHlS04qulmpUGOJF2ctr24TEXT5lJJ2UN/5tGlo0QsyT9AvhRkXa8nmftdHJcbsAC2JdWDCM4UhooAA==",
-      "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+      "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C. Vista principal del proyecto."
     },
     "galeria": [
       {
@@ -165,49 +165,49 @@ export const projects: Project[] = [
         "width": 2048,
         "height": 1946,
         "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACwAQCdASoQAA8AA4BaJbACdACbn/rYAPzXwm6vmKdT2KVNMK9E8ME5ZjoXpqnYdwKaf3TuHlS04qulmpUGOJF2ctr24TEXT5lJJ2UN/5tGlo0QsyT9AvhRkXa8nmftdHJcbsAC2JdWDCM4UhooAA==",
-        "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+        "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C. Vista principal del proyecto."
       },
       {
         "path": "proyectos/concurso-5inco-sena-kennedy/02.webp",
         "width": 1944,
         "height": 2048,
         "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABQBACdASoQABEAPu1iqU2ppaOiMAgBMB2JQBOj+EfgAVwkWIqQ8XWqRImgAP67ycxCcJB5lTKkIn1bA/+/IHj4p8YMxuPxBPHSnVMuDGwswqx675xbNZXaK5KRqUU0rM/ZbBLEwiWXAdJAbPZIPAWqxsrVYAAA",
-        "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C., Cundinamarca. Imagen 2 de 7."
+        "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C. Imagen 2 de 7."
       },
       {
         "path": "proyectos/concurso-5inco-sena-kennedy/03.webp",
         "width": 2048,
         "height": 1152,
         "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQAgCdASoQAAkAA4BaJZACdH8AGMSlJ2sd/QAA/uiT0LALxX7RYblDIKZ/fknSZsp4osGNIHGx8Cwzcj5RZv0OlRWWe0BNqdXaFq5uLlSPF4knUFUFkzW6gAA=",
-        "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C., Cundinamarca. Imagen 3 de 7."
+        "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C. Imagen 3 de 7."
       },
       {
         "path": "proyectos/concurso-5inco-sena-kennedy/04.webp",
         "width": 2048,
         "height": 1152,
         "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAwAgCdASoQAAkAA4BaJYgCdAEQXsXWw5GH4AD5daKmrCtqLoxSSYO83U8Vw6//LPJ7zlSkq2AVE1hdvrAE5Q3/5/M8lnizUFHtOJQIgAQcxiWSNHdQgGNcAAA=",
-        "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C., Cundinamarca. Imagen 4 de 7."
+        "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C. Imagen 4 de 7."
       },
       {
         "path": "proyectos/concurso-5inco-sena-kennedy/05.webp",
         "width": 2048,
         "height": 1152,
         "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoQAAkAA4BaJbACdH8AEiZYRAAA/k3Xm8k2Tc80vQFCSshDCQYj+4XiCrOPQcWEmYx2gL0PsoABaNjSVTQ1eJvjIG6yWCJFqUTghYO4vre8Eb7S6vQcOPmcV50cAA==",
-        "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C., Cundinamarca. Imagen 5 de 7."
+        "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C. Imagen 5 de 7."
       },
       {
         "path": "proyectos/concurso-5inco-sena-kennedy/06.webp",
         "width": 2048,
         "height": 1152,
         "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAkAA4BaJZACdAD6ILTYpAAA/tpjc1pkJXBXZsAXupHowYY5IkWLhEQyTt+nB+Wl/gj1ZxAz38/5anFAJkSZ7cw/3ph/n5DwAA==",
-        "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C., Cundinamarca. Imagen 6 de 7."
+        "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C. Imagen 6 de 7."
       },
       {
         "path": "proyectos/concurso-5inco-sena-kennedy/07.webp",
         "width": 1366,
         "height": 768,
         "blurDataURL": "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAAAwAQCdASoQAAkAA4BaJZwAA3AA/vIKcKAUwpG/idvwAA==",
-        "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C., Cundinamarca. Imagen 7 de 7."
+        "alt": "Concurso 5inco Sena Kennedy, Bogotá D.C. Imagen 7 de 7."
       }
     ],
     "alertas": []
@@ -218,7 +218,7 @@ export const projects: Project[] = [
     "subtitulo": "Propuesta concurso público Colegio Villas del Progreso",
     "anio": 2022,
     "ciudad": "Bogotá D.C.",
-    "departamento": "Cundinamarca",
+    "departamento": "Bogotá D.C.",
     "localidad": null,
     "areaM2": 9000,
     "diseno": [
@@ -245,7 +245,7 @@ export const projects: Project[] = [
       "width": 2304,
       "height": 1296,
       "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoQAAkAA4BaJZQC7AYtfWU8XR+AAAD+6V9dFk70xhBSTaW72/JhVMqzJxBlLe+ZcOkv64N6UEgXpF5lwh3TDiqraJkH/9NwAAA=",
-      "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+      "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Vista principal del proyecto."
     },
     "galeria": [
       {
@@ -253,84 +253,84 @@ export const projects: Project[] = [
         "width": 2304,
         "height": 1296,
         "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoQAAkAA4BaJZQC7AYtfWU8XR+AAAD+6V9dFk70xhBSTaW72/JhVMqzJxBlLe+ZcOkv64N6UEgXpF5lwh3TDiqraJkH/9NwAAA=",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Vista principal del proyecto."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/02.webp",
         "width": 2534,
         "height": 1426,
         "blurDataURL": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4WAoAAAAQAAAADwAACAAAQUxQSB0AAAABH9D/iAgYZBupaCdxPi/xPo/3CBH9D+R1GKTtAgBWUDggUgAAAPABAJ0BKhAACQADgFolnALsAQMThlQfQAD+8Ya+KGfzVzfLgpaybRaW+6aXUVJ++OlfdqBuOuDBOW4yo9AeMm4aC6/BqgPwWE+E2PSKpj0AAAA=",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C., Cundinamarca. Imagen 2 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 2 de 12."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/03.webp",
         "width": 2560,
         "height": 1440,
         "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAQCdASoQAAkAA4BaJQBOgBZn7P/oAPxmavHuZqRvyneYZxTBlogI4IfSwTWxunxKqp9lyLcvy6BuXvPCVZvj1FVA5bb3I7rvS13poaMmHvfpYa5lkAAA",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C., Cundinamarca. Imagen 3 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 3 de 12."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/04.webp",
         "width": 2560,
         "height": 1440,
         "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAkAA4BaJQBOgMWbubhybAAA/iW7vLBE/cL1nRI575RB4dQhY8QL3Hv+7RZ8DnAulQNZriYUHnznYGnyfpddj2uAAA==",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C., Cundinamarca. Imagen 4 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 4 de 12."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/05.webp",
         "width": 2560,
         "height": 1440,
         "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoQAAkAA4BaJYwCdAEWSrOFJgAA/e9NVLvPK56oR8SLbO3ovXlZGJHoPuEGou++cc81VeSYaAA=",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C., Cundinamarca. Imagen 5 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 5 de 12."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/06.webp",
         "width": 2560,
         "height": 1440,
         "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAA4BaJaQAAuRwqzn3BPAA/qxvl3Bvr2pKImv/6N7nhyyBWfY8uZWA64XSLJ6gFkHPQWmYEkkGTOmWCvPUrFS4AAAA",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C., Cundinamarca. Imagen 6 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 6 de 12."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/07.webp",
         "width": 2560,
         "height": 1440,
         "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkAA4BaJaQAAujYMJkfAAD+6k6M8vFpfYrdSYeeGyRcaim3czSXUp3ai9a1y2jJmINuNVxInLh4bbdXFYAA",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C., Cundinamarca. Imagen 7 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 7 de 12."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/08.webp",
         "width": 1920,
         "height": 1080,
         "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoQAAkAA4BaJaQAAudmkT77wAD++Bl9sHy9jiwGYTDTlfMC2OozaATdBEAAAA==",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C., Cundinamarca. Imagen 8 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 8 de 12."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/09.webp",
         "width": 1920,
         "height": 1080,
         "blurDataURL": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAkAA4BaJZwAAudH0F0AAP72EKNA41i/4nlg0vJ0AAAA",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C., Cundinamarca. Imagen 9 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 9 de 12."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/10.webp",
         "width": 2560,
         "height": 1803,
         "blurDataURL": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4WAoAAAAQAAAADwAACgAAQUxQSBkAAAABD6AgbQPGv+V2x0ZExIFAIAl9/BEi+h96AFZQOCBYAAAA0AEAnQEqEAALAAOAWiWkAAKR0gnmNAAA/uiTUFM7MJLJ2q03afw98Ezl1Nx9uxbVuKC8F2rLGTplKAR5TOv04SLAqm5zPqnmnmGD42rfisqgY56EGAAAAA==",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C., Cundinamarca. Imagen 10 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 10 de 12."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/11.webp",
         "width": 2384,
         "height": 1684,
         "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoQAAsAA4BaJZQAAxf/JYgesJYAAP7051uRHV+PoELAJ54/oKP/JlBHkcMlXVWfA+hWtIweusSxoVngWsUN1/AAAAA=",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C., Cundinamarca. Imagen 11 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 11 de 12."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/12.webp",
         "width": 2560,
         "height": 1807,
         "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4WAoAAAAQAAAADwAACgAAQUxQSBgAAAABD6AQQADE37nRiIgYCASS0McfIaL/oQdWUDggRgAAAPABAJ0BKhAACwADgFolnAAClB/bFE5pDAD+9xFqUqhdIgbet7uBKZE/+RGMRVtuQyzbAO2DxTIDlcj2MgEuJfO2hY2kFAA=",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C., Cundinamarca. Imagen 12 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 12 de 12."
       }
     ],
     "alertas": []
@@ -615,7 +615,7 @@ export const projects: Project[] = [
     "subtitulo": "Diseño arquitectónico y consultoría integral Colegio Próspero Pinzón",
     "anio": 2016,
     "ciudad": "Bogotá D.C.",
-    "departamento": "Cundinamarca",
+    "departamento": "Bogotá D.C.",
     "localidad": "Kennedy",
     "areaM2": 5400,
     "diseno": [
@@ -640,7 +640,7 @@ export const projects: Project[] = [
       "width": 2048,
       "height": 971,
       "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAgAA4BaJYgCdH8AGM2XSHMAAP7SanzuZXMiFIqXNnIhoHR053s4jBOABvGsN20bn3IvKv6WwhDSwfW9A+ycwzOuAAAA",
-      "alt": "Colegio Próspero Pinzón, Bogotá D.C.. Imagen de portada."
+      "alt": "Colegio Próspero Pinzón, Bogotá D.C. Imagen de portada."
     },
     "galeria": [
       {
@@ -648,49 +648,49 @@ export const projects: Project[] = [
         "width": 2048,
         "height": 1107,
         "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACwAQCdASoQAAkAA4BaJZgCdAECfK/wAP7ELgE0TPznvZk1xcog8nXEfQNCwgY+04gj9NvIsXGBxKhPCfF1xjNT49dIIipJ5UzquSLYM6B/m0ysgAA=",
-        "alt": "Colegio Próspero Pinzón, Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+        "alt": "Colegio Próspero Pinzón, Bogotá D.C. Vista principal del proyecto."
       },
       {
         "path": "proyectos/colegio-prospero-pinzon/02.webp",
         "width": 2048,
         "height": 971,
         "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAgAA4BaJQAB8coOkm3UPeAAy07i06DRpwp1LU/i+nX+w2Eh9HYaiigyrx/cM0Cwz9U9tquop3/oEzsBU/FptBHCevgA",
-        "alt": "Colegio Próspero Pinzón, Bogotá D.C., Cundinamarca. Imagen 2 de 7."
+        "alt": "Colegio Próspero Pinzón, Bogotá D.C. Imagen 2 de 7."
       },
       {
         "path": "proyectos/colegio-prospero-pinzon/03.webp",
         "width": 971,
         "height": 2048,
         "blurDataURL": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4IMwAAABQBQCdASoQACIAPt1apE2opSOiNUgBEBuJQBdjM/ipZ95ioHRMYKfCjR2fJ2cHqfrsRYAA/pEDFGmVyyzTbFPcJ5ZWbsJaCUzJ5BxpAYIDDnj5FaQtKkYH9lP2PnHfOzLHJ7VB3liLyr/YafxfScx7mEWB5SouGTmw/cSyJVJ50rIfIQcxqH+3aCjsAlbayOVchizLlSIwsY2qtSjC0mNsrNkgwO51sQ7n4OH6qRZ0jJMW4DVGh5WB30BkCe33zh/g7Y4fwYamchgFkAA=",
-        "alt": "Colegio Próspero Pinzón, Bogotá D.C., Cundinamarca. Imagen 3 de 7."
+        "alt": "Colegio Próspero Pinzón, Bogotá D.C. Imagen 3 de 7."
       },
       {
         "path": "proyectos/colegio-prospero-pinzon/04.webp",
         "width": 2048,
         "height": 971,
         "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwAgCdASoQAAgAA4BaJaACdAD2Px3yyAAEgAD+eLfpWsT38HOyTYTgnun3Ak1g0Ds/fKaT4cM5KU5eL4Xj+vnv6hniK0FRcwxGplu3eZD9QdBp7hvAVvYYKwWfBpgAAAA=",
-        "alt": "Colegio Próspero Pinzón, Bogotá D.C., Cundinamarca. Imagen 4 de 7."
+        "alt": "Colegio Próspero Pinzón, Bogotá D.C. Imagen 4 de 7."
       },
       {
         "path": "proyectos/colegio-prospero-pinzon/05.webp",
         "width": 971,
         "height": 2048,
         "blurDataURL": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAABwBQCdASoQACIAPu1iq04ppaQiKqwBMB2JQBOmUGdBGgCpGg0VK6no1Jk9hQngZ1DllLqIAMoWhC4G4+Nc9/4fGeRPgbVyMHo2IwSmAVNDsgE7Z2louYGTzdatP6Sfu63PJa/IThWw4TT9xuaYeizcX1v/wgynOzsLmuGwlKqDpKvGNjAxhjo7keWEJ7p4zykSFXBLCXEg9Kt+zyjmkyBmT66Ge34Q5cThuwMkfJOs4XdjC9C/4HozMK/geilwKqQiqUAA",
-        "alt": "Colegio Próspero Pinzón, Bogotá D.C., Cundinamarca. Imagen 5 de 7."
+        "alt": "Colegio Próspero Pinzón, Bogotá D.C. Imagen 5 de 7."
       },
       {
         "path": "proyectos/colegio-prospero-pinzon/06.webp",
         "width": 2048,
         "height": 971,
         "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoQAAgAA4BaJbACdADtA2Mc9AAA/ChzyW9AoDDv8NGWdw8JUyuCXn2kzp53THqr/iJikNs33scDENczpHsdJWi4YJ6nwIY5tJyJFSDf57SAU9AAAAA=",
-        "alt": "Colegio Próspero Pinzón, Bogotá D.C., Cundinamarca. Imagen 6 de 7."
+        "alt": "Colegio Próspero Pinzón, Bogotá D.C. Imagen 6 de 7."
       },
       {
         "path": "proyectos/colegio-prospero-pinzon/07.webp",
         "width": 2048,
         "height": 971,
         "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQAAgAA4BaJQBOgCHPL51uaAD98Ct1/Msq+WXOAqjxeNLG5gYlroqfAnK24UlbgWN1PyPD+8cJAfmMg5yVHC9ACDKJ/ABL6AA=",
-        "alt": "Colegio Próspero Pinzón, Bogotá D.C., Cundinamarca. Imagen 7 de 7."
+        "alt": "Colegio Próspero Pinzón, Bogotá D.C. Imagen 7 de 7."
       }
     ],
     "alertas": [
@@ -703,7 +703,7 @@ export const projects: Project[] = [
     "subtitulo": "Diseño arquitectónico y consultoría integral para el colegio Francisco Antonio Zea, antes Metrovivienda",
     "anio": 2016,
     "ciudad": "Bogotá D.C.",
-    "departamento": "Cundinamarca",
+    "departamento": "Bogotá D.C.",
     "localidad": "Usme",
     "areaM2": 3500,
     "diseno": [
@@ -728,7 +728,7 @@ export const projects: Project[] = [
       "width": 2048,
       "height": 1365,
       "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwAQCdASoQAAsAA4BaJbACdAEVJ/Zk3AAA/us2vqK8OX9sqEMPnO9CHgKHkwEeTBBH/vcdmYgNfqaMboBJWcdo8uPEmQ3P93xuaQkFHMYC8WNcFBQFK64o0NwpRXYaL9MWeogA",
-      "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+      "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C. Vista principal del proyecto."
     },
     "galeria": [
       {
@@ -736,49 +736,49 @@ export const projects: Project[] = [
         "width": 2048,
         "height": 1365,
         "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwAQCdASoQAAsAA4BaJbACdAEVJ/Zk3AAA/us2vqK8OX9sqEMPnO9CHgKHkwEeTBBH/vcdmYgNfqaMboBJWcdo8uPEmQ3P93xuaQkFHMYC8WNcFBQFK64o0NwpRXYaL9MWeogA",
-        "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+        "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C. Vista principal del proyecto."
       },
       {
         "path": "proyectos/colegio-francisco-antonio-zea/02.webp",
         "width": 2048,
         "height": 1149,
         "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAwAgCdASoQAAkAA4BaJZQCdAEfcf2uZuQKAAD42b8pt1URFWvI94YOJZ86UsHo+bJSKZw9nIy0J1WU/IM8SgIfacAAAA==",
-        "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C., Cundinamarca. Imagen 2 de 7."
+        "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C. Imagen 2 de 7."
       },
       {
         "path": "proyectos/colegio-francisco-antonio-zea/03.webp",
         "width": 2048,
         "height": 1149,
         "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAAkAA4BaJbACdAD7j8Bd1qAA/qnLokYolPS7RW1fyNeFWy/cyU6LCJNk907l17Fc2BX1lSwRYOGkVay6/0ZZ3yAJPeCbs15wlIAA",
-        "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C., Cundinamarca. Imagen 3 de 7."
+        "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C. Imagen 3 de 7."
       },
       {
         "path": "proyectos/colegio-francisco-antonio-zea/04.webp",
         "width": 2048,
         "height": 1149,
         "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoQAAkAA4BaJQBOgCPgDnaQakIAAP40fdGkeN7VI/76IwrWUvmki/Z8Kj9aw7ygdwptaqYdWwALMUWBnotCRwzV5ntXAbtMiS303gAA",
-        "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C., Cundinamarca. Imagen 4 de 7."
+        "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C. Imagen 4 de 7."
       },
       {
         "path": "proyectos/colegio-francisco-antonio-zea/05.webp",
         "width": 2048,
         "height": 1364,
         "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAsAA4BaJQBOgB8x9xWaSfcAAP7gB109uJBqIAA47Jw+snRXb9EunpDJy7Qdm0Kty4H0fl6t1ix9OqZ3pyPGQVfDHv8f0agX+V6kAAA=",
-        "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C., Cundinamarca. Imagen 5 de 7."
+        "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C. Imagen 5 de 7."
       },
       {
         "path": "proyectos/colegio-francisco-antonio-zea/06.webp",
         "width": 2048,
         "height": 1149,
         "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoQAAkAA4BaJZQAAwDnH9pZgAD+sjzyFW8TqVY9AEWwhGG51V82rBGzqSE2QZf8c+x6kbRnfcDDop2laAfwJSrHhSEAAA==",
-        "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C., Cundinamarca. Imagen 6 de 7."
+        "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C. Imagen 6 de 7."
       },
       {
         "path": "proyectos/colegio-francisco-antonio-zea/07.webp",
         "width": 2560,
         "height": 1705,
         "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoQAAsAA4BaJYwCdAD0RjgFfSAA/sHYPDZXroYfbGXFclghfD9caL6H4a7GrfM4qFHHHEgHrURzl5DUCsNyFjYYm6lgtvBFAdHroGaL8JdaWuK0mJaFOAAA",
-        "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C., Cundinamarca. Imagen 7 de 7."
+        "alt": "Colegio Francisco Antonio Zea (Metrovivienda), Bogotá D.C. Imagen 7 de 7."
       }
     ],
     "alertas": [
@@ -791,7 +791,7 @@ export const projects: Project[] = [
     "subtitulo": "Primer puesto, concurso público arquitectónico para la nueva Alcaldía Local de Teusaquillo",
     "anio": 2014,
     "ciudad": "Bogotá D.C.",
-    "departamento": "Cundinamarca",
+    "departamento": "Bogotá D.C.",
     "localidad": null,
     "areaM2": 5000,
     "diseno": [
@@ -818,7 +818,7 @@ export const projects: Project[] = [
       "width": 1707,
       "height": 2560,
       "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADQAwCdASoQABgAPu1iqU2ppaOiMAgBMB2JZQDCgBuZnm91b/pH5sAA4j6PPdIsv/QKNouFYEMyc8tejM9ncPszU1IIznNzAtB2tmuCI/KKXiYz0s9psQ10DJlyM4DamJ9v9XhYveN6adJjEY/E2EbD+j0zNgAA",
-      "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C.. Imagen de portada."
+      "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C. Imagen de portada."
     },
     "galeria": [
       {
@@ -826,49 +826,49 @@ export const projects: Project[] = [
         "width": 2560,
         "height": 1392,
         "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoQAAkAA4BaJQBdgCFw4Z+hVgIAAP7zgeU1IudaS2ZYleKY00tqZIbPYGHCUCXf+2LSlb3l9sI/2VfbXXoBqA4ujAA=",
-        "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+        "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C. Vista principal del proyecto."
       },
       {
         "path": "proyectos/alcaldia-local-de-teusaquillo/02.webp",
         "width": 814,
         "height": 1050,
         "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAQBACdASoQABUAPu1iqU2ppaOiMAgBMB2JZQC/OBuiWS4KFFF8ArxWwADiQRNJzvqYTt87icE+C4a3qhgakXyRCs1uUuzRr3XKZX6eUFQqri9EcRSXXxxB4Au+3fZq6LGvh8A0Gi5xcY7cHW4M0AAA",
-        "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C., Cundinamarca. Imagen 2 de 7."
+        "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C. Imagen 2 de 7."
       },
       {
         "path": "proyectos/alcaldia-local-de-teusaquillo/03.webp",
         "width": 530,
         "height": 1066,
         "blurDataURL": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAACwBACdASoQACAAPu1iqU2ppaOiMAgBMB2JZQAIEC6D05pgbUjX0vUBdBT2y+/0AM4Ermhd0nh5ieGJiYwti8nHme0BJ/B8ws8DC2jZfWNxTJ/8ZF+yoQPzjw6F/PQeb48v/0rfrpCpDCYMhr+3iWH1b+14KrWUN4Tev//uT8wbCFFvQYMwW/QJo9bGYDjBEnzfUjfPNs+4qFusRm7PB7yRCE5xUTxul0bRE5lzgO5HxnKhDuhUAA==",
-        "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C., Cundinamarca. Imagen 3 de 7."
+        "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C. Imagen 3 de 7."
       },
       {
         "path": "proyectos/alcaldia-local-de-teusaquillo/04.webp",
         "width": 1280,
         "height": 2560,
         "blurDataURL": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAADQAwCdASoQACAALrV2u12jqampiYC0SgC7ADMmiKSaRU/ym4vEuQAA/mxqi1WE0Xt+MTTU053dn6lQTdPX+1iLj8AQDWf7LRfv0ZAXoSE43x2Ih+5D68oSMADkiDarwZT7kyTfg+iLkDKCyM5gJPl2JB7F9ciFfKb4HK94Li52e9jw4lqjY+GurBuYC5HrmWbtr+BObH7BgAAA",
-        "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C., Cundinamarca. Imagen 4 de 7."
+        "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C. Imagen 4 de 7."
       },
       {
         "path": "proyectos/alcaldia-local-de-teusaquillo/05.webp",
         "width": 632,
         "height": 999,
         "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADQAwCdASoQABkAPu1iqU2ppaOiMAgBMB2JYwABHoNRaHosNGF5AAAA/vzaFFldqeHQPDRNNKDdjKUeG3e9XdgDphZpll/8M3nsycNiuoV5LMh5HORaLlPSsxyU26ORm1x+e5ZKvox9e8ScnBUDB1Zy49G75L6KPhdCgAAA",
-        "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C., Cundinamarca. Imagen 5 de 7."
+        "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C. Imagen 5 de 7."
       },
       {
         "path": "proyectos/alcaldia-local-de-teusaquillo/06.webp",
         "width": 2560,
         "height": 1373,
         "blurDataURL": "data:image/webp;base64,UklGRu4AAABXRUJQVlA4WAoAAAAQAAAADwAACAAAQUxQSH0AAAANcBPbtqucc+/P/7eEiooWBGAAJVTQoSa5QEjSQJdzvu/aiIgA4uofi4R38dTHH/QyG7XfYPqoLeZ018OwaTlIw25Jjy2t4w+6iwKKP35xpAThoBsmlmz8GVJ8pOz0tslA7XzSkPpX0B23AEjJDMbSAx3oSxRpIkETsThQAQBWUDggSgAAAJABAJ0BKhAACQADgFollAACoYYqwAD+4ZhuR4CpawIDTH1O+lZ5qSjPu3isqiseMePak6y/yxpr7lcOLOUmEuGoBl1v3udHVbYA",
-        "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C., Cundinamarca. Imagen 6 de 7."
+        "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C. Imagen 6 de 7."
       },
       {
         "path": "proyectos/alcaldia-local-de-teusaquillo/07.webp",
         "width": 1366,
         "height": 768,
         "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoQAAkAA4BaJaQAAt0NFVwveAAA/vQMQD+enyuXTm6tmT8o8wVN/NuXIDRpl4al/E1vvhcEPx2Y+z9lx7RW5HmoAAA=",
-        "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C., Cundinamarca. Imagen 7 de 7."
+        "alt": "Alcaldía Local de Teusaquillo, Bogotá D.C. Imagen 7 de 7."
       }
     ],
     "alertas": [
@@ -1490,7 +1490,7 @@ export const projects: Project[] = [
     "subtitulo": "Primer puesto: concurso público nacional de anteproyecto arquitectónico para el diseño de El Ensueño",
     "anio": 2014,
     "ciudad": "Bogotá D.C.",
-    "departamento": "Cundinamarca",
+    "departamento": "Bogotá D.C.",
     "localidad": null,
     "areaM2": 13992,
     "diseno": [
@@ -1517,7 +1517,7 @@ export const projects: Project[] = [
       "width": 1425,
       "height": 700,
       "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoQAAgAA4BaJZwC7AEUr1L1sFAAzfNCGWUHrVTgpmbzp0f2+RXnmgs8dNaPYrokV8AAAA==",
-      "alt": "Colegio y teatro El Ensueño, Bogotá D.C.. Imagen de portada."
+      "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen de portada."
     },
     "galeria": [
       {
@@ -1525,175 +1525,175 @@ export const projects: Project[] = [
         "width": 1143,
         "height": 644,
         "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoQAAkAA4BaJZwAAiZhZbXkAM48hCHQ2Xwx6amdf1oPq2X3DXcVG7QnNYg2Qt3Dbj1NaOUAwcxmgVzKPYb7dpnoQ6QAAA==",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Vista principal del proyecto."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/02.webp",
         "width": 1024,
         "height": 628,
         "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQAAoAA4BaJbACdADwSphcIAAA/vasN8qfyUgqFE3Oo6iCEpJ8oNAnpNcXwM2SstuZqAayRgQ2zkD38miUtZOHl52pEaWWVa+h39+IAAA=",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 2 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 2 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/03.webp",
         "width": 1425,
         "height": 700,
         "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoQAAgAA4BaJZwC7AEUr1L1sFAAzfNCGWUHrVTgpmbzp0f2+RXnmgs8dNaPYrokV8AAAA==",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 3 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 3 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/04.webp",
         "width": 1280,
         "height": 853,
         "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQAAsAA4BaJQBOgCHMmKq3AAD+5GpNdliDMlwy/uuPQ4wbdz4QueDr461+z126af/yyIqSiWGyggzyJrB/TIp7hB4d0NsAAAA=",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 4 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 4 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/05.webp",
         "width": 355,
         "height": 631,
         "blurDataURL": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoQABwAPu1kqk2ppaQiMAgBMB2JZQCw8AgOVuRz2r56XuiDDFXjQbLAAM1F1fErXUu3CDQYbwXJ9wpJI22g5Tos497ULbBwvtSvOWzI0PSYGCiTkfzpSHpyCJeVO7luA6li/E6dU1AFWNn/nZxywJTnhLdKtnLWyYlhC2EiNDrnOAckg4Le5Jd+XGLFJ2Sf3WMe15uogAA=",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 5 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 5 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/06.webp",
         "width": 1425,
         "height": 700,
         "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAgAA4BaJQBOgBSazBWYAAD+g+v6FMhifRfesJCoWtFnSX08xm5MhO8G1Cc7Moyf9GvA8JoFbT/Kc13ZtSJ3VHMvLgAA",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 6 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 6 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/07.webp",
         "width": 1200,
         "height": 675,
         "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAkAA4BaJQBOgCHw0qU0JdAA/u+gpCkD44WzI391Ot1Fk9nMMvN0XbdH8DpEy4wcpC7VQ5zEO+LCAFLIPGnAES52WlQJFMoAAA==",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 7 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 7 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/08.webp",
         "width": 543,
         "height": 306,
         "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACwAQCdASoQAAkAA4BaJQBWAB6D9vhQAP2h/3UOc2q6jgC7YUcocY9rnn5qpOtXto2oiO2G3SPNah8C8zYt/QGa22f3zD6tGtMHSPmH+RAFOsGTmAA=",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 8 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 8 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/09.webp",
         "width": 1280,
         "height": 736,
         "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoQAAkAA4BaJZgCdAYr7nY3ldmYAPzk1b6n8tE3NYdMNPCufvsl0Xatssn3+eVqpqvk9SfGWHmU/Rg7kGtZEnraJtOFUsAA4lKWvzGgy5gAAA==",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 9 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 9 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/10.webp",
         "width": 1280,
         "height": 718,
         "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoQAAkAA4BaJYwCdAEfcVipBlMAAP6C2odRGMs81wdCaW4ndy+twQ2CbStiv4+ReBmwll/65iXcBvgF5nMnvATvgAA=",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 10 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 10 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/11.webp",
         "width": 2560,
         "height": 1597,
         "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAoAA4BaJbACdLoAAuU68iOsAPWB2tYZDxfkMlBkK95UREwLi8bme7IU1udk1RLrUpG783ZztN+7K9BQ2JXoNaOji/imIgr8RwwAAAA=",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 11 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 11 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/12.webp",
         "width": 1280,
         "height": 718,
         "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoQAAkAA4BaJYwCdADGkrzi0AD+49fxwp79JT2Jciw1Fk5kJbT1836KMIFQFXd+vRpFY+I+gZ84HwtKNs8RGRwoAAA=",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 12 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 12 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/13.webp",
         "width": 2560,
         "height": 1706,
         "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoQAAsAA4BaJagCdAD0E4Qfg8AA/sKcsnPRB60oKjtSL/dnJNQnHErFapHF7P9Xr2JJVS7gxT16QUFwjy5xhowlj/O4yYG9MRHnqcKvaPvXF3chVTZR5TAA",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 13 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 13 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/14.webp",
         "width": 1350,
         "height": 900,
         "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwAgCdASoQAAsAA4BaJZACdAEDY0NjSJFqAAD+5f/bjG99x96i19tVPvvwpxH/3DmHQy5Yqj0Z9zVWB+TV1+U/DkJY4AM14rp7F/D23afvltt6sXxEYX8cHNeKKPYA",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 14 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 14 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/15.webp",
         "width": 1280,
         "height": 718,
         "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAAkAA4BaJZACdAEHSCUVYOAA/kiuZTeHFNIw6Sz4LqJztDeg8Vn3rJT5ebIGY44ENIb2l92qIQ9LXNr64BSq1tJWKUers6D64CgA",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 15 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 15 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/16.webp",
         "width": 1280,
         "height": 718,
         "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAkAA4BaJQBOgBxN+4eywAD+0HKspeBgdgLkTe8cfUYW5oW1C4J3mAbsunPf+KVhQNq72bVR9QIMeys6UyHMwBDfLAAA",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 16 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 16 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/17.webp",
         "width": 1280,
         "height": 718,
         "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAQCdASoQAAkAA4BaJQBOgB0ivHRWAADiBOnbuDI5ePMN6lkeG5oAnPkQ9Wi7JyHuy3twLLF72WHGkw9AmgIwLsbCX9Ws8wuwsCIthX16PodjwIAAAA==",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 17 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 17 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/18.webp",
         "width": 1280,
         "height": 853,
         "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoQAAsAA4BaJZwAD5FMEB71bPYWAAD85KKUb8St0qs00tMn5mTnRA8PIpXcRbVs4/yi6va2w0UtymWxVMtYDSdQ0hwH0lUDznzXSberb5sctQJPVDZPK2EFDkfwAA==",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 18 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 18 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/19.webp",
         "width": 2560,
         "height": 1280,
         "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoQAAgAA4BaJZQAArOzuau/wAD+uA3wjzfxgnF0cuTCcUc0+wVTCgQnzHnGYGiJAkJ0ihUFh09Ri28qtHFAWxGrmflV6lLf0IePwAAA",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 19 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 19 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/20.webp",
         "width": 2560,
         "height": 1280,
         "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQAAgAA4BaJQAB8TmomTz6B/AA3g5jPDHVpVMHK9457/+EUkbYfYVOWQW1CMkaM7R7JKcJCTKkpL73dLPFk9tCLUVQnRPur5SjsgOjwAA=",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 20 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 20 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/21.webp",
         "width": 2560,
         "height": 1280,
         "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAAgAA4BaJYgAD4fvrirtnAAA+vLmaah2w+knYIvo9bPJoYp68a/xbGsHZwjXxsbFqKrUAw8HxYe75I4/H0YiPlm94o9prdV+IAAA",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 21 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 21 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/22.webp",
         "width": 2560,
         "height": 1280,
         "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAgAA4BaJZQC7AEVH0G4SDwAAP7tsi2kTaukviqCPhWj7Tkukp2l194IEzgMfqsjV3U37dLnM6zPiCi6R96yYMqMMAAA",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 22 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 22 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/23.webp",
         "width": 1366,
         "height": 768,
         "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoQAAkAA4BaJZwAAueHrJFAAP7wSZQ8L//yQQF/bMyJMhs3FY0o97zz2Kgtam+qmY/00Bn7iHuDwAAA",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 23 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 23 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/24.webp",
         "width": 1366,
         "height": 768,
         "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAkAA4BaJZwAAuUzT2AAAP7zcBoShXarGWMvXbQDYORflIQ0IGnvCAA=",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 24 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 24 de 25."
       },
       {
         "path": "proyectos/colegio-y-teatro-el-ensueno/25.webp",
         "width": 1366,
         "height": 768,
         "blurDataURL": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoQAAkAA4BaJZQAAxblpfP4dkAA/vUErIdqaVQbPnZaS5rNZVdnVQUBMNDqU+ndgAA=",
-        "alt": "Colegio y teatro El Ensueño, Bogotá D.C., Cundinamarca. Imagen 25 de 25."
+        "alt": "Colegio y teatro El Ensueño, Bogotá D.C. Imagen 25 de 25."
       }
     ],
     "alertas": []
@@ -1880,7 +1880,7 @@ export const projects: Project[] = [
     "subtitulo": "Propuesta concurso: Ambientes innovadores y sostenibles para la educación inicial",
     "anio": 2022,
     "ciudad": "Bogotá D.C.",
-    "departamento": "Cundinamarca",
+    "departamento": "Bogotá D.C.",
     "localidad": null,
     "areaM2": 2549.68,
     "diseno": [
@@ -1907,7 +1907,7 @@ export const projects: Project[] = [
       "width": 2560,
       "height": 1440,
       "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwAgCdASoQAAkAA4BaJQBOmT+A014D7iK2AAD8Pa79D/Zoph9OLpepJj+Gf6f603yJdrjAkEX54aUGySo5l7+6Bt6doadkv8a29FN21UCftgBtAYZwUsAA",
-      "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+      "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Vista principal del proyecto."
     },
     "galeria": [
       {
@@ -1915,105 +1915,105 @@ export const projects: Project[] = [
         "width": 2560,
         "height": 1440,
         "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwAgCdASoQAAkAA4BaJQBOmT+A014D7iK2AAD8Pa79D/Zoph9OLpepJj+Gf6f603yJdrjAkEX54aUGySo5l7+6Bt6doadkv8a29FN21UCftgBtAYZwUsAA",
-        "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+        "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Vista principal del proyecto."
       },
       {
         "path": "proyectos/jardin-infantil-los-alamos/02.webp",
         "width": 2560,
         "height": 1440,
         "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoQAAkAA4BaJbACdAEf56pF2iwAAP7YQIUMZ4tsJ7FLAYqwauzFYkKSC4rME6I6KN0ZxqDvQBjQe6q0OQszbtKc40BCdtn3HVwAAA==",
-        "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Imagen 2 de 15."
+        "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Imagen 2 de 15."
       },
       {
         "path": "proyectos/jardin-infantil-los-alamos/03.webp",
         "width": 2560,
         "height": 1440,
         "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAkAA4BaJZACdAEf984nWQAA/urs+WCbU8FeoSc2pHUpGFSg/s4c+9/8zy476dJkij0160RHOCYaGWyCodraojbyTknUgAA=",
-        "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Imagen 3 de 15."
+        "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Imagen 3 de 15."
       },
       {
         "path": "proyectos/jardin-infantil-los-alamos/04.webp",
         "width": 1366,
         "height": 768,
         "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAkAA4BaJYgCdADxHaEDbAAA3e83ya4dKnYt9qYLD4B3VwaIUNtJ3rz6e8vMvnXS29V568xXTguv5wB6JhPARooAAA==",
-        "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Imagen 4 de 15."
+        "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Imagen 4 de 15."
       },
       {
         "path": "proyectos/jardin-infantil-los-alamos/05.webp",
         "width": 1366,
         "height": 768,
         "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAgCdASoQAAkAA4BaJbACxC8AGARS0YQgAAD+9w7if3/66gO6zuHV51BeGbfVk/NyPFF/vjzj60QteD65PBWkrXpj92GsUVAFS6OFOAAAAA==",
-        "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Imagen 5 de 15."
+        "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Imagen 5 de 15."
       },
       {
         "path": "proyectos/jardin-infantil-los-alamos/06.webp",
         "width": 1366,
         "height": 768,
         "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoQAAkAA4BaJYgCdAEf3QH5JA4AAPz4t0Xhuuy2liK2SVotQ5nsPCSbDJZ69YNBhcmz484vEk/sggfu+Kl0CUdCbukZM5rihwS8gAAA",
-        "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Imagen 6 de 15."
+        "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Imagen 6 de 15."
       },
       {
         "path": "proyectos/jardin-infantil-los-alamos/07.webp",
         "width": 1366,
         "height": 768,
         "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAQCdASoQAAkAA4BaJZgCsAEMQ8kIAP7uJbCT7LS6byneE83Xrmr6vFFqrgjb+Ey8jXerdc8qvu1TsC7rPfMFJEEwu1edB5ZDZOjRaoYAAA==",
-        "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Imagen 7 de 15."
+        "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Imagen 7 de 15."
       },
       {
         "path": "proyectos/jardin-infantil-los-alamos/08.webp",
         "width": 1366,
         "height": 768,
         "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAA4BaJQBOgCEsSP/j/XAA/vUdgUqjaIusCppwXUW4qWKq7Lwd0f+JmE4ArB/4QOnN1T3GvCcv3FaLTKLQQmh5gAAA",
-        "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Imagen 8 de 15."
+        "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Imagen 8 de 15."
       },
       {
         "path": "proyectos/jardin-infantil-los-alamos/09.webp",
         "width": 1366,
         "height": 768,
         "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACQAQCdASoQAAkAA4BaJQBOgA7ie8AA/ut0fhIzIA/2hVzONrZjSV61qyccbjWkq/6Tzhvf0pTDuUEt5/69aYn2gAA=",
-        "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Imagen 9 de 15."
+        "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Imagen 9 de 15."
       },
       {
         "path": "proyectos/jardin-infantil-los-alamos/10.webp",
         "width": 1366,
         "height": 768,
         "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoQAAkAA4BaJYwC7AC372kIAAD+9TpD0hypnMUdjPpi/f2yTrOzx/kzxP69UAI5Eba2q9s+MNNvfjjUAAA=",
-        "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Imagen 10 de 15."
+        "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Imagen 10 de 15."
       },
       {
         "path": "proyectos/jardin-infantil-los-alamos/11.webp",
         "width": 1176,
         "height": 672,
         "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4WAoAAAAQAAAADwAACAAAQUxQSBMAAAABF3Dx/4iIQSCQBL/8BhH9D/QBAFZQOCBIAAAAcAEAnQEqEAAJAAOAWiWIAADqhgAA/dumfloiFUlno0iXEs8zjMp+pF0EpRNqQWSBvPFnF7ZnsmMZsr+Tma8RTD/QfYKdDQAA",
-        "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Imagen 11 de 15."
+        "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Imagen 11 de 15."
       },
       {
         "path": "proyectos/jardin-infantil-los-alamos/12.webp",
         "width": 1366,
         "height": 768,
         "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoQAAkAA4BaJaQAAu191mSGAAD++LmkNnZzryROxpn/2BENxetIsX63v04AAA==",
-        "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Imagen 12 de 15."
+        "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Imagen 12 de 15."
       },
       {
         "path": "proyectos/jardin-infantil-los-alamos/13.webp",
         "width": 2384,
         "height": 1684,
         "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAgCdASoQAAsAA4BaJYwAD48O66VKTUHUngAA/uGYa8dR4u4RQ/4YpXXMWVXivLKS8v0sdCfgIos1YIsSS5PbXxP07MFfMW0ah7CJOmEsQK6vmrGeeQfcLKAAAA==",
-        "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Imagen 13 de 15."
+        "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Imagen 13 de 15."
       },
       {
         "path": "proyectos/jardin-infantil-los-alamos/14.webp",
         "width": 2386,
         "height": 1686,
         "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAgCdASoQAAsAA4BaJZQCw7Ef/rSkh/njgAD+5/lfFUAOk9dyt4uzdnOkuwAk5woQt5qlvAqs4fbULhbTS1qV3RBrfChyuY4OHw7XdTwAAA==",
-        "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Imagen 14 de 15."
+        "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Imagen 14 de 15."
       },
       {
         "path": "proyectos/jardin-infantil-los-alamos/15.webp",
         "width": 2386,
         "height": 1686,
         "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAsAA4BaJZQCw7DZlm9lwAD+9QHRo0hJ19lzpWa97cETPs60lNSlFFEait2jYRzHtPjA4UdCC7E7FYfiVcyn/wR7UQAA",
-        "alt": "Jardín Infantil Los Álamos, Bogotá D.C., Cundinamarca. Imagen 15 de 15."
+        "alt": "Jardín Infantil Los Álamos, Bogotá D.C. Imagen 15 de 15."
       }
     ],
     "alertas": []
@@ -2024,7 +2024,7 @@ export const projects: Project[] = [
     "subtitulo": "Propuesta Alcaldía Local de Santa Fe",
     "anio": 2018,
     "ciudad": "Bogotá D.C.",
-    "departamento": "Cundinamarca",
+    "departamento": "Bogotá D.C.",
     "localidad": null,
     "areaM2": 5023.3,
     "diseno": [
@@ -2049,7 +2049,7 @@ export const projects: Project[] = [
       "width": 2200,
       "height": 1200,
       "blurDataURL": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4WAoAAAAQAAAADwAACAAAQUxQSC0AAAABN6CQjSQ4mfFYhufuAC8iwroHYCCSjApCiGA0oYHtn0OCiP4nuAxgC+gFjDcAVlA4IFIAAADwAQCdASoQAAkAA4BaJZgCdAD7Bn7qy4AA9hqzpZZiW20i7IxVX6k25UnE+ygLNPa2Yjh7VbbxI9hC8FpsiBubQ4L6aISiETxhNWBdlNzt2AAA",
-      "alt": "Alcaldía Local de Santa Fe, Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+      "alt": "Alcaldía Local de Santa Fe, Bogotá D.C. Vista principal del proyecto."
     },
     "galeria": [
       {
@@ -2057,42 +2057,42 @@ export const projects: Project[] = [
         "width": 2200,
         "height": 1200,
         "blurDataURL": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4WAoAAAAQAAAADwAACAAAQUxQSC0AAAABN6CQjSQ4mfFYhufuAC8iwroHYCCSjApCiGA0oYHtn0OCiP4nuAxgC+gFjDcAVlA4IFIAAADwAQCdASoQAAkAA4BaJZgCdAD7Bn7qy4AA9hqzpZZiW20i7IxVX6k25UnE+ygLNPa2Yjh7VbbxI9hC8FpsiBubQ4L6aISiETxhNWBdlNzt2AAA",
-        "alt": "Alcaldía Local de Santa Fe, Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+        "alt": "Alcaldía Local de Santa Fe, Bogotá D.C. Vista principal del proyecto."
       },
       {
         "path": "proyectos/alcaldia-local-de-santa-fe/02.webp",
         "width": 2200,
         "height": 1200,
         "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoQAAkAA4BaJYgCdAYulCl779gA/l9p7rQK3WCZBAEagBfKU8bEUUUk1m0/majhKb/UHQDhOAkEjuZGV1iC2USA5IsbDzfOXrhjyMz2Cm/bRN9CwAA=",
-        "alt": "Alcaldía Local de Santa Fe, Bogotá D.C., Cundinamarca. Imagen 2 de 6."
+        "alt": "Alcaldía Local de Santa Fe, Bogotá D.C. Imagen 2 de 6."
       },
       {
         "path": "proyectos/alcaldia-local-de-santa-fe/03.webp",
         "width": 2200,
         "height": 1200,
         "blurDataURL": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4WAoAAAAQAAAADwAACAAAQUxQSD4AAAABYFTbtpJcP9ZPgo0JQBEWLZhRwOW9+10TRMQEKMVqmeZNNINUz7gqP1j9uwoysVJEUIrguFCAqh1JzClwAFZQOCBSAAAA8AEAnQEqEAAJAAOAWiWYAnQA40NYF62AAPaj9J5WyQMXvKnUvs3Fz4cc2UPq9CmrE/FveH4yoxImRS31lYiu7ndTM5zMgwtUyNr2XKbnYkAAAA==",
-        "alt": "Alcaldía Local de Santa Fe, Bogotá D.C., Cundinamarca. Imagen 3 de 6."
+        "alt": "Alcaldía Local de Santa Fe, Bogotá D.C. Imagen 3 de 6."
       },
       {
         "path": "proyectos/alcaldia-local-de-santa-fe/04.webp",
         "width": 2560,
         "height": 1506,
         "blurDataURL": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4WAoAAAAQAAAADwAACAAAQUxQSF4AAAAFcBvbtqrsJx+3yJ2UnJga6IHyCOnFPWNoQO93KSEiJoB4pRS4YnC1QkBcwuISVm5jOi6+jpe56yyqalNitRT0brbuiXbVo2nfJXHNc9qDv4tWoID/lkhX4YYylFQAVlA4IE4AAADQAQCdASoQAAkAA4BaJaACdADJf/CTAAD3wAmNuVnrd3eEQBtm+fsdRobJ36A8O5fVigpPTd53X57MTM4tg2/zeRzs3KQSraAFvPpLQAA=",
-        "alt": "Alcaldía Local de Santa Fe, Bogotá D.C., Cundinamarca. Imagen 4 de 6."
+        "alt": "Alcaldía Local de Santa Fe, Bogotá D.C. Imagen 4 de 6."
       },
       {
         "path": "proyectos/alcaldia-local-de-santa-fe/05.webp",
         "width": 2560,
         "height": 1173,
         "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4WAoAAAAQAAAADwAABgAAQUxQSBEAAAABD9D/iAgIBJLQp58hov+hBwBWUDggTgAAANABAJ0BKhAABwADgFoljAJ0AO/cuZxAAP6Uu9j4TORlwQYKFPUmLdimKB9nwSiV/HmVrDsm0qO2t7OnIPZsCHG8hehTnOgOOS4oLKAYAA==",
-        "alt": "Alcaldía Local de Santa Fe, Bogotá D.C., Cundinamarca. Imagen 5 de 6."
+        "alt": "Alcaldía Local de Santa Fe, Bogotá D.C. Imagen 5 de 6."
       },
       {
         "path": "proyectos/alcaldia-local-de-santa-fe/06.webp",
         "width": 2200,
         "height": 1200,
         "blurDataURL": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4WAoAAAAQAAAADwAACAAAQUxQSBUAAAABF9D/iAgQCELEMv+XmRDR//SHFQAAVlA4IFQAAADwAQCdASoQAAkAA4BaJZACdAEDEirEIyAA/smfTaF0iP7wqm4lFRdUFUwk5Mxffg0junYbCifkCQyqye1LIwqwnPHO9mEkrlHoWoVPfTyMvPoAAAA=",
-        "alt": "Alcaldía Local de Santa Fe, Bogotá D.C., Cundinamarca. Imagen 6 de 6."
+        "alt": "Alcaldía Local de Santa Fe, Bogotá D.C. Imagen 6 de 6."
       }
     ],
     "alertas": []
@@ -2165,7 +2165,7 @@ export const projects: Project[] = [
     "subtitulo": "Propuesta Concurso CEFE Tunal",
     "anio": 2017,
     "ciudad": "Bogotá D.C.",
-    "departamento": "Cundinamarca",
+    "departamento": "Bogotá D.C.",
     "localidad": null,
     "areaM2": 10351,
     "diseno": [
@@ -2192,7 +2192,7 @@ export const projects: Project[] = [
       "width": 2560,
       "height": 1384,
       "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACQAQCdASoQAAkAA4BaJZQAAjcIxjAA/uzYBR/k4BnagSQjXUFRsx1HwSeqeRNpI7WTxrIT8rEaFTATdfB/Nf4/P0swAA==",
-      "alt": "CEFE Tunal, Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+      "alt": "CEFE Tunal, Bogotá D.C. Vista principal del proyecto."
     },
     "galeria": [
       {
@@ -2200,49 +2200,49 @@ export const projects: Project[] = [
         "width": 2560,
         "height": 1384,
         "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACQAQCdASoQAAkAA4BaJZQAAjcIxjAA/uzYBR/k4BnagSQjXUFRsx1HwSeqeRNpI7WTxrIT8rEaFTATdfB/Nf4/P0swAA==",
-        "alt": "CEFE Tunal, Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+        "alt": "CEFE Tunal, Bogotá D.C. Vista principal del proyecto."
       },
       {
         "path": "proyectos/cefe-tunal/02.webp",
         "width": 2560,
         "height": 1384,
         "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQAAkAA4BaJYgCdAC8SnY8ZAAA/t9zGyF7SvALqVvJvNRCaUk2TGxtfE6o5sCHMSrBN4PlSE9zEawAHXtaoChK+IULrTCneR70LdAAAAA=",
-        "alt": "CEFE Tunal, Bogotá D.C., Cundinamarca. Imagen 2 de 7."
+        "alt": "CEFE Tunal, Bogotá D.C. Imagen 2 de 7."
       },
       {
         "path": "proyectos/cefe-tunal/03.webp",
         "width": 2288,
         "height": 2560,
         "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoQABIAPu1iqU2ppaOiMAgBMB2JYgCdMoAC+/Y16BDTBx3YAP7UTd1oVEDiGGbQToqXI9aXIfysOf8eud1Toy9a7Vnm33MFiWLvrciiQC38ukcNceJuvnOvUA65JmcfeCOe3dX4x42IJHAjQAA=",
-        "alt": "CEFE Tunal, Bogotá D.C., Cundinamarca. Imagen 3 de 7."
+        "alt": "CEFE Tunal, Bogotá D.C. Imagen 3 de 7."
       },
       {
         "path": "proyectos/cefe-tunal/04.webp",
         "width": 2560,
         "height": 1384,
         "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAA4BaJZACdAD0NTmem0AA/mRnOMjECt/IlQiH8tJWJt+LT4sNWBbruz626wD9Wr5Muur5OHx6LuffFh0MMfn1wAAA",
-        "alt": "CEFE Tunal, Bogotá D.C., Cundinamarca. Imagen 4 de 7."
+        "alt": "CEFE Tunal, Bogotá D.C. Imagen 4 de 7."
       },
       {
         "path": "proyectos/cefe-tunal/05.webp",
         "width": 2560,
         "height": 2284,
         "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoQAA4AA4BaJQBOgB6V4CjVjbwA/tpucLhzxuSl4UZQoPoeokQHfYldo7AFvEtW/gwJi173Sl6UAA==",
-        "alt": "CEFE Tunal, Bogotá D.C., Cundinamarca. Imagen 5 de 7."
+        "alt": "CEFE Tunal, Bogotá D.C. Imagen 5 de 7."
       },
       {
         "path": "proyectos/cefe-tunal/06.webp",
         "width": 1366,
         "height": 768,
         "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkAA4BaJQBOgCDny7DwAAD+5+JvRyvr6kpiVr0jU8KJxfKFoFqB+ImvTOGHwA1eRDhCiIzK5REYaM7IewAA",
-        "alt": "CEFE Tunal, Bogotá D.C., Cundinamarca. Imagen 6 de 7."
+        "alt": "CEFE Tunal, Bogotá D.C. Imagen 6 de 7."
       },
       {
         "path": "proyectos/cefe-tunal/07.webp",
         "width": 2560,
         "height": 1350,
         "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAgAA4BaJZACdAEUgwrtKsAA4klWo0w8aW8jSMqbUj/wtZAioyLG/Y4Pjq3JyYcqRZC5mxRlaDWUg9VHTK12Pim6YgAA",
-        "alt": "CEFE Tunal, Bogotá D.C., Cundinamarca. Imagen 7 de 7."
+        "alt": "CEFE Tunal, Bogotá D.C. Imagen 7 de 7."
       }
     ],
     "alertas": []
@@ -2327,7 +2327,7 @@ export const projects: Project[] = [
     "subtitulo": null,
     "anio": 2015,
     "ciudad": "Bogotá D.C.",
-    "departamento": "Cundinamarca",
+    "departamento": "Bogotá D.C.",
     "localidad": null,
     "areaM2": 14000,
     "diseno": [
@@ -2353,7 +2353,7 @@ export const projects: Project[] = [
       "width": 2048,
       "height": 1365,
       "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQAAsAA4BaJQBOgB8mOtmIIAAA/vBNNkDlvca1YdOZrL/IP+hDFpYl5GpQeBV36V2wejJNW/sN2NdoDKKcAAAA",
-      "alt": "Colegio Bicentenario de la Independencia, Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+      "alt": "Colegio Bicentenario de la Independencia, Bogotá D.C. Vista principal del proyecto."
     },
     "galeria": [
       {
@@ -2361,28 +2361,28 @@ export const projects: Project[] = [
         "width": 2048,
         "height": 1365,
         "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQAAsAA4BaJQBOgB8mOtmIIAAA/vBNNkDlvca1YdOZrL/IP+hDFpYl5GpQeBV36V2wejJNW/sN2NdoDKKcAAAA",
-        "alt": "Colegio Bicentenario de la Independencia, Bogotá D.C., Cundinamarca. Vista principal del proyecto."
+        "alt": "Colegio Bicentenario de la Independencia, Bogotá D.C. Vista principal del proyecto."
       },
       {
         "path": "proyectos/colegio-bicentenario-de-la-independencia/02.webp",
         "width": 2048,
         "height": 1152,
         "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoQAAkAA4BaJQBOj+ADCJ4sgFoAAP6YXKXcr9LRF7WoD4il/XIfcWlJEX0I3/KCdXR8qGIRinUgyuZhcqLewhfQAAA=",
-        "alt": "Colegio Bicentenario de la Independencia, Bogotá D.C., Cundinamarca. Imagen 2 de 4."
+        "alt": "Colegio Bicentenario de la Independencia, Bogotá D.C. Imagen 2 de 4."
       },
       {
         "path": "proyectos/colegio-bicentenario-de-la-independencia/03.webp",
         "width": 2048,
         "height": 1152,
         "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAAkAA4BaJYgCdAERBvMDkAAA/cAl50Lf6wti+FPLPDoHVKgTj9OJsH+3jH1qdoTO4AolRV7bvJ0k99ipnbm03hSsf6u2+1SQAAAA",
-        "alt": "Colegio Bicentenario de la Independencia, Bogotá D.C., Cundinamarca. Imagen 3 de 4."
+        "alt": "Colegio Bicentenario de la Independencia, Bogotá D.C. Imagen 3 de 4."
       },
       {
         "path": "proyectos/colegio-bicentenario-de-la-independencia/04.webp",
         "width": 2048,
         "height": 1365,
         "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoQAAsAA4BaJYgCdAEUzmeeFgAA/usu1ojY03Z1lAW4ueBS7H2irnLMqevk85pE+ScOicaAuruDabIXZwvVgR/xGcUUY/suRGDCtdkOKdOAAA==",
-        "alt": "Colegio Bicentenario de la Independencia, Bogotá D.C., Cundinamarca. Imagen 4 de 4."
+        "alt": "Colegio Bicentenario de la Independencia, Bogotá D.C. Imagen 4 de 4."
       }
     ],
     "alertas": [

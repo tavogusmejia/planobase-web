@@ -13,6 +13,7 @@ import {
   getRelated,
 } from '@/lib/data/projects'
 import { routing } from '@/i18n/routing'
+import { lugar } from '@/lib/lugar'
 import {
   absoluteUrl,
   creditoDiseno,
@@ -45,7 +46,7 @@ export async function generateMetadata({
   const area = formatArea(project.areaM2)
   const description = [
     project.subtitulo ?? project.memoria.split('. ')[0],
-    `${project.ciudad}, ${project.departamento}`,
+    lugar(project.ciudad, project.departamento),
     String(project.anio),
     area,
   ]
@@ -105,9 +106,7 @@ export default async function ProyectoPage({
     { etiqueta: t('anio'), valor: String(project.anio) },
     {
       etiqueta: t('ciudad'),
-      valor: [project.localidad, project.ciudad, project.departamento]
-        .filter(Boolean)
-        .join(', '),
+      valor: lugar(project.localidad, project.ciudad, project.departamento),
     },
     ...(area ? [{ etiqueta: t('area'), valor: area }] : []),
     // No es `diseno.join(', ')`: el estudio nombra a dos y agrupa al resto en

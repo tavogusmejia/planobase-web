@@ -9,6 +9,7 @@ import {
   mediaSrc,
 } from '@/lib/utils'
 import type { Project } from '@/lib/types'
+import { lugar } from '@/lib/lugar'
 
 /**
  * Una hoja de proyecto, pensada para el papel.
@@ -30,9 +31,7 @@ export function HojaProyecto({ project }: { project: Project }) {
     { etiqueta: 'Año', valor: String(project.anio) },
     {
       etiqueta: 'Ubicación',
-      valor: [project.localidad, project.ciudad, project.departamento]
-        .filter(Boolean)
-        .join(', '),
+      valor: lugar(project.localidad, project.ciudad, project.departamento),
     },
     ...(area ? [{ etiqueta: 'Área', valor: area }] : []),
     ...(naturaleza ? [{ etiqueta: 'Naturaleza', valor: naturaleza }] : []),

@@ -20,6 +20,7 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 import type { Categoria, Project, ProjectImage } from '../src/lib/types.ts'
+import { lugar } from '../src/lib/lugar'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const SRC = join(ROOT, 'assets-originales/proyectos')
@@ -131,10 +132,18 @@ function categoriasDe(p: WixProject): Categoria[] {
  * Texto alternativo real, no el nombre del archivo. Describe qué se ve y de qué
  * proyecto es, que es lo que necesita alguien con lector de pantalla.
  */
+/**
+ * Cierra una frase sin duplicar el punto. «Bogotá D.C.» ya termina en uno, y
+ * «D.C..» lo anuncia un lector de pantalla como dos pausas seguidas.
+ */
+function frase(texto: string): string {
+  return texto.endsWith('.') ? texto : `${texto}.`
+}
+
 function altFor(p: WixProject, index: number, total: number): string {
-  const lugar = `${p.ciudad}, ${p.departamento}`
-  if (index === 0) return `${p.titulo}, ${lugar}. Vista principal del proyecto.`
-  return `${p.titulo}, ${lugar}. Imagen ${index + 1} de ${total}.`
+  const cabeza = frase(`${p.titulo}, ${lugar(p.ciudad, p.departamento)}`)
+  if (index === 0) return `${cabeza} Vista principal del proyecto.`
+  return `${cabeza} Imagen ${index + 1} de ${total}.`
 }
 
 async function processImage(
@@ -366,7 +375,7 @@ async function main() {
       portada = await processImage(
         join(dir, `00-portada.${ext}`),
         join(OUT, p.slug, '00-portada.webp'),
-        `${p.titulo}, ${p.ciudad}. Imagen de portada.`,
+        `${frase(`${p.titulo}, ${p.ciudad}`)} Imagen de portada.`,
       )
     }
     portada ??= galeria[0] ?? null

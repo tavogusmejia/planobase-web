@@ -10,6 +10,11 @@ import { post as quienHaceQue } from './blog/arquitecto-maestro-de-obra-o-constr
 import { post as queEsUnAnteproyecto } from './blog/que-es-un-anteproyecto'
 import { post as contratoDeDiseno } from './blog/contrato-de-diseno-arquitectonico'
 import { post as interventoriaDeObra } from './blog/interventoria-de-obra'
+import { post as comoLeerUnPlano } from './blog/como-leer-un-plano'
+import { post as diezPreguntasConstructor } from './blog/diez-preguntas-antes-de-firmar-con-un-constructor'
+import { post as delLoteALaLicencia } from './blog/del-lote-a-la-licencia'
+import { post as reformarEnPH } from './blog/reformar-en-propiedad-horizontal'
+import { post as construiSinLicencia } from './blog/construi-sin-licencia'
 
 /**
  * El índice del blog.
@@ -36,6 +41,11 @@ const registro: Post[] = [
   queEsUnAnteproyecto,
   contratoDeDiseno,
   interventoriaDeObra,
+  comoLeerUnPlano,
+  diezPreguntasConstructor,
+  delLoteALaLicencia,
+  reformarEnPH,
+  construiSinLicencia,
 ]
 
 /** Ordenados del más reciente al más antiguo. Es el orden de lectura. */

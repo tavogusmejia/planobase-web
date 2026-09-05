@@ -126,9 +126,9 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | 8 | Qué puedo construir en mi lote | **publicado** · 11/6/2024 |
 | 9 | Curaduría urbana: qué es, cuál elegir, qué documentos pide | pendiente |
 | 74 | Qué pasa con su licencia si cambia el POT de Cali | **publicado** · 4/9/2026 |
-| 10 | Construí sin licencia: sanciones y cómo se legaliza | pendiente |
+| 10 | Construí sin licencia: qué sanción hay y cómo se legaliza | **publicado** · 8/7/2025 |
 | 11 | Reforzamiento estructural y NSR-10, para quien no es ingeniero | pendiente |
-| 12 | Reformar en propiedad horizontal: qué autoriza la asamblea (Ley 675) | pendiente |
+| 12 | Reformar en propiedad horizontal: qué autoriza la asamblea y qué no | **publicado** · 21/1/2025 |
 
 ### Pilar 3 · Patologías — la mejor conversión del sitio
 
@@ -144,11 +144,11 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 
 | # | Título | Estado |
 |---|---|---|
-| 18 | Del lote a la licencia: el recorrido completo con tiempos reales | pendiente |
+| 18 | Del lote a la licencia: el recorrido completo | **publicado** · 17/9/2024 |
 | 19 | Qué es un anteproyecto y por qué no se puede saltar | **publicado** · 12/9/2023 |
-| 20 | Cómo leer un plano arquitectónico | pendiente |
+| 20 | Cómo leer un plano arquitectónico | **publicado** · 14/11/2023 |
 | 21 | Arquitecto, maestro de obra o constructora: quién hace qué | **publicado** · 16/5/2023 |
-| 22 | Diez preguntas antes de firmar con un constructor | pendiente |
+| 22 | Diez preguntas antes de firmar con un constructor | **publicado** · 9/4/2024 |
 | 23 | Interventoría: por qué el que construye no puede ser el que vigila | **publicado** · 25/7/2023 |
 | 24 | El contrato de diseño arquitectónico: qué tiene que decir | **publicado** · 20/2/2024 |
 

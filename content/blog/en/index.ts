@@ -105,6 +105,10 @@ import { traduccion as comprarLoteVerificacion } from './comprar-lote-verificaci
 import { traduccion as comoElegirArquitecto } from './como-elegir-arquitecto'
 import { traduccion as construirEnJamundi } from './construir-en-jamundi'
 import { traduccion as bienvenidosAPlanoBase } from './bienvenidos-a-plano-base'
+import { traduccion as concursosPublicos } from './concursos-publicos-de-arquitectura'
+import { traduccion as interventoriaObraPublica } from './interventoria-de-obra-publica'
+import { traduccion as ley1209Piscinas } from './ley-1209-piscinas-copropiedad'
+import { traduccion as licenciaPiscina } from './necesito-licencia-para-construir-una-piscina'
 
 const registro: TraduccionPost[] = [
   comprarLoteRural,
@@ -146,6 +150,10 @@ const registro: TraduccionPost[] = [
   comoElegirArquitecto,
   construirEnJamundi,
   bienvenidosAPlanoBase,
+  concursosPublicos,
+  interventoriaObraPublica,
+  ley1209Piscinas,
+  licenciaPiscina,
 ]
 
 export const traduccionesPost = new Map(registro.map((t) => [t.slug, t]))

@@ -60,8 +60,7 @@ export const puertas: Puerta[] = [
     para: 'Quien ya vive en el inmueble y necesita más espacio o cambiarlo.',
   },
   {
-    /* PENDIENTE DE APROBACIÓN — texto redactado el 5/9/2026, no viene de
-       ningún documento del estudio.
+    /* Texto aprobado por Gustavo el 5/9/2026.
        Es la única puerta que no arranca de un problema concreto sino de una
        intención sin forma. Por eso la respuesta no promete un plano: promete
        ordenar el encargo, que es lo que de verdad falta cuando alguien llega
@@ -111,7 +110,7 @@ export const puertas: Puerta[] = [
     para: 'Entidades públicas, cajas de compensación, constructoras y fundaciones.',
   },
   {
-    /* PENDIENTE DE APROBACIÓN — texto redactado el 5/9/2026.
+    /* Texto aprobado por Gustavo el 5/9/2026.
        Va la última a propósito: es la puerta de quien no se reconoce en
        ninguna de las anteriores. Y no compite con la asesoría gratuita, la
        usa como entrada —contradecirla sería cobrar por lo que el primer

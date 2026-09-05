@@ -1,5 +1,6 @@
 import { z } from 'zod'
-import { etapasProyecto, municipios } from '@content/site'
+import { etapasProyecto, FUERA_DE_COLOMBIA } from '@content/site'
+import { MUNICIPIO_DANE } from '@content/apbs/divipola'
 
 /**
  * Formulario de contacto.
@@ -15,8 +16,9 @@ import { etapasProyecto, municipios } from '@content/site'
  *   en el mismo esquema y se pueden comparar; si no, quedan dos bandejas que no
  *   se hablan.
  *
- * El campo libre de ciudad pasa a ser una lista: cualifica mejor y evita
- * "Cali", "cali", "Santiago de Cali" como tres valores distintos.
+ * El campo libre de ciudad pasa a ser un selector en cascada sobre la DIVIPOLA
+ * del DANE: cualifica mejor y evita "Cali", "cali", "Santiago de Cali" como
+ * tres valores distintos.
  */
 export const leadSchema = z.object({
   nombre: z
@@ -39,9 +41,23 @@ export const leadSchema = z.object({
     .max(25)
     .regex(/^[\d\s+()-]+$/, 'El número solo puede llevar dígitos y + ( ) -'),
 
-  municipio: z.enum(municipios, {
-    message: 'Elige dónde se ubica el proyecto.',
-  }),
+  /**
+   * Código DANE de cinco dígitos, o `EX000` si el proyecto está fuera del país.
+   *
+   * Se guarda el código y no el nombre porque en Colombia hay nombres de
+   * municipio repetidos en departamentos distintos —Puerto Colombia está en el
+   * Atlántico y en el Guainía, a 1.300 km— y porque el DANE y el decreto de
+   * curadurías escriben el mismo municipio de dos formas: "Santiago de Cali" y
+   * "Cali". El código es la única llave estable entre las dos tablas.
+   *
+   * La validación va contra el índice completo, así que un código inventado no
+   * pasa aunque tenga cinco dígitos.
+   */
+  codigoMunicipio: z
+    .string()
+    .refine((c) => c === FUERA_DE_COLOMBIA.codigo || MUNICIPIO_DANE.has(c), {
+      message: 'Elige dónde se ubica el proyecto.',
+    }),
 
   etapa: z.enum(etapasProyecto, {
     message: 'Cuéntanos en qué etapa está.',

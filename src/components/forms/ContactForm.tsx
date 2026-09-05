@@ -1,11 +1,16 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { leadSchema, type LeadInput } from '@/lib/schemas'
 import { enviarLead } from '@/app/actions/leads'
-import { etapasProyecto, municipios, contacto } from '@content/site'
+import { etapasProyecto, contacto, FUERA_DE_COLOMBIA } from '@content/site'
+import {
+  DEPARTAMENTOS_DANE,
+  etiquetaMunicipio,
+  municipiosDelDepartamento,
+} from '@content/apbs/divipola'
 import { cn } from '@/lib/utils'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { track } from '@/lib/analytics'
@@ -19,6 +24,18 @@ export function ContactForm() {
   const [enviado, setEnviado] = useState(false)
   const [general, setGeneral] = useState<string | null>(null)
 
+  /* El departamento no viaja en el lead: solo sirve para acotar la lista de
+     municipios. Lo que se envía es el código DANE, que ya lo lleva dentro. */
+  const [departamento, setDepartamento] = useState('')
+
+  const opciones = useMemo(
+    () =>
+      departamento === FUERA_DE_COLOMBIA.departamento
+        ? [{ codigo: FUERA_DE_COLOMBIA.codigo, nombre: FUERA_DE_COLOMBIA.nombre }]
+        : municipiosDelDepartamento(departamento),
+    [departamento],
+  )
+
   const {
     register,
     handleSubmit,
@@ -29,6 +46,19 @@ export function ContactForm() {
     resolver: zodResolver(leadSchema),
     mode: 'onBlur',
   })
+
+  /* Cuando el departamento cambia, el municipio se resuelve solo si no hay
+     nada que elegir —Bogotá tiene uno solo, y «fuera de Colombia» también— y se
+     limpia en el resto, para que nadie envíe el municipio del departamento
+     anterior. Va en un efecto y no en el `onChange` porque el `<select>` no es
+     controlado: asignarle un valor cuya `<option>` todavía no se ha pintado no
+     tiene efecto en el DOM. */
+  useEffect(() => {
+    const unico = opciones.length === 1 ? opciones[0] : undefined
+    setValue('codigoMunicipio', unico ? unico.codigo : '', {
+      shouldValidate: false,
+    })
+  }, [opciones, setValue])
 
   /* Atribución de campaña: se lee de la URL al montar. Así se sabe qué anuncio
      produjo cada asesoría, que es el CPL por anuncio del plan de medición. */
@@ -72,7 +102,9 @@ export function ContactForm() {
           // Las dos dimensiones con las que se compara el costo por lead entre
           // anuncios: de dónde es y en qué etapa está.
           track('Lead', {
-            content_name: data.municipio,
+            content_name:
+              etiquetaMunicipio(data.codigoMunicipio) ??
+              FUERA_DE_COLOMBIA.nombre,
             content_category: data.etapa,
           })
           setEnviado(true)
@@ -132,26 +164,50 @@ export function ContactForm() {
       </Campo>
 
       <Campo
-        id="municipio"
+        id="departamento"
         label="¿Dónde se ubica el proyecto?"
-        ayuda="Nos permite analizar el contexto y la normativa local."
-        error={errors.municipio?.message}
+        ayuda="La norma cambia de un municipio a otro. Saber cuál es nos deja llegar a la primera llamada con el POT leído."
+        error={errors.codigoMunicipio?.message}
       >
-        <select
-          id="municipio"
-          defaultValue=""
-          className={campoBase}
-          {...register('municipio')}
-        >
-          <option value="" disabled>
-            Elige un municipio
-          </option>
-          {municipios.map((m) => (
-            <option key={m} value={m}>
-              {m}
+        <div className="grid gap-5 sm:grid-cols-2">
+          <select
+            id="departamento"
+            aria-label="Departamento"
+            value={departamento}
+            className={campoBase}
+            onChange={(e) => setDepartamento(e.target.value)}
+          >
+            <option value="" disabled>
+              Departamento
             </option>
-          ))}
-        </select>
+            {DEPARTAMENTOS_DANE.map((d) => (
+              <option key={d.codigo} value={d.codigo}>
+                {d.nombre}
+              </option>
+            ))}
+            <option value={FUERA_DE_COLOMBIA.departamento}>
+              {FUERA_DE_COLOMBIA.nombre}
+            </option>
+          </select>
+
+          <select
+            id="codigoMunicipio"
+            aria-label="Municipio"
+            defaultValue=""
+            disabled={departamento === ''}
+            className={cn(campoBase, departamento === '' && 'opacity-50')}
+            {...register('codigoMunicipio')}
+          >
+            <option value="" disabled>
+              Municipio
+            </option>
+            {opciones.map((m) => (
+              <option key={m.codigo} value={m.codigo}>
+                {m.nombre}
+              </option>
+            ))}
+          </select>
+        </div>
       </Campo>
 
       <Campo

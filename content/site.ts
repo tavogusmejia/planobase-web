@@ -261,14 +261,23 @@ export const asesoria: Service = {
   ],
 }
 
-export const municipios = [
-  'Jamundí',
-  'Cali',
-  'Palmira',
-  'Candelaria',
-  'Otro municipio del Valle',
-  'Otro',
-] as const
+/**
+ * Salida para proyectos fuera de Colombia.
+ *
+ * El selector del formulario trae los 1.103 municipios del DANE más las 19
+ * áreas no municipalizadas (`content/apbs/divipola.ts`), pero parte de la
+ * obra está en el Caribe insular. Sin esta opción, un encargo en Bahamas tendría que entrar
+ * disfrazado de colombiano o no entrar.
+ *
+ * El código lleva prefijo `EX` a propósito: así nunca se confunde con uno del
+ * DANE ni se cruza por error contra la tabla de curadurías, que resuelve por
+ * código.
+ */
+export const FUERA_DE_COLOMBIA = {
+  departamento: 'EX',
+  codigo: 'EX000',
+  nombre: 'Fuera de Colombia',
+} as const
 
 /** Etapas del proyecto, idénticas a las del formulario de Facebook. */
 export const etapasProyecto = [

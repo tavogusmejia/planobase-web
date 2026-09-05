@@ -1247,3 +1247,40 @@ export const DEPARTAMENTOS_DANE = Object.entries(DIVIPOLA)
 export function municipiosDelDepartamento(codigo: string): MunicipioDane[] {
   return DIVIPOLA[codigo as keyof typeof DIVIPOLA]?.municipios ?? []
 }
+
+/**
+ * Índice inverso: código DANE → nombre y departamento.
+ *
+ * Existe porque el formulario de contacto guarda el código, no el nombre. El
+ * nombre solo aparece de vuelta al leer el lead, y ahí tiene que venir con su
+ * departamento: hay 24 nombres de municipio repetidos en el país, así que
+ * «Puerto Colombia» a secas no dice si el proyecto está en el Atlántico o en el
+ * Guainía —a 1.300 km— y esa es exactamente la clase de dato que hace perder
+ * una hora antes de la primera llamada.
+ */
+export const MUNICIPIO_DANE: ReadonlyMap<
+  string,
+  { nombre: string; departamento: string }
+> = new Map(
+  Object.values(DIVIPOLA).flatMap((d) =>
+    d.municipios.map(
+      (m) => [m.codigo, { nombre: m.nombre, departamento: d.nombre }] as const,
+    ),
+  ),
+)
+
+/**
+ * Etiqueta legible de un código: «Medellín, Antioquia».
+ *
+ * Devuelve `null` si el código no existe, para que quien la use decida qué
+ * hacer en vez de recibir una cadena vacía que parece un nombre.
+ *
+ * Bogotá es municipio y departamento a la vez, así que la regla general
+ * produciría «Bogotá, D.C., Bogotá, D.C.». Como es el mercado principal del
+ * estudio, ese caso saldría en la mayoría de los correos.
+ */
+export function etiquetaMunicipio(codigo: string): string | null {
+  const m = MUNICIPIO_DANE.get(codigo)
+  if (!m) return null
+  return m.nombre === m.departamento ? m.nombre : `${m.nombre}, ${m.departamento}`
+}

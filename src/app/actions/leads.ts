@@ -8,6 +8,8 @@ import { after } from 'next/server'
 import { configLeads, haySupabaseAdmin } from '@/lib/env'
 import { supabaseAdmin } from '@/lib/supabase/admin'
 import { leadSchema, type LeadInput, type LeadResult } from '@/lib/schemas'
+import { FUERA_DE_COLOMBIA } from '@content/site'
+import { etiquetaMunicipio } from '@content/apbs/divipola'
 
 /**
  * Recepción de leads del formulario de contacto.
@@ -59,6 +61,22 @@ type RegistroLead = {
  * contrapartida. Sin sal configurada no se guarda nada: un sha256 de una IPv4
  * es reversible por fuerza bruta en segundos.
  */
+/**
+ * El formulario envía el código DANE; en la base y en el correo va el nombre
+ * con su departamento.
+ *
+ * El departamento no es adorno: hay nombres de municipio repetidos, y quien
+ * abre el correo a las once de la noche necesita saber si «Puerto Colombia» es
+ * el del Atlántico o el del Guainía antes de calcular cuánto cuesta ir.
+ */
+function nombreMunicipio(codigo: string): string {
+  if (codigo === FUERA_DE_COLOMBIA.codigo) return FUERA_DE_COLOMBIA.nombre
+  // El `?? codigo` es inalcanzable: el esquema ya validó contra el mismo
+  // índice. Si algún día deja de serlo, es mejor guardar el código que perder
+  // el lead.
+  return etiquetaMunicipio(codigo) ?? codigo
+}
+
 function huellaIp(ip: string, sal: string): string | null {
   if (!sal || ip === 'desconocida') return null
   return createHash('sha256').update(`${ip}${sal}`).digest('hex')
@@ -201,7 +219,7 @@ export async function enviarLead(raw: unknown): Promise<LeadResult> {
     nombre: lead.nombre,
     correo: lead.correo,
     whatsapp: lead.whatsapp,
-    municipio: lead.municipio,
+    municipio: nombreMunicipio(lead.codigoMunicipio),
     etapa: lead.etapa,
     mensaje: lead.mensaje,
     declaracion: lead.declaracion,

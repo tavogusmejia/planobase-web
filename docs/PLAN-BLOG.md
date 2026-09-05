@@ -145,12 +145,12 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | # | Título | Estado |
 |---|---|---|
 | 18 | Del lote a la licencia: el recorrido completo con tiempos reales | pendiente |
-| 19 | Qué es un anteproyecto y por qué no se puede saltar | pendiente |
+| 19 | Qué es un anteproyecto y por qué no se puede saltar | **publicado** · 12/9/2023 |
 | 20 | Cómo leer un plano arquitectónico | pendiente |
-| 21 | Arquitecto, maestro de obra o constructora: quién hace qué | pendiente |
+| 21 | Arquitecto, maestro de obra o constructora: quién hace qué | **publicado** · 16/5/2023 |
 | 22 | Diez preguntas antes de firmar con un constructor | pendiente |
 | 23 | Interventoría: por qué el que construye no puede ser el que vigila | pendiente |
-| 24 | El contrato de diseño arquitectónico: qué tiene que decir | pendiente |
+| 24 | El contrato de diseño arquitectónico: qué tiene que decir | **publicado** · 20/2/2024 |
 
 ### Pilar 5 · Institucional
 

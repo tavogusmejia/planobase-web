@@ -6,6 +6,9 @@ import { post as potDeCali } from './blog/pot-de-cali-y-su-licencia'
 import { post as cuantoCobraArquitecto } from './blog/cuanto-cobra-un-arquitecto'
 import { post as ley1209Piscinas } from './blog/ley-1209-piscinas-copropiedad'
 import { post as queConstruirEnMiLote } from './blog/que-puedo-construir-en-mi-lote'
+import { post as quienHaceQue } from './blog/arquitecto-maestro-de-obra-o-constructora'
+import { post as queEsUnAnteproyecto } from './blog/que-es-un-anteproyecto'
+import { post as contratoDeDiseno } from './blog/contrato-de-diseno-arquitectonico'
 
 /**
  * El índice del blog.
@@ -28,6 +31,9 @@ const registro: Post[] = [
   cuantoCobraArquitecto,
   ley1209Piscinas,
   queConstruirEnMiLote,
+  quienHaceQue,
+  queEsUnAnteproyecto,
+  contratoDeDiseno,
 ]
 
 /** Ordenados del más reciente al más antiguo. Es el orden de lectura. */

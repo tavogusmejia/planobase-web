@@ -98,7 +98,7 @@ export default async function AgendarPage({
           {/* Las políticas van completas y visibles. El plan de campaña promete
               "sin letra pequeña": esconderlas contradiría el anuncio. */}
           <section className="mt-20">
-            <h2 className="text-block text-muted">Condiciones</h2>
+            <h2 className="text-block text-muted">{copia.condiciones}</h2>
             <dl className="mt-6 border-t border-line">
               {asesoria.politicas.map((p) => (
                 <div

@@ -2,6 +2,14 @@
 // (OneDrive · Gerencia - Documentos, InDesign, 43 servicios en 4 líneas).
 // No editar a mano: regenerar desde el PDF si el portafolio cambia.
 //
+// Excepción registrada: al último "no incluye" de Obra y Fabricación se le
+// había pegado el pie de página del InDesign —"Visión, innovación y excelencia
+// en cada proyecto www.planobase.co Cali, Valle del Cauca, Colombia"— dentro
+// del propio dato. No se pintaba todavía, pero el componente estaba armado
+// para sacarlo. Se cortó a mano en la frase donde termina el dato real.
+// Si algún día se regenera desde el PDF, hay que volver a cortarlo: el pie
+// vive en la maqueta, no en el contenido.
+//
 // Nota de marca: el PDF está firmado como "Grupo Plano Base". El sitio usa
 // "Plano Base" por decisión de una sola marca. Confirmar cuál es la razón
 // comercial que se anuncia.
@@ -285,7 +293,7 @@ export const lineasServicio: LineaServicio[] = [
       "Servicios de interventoría o supervisión externa (incluidos en la línea de Consultoría y Gestión Técnica)",
       "Actividades de diseño conceptual o visualización (incluidas en la línea de Diseño Arquitectónico y Comunicación Visual)",
       "Mantenimientos preventivos o correctivos (incluidos en la línea de Mantenimiento Integral)",
-      "Obras civiles de gran infraestructura o concesiones viales fuera del ámbito arquitectónico o urbano. Visión, innovación y excelencia en cada proyecto www.planobase.co Cali, Valle del Cauca, Colombia"
+      "Obras civiles de gran infraestructura o concesiones viales fuera del ámbito arquitectónico o urbano."
     ]
   }
 ]

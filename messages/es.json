@@ -5,7 +5,7 @@
     "estudio": "Estudio",
     "servicios": "Servicios",
     "blog": "Blog",
-    "contacto": "Contáctanos",
+    "contacto": "Contáctenos",
     "abrirMenu": "Abrir menú",
     "cerrarMenu": "Cerrar menú",
     "irAlInicio": "Plano Base, ir al inicio",
@@ -16,7 +16,7 @@
   },
   "cta": {
     "reservar": "Agendar asesoría",
-    "contactar": "Contáctanos",
+    "contactar": "Contáctenos",
     "verProyecto": "Ver proyecto",
     "verTodos": "Ver los {count} proyectos",
     "escribirWhatsapp": "Escríbanos por WhatsApp",
@@ -67,6 +67,10 @@
     "restablecerZoom": "Tamaño original",
     "ayudaZoom": "Rueda o pellizco para ampliar · doble clic para alternar · arrastre para desplazar"
   },
+  "vertical": {
+    "conteo": "{count, plural, one {Un proyecto} other {# proyectos}}",
+    "reconocimientos": "{count, plural, one {Un reconocimiento en esta línea} other {# reconocimientos en esta línea}}"
+  },
   "categorias": {
     "todos": "Todos",
     "educativo": "Educativo",
@@ -110,7 +114,7 @@
     "departamento": "Departamento",
     "municipio": "Municipio",
     "etapa": "¿En qué etapa está?",
-    "elegir": "Elige una opción",
+    "elegir": "Elija una opción",
     "mensaje": "Cuéntenos su idea o necesidad",
     "mensajeAyuda": "Puede incluir su presupuesto. No compromete nada y nos ayuda a darle una propuesta realista.",
     "declaracion": "Declaro que la información que he facilitado es exacta y completa.",
@@ -118,7 +122,7 @@
     "enviar": "Enviar proyecto",
     "enviando": "Enviando",
     "recibido": "Recibimos su mensaje.",
-    "recibidoTexto": "Le escribimos por WhatsApp dentro de la próxima hora hábil. Si prefiere adelantar la conversación, puede escribirnos ahora mismo.",
+    "recibidoTexto": "Le escribimos por WhatsApp dentro de la siguiente hora hábil. Si prefiere adelantar la conversación, puede escribirnos ahora mismo.",
     "errores": {
       "nombre": "Escriba su nombre completo.",
       "nombreLargo": "El nombre es demasiado largo.",

@@ -15,9 +15,20 @@ import { absoluteUrl } from '@/lib/utils'
  * verifica. schema.org no tiene un tipo para estudios de arquitectura.
  *
  * IMPORTANTE — el NAP (nombre, dirección, teléfono) tiene que ser idéntico
- * carácter por carácter al de Google Business. La dirección pública está sin
- * decidir entre Cali y Jamundí; cambiarla en una ficha ya verificada resetea su
- * antigüedad, así que conviene cerrarlo antes de crear la ficha.
+ * carácter por carácter al de Google Business. La dirección pública quedó
+ * decidida el 5/9/2026: Cali, que es lo que este nodo ya publicaba. Cambiarla
+ * en una ficha ya verificada resetea su antigüedad, así que se toca aquí antes
+ * de crear la ficha, nunca después.
+ *
+ * `address` y `areaServed` dicen cosas distintas y no hay que mezclarlas: la
+ * primera es la sede, que es Cali; la segunda es dónde se presta el servicio,
+ * que es Colombia. El campo listaba Cali, Jamundí, Palmira y el Valle antes que
+ * al país, y el sitio quedaba declarando un alcance regional que sus propios
+ * proyectos desmienten —diez de los veintitrés publicados están en Bogotá—.
+ *
+ * Y conviene no esperar de esto lo que no da: la zona de servicio del schema no
+ * posiciona. Eso lo decide la proximidad de la ficha de Google Business. Esto
+ * sirve para que la entidad sea coherente, que es otra cosa.
  */
 export function DatosOrganizacion() {
   const jsonLd = {
@@ -41,7 +52,7 @@ export function DatosOrganizacion() {
       addressRegion: 'Valle del Cauca',
       addressCountry: 'CO',
     },
-    areaServed: ['Cali', 'Jamundí', 'Palmira', 'Valle del Cauca', 'Colombia'],
+    areaServed: { '@type': 'Country', name: 'Colombia' },
     knowsLanguage: ['es', 'en'],
     sameAs: [contacto.instagram],
   }

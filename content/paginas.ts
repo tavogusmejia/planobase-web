@@ -76,7 +76,7 @@ export const copiaPaginas = {
        página tiene que sostenerlos. El segundo decía «para el Valle del
        Cauca» y el estudio trabaja en todo el país: es la tarea 5.1 en la
        página donde se convierte. */
-    incluyeTitular: 'Qué se lleva de la sesión',
+    incluyeTitular: 'Qué se lleva de la primera llamada',
     incluye1: 'Si su proyecto es técnicamente viable, y qué lo condiciona.',
     incluye2: 'Un rango real de costos para su municipio, sin cifras de catálogo.',
     incluye3: 'Los pasos concretos para empezar, en orden y con tiempos.',

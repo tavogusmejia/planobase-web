@@ -197,12 +197,27 @@ export const reconocimientos: Award[] = [
     ambito: 'privado',
   },
   {
-    /* La lista dice 2021 y la ficha del proyecto dice 2022. Puede ser legítimo
-       —el fallo del concurso y el año del proyecto no tienen por qué coincidir—
-       pero conviene confirmarlo. */
+    /* Llevaba 2021 y un nombre propio —«Casa de la cultura Colinas»— mientras
+       la ficha decía 2022 y «Casa cultural en el Centro Poblado Las Colinas
+       Jaime Pardo Leal». Las dos cifras y los dos nombres se veían a la vez:
+       esta lista los anuncia y el enlace aterriza en la ficha.
+
+       Se alinean contra la ficha, que es la que tiene respaldo documental —el
+       volcado de Wix dice 2022— y porque los otros cuatro reconocimientos
+       copian exacto el año de su proyecto. Esta fila era la única que se
+       desviaba, y un desvío de uno entre cinco es un desliz de transcripción,
+       no un dato distinto.
+
+       Si el fallo del jurado fue de verdad en 2021, el año del concurso y el
+       del proyecto son dos datos y hay que guardarlos por separado, no elegir
+       entre ellos. Hasta saberlo, el sitio publica una sola cifra.
+
+       El título sigue el mismo patrón que El Ensueño —nombre corto más lugar—
+       y comparte «Casa cultural» y «Las Colinas» palabra por palabra con la
+       ficha, para que el clic no aterrice en un desconocido. */
     puesto: 'segundo',
-    titulo: 'Casa de la cultura Colinas, San José del Guaviare',
-    anio: 2021,
+    titulo: 'Casa cultural Las Colinas, San José del Guaviare',
+    anio: 2022,
     proyectoSlug: 'casa-cultural-las-colinas',
     ambito: 'publico',
   },
@@ -232,7 +247,15 @@ export const reconocimientos: Award[] = [
 export const asesoria: Service = {
   slug: 'asesoria-tecnica',
   nombre: 'Asesoría técnica',
-  tagline: 'Contar con la asesoría de un arquitecto no debe ser costoso.',
+  /* Decía «no debe ser costoso» y es el h1 de /agendar, a tres líneas del
+     rótulo «Sin costo»: argumentaba que no debería ser caro justo al lado de
+     la palabra que dice que es gratis. Quien llega de un anuncio lee el
+     titular y decide en segundos; el dato que lo hace entrar es el precio,
+     y el precio es cero.
+
+     No repite «quince minutos, sin costo» porque la entrada, dos líneas
+     debajo, ya lo dice con esas palabras. */
+  tagline: 'La primera llamada con un arquitecto no cuesta nada.',
   descripcion:
     'Quince minutos con un arquitecto de Plano Base, sin costo y sin ' +
     'compromiso. Nos cuenta su caso, le decimos si podemos ayudarle, qué ' +
@@ -248,7 +271,11 @@ export const asesoria: Service = {
   politicas: [
     {
       clave: 'Reserva',
-      texto: 'Por WhatsApp. Confirmamos fecha y hora el mismo día.',
+      /* Decía «el mismo día» mientras el formulario y /agendar prometían
+         la siguiente hora hábil. Eran tres redacciones para dos promesas.
+         Se unifican en la de /agendar, que es la página que convierte. */
+      texto:
+        'Por WhatsApp. Confirmamos fecha y hora dentro de la siguiente hora hábil.',
     },
     {
       clave: 'Duración',

@@ -41,10 +41,20 @@ function alMediodia(iso: string): Date {
   return new Date(`${iso}T12:00:00Z`)
 }
 
-/** 5400 → «5.400 m²». Devuelve null si no hay dato: nunca se pinta «0 m²». */
+/**
+ * 5400 → «5.400 m²». Devuelve null si no hay dato: nunca se pinta «0 m²».
+ *
+ * Sin `maximumFractionDigits` salían «2.549,68 m²» y «10.560,8 m²»: cuatro
+ * proyectos traen el área con decimales desde el volcado de Wix y el
+ * formateador los pintaba tal cual. Un área de proyecto se dice en metros
+ * enteros; el centímetro cuadrado es ruido de hoja de cálculo y le resta
+ * autoridad a la ficha. Se redondea al pintar y no en el dato, que se
+ * conserva como está por si algún día hace falta con precisión.
+ */
 export function formatArea(idioma: string, m2: number | null): string | null {
   if (!m2 || m2 <= 0) return null
-  return `${new Intl.NumberFormat(bcp47(idioma)).format(m2)} m²`
+  const n = new Intl.NumberFormat(bcp47(idioma), { maximumFractionDigits: 0 })
+  return `${n.format(m2)} m²`
 }
 
 export function formatCOP(idioma: string, valor: number): string {

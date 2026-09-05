@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { CalculadoraExpensas } from '@/components/apbs/CalculadoraExpensas'
@@ -61,6 +61,7 @@ export default async function ExpensasPage({
 }) {
   const { locale } = await params
   setRequestLocale(locale)
+  const tc = await getTranslations('cta')
 
   const h = herramientaPorSlug.get(SLUG)!
   const puerta = puertas.find((p) => p.slug === h.puerta)
@@ -190,7 +191,7 @@ export default async function ExpensasPage({
               {puerta.nombre}
             </Link>
             <Link href="/agendar" className="text-block enlace">
-              Agendar asesoría
+              {tc('reservar')}
             </Link>
           </div>
         </section>

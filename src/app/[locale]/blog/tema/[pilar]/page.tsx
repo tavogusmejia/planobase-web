@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { TarjetaPost } from '@/components/blog/TarjetaPost'
@@ -67,6 +67,7 @@ export default async function PilarPage({
 }) {
   const { locale, pilar: slug } = await params
   setRequestLocale(locale)
+  const tc = await getTranslations('cta')
 
   const pilar = pilarDe(locale, slug)
   if (!pilar) notFound()
@@ -151,7 +152,7 @@ export default async function PilarPage({
               {puerta.nombre}
             </Link>
             <Link href="/agendar" className="text-block enlace">
-              Agendar asesoría
+              {tc('reservar')}
             </Link>
           </div>
         </section>

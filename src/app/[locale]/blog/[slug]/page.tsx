@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Cuerpo } from '@/components/blog/Cuerpo'
 import { Rule } from '@/components/ui/Rule'
@@ -81,6 +81,7 @@ export default async function PostPage({
 }) {
   const { locale, slug } = await params
   setRequestLocale(locale)
+  const tc = await getTranslations('cta')
 
   const post = postDe(locale, slug)
   if (!post) notFound()
@@ -267,7 +268,7 @@ export default async function PostPage({
               {puerta.nombre}
             </Link>
             <Link href="/agendar" className="text-block enlace">
-              Agendar asesoría
+              {tc('reservar')}
             </Link>
           </div>
         </section>

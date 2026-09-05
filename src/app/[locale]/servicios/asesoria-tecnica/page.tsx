@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { asesoria, contacto } from '@content/site'
 import { etiquetaPrecio } from '@/lib/precio'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { alternativas, tarjeta } from '@/lib/metadatos'
+import { absoluteUrl } from '@/lib/utils'
 
 export async function generateMetadata({
   params,
@@ -46,14 +47,16 @@ export default async function AsesoriaTecnicaPage({
 }) {
   const { locale } = await params
   setRequestLocale(locale)
+  const tc = await getTranslations('cta')
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: asesoria.nombre,
     description: asesoria.descripcion,
-    provider: { '@type': 'Organization', name: 'Plano Base Arquitectos' },
-    areaServed: { '@type': 'AdministrativeArea', name: 'Valle del Cauca, Colombia' },
+    /* Referencia al nodo del sitio, no una organización anónima nueva. */
+    provider: { '@id': absoluteUrl('/#estudio') },
+    areaServed: { '@type': 'Country', name: 'Colombia' },
     offers: {
       '@type': 'Offer',
       price: asesoria.precioCOP,
@@ -104,7 +107,7 @@ export default async function AsesoriaTecnicaPage({
           href="/agendar"
           className="text-block bg-signal px-7 py-4 uppercase tracking-[0.08em] text-paper transition-opacity hover:opacity-90"
         >
-          Reservar sesión
+          {tc('reservar')}
         </Link>
         <WhatsAppLink
           numero={contacto.whatsapp}
@@ -112,7 +115,7 @@ export default async function AsesoriaTecnicaPage({
           origen="web/asesoria-tecnica"
           className="text-block border border-accent px-7 py-4 uppercase tracking-[0.08em] text-accent transition-colors hover:bg-accent hover:text-paper"
         >
-          Preguntar por WhatsApp
+          {tc('escribirWhatsapp')}
         </WhatsAppLink>
       </div>
     </div>

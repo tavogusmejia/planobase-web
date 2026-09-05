@@ -61,7 +61,7 @@ export const copiaPaginasEn: { [R in RutaConCopia]?: Partial<CopiaDe<R>> } = {
   },
 
   '/agendar': {
-    incluyeTitular: 'What you take away from the session',
+    incluyeTitular: 'What you take away from the first call',
     incluye1: 'Whether your project is technically feasible, and what constrains it.',
     incluye2: 'A real cost range for your municipality, not catalogue figures.',
     incluye3: 'The concrete steps to begin, in order and with timings.',

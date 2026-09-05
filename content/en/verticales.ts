@@ -98,7 +98,7 @@ export const verticales: Record<string, VerticalTraducible> = {
   concursos: {
     titulo: 'Competitions',
     entrada:
-      'Fourteen entries to public and invited competitions, with five awards ' +
+      'Entries to public and invited competitions, with five awards ' +
       'among them. A competition is the most demanding way to design: you ' +
       'resolve the whole thing, against the clock, with no way to ask the ' +
       'client anything. It is where you see what a studio is capable of.',

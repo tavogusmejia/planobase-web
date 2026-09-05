@@ -125,8 +125,13 @@ export const verticales: Vertical[] = [
   {
     categoria: 'concursos',
     titulo: 'Concursos',
+    /* Decía «Catorce propuestas» y tres líneas debajo el contador pintaba
+       «14 proyectos»: el mismo número, en letra y en cifra, en la misma
+       pantalla. Se quita el de la prosa y no el del contador, porque el
+       contador se calcula solo y la prosa se queda vieja en cuanto entre
+       un proyecto nuevo. */
     entrada:
-      'Catorce propuestas presentadas a concurso público y privado, con cinco ' +
+      'Propuestas presentadas a concurso público y privado, con cinco ' +
       'reconocimientos entre ellas. Un concurso es la forma más exigente de ' +
       'proyectar: se resuelve completo, contra reloj y sin poder preguntarle ' +
       'nada al cliente. Es donde se ve de qué es capaz un estudio.',

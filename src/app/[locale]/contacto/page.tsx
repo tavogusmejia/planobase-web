@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { ContactForm } from '@/components/forms/ContactForm'
 import { Rule } from '@/components/ui/Rule'
@@ -43,6 +43,7 @@ export default async function ContactoPage({
 }) {
   const { locale } = await params
   setRequestLocale(locale)
+  const tc = await getTranslations('cta')
 
   const copia = copiaDe('/contacto', locale)
   const asesoria = asesoriaDe(locale)
@@ -111,7 +112,7 @@ export default async function ContactoPage({
               href="/agendar"
               className="text-block mt-6 inline-block bg-signal px-6 py-3.5 uppercase tracking-[0.08em] text-paper transition-opacity hover:opacity-90"
             >
-              Reservar sesión
+              {tc('reservar')}
             </Link>
           </div>
         </aside>

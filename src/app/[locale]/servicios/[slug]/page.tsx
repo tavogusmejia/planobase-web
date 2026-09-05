@@ -9,6 +9,7 @@ import { asesoria, contacto, reconocimientos } from '@content/site'
 import { routing } from '@/i18n/routing'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { alternativas, tarjeta } from '@/lib/metadatos'
+import { absoluteUrl } from '@/lib/utils'
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -69,21 +70,18 @@ export default async function PuertaPage({
     '@type': 'Service',
     serviceType: puerta.nombre,
     description: puerta.respuesta,
-    provider: {
-      '@type': 'Organization',
-      name: 'Plano Base Arquitectos',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Cali',
-        addressRegion: 'Valle del Cauca',
-        addressCountry: 'CO',
-      },
-    },
-    areaServed: [
-      { '@type': 'City', name: 'Cali' },
-      { '@type': 'City', name: 'Jamundí' },
-      { '@type': 'City', name: 'Palmira' },
-    ],
+    /* Se referencia el nodo de la organización en vez de redeclararlo.
+       Antes cada página de servicio emitía un `Organization` sin `@id`: para
+       un buscador eso es una entidad nueva y anónima por página, compitiendo
+       con la del sitio en vez de sumarle. La dirección vive en ese nodo, que
+       es donde tiene que coincidir carácter por carácter con la ficha de
+       Google Business; repetirla aquí solo añadía sitios donde se desvíe. */
+    provider: { '@id': absoluteUrl('/#estudio') },
+    /* Declaraba Cali, Jamundí y Palmira. El estudio presta el servicio en
+       todo el país y el 43 % del portafolio publicado está en Bogotá: la
+       zona regional contradecía los propios datos del sitio. La sede sigue
+       siendo Cali y eso no lo dice este campo, lo dice `address`. */
+    areaServed: { '@type': 'Country', name: 'Colombia' },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: puerta.nombre,

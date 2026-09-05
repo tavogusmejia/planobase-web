@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { ProjectCard } from '@/components/project/ProjectCard'
 import { ReticulaProyectos } from '@/components/project/ReticulaProyectos'
@@ -66,6 +66,8 @@ export default async function VerticalPage({
   const { locale, categoria } = await params
   setRequestLocale(locale)
 
+  const tv = await getTranslations('vertical')
+
   const v = verticalDe(locale, categoria)
   if (!v) notFound()
 
@@ -86,7 +88,7 @@ export default async function VerticalPage({
         <h1 className="text-h1 measure-display text-ink">{v.titulo}</h1>
         <p className="text-lead measure mt-8 text-ink-soft">{v.entrada}</p>
         <Rule className="mt-8 max-w-md text-muted">
-          {proyectos.length} proyectos
+          {tv('conteo', { count: proyectos.length })}
         </Rule>
       </div>
 
@@ -110,9 +112,7 @@ export default async function VerticalPage({
       {premios.length > 0 ? (
         <section className="mt-24 px-gutter lg:px-10">
           <h2 className="text-h3 text-ink">
-            {premios.length === 1
-              ? 'Un reconocimiento en esta línea'
-              : `${premios.length} reconocimientos en esta línea`}
+            {tv('reconocimientos', { count: premios.length })}
           </h2>
           <ol className="mt-8 border-t border-line lg:max-w-4xl">
             {[...premios]

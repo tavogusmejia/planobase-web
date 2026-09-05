@@ -67,6 +67,10 @@
     "restablecerZoom": "Actual size",
     "ayudaZoom": "Scroll or pinch to zoom · double-click to toggle · drag to pan"
   },
+  "vertical": {
+    "conteo": "{count, plural, one {One project} other {# projects}}",
+    "reconocimientos": "{count, plural, one {One award in this line} other {# awards in this line}}"
+  },
   "categorias": {
     "todos": "All",
     "educativo": "Education",

@@ -228,7 +228,7 @@ export async function enviarLead(raw: unknown): Promise<LeadResult> {
       ok: false,
       errores: {},
       general:
-        'Recibimos varios mensajes desde esta conexión. Espera unos minutos o escríbenos por WhatsApp.',
+        'Recibimos varios mensajes desde esta conexión. Espere unos minutos o escríbanos por WhatsApp.',
     }
   }
 
@@ -260,7 +260,7 @@ export async function enviarLead(raw: unknown): Promise<LeadResult> {
       ok: false,
       errores: {},
       general:
-        'No pudimos registrar tu mensaje. Escríbenos por WhatsApp y lo resolvemos de inmediato.',
+        'No pudimos registrar su mensaje. Escríbanos por WhatsApp y lo resolvemos de inmediato.',
     }
   }
 
@@ -282,6 +282,6 @@ export async function enviarLead(raw: unknown): Promise<LeadResult> {
     ok: false,
     errores: {},
     general:
-      'No pudimos registrar tu mensaje. Escríbenos por WhatsApp y lo resolvemos de inmediato.',
+      'No pudimos registrar su mensaje. Escríbanos por WhatsApp y lo resolvemos de inmediato.',
   }
 }

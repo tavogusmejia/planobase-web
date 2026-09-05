@@ -94,7 +94,7 @@ export const asesoria: Partial<
   Pick<Service, 'nombre' | 'tagline' | 'descripcion' | 'politicas'>
 > = {
   nombre: 'Technical consultation',
-  tagline: 'Getting an architect’s advice should not be expensive.',
+  tagline: 'The first call with an architect costs nothing.',
   descripcion:
     'Fifteen minutes with an architect from Plano Base, free and with no ' +
     'commitment. You tell us your case, we tell you whether we can help, what ' +
@@ -103,7 +103,8 @@ export const asesoria: Partial<
   politicas: [
     {
       clave: 'Booking',
-      texto: 'Over WhatsApp. We confirm the date and time the same day.',
+      texto:
+        'Over WhatsApp. We confirm the date and time within the next working hour.',
     },
     {
       clave: 'Length',

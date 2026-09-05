@@ -3,6 +3,8 @@ import { Link } from '@/i18n/navigation'
 import { Isotipo } from '@/components/brand/Isotipo'
 import { contacto, navegacion, site } from '@content/site'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
+import { BotonPreferencias } from '@/components/analytics/BotonPreferencias'
+import { hayEtiquetasDeMedicion } from '@/lib/env'
 
 export async function Footer() {
   const t = await getTranslations('footer')
@@ -100,9 +102,21 @@ export async function Footer() {
         </div>
 
         <div className="mt-16 flex flex-wrap items-baseline justify-between gap-4">
-          <p className="text-block text-muted">
-            {site.copyright(new Date().getFullYear())}
-          </p>
+          {/* El copyright, la política y las preferencias van juntos, que es
+              donde la gente los busca. La política se enlaza siempre; las
+              preferencias solo cuando hay una decisión que cambiar. */}
+          <div className="flex flex-wrap items-baseline gap-x-8 gap-y-2">
+            <p className="text-block text-muted">
+              {site.copyright(new Date().getFullYear())}
+            </p>
+            <Link
+              href="/politica-de-datos"
+              className="text-block text-muted underline-offset-4 transition-colors hover:text-accent hover:underline"
+            >
+              {t('politica')}
+            </Link>
+            <BotonPreferencias hayEtiquetas={hayEtiquetasDeMedicion()} />
+          </div>
 
           {/* Un ancla nativa al `id` que ya tiene el <main>. Sin componente
               cliente ni `scrollTo`: la hoja de estilos declara

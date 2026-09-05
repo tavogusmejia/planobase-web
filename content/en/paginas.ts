@@ -60,6 +60,15 @@ export const copiaPaginasEn: { [R in RutaConCopia]?: Partial<CopiaDe<R>> } = {
       'your budget.',
   },
 
+  '/politica-de-datos': {
+    titulo: 'Data policy',
+    tarjetaTitulo: 'Personal data policy · Plano Base',
+    metaDescripcion:
+      'What personal data Plano Base Arquitectos collects, what it uses them ' +
+      'for, how long it keeps them and how you can see, correct or delete ' +
+      'them. Ley 1581 de 2012.',
+  },
+
   '/agendar': {
     incluyeTitular: 'What you take away from the first call',
     incluye1: 'Whether your project is technically feasible, and what constrains it.',

@@ -10,6 +10,7 @@ import { supabaseAdmin } from '@/lib/supabase/admin'
 import { leadSchema, type LeadInput, type LeadResult } from '@/lib/schemas'
 import { contacto, FUERA_DE_COLOMBIA } from '@content/site'
 import { enviarAcuse } from '@/lib/correo/acuse'
+import { politicaDatos } from '@content/legal'
 import { etiquetaMunicipio } from '@content/apbs/divipola'
 
 /**
@@ -47,6 +48,10 @@ type RegistroLead = {
   etapa: string
   mensaje: string
   declaracion: boolean
+  autorizacion: boolean
+  /** Qué política aceptó. Sin esto la prueba se cae cuando la política cambie. */
+  politica_vigente_desde: string
+  locale: string
   origen: string
   utm_source: string | null
   utm_campaign: string | null
@@ -280,6 +285,15 @@ export async function enviarLead(raw: unknown): Promise<LeadResult> {
     etapa: lead.etapa,
     mensaje: lead.mensaje,
     declaracion: lead.declaracion,
+    autorizacion: lead.autorizacion,
+    /* Se toma del contenido publicado y no se escribe a mano: si alguien
+       actualiza la política y olvida este número, la prueba apuntaría a un
+       texto que el titular nunca vio. */
+    politica_vigente_desde: politicaDatos.vigenteDesde,
+    /* La columna existía desde la primera migración y nadie la rellenaba, así
+       que todos los leads figuraban en español. Ahora que el idioma viaja con
+       el envío, se guarda: es lo que dice en qué idioma responderle. */
+    locale: idioma,
     origen: origenActual(),
     utm_source: lead.utmSource ?? null,
     utm_campaign: lead.utmCampaign ?? null,

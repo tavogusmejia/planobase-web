@@ -56,6 +56,15 @@ export const copiaPaginas = {
     ogAlt: 'Plano Base Arquitectos, arquitectura en Colombia',
   },
 
+  '/politica-de-datos': {
+    titulo: 'Política de datos',
+    tarjetaTitulo: 'Política de tratamiento de datos · Plano Base',
+    metaDescripcion:
+      'Qué datos personales recoge Plano Base Arquitectos, para qué los usa, ' +
+      'cuánto los conserva y cómo puede usted conocerlos, corregirlos o pedir ' +
+      'que se eliminen. Ley 1581 de 2012.',
+  },
+
   '/contacto': {
     titulo: 'Contáctenos',
     tarjetaTitulo: 'Hablemos de su proyecto',

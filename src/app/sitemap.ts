@@ -59,6 +59,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       { entidad: { tipo: 'pagina', ruta: '/agendar' }, priority: 0.9, freq: 'monthly' },
       { entidad: { tipo: 'pagina', ruta: '/contacto' }, priority: 0.7, freq: 'monthly' },
       { entidad: { tipo: 'pagina', ruta: '/blog' }, priority: 0.5, freq: 'monthly' },
+      /* La política de datos se declara, y no es un descuido de prioridad baja.
+         Un comprador institucional que evalúa al estudio comprueba que exista:
+         una política que el buscador no encuentra es, para él, una política que
+         no está. */
+      { entidad: { tipo: 'pagina', ruta: '/politica-de-datos' }, priority: 0.3, freq: 'monthly' },
       { entidad: { tipo: 'pagina', ruta: '/apbs' }, priority: 0.7, freq: 'monthly' },
       // Solo las herramientas que ya calculan algo. Una página que anuncia
       // una herramienta y no la tiene es una página delgada.

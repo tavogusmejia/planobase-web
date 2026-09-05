@@ -93,7 +93,16 @@
     "seguir": "Follow us",
     "instagram": "Instagram",
     "whatsapp": "WhatsApp",
-    "correo": "Email"
+    "correo": "Email",
+    "politica": "Data policy"
+  },
+  "consentimiento": {
+    "titulo": "Measurement",
+    "texto": "We use third-party tools to find out which adverts bring visitors. They only load if you accept; if you do not, the site works just the same.",
+    "verPolitica": "Read the data policy",
+    "aceptar": "Accept",
+    "rechazar": "Decline",
+    "cambiar": "Measurement preferences"
   },
   "comun": {
     "cargando": "Loading",
@@ -137,8 +146,11 @@
       "etapa": "Tell us what stage it is at.",
       "mensaje": "Tell us a little more, even if it is two lines.",
       "declaracion": "We need you to confirm the declaration to continue.",
-      "largo": "That text is too long."
-    }
+      "largo": "That text is too long.",
+      "autorizacion": "We need your authorisation before we can reply."
+    },
+    "autorizacion": "I authorise Plano Base Arquitectos to process my personal data in order to answer this enquiry, on the terms of its data policy.",
+    "autorizacionEnlace": "Read the data policy"
   },
   "blog": {
     "entradas": "{count, plural, one {# entry} other {# entries}}",

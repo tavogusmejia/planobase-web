@@ -18,6 +18,8 @@ import { escalera, puertas, type Peldano, type Puerta } from '@content/puertas'
 import { asesoria } from '@content/site'
 import { verticales, type Vertical } from '@content/verticales'
 import { pilares, type Pilar } from '@content/pilares'
+import { politicaDatos, type Politica } from '@content/legal'
+import { politicaDatosEn } from '@content/en/legal'
 import * as ingles from '@content/en/site'
 import * as inglesPuertas from '@content/en/puertas'
 import { proyectos as inglesProyectos } from '@content/en/proyectos'
@@ -196,6 +198,19 @@ const COMPLETITUD: Record<RutaConCopia, () => boolean> = {
       return Boolean(t?.nombre && t.entrega)
     }),
 
+  /* La política se da por traducida cuando la versión inglesa tiene las
+     mismas secciones que la española, en el mismo orden y con todas con
+     contenido. No basta con que exista el archivo: una política a medias
+     indexada como inglesa es peor que servir la española. */
+  '/politica-de-datos': () =>
+    politicaDatosEn.secciones.length === politicaDatos.secciones.length &&
+    politicaDatos.secciones.every(
+      (s, i) =>
+        politicaDatosEn.secciones[i]?.id === s.id &&
+        (politicaDatosEn.secciones[i]?.titulo ?? '').trim() !== '' &&
+        (politicaDatosEn.secciones[i]?.bloques.length ?? 0) === s.bloques.length,
+    ),
+
   // Solo se consulta para el inglés: el español es la fuente y siempre está.
   '/estudio': () =>
     oCae(ingles.manifiesto, '') !== '' &&
@@ -205,6 +220,19 @@ const COMPLETITUD: Record<RutaConCopia, () => boolean> = {
       return Boolean(t2?.titulo && t2.texto && t2.cita)
     }) &&
     equipo.every((m) => (ingles.cargos[m.slug]?.length ?? 0) > 0),
+}
+
+/**
+ * La política de datos, en el idioma que se pida.
+ *
+ * Se devuelve entera y no fundida clave a clave, al revés que el resto del
+ * contenido. Un documento legal no admite mezcla: media política en español y
+ * media en inglés no es una traducción incompleta, es un texto que dice cosas
+ * distintas de las que dice el que obliga. O está la versión inglesa completa o
+ * se sirve la española.
+ */
+export function politicaDe(idioma: string): Politica {
+  return ES_ESPANOL(idioma) ? politicaDatos : politicaDatosEn
 }
 
 /** ¿Esta página está traducida entera a este idioma? */

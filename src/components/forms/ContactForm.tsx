@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { leadSchema, type LeadInput } from '@/lib/schemas'
@@ -272,22 +273,58 @@ export function ContactForm() {
         />
       </div>
 
-      <div>
-        <label className="flex items-start gap-3">
-          <input
-            type="checkbox"
-            className="mt-1.5 size-4 shrink-0 accent-[var(--color-ink)]"
-            {...register('declaracion')}
-          />
-          <span className="text-small text-ink">
-            {t('declaracion')}
-          </span>
-        </label>
-        {errors.declaracion?.message ? (
-          <p className="text-small mt-2 text-accent-deep">
-            {errors.declaracion.message}
-          </p>
-        ) : null}
+      {/* Dos casillas y no una, y no es burocracia: dicen cosas distintas.
+          La primera afirma que los datos son exactos; la segunda autoriza a
+          tratarlos, que es lo que exige el artículo 9 de la Ley 1581 de 2012.
+          Fundirlas en una sola las invalida a las dos, porque una casilla que
+          afirma dos cosas a la vez no es expresa respecto de ninguna.
+
+          Ninguna viene marcada de fábrica: una casilla premarcada no recoge
+          una autorización, recoge un descuido. */}
+      <div className="space-y-5">
+        <div>
+          <label className="flex items-start gap-3">
+            <input
+              type="checkbox"
+              className="mt-1.5 size-4 shrink-0 accent-[var(--color-ink)]"
+              {...register('declaracion')}
+            />
+            <span className="text-small text-ink">{t('declaracion')}</span>
+          </label>
+          {/* Pintaba `errors.declaracion.message` en crudo, y como el esquema
+              devuelve claves y no frases, al visitante le salía la cadena
+              «errores.declaracion» literal en el único sitio donde el
+              formulario le dice que algo va mal. */}
+          {errors.declaracion?.message ? (
+            <p className="text-small mt-2 text-accent-deep">
+              {err(errors.declaracion.message)}
+            </p>
+          ) : null}
+        </div>
+
+        <div>
+          <label className="flex items-start gap-3">
+            <input
+              type="checkbox"
+              className="mt-1.5 size-4 shrink-0 accent-[var(--color-ink)]"
+              {...register('autorizacion')}
+            />
+            <span className="text-small text-ink">
+              {t('autorizacion')}{' '}
+              <Link
+                href="/politica-de-datos"
+                className="underline underline-offset-4 hover:text-accent"
+              >
+                {t('autorizacionEnlace')}
+              </Link>
+            </span>
+          </label>
+          {errors.autorizacion?.message ? (
+            <p className="text-small mt-2 text-accent-deep">
+              {err(errors.autorizacion.message)}
+            </p>
+          ) : null}
+        </div>
       </div>
 
       {general ? (

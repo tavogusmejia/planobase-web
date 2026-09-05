@@ -20,7 +20,34 @@ export const entornoPublico = {
   origenMedia: (process.env.NEXT_PUBLIC_MEDIA_ORIGIN ?? '').replace(/\/+$/, ''),
   /** Vacío = el sitio no monta el Pixel. */
   metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? '',
+  /** `G-XXXXXXXXXX`. Vacío = sin analítica de Google. */
+  ga4Id: process.env.NEXT_PUBLIC_GA4_ID ?? '',
+  /** `AW-XXXXXXXXX`. Vacío = sin etiqueta de conversión de Ads. */
+  googleAdsId: process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? '',
+  /**
+   * La etiqueta de la conversión «lead» dentro de la cuenta de Ads.
+   *
+   * Va aparte del identificador porque Google la exige junta —`AW-123/AbC_dEf`—
+   * pero se generan en sitios distintos de la interfaz y en momentos distintos.
+   * Sin ella, Ads recibe la conversión sin saber cuál es y no la cuenta.
+   */
+  googleAdsEtiquetaLead: process.env.NEXT_PUBLIC_GOOGLE_ADS_LEAD_LABEL ?? '',
 } as const
+
+/**
+ * ¿Hay algo que medir?
+ *
+ * Si no hay ningún identificador, el sitio no pregunta por el consentimiento.
+ * Pedir permiso para algo que no se va a hacer recoge un dato que no hace falta
+ * y gasta la única oportunidad de preguntarlo bien.
+ */
+export function hayEtiquetasDeMedicion(): boolean {
+  return Boolean(
+    entornoPublico.metaPixelId ||
+      entornoPublico.ga4Id ||
+      entornoPublico.googleAdsId,
+  )
+}
 
 /**
  * Si este despliegue debe aparecer en buscadores.

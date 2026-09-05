@@ -80,6 +80,23 @@ export const leadSchema = z.object({
     message: 'errores.declaracion',
   }),
 
+  /**
+   * Autorización de tratamiento de datos personales.
+   *
+   * **Es distinta de `declaracion` y por eso son dos casillas y no una.**
+   * `declaracion` dice que los datos que dio son exactos; ésta dice que
+   * autoriza a tratarlos. Juntarlas en una sola casilla las invalida a las dos:
+   * el artículo 9 de la Ley 1581 de 2012 pide una autorización expresa, y una
+   * casilla que además afirma otra cosa no es expresa respecto de ninguna.
+   *
+   * Va como `literal(true)` —obligatoria— porque sin ella no hay título para
+   * tratar el dato, y sin tratar el dato no se puede responder. No es un
+   * requisito de formulario: es la condición para que exista el servicio.
+   */
+  autorizacion: z.literal(true, {
+    message: 'errores.autorizacion',
+  }),
+
   /** Trampa antibots. Invisible para una persona; si viene llena, se descarta
    *  en silencio. Sin captcha de terceros. */
   sitioWeb: z.string().max(0).optional(),

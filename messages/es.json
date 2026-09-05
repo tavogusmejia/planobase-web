@@ -93,7 +93,16 @@
     "seguir": "Síguenos",
     "instagram": "Instagram",
     "whatsapp": "WhatsApp",
-    "correo": "Correo"
+    "correo": "Correo",
+    "politica": "Política de datos"
+  },
+  "consentimiento": {
+    "titulo": "Medición",
+    "texto": "Usamos herramientas de terceros para saber qué anuncios traen visitantes. Solo se cargan si usted lo acepta; si no, el sitio funciona igual.",
+    "verPolitica": "Ver la política de datos",
+    "aceptar": "Aceptar",
+    "rechazar": "Rechazar",
+    "cambiar": "Preferencias de medición"
   },
   "comun": {
     "cargando": "Cargando",
@@ -137,8 +146,11 @@
       "etapa": "Cuéntenos en qué etapa está.",
       "mensaje": "Cuéntenos un poco más, aunque sean dos líneas.",
       "declaracion": "Necesitamos que confirme la declaración para continuar.",
-      "largo": "Ese texto es demasiado largo."
-    }
+      "largo": "Ese texto es demasiado largo.",
+      "autorizacion": "Necesitamos su autorización para poder responderle."
+    },
+    "autorizacion": "Autorizo a Plano Base Arquitectos a tratar mis datos personales para responder a esta consulta, en los términos de su política de datos.",
+    "autorizacionEnlace": "Leer la política de datos"
   },
   "blog": {
     "entradas": "{count, plural, one {# entrada} other {# entradas}}",

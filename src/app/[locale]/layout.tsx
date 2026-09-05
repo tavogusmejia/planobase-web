@@ -4,14 +4,14 @@ import { notFound } from 'next/navigation'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
-import { entornoPublico, sitioIndexable } from '@/lib/env'
+import { entornoPublico, hayEtiquetasDeMedicion, sitioIndexable } from '@/lib/env'
 import { notoSans } from '@/lib/fonts'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { CtaBar } from '@/components/layout/CtaBar'
 import { BarraFija } from '@/components/layout/BarraFija'
 import { DatosOrganizacion } from '@/components/seo/DatosOrganizacion'
-import { MetaPixel } from '@/components/analytics/MetaPixel'
+import { Medicion } from '@/components/analytics/Medicion'
 import { site, tituloSitio } from '@content/site'
 import '@/styles/globals.css'
 
@@ -94,7 +94,7 @@ export default async function LocaleLayout({
     <html lang={locale} className={notoSans.variable}>
       <body>
         <DatosOrganizacion />
-        <MetaPixel />
+        <Medicion hayEtiquetas={hayEtiquetasDeMedicion()} />
 
         <a
           href="#contenido"

@@ -1,15 +1,17 @@
 # Plan maestro · Plano Base Web
 
 Estado del proyecto y hoja de ruta completa.
-Última actualización: 5 de septiembre de 2026 — con las decisiones del dueño
-registradas en §1.
+Última actualización: **5 de septiembre de 2026, al cierre de la jornada** — con
+las decisiones del dueño en §1 y lo ejecutado marcado a lo largo del documento.
 
-Este documento reúne el trabajo de seis auditorías hechas sobre el repositorio
-y sobre el mercado. No hay que leerlo de una sentada: cada frente es
-independiente y está marcado con lo que bloquea y lo que no.
+Este documento nació reuniendo seis auditorías sobre el repositorio y sobre el
+mercado. No hay que leerlo de una sentada: cada frente es independiente y está
+marcado con lo que bloquea y lo que no.
 
-**Nada de esto se ha aplicado al código todavía.** Las auditorías no
-modificaron ningún archivo, salvo `pnpm build`, que solo regeneró `.next/`.
+**Buena parte ya está en producción.** El estado de la sección siguiente dice
+qué, con una línea por frente; ✅ significa desplegado en `www.planobase.co` y
+no solo escrito. Los tres frentes que este plan no llegó a contemplar —el sitio
+bilingüe, APBS y el rediseño de las páginas de proyecto— están en §15.
 
 ---
 
@@ -81,9 +83,65 @@ Tipo obligatorios (ver §9 bis).
 
 | Si tiene | Lea |
 |---|---|
-| 5 minutos | §1 Decisiones que dependen de usted |
-| 20 minutos | §1, §2 Estado actual, §11 Cronograma |
+| 1 minuto | El estado de aquí abajo |
+| 5 minutos | El estado y §1 Decisiones que dependen de usted |
+| 20 minutos | Lo anterior, §2 Estado actual y §11 Cronograma |
 | Una tarde | Todo, en orden |
+
+**Leyenda.** ✅ terminado y en producción · 🟡 empezado, falta parte · ⬜ sin
+empezar · 🔴 bloqueado esperando una decisión suya.
+
+---
+
+## Estado · 5 de septiembre de 2026
+
+Lo que sigue es la foto del día. Cada línea con ✅ está desplegada en
+`www.planobase.co`, no solo escrita.
+
+### Terminado ✅
+
+| | Qué |
+|---|---|
+| ✅ | **El sitio es bilingüe de verdad.** 95 URLs en inglés, con `hreflang` recíproco. Cada ruta entra al índice inglés cuando su contenido está traducido, no porque el idioma esté encendido |
+| ✅ | **Los 43 artículos del blog, en español e inglés.** Y el portafolio entero: las 24 memorias, las 7 verticales, los 10 temas |
+| ✅ | **El embudo comercial completo en inglés**: portada, estudio, servicios, las 7 puertas, contacto y agendar |
+| ✅ | **APBS y la calculadora de expensas de curaduría**, para los 1.103 municipios del DANE, con vigencia que caduca sola en tres capas |
+| ✅ | **El formulario recibe leads de todo el país.** Antes ofrecía seis opciones del Valle y Bogotá entraba como «Otro» |
+| ✅ | **Las páginas de proyecto rediseñadas**: memoria a dos columnas, galería en filas justificadas, y visor con zoom y desplazamiento |
+| ✅ | Páginas de error en los dos niveles *(tarea de §7)* |
+| ✅ | Open Graph propio por página *(tarea de §7)* |
+| ✅ | Contraste de color corregido: texto secundario, enlaces y campos de formulario *(tarea de §7)* |
+| ✅ | Bogotá deja de figurar en Cundinamarca *(decisión 1.10)* |
+| ✅ | Los 32 artículos que faltan, listados y priorizados *(§14)* |
+
+### Empezado, falta parte 🟡
+
+| | Qué | Qué falta |
+|---|---|---|
+| 🟡 | **Registro «usted»** *(decisión 1.7)* | Hecho en el formulario, `/contacto`, la portada y los rótulos del blog. Falta el resto del sitio |
+| 🟡 | **Encuadre nacional** *(§9)* | Hechas las puertas, `/agendar`, la descripción de tres páginas y el `h1` de la portada. Comprobado además que **dos verticales dicen bien «Valle del Cauca» y «Cali»**: es donde está esa obra, y ensancharlo sería inventar proyectos |
+| 🟡 | **Resend** *(decisión 1.3)* | El dominio está verificado y el correo sale. Faltan las plantillas: acuse al cliente y confirmación de reserva |
+| 🟡 | **El blog** *(§8)* | 43 de 75. Diez de los 32 que faltan están bloqueados por la decisión 1.9 |
+
+### Bloqueado esperando una decisión suya 🔴
+
+| | Qué | A qué bloquea |
+|---|---|---|
+| 🔴 | **1.9 · Marcar cuáles proyectos están construidos** | Diez artículos —los cinco casos propios y los once del Caribe—, la página de credenciales, y buena parte de §8. **Es media hora en `docs/PROYECTOS-CONSTRUIDO.md`** y es, con diferencia, lo que más desbloquea |
+| 🔴 | **1.6 · Los cuatro reconocimientos** | El artículo 29 y la corrección de la contradicción H6 |
+| 🔴 | **1.8 · La copia pendiente de aprobación** | Los textos marcados «PENDIENTE DE APROBACIÓN» en `content/` |
+| 🔴 | **1.4 · Cuenta de comercio Wompi** | El frente de pagos entero (§4) |
+
+### Sin empezar ⬜
+
+Reservas con calendario y Meet *(§3)* · Pagos *(§4)* · CRM e intranet *(§5)* ·
+Pauta *(§10)* · Y de §7: política de datos de la Ley 1581, banner de
+consentimiento, GA4 y la etiqueta de conversión, monitoreo de errores,
+cabeceras de seguridad, y URLs de campaña.
+
+**Nada de la pauta puede encenderse todavía**: sin la política de datos, el
+banner y la medición, el dinero entra a un sitio que no mide y que puede perder
+leads en silencio.
 
 ---
 
@@ -437,7 +495,7 @@ tráfico frío al portafolio, el reencuadre nacional, la página de credenciales
 institucionales (P2 del `PLAN-BLOG.md`), el pilar de casos propios y toda la
 entrada al Caribe.
 
-### 1.10 · Bogotá no es Cundinamarca
+### 1.10 · Bogotá no es Cundinamarca — ✅ HECHA
 
 Los 10 proyectos de Bogotá llevan `departamento: 'Cundinamarca'`. Bogotá es
 Distrito Capital. Sale impreso en la ficha, en la hoja imprimible y en los
@@ -449,13 +507,25 @@ dato vive en `content/projects.ts`, que está generado por `pnpm media` desde
 `wix-migration/01-content/projects.json`. La corrección va **en el origen o en
 el script**, no en el archivo generado, o el siguiente `pnpm media` la borra.
 
+**✅ Aplicada el 5/9/2026.** En el origen y regenerada, como dice el párrafo de
+arriba. Los diez proyectos, sus textos alternativos y el `addressRegion` del
+JSON-LD. Cajicá se queda en Cundinamarca, que sí lo es.
+
+Salió además un efecto que no se había previsto: al coincidir ciudad y
+departamento, unirlos daba «Bogotá D.C., Bogotá D.C.». Se resolvió con una
+función que une las partes de un lugar sin repetir la que se repite, y de paso
+se quitó el punto duplicado que un lector de pantalla anunciaba como dos pausas.
+
 ---
 
 ## 1 bis. Decisiones nuevas, que no estaban en esta lista
 
 Salieron de las preguntas A7, B4 y B5 de la hoja de ruta.
 
-### 1.11 · Deshabilitar `/en` — CERRADA
+### 1.11 · Deshabilitar `/en` — 🔄 REVERTIDA · ✅ se tradujo todo
+
+> **Esta decisión se revirtió el mismo día.** Lo que sigue explica de dónde
+> venía; la respuesta final está al pie de la sección.
 
 **«Por ahora deshabilita el /en. Vamos a hacer desarrollo hasta un punto estable
 o de bajo volumen, y ahí sí traducimos todo.»**
@@ -475,8 +545,33 @@ la tarea «decidir el destino de `/en`» del §7. **Y aplaza formalmente la etap
 de la entrada al Caribe** (§9), que dependía de que `/en` fuera traducción real.
 
 El plan de ejecución detallado —mecanismo en `src/i18n/routing.ts`, qué hacer con
-las URLs existentes, y qué recordar el día que se traduzca— está en la tarea 5.5
-de `HOJA-DE-RUTA.md`. **No se ha implementado.**
+las URLs existentes, y qué recordar el día que se traduzca— estaba en la tarea
+5.5 de `HOJA-DE-RUTA.md`.
+
+#### 🔄 REVERTIDA el mismo día · «prefiero mantener el inglés pero traducir todo, absolutamente todo»
+
+Y se hizo. **Los 43 artículos, el portafolio entero, las verticales, los temas y
+el embudo comercial están en los dos idiomas**, con 95 URLs inglesas indexables.
+Ver §15.
+
+Tres decisiones asociadas, tomadas con las cifras delante —86.100 palabras
+entonces, camino de 150.000 cuando el blog termine—:
+
+- **El blog se traduce también**, aun siendo el 74 % del volumen y siendo
+  normativa colombiana.
+- **Los artículos nuevos se escriben bilingües desde el origen.** Traducirlos
+  después obliga a releer la investigación entera.
+- **La indexación es página por página**, no de golpe: cada ruta entra al índice
+  inglés cuando su contenido está traducido, y el resto sigue fuera cayendo a
+  español.
+
+**La tarea 5.5 de la hoja de ruta queda anulada, no aplazada**, y allí está
+escrito por qué no puede ejecutarse nunca: proponía un 301 de `/en/*` a `/es/*`,
+y esos redirects corren antes del middleware, así que atraparían cada página
+inglesa recién traducida sin forma de alcanzarla.
+
+**Y la etapa 5 del Caribe (§9) deja de estar aplazada**: ya no depende de una
+decisión, sino de que se escriban sus once artículos.
 
 ### 1.12 · Facturación electrónica: rumbo Odoo — CERRADA EN EL RUMBO
 
@@ -764,10 +859,17 @@ Está contenida (`/en` va `noindex`), pero existe la cadena de aviso exacta
 —«Content shown in Spanish; the English translation is in progress»— y **ningún
 componente la pinta.** Ponerla es una línea.
 
-**DECIDIDO · 5/9/2026 (§1.11): se deshabilita `/en`.** El aviso deja de tener
-sentido y no se pinta. `messages/en.json` no se borra: se conserva para el día
-que se traduzca el cuerpo editorial de verdad. El plan de ejecución está en la
-tarea 5.5 de `HOJA-DE-RUTA.md`, y **no se ha implementado**.
+**🔄 La decisión se revirtió el mismo día, y ✅ se hizo lo contrario: se tradujo
+todo.** El diagnóstico de arriba describe el sitio de esa mañana y ya no
+aplica. El cuerpo editorial dejó de estar escrito a mano dentro de los
+componentes: la copia de página vive en `content/paginas.ts` y su inglés en
+`content/en/`. Ver §1.11 y §15.1.
+
+La cadena de aviso `traduccionPendiente` sigue sin pintarse, y ahora por otro
+motivo: **una ruta sin traducir ya no se indexa**, así que el visitante que la
+alcanza llegó por el conmutador de idioma. Pintarla exige llevar el registro de
+traducciones al navegador, y se hará cuando el aviso pueda ser distinto en cada
+página.
 
 ---
 
@@ -775,24 +877,29 @@ tarea 5.5 de `HOJA-DE-RUTA.md`, y **no se ha implementado**.
 
 ### Antes de gastar el primer peso en pauta · ~7-8 días
 
-| Tarea | Esfuerzo |
-|---|---|
-| Política de tratamiento de datos + autorización expresa (Ley 1581) | 1-1,5 d |
-| Banner de consentimiento y arranque condicionado de etiquetas | 1 d |
-| GA4 + etiqueta de conversión de Google Ads | 1 d |
-| Corte de dominio: DNS, variables, 301 desde Wix, Search Console | 0,5 d |
-| Páginas de error (`error.tsx`, `global-error.tsx`, 404 de raíz) | 3-4 h |
-| Monitoreo de errores + alerta de lead perdido + uptime | 0,5 d |
-| Resend verificado + acuse de recibo al cliente | 4 h |
-| Cabeceras de seguridad (CSP, HSTS, resto) | 4-6 h |
-| Open Graph propio por página | 1 d |
-| URLs de campaña con `/es/` explícito y UTMs | 3 h |
-| Marcar construido vs. concurso en los 23 proyectos | 0,5 d |
+| | Tarea | Esfuerzo |
+|---|---|---|
+| ⬜ | Política de tratamiento de datos + autorización expresa (Ley 1581) | 1-1,5 d |
+| ⬜ | Banner de consentimiento y arranque condicionado de etiquetas | 1 d |
+| ⬜ | GA4 + etiqueta de conversión de Google Ads | 1 d |
+| ✅ | Corte de dominio: DNS, variables, 301 desde Wix, Search Console | — |
+| ✅ | Páginas de error (`error.tsx`, `global-error.tsx`) | — |
+| ⬜ | Monitoreo de errores + alerta de lead perdido + uptime | 0,5 d |
+| 🟡 | Resend verificado ✅ + acuse de recibo al cliente ⬜ | 4 h |
+| ⬜ | Cabeceras de seguridad (CSP, HSTS, resto) | 4-6 h |
+| ✅ | Open Graph propio por página | — |
+| ⬜ | URLs de campaña con `/es/` explícito y UTMs | 3 h |
+| 🔴 | Marcar construido vs. concurso en los 23 proyectos | 0,5 d |
+
+El 404 de raíz **no se hace y no es un olvido**: el middleware de idioma
+redirige cualquier ruta sin prefijo, así que `[locale]/not-found.tsx` la
+atiende. Un `not-found` en la raíz se renderizaría sin `<html>` ni `<body>`,
+porque el layout raíz de este proyecto es de paso.
 
 ### Primer mes · ~9-10 días
 
 Meta CAPI con deduplicación (hoy se pierde 30-50 % de las señales y el costo por
-lead del panel es ficción) · Contraste de color · `/agendar` con reconocimientos
+lead del panel es ficción) · ~~Contraste de color~~ ✅ · `/agendar` con reconocimientos
 y obra · Datos estructurados que faltan · Ficha de Google Business · Aligerar
 `/contacto` · Proyectar datos al cliente · Accesibilidad del formulario ·
 Antispam · Cerrar pendientes de negocio · Respaldo de leads · Métricas de
@@ -801,8 +908,8 @@ rendimiento.
 ### Después
 
 Integración continua y tests · `/proyectos` estático · Fechas reales en el
-sitemap · Panel de leads · Decidir el destino de `/en` · Teclado en el menú
-móvil.
+sitemap · Panel de leads · ~~Decidir el destino de `/en`~~ ✅ **decidido y
+hecho: se traduce todo** · Teclado en el menú móvil.
 
 ### Los hallazgos que más sorprenden
 
@@ -885,15 +992,15 @@ Cali; el servicio se presta en todo el país.»*
 
 ### Lo que hay que corregir
 
-| Dónde | Problema |
-|---|---|
-| `content/site.ts` · selector de municipios | Solo Valle. **Un lead de Bogotá —el 43 % del portafolio— solo puede marcarse «Otro».** El sesgo del texto se vuelve pérdida del dato con el que se decide dónde pautar |
-| `page.tsx` · el `h1` de la home | «estudio de arquitectura en Cali, Colombia». Es la señal más fuerte del dominio y declara al estudio como caleño |
-| `puertas.ts` · puerta principal | «Propietarios con lote en Jamundí, Cali, Palmira y el resto del Valle». Excluye Bogotá, Medellín y la costa. Palmira y Candelaria no tienen un solo proyecto |
-| JSON-LD, tres nodos | Zona de servicio declarada como regional. Además redeclara la organización en cada página, creando entidades anónimas que compiten con la del sitio |
-| `verticales.ts` | Siete textos que no coinciden con sus propios proyectos. La vertical cultural dice Cali y **no tiene un solo proyecto en Cali**; la urbana omite Medellín, que sí lo tiene |
-| `estudio/page.tsx` | «con sede en Cali» abre por la sede en vez de por el alcance |
-| `agendar/page.tsx` | Promete «un rango real de costos para el Valle del Cauca». Si la pauta se abre a Bogotá, la promesa no aplica |
+| | Dónde | Problema |
+|---|---|---|
+| ✅ | `content/site.ts` · selector de municipios | Solo Valle. **Un lead de Bogotá —el 43 % del portafolio— solo podía marcarse «Otro».** Ahora es un selector en cascada sobre los 1.103 municipios del DANE, que guarda el código y no el nombre |
+| ✅ | `page.tsx` · el `h1` de la home | Decía «estudio de arquitectura en Cali». Ahora dice alcance en Colombia **y** sede en Cali: no compiten, y es un `sr-only`, la cadena con más peso de SEO del dominio |
+| ✅ | `puertas.ts` · puerta principal | Decía «Jamundí, Cali, Palmira y el resto del Valle». Ahora, Colombia |
+| ⬜ | JSON-LD, tres nodos | Zona de servicio declarada como regional. Además redeclara la organización en cada página, creando entidades anónimas que compiten con la del sitio |
+| ✅ | `verticales.ts` | Revisadas las siete y traducidas. **Dos se quedan como estaban, y a conciencia**: «casas» dice Valle del Cauca y «vivienda multifamiliar» dice Cali porque es donde está esa obra —dos casas en Jamundí, dos conjuntos en Cali—. Una vertical describe obra construida, y ensancharla sería inventar proyectos |
+| ✅ | `estudio/page.tsx` | Ahora abre por el alcance: «con sede en Cali y obra en todo el país» |
+| ✅ | `agendar/page.tsx` | Prometía «un rango real de costos para el Valle del Cauca» en la página donde se convierte. Ahora dice «para su municipio», que además es más preciso |
 
 **La dirección de Cali NO se toca.** Es la sede real y el dato que debe coincidir
 carácter por carácter con la futura ficha de Google Business. Lo que cambia es
@@ -1193,3 +1300,97 @@ la que el sitio se tradujo: un cliente de Bahamas no lee español.
    cifra repetida contra la pieza que la introdujo.
 3. **Escribir bilingüe desde el origen no es opcional.** Está en el contrato y
    lo comprueba `scripts/check-traducciones.ts`.
+
+---
+
+## 15. Lo que se construyó y no estaba en este plan
+
+Este documento se escribió antes de tres frentes que hoy existen y están en
+producción. Quedan aquí para que quien lo lea no los busque en vano.
+
+### 15.1 · La arquitectura bilingüe ✅
+
+El plan solo contemplaba «decidir el destino de `/en`». Lo que hay ahora es un
+mecanismo completo, y tiene tres piezas que conviene entender antes de tocarlo:
+
+**Las traducciones viven fuera del contenido, en `content/en/`.** No es una
+preferencia: los dos archivos de contenido más grandes son **generados** —
+`content/projects.ts` por `pnpm media` y `content/servicios.ts` desde el PDF del
+portafolio—, así que un campo `{ es, en }` dentro de ellos obligaría a cambiar
+los dos generadores. La superposición se indexa por el identificador estable que
+ya existe y una clave ausente cae al español.
+
+**Un artículo inglés es una superposición, no un segundo artículo.** No
+redeclara fecha, fuentes, pilar, etiquetas ni puerta. Si lo hiciera,
+`check-fechas.ts` marcaría 43 slugs duplicados y rompería el build; y
+`content/blog/hechos.ts`, que casa patrones **en español**, dejaría de cubrir la
+mitad del corpus sin que nadie se enterara.
+
+**La indexación es por ruta y por denegación.** `src/lib/i18n/publicacion.ts`
+responde si una ruta está traducida, y esa única respuesta la consumen el
+`robots` de cada página, el `hreflang`, el sitemap y la guarda del build — por
+eso los cuatro no pueden contradecirse. El layout deniega por defecto: una
+página que se olvide de declararse queda sin indexar, que es el fallo barato.
+
+**El contrato de traducción está escrito entero** en el comentario de cabecera
+de `content/blog/en/index.ts`: ortografía británica, separadores decimales, el
+espacio del `%`, los enlaces sin prefijo de idioma, los diagramas con geometría
+compartida, y qué no se traduce nunca —normas, instituciones y cifras—.
+
+### 15.2 · APBS y la calculadora de expensas ✅
+
+Una sección de herramientas que hacen el cálculo en vez de explicarlo. La
+primera es la de **expensas de curaduría**, para los 1.103 municipios del país.
+
+Dos cosas que costaron y que no hay que deshacer:
+
+- **El cruce va por código DANE, nunca por nombre.** Hay municipios homónimos en
+  departamentos distintos —Puerto Colombia está en Atlántico y en Guainía, a
+  1.300 km— y el decreto de curadurías escribe «Cali» donde el DANE escribe
+  «Santiago de Cali». Cruzar por nombre cobraba en el municipio equivocado.
+- **Los datos caducan solos, en tres capas**: la herramienta se degrada y lo
+  dice, el build falla con un dato vencido, y hay un aviso anticipado. Una
+  calculadora con la UVT del año pasado no se rompe: miente.
+
+### 15.3 · El rediseño de las páginas de proyecto ✅
+
+En escritorio sobraba el 44 % de la pantalla y el 62 % de las fotos salían a
+1.520 px de ancho. La memoria pasa a dos columnas cuando caben dos de 30 rem, la
+galería a filas justificadas que alternan dos y tres piezas, y el visor tiene
+zoom y desplazamiento con rueda, pellizco, doble clic y arrastre.
+
+### 15.4 · Nueve correcciones de contenido, y el patrón que las produjo ✅
+
+Traducir obligó a leer los 43 artículos con una atención que ninguna otra tarea
+impone, y salieron nueve errores que llevaban meses publicados:
+
+- La cita del artículo 44 de la Ley 160 **recortada en cuatro artículos** —
+  empezaba después de «Salvo las excepciones que se señalan en el artículo
+  siguiente», lo que hacía parecer absoluta una prohibición con cuatro
+  excepciones— y mal parafraseada en un quinto.
+- **Cinco artículos llamando gratis** al concepto de norma urbanística, que
+  cuesta 8,34 UVT por escrito. Uno se contradecía consigo mismo.
+- Una tabla que **pedía a una casa un dispositivo que la Ley 1209 no le exige**,
+  contradiciendo su propia nota dos bloques más abajo.
+- Una palabra caída de una cita de decreto, justo la que la nota mandaba mirar.
+- Tres cuentas distintas de una misma lista, un pie que decía «a escala» sin
+  estarlo, y dos aritméticas.
+
+**El patrón importa más que los errores.** Ninguna guarda del build podía
+cazarlos, porque **ninguna afirmación era falsa por sí sola**: lo que estaba mal
+era la relación entre piezas. Un dato que se repite entre artículos se copia, y
+al copiarse deja de verificarse.
+
+Cuando se escriban los 32 que faltan, conviene auditar cada cifra repetida
+contra la pieza que la introdujo.
+
+### 15.5 · Las cuatro guardas del build
+
+`pnpm build` no compila si alguna falla, y esa es la razón de que existan:
+
+| Guarda | Qué impide |
+|---|---|
+| `check-redirects` | Que un 301 de Wix apunte a una ruta que ya no existe |
+| `check-fechas` | Que un artículo fechado hacia atrás cite una fuente del futuro |
+| `check-traducciones` | Que una traducción exista y esté mal: cuerpo truncado, tabla sin columnas, diagrama sin traducir, español filtrado. **No rompe por lo que falta**, solo por lo que está mal |
+| `check-vigencia` | Que se despliegue la calculadora con un dato caduco |

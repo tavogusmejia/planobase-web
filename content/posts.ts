@@ -3,6 +3,7 @@ import { post as bienvenidosAPlanoBase } from './blog/bienvenidos-a-plano-base'
 import { post as fisurasEnMuros } from './blog/fisuras-en-muros'
 import { post as licenciaJamundi } from './blog/licencia-de-construccion-en-jamundi'
 import { post as potDeCali } from './blog/pot-de-cali-y-su-licencia'
+import { post as cuantoCobraArquitecto } from './blog/cuanto-cobra-un-arquitecto'
 
 /**
  * El índice del blog.
@@ -22,6 +23,7 @@ const registro: Post[] = [
   fisurasEnMuros,
   licenciaJamundi,
   potDeCali,
+  cuantoCobraArquitecto,
 ]
 
 /** Ordenados del más reciente al más antiguo. Es el orden de lectura. */

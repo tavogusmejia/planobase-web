@@ -112,7 +112,7 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | # | Título | Estado |
 |---|---|---|
 | 1 | Cuánto cuesta construir una casa por m² en Colombia | pendiente |
-| 2 | Cuánto cobra un arquitecto en Colombia | pendiente |
+| 2 | Cuánto cobra un arquitecto en Colombia | **publicado** · 20/8/2026 |
 | 3 | Cuánto cuesta remodelar, por ambiente | pendiente |
 | 4 | Las doce partidas que todo el mundo olvida al presupuestar | pendiente |
 | 5 | Por qué la obra se sale del presupuesto | pendiente |

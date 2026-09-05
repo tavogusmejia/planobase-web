@@ -20,7 +20,7 @@ export const post: Post = {
   titulo: 'Construí sin licencia: qué sanción hay y cómo se legaliza',
   pilar: 'tramites',
   fecha: '2025-07-08',
-  actualizado: null,
+  actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:
     'Amplió, levantó un piso o cerró una terraza sin permiso, y ahora quiere ' +
@@ -162,7 +162,7 @@ export const post: Post = {
       tipo: 'lista',
       ordenada: true,
       items: [
-        '**Pida el concepto de norma urbanística de su predio.** Es gratis y le dice qué permite la norma hoy. Sin ese dato no se puede saber si el caso es del primer escenario o del segundo.',
+        '**Pida el concepto de norma urbanística de su predio.** La consulta verbal es gratuita por norma; el concepto por escrito, que es el que sirve para reclamar, cuesta 8,34 UVT donde hay curaduría. Le dice qué permite la norma hoy, y sin ese dato no se puede saber si el caso es del primer escenario o del segundo.',
         '**Consiga el certificado de tradición** y revise si hay anotaciones, afectaciones o procesos.',
         '**Levante lo que realmente existe**, con medidas reales.',
         '**Contrate el peritaje estructural** solo cuando ya sepa que el caso es viable. Al revés se gasta plata en un informe que no se va a usar.',

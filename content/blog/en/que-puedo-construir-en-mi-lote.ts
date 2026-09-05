@@ -512,7 +512,7 @@ export const traduccion: TraduccionPost = {
     {
       tipo: 'lista',
       items: [
-        'Ask for the **written ruling on the planning rules** for your plot. It is free and it is the starting point.',
+        'Ask for the **written ruling on the planning rules** for your plot. The verbal enquiry is free by law; the written ruling costs 8.34 UVT wherever there is a curaduría. It is the starting point.',
         'Find out both ratios **and which area they are applied to**.',
         'Divide the plot ratio by the coverage ratio to know how many storeys fit.',
         'Ask what counts and what does not in your city: basements, circulation cores, car parking.',

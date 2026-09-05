@@ -121,8 +121,10 @@ export const traduccion: TraduccionPost = {
     {
       tipo: 'nota',
       texto:
-        '**It is avoided with the written ruling on the planning rules**, which ' +
-        'is free, before the promise of sale.',
+        '**You avoid it with the written ruling on the planning rules**, before ' +
+        'the promise of sale. The verbal enquiry about the rules in force is ' +
+        'free by law; the written ruling, which is the one you can rely on if ' +
+        'you have to make a claim, costs 8.34 UVT at a curaduría.',
     },
 
     { tipo: 'titulo', texto: '3. Leaving the water and the waste water until last' },

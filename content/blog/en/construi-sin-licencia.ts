@@ -164,7 +164,7 @@ export const traduccion: TraduccionPost = {
     {
       tipo: 'lista',
       items: [
-        '**Ask for the planning ruling on your plot.** It is free and it tells you what the rules allow today. Without that, there is no knowing whether your case belongs to the first scenario or to the second.',
+        '**Ask for the written ruling on the planning rules for your plot.** The verbal enquiry is free by law; the written ruling, which is the one you can rely on, costs 8.34 UVT wherever there is a curaduría. It tells you what the rules allow today. Without that, there is no knowing whether your case belongs to the first scenario or to the second.',
         '**Get the certificado de tradición**, the land registry extract, and check it for entries, encumbrances or proceedings.',
         '**Have what actually exists surveyed**, with real measurements.',
         '**Commission the structural expert report** only once you know the case is viable. Doing it the other way round spends money on a report nobody will use.',

@@ -126,8 +126,10 @@ export const post: Post = {
     {
       tipo: 'nota',
       texto:
-        '**Se evita con el concepto de norma urbanística**, gratuito, antes de ' +
-        'la promesa.',
+        '**Se evita con el concepto de norma urbanística**, antes de la ' +
+        'promesa. La consulta verbal sobre la norma vigente es gratuita por ' +
+        'norma; el concepto **por escrito**, que es el que sirve para ' +
+        'reclamar, cuesta 8,34 UVT en curaduría.',
     },
 
     { tipo: 'titulo', nivel: 2, texto: '3. Dejar el agua y las aguas residuales para el final' },

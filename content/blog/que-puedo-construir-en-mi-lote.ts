@@ -31,7 +31,7 @@ export const post: Post = {
   titulo: 'Qué puedo construir en mi lote',
   pilar: 'tramites',
   fecha: '2024-06-11',
-  actualizado: null,
+  actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:
     'Índice de ocupación, índice de construcción, aislamientos y cesiones, ' +
@@ -443,7 +443,7 @@ export const post: Post = {
       tipo: 'lista',
       ordenada: true,
       items: [
-        'Pida el **concepto de norma urbanística** de su predio. Es gratis y es el punto de partida.',
+        'Pida el **concepto de norma urbanística** de su predio. La consulta verbal es gratuita por norma; el concepto por escrito cuesta 8,34 UVT donde hay curaduría. Es el punto de partida.',
         'Averigüe los dos índices **y sobre qué área se aplican**.',
         'Divida construcción entre ocupación para saber cuántos pisos caben.',
         'Pregunte qué cuenta y qué no en su ciudad: sótanos, puntos fijos, parqueaderos.',

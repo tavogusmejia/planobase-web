@@ -61,13 +61,27 @@ export const traduccion: TraduccionPost = {
     {
       tipo: 'cita',
       texto:
-        'Rural properties may not be divided below the extent determined as the ' +
-        'Unidad Agrícola Familiar for the municipality or zone in question. ' +
-        'Accordingly, on pain of absolute nullity of the act or contract, no ' +
-        'action or transaction whatsoever may be carried out that results in ' +
-        'the division of a rural property into areas smaller than the one so ' +
-        'set.',
+        '**Save for the exceptions set out in the following article**, rural ' +
+        'properties may not be divided below the extent determined by INCORA ' +
+        'as the Unidad Agrícola Familiar for the municipality or zone in ' +
+        'question. Accordingly, on pain of absolute nullity of the act or ' +
+        'contract, no action or transaction whatsoever may be carried out ' +
+        'that results in the division of a rural property into areas smaller ' +
+        'than the one set as the Unidad Agrícola Familiar for the ' +
+        'corresponding municipality by INCORA.',
       fuente: 'Ley 160 de 1994, article 44',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'That opening clause matters, and this piece had cut it. The ban is ' +
+        '**not absolute**: article 45 sets out four exceptions, and one of ' +
+        'them — acts creating properties smaller than the minimum for a main ' +
+        'purpose other than farming — is the one that usually applies to a ' +
+        'country house. All four, with the requirement that they be recorded ' +
+        'in the deed, are in [buying a rural plot](/blog/comprar-lote-rural-que-verificar-antes-de-firmar). ' +
+        'INCORA no longer exists: its functions now sit with the Agencia ' +
+        'Nacional de Tierras.',
     },
     {
       tipo: 'parrafo',
@@ -297,8 +311,10 @@ export const traduccion: TraduccionPost = {
     {
       tipo: 'parrafo',
       texto:
-        'All seven are answered with documents and free enquiries, and all ' +
-        'seven can be made before buying. **Not one of them can be answered by ' +
+        'All seven are answered before you buy, and most of them with ' +
+        'documents or with the verbal enquiry, which is free by law. The ' +
+        'written ruling on the planning rules is not: it costs 8.34 UVT at a ' +
+        'curaduría. **Not one of them can be answered by ' +
         'looking at the plot**, which is exactly what almost everybody does ' +
         'before signing.',
     },

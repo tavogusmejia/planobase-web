@@ -185,13 +185,14 @@ export default async function ProyectoPage({
         {/* Rótulo a la izquierda, memoria a la derecha — la lógica de una
             plancha. En móvil el rótulo va arriba, nunca escondido. */}
         <div className="mt-20 grid gap-12 lg:grid-cols-[16rem_1fr] lg:gap-20">
-          <dl className="h-fit border-t border-line pt-6">
-            {ficha.map((f) => (
-              <div key={f.etiqueta} className="mb-5">
-                <dt className="text-block text-muted">{f.etiqueta}</dt>
-                <dd className="text-small mt-1 text-ink">{f.valor}</dd>
-              </div>
-            ))}
+          <div className="h-fit">
+            <dl className="border-t border-line pt-6">
+              {ficha.map((f) => (
+                <div key={f.etiqueta} className="mb-5">
+                  <dt className="text-block text-muted">{f.etiqueta}</dt>
+                  <dd className="text-small mt-1 text-ink">{f.valor}</dd>
+                </div>
+              ))}
             </dl>
 
             {/* El documento que el estudio adjunta a una propuesta. Sale del
@@ -202,6 +203,7 @@ export default async function ProyectoPage({
             >
               Ficha de experiencia
             </Link>
+          </div>
 
           <div className="border-t border-line pt-6">
             <h2 className="text-block mb-6 text-muted">{t('memoria')}</h2>

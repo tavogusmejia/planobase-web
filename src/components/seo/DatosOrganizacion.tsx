@@ -27,7 +27,9 @@ export function DatosOrganizacion() {
     name: site.nombreLargo,
     legalName: site.razonSocial,
     url: absoluteUrl('/'),
-    logo: absoluteUrl('/brand/logotipo.svg'),
+    // Raster, no el SVG: Google no acepta SVG donde espera una imagen de
+    // logotipo. Se genera desde el mismo vectorial.
+    logo: absoluteUrl('/og/logotipo.png'),
     image: absoluteUrl('/og/default.jpg'),
     foundingDate: String(site.fundado),
     telephone: contacto.telefono,

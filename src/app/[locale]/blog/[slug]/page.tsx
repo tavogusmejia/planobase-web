@@ -112,9 +112,14 @@ export default async function PostPage({
         '@id': absoluteUrl('/#estudio'),
         '@type': 'Organization',
         name: 'Plano Base Arquitectos',
+        /* Raster y no el SVG de marca: Google no acepta SVG en `ImageObject`,
+           así que un logotipo vectorial aquí equivale a no declarar logo, y sin
+           logo no hay resultado enriquecido de artículo. */
         logo: {
           '@type': 'ImageObject',
-          url: absoluteUrl('/brand/logotipo.svg'),
+          url: absoluteUrl('/og/logotipo.png'),
+          width: 600,
+          height: 60,
         },
       },
       inLanguage: locale === 'en' ? 'en' : 'es-CO',

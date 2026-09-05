@@ -133,7 +133,7 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 
 | # | Título | Estado |
 |---|---|---|
-| 13 | Fisuras en muros: cuáles son peligrosas y cuáles no | pendiente |
+| 13 | Fisuras en muros: cuáles son peligrosas y cuáles no | **publicado** · 2/9/2026 |
 | 14 | Filtraciones en cubierta: las cinco causas reales | pendiente |
 | 15 | Humedad en muros: ascendente, condensación o filtración | pendiente |
 | 16 | Cuándo un edificio necesita un estudio patológico | pendiente |
@@ -348,8 +348,11 @@ Comparar un precio de venta con un costo de obra induce a error.
    mentira con vencimiento.
 4. **Registro: usted.** Igual que el resto del sitio (ver PLAN-MAESTRO §6).
 5. **Sin marketing hueco, sin admiraciones, frases cortas.** El tono del sitio.
-6. **Imágenes: obra propia o diagrama.** Nunca banco de imágenes, nunca enlaces
-   a Wix. Ver §8.
+6. **Imágenes, en este orden de preferencia:** obra propia → diagrama propio →
+   imagen de terceros con licencia comprobable y **crédito visible** (autor,
+   fuente enlazada y licencia). Nunca una imagen sin licencia verificable,
+   nunca enlaces a Wix. El crédito no es cortesía: es la condición bajo la que
+   se puede publicar, y el modelo de datos lo hace obligatorio.
 7. **Nada de experiencia internacional atribuida al estudio.** Ver §2.
 
 ---
@@ -360,17 +363,18 @@ Esto es prerrequisito, no adorno.
 
 | Pieza | Estado hoy |
 |---|---|
-| Renderizador de cuerpo con títulos, listas, tablas, enlaces e imágenes | **No existe.** El cuerpo se parte por saltos de línea y se pinta como párrafos planos |
-| Casa del contenido fuera de `wix-migration/` | No existe. Hoy los posts se generan desde la carpeta de migración |
-| Modelo de datos con pilar, actualización, metadescripción y tiempo de lectura | Parcial |
-| Índice del blog organizado por pilar | Hoy es una rejilla plana |
-| Imágenes | **Una sola** en todo el repositorio |
-| Datos estructurados de artículo completos | Faltan logo del editor, `dateModified` y `mainEntityOfPage` |
+| Renderizador de cuerpo con títulos, listas, tablas, enlaces e imágenes | ✅ Hecho |
+| Casa del contenido fuera de `wix-migration/` | ✅ Hecho · `content/blog/` |
+| Modelo de datos con pilar, actualización, metadescripción y tiempo de lectura | ✅ Hecho |
+| Índice del blog organizado por pilar | ✅ Hecho · más diez páginas de tema |
+| Imágenes | ✅ Resuelto · diagramas propios y terceros con crédito |
+| Datos estructurados de artículo completos | ✅ Hecho · incluido el logo raster del editor |
+| Guarda de fechas retroactivas | ✅ Hecho · `scripts/check-fechas.ts` en el build |
 
 ### Sobre las imágenes
 
-No hay archivo fotográfico para 73 artículos, y no se va a usar banco de
-imágenes. Dos fuentes legítimas:
+No hay archivo fotográfico para 75 artículos. Tres fuentes legítimas, por orden
+de preferencia:
 
 - **Obra propia.** 24 proyectos y unas 350 imágenes procesadas. Sirve para los
   pilares 4, 5, 6 y 7, y de paso dirige a lo que hace el estudio.
@@ -379,4 +383,14 @@ imágenes. Dos fuentes legítimas:
   explican mejor que una fotografía. Es la respuesta correcta para los pilares
   1, 2, 3, 8 y 9.
 
-**Decisión pendiente:** confirmar esta vía antes de producir en volumen.
+- **Imágenes de terceros con crédito.** Decisión del dueño del 5/9/2026: se
+  pueden buscar en internet y curarlas después, dando crédito al autor. El tipo
+  `Credito` —autor, fuente, URL y licencia— lo hace obligatorio en el modelo, y
+  el crédito se pinta bajo la figura con el mismo tamaño y color que las líneas
+  de cota, sin introducir ningún recurso visual nuevo.
+
+Las imágenes se **descargan y se sirven desde el propio origen**, nunca se
+enlazan en caliente: la regla del proyecto exige `sizes` y `blurDataURL`, y el
+segundo solo se puede calcular sobre el archivo.
+
+**Estado: resuelto.** El primer artículo se publicó con tres diagramas propios.

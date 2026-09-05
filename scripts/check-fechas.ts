@@ -18,9 +18,49 @@
  * tiene fecha útil —una norma vigente sin edición fechada— se declara `null` y
  * queda fuera de la comprobación, a conciencia.
  */
+import type { Bloque, Post } from '../src/lib/types'
 import { posts } from '../content/posts'
+import { hechos } from '../content/blog/hechos'
 import { pilarPorId } from '../content/pilares'
 import { puertas } from '../content/puertas'
+
+/** Minúscula y sin acentos, para comparar contra los patrones de `hechos.ts`. */
+function normalizar(s: string): string {
+  return s
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+}
+
+/** Todo el texto visible de un bloque. El switch es exhaustivo a propósito: si
+ *  mañana se añade un tipo de bloque y no se añade aquí, su texto quedaría
+ *  fuera de la comprobación de hechos sin que nadie lo note. */
+function textoDe(b: Bloque): string {
+  switch (b.tipo) {
+    case 'titulo':
+    case 'parrafo':
+    case 'nota':
+      return b.texto
+    case 'cita':
+      return `${b.texto} ${b.fuente ?? ''}`
+    case 'lista':
+      return b.items.join(' ')
+    case 'tabla':
+      return [...b.cabeceras, ...b.filas.flat(), b.nota ?? ''].join(' ')
+    case 'dato':
+      return `${b.valor} ${b.etiqueta} ${b.fuente}`
+    case 'imagen':
+      return b.imagen.alt
+    case 'diagrama':
+      return `${b.titulo} ${b.pie}`
+  }
+}
+
+function textoDePost(p: Post): string {
+  return normalizar(
+    [p.titulo, p.resumen, p.metaDescripcion, ...p.cuerpo.map(textoDe)].join(' '),
+  )
+}
 
 const HOY = new Date().toISOString().slice(0, 10)
 const ISO = /^\d{4}-\d{2}-\d{2}$/
@@ -67,6 +107,19 @@ for (const post of posts) {
     }
   }
 
+  // Contra el calendario de hechos. Es lo que cierra el agujero que dejan las
+  // fuentes: un artículo puede mencionar algo sin citarlo formalmente.
+  const texto = textoDePost(post)
+  for (const h of hechos) {
+    if (!h.patrones.some((pat) => texto.includes(pat))) continue
+    if (post.fecha < h.fecha) {
+      marca(
+        `se publica el ${post.fecha} y menciona «${h.descripcion}», ` +
+          `del ${h.fecha}. La fecha del artículo tiene que ser posterior.`,
+      )
+    }
+  }
+
   // Integridad referencial: un pilar o una puerta que no existen dejan la
   // página sin navegación y sin llamada a la acción, en silencio.
   if (!pilarPorId.has(post.pilar)) {
@@ -103,5 +156,6 @@ if (fallos.length > 0) {
 
 const conFuentes = posts.filter((p) => p.fuentes.length > 0).length
 console.log(
-  `  blog           ${posts.length} artículos · ${conFuentes} con fuentes citadas · fechas coherentes`,
+  `  blog           ${posts.length} artículos · ${conFuentes} con fuentes · ` +
+    `${hechos.length} hechos vigilados · fechas coherentes`,
 )

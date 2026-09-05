@@ -9,6 +9,7 @@ import { notoSans } from '@/lib/fonts'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { CtaBar } from '@/components/layout/CtaBar'
+import { BarraFija } from '@/components/layout/BarraFija'
 import { DatosOrganizacion } from '@/components/seo/DatosOrganizacion'
 import { MetaPixel } from '@/components/analytics/MetaPixel'
 import { site } from '@content/site'
@@ -84,8 +85,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={notoSans.variable}>
-      {/* pb-16 deja aire bajo la barra fija inferior para que nunca tape texto. */}
-      <body className="pb-16">
+      <body>
         <DatosOrganizacion />
         <MetaPixel />
 
@@ -100,7 +100,9 @@ export default async function LocaleLayout({
           <Header locale={locale} />
           <main id="contenido">{children}</main>
           <Footer />
-          <CtaBar />
+          <BarraFija>
+            <CtaBar />
+          </BarraFija>
         </NextIntlClientProvider>
       </body>
     </html>

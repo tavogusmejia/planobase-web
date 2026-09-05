@@ -64,6 +64,23 @@ export const hechos: Hecho[] = [
     patrones: ['salario minimo de 2026', 'salario minimo 2026'],
   },
   {
+    id: 'uvt-2026',
+    descripcion: 'Valor de la UVT para 2026, Resolución DIAN 000238 de 2025',
+    fecha: '2025-12-15',
+    patrones: ['uvt para 2026', 'uvt de 2026', '52.374'],
+  },
+  {
+    id: 'iva-mantenimiento-vs-construccion',
+    descripcion:
+      'Concepto DIAN 003524 de 2025: la base gravable especial del artículo 1.3.1.7.9 no aplica a contratos de mantenimiento de inmuebles ni el AIU del 462-1 a los de construcción',
+    fecha: '2025-03-25',
+    patrones: [
+      'concepto dian 003524',
+      'concepto 3524',
+      'contratos de mantenimiento de bienes inmuebles',
+    ],
+  },
+  {
     id: 'ntc-4595-2025',
     descripcion: 'NTC 4595:2025, quinta edición, ratificada en noviembre de 2025',
     fecha: '2025-11-19',

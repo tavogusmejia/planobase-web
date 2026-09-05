@@ -130,9 +130,9 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 
 | # | Título | Estado |
 |---|---|---|
-| 1 | Cuánto cuesta construir una casa por m² en Colombia | pendiente |
+| 1 | Cuánto cuesta construir por m² en Colombia | **publicado** · 19/5/2026 |
 | 2 | Cuánto cobra un arquitecto en Colombia | **publicado** · 20/8/2026 |
-| 3 | Cuánto cuesta remodelar, por ambiente | pendiente |
+| 3 | Cuánto cuesta remodelar, ambiente por ambiente | **publicado** · 4/8/2026 |
 | 4 | Las doce partidas que todo el mundo olvida al presupuestar | **publicado** · 23/9/2025 |
 | 5 | Por qué la obra se sale del presupuesto | **publicado** · 11/3/2026 |
 
@@ -202,7 +202,7 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 
 | # | Título | Estado |
 |---|---|---|
-| 37 | Cuánto cuesta construir una casa campestre en Colombia | pendiente |
+| 37 | Cuánto cuesta una casa campestre | **publicado** · 23/6/2026 |
 | 38 | Comprar lote rural: la verificación antes de firmar | pendiente |
 | 39 | Qué puedo construir en suelo rural | **publicado** · 9/7/2024 |
 | 40 | Licencia de construcción en suelo rural: por qué tarda el doble | **publicado** · 11/2/2025 |
@@ -317,6 +317,17 @@ tiene mal**. Corregirlo es autoridad instantánea.
 | **Garantía decenal**: diez años desde el Certificado Técnico de Ocupación (Ley 1796 de 2016) | |
 | **El dominio «Cali AU» del DANE es Cali, Jamundí, Palmira y Yumbo** | El dominio estadístico oficial cubre exactamente el territorio del estudio. Nadie lo usa |
 | **La mano de obra subió 13,96 % anual contra 6,60 % del índice total** | Un presupuesto indexado con el índice total **subestima sistemáticamente la mano de obra** |
+| **El DANE dice él mismo que su índice no sirve para obtener un valor.** Ficha metodológica del ICOCED: «el ICOCED no tiene por objetivo inferir los niveles de precio (valores) de los bienes y servicios incluidos en la canasta de seguimiento o determinar el monto total del costo de la construcción» | Es la cita que cierra la discusión del pilar de costos. Nadie en el sector la usa. Verificada el 5/9/2026 en la ficha metodológica FEB-2022 |
+| **El ICOCED tiene 19 dominios geográficos y su composición municipal está publicada** en el pie del boletín: Bogotá-Cundinamarca AR incluye Cajicá, Chía, Cota, La Calera, Sopó y Zipaquirá; Valle de Aburrá incluye Rionegro; Barranquilla AM incluye Puerto Colombia; Cali AU es Cali, Jamundí, Palmira y Yumbo | Coincide casi exactamente con el mapa de mercado del estudio (§3) |
+| **Los resultados por dominio son variaciones, no niveles.** Que Cali AU tenga la variación anual más baja no significa que allí se construya más barato | Error de lectura casi universal en prensa económica |
+| **En un contrato de construcción de bien inmueble el IVA se causa sobre los honorarios del constructor, o sobre su utilidad si no se pactaron honorarios** (art. 1.3.1.7.9 del Decreto 1625 de 2016, que compila el art. 3 del Decreto 1372 de 1992). El contrato debe señalar esa parte y no puede ser inferior a la comercial; en contrapartida, el IVA de los materiales **no es descontable** y queda como mayor valor del costo | Se cita mal en las dos direcciones: unos dicen que la obra no tiene IVA, otros lo liquidan sobre el total |
+| **La base gravable especial del AIU (art. 462-1 ET) NO aplica a los contratos de construcción**: la norma no los menciona. Confirmado por la DIAN en el Concepto 003524 de 2025 | Que un presupuesto diga «AIU 25 %» no convierte ese 25 % en base gravable |
+| **El mantenimiento no es construcción para efectos de IVA.** Reparaciones, resanes, pinturas e impermeabilización de fachadas van gravados sobre el **valor total** del contrato (Concepto Unificado 1 de 2003, descriptor 9.1; Concepto DIAN 003524 de 2025). La ampliación y la transformación sí son construcción | La frontera tributaria **no coincide** con la urbanística: impermeabilizar una fachada es reparación locativa sin licencia y a la vez mantenimiento con IVA sobre el total |
+| **Reparación locativa (art. 2.2.6.1.1.10 del Decreto 1077) incluye expresamente «la sustitución, mejoramiento o ampliación de redes de instalaciones hidráulicas, sanitarias, eléctricas, telefónicas o de gas»**, y no requiere licencia. Lo que exige licencia es afectar la estructura portante, la distribución interior o la volumetría | Todo el mundo cree que la frontera está en «si toca redes». Está en la distribución y en la estructura |
+| **Zonas de amenaza sísmica verificadas en el apéndice A-4 de la NSR-10:** Barranquilla y Cartagena Aa=Av=0,10 (baja); Bogotá y Medellín Aa=0,15 Av=0,20 (intermedia); Cali, Bucaramanga, Jamundí y Palmira Aa≥0,25 (alta). Ojo: las capitales están en la tabla A.2.3-2 y **los demás municipios solo en el apéndice A-4** — citar la tabla equivocada es un error verificable | Sostiene el argumento de que el mismo m² no cuesta igual por plaza |
+| **En zona de amenaza sísmica alta el reglamento prohíbe los sistemas de menor disipación de energía** (tablas A.3-1 a A.3-4: pórtico de concreto DMO «no se permite» en zona alta; DMI, ni en alta ni en intermedia) | Es la prueba dura de que la zona cambia el diseño. **La NSR-10 no menciona costos en ninguna parte:** el salto al costo es inferencia profesional y hay que declararlo |
+| **NSR-10, Título H, H.5.2.1:** una edificación sobre, **al borde o al pie** de una ladera obliga a análisis de estabilidad con asesoría de un geólogo y a **diseñar las obras de estabilización**. Y H.7.1.3(b): con pendiente del terreno **superior al 10 %** los efectos topográficos son relevantes y exigen modelos numéricos 2D o 3D | Tres partidas que nunca están en un presupuesto de casa campestre |
+| **Sigue vigente la NSR-10.** Último decreto modificatorio: 1580 de 2023. La agenda regulatoria de Minvivienda actualizada al 31/8/2026 no tiene ningún proyecto sobre sismo resistencia. **AIS 100-24 es documento técnico de la AIS, sin decreto de adopción** | Confirma §6 bis con verificación de 2026 |
 
 ---
 
@@ -334,7 +345,8 @@ decidir presupuesto de pauta, hay que pagar una pasada de herramienta.
   son falsos o no rastreables.
 - **El DANE tampoco publica pesos por m².** Solo índices y variaciones. Sirve
   para actualizar un valor propio, no para obtenerlo. Esto hay que declararlo
-  en la página de costos.
+  en la página de costos. **Verificado y citado textualmente** en la
+  ficha metodológica del ICOCED; ver §6 bis.
 - El 44,97 % de encarecimiento en estratos bajos de Cali — no está en ningún
   boletín.
 - Todo el bloque de sitios de contenido generado en masa, con fechas que se

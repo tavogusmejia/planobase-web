@@ -31,6 +31,9 @@ import { post as erroresCasaCampestre } from './blog/diez-errores-mas-caros-casa
 import { post as licenciaParaPiscina } from './blog/necesito-licencia-para-construir-una-piscina'
 import { post as concursosPublicos } from './blog/concursos-publicos-de-arquitectura'
 import { post as interventoriaObraPublica } from './blog/interventoria-de-obra-publica'
+import { post as costoPorM2 } from './blog/cuanto-cuesta-construir-por-m2-en-colombia'
+import { post as casaCampestreCosto } from './blog/cuanto-cuesta-una-casa-campestre'
+import { post as costoRemodelar } from './blog/cuanto-cuesta-remodelar-ambiente-por-ambiente'
 
 /**
  * El índice del blog.
@@ -78,6 +81,9 @@ const registro: Post[] = [
   licenciaParaPiscina,
   concursosPublicos,
   interventoriaObraPublica,
+  costoPorM2,
+  casaCampestreCosto,
+  costoRemodelar,
 ]
 
 /** Ordenados del más reciente al más antiguo. Es el orden de lectura. */

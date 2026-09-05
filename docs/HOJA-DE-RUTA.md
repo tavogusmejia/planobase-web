@@ -28,7 +28,7 @@ solo el efecto: qué quedó cerrado, qué sigue abierto y qué se desbloquea.
 | 0.7 | **Reformular «cuatro reconocimientos en concurso público nacional».** El dato no lo sostiene | **En conflicto, sin cerrar.** Él afirma que **los cuatro son concursos nacionales**; los subtítulos publicados de los propios proyectos dicen otra cosa | **No se toca el texto en ninguna dirección.** Se cierra con términos de referencia o acta de cada concurso. Detalle y transcripciones literales en `PLAN-MAESTRO.md` §1.6 |
 | 0.8 | **Registro de trato: usted en todo el sitio** | **Cerrada. Usted** | **Desbloquea** las 32 reescrituras de la tarea 5.2 |
 | 0.9 | **Aprobar la copia pendiente.** Solo dos puertas llevan sello de aprobación | **Abierta.** «Necesito revisar todo» | Falta **fijar fecha** de la sesión de lectura con Eduardo. Sigue bloqueando la pauta sobre `/agendar` |
-| 0.10 | **Bogotá no es Cundinamarca.** Corrección de dato, no decisión | Sin cambios — se aplica sin consultar | — |
+| 0.10 | **Bogotá no es Cundinamarca.** Corrección de dato, no decisión | Sin cambios — se aplica sin consultar | **Aplicada** *(b4284ab)*: diez proyectos, sus textos alternativos y el JSON-LD |
 | 0.11 | **¿Qué hacemos con `/en`?** *(era la pregunta A7)* | **Cerrada. Deshabilitar por ahora.** Se traduce de verdad cuando el desarrollo llegue «a un punto estable o de bajo volumen» | **Desbloquea** el cierre del frente de inglés → tarea 5.5. La etapa 9.5 del Caribe queda explícitamente aplazada |
 | 0.12 | **Facturación electrónica DIAN** *(era el trámite B5)* | **Cerrada en el rumbo, abierta en el plan.** Ya hay un sistema de facturación; quiere un **plan para hacerla con Odoo**, y se puede posponer «casi hasta lo último del roadmap» | Falta escribir ese plan → tarea 3.4 |
 | 0.13 | **Ficha de Google Business** *(era el trámite B4)* | **Cerrada. Sí se crea.** «Mi idea es ser el más fuerte nacionalmente, pero debemos empezar con proximidad» | La estrategia queda en dos tiempos que se suman: la ficha gana el paquete de mapas en Cali —donde está la sede y donde ya hay dirección fijada por 0.5— mientras el encuadre nacional se gana por contenido, en la tarea 5.1 y en el blog. No compiten. **Se crea con el NAP exacto de `content/site.ts`, carácter por carácter.** |
@@ -55,11 +55,11 @@ Once tareas, ~7-8 días. Sin esto, el dinero entra a un sitio que no mide, no se
 | 1.2 | Banner de consentimiento y arranque condicionado de etiquetas |
 | 1.3 | Google Analytics 4 y etiqueta de conversión de Google Ads — hoy no existe ninguna |
 | 1.4 | Corte de dominio: DNS, variables, 301 desde Wix, Search Console |
-| 1.5 | Páginas de error — hoy no hay ninguna |
+| 1.5 | ~~Páginas de error~~ **Hecha** *(afdc075)*. Frontera de error dentro del idioma, frontera global sin dependencias, y dos salidas más en el 404 |
 | 1.6 | Monitoreo de errores y alerta de lead perdido |
 | 1.7 | **Plantillas de correo.** Resend ya está verificado y funcionando *(0.3)*; falta redactar y montar las plantillas: acuse de recibo del formulario y confirmación de reserva |
 | 1.8 | Cabeceras de seguridad — en producción no se envía ninguna |
-| 1.9 | Open Graph por página — hoy todo se comparte con la misma tarjeta |
+| 1.9 | ~~Open Graph por página~~ **Hecha** *(2c52050)*. Las siete páginas que faltaban, con un ayudante que impide olvidar la imagen. La tarjeta propia por página —imagen generada, no la misma para todas— sigue pendiente |
 | 1.10 | URLs de campaña con `/es/` explícito y UTMs |
 | 1.11 | Marcar construido vs. concurso en los 23 proyectos *(= decisión 0.6)* — la tabla para llenar está en `docs/PROYECTOS-CONSTRUIDO.md` |
 
@@ -117,7 +117,7 @@ Una sola pasada, no tres. Tocan los mismos archivos.
 
 | | Tarea |
 |---|---|
-| 5.1 | Encuadre nacional: `h1` de la home, selector de ciudades, puertas, verticales, JSON-LD |
+| 5.1 | Encuadre nacional: `h1` de la home, puertas, verticales, JSON-LD. **El selector de ciudades ya está hecho** *(35e064e)*: el formulario ofrece los 1.103 municipios del DANE en cascada departamento → municipio, guarda el código y no el nombre, y tiene salida explícita «Fuera de Colombia». Tres descripciones de Google se reencuadraron de paso *(2c52050)* |
 | 5.2 | Unificación en «usted»: 32 reescrituras ya redactadas |
 | 5.3 | Las siete contradicciones de hecho: años, nombres, reconocimientos, basura del PDF. **Dos ya están resueltas** —la dirección pública es Cali (0.5) y el registro es «usted» (0.8)—; **la de los reconocimientos queda fuera de esta pasada** hasta cerrar 0.7 |
 | 5.4 | Unificar rótulos: hoy hay cuatro nombres para un botón y cuatro para un producto |
@@ -228,7 +228,7 @@ Por etapas, cada una con criterio de avance. Nada público hasta cerrar 0.6.
 | Etapa | Qué se publica | Señal para avanzar |
 |---|---|---|
 | 9.0 | Nada. Se marca `construido` y se recogen los hechos | Los 23 marcados |
-| 9.1 | Solo las opciones de ciudad en el formulario | Tres leads costeros o internacionales |
+| 9.1 | Solo las opciones de ciudad en el formulario | Tres leads costeros o internacionales. **La señal ya se puede medir** *(35e064e)*: el formulario tiene la salida «Fuera de Colombia» sin que el sitio hable todavía del Caribe |
 | 9.2 | Un párrafo en `/estudio` | Que sobreviva 60 días sin confundir al cliente institucional |
 | 9.3 | El artículo técnico del blog | Que traiga tráfico o una conversación |
 | 9.4 | Página de servicio «Vivienda costera» | Un encargo costero colombiano firmado |
@@ -521,3 +521,42 @@ se tocaron para no mezclar documentación con código:
 | N3 | ~~Confirmar si se crea la ficha de Google Business~~ **Confirmado el 5/9/2026: sí.** Queda ejecutarlo, con el NAP exacto de `content/site.ts` | Trámite |
 | N4 | **El comentario de cabecera de `reconocimientos` en `content/site.ts` dice «Cuatro reconocimientos en concurso público» y la lista tiene cinco entradas** —cuatro públicas y una privada, el Teatro César Conto Ferrer—. Es la contradicción H6 del `PLAN-MAESTRO.md` §6, y se resuelve en la misma pasada que 0.7. No se tocó | `content/site.ts` |
 | N5 | **Plantillas de correo de Resend** *(decisión 0.3)*: acuse de recibo del formulario y confirmación de reserva con `.ics` | Tarea 1.7 |
+
+
+---
+
+# Lo hecho mientras se escribían los artículos
+
+Seis cambios, todos en la rama `blog/seccion-y-articulos`, sin push.
+
+| Commit | Qué |
+|---|---|
+| `35e064e` | El formulario recibe leads de todo el país. Antes ofrecía seis opciones del Valle y Bogotá entraba como «Otro» |
+| `afdc075` | Fronteras de error. Antes, un fallo dejaba al visitante en blanco, sin cabecera y sin salida |
+| `b4284ab` | Bogotá deja de figurar en Cundinamarca. Diez de los veinticuatro proyectos |
+| `2c52050` | Tarjeta propia al compartirse en las siete páginas que no la tenían |
+| `50aba2c` | Un lead de prueba desde una vista previa ya no se confunde con uno real |
+
+**Lo que estos cambios destaparon y usted debería saber:**
+
+1. **El material de obra pública que el plan daba por verificado no está en el
+   repositorio.** Vivía en la conversación y nunca se escribió a `docs/`. Los
+   artículos 26 y 27 se escribieron igual, declarando por escrito los cuatro
+   puntos que no se pudieron verificar. Merecen una segunda pasada si ese
+   material aparece.
+
+2. **La clave de servicio de Supabase está configurada también en Preview.** Un
+   envío de prueba desde un despliegue de vista previa escribe en la misma tabla
+   que un encargo real. Se marcó el origen para distinguirlos, pero si prefiere
+   que las vistas previas no toquen la base de producción, hay que quitar esa
+   variable del entorno Preview. Es su decisión.
+
+3. **`NO_SON_MUNICIPIOS` está exportado y no lo usa nadie.** Son las 19 áreas no
+   municipalizadas del DANE. En los dos selectores se dejaron visibles a
+   propósito: en el formulario porque alguien puede tener un proyecto ahí, y en
+   la calculadora porque el resultado correcto es «sin expensas».
+
+4. **El contraste de `--color-muted` sigue en 2,7:1** sobre blanco, y hace falta
+   4,5:1. Se usa en 65 sitios. No se tocó porque cambiar un color de marca es
+   decisión suya, no mía. La corrección más cercana en la misma familia de tono
+   es `#6b7880`, que da 4,54:1 y conserva el escalón frente a `--color-ink-soft`.

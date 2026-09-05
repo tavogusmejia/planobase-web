@@ -5,6 +5,7 @@ import { Rule } from '@/components/ui/Rule'
 import { asesoria, contacto } from '@content/site'
 import { etiquetaPrecio } from '@/lib/utils'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
+import { tarjeta } from '@/lib/metadatos'
 
 export async function generateMetadata({
   params,
@@ -12,10 +13,18 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  const ruta = `/${locale}/agendar`
+  const descripcion = asesoria.descripcion.slice(0, 300)
   return {
     title: asesoria.nombre,
-    description: asesoria.descripcion.slice(0, 300),
-    alternates: { canonical: `/${locale}/agendar` },
+    description: descripcion,
+    alternates: { canonical: ruta },
+    openGraph: tarjeta({
+      locale,
+      ruta,
+      titulo: asesoria.nombre,
+      descripcion,
+    }),
   }
 }
 

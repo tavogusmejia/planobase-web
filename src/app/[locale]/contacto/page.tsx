@@ -6,6 +6,7 @@ import { Rule } from '@/components/ui/Rule'
 import { asesoria, contacto } from '@content/site'
 import { etiquetaPrecio } from '@/lib/utils'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
+import { tarjeta } from '@/lib/metadatos'
 
 export async function generateMetadata({
   params,
@@ -13,12 +14,21 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  const ruta = `/${locale}/contacto`
+  const descripcion =
+    'Cuéntanos tu proyecto. Diseño arquitectónico y consultoría técnica ' +
+    'para proyectos de distinta escala en Bogotá, Medellín, Barranquilla, ' +
+    'Cali y el resto de Colombia.'
   return {
     title: 'Contáctanos',
-    description:
-      'Cuéntanos tu proyecto. Diseño arquitectónico y consultoría técnica ' +
-      'para proyectos de distinta escala en Cali, el Valle del Cauca y Colombia.',
-    alternates: { canonical: `/${locale}/contacto` },
+    description: descripcion,
+    alternates: { canonical: ruta },
+    openGraph: tarjeta({
+      locale,
+      ruta,
+      titulo: 'Hablemos de su proyecto',
+      descripcion,
+    }),
   }
 }
 

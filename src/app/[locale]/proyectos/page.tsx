@@ -9,6 +9,7 @@ import { Rule } from '@/components/ui/Rule'
 import { getCategoryCounts, getProjects } from '@/lib/data/projects'
 import { CATEGORIAS, type Categoria } from '@/lib/types'
 import { verticalDe } from '@content/verticales'
+import { tarjeta } from '@/lib/metadatos'
 
 export async function generateMetadata({
   params,
@@ -25,12 +26,21 @@ export async function generateMetadata({
   const counts = await getCategoryCounts()
   const vacia = activa !== null && (counts[activa] ?? 0) === 0
 
+  const ruta = `/${locale}/proyectos`
+  const descripcion =
+    'Portafolio de Plano Base Arquitectos: proyectos educativos, ' +
+    'institucionales, culturales, residenciales y de espacio público en Colombia.'
+
   return {
     title: t('proyectosTitulo'),
-    description:
-      'Portafolio de Plano Base Arquitectos: proyectos educativos, ' +
-      'institucionales, culturales, residenciales y de espacio público en Colombia.',
-    alternates: { canonical: `/${locale}/proyectos` },
+    description: descripcion,
+    alternates: { canonical: ruta },
+    openGraph: tarjeta({
+      locale,
+      ruta,
+      titulo: t('proyectosTitulo'),
+      descripcion,
+    }),
     // Una categoría sin obra devuelve «todavía no hay obra publicada». Indexar
     // eso es sembrar soft-404, y acumularlos le baja la confianza a todo el
     // dominio. Se puede ver y compartir; no se indexa hasta que tenga obra.

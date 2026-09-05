@@ -7,6 +7,7 @@ import { puertas, puertaPorSlug, serviciosDe } from '@content/puertas'
 import { asesoria, contacto, reconocimientos } from '@content/site'
 import { routing } from '@/i18n/routing'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
+import { tarjeta } from '@/lib/metadatos'
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -23,10 +24,20 @@ export async function generateMetadata({
   const puerta = puertaPorSlug(slug)
   if (!puerta) return {}
 
+  const ruta = `/${locale}/servicios/${slug}`
+  const descripcion = `${puerta.pregunta} ${puerta.respuesta}`.slice(0, 300)
   return {
     title: puerta.nombre,
-    description: `${puerta.pregunta} ${puerta.respuesta}`.slice(0, 300),
-    alternates: { canonical: `/${locale}/servicios/${slug}` },
+    description: descripcion,
+    alternates: { canonical: ruta },
+    openGraph: tarjeta({
+      locale,
+      ruta,
+      // La pregunta, no el nombre del servicio: al compartirse por WhatsApp lo
+      // que engancha es la duda que el lector ya tenía.
+      titulo: puerta.pregunta,
+      descripcion,
+    }),
   }
 }
 

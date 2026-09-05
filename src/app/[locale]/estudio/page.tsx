@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { mediaSrc } from '@/lib/utils'
+import { tarjeta } from '@/lib/metadatos'
 import {
   equipo,
   manifiesto,
@@ -18,17 +19,27 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  const ruta = `/${locale}/estudio`
+  /* El title de Wix decía "Arquitectura bioclimática en Bogotá". El estudio
+     tiene sede en Cali y su obra es sobre todo pública: era un error de
+     posicionamiento, no solo de redacción. Lo que sí es cierto —y faltaba— es
+     que la obra está repartida por el país: diez de los veinticuatro proyectos
+     del portafolio están en Bogotá. */
+  const descripcion =
+    'Plano Base es un estudio de arquitectura con sede en Cali y obra en todo ' +
+    'el país. Trabajamos sobre todo en obra pública —colegios, centros ' +
+    'culturales, sedes administrativas y espacio público— con cuatro ' +
+    'reconocimientos en concurso público nacional.'
   return {
     title: 'Estudio',
-    /* El title de Wix decía "Arquitectura bioclimática en Bogotá". El estudio
-       tiene sede en Cali y su obra es sobre todo pública: era un error de
-       posicionamiento, no solo de redacción. */
-    description:
-      'Plano Base es un estudio de arquitectura con sede en Cali. Trabajamos ' +
-      'sobre todo en obra pública —colegios, centros culturales, sedes ' +
-      'administrativas y espacio público— con cuatro reconocimientos en ' +
-      'concurso público nacional.',
-    alternates: { canonical: `/${locale}/estudio` },
+    description: descripcion,
+    alternates: { canonical: ruta },
+    openGraph: tarjeta({
+      locale,
+      ruta,
+      titulo: 'El estudio',
+      descripcion,
+    }),
   }
 }
 

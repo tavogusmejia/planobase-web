@@ -6,6 +6,7 @@ import { escalera, puertas } from '@content/puertas'
 import { asesoria, contacto } from '@content/site'
 import { etiquetaPrecio } from '@/lib/utils'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
+import { tarjeta } from '@/lib/metadatos'
 
 export async function generateMetadata({
   params,
@@ -13,13 +14,21 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  const ruta = `/${locale}/servicios`
+  const descripcion =
+    'Diseño arquitectónico, estudios de viabilidad, diagnóstico de ' +
+    'edificaciones e interventoría de obra en Colombia. Empezamos por su ' +
+    'pregunta, no por nuestro catálogo.'
   return {
     title: 'Servicios',
-    description:
-      'Diseño arquitectónico, estudios de viabilidad, diagnóstico de ' +
-      'edificaciones e interventoría de obra en Cali, Jamundí y el Valle del ' +
-      'Cauca. Empezamos por su pregunta, no por nuestro catálogo.',
-    alternates: { canonical: `/${locale}/servicios` },
+    description: descripcion,
+    alternates: { canonical: ruta },
+    openGraph: tarjeta({
+      locale,
+      ruta,
+      titulo: 'Servicios de Plano Base',
+      descripcion,
+    }),
   }
 }
 

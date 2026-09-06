@@ -78,6 +78,9 @@ export const copiaPaginasEn: { [R in RutaConCopia]?: Partial<CopiaDe<R>> } = {
     porWhatsapp: 'Book over WhatsApp',
     respuesta: 'We reply within the next working hour.',
     porFormulario: 'I would rather write through the form',
+    obraTitular: 'Built work',
+    obraPie: 'Six built works across seven departments of the country.',
+    obraEnlace: 'See the full track record',
   },
 
   '/servicios': {

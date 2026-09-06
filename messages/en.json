@@ -141,7 +141,9 @@
     "llamar": "Call",
     "escribirCorreo": "Email us",
     "primerPuesto": "First place",
-    "segundoPuesto": "Second place"
+    "segundoPuesto": "Second place",
+    "reconocimientos": "Awards",
+    "alcanceEscrito": "The exact scope is set out in writing in the proposal, with what is included and what is not."
   },
   "error": {
     "etiqueta": "Error",

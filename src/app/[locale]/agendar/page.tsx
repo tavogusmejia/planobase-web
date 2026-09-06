@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
-import { setRequestLocale } from 'next-intl/server'
+import Image from 'next/image'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
-import { contacto } from '@content/site'
+import { contacto, reconocimientos } from '@content/site'
+import { getProjects } from '@/lib/data/projects'
+import { mediaSrc } from '@/lib/utils'
 import { etiquetaPrecio } from '@/lib/precio'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { ReservaForm } from '@/components/forms/ReservaForm'
@@ -64,6 +67,23 @@ export default async function AgendarPage({
 
   const copia = copiaDe('/agendar', locale)
   const asesoria = asesoriaDe(locale)
+  const tcom = await getTranslations('comun')
+
+  /* D-05 · la prueba.
+   *
+   * Quien llega aquí viene de un anuncio y no sabe quién es el estudio: la
+   * página pedía una hora de su tiempo sin haber enseñado una sola obra.
+   *
+   * **Se enseña obra construida y no el portafolio entero**, y eso solo se pudo
+   * hacer desde el 6/9/2026, cuando Eduardo revisó las fichas: hasta entonces el
+   * sitio no sabía cuáles estaban construidas —marcaba una de veinticuatro— y
+   * una fila de propuestas aquí habría sido justo la promesa equivocada.
+   *
+   * Tres, no seis: esto sostiene una decisión, no la disputa. La página tiene
+   * una sola acción dominante y una galería competiría con ella. */
+  const construidas = (await getProjects(locale))
+    .filter((p) => p.construido === true && p.portada !== null)
+    .slice(0, 3)
 
   const mensajeWa = `Hola Plano Base, quiero agendar una ${asesoria.nombre.toLowerCase()}.`
 
@@ -104,6 +124,53 @@ export default async function AgendarPage({
           <section className="mt-20 border-t border-line pt-12">
             <ReservaForm />
           </section>
+
+          {/* La obra, después del calendario. El orden importa: primero se
+              entiende qué recibe, luego se elige cuándo, y esto sostiene la
+              decisión de quien todavía duda — no la interrumpe antes. */}
+          {construidas.length > 0 ? (
+            <section className="mt-20">
+              <h2 className="text-block text-muted">{copia.obraTitular}</h2>
+              <ul className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
+                {construidas.map((p) => (
+                  <li key={p.slug}>
+                    <Link href={`/proyectos/${p.slug}`} className="group block">
+                      <div className="relative aspect-[4/3] overflow-hidden bg-mist">
+                        {p.portada ? (
+                          <Image
+                            src={mediaSrc(p.portada.path)}
+                            alt={p.portada.alt}
+                            fill
+                            /* Carga diferida y tamaños ajustados: esta es la
+                               página donde aterriza la pauta, y el peso que se
+                               añada aquí se paga en cada clic del anuncio. */
+                            loading="lazy"
+                            sizes="(min-width: 640px) 20vw, 45vw"
+                            placeholder={p.portada.blurDataURL ? 'blur' : 'empty'}
+                            blurDataURL={p.portada.blurDataURL ?? undefined}
+                            className="object-cover transition-opacity group-hover:opacity-85"
+                          />
+                        ) : null}
+                      </div>
+                      <p className="text-block mt-2 text-ink">{p.titulo}</p>
+                      <p className="text-block text-muted">
+                        {p.ciudad} · {p.anio}
+                      </p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-block measure mt-6 text-muted">
+                {copia.obraPie}{' '}
+                <Link
+                  href="/experiencia"
+                  className="text-accent underline-offset-4 hover:underline"
+                >
+                  {copia.obraEnlace}
+                </Link>
+              </p>
+            </section>
+          ) : null}
 
           {/* Las políticas van completas y visibles. El plan de campaña promete
               "sin letra pequeña": esconderlas contradiría el anuncio. */}
@@ -151,6 +218,31 @@ export default async function AgendarPage({
             >
               {copia.porFormulario}
             </Link>
+
+            {/* Los reconocimientos van en la columna de la acción, no abajo:
+                es donde se decide, y pesan cero. Cuatro líneas de texto
+                sostienen la llamada mejor que un párrafo de argumentos. */}
+            <ul className="mt-12 border-t border-line">
+              {[...reconocimientos]
+                .sort((a, b) => b.anio - a.anio)
+                .map((r) => (
+                  <li
+                    key={`${r.anio}-${r.titulo}`}
+                    className="grid gap-1 border-b border-line py-4 sm:grid-cols-[3.5rem_1fr] sm:gap-4"
+                  >
+                    <span className="text-block tabular-nums text-accent">
+                      {r.anio}
+                    </span>
+                    <p className="text-block text-ink-soft">
+                      {r.puesto === 'primer'
+                        ? tcom('primerPuesto')
+                        : tcom('segundoPuesto')}
+                      {' — '}
+                      {r.titulo}
+                    </p>
+                  </li>
+                ))}
+            </ul>
           </div>
 
           {/* TODO — Fase 5: pago con tarjeta y calendario propio.

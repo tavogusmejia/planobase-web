@@ -138,8 +138,7 @@ export default async function PuertaPage({
           ))}
         </dl>
         <p className="text-block mt-6 text-muted">
-          El alcance exacto se define por escrito en la propuesta, con lo que
-          entra y lo que no.
+          {tcom('alcanceEscrito')}
         </p>
       </section>
 
@@ -148,7 +147,7 @@ export default async function PuertaPage({
           ganado concursos públicos nacionales. */}
       {esInstitucional ? (
         <section className="mt-20">
-          <h2 className="text-block text-muted">Reconocimientos</h2>
+          <h2 className="text-block text-muted">{tcom('reconocimientos')}</h2>
           <ul className="mt-6 border-t border-line">
             {[...reconocimientos]
               .sort((a, b) => b.anio - a.anio)

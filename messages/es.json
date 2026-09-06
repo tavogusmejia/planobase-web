@@ -141,7 +141,9 @@
     "llamar": "Llamar",
     "escribirCorreo": "Escribir al correo",
     "primerPuesto": "Primer puesto",
-    "segundoPuesto": "Segundo puesto"
+    "segundoPuesto": "Segundo puesto",
+    "reconocimientos": "Reconocimientos",
+    "alcanceEscrito": "El alcance exacto se define por escrito en la propuesta, con lo que entra y lo que no."
   },
   "error": {
     "etiqueta": "Error",

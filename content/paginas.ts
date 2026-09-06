@@ -93,6 +93,13 @@ export const copiaPaginas = {
     porWhatsapp: 'Agendar por WhatsApp',
     respuesta: 'Respondemos dentro de la siguiente hora hábil.',
     porFormulario: 'Prefiero escribir por el formulario',
+    /* D-05. Quien llega de un anuncio no sabe quién es el estudio, y una
+       página de conversión sin una sola prueba pide confianza sin darla. Va
+       después del calendario a propósito: primero se elige la hora, y esto
+       sostiene la decisión de quien todavía duda. */
+    obraTitular: 'Obra construida',
+    obraPie: 'Seis obras construidas en siete departamentos del país.',
+    obraEnlace: 'Ver la experiencia completa',
   },
 
   '/servicios': {

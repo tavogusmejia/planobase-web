@@ -11,6 +11,7 @@ import {
   type ReservaResult,
 } from '@/lib/agenda/schema'
 import { franjasPosibles } from '@/lib/agenda/franjas'
+import { verificarSello } from '@/lib/formulario/sello'
 import { enviarConfirmacionReserva } from '@/lib/correo/reserva'
 import { asesoria } from '@content/site'
 import { politicaDatos } from '@content/legal'
@@ -56,6 +57,18 @@ export async function crearReserva(raw: unknown): Promise<ReservaResult> {
 
   // Honeypot: se responde bien a propósito, para no darle señal al bot.
   if (r.sitioWeb) return { ok: true, inicio: r.inicio }
+
+  /* Tiempo mínimo de llenado, con el mismo criterio que en `leads.ts`: al
+     honeypot solo cae un bot y se le finge un «ok»; a esto puede caer una
+     persona, así que el error es visible y el formulario le enseña la vía de
+     WhatsApp. Aquí importa doble — fingir un «ok» dejaría a alguien creyendo
+     que tiene una cita agendada que no existe, y presentándose a una llamada a
+     la que nadie va a entrar.
+
+     Lo que garantiza y lo que no, en `src/lib/formulario/sello.ts`. */
+  if (verificarSello(r.selloTiempo) !== 'ok') {
+    return { ok: false, errores: {}, general: 'general.tiempo' }
+  }
 
   if (!haySupabaseAdmin()) {
     return { ok: false, errores: {}, general: 'general.sinAgenda' }

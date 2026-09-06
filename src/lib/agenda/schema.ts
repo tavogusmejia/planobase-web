@@ -53,6 +53,16 @@ export const reservaSchema = z.object({
   /** Trampa antibots, como en el formulario de contacto. */
   sitioWeb: z.string().max(0).optional(),
 
+  /**
+   * Sello de tiempo firmado por el servidor, igual que en el de contacto.
+   *
+   * La forma se acota aquí y el fondo no: la firma solo la puede comprobar
+   * quien tiene el secreto, y este esquema lo lee también el navegador. El
+   * mecanismo entero, con lo que garantiza y lo que no, está en
+   * `src/lib/formulario/sello.ts`.
+   */
+  selloTiempo: z.string().max(200).optional(),
+
   idioma: z.string().max(5).optional(),
   utmSource: z.string().max(120).optional(),
   utmCampaign: z.string().max(120).optional(),

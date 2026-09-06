@@ -17,6 +17,8 @@ import { cn } from '@/lib/utils'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { ContactoDirecto } from '@/components/ui/ContactoDirecto'
 import { track } from '@/lib/analytics'
+import { atribucionActual } from '@/lib/atribucion'
+import { useSelloTiempo } from './useSelloTiempo'
 
 /**
  * Los dos atributos que conectan un control con lo que se dice de él.
@@ -60,6 +62,18 @@ export function ContactForm() {
   const err = (clave?: string) =>
     clave ? t(clave as Parameters<typeof t>[0]) : undefined
 
+  /* Los errores generales pasan por `t.has` antes de traducirse.
+     Motivo: una clave que todavía no está en `messages/` se pintaría en crudo
+     —«general.tiempo» literal— justo en el momento en que la persona ya perdió
+     el mensaje, que es el peor sitio del sitio para enseñar una cadena
+     interna. Con el respaldo, mientras la clave no exista lee el texto de
+     fallo, que dice lo que hay que decir y ofrece la misma salida. */
+  const errGeneral = (clave?: string) => {
+    if (!clave) return undefined
+    const k = clave as Parameters<typeof t>[0]
+    return t.has(k) ? t(k) : t('general.fallo')
+  }
+
   const [enviado, setEnviado] = useState(false)
   const [general, setGeneral] = useState<string | null>(null)
 
@@ -99,17 +113,23 @@ export function ContactForm() {
     })
   }, [opciones, setValue])
 
-  /* Atribución de campaña: se lee de la URL al montar. Así se sabe qué anuncio
-     produjo cada asesoría, que es el CPL por anuncio del plan de medición. */
+  /* Atribución de campaña. Ya no se lee solo de la URL: `atribucionActual()`
+     mira primero esta URL y, si no trae nada, lo que quedó guardado de la
+     entrada al sitio. Así el anuncio que lleva a un artículo del blog sigue
+     atribuyendo aunque la persona navegue tres páginas antes de escribir, que
+     antes era una atribución perdida entera. La ventana de caducidad y el
+     razonamiento sobre consentimiento, en `src/lib/atribucion.ts`. */
   useEffect(() => {
-    const q = new URLSearchParams(window.location.search)
-    const src = q.get('utm_source')
-    const camp = q.get('utm_campaign')
-    const promo = q.get('promo')
-    if (src) setValue('utmSource', src)
-    if (camp) setValue('utmCampaign', camp)
+    const { utmSource, utmCampaign, promo } = atribucionActual()
+    if (utmSource) setValue('utmSource', utmSource)
+    if (utmCampaign) setValue('utmCampaign', utmCampaign)
     if (promo) setValue('promo', promo)
   }, [setValue])
+
+  /* Sello de tiempo: nace cuando el formulario se pinta y viaja con el envío.
+     Es lo que permite que el servidor sepa cuánto tardó el llenado sin fiarse
+     de una hora que ponga el cliente. */
+  const { sello, renovar } = useSelloTiempo()
 
   if (enviado) {
     return (
@@ -149,7 +169,7 @@ export function ContactForm() {
         setGeneral(null)
         /* El idioma viaja con el envío: la Server Action lo necesita para
            escribir el acuse de recibo, y no puede deducirlo. */
-        const res = await enviarLead({ ...data, idioma })
+        const res = await enviarLead({ ...data, idioma, selloTiempo: sello })
         if (res.ok) {
           // Las dos dimensiones con las que se compara el costo por lead entre
           // anuncios: de dónde es y en qué etapa está.
@@ -168,7 +188,14 @@ export function ContactForm() {
         /* `general` llega como clave, no como frase, por lo mismo que los
            errores de campo: la acción no sabe en qué idioma está mirando el
            visitante y aquí sí se sabe. */
-        if (res.general) setGeneral(err(res.general) ?? null)
+        if (res.general) {
+          setGeneral(errGeneral(res.general) ?? null)
+          /* Un sello rechazado —llegó demasiado pronto, o caducó— deja el
+             formulario atascado si no se renueva: el segundo intento llevaría
+             el mismo sello y fallaría igual. Con uno nuevo, esperar unos
+             segundos y reenviar funciona. */
+          if (res.general === 'general.tiempo') renovar()
+        }
       })}
       className="space-y-9"
     >

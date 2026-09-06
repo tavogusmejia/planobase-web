@@ -116,6 +116,27 @@ export function configSupabaseAdmin(): { url: string; claveServicio: string } {
   }
 }
 
+/**
+ * El secreto con el que se firma el sello de tiempo de los formularios.
+ *
+ * Cae a `LEAD_IP_SALT` a propósito, y no por pereza: las dos son el mismo tipo
+ * de cosa —un secreto local que solo se usa para un HMAC dentro de este
+ * servidor, nunca como credencial de nadie— y en los despliegues donde ya está
+ * configurada la sal, el antispam de tiempo empieza a funcionar sin tocar la
+ * configuración. Quien quiera separarlas define `FORM_TOKEN_SECRET` y esta gana.
+ *
+ * Si no hay ninguna de las dos, la comprobación de tiempo se desactiva sola en
+ * vez de rechazar envíos: la razón está escrita entera en
+ * `src/lib/formulario/sello.ts`.
+ */
+export function configFormularios(): { secretoSello: string } {
+  enServidor('configFormularios()')
+  return {
+    secretoSello:
+      process.env.FORM_TOKEN_SECRET ?? process.env.LEAD_IP_SALT ?? '',
+  }
+}
+
 export function configLeads(): {
   notificarA: string
   notificarDesde: string

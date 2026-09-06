@@ -8,6 +8,7 @@ import { after } from 'next/server'
 import { configLeads, haySupabaseAdmin } from '@/lib/env'
 import { supabaseAdmin } from '@/lib/supabase/admin'
 import { leadSchema, type LeadInput, type LeadResult } from '@/lib/schemas'
+import { verificarSello } from '@/lib/formulario/sello'
 import { contacto, FUERA_DE_COLOMBIA } from '@content/site'
 import { enviarAcuse } from '@/lib/correo/acuse'
 import { politicaDatos } from '@content/legal'
@@ -252,6 +253,20 @@ export async function enviarLead(raw: unknown): Promise<LeadResult> {
   // Honeypot: un bot rellena todo, una persona no ve este campo.
   // Se responde "ok" a propósito, para no darle señal al bot.
   if (lead.sitioWeb) return { ok: true }
+
+  /* Tiempo mínimo de llenado. Al honeypot solo cae un bot —el campo no se ve—,
+     así que allí se finge un «ok» y no se le da señal. A esto puede caer una
+     persona: alguien cuyo sello no llegó por un fallo de red, o cuya pestaña
+     llevaba abierta desde antier. Por eso aquí el error es visible y el
+     formulario le enseña WhatsApp, teléfono y correo. Fingir un «ok» a una
+     persona sería lo peor de las dos opciones: creería que su mensaje salió y
+     el estudio nunca lo vería.
+
+     Lo que esta comprobación garantiza y lo que no, en
+     `src/lib/formulario/sello.ts`. */
+  if (verificarSello(lead.selloTiempo) !== 'ok') {
+    return { ok: false, errores: {}, general: 'general.tiempo' }
+  }
 
   const h = await headers()
   const ip =

@@ -102,6 +102,22 @@ export const leadSchema = z.object({
   sitioWeb: z.string().max(0).optional(),
 
   /**
+   * Sello de tiempo firmado por el servidor. La segunda comprobación antibots.
+   *
+   * Aquí solo se acota la forma —una cadena corta— y no se valida nada más: lo
+   * que dice si vale es la firma, y la firma solo se puede comprobar en el
+   * servidor, que es el único que tiene el secreto. Este esquema lo usa también
+   * el navegador, así que cualquier regla de fondo escrita aquí sería una regla
+   * que el cliente puede leer y saltarse.
+   *
+   * Opcional a propósito: sin él el envío llega igual y lo rechaza la Server
+   * Action con un mensaje que la persona puede leer, no con un error de campo
+   * en un control que no existe. El porqué de todo el mecanismo —y lo que no
+   * garantiza— está en `src/lib/formulario/sello.ts`.
+   */
+  selloTiempo: z.string().max(200).optional(),
+
+  /**
    * El idioma en el que el visitante rellenó el formulario.
    *
    * No es un dato del lead: es lo que decide en qué idioma se le escribe el

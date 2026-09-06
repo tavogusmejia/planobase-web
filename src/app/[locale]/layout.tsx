@@ -12,6 +12,8 @@ import { CtaBar } from '@/components/layout/CtaBar'
 import { BarraFija } from '@/components/layout/BarraFija'
 import { DatosOrganizacion } from '@/components/seo/DatosOrganizacion'
 import { Medicion } from '@/components/analytics/Medicion'
+import { Atribucion } from '@/components/analytics/Atribucion'
+import { Rendimiento } from '@/components/analytics/Rendimiento'
 import { site, tituloSitio } from '@content/site'
 import '@/styles/globals.css'
 
@@ -95,6 +97,16 @@ export default async function LocaleLayout({
       <body>
         <DatosOrganizacion />
         <Medicion hayEtiquetas={hayEtiquetasDeMedicion()} />
+
+        {/* Los dos van fuera de `Medicion` a propósito, y no es un descuido de
+            colocación: `Medicion` es la puerta del consentimiento y solo monta
+            lo que necesita permiso —las etiquetas de terceros—. Estos dos no
+            cargan nada ajeno, no crean ningún identificador y no mandan nada de
+            la persona; el razonamiento entero está escrito en cada archivo.
+            Meterlos dentro de esa puerta habría desdibujado qué es lo que la
+            puerta protege. */}
+        <Atribucion />
+        <Rendimiento />
 
         <a
           href="#contenido"

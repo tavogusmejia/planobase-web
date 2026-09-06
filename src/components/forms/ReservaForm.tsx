@@ -10,6 +10,8 @@ import { crearReserva } from '@/app/actions/reservas'
 import { ContactoDirecto } from '@/components/ui/ContactoDirecto'
 import { cn } from '@/lib/utils'
 import { track } from '@/lib/analytics'
+import { atribucionActual } from '@/lib/atribucion'
+import { useSelloTiempo } from './useSelloTiempo'
 
 /**
  * Reservar la asesoría sin hablar con nadie.
@@ -59,6 +61,17 @@ export function ReservaForm() {
   const err = (clave?: string) =>
     clave ? (t(clave as Parameters<typeof t>[0]) as string) : undefined
 
+  /* Los errores generales pasan por `t.has` antes de traducirse: una clave que
+     todavía no está en `messages/` se pintaría en crudo justo cuando la
+     persona acaba de perder la reserva, que es el peor sitio para enseñar una
+     cadena interna. Mientras no exista, lee el texto de fallo, que dice lo
+     mismo y ofrece la misma salida. */
+  const errGeneral = (clave?: string) => {
+    if (!clave) return undefined
+    const k = clave as Parameters<typeof t>[0]
+    return t.has(k) ? (t(k) as string) : (t('general.fallo') as string)
+  }
+
   const [franjas, setFranjas] = useState<Franja[] | null>(null)
   const [hayAgenda, setHayAgenda] = useState(true)
   const [elegida, setElegida] = useState<string | null>(null)
@@ -88,14 +101,22 @@ export function ReservaForm() {
     }
   }
 
+  /* La atribución ya no sale solo de esta URL: `atribucionActual()` mira
+     primero la URL y, si no trae campaña, lo guardado al entrar al sitio. Quien
+     llega por un anuncio a un artículo y agenda tres páginas después sigue
+     atribuyéndose a ese anuncio. Ventana de caducidad y consentimiento, en
+     `src/lib/atribucion.ts`. */
   useEffect(() => {
     void cargar()
-    const q = new URLSearchParams(window.location.search)
-    const src = q.get('utm_source')
-    const camp = q.get('utm_campaign')
-    if (src) setValue('utmSource', src)
-    if (camp) setValue('utmCampaign', camp)
+    const { utmSource, utmCampaign } = atribucionActual()
+    if (utmSource) setValue('utmSource', utmSource)
+    if (utmCampaign) setValue('utmCampaign', utmCampaign)
   }, [setValue])
+
+  /* El sello nace al pintarse la página, no al aparecer los campos: quien elige
+     franja ya lleva un rato aquí, y volver a contar desde ese momento
+     castigaría a quien decide rápido. */
+  const { sello, renovar } = useSelloTiempo()
 
   /* Agrupadas por día local. Se hace aquí y no en el servidor porque el día
      depende de la zona de quien mira, y quien mira puede no estar en Colombia. */
@@ -166,14 +187,17 @@ export function ReservaForm() {
       noValidate
       onSubmit={handleSubmit(async (data) => {
         setGeneral(null)
-        const res = await crearReserva({ ...data, idioma })
+        const res = await crearReserva({ ...data, idioma, selloTiempo: sello })
         if (res.ok) {
           track('Schedule', { content_name: 'asesoria' })
           setListo(true)
           return
         }
         if (res.general) {
-          setGeneral(err(res.general) ?? null)
+          setGeneral(errGeneral(res.general) ?? null)
+          /* Sin renovar, el segundo intento llevaría el mismo sello rechazado
+             y fallaría igual: la persona se quedaría atascada en la página. */
+          if (res.general === 'general.tiempo') renovar()
           /* Si la franja se la llevó otro, la lista que se está mirando ya es
              mentira. Se recarga y se suelta la elección, para que la persona
              no vuelva a pulsar sobre una hora que ya no existe. */

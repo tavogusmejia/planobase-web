@@ -83,7 +83,9 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 
 | Código | | Tarea | Nota |
 |---|---|---|---|
-| D-01 | 🟡 | Entrega A: calendario de reservas | El correo con el `.ics` ya está hecho; Meet espera X-02 |
+| D-01 | ⏳ | ~~Entrega A: calendario de reservas~~ — hecho el 6/9. **Falta aplicar la migración `20260906120000_reservas.sql` en Supabase** y publicar | El enlace de Meet se rellena solo cuando llegue X-02 |
+| D-21 | 🟡 | Revisar la disponibilidad de la agenda con Gustavo → `content/agenda.ts` | Hoy son valores de partida, no una decisión suya |
+| D-22 | ⬜ | Poder cancelar o mover una reserva desde el correo | Hoy hay que responder al correo y lo mueve una persona |
 | D-02 | ⬜ | Monitoreo de errores y uptime | Necesita X-10 |
 | D-03 | ⬜ | UTMs que sobrevivan la navegación | Hoy solo funcionan si el anuncio apunta directo a `/contacto` |
 | D-04 | ⬜ | Meta CAPI con deduplicación | Hoy se pierde entre el 30 y el 50 % de las señales |

@@ -21,13 +21,67 @@ import type { Post } from '@/lib/types'
  *
  * Fechado en marzo de 2025 a propósito: no cita ningún hecho posterior, es
  * perenne, y ayuda a que el blog no aparezca entero el mismo mes.
+ *
+ * ---
+ *
+ * **Actualizado el 6 de septiembre de 2026, y esa es la única fecha que se
+ * mueve.** La de publicación se queda en marzo de 2025, que es cuando se
+ * escribió y es la antigüedad que el artículo ya tiene en el buscador. El
+ * motivo de la pasada: las dos resoluciones técnicas que citaba dejaron de ser
+ * el marco aplicable. La **Resolución 929 del 12 de mayo de 2026** superó a la
+ * Resolución 1510 de 2011 y la **Resolución 234 del 10 de febrero de 2026**
+ * ocupa el campo de la Resolución 1618 de 2010.
+ *
+ * **Se dice «superada por», nunca «derogada por».** La 929 no deroga a la 1510
+ * por su número. La 1510 se quedó sin piso porque nació al amparo del Decreto
+ * 2171 de 2009, y a ese decreto lo derogó el Decreto 554 de 2015. Escribir
+ * «derogada» sería afirmar algo que la norma no hizo.
+ *
+ * La tesis del artículo no se cae: se refuerza. El numeral 7 de la 929 sigue
+ * condicionando la homologación de los dispositivos a «la norma que para el
+ * efecto expida el Ministerio» y sigue remitiendo a la declaración de
+ * conformidad de primera parte del proveedor. Dieciocho años después de la ley,
+ * sigue en futuro.
+ *
+ * Lo nuevo es el **IRAPI**, que la 234 crea y que antes no existía: un índice
+ * de 0 a 100 que el responsable de la piscina está obligado a calcular, que la
+ * autoridad verifica en la visita, y que **declara «no apta para contacto
+ * primario» todo lo que pase de 10** —el nivel «bajo» incluido—. Es lo más
+ * aprovechable de toda la actualización para un administrador, y por eso lleva
+ * sección propia.
+ *
+ * Cuatro cosas más que cambiaron. El numeral 7 de la 929 le abre por fin al
+ * estanque antiguo de un solo drenaje una ruta de cumplimiento que **no pasa
+ * por abrir el vaso**, y eso mueve un presupuesto entero. El ámbito de la 234
+ * ya no nombra la piscina unifamiliar particular, así que la afirmación de que
+ * los parámetros del agua le aplican igual quedó sin piso por esa vía. La
+ * autoridad sanitaria ya no toma «una muestra al año»: su columna dice, en
+ * todos los parámetros, «asociado a factores de riesgo». Y el ORP, que aquí se
+ * leía como mínimo de 700 mV, la 234 lo pone en la columna de **máximo**: se
+ * transcribe lo que dice la norma y se declara la tensión, como se hizo con la
+ * ambigüedad del tanque de compensación en `piscina-de-borde-infinito`.
+ *
+ * **Ni la 929 ni la 234 mencionan al ONAC ni al INVIMA** —comprobado buscando
+ * literalmente en las dos—. Lo que la 234 exige es validación o verificación de
+ * las metodologías del laboratorio (art. 6, par. 3) y ficha técnica más hoja de
+ * seguridad con etiquetado SGA para los productos (art. 13). El párrafo se
+ * reescribió para decir eso sin afirmar que la obligación haya desaparecido del
+ * ordenamiento: que no esté en estas dos resoluciones no prueba que no viva en
+ * otra.
+ *
+ * Las fuentes de la 1510 y la 1618 salen de la lista y entran las de la 929 y
+ * la 234, copiadas palabra por palabra de las otras once piezas del pilar. Con
+ * la de la 1510 se va el comentario que documentaba que su PDF oficial en
+ * minsalud es un escaneo de una página sin texto extraíble, y que por eso se
+ * servía desde el gestor normativo de la Alcaldía de Bogotá. Queda anotado aquí
+ * para que el hallazgo no se pierda con la fuente.
  */
 export const post: Post = {
   slug: 'ley-1209-piscinas-copropiedad',
   titulo: 'Ley 1209: qué obliga de verdad a una copropiedad con piscina',
   pilar: 'piscinas',
   fecha: '2025-03-18',
-  actualizado: '2026-09-05',
+  actualizado: '2026-09-06',
   autor: 'Gustavo Mejía Martínez',
   resumen:
     'Casi todo lo que se repite sobre esta ley está mal: ni exige cerramiento ' +
@@ -62,6 +116,20 @@ export const post: Post = {
         '2009 y dio **un año** de plazo para adecuarse. Ese plazo venció en ' +
         'enero de 2010 y no hay prórroga. Una copropiedad que hoy no cumpla ' +
         'lleva más de quince años en incumplimiento.',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'Marco aplicable, al día de septiembre de 2026: las dos resoluciones ' +
+        'técnicas que este artículo citaba ya no son el marco. La **Resolución ' +
+        '929 del 12 de mayo de 2026** superó a la Resolución 1510 de 2011, y la ' +
+        '**Resolución 234 del 10 de febrero de 2026** ocupa el campo de la ' +
+        'Resolución 1618 de 2010. Conviene decirlo con precisión, porque no es ' +
+        'lo mismo: **la 929 no deroga a la 1510 por su número.** La 1510 se ' +
+        'quedó sin piso porque nació al amparo del Decreto 2171 de 2009, y a ese ' +
+        'decreto lo derogó el Decreto 554 de 2015. Es «superada por», no ' +
+        '«derogada por». **La Ley 1209 no cambió ni una coma**, y por eso nada ' +
+        'de lo que sigue cambia de tesis.',
     },
 
     { tipo: 'titulo', nivel: 2, texto: 'Primero: qué tipo de piscina tiene usted' },
@@ -128,7 +196,8 @@ export const post: Post = {
         '**Falso, y no por poco.** Ninguna norma colombiana fija una sola ' +
         'dimensión de cerramiento: ni altura, ni separación entre barrotes, ni ' +
         'tipo de herraje, ni puerta de autocierre. Revisé la ley, el Decreto ' +
-        '554, el Decreto 780 y la Resolución 1510: no está en ninguno.',
+        '554, el Decreto 780, la Resolución 1510 y la Resolución 929 de 2026 ' +
+        'que la superó: no está en ninguno de los cinco.',
     },
     {
       tipo: 'parrafo',
@@ -144,7 +213,10 @@ export const post: Post = {
       texto:
         'El único parámetro numérico de dispositivo en toda la ley son los ' +
         '**80 decibeles** que debe producir la alarma de inmersión. Uno solo, ' +
-        'en diecinueve artículos.',
+        'en diecinueve artículos. La Resolución 929 de 2026 sí trae cifras ' +
+        '—**0,90 m** de separación mínima entre desagües, cubiertas de **al ' +
+        'menos cuatro veces el área de la tubería de descarga**—, pero ninguna ' +
+        'para el cerramiento.',
     },
 
     { tipo: 'titulo', nivel: 3, texto: '2. «Un conjunto debe tener salvavidas permanente»' },
@@ -206,7 +278,9 @@ export const post: Post = {
         '**Impreciso, y hay una tensión normativa real detrás.** El artículo 12 ' +
         'de la ley exige dos drenajes solo a «las piscinas que se construyan a ' +
         'partir de la entrada en vigencia» — es decir, desde enero de 2009. La ' +
-        'Resolución 1510 de 2011, en cambio, se lo exige a «todo estanque».',
+        'Resolución 929 de 2026, en cambio, se los exige a «los estanques de ' +
+        'piscinas y estructuras similares», sin distinguir por fecha, igual que ' +
+        'hacía la Resolución 1510 antes que ella.',
     },
     {
       tipo: 'parrafo',
@@ -216,6 +290,20 @@ export const post: Post = {
         'con drenaje único está exenta según la ley y no lo está según la ' +
         'resolución. Es una zona gris que conviene conocer antes de sentarse a ' +
         'discutir un presupuesto de obra.',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'Lo que sí trae la norma nueva, y es la mejor noticia presupuestal de ' +
+        'toda la actualización para una copropiedad antigua: el numeral 7 de la ' +
+        '929 **contempla expresamente el estanque construido antes de ella con ' +
+        'un solo drenaje de succión**, y a ese no le pide un segundo drenaje. Le ' +
+        'pide sistema de liberación de vacío, botón de apagado de emergencia y ' +
+        'rejilla antiatrapamiento. Es decir, una ruta de cumplimiento escrita ' +
+        'que **no obliga a abrir el vaso**, que es de lejos el rubro mayor. ' +
+        'Sigue siendo la solución peor —activa en vez de pasiva, con todo lo que ' +
+        'eso implica y que se explica más abajo—, pero está en la norma y con ' +
+        'nombre propio.',
     },
 
     { tipo: 'titulo', nivel: 3, texto: '5. «Los dispositivos deben estar certificados»' },
@@ -261,6 +349,18 @@ export const post: Post = {
         'después de la ley, sigue redactándolo en futuro: «que expida».',
     },
     {
+      tipo: 'parrafo',
+      texto:
+        'Y la norma nueva no cerró el vacío: lo reafirmó. El numeral 7 de la ' +
+        'Resolución 929 de 2026 —dieciocho años después de la ley— exige ' +
+        'desagües, cubiertas antiatrapamiento, sistema de liberación de vacío y ' +
+        'botón de apagado «debidamente homologados, **de acuerdo a la norma que ' +
+        'para el efecto expida** el Ministerio de Salud y Protección Social», y ' +
+        'para las piscinas antiguas vuelve a remitir a la declaración de ' +
+        'conformidad de primera parte del proveedor. El futuro sigue siendo ' +
+        'futuro.',
+    },
+    {
       tipo: 'nota',
       texto:
         'Lo digo con la cautela que corresponde: la ausencia en un repositorio ' +
@@ -284,10 +384,14 @@ export const post: Post = {
       tipo: 'parrafo',
       texto:
         '**Falso.** Aplica, con dos obligaciones —alarma de inmersión y sistema ' +
-        'de liberación de vacío— e incluso a piscinas ya construidas. Y la ' +
-        'resolución de calidad del agua les impone además los mismos parámetros ' +
-        'que a cualquier otra piscina, aunque la vigilancia estatal sobre ellas ' +
-        'sea excepcional.',
+        'de liberación de vacío— e incluso a piscinas ya construidas. Eso no ha ' +
+        'cambiado, porque está en una ley. Lo que sí cambió en 2026 es la parte ' +
+        'del agua: el ámbito de aplicación de la Resolución 234 alcanza a los ' +
+        'inmuebles «de uso colectivo abiertas al público en general y de uso ' +
+        'restringido no abiertas al público en general», y **la unifamiliar ' +
+        'particular no aparece nombrada en ninguna de las dos categorías**. Los ' +
+        'parámetros de calidad del agua ya no le son exigibles por esa vía. Las ' +
+        'dos obligaciones de seguridad de la Ley 1209, sí.',
     },
 
     { tipo: 'titulo', nivel: 2, texto: 'El atrapamiento: por qué el drenaje único mata' },
@@ -344,46 +448,184 @@ export const post: Post = {
     {
       tipo: 'parrafo',
       texto:
-        'La Resolución 1618 de 2010 fija los parámetros y —lo que más se ' +
-        'incumple— **las frecuencias**. El control real no es el del Estado, ' +
-        'que toma una muestra al año: es el del responsable de la piscina.',
+        'La Resolución 234 de 2026 fija los parámetros y —lo que más se ' +
+        'incumple— **las frecuencias**. El control real no es el del Estado: su ' +
+        'columna, en todos y cada uno de los parámetros, dice «asociado a ' +
+        'factores de riesgo». Es el del responsable de la piscina, y en buena ' +
+        'parte es diario.',
     },
     {
       tipo: 'tabla',
       cabeceras: ['Qué se mide', 'Cada cuánto', 'Valor aceptable'],
       filas: [
-        ['Cloro residual libre', 'Diario', '1 a 3 mg/L'],
-        ['Cloro combinado (cloraminas)', 'Diario', 'menos de 0,3 mg/L'],
-        ['Potencial de oxidación-reducción', 'Diario', 'mínimo 700 mV'],
-        ['Turbidez, color, olor, transparencia', 'Diario', 'Fondo visible; turbidez 2 UNT'],
-        ['pH y temperatura', 'Semanal', 'pH entre 7,0 y 8,0'],
-        ['Alcalinidad, dureza, ácido cianúrico', 'Semanal', 'Alcalinidad hasta 140; cianúrico menos de 100'],
-        ['**Índice de Langelier**', '**Semanal**', 'entre −0,5 y +0,5'],
-        ['Coliformes, *E. coli*, *P. aeruginosa*', 'Mensual', '**0** en 100 cm³'],
-        ['*Cryptosporidium* y *Giardia*', 'Anual', '**0**'],
+        ['Cloro residual libre', '**Diario**, al inicio de la jornada y en horas de máxima ocupación', 'Piscinas: mínimo 1,5 ppm, ideal 2,0 a 4,0. Estructuras similares: mínimo 2,0, ideal 3,0 a 5,0'],
+        ['Cloro combinado (cloraminas)', 'Diario', 'Máximo **0,3 ppm** en piscinas; 0,4 en estructuras similares'],
+        ['pH', '**Diario**, al inicio de la jornada y en horas de máxima ocupación', 'Entre **6,8 y 7,3**'],
+        ['Temperatura', 'Diario, mínimo al inicio de la jornada', 'Máximo **40 °C**'],
+        ['Materias orgánicas flotantes y sedimentos', 'Diario', '**Ausentes**'],
+        ['Ácido cianúrico', 'Semanal', 'Máximo **15 ppm**. En piscina cubierta no aplica: debe dar cero'],
+        ['Dureza de calcio', 'Semanal in situ, y trimestral', 'Ideal 200 a 400; máximo 700'],
+        ['**Índice de Langelier**', '**Trimestral**, o cuando el pH salga del rango ideal', 'Entre **−0,5 y 0,5**; ideal −0,3 a 0,3'],
+        ['Alcalinidad total', 'Trimestral, o cuando el pH esté fuera de rango', 'Ideal 80 a 120; máximo 150'],
+        ['Turbidez', 'Trimestral, en horas de máxima ocupación', 'Ideal **menos de 1 UNT**'],
+        ['Potencial de oxidación-reducción (ORP)', 'Trimestral', '**700 mV** — ver la nota de abajo'],
+        ['Sólidos disueltos y conductividad', 'Trimestral', 'TDS de 1.000 a 1.200 mg/L; conductividad de 2.000 a 2.400 µS/cm'],
+        ['Heterótrofos, coliformes termotolerantes, *E. coli*', '**Trimestral**, en horas de máxima ocupación', 'Heterótrofos menos de 200 UFC/100 mL; los otros dos, **0**'],
+        ['*Legionella*', '**Semestral** en piscinas climatizadas o aerosolizadas; trimestral en estructuras similares', '**0** UFC/100 mL'],
+        ['*Cryptosporidium* y *Giardia lamblia*', '**En caso de materia fecal, durante el evento**', '**0** ooquistes o quistes por 1.000 cm³'],
       ],
       nota:
-        'Resolución 1618 de 2010, arts. 5, 6, 9, 12 y 13. El índice de ' +
-        'Langelier no es opcional: la resolución trae la fórmula y las tablas ' +
-        'de coeficientes, con una constante correctora de 12,1 fijada por norma.',
+        'Resolución 234 de 2026, anexo técnico I. La tabla distingue ' +
+        '**piscinas** de **estructuras similares** —jacuzzis, spas, piletas—, y ' +
+        'los valores no siempre coinciden: donde son dos, aquí van los dos. El ' +
+        'cloro aplica «de emplearse desinfectantes a base de cloro o ' +
+        'derivados»; con bromo, el anexo fija bromo total de 2,0 a 4,0 ppm en ' +
+        'piscinas y de 2,0 a 5,0 en estructuras similares. El ácido cianúrico ' +
+        'solo aplica con cloro estabilizado. Y en temporada alta —vacaciones ' +
+        'escolares, diciembre y enero, festividades— **la frecuencia trimestral ' +
+        'pasa a mensual**.',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'Un dato que hay que transcribir y no corregir, porque corregirlo en ' +
+        'silencio sería inventar norma: **la tabla del anexo pone el ORP en la ' +
+        'columna de máximo, con 700 mV.** Un potencial de oxidación-reducción ' +
+        'se fija normalmente como piso —por debajo de cierto valor el agua no ' +
+        'oxida—, y así se leía en el marco anterior. La 234 lo escribe como ' +
+        'techo. No encontré en el articulado nada que lo aclare, así que aquí ' +
+        'queda lo que dice la norma y queda dicha la tensión. Si ese número le ' +
+        'mueve una compra de equipo, vaya al anexo y pida concepto a la ' +
+        'autoridad sanitaria antes de firmar.',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'El índice de Langelier no cambió, solo cambió de norma: sigue siendo ' +
+        '**ISL = pH + CT + CD + CA − 12,1**, con la constante correctora de ' +
+        '12,1 fijada por la propia resolución y las tablas de coeficientes ' +
+        'en el anexo. Lo que sí cambió es la frecuencia, que pasa de semanal a ' +
+        '**trimestral** o a cada vez que el pH se salga del rango ideal, y que ' +
+        'ahora su cálculo hay que anotarlo en el libro de registro.',
     },
     {
       tipo: 'nota',
       texto:
         'Dos obligaciones que casi ninguna copropiedad cumple y que un ' +
-        'inspector verifica en dos minutos: **el libro de registro** con todos ' +
-        'los análisis, vigente y disponible, y la **publicación mensual en ' +
+        'inspector verifica en dos minutos: **el libro o registro ' +
+        'sistematizado**, vigente y disponible, y la **publicación mensual en ' +
         'lugar visible** de los resultados de laboratorio. Es una cartelera ' +
-        'junto a la piscina. No está.',
+        'junto a la piscina. No está. Y el libro ahora pide bastante más de lo ' +
+        'que se suele anotar: volumen y caudal, químicos usados y en qué ' +
+        'cantidad, retrolavados, averías y cambios de equipo, **volumen de agua ' +
+        'de reposición**, **horas de funcionamiento**, número de bañistas, y el ' +
+        'cálculo del índice de Langelier.',
     },
     {
       tipo: 'parrafo',
       texto:
-        'Dos detalles más que suelen fallar: los análisis deben hacerse en ' +
-        'laboratorio autorizado o acreditado ante el ONAC, y **los productos ' +
-        'químicos deben tener registro sanitario del INVIMA**. Un proveedor que ' +
-        'vende cloro sin registro está fuera de norma, y la copropiedad que se ' +
-        'lo compra también.',
+        'Y aquí hay que rectificar algo que este artículo afirmaba. Hasta 2026 ' +
+        'se leía en esta misma sección que los análisis debían hacerse en ' +
+        'laboratorio acreditado ante el **ONAC** y que los productos químicos ' +
+        'debían tener registro sanitario del **INVIMA**. Busqué las dos ' +
+        'exigencias, palabra por palabra, en la Resolución 234 y en la ' +
+        'Resolución 929: **ninguna de las dos resoluciones nombra al ONAC ni al ' +
+        'INVIMA, ni una sola vez.** Lo que la 234 sí exige es que el ' +
+        'laboratorio **demuestre la validación o verificación de las ' +
+        'metodologías** que emplea —artículo 6, parágrafo 3— y que cada ' +
+        'producto químico cuente con **ficha técnica y hoja de seguridad**, con ' +
+        'el etiquetado del Sistema Globalmente Armonizado —artículo 13—. Lo ' +
+        'digo con la cautela que corresponde: **que no aparezcan en estas dos ' +
+        'resoluciones no prueba que la obligación haya desaparecido del ' +
+        'ordenamiento**; puede vivir en otra norma que no he revisado. Lo que ' +
+        'sí puedo afirmar es qué exige el marco nuevo, y es esto.',
+    },
+
+    { tipo: 'titulo', nivel: 2, texto: 'El IRAPI: el índice nuevo que puede dejar su piscina «no apta»' },
+    {
+      tipo: 'parrafo',
+      texto:
+        'Esto no existía antes de 2026 y es lo más aprovechable de toda la ' +
+        'actualización para un consejo de administración. La Resolución 234 ' +
+        'crea el **Índice de Riesgo del Agua de Estanques de Piscinas y ' +
+        'Estructuras Similares —IRAPI—**, que convierte los resultados de los ' +
+        'análisis en un solo número entre 0 y 100. No es un indicador ' +
+        'voluntario: **el responsable de la piscina está obligado a ' +
+        'calcularlo**, estanque por estanque, y la autoridad sanitaria lo ' +
+        'verifica durante la visita de inspección.',
+    },
+    {
+      tipo: 'cita',
+      texto: 'IRAPI = VCM (45 %) + VCR (20 %) + VAC (30 %) + VCT (5 %)',
+      fuente: 'Resolución 234 de 2026, anexo técnico II',
+    },
+    {
+      tipo: 'lista',
+      items: [
+        '**VCM**, el 45 %: las características microbiológicas —heterótrofos, *Escherichia coli*, coliformes termotolerantes y *Pseudomonas aeruginosa*—.',
+        '**VCR**, el 20 %: la concentración del residual del desinfectante.',
+        '**VAC**, el 30 %: las características asociadas a la cloración —pH, ORP y ácido cianúrico—.',
+        '**VCT**, el 5 %: la turbidez.',
+      ],
+    },
+    {
+      tipo: 'parrafo',
+      texto:
+        'Cada parámetro que incumple aporta su puntaje de riesgo, y los nueve ' +
+        'puntajes suman cien:',
+    },
+    {
+      tipo: 'tabla',
+      cabeceras: ['Parámetro', 'Puntaje de riesgo si incumple'],
+      filas: [
+        ['Residual del desinfectante', '20'],
+        ['*Escherichia coli*', '15'],
+        ['*Pseudomonas aeruginosa*', '15'],
+        ['Potencial de oxidación-reducción (ORP)', '15'],
+        ['Coliformes termotolerantes', '10'],
+        ['pH', '10'],
+        ['Heterótrofos', '5'],
+        ['Ácido cianúrico', '5'],
+        ['Turbidez', '5'],
+        ['**Total**', '**100**'],
+      ],
+      nota:
+        'Resolución 234 de 2026, anexo técnico II. El residual del ' +
+        'desinfectante tiene además una asimetría que conviene conocer: si el ' +
+        'resultado queda **por encima** del valor aceptado se asignan **diez** ' +
+        'puntos, y si queda **por debajo**, **veinte**. Pasarse pesa la mitad ' +
+        'que quedarse corto, y tiene sentido: el agua sobreclorada molesta, la ' +
+        'subclorada infecta.',
+    },
+    {
+      tipo: 'parrafo',
+      texto: 'Y el resultado se clasifica así:',
+    },
+    {
+      tipo: 'tabla',
+      cabeceras: ['IRAPI', 'Nivel de riesgo', 'Qué debe hacer el responsable'],
+      filas: [
+        ['75,1 a 100', '**Alto**', '**Agua no apta para contacto primario.** Plan de acciones correctivas de inmediato, calibración de equipos y mantenimiento profundo'],
+        ['35,1 a 75', '**Medio**', '**No apta.** Revisión de la dosificación de químicos y mantenimiento preventivo'],
+        ['10,1 a 35', '**Bajo**', '**No apta.** Inspección de los equipos de dosificación, mantenimiento de filtros y calibración'],
+        ['0 a 10', 'Sin riesgo', 'Agua en condiciones óptimas. Continuar el control y la vigilancia'],
+      ],
+      nota:
+        'Resolución 234 de 2026, anexo técnico II. La autoridad sanitaria tiene ' +
+        'su propia columna: en riesgo alto pide plan de mejoramiento con ' +
+        'cronograma, hace visita de inspección y notifica al responsable, a la ' +
+        'alcaldía, a la personería y a la secretaría de salud municipal.',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'Lea otra vez la tercera fila, porque es lo que casi nadie ha visto: ' +
+        '**todo lo que no sea 0 a 10 sale de la tabla como «no apta para ' +
+        'contacto primario»**, y eso incluye el nivel «bajo». Un IRAPI de once ' +
+        '—un solo parámetro fuera de rango, y de los de menor peso— ya deja el ' +
+        'agua declarada no apta por la propia norma. No es una recomendación de ' +
+        'mejora: es una calificación que un inspector puede leer en la visita, ' +
+        'y que el responsable estaba obligado a haber calculado antes.',
     },
 
     { tipo: 'titulo', nivel: 2, texto: 'Las sanciones: no es una, son tres' },
@@ -505,7 +747,7 @@ export const post: Post = {
         'Cerramiento con control de acceso.',
         'Señalización de profundidades y marcación de desniveles en el fondo.',
         'Dotación: dos flotadores con cuerda, bastón con gancho, citófono, y botiquín completo —que la norma tasa e incluye camilla de inmovilización acuática, collar cervical y oxigenoterapia—.',
-        '**Costos recurrentes:** salvavidas para fines de semana y vacaciones, y analítica de laboratorio mensual y anual.',
+        '**Costos recurrentes:** salvavidas para fines de semana y vacaciones, y analítica de laboratorio trimestral —mensual en temporada alta—, más los análisis por evento de contaminación fecal, que llegan cuando llegan y hay que tenerlos presupuestados.',
       ],
     },
     {
@@ -521,7 +763,7 @@ export const post: Post = {
     {
       tipo: 'parrafo',
       texto:
-        'Diez preguntas. Si alguna se responde que no, hay incumplimiento hoy:',
+        'Once preguntas. Si alguna se responde que no, hay incumplimiento hoy:',
     },
     {
       tipo: 'lista',
@@ -534,9 +776,10 @@ export const post: Post = {
         '¿El paro manual de la bomba está afuera del cuarto de máquinas, visible y señalizado?',
         '¿Existe el plan de seguridad y el reglamento de uso, por escrito?',
         '¿El reglamento prohíbe el ingreso con cadenas, collares y ropa suelta?',
-        '¿Está el libro de registro con las mediciones diarias y semanales al día?',
+        '¿Está el libro o registro sistematizado al día, con las mediciones diarias, las horas de funcionamiento y el agua de reposición?',
         '¿Están publicados los resultados de laboratorio del mes en cartelera?',
         '¿Hay salvavidas certificado los fines de semana y en vacaciones escolares?',
+        '¿Alguien ha calculado el IRAPI de cada estanque, y el resultado está entre 0 y 10?',
       ],
     },
     {
@@ -568,29 +811,18 @@ export const post: Post = {
       fecha: '2016-05-06',
     },
     {
-      titulo: 'Resolución 1618 de 2010: calidad del agua de piscinas',
-      editor: 'Ministerio de la Protección Social',
-      url: 'https://www.minsalud.gov.co/Normatividad_Nuevo/RESOLUCI%C3%93N%201618%20DE%202010.pdf',
-      fecha: '2010-05-07',
+      titulo:
+        'Resolución 234 de 2026, criterios de calidad del agua contenida en estanques de piscinas y estructuras similares y buenas prácticas sanitarias',
+      editor: 'Ministerio de Salud y Protección Social',
+      url: 'https://camacol.co/sites/default/files/descargables/RESOLUCION%20MINSALUD%20NACIONAL%20234%20DE%20FEBRERO%20DE%202026.pdf',
+      fecha: '2026-02-10',
     },
     {
-      /* La URL era el PDF de minsalud, y ese PDF no se puede leer: baja 667 KB,
-         trae **una sola página** y no tiene una sola letra extraíble. La
-         Resolución 1510 tiene una treintena de artículos, así que una página
-         sin texto no puede ser la norma — es un escaneo, y ni siquiera
-         completo. Quien pulsara la fuente para comprobar el artículo se
-         encontraba con algo que no podía leer ni buscar.
-
-         Se cambia por el gestor normativo de la Alcaldía de Bogotá, que sirve
-         el articulado completo en texto. Comprobado: devuelve las definiciones
-         del artículo 3, incluida la de canaleta desnatadora.
-
-         Lo destapó el agente que escribió los cinco artículos de costos del
-         pilar, al ir a citar la misma norma y no poder abrirla. */
-      titulo: 'Resolución 1510 de 2011: criterios técnicos y de seguridad para piscinas',
-      editor: 'Ministerio de la Protección Social',
-      url: 'https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=42808',
-      fecha: '2011-05-06',
+      titulo:
+        'Resolución 929 de 2026, criterios técnicos constructivos y de seguridad para piscinas y estructuras similares',
+      editor: 'Ministerio de Salud y Protección Social',
+      url: 'https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/resolucion-0929-de-2026.pdf',
+      fecha: '2026-05-12',
     },
     {
       titulo: 'Ley 675 de 2001, régimen de propiedad horizontal',

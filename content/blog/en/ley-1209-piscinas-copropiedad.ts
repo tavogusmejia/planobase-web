@@ -39,11 +39,48 @@ import type { TraduccionPost } from '@/lib/types'
  * «0,3 mg/L» es «0.3 mg/L», «1.000 salarios mínimos» es «1,000 minimum
  * wages» y «12,1» es «12.1». `UNT` es la sigla española de las unidades
  * nefelométricas de turbidez y va como `NTU`, que es la misma unidad.
+ *
+ * ---
+ *
+ * **Pasada del 6 de septiembre de 2026**, en paralelo con el español, por las
+ * dos resoluciones nuevas. `superada por` → **superseded in substance by**,
+ * nunca «repealed by», y por un motivo que el propio texto explica: no hay
+ * cláusula derogatoria, la 1510 se quedó sin piso al caer el Decreto 2171 de
+ * 2009. Escribir «repealed» sería afirmar en inglés algo que la norma no hizo.
+ *
+ * Este artículo es casi todo cifras dentro de tablas, que es donde más fácil se
+ * cuela el separador español. La tabla del agua se rehízo entera y **todos sus
+ * decimales van invertidos**: «6,8» es «6.8», «1,5 ppm» es «1.5 ppm», «−0,5» es
+ * «−0.5», «1.200 mg/L» es «1,200 mg/L», «2.000 a 2.400 µS/cm» es «2,000 to
+ * 2,400 µS/cm» y «1.000 cm³» es «1,000 cm³». En la tabla del IRAPI, «75,1 a
+ * 100» es «75.1 to 100», «35,1 a 75» es «35.1 to 75» y «10,1 a 35» es «10.1 to
+ * 35». Los porcentajes de la fórmula pierden el espacio: «45 %» es «45%».
+ *
+ * Vocabulario del agua, tomado tal cual de `en/piscina-de-sal-o-cloro` y
+ * `en/mantenimiento-de-piscina-costo-mensual` para que las tres piezas nombren
+ * igual lo mismo: `heterótrofos` → **heterotrophs**, `coliformes
+ * termotolerantes` → **thermotolerant coliforms**, `estructuras similares` →
+ * **similar structures**, `en horas de máxima ocupación` → **at peak
+ * occupancy**, `contaminación fecal` → **faecal contamination**, `ooquistes o
+ * quistes` → **oocysts or cysts**, `libro o registro sistematizado` → **log
+ * book or computerised register**, `anexo técnico I` → **technical annex I**,
+ * `cartelera` → **noticeboard**. Se conservan del propio artículo «Free
+ * residual chlorine», «Oxidation-reduction potential» y «Langelier index».
+ *
+ * **IRAPI no se traduce y su sigla tampoco**: es el nombre de un índice
+ * colombiano, como NSR-10. Se glosa entero la primera vez y luego va solo.
+ * `no apta para contacto primario` → **not fit for primary contact**, que es la
+ * frase que carga toda la sección: se repite igual en las tres filas de la
+ * tabla, porque repetirla es justamente el hallazgo.
+ *
+ * Las citas literales de las dos resoluciones **se traducen**, como ya se hacía
+ * con el parágrafo del Decreto 554: dejarlas en español dentro del inglés
+ * obligaría al lector a saltárselas, y son la prueba de lo que se afirma.
  */
 export const traduccion: TraduccionPost = {
   slug: 'ley-1209-piscinas-copropiedad',
   titulo: 'Ley 1209: what it really requires of a community with a pool',
-  traducido: '2026-09-05',
+  traducido: '2026-09-06',
   resumen:
     'Almost everything repeated about this law is wrong: it requires neither ' +
     'a 1.20 m enclosure nor a permanent lifeguard in a residential ' +
@@ -77,6 +114,21 @@ export const traduccion: TraduccionPost = {
         'in January 2010 and there is no extension. A community of owners ' +
         'that does not comply today has been in breach for more than fifteen ' +
         'years.',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'The applicable framework, as at September 2026: the two technical ' +
+        'resolutions this article used to cite are no longer the framework. ' +
+        '**Resolución 929 of 12 May 2026** superseded in substance Resolución ' +
+        '1510 de 2011, and **Resolución 234 of 10 February 2026** now occupies ' +
+        'the ground of Resolución 1618 de 2010. It is worth putting precisely, ' +
+        'because the two are not the same thing: **Resolución 929 does not ' +
+        'repeal Resolución 1510 by name.** Resolución 1510 lost its footing ' +
+        'because it was made under Decreto 2171 de 2009, and that decree was ' +
+        'repealed by Decreto 554 de 2015. It is superseded, not repealed. **Ley ' +
+        '1209 itself has not changed a comma**, which is why nothing that ' +
+        'follows changes its argument.',
     },
 
     { tipo: 'titulo', texto: 'First: what kind of pool do you have' },
@@ -149,8 +201,8 @@ export const traduccion: TraduccionPost = {
         '**False, and not by a small margin.** No Colombian rule sets a ' +
         'single dimension for the enclosure: not a height, not a spacing ' +
         'between bars, not a type of ironmongery, not a self-closing gate. I ' +
-        'checked the law, Decreto 554, Decreto 780 and Resolución 1510: it is ' +
-        'in none of them.',
+        'checked the law, Decreto 554, Decreto 780, Resolución 1510 and ' +
+        'Resolución 929 de 2026 which superseded it: it is in none of the five.',
     },
     {
       tipo: 'parrafo',
@@ -166,7 +218,9 @@ export const traduccion: TraduccionPost = {
       texto:
         'The only numerical parameter for any device in the whole law is the ' +
         '**80 decibels** the immersion alarm has to produce. One, in nineteen ' +
-        'articles.',
+        'articles. Resolución 929 de 2026 does carry figures — **0.90 m** ' +
+        'minimum spacing between drains, covers of **at least four times the ' +
+        'area of the discharge pipe** — but not one for the enclosure.',
     },
 
     { tipo: 'titulo', texto: '2. "A residential development needs a permanent lifeguard"' },
@@ -229,7 +283,9 @@ export const traduccion: TraduccionPost = {
         '**Imprecise, and there is a real conflict of rules behind it.** ' +
         'Article 12 of the law requires two drains only of "the pools built ' +
         'from the entry into force onwards" — that is, from January 2009. ' +
-        'Resolución 1510 de 2011, by contrast, requires them of "every tank".',
+        'Resolución 929 de 2026, by contrast, requires them of "the tanks of ' +
+        'pools and similar structures", drawing no distinction by date, just as ' +
+        'Resolución 1510 did before it.',
     },
     {
       tipo: 'parrafo',
@@ -239,6 +295,20 @@ export const traduccion: TraduccionPost = {
         'development pool with a single drain is exempt under the law and is ' +
         'not exempt under the resolution. It is a grey area worth knowing ' +
         'about before you sit down to argue over a works budget.',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'What the new rule does bring, and it is the best budgetary news in the ' +
+        'whole update for an older community: numeral 7 of Resolución 929 ' +
+        '**expressly contemplates the tank built before it with a single ' +
+        'suction drain**, and of that one it does not ask for a second drain. ' +
+        'It asks for a vacuum release system, an emergency stop button and an ' +
+        'anti-entrapment grating. In other words, a written route to compliance ' +
+        'that **does not oblige anyone to open the pool shell**, which is by far ' +
+        'the largest item. It is still the poorer solution — active rather than ' +
+        'passive, with everything that carries and that is set out below — but ' +
+        'it is in the rule, and it is there by name.',
     },
 
     { tipo: 'titulo', texto: '5. "The devices have to be certified"' },
@@ -286,6 +356,17 @@ export const traduccion: TraduccionPost = {
         'tense: the regulation "to be issued".',
     },
     {
+      tipo: 'parrafo',
+      texto:
+        'And the new rule did not close the gap: it restated it. Numeral 7 of ' +
+        'Resolución 929 de 2026 — eighteen years after the law — requires ' +
+        'drains, anti-entrapment covers, a vacuum release system and a stop ' +
+        'button that are "duly type-approved, **in accordance with the rule the ' +
+        'health ministry is to issue for that purpose**", and for older pools ' +
+        'it points once again to the first-party declaration of conformity of ' +
+        'the supplier. The future is still the future.',
+    },
+    {
       tipo: 'nota',
       texto:
         'I put it with the caution it deserves: absence from a repository is ' +
@@ -309,10 +390,14 @@ export const traduccion: TraduccionPost = {
       tipo: 'parrafo',
       texto:
         '**False.** It applies, with two duties — an immersion alarm and a ' +
-        'vacuum release system — and it applies to pools already built. And ' +
-        'the water quality resolution imposes on them the same parameters as ' +
-        'on any other pool, even though state inspection of them is ' +
-        'exceptional.',
+        'vacuum release system — and it applies to pools already built. That ' +
+        'has not changed, because it sits in a statute. What did change in 2026 ' +
+        'is the water side: the scope of Resolución 234 reaches premises "of ' +
+        'collective use open to the general public and of restricted use not ' +
+        'open to the general public", and **the single-family private pool is ' +
+        'named in neither category**. The water quality parameters are no ' +
+        'longer enforceable against it by that route. The two safety duties of ' +
+        'Ley 1209 are.',
     },
 
     { tipo: 'titulo', texto: 'Entrapment: why a single drain kills' },
@@ -369,49 +454,189 @@ export const traduccion: TraduccionPost = {
     {
       tipo: 'parrafo',
       texto:
-        'Resolución 1618 de 2010 sets the parameters and — the part most ' +
+        'Resolución 234 de 2026 sets the parameters and — the part most ' +
         'often breached — **the frequencies**. The real control is not the ' +
-        'state’s, which takes one sample a year: it is the control exercised ' +
-        'by whoever is responsible for the pool.',
+        'state’s: its column, against every single parameter, reads "linked to ' +
+        'risk factors". It is the control exercised by whoever is responsible ' +
+        'for the pool, and much of it is daily.',
     },
     {
       tipo: 'tabla',
       cabeceras: ['What is measured', 'How often', 'Acceptable value'],
       filas: [
-        ['Free residual chlorine', 'Daily', '1 to 3 mg/L'],
-        ['Combined chlorine (chloramines)', 'Daily', 'less than 0.3 mg/L'],
-        ['Oxidation-reduction potential', 'Daily', '700 mV minimum'],
-        ['Turbidity, colour, odour, clarity', 'Daily', 'Floor visible; turbidity 2 NTU'],
-        ['pH and temperature', 'Weekly', 'pH between 7.0 and 8.0'],
-        ['Alkalinity, hardness, cyanuric acid', 'Weekly', 'Alkalinity up to 140; cyanuric acid less than 100'],
-        ['**Langelier index**', '**Weekly**', 'between −0.5 and +0.5'],
-        ['Coliforms, *E. coli*, *P. aeruginosa*', 'Monthly', '**0** per 100 cm³'],
-        ['*Cryptosporidium* and *Giardia*', 'Annual', '**0**'],
+        ['Free residual chlorine', '**Daily**, at the start of the day and at peak occupancy', 'Pools: 1.5 ppm minimum, 2.0 to 4.0 ideal. Similar structures: 2.0 minimum, 3.0 to 5.0 ideal'],
+        ['Combined chlorine (chloramines)', 'Daily', '**0.3 ppm** maximum in pools; 0.4 in similar structures'],
+        ['pH', '**Daily**, at the start of the day and at peak occupancy', 'Between **6.8 and 7.3**'],
+        ['Temperature', 'Daily, at least at the start of the day', '**40 °C** maximum'],
+        ['Floating organic matter and sediment', 'Daily', '**Absent**'],
+        ['Cyanuric acid', 'Weekly', '**15 ppm** maximum. It does not apply to an indoor pool: the result must come back as zero'],
+        ['Calcium hardness', 'Weekly on site, and quarterly', '200 to 400 ideal; 700 maximum'],
+        ['**Langelier index**', '**Quarterly**, or whenever the pH leaves the ideal range', 'Between **−0.5 and 0.5**; −0.3 to 0.3 ideal'],
+        ['Total alkalinity', 'Quarterly, or whenever the pH is out of range', '80 to 120 ideal; 150 maximum'],
+        ['Turbidity', 'Quarterly, at peak occupancy', '**Under 1 NTU** ideal'],
+        ['Oxidation-reduction potential (ORP)', 'Quarterly', '**700 mV** — see the note below'],
+        ['Dissolved solids and conductivity', 'Quarterly', 'TDS 1,000 to 1,200 mg/L; conductivity 2,000 to 2,400 µS/cm'],
+        ['Heterotrophs, thermotolerant coliforms, *E. coli*', '**Quarterly**, at peak occupancy', 'Heterotrophs under 200 CFU/100 mL; the other two, **0**'],
+        ['*Legionella*', '**Six-monthly** in heated or aerosolising pools; quarterly in similar structures', '**0** CFU/100 mL'],
+        ['*Cryptosporidium* and *Giardia lamblia*', '**On faecal matter, during the event**', '**0** oocysts or cysts per 1,000 cm³'],
       ],
       nota:
-        'Resolución 1618 de 2010, articles 5, 6, 9, 12 and 13. The Langelier ' +
-        'index is not optional: the resolution carries the formula and the ' +
-        'tables of coefficients, with a correction constant of 12.1 fixed by ' +
-        'the rule itself.',
+        'Resolución 234 de 2026, technical annex I. The table separates ' +
+        '**pools** from **similar structures** — hot tubs, spas, plunge pools ' +
+        '— and the values do not always coincide: where there are two, both ' +
+        'are given here. Chlorine applies "where chlorine-based disinfectants ' +
+        'or their derivatives are used"; with bromine, the annex sets total ' +
+        'bromine at 2.0 to 4.0 ppm in pools and 2.0 to 5.0 in similar ' +
+        'structures. Cyanuric acid applies only with stabilised chlorine. And ' +
+        'in peak season — school holidays, December and January, public ' +
+        'festivities — **the quarterly frequency becomes monthly**.',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'One figure has to be transcribed rather than corrected, because ' +
+        'correcting it quietly would be inventing law: **the table in the annex ' +
+        'places ORP in the maximum column, at 700 mV.** An oxidation-reduction ' +
+        'potential is normally set as a floor — below a certain value the water ' +
+        'does not oxidise — and that is how it read under the previous ' +
+        'framework. Resolución 234 writes it as a ceiling. I found nothing in ' +
+        'the articles that clears it up, so what the rule says stands here, and ' +
+        'so does the tension. If that number moves a purchase of plant for you, ' +
+        'go to the annex and ask the health authority for a ruling before you ' +
+        'sign.',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'The Langelier index has not changed, only the rule it belongs to: it ' +
+        'is still **ISL = pH + CT + CD + CA − 12.1**, in the abbreviation the ' +
+        'resolution uses, with the correction constant of 12.1 fixed by the ' +
+        'resolution itself and the tables of ' +
+        'coefficients in the annex. What did change is the frequency, which ' +
+        'goes from weekly to **quarterly**, or to each time the pH leaves the ' +
+        'ideal range, and that the calculation now has to be entered in the log ' +
+        'book.',
     },
     {
       tipo: 'nota',
       texto:
         'Two duties that hardly any community meets and that an inspector ' +
-        'checks in two minutes: **the log book** with every analysis, current ' +
-        'and available, and the **monthly display in a visible place** of the ' +
-        'laboratory results. It is a noticeboard beside the pool. It is not ' +
-        'there.',
+        'checks in two minutes: **the log book or computerised register**, ' +
+        'current and available, and the **monthly display in a visible place** ' +
+        'of the laboratory results. It is a noticeboard beside the pool. It is ' +
+        'not there. And the book now asks for a good deal more than is usually ' +
+        'written down: volume and flow, chemicals used and in what quantity, ' +
+        'backwashes, breakdowns and changes of plant, **volume of top-up ' +
+        'water**, **hours of operation**, number of bathers, and the Langelier ' +
+        'index calculation.',
     },
     {
       tipo: 'parrafo',
       texto:
-        'Two further details that commonly fail: the analyses have to be ' +
-        'carried out by a laboratory authorised or accredited before ONAC, ' +
-        'the national accreditation body, and **the chemical products must ' +
-        'hold an INVIMA health registration**. A supplier selling chlorine ' +
-        'without one is outside the rules, and so is the community that buys ' +
-        'it.',
+        'And here something this article used to assert has to be put right. ' +
+        'Until 2026 this same section said the analyses had to be carried out ' +
+        'by a laboratory accredited before **ONAC**, the national accreditation ' +
+        'body, and that the chemical products had to hold an **INVIMA** health ' +
+        'registration. I searched for both requirements, word by word, in ' +
+        'Resolución 234 and in Resolución 929: **neither resolution names ONAC ' +
+        'or INVIMA, not once.** What Resolución 234 does require is that the ' +
+        'laboratory **demonstrate validation or verification of the methods** ' +
+        'it uses — article 6, paragraph 3 — and that every chemical product ' +
+        'carry a **technical data sheet and a safety data sheet**, labelled to ' +
+        'the globally harmonised system — article 13. I put it with the caution ' +
+        'it deserves: **their absence from these two resolutions does not prove ' +
+        'the duty has gone from the statute book**; it may live in another rule ' +
+        'I have not read. What I can state is what the new framework requires, ' +
+        'and this is it.',
+    },
+
+    { tipo: 'titulo', texto: 'IRAPI: the new index that can leave your pool unfit' },
+    {
+      tipo: 'parrafo',
+      texto:
+        'This did not exist before 2026 and it is the most usable thing in the ' +
+        'whole update for a management council. Resolución 234 creates the ' +
+        '**Índice de Riesgo del Agua de Estanques de Piscinas y Estructuras ' +
+        'Similares — IRAPI**, the pool water risk index, which turns the ' +
+        'results of the analyses into a single number between 0 and 100. It is ' +
+        'not a voluntary indicator: **whoever is responsible for the pool is ' +
+        'required to calculate it**, tank by tank, and the health authority ' +
+        'checks it during the inspection visit.',
+    },
+    {
+      tipo: 'cita',
+      texto: 'IRAPI = VCM (45%) + VCR (20%) + VAC (30%) + VCT (5%)',
+      fuente: 'Resolución 234 de 2026, technical annex II',
+    },
+    {
+      tipo: 'lista',
+      items: [
+        '**VCM**, the 45%: the microbiological characteristics — heterotrophs, *Escherichia coli*, thermotolerant coliforms and *Pseudomonas aeruginosa*.',
+        '**VCR**, the 20%: the concentration of the disinfectant residual.',
+        '**VAC**, the 30%: the characteristics tied to chlorination — pH, ORP and cyanuric acid.',
+        '**VCT**, the 5%: turbidity.',
+      ],
+    },
+    {
+      tipo: 'parrafo',
+      texto:
+        'Every parameter out of compliance contributes its risk score, and the ' +
+        'nine scores add up to a hundred:',
+    },
+    {
+      tipo: 'tabla',
+      cabeceras: ['Parameter', 'Risk score if out of compliance'],
+      filas: [
+        ['Disinfectant residual', '20'],
+        ['*Escherichia coli*', '15'],
+        ['*Pseudomonas aeruginosa*', '15'],
+        ['Oxidation-reduction potential (ORP)', '15'],
+        ['Thermotolerant coliforms', '10'],
+        ['pH', '10'],
+        ['Heterotrophs', '5'],
+        ['Cyanuric acid', '5'],
+        ['Turbidity', '5'],
+        ['**Total**', '**100**'],
+      ],
+      nota:
+        'Resolución 234 de 2026, technical annex II. The disinfectant residual ' +
+        'also carries an asymmetry worth knowing about: if the result comes ' +
+        'back **above** the accepted value it scores **ten** points, and if it ' +
+        'comes back **below**, **twenty**. Overshooting weighs half what ' +
+        'falling short does, and that makes sense: over-chlorinated water ' +
+        'irritates, under-chlorinated water infects.',
+    },
+    {
+      tipo: 'parrafo',
+      texto: 'And the result is classified like this:',
+    },
+    {
+      tipo: 'tabla',
+      cabeceras: ['IRAPI', 'Risk level', 'What the responsible person must do'],
+      filas: [
+        ['75.1 to 100', '**High**', '**Water not fit for primary contact.** Corrective action plan immediately, calibration of plant and deep maintenance'],
+        ['35.1 to 75', '**Medium**', '**Not fit.** Review of chemical dosing and preventive maintenance'],
+        ['10.1 to 35', '**Low**', '**Not fit.** Inspection of the dosing plant, filter maintenance and calibration'],
+        ['0 to 10', 'No risk', 'Water in optimal condition. Carry on with control and monitoring'],
+      ],
+      nota:
+        'Resolución 234 de 2026, technical annex II. The health authority has a ' +
+        'column of its own: at high risk it calls for an improvement plan with ' +
+        'a timetable, makes an inspection visit, and notifies the responsible ' +
+        'person, the mayor’s office, the municipal ombudsman and the municipal ' +
+        'health secretariat.',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'Read the third row again, because it is the part almost nobody has ' +
+        'seen: **anything that is not 0 to 10 comes out of that table as "not ' +
+        'fit for primary contact"**, and that includes the "low" level. An ' +
+        'IRAPI of eleven — a single parameter out of range, and one of the ' +
+        'lightest at that — already leaves the water declared unfit by the rule ' +
+        'itself. It is not a suggestion for improvement: it is a grading an ' +
+        'inspector can read off during the visit, and one the responsible ' +
+        'person was required to have worked out beforehand.',
     },
 
     { tipo: 'titulo', texto: 'The penalties: not one regime, but three' },
@@ -549,7 +774,7 @@ export const traduccion: TraduccionPost = {
         'An enclosure with access control.',
         'Depth signage and marking of the changes of level on the floor.',
         'Equipment: two lifebuoys with line, a shepherd’s crook, an entryphone, and a complete first-aid kit — which the rule itemises, and which runs to a water rescue spineboard, a cervical collar and oxygen therapy.',
-        '**Recurring costs:** a lifeguard for weekends and holidays, and monthly and annual laboratory analyses.',
+        '**Recurring costs:** a lifeguard for weekends and holidays, and quarterly laboratory analyses — monthly in peak season — plus the analyses triggered by a faecal contamination event, which arrive whenever they arrive and have to be budgeted for.',
       ],
     },
     {
@@ -565,7 +790,7 @@ export const traduccion: TraduccionPost = {
     {
       tipo: 'parrafo',
       texto:
-        'Ten questions. If any of them is answered no, there is a breach ' +
+        'Eleven questions. If any of them is answered no, there is a breach ' +
         'today:',
     },
     {
@@ -578,9 +803,10 @@ export const traduccion: TraduccionPost = {
         'Is the manual pump stop outside the plant room, visible and signposted?',
         'Do the safety plan and the rules of use exist, in writing?',
         'Do the rules prohibit entry with chains, necklaces and loose clothing?',
-        'Is the log book up to date with the daily and weekly measurements?',
+        'Is the log book or computerised register up to date, with the daily measurements, the hours of operation and the top-up water?',
         'Are this month’s laboratory results displayed on the noticeboard?',
         'Is there a certified lifeguard at weekends and in the school holidays?',
+        'Has anybody worked out the IRAPI for each tank, and does the result sit between 0 and 10?',
       ],
     },
     {

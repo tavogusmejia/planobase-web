@@ -80,6 +80,15 @@ for (const post of posts) {
     marca(`fechado el ${post.fecha}, que es futuro. Hoy es ${HOY}.`)
   }
 
+  /* Hasta cuándo puede citar este artículo.
+   *
+   * La usan las dos comprobaciones de abajo —las fuentes formales y el
+   * calendario de hechos— y es una sola constante a propósito: llegaron el
+   * mismo día por dos caminos distintos, cada una con su propia variable, y dos
+   * nombres para el mismo valor dentro de la misma función son dos cosas que
+   * algún día dejarán de coincidir. */
+  const citableHasta = post.actualizado ?? post.fecha
+
   if (post.actualizado !== null) {
     if (!ISO.test(post.actualizado)) {
       marca(`actualizado «${post.actualizado}» no tiene forma AAAA-MM-DD.`)
@@ -92,17 +101,34 @@ for (const post of posts) {
     }
   }
 
-  // La comprobación que de verdad importa.
+  /* La comprobación que de verdad importa.
+
+     **Se compara contra `actualizado` cuando existe**, por el mismo motivo y
+     con la misma cautela que el calendario de hechos de más abajo. La regla
+     anterior comparaba siempre contra la publicación, y eso dejaba a un
+     artículo actualizado sin forma legítima de citar la norma que lo obligó a
+     actualizarse: el de la Ley 1209 se publicó en marzo de 2025 y en septiembre
+     de 2026 hubo que ponerlo al día contra las Resoluciones 929 y 234 de 2026.
+     Citarlas rompía el build; no citarlas dejaba una lista de fuentes que
+     apuntaba a normas superadas. Las dos salidas eran peores que el problema.
+
+     Lo que la regla existía para impedir sigue impedido: un artículo sin
+     `actualizado` no puede citar nada posterior a su publicación, y uno con
+     `actualizado` enseña esa fecha junto a la de publicación, así que el lector
+     sabe que el texto es posterior a la fuente. */
   for (const f of post.fuentes) {
     if (f.fecha === null) continue
     if (!ISO.test(f.fecha)) {
       marca(`la fuente «${f.titulo}» tiene fecha «${f.fecha}», mal formada.`)
       continue
     }
-    if (f.fecha > post.fecha) {
+    if (f.fecha > citableHasta) {
       marca(
-        `se publica el ${post.fecha} pero cita «${f.titulo}» (${f.editor}), ` +
-          `del ${f.fecha}. Un artículo no puede citar el futuro.`,
+        post.actualizado
+          ? `se actualiza el ${post.actualizado} pero cita «${f.titulo}» ` +
+              `(${f.editor}), del ${f.fecha}. Un artículo no puede citar el futuro.`
+          : `se publica el ${post.fecha} pero cita «${f.titulo}» (${f.editor}), ` +
+              `del ${f.fecha}. Un artículo no puede citar el futuro.`,
       )
     }
   }
@@ -126,10 +152,9 @@ for (const post of posts) {
      enseña junto a la fecha, así que el lector sabe que el texto es posterior.
      Sin `actualizado`, la comparación es contra la publicación, igual que antes. */
   const texto = textoDePost(post)
-  const cuando = post.actualizado ?? post.fecha
   for (const h of hechos) {
     if (!h.patrones.some((pat) => texto.includes(pat))) continue
-    if (cuando < h.fecha) {
+    if (citableHasta < h.fecha) {
       marca(
         post.actualizado
           ? `se actualiza el ${post.actualizado} y menciona «${h.descripcion}», ` +

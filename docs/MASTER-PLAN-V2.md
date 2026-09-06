@@ -84,8 +84,8 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 | Código | | Tarea | Nota |
 |---|---|---|---|
 | D-01 | ⏳ | ~~Entrega A: calendario de reservas~~ — hecho el 6/9. **Falta aplicar la migración `20260906120000_reservas.sql` en Supabase** y publicar | El enlace de Meet se rellena solo cuando llegue X-02 |
-| D-21 | 🟡 | Revisar la disponibilidad de la agenda con Gustavo → `content/agenda.ts` | Hoy son valores de partida, no una decisión suya |
-| D-22 | ⬜ | Poder cancelar o mover una reserva desde el correo | Hoy hay que responder al correo y lo mueve una persona |
+| D-21 | ⬜ | **Decidir cómo se agenda de verdad** — aplazado el 6/9, ver el marcador de abajo | Bloquea publicar D-01 |
+| D-22 | ⬜ | Poder cancelar o mover una reserva desde el correo | Solo si se sigue con el calendario propio |
 | D-02 | ⬜ | Monitoreo de errores y uptime | Necesita X-10 |
 | D-03 | ⬜ | UTMs que sobrevivan la navegación | Hoy solo funcionan si el anuncio apunta directo a `/contacto` |
 | D-04 | ⬜ | Meta CAPI con deduplicación | Hoy se pierde entre el 30 y el 50 % de las señales |
@@ -105,6 +105,43 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 | D-18 | 🔒 | Entrega B: pagos con Wompi | *(espera X-07)* |
 | D-19 | ⬜ | Proyectar datos al cliente | — |
 | ~~D-20~~ | 🟢 | ~~Aligerar `/contacto`~~ | **Descartada.** Medido: 10,2 kB de 174. No lo vale |
+
+### Marcador · cómo se agenda, sin decidir
+
+D-01 está construido y **sin publicar** a propósito. Antes de publicarlo hay que
+resolver esto, y se aplazó el 6/9 para investigarlo con calma.
+
+**El punto débil de lo que se construyó, dicho sin adornos:** *no ve el
+calendario real de Gustavo.* Solo conoce las citas que él mismo creó, así que si
+hay una reunión a las 10 el sitio sigue ofreciendo las 10.
+
+| | Calendario propio *(construido)* | Google Appointment Schedules | Calendly |
+|---|---|---|---|
+| Ve el calendario real | **no** | sí | sí |
+| Enlace de Meet | falta X-02 | automático | sí |
+| Cancelar y mover solo | no | sí | sí |
+| Costo | 0 | **ya se paga con Workspace** | gratis limitado |
+| Estética del sitio | sí | iframe | iframe |
+| Datos en la base propia | sí | no | no |
+| Medir la conversión del anuncio | sí | **no** | a medias |
+| Un solo correo, el del estudio | sí | Google manda el suyo | no |
+
+**Lo que decide, y es una sola cosa:** con un iframe, la conversión ocurre dentro
+de él, donde el Pixel y GA4 no la ven. Eso importa el día que haya pauta —se
+pagaría por anuncios sin poder saber cuál trae citas—, y no importa nada
+mientras no la haya.
+
+**Y lo que falta en el propio es exactamente X-02.** Conectar la API de Google
+Calendar cierra el hueco de la disponibilidad real *y* trae el enlace de Meet,
+sin perder diseño, datos ni medición. El código está escrito con esa costura
+puesta.
+
+Las tres razones por las que en su día se descartó Cal.com están en
+`archivo/PLAN-MAESTRO-v1.md` §3. Dos siguen valiendo para Google y Calendly: el
+pago —ninguno integra Wompi ni PSE— y la estética en la página que recibe el
+dinero.
+
+Calendly no se recomienda: hace lo mismo que Google y se paga aparte.
 
 ---
 

@@ -52,7 +52,7 @@ pero todavía sin publicar.
 | G-02 | 🔴 | Sesión de lectura de copia con Eduardo — `/agendar` entera está sin aprobar | La pauta |
 | ~~G-03~~ | 🟢 | ~~Publicar el lote de la rama~~ — hecho el 6/9: 22 commits a `main`, más la migración aplicada en Supabase |
 | ~~G-04~~ | 🟢 | ~~NIT y plazo de conservación~~ — hecho el 6/9: NIT `901603373-9` y diez años con supresión a petición. **X-01 queda sin nada pendiente por parte del estudio** |
-| G-05 | ⬜ | Confirmar los precios de los peldaños 2 y 3 de la escalera | D-05 |
+| ~~G-05~~ | 🟢 | ~~Precios de los peldaños 2 y 3~~ — decidido el 6/9: **la escalera no publica precios**, se cotiza cliente por cliente. Se retiró también el «desde $300.000» del peldaño 2 |
 | G-06 | ⬜ | Buscar los términos de referencia de los 4 concursos *(o encargarlo)* | X-03 |
 
 ---
@@ -122,6 +122,7 @@ Listado y prioridades en `docs/PLAN-BLOG.md`.
 | C-05 | ⬜ | Cuánto cuesta ampliar un segundo piso, y si la casa lo aguanta |
 | C-06 | ⬜ | Cubiertas: barro, termoacústica, verde o placa |
 | C-07 | ⬜ | Casa de descanso o renta corta: qué cambia en el diseño |
+| C-24 | ⬜ | Cuánto cuesta un estudio de viabilidad de un predio — **material ya reunido** en `PLAN-BLOG.md` |
 
 **C-01 y C-02** comparten un aviso: la NTC 4595 solo se puede citar por su
 adopción ministerial. No se cita una NTC por número sin haberla leído.

@@ -133,9 +133,24 @@ export const puertas: Puerta[] = [
  * La escalera. Esto sí es una secuencia, y por eso va numerada: cada peldaño
  * existe para que el siguiente sea una decisión pequeña en vez de un salto.
  *
- * TODO — precios de los peldaños 2 y 3. El informe de posicionamiento propone
- * rangos, pero ningún precio salvo el de la asesoría está confirmado por el
- * estudio. No se publica nada que Gustavo no haya fijado.
+ * **La escalera no publica precios, y es una decisión, no un pendiente.**
+ * Gustavo lo cerró el 6/9/2026: la escalera se maneja cliente por cliente, y
+ * poner cifras fijas en esta etapa es contraproducente. Con volumen bajo, un
+ * precio publicado ancla la conversación antes de saber qué pide el caso, y se
+ * pierde por arriba —proyectos que valían más— y por abajo —encargos que se
+ * caen al ver la cifra sin entender qué incluye—.
+ *
+ * Aquí antes había un TODO pidiendo los precios de los peldaños 2 y 3, y el 2
+ * llegó a publicar «desde $300.000». Ya no: `precioCOP` es `null` en todos los
+ * peldaños salvo el primero.
+ *
+ * **La única cifra que se publica es el cero de la asesoría**, y esa no es un
+ * precio sino la promesa del anuncio: vive en `content/site.ts` y no aquí.
+ *
+ * Se investigaron precios de mercado antes de decidir esto —dos referencias
+ * colombianas reales, una de Cali y otra de Bogotá— y la investigación no se
+ * tiró: quedó como material para un artículo del pilar de costos. Ver
+ * `docs/PLAN-BLOG.md`.
  */
 export type Peldano = {
   n: number
@@ -157,8 +172,14 @@ export const escalera: Peldano[] = [
   },
   {
     /* Producto nuevo (decisión del 4/9/2026): es el primer escalón pagado y el
-       que sostiene la caja mientras maduran los encargos grandes. El precio es
-       un piso porque depende del predio, la distancia y el alcance.
+       que sostiene la caja mientras maduran los encargos grandes.
+
+       Publicó «desde $300.000» hasta el 6/9/2026. Se retiró con el resto de los
+       precios de la escalera, no porque la cifra estuviera mal sino porque se
+       decidió cotizar caso por caso mientras el volumen sea bajo. La cifra
+       sigue siendo el punto de partida de una cotización; lo que cambia es que
+       no se anuncia.
+
        PENDIENTE DE APROBACIÓN: el alcance está redactado a partir de la
        decisión, no de un documento del estudio. */
     n: 2,
@@ -166,8 +187,7 @@ export const escalera: Peldano[] = [
     entrega:
       'Vamos al predio o al inmueble. Sale con un informe escrito: qué tiene, ' +
       'qué lo condiciona, qué hay que hacer y en qué orden.',
-    precioCOP: 300_000,
-    desde: true,
+    precioCOP: null,
   },
   {
     n: 3,

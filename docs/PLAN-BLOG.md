@@ -137,6 +137,41 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | 3 | Cuánto cuesta remodelar, ambiente por ambiente | **publicado** · 4/8/2026 |
 | 4 | Las doce partidas que todo el mundo olvida al presupuestar | **publicado** · 23/9/2025 |
 | 5 | Por qué la obra se sale del presupuesto | **publicado** · 11/3/2026 |
+| 6 | **Cuánto cuesta un estudio de viabilidad de un predio** | pendiente · **con material ya reunido**, ver abajo |
+
+#### Material reunido para el n.º 6 · 6/9/2026
+
+Salió de investigar los precios para la escalera de servicios. Gustavo decidió
+**no publicar precios en la escalera** —se cotiza cliente por cliente mientras el
+volumen sea bajo—, así que la investigación se guarda aquí, que es donde sí sirve.
+
+**Dos referencias colombianas reales, verificadas leyendo sus propias páginas:**
+
+| Estudio | Producto | Precio publicado | Plazo |
+|---|---|---|---|
+| Uno en **Cali** | Informe técnico: norma del POT, índices de ocupación y construcción, restricciones, usos viables, costos orientativos, riesgos, PDF firmado | **desde $1.500.000** | 5–10 días hábiles |
+| Uno en **Cali** | Consultoría puntual, una sesión sobre documentación compartida | **$150.000** | una sesión |
+| Uno en **Bogotá** | Prefactibilidad con estudio de mercado y proyecciones financieras —TIR, VPN, flujo de caja— | **$3 a $12 millones** | 2–4 semanas |
+
+**El hallazgo que le da tesis al artículo:** los dos primeros y el tercero no son
+el mismo producto, y el mercado los llama igual. Uno es un estudio normativo
+—qué permite la norma en su predio— y el otro es una prefactibilidad de
+promotor, con análisis financiero. **Entre uno y otro hay un factor de ocho**, y
+quien pide cotización no sabe cuál está pidiendo.
+
+Ese es el artículo: explicar qué distingue a los dos, qué entregable esperar de
+cada uno, y qué preguntar antes de aceptar una cotización.
+
+**Y una vía que no se exploró y conviene:** el **Decreto 2090 de 1989** tarifa
+los honorarios de arquitectura de forma escalonada sobre el costo de obra, y el
+artículo n.º 2 —«Cuánto cobra un arquitecto»— ya lo tiene transcrito y
+verificado. Falta comprobar si el decreto tarifa algo asimilable al estudio
+previo, o si el vacío es real. Si lo es, **el vacío es el artículo.**
+
+Fuentes: `ays-arquitectura-interiorismo.com/p/estudio-de-prefactibilidad.html` ·
+`edificiencia.com/prefactibilidades.html`. Consultadas el 6/9/2026, y hay que
+volver a mirarlas antes de publicar: son precios, y un precio sin fecha de corte
+es falso dentro de seis meses.
 
 ### Pilar 2 · Trámites y norma — autoridad natural
 

@@ -25,9 +25,21 @@
  * **Tres cosas que este archivo NO puede decidir y quedan marcadas abajo:**
  *
  * 1. **El NIT**, que no vive en el repositorio. No se inventa.
- * 2. **El período de vigencia de la base de datos**, que es una decisión del
- *    estudio y no un dato técnico. Aquí va una redacción defendible, sujeta a
- *    aprobación.
+ * 2. ~~El período de vigencia de la base de datos.~~ **Decidido el 6/9/2026:
+ *    diez años, y supresión a petición del titular.**
+ *
+ *    Gustavo pidió «el máximo admitido por la ley colombiana vigente, o hasta
+ *    que el usuario solicite su eliminación». La segunda mitad se recogió tal
+ *    cual. La primera se tradujo, porque **la Ley 1581 no fija un máximo: fija
+ *    lo contrario.** Obliga a conservar los datos solo mientras sean necesarios
+ *    para la finalidad, así que «lo máximo que permita la ley» no existe como
+ *    plazo y además contradice el principio.
+ *
+ *    Lo que sí da una cifra concreta y defendible es la obligación comercial de
+ *    conservar los libros y papeles del comerciante durante diez años. Encaja
+ *    con la intención —conservarlos lo que legítimamente se pueda— y la
+ *    sostiene ante un abogado. El artículo exacto que lo fija lo confirmará él
+ *    en la revisión (X-01).
  * 3. **Si aplica el registro ante el RNBD**, que depende del tamaño de activos
  *    de la sociedad y de la circular vigente de la Superintendencia. Es una
  *    pregunta para el contador y ya está anotada en el anexo de trámites del
@@ -252,15 +264,26 @@ export const politicaDatos: Politica = {
           tipo: 'parrafo',
           texto:
             'Conservamos sus datos mientras dure la relación con usted y, ' +
-            'después, durante el tiempo necesario para atender obligaciones ' +
-            'legales, contables y tributarias, o para defender el estudio ante ' +
-            'una reclamación. Cumplido eso, se eliminan.',
+            'después, **diez años**, que es lo que la ley comercial obliga a ' +
+            'conservar los libros y papeles del comerciante. Cumplido ese ' +
+            'plazo, se eliminan.',
         },
         {
           tipo: 'parrafo',
           texto:
-            'Si usted escribió y no llegamos a trabajar juntos, puede pedirnos ' +
-            'la supresión cuando quiera y la haremos.',
+            'Ese plazo no es un mínimo que nos guardemos por si acaso: es el ' +
+            'que ya nos obliga a conservar la contabilidad del proyecto. No ' +
+            'guardamos nada más tiempo del que haga falta, porque la Ley 1581 ' +
+            'no lo permite.',
+        },
+        {
+          tipo: 'parrafo',
+          texto:
+            '**Y en cualquier momento, si usted lo pide, los eliminamos** — ' +
+            'salvo lo que un deber legal nos obligue a conservar, y en ese ' +
+            'caso se lo decimos y le explicamos cuál es. Si usted escribió y ' +
+            'no llegamos a trabajar juntos, no hay nada que nos obligue: se ' +
+            'eliminan y ya.',
         },
       ],
     },

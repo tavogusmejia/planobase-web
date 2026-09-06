@@ -215,15 +215,26 @@ export const politicaDatosEn: Politica = {
           tipo: 'parrafo',
           texto:
             'We keep your data for as long as our relationship with you lasts ' +
-            'and, afterwards, for as long as we need to meet legal, accounting ' +
-            'and tax obligations, or to defend the studio against a claim. Once ' +
-            'that is done, they are deleted.',
+            'and, afterwards, for **ten years**, which is how long Colombian ' +
+            'commercial law requires a trader to keep its books and papers. ' +
+            'Once that period is over, they are deleted.',
         },
         {
           tipo: 'parrafo',
           texto:
-            'If you wrote to us and we never ended up working together, you can ' +
-            'ask us to delete them whenever you like and we will.',
+            'That period is not a floor we keep just in case: it is the one ' +
+            'that already obliges us to keep the project’s accounts. We do not ' +
+            'keep anything for longer than necessary, because Ley 1581 de 2012 ' +
+            'does not allow it.',
+        },
+        {
+          tipo: 'parrafo',
+          texto:
+            '**And at any time, if you ask us to, we delete them** — except for ' +
+            'whatever a legal duty requires us to keep, and in that case we ' +
+            'will tell you and explain which duty it is. If you wrote to us and ' +
+            'we never ended up working together, nothing obliges us: they are ' +
+            'deleted, and that is that.',
         },
       ],
     },

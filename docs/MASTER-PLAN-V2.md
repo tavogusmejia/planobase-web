@@ -54,6 +54,7 @@ pero todavía sin publicar.
 |---|---|---|---|
 | ~~G-01~~ | 🟢 | ~~Marcar construido / propuesta / concurso~~ — **contestada por Eduardo el 6/9**: 23 de 24. Cinco fichas estaban mal marcadas. Queda solo Teusaquillo, por datos → G-07 | **Desbloqueadas: C-08 a C-23, D-16, D-17, X-09** |
 | ~~G-07~~ | 🟢 | ~~La ficha de Teusaquillo~~ — **resuelta el 6/9 retirando el proyecto entero del sitio**, decisión de Gustavo. Ver la nota | — |
+| G-09 | 🟡 | **Configurar `FORM_TOKEN_SECRET` en Vercel** — cualquier cadena larga y aleatoria. Si ya existe `LEAD_IP_SALT`, el antispam funciona sin tocar nada | Sin ninguna de las dos, la comprobación de tiempo queda apagada y los formularios siguen funcionando |
 | G-08 | 🟡 | **Borrar del bucket las 8 imágenes de Teusaquillo.** Hay script: `pnpm media:retirar alcaldia-local-de-teusaquillo` para ver qué hay, y otra vez con `--borrar` | Necesita las claves de `.env.local`. Se niega a tocar un proyecto publicado |
 | G-02 | 🔴 | Sesión de lectura de copia con Eduardo — `/agendar` entera está sin aprobar | La pauta |
 | ~~G-03~~ | 🟢 | ~~Publicar el lote de la rama~~ — hecho el 6/9: 22 commits a `main`, más la migración aplicada en Supabase |
@@ -92,23 +93,23 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 | ~~D-01~~ | 🟢 | ~~Entrega A: calendario de reservas~~ — **publicado el 6/9 y funcionando**: la API devuelve 120 franjas, ninguna en fin de semana | El enlace de Meet se rellena solo cuando llegue X-02 |
 | D-21 | ⬜ | **Decidir cómo se agenda de verdad** — aplazado el 6/9, ver el marcador de abajo | Ya no bloquea nada: D-01 salió. Decide si se queda |
 | D-22 | ⬜ | Poder cancelar o mover una reserva desde el correo | Solo si se sigue con el calendario propio |
-| D-23 | 🟡 | **Guarda de enlaces de fuentes**: comprobar que las URL citadas siguen resolviendo | Salió de encontrar cuatro muertas — ver R-12 |
+| ~~D-23~~ | 🟢 | ~~Guarda de enlaces de fuentes~~ — `pnpm check:enlaces`. **No va en el build a propósito**: llama a 180 servidores y un gestor normativo lento no puede impedir un despliegue | 177 de 181 responden. Probada inyectando una URL muerta |
 | D-02 | ⬜ | Monitoreo de errores y uptime | Necesita X-10 |
-| D-03 | ⬜ | UTMs que sobrevivan la navegación | Hoy solo funcionan si el anuncio apunta directo a `/contacto` |
+| ~~D-03~~ | 🟢 | ~~UTMs que sobrevivan la navegación~~ — ventana de 30 días, la misma de Meta y Google Ads | Un rechazo explícito de consentimiento borra lo guardado |
 | D-04 | ⬜ | Meta CAPI con deduplicación | Hoy se pierde entre el 30 y el 50 % de las señales |
-| D-05 | ⬜ | `/agendar` con reconocimientos y obra | Hoy no pinta nada del portafolio |
-| D-06 | ⬜ | `BreadcrumbList` en proyectos y servicios | Solo existe en dos rutas del blog. `FAQPage` no existe |
-| D-07 | ⬜ | Métricas de rendimiento (Web Vitals) | Hoy no se mide nada del rendimiento real |
+| D-05 | 🟡 | `/agendar` con reconocimientos y obra | Hoy no pinta nada del portafolio |
+| ~~D-06~~ | 🟢 | ~~`BreadcrumbList` en proyectos y servicios~~ — cuatro rutas, con `item` absoluto | **`FAQPage` no se implementó y esa es la entrega**: ninguna página lo merece. Ver la nota |
+| ~~D-07~~ | 🟢 | ~~Métricas de rendimiento (Web Vitals)~~ — ruta propia, sin contratar nada | Un solo `sendBeacon` al ocultarse la pestaña. No registra IP ni agente |
 | D-08 | ⬜ | Panel de leads | Hoy la única forma de ver un lead es entrar a Supabase |
-| D-09 | ⬜ | Antispam: tiempo mínimo de llenado | Hay honeypot y límite por IP; nada más |
+| ~~D-09~~ | 🟢 | ~~Antispam: tiempo mínimo de llenado~~ — 4 s, con el instante firmado por el servidor | **Un bot paciente pasa**, y está declarado. Ver G-09 |
 | D-10 | ⬜ | Corte de dominio: DNS, variables, 301 desde Wix, Search Console | Comprobar antes si algún subdominio va por http — ver la nota de HSTS |
 | D-11 | ⬜ | Respaldo de leads más allá de Supabase y correo | Si los dos fallan, el lead se pierde |
 | D-12 | ⬜ | Integración continua y tests | — |
 | D-13 | ⬜ | `/proyectos` estático | — |
-| D-14 | ⬜ | Fechas reales en el sitemap | — |
+| ~~D-14~~ | 🟢 | ~~Fechas reales en el sitemap~~ — 39 de 45 filas emitían la hora del build | 146 fechas honestas; 86 URLs sin fecha a propósito |
 | D-15 | ⬜ | Teclado en el menú móvil | — |
 | D-16 | 🟡 | Páginas por ciudad: `/donde-trabajamos/bogota` y `/cali` — **desbloqueada el 6/9** |
-| D-17 | 🟡 | Página de credenciales institucionales — **desbloqueada el 6/9**, y es la que más rinde: convierte al comprador público |
+| ~~D-17~~ | 🟢 | ~~Página de credenciales institucionales~~ — **`/experiencia`**, los 22 publicados en tabla con filtro que recalcula los totales |
 | D-18 | 🔒 | Entrega B: pagos con Wompi | *(espera X-07)* |
 | D-19 | ⬜ | Proyectar datos al cliente | — |
 | ~~D-20~~ | 🟢 | ~~Aligerar `/contacto`~~ | **Descartada.** Medido: 10,2 kB de 174. No lo vale |
@@ -307,6 +308,39 @@ borrar el archivo del bucket no lo es, y el orden correcto es siempre
 despublicar, comprobar el 404 y borrar después. El original en
 `assets-originales/` no se toca, así que restituir un proyecto es
 `pnpm media && pnpm media:upload`.
+
+---
+
+## Lo que se decidió al hacer las tareas D
+
+**`FAQPage` no se implementó, y es una entrega y no una omisión.** No hay ninguna
+página del sitio que lo merezca. El falso positivo tentador es `/servicios`, que
+pinta siete pares pregunta-respuesta visibles — pero sus «preguntas» son
+declaraciones en la voz del cliente: «Tengo un lote y quiero construir», «Se está
+fisurando». Marcar un catálogo de servicios como FAQ es el abuso que Google
+penaliza. Y desde agosto de 2023 solo muestra ese resultado enriquecido a sitios
+de gobierno y salud, así que forzarlo sería asumir el riesgo sin el premio.
+
+**Un caso que queda a decisión de Gustavo:** `diez-preguntas-antes-de-firmar-con-un-constructor`
+sí tiene diez preguntas con texto debajo. No se marcó porque son preguntas para
+hacerle **al constructor**: la página enseña a evaluar la respuesta de un
+tercero, no la responde. Decirle a Google que la responde sería falso.
+
+**El sitemap pasa de 232 fechas a 146.** Las 86 restantes no llevan `lastModified`
+porque no hay forma honesta de fecharlas: `content/projects.ts` lo regenera `pnpm
+media` sin marca de tiempo, y verticales, puertas y copia de página son texto sin
+campo de revisión. Para que la lleven hace falta un `actualizado` por entidad en
+`content/`, que es otra tarea.
+
+**El antispam declara lo que no hace.** Un bot que pida el sello y espere cinco
+segundos pasa. No distingue a una persona de un programa: distingue a quien
+esperó de quien no, y sube el costo del ataque. Está escrito así en el código
+para que nadie lo lea como una defensa que no es.
+
+**Y una línea que le falta a la política de datos:** nombrar la procedencia de
+campaña en «Qué datos recogemos». El sitio ya guardaba `utm_source` desde la
+primera migración —esto no añade un dato nuevo, solo lo hace durar 30 días— pero
+si se va a nombrar la huella de la IP, conviene nombrar también esto.
 
 ---
 

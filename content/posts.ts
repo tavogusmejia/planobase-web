@@ -60,6 +60,7 @@ import { post as aguasResiduales } from './blog/aguas-residuales-sin-alcantarill
 import { post as ampliarSegundoPiso } from './blog/ampliar-un-segundo-piso'
 import { post as cubiertas } from './blog/cubiertas-barro-termoacustica-verde-o-placa'
 import { post as casaDeDescanso } from './blog/casa-de-descanso-o-renta-corta'
+import { post as estudioDeViabilidad } from './blog/cuanto-cuesta-un-estudio-de-viabilidad'
 
 /**
  * El índice del blog.
@@ -104,6 +105,7 @@ const registro: Post[] = [
   ampliarSegundoPiso,
   cubiertas,
   casaDeDescanso,
+  estudioDeViabilidad,
   bienvenidosAPlanoBase,
   fisurasEnMuros,
   licenciaJamundi,

@@ -33,10 +33,9 @@ trabajo:
 | ⏳ | Hecha, **sin publicar** — vive en `blog/seccion-y-articulos` |
 | ✅ | Hecha y desplegada en `www.planobase.co` |
 
-> **⏳ no se ve en el sitio.** Todo lo de las sesiones del 5 y 6 de septiembre
-> está en la rama sin publicar: la política de datos y su enlace en el pie, el
-> banner de consentimiento, los correos, las cabeceras de seguridad y once
-> artículos. Para verlo: `git pull && pnpm dev`. Para publicarlo, pedirlo.
+> **Publicado el 6/9/2026.** Todo lo de las sesiones del 5 y el 6 salió a
+> producción en `main` — 22 commits— y la migración de Supabase se aplicó. Ahora
+> mismo no hay nada esperando publicación.
 
 ---
 
@@ -46,7 +45,7 @@ trabajo:
 |---|---|---|---|
 | G-01 | 🔴 | Marcar construido / propuesta / concurso en los 23 → `docs/PROYECTOS-CONSTRUIDO.md` | C-08 a C-23, D-16, D-17, X-09 |
 | G-02 | 🔴 | Sesión de lectura de copia con Eduardo — `/agendar` entera está sin aprobar | La pauta |
-| G-03 | 🟡 | Decidir si se publica el lote que está en la rama | Que se vea todo lo ⏳ |
+| ~~G-03~~ | ✅ | ~~Publicar el lote de la rama~~ — hecho el 6/9: 22 commits a `main`, más la migración aplicada en Supabase |
 | G-04 | 🟡 | Dar el NIT y decidir cuánto tiempo se conservan los datos | X-01 |
 | G-05 | ⬜ | Confirmar los precios de los peldaños 2 y 3 de la escalera | D-05 |
 | G-06 | ⬜ | Buscar los términos de referencia de los 4 concursos *(o encargarlo)* | X-03 |
@@ -168,26 +167,29 @@ Salieron de errores que ya se cometieron. Cada una costó trabajo.
 | R-07 | **El sitio va en usted.** En la conversación se tutea a Gustavo; son cosas distintas |
 | R-08 | **No hay push ni merge a `main` por iniciativa propia.** El trabajo se acumula en la rama |
 | R-09 | **Toda cifra lleva su fecha de corte.** Una cifra sin fecha es falsa dentro de seis meses |
+| R-10 | **Una migración de Supabase no se aplica sola.** No hay CI que las corra: al publicar algo que toque la base, hay que pegar el SQL en el editor de Supabase a mano. El código debe degradar si la columna todavía no existe |
+| R-11 | **Al terminar una tarea se actualiza este tablero**, y si al hacerla aparece otra, se añade. Un tablero desactualizado miente, y sobre él se toman decisiones |
 
 ---
 
-## Lo que está esperando publicación
+## Publicado el 6 de septiembre
 
-Hecho, verificado, sin publicar. Es G-03.
+Esto salió a producción con G-03. Se deja la lista porque es lo que hay que
+mirar si algo se comporta raro en el sitio.
 
 | | Qué |
 |---|---|
-| ⏳ | Política de datos bilingüe, autorización expresa con su prueba, y su enlace en el pie |
-| ⏳ | Banner de consentimiento: ninguna etiqueta se carga sin un sí explícito |
-| ⏳ | GA4 y la etiqueta de conversión de Ads, montadas detrás de ese consentimiento |
-| ⏳ | Las dos plantillas de correo: acuse de recibo y confirmación de reserva con `.ics` |
-| ⏳ | Cuando el envío falla, hay a dónde llamar: WhatsApp, teléfono y correo |
-| ⏳ | Cabeceras de seguridad: CSP, HSTS, anti-enmarcado y el resto |
-| ⏳ | Accesibilidad del formulario: cada campo con su ayuda y su error anunciados |
-| ⏳ | El artículo del sismo, y los diez del pilar de piscinas |
-| ⏳ | El artículo de la Ley 1209, actualizado contra la normativa de 2026 |
-| ⏳ | Los tres nodos del JSON-LD: zona de servicio nacional, una sola entidad |
-| ⏳ | Registro «usted» en la interfaz, y siete fugas del bilingüe corregidas |
+| ✅ | Política de datos bilingüe, autorización expresa con su prueba, y su enlace en el pie |
+| ✅ | Banner de consentimiento: ninguna etiqueta se carga sin un sí explícito |
+| ✅ | GA4 y la etiqueta de conversión de Ads, montadas detrás de ese consentimiento |
+| ✅ | Las dos plantillas de correo: acuse de recibo y confirmación de reserva con `.ics` |
+| ✅ | Cuando el envío falla, hay a dónde llamar: WhatsApp, teléfono y correo |
+| ✅ | Cabeceras de seguridad: CSP, HSTS, anti-enmarcado y el resto |
+| ✅ | Accesibilidad del formulario: cada campo con su ayuda y su error anunciados |
+| ✅ | El artículo del sismo, y los diez del pilar de piscinas |
+| ✅ | El artículo de la Ley 1209, actualizado contra la normativa de 2026 |
+| ✅ | Los tres nodos del JSON-LD: zona de servicio nacional, una sola entidad |
+| ✅ | Registro «usted» en la interfaz, y siete fugas del bilingüe corregidas |
 
 ---
 
@@ -209,8 +211,8 @@ Para no volver a abrirlos por olvido. El detalle está en el archivo, §15.
 
 | Código | | Qué |
 |---|---|---|
-| H-03 | ⏳ | ~~«Cuatro reconocimientos en concurso público nacional»~~ — **cerrado el 6/9**: Gustavo confirma que los cuatro son nacionales. La afirmación del sitio se mantiene y la confirmación queda registrada en `content/site.ts` |
-| H-06 | ⏳ | ~~«Cuatro» y «cinco» conviven sin explicarse~~ — **cerrado el 6/9**: el titular de `/estudio` ahora dice «cinco: cuatro públicos nacionales y uno privado» |
+| H-03 | ✅ | ~~«Cuatro reconocimientos en concurso público nacional»~~ — **cerrado el 6/9**: Gustavo confirma que los cuatro son nacionales. La afirmación del sitio se mantiene y la confirmación queda registrada en `content/site.ts` |
+| H-06 | ✅ | ~~«Cuatro» y «cinco» conviven sin explicarse~~ — **cerrado el 6/9**: el titular de `/estudio` ahora dice «cinco: cuatro públicos nacionales y uno privado» |
 
 **X-03 deja de bloquear y sigue valiendo la pena.** Los términos de referencia ya
 no hacen falta para sostener la afirmación, pero el nombre oficial de cada

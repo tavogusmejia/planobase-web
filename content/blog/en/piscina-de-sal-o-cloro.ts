@@ -3,13 +3,19 @@ import type { TraduccionPost } from '@/lib/types'
 /**
  * Traducción de «Sal o cloro: el mito del agua salada».
  *
- * La tabla de frecuencias de análisis **se copia palabra por palabra** de la
- * traducción de `ley-1209-piscinas-copropiedad`: «Free residual chlorine»,
- * «Combined chlorine (chloramines)», «Oxidation-reduction potential», «pH and
- * temperature», «Alkalinity, hardness, cyanuric acid», «Coliforms». Es el
- * mismo dato de la misma resolución y traducirlo dos veces con dos
- * vocabularios distintos sería exactamente el error que el contrato de
- * traducción está para impedir.
+ * La tabla de frecuencias **se rehízo entera** sobre la Resolución 234 de
+ * 2026, que ocupa el campo de la Resolución 1618 de 2010: la analítica
+ * microbiológica pasa de mensual a **trimestral**, *Cryptosporidium* y
+ * *Giardia* dejan de ser anuales para volverse un análisis por evento de
+ * contaminación fecal, y entra *Legionella*. Ya no coincide con la tabla de
+ * `en/ley-1209-piscinas-copropiedad`, que sigue siendo la de la 1618; lo que sí
+ * se conserva de allí es el vocabulario —«Free residual chlorine»,
+ * «Oxidation-reduction potential», «Langelier index»— para que los dos
+ * artículos nombren igual lo que sí sigue siendo lo mismo.
+ *
+ * `superada por` → **superseded in substance by**, nunca «repealed by»: no hay
+ * cláusula derogatoria, y afirmar una derogación sería afirmar algo que la
+ * norma no hizo.
  *
  * Vocabulario que fija esta pieza: `celda` → **cell**, `electrolizador` →
  * **salt chlorinator**, `ácido hipocloroso` → **hypochlorous acid**,
@@ -20,9 +26,10 @@ import type { TraduccionPost } from '@/lib/types'
  * **reinforcement**, `libro de registro` → **log book** (ya fijado).
  *
  * `mg/L` se conserva. Los separadores cambian: «3.000 a 4.000 mg/L» es «3,000
- * to 4,000 mg/L», «35.000 mg/L» es «35,000 mg/L», «0,3 mg/L» es «0.3 mg/L»,
- * «7,0 y 8,0» es «7.0 and 8.0». INVIMA, ONAC, Ley 1209 y Resolución 1618 de
- * 2010 no se traducen.
+ * to 4,000 mg/L», «35.000 mg/L» es «35,000 mg/L», «200 UFC/100 mL» es «200
+ * CFU/100 mL» y «1.000 cm³» es «1,000 cm³». Ley 1209, Resolución 234 de 2026 y
+ * Resolución 929 de 2026 no se traducen; INVIMA y ONAC tampoco, y aparecen una
+ * sola vez, en la declaración de lo que **no** encontré en la norma nueva.
  */
 export const traduccion: TraduccionPost = {
   slug: 'piscina-de-sal-o-cloro',
@@ -58,11 +65,12 @@ export const traduccion: TraduccionPost = {
       tipo: 'nota',
       texto:
         'And the proof of this is not chemical, it is regulatory. The rule ' +
-        'setting pool water quality in Colombia requires between **1 and 3 ' +
-        'mg/L of free residual chlorine**, and it carries **no exception ' +
-        'whatever for salt water**. In other words: if your salt pool meets ' +
-        'the rule, there is chlorine in the water. And if there is not, it ' +
-        'does not meet the rule. There is no third possibility.',
+        'setting pool water quality in Colombia requires dosing to ensure the ' +
+        '**continuous and permanent presence of the disinfectant**, and it ' +
+        'measures **free residual chlorine** in every type of pool, with **no ' +
+        'exception whatever for salt water**. In other words: if your salt ' +
+        'pool meets the rule, there is chlorine in the water. And if there is ' +
+        'not, it does not meet the rule. There is no third possibility.',
     },
 
     { tipo: 'titulo', texto: 'What the cell actually does' },
@@ -122,19 +130,23 @@ export const traduccion: TraduccionPost = {
         '**Continuous dosing instead of spikes.** Chlorine goes in a little at a time, rather than in a slug every two or three days. A steady level irritates less than one that rises and falls, and much of what people call "chlorine allergy" is in fact a reaction to the chloramines that appear when the level drops.',
         '**Less handling of product.** Nobody carries or stores tubs of hypochlorite, which is a real domestic hazard and a source of accidents.',
         '**The feel of the water.** It is subjective and it is true: at 3,000 mg/L water feels different, and plenty of people prefer it.',
-        '**It satisfies, out of the box, the requirement for automatic dosing.** This is the strong argument and hardly anybody uses it.',
+        '**It satisfies, out of the box, what the rule asks of a dosing system.** This is the strong argument and hardly anybody uses it.',
       ],
     },
     {
       tipo: 'nota',
       texto:
-        'The last one is worth dwelling on. Article 18 of Resolución 1510 de ' +
-        '2011 requires treatment products to be added **through automatic ' +
-        'dosing systems**, and allows manual addition only outside opening ' +
-        'hours. A salt chlorinator is precisely an automatic dosing system. In ' +
-        'a community of owners currently dosing by hand and by eye, that is a ' +
-        'compliance argument — not a convenience one — and it carries far more ' +
-        'weight at a general meeting than any brochure promise.',
+        'The last one is worth dwelling on. Article 5 of Resolución 234 de ' +
+        '2026 asks four things of a dosing system: that it be ' +
+        '**independent**, that it be **proportional to the recirculation ' +
+        'flow**, that it carry an **interlock preventing operation when there ' +
+        'is no return flow**, and that it ensure the **continuous and ' +
+        'permanent** presence of the disinfectant. A salt chlorinator meets ' +
+        'all four by construction. Manual addition is not banned, but it is ' +
+        'banned **while the public has access to the pool**. In a community of ' +
+        'owners currently dosing by hand and by eye, that is a compliance ' +
+        'argument — not a convenience one — and it carries far more weight at ' +
+        'a general meeting than any brochure promise.',
     },
 
     { tipo: 'titulo', texto: 'What it genuinely costs' },
@@ -199,29 +211,48 @@ export const traduccion: TraduccionPost = {
     },
     {
       tipo: 'tabla',
-      cabeceras: ['What is measured', 'How often', 'Acceptable value'],
+      cabeceras: ['What is measured', 'How often', 'By whom, and where'],
       filas: [
-        ['Free residual chlorine', 'Daily', '1 to 3 mg/L'],
-        ['Combined chlorine (chloramines)', 'Daily', 'less than 0.3 mg/L'],
-        ['Oxidation-reduction potential', 'Daily', '700 mV minimum'],
-        ['pH and temperature', 'Weekly', 'pH between 7.0 and 8.0'],
-        ['Alkalinity, hardness, cyanuric acid', 'Weekly', 'Alkalinity up to 140; cyanuric acid less than 100'],
-        ['Coliforms, *E. coli*, *P. aeruginosa*', 'Monthly', '**0** per 100 cm³'],
+        ['Free residual chlorine, pH, temperature', '**Daily**, at least at the start of the day and at peak occupancy', 'The operator, on site'],
+        ['Floating organic matter and sediment', 'Daily', 'The operator, by eye: it must be absent'],
+        ['Turbidity, oxidation-reduction potential, dissolved solids, conductivity', '**Quarterly**, at peak occupancy', 'Laboratory'],
+        ['Heterotrophs, thermotolerant coliforms, *E. coli*', '**Quarterly**, at peak occupancy', 'Laboratory: heterotrophs under 200 CFU/100 mL; the other two, **0**'],
+        ['*Legionella*', 'Quarterly and at the start of the day', 'Only in heated or aerosolising pools and in similar structures'],
+        ['*Cryptosporidium* and *Giardia lamblia*', '**On faecal contamination, during the event**', 'Laboratory: **0** oocysts or cysts per 1,000 cm³'],
       ],
       nota:
-        'Resolución 1618 de 2010. The full table, with the Langelier index and ' +
-        'the annual analyses, is in [what Ley 1209 really ' +
+        'Resolución 234 de 2026, technical annex I. In peak season — school ' +
+        'holidays, December and January, public festivities — **the quarterly ' +
+        'frequency becomes monthly**. The Langelier index is still compulsory ' +
+        'and calculated the same way: it is explained in [what Ley 1209 really ' +
         'requires](/blog/ley-1209-piscinas-copropiedad).',
     },
     {
       tipo: 'nota',
       texto:
-        'And three duties salt does not lift either: analyses go to a ' +
-        '**laboratory authorised or accredited by ONAC**, chemical products ' +
-        'must hold **INVIMA sanitary registration**, and the **log book** with ' +
-        'the daily and weekly measurements has to be up to date and available. ' +
-        'An automatic system fills the water with chlorine; it does not fill ' +
-        'in the book.',
+        'And three duties salt does not lift either: the laboratory running ' +
+        'the analyses must **demonstrate validation or verification of its ' +
+        'methods**; chemical products require a **technical data sheet and a ' +
+        'safety data sheet**, labelled to the globally harmonised system; and ' +
+        'the **log book or computerised register** has to be up to date and ' +
+        'available whenever the health authority asks for it. An automatic ' +
+        'system fills the water with chlorine; it does not fill in the book.',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'Two things have to be declared, because keeping quiet about them ' +
+        'would feign more certainty than I have. First: **the numeric columns ' +
+        'of the physico-chemical table in the annex come out of the official ' +
+        'PDF with a degraded text layer** and I am not transcribing them; the ' +
+        'frequencies do read cleanly and are the ones above. For the exact pH ' +
+        'and chlorine values that apply to your case, go to the annex. ' +
+        'Second: the previous rule required an ONAC-accredited laboratory and ' +
+        'INVIMA sanitary registration for chemicals. **I searched for both ' +
+        'requirements in the new resolution and they do not appear**, not ' +
+        'once. What does appear is validation of methods and the product ' +
+        'safety data sheet. I say it with due caution: their absence from this ' +
+        'resolution does not mean they are absent from another.',
     },
 
     { tipo: 'titulo', texto: 'The three lines you will hear' },

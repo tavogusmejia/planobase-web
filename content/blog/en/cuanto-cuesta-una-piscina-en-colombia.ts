@@ -28,7 +28,12 @@ import type { TraduccionPost } from '@/lib/types'
  * Separadores, que es donde se cuela el error: «3.231,15» es «3,231.15»,
  * «$373.608» es «$373,608», «1,40 m» es «1.40 m», «0,75 kW» es «0.75 kW» y
  * «2 %» es «2%». Los nombres de las normas y de las empresas no se traducen:
- * Ley 1209, Resolución 1510 de 2011, RETIE, DANE, Camacol, EPM, Enel.
+ * Ley 1209, Resolución 929 de 2026, RETIE, DANE, Camacol, EPM, Enel.
+ *
+ * La base normativa de la sección de bombeo se rehízo sobre la Resolución 929
+ * de 2026, que **supera materialmente** —no deroga: no hay cláusula
+ * derogatoria— a la Resolución 1510 de 2011. En inglés se dice «superseded in
+ * substance by», nunca «repealed by», que afirmaría algo que la norma no hizo.
  */
 export const traduccion: TraduccionPost = {
   slug: 'cuanto-cuesta-una-piscina-en-colombia',
@@ -242,9 +247,9 @@ export const traduccion: TraduccionPost = {
       tipo: 'parrafo',
       texto:
         'The sensible move is to take as a reference what is a rule for the ' +
-        'pool next door: a restricted-use pool must achieve a full turnover ' +
-        'every **4 to 6 hours**, two to four times a day, with **8 to 24 hours ' +
-        'of daily circulation**. Eight hours a day is the floor of that band, ' +
+        'pool next door: for a restricted-use pool, Resolución 929 de 2026 ' +
+        'requires a full turnover every **4 to 6 hours**, two to four times a ' +
+        'day, with **8 to 24 hours of daily circulation**. Eight hours a day is the floor of that band, ' +
         'and it is the assumption used here. With a 1 HP pump — 0.75 kW — that ' +
         'comes to 6 kWh a day and **180 kWh a month**. At August 2026 tariffs, ' +
         'that is this:',

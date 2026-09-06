@@ -150,14 +150,17 @@ export const post: Post = {
     {
       tipo: 'nota',
       texto:
-        'Vale la pena detenerse en el último. El artículo 18 de la Resolución ' +
-        '1510 de 2011 exige que los productos de tratamiento se añadan ' +
-        '**mediante sistemas de dosificación automática**, y solo permite la ' +
-        'adición manual fuera del horario de público. Un electrolizador es ' +
-        'exactamente un sistema de dosificación automática. En una copropiedad ' +
-        'que hoy dosifica a mano y a ojo, ese es un argumento de cumplimiento ' +
-        '—no de comodidad— y pesa mucho más en una asamblea que cualquier ' +
-        'promesa de folleto.',
+        'Vale la pena detenerse en el último. El artículo 5 de la Resolución ' +
+        '234 de 2026 le pide al sistema de dosificación cuatro cosas: que sea ' +
+        '**independiente**, que sea **proporcional al caudal de ' +
+        'recirculación**, que tenga un **enclavamiento que impida operar en ' +
+        'ausencia de retorno del flujo**, y que asegure **de manera continua y ' +
+        'permanente** la presencia del desinfectante. Un electrolizador ' +
+        'satisface las cuatro por construcción. La adición manual no está ' +
+        'prohibida, pero sí lo está **mientras el público tenga acceso a la ' +
+        'piscina**. En una copropiedad que hoy dosifica a mano y a ojo, eso es ' +
+        'un argumento de cumplimiento —no de comodidad— y pesa mucho más en ' +
+        'una asamblea que cualquier promesa de folleto.',
     },
 
     { tipo: 'titulo', nivel: 2, texto: 'Lo que sí cuesta' },
@@ -222,29 +225,48 @@ export const post: Post = {
     },
     {
       tipo: 'tabla',
-      cabeceras: ['Qué se mide', 'Cada cuánto', 'Valor aceptable'],
+      cabeceras: ['Qué se mide', 'Cada cuánto', 'Quién y dónde'],
       filas: [
-        ['Cloro residual libre', 'Diario', '1 a 3 mg/L'],
-        ['Cloro combinado (cloraminas)', 'Diario', 'menos de 0,3 mg/L'],
-        ['Potencial de oxidación-reducción', 'Diario', 'mínimo 700 mV'],
-        ['pH y temperatura', 'Semanal', 'pH entre 7,0 y 8,0'],
-        ['Alcalinidad, dureza, ácido cianúrico', 'Semanal', 'Alcalinidad hasta 140; cianúrico menos de 100'],
-        ['Coliformes, *E. coli*, *P. aeruginosa*', 'Mensual', '**0** en 100 cm³'],
+        ['Cloro residual libre, pH, temperatura', '**Diario**, mínimo al inicio de la jornada y en horas de máxima ocupación', 'El responsable, in situ'],
+        ['Materias orgánicas flotantes y sedimentos', 'Diario', 'El responsable, a la vista: deben estar ausentes'],
+        ['Turbidez, potencial de oxidación-reducción, sólidos disueltos, conductividad', '**Trimestral**, en horas de máxima ocupación', 'Con laboratorio'],
+        ['Heterótrofos, coliformes termotolerantes, *E. coli*', '**Trimestral**, en horas de máxima ocupación', 'Con laboratorio: heterótrofos menos de 200 UFC/100 mL; los otros dos, **0**'],
+        ['*Legionella*', 'Trimestral y al inicio de la jornada', 'Solo en piscinas climatizadas o aerosolizadas y en estructuras similares'],
+        ['*Cryptosporidium* y *Giardia lamblia*', '**En caso de contaminación fecal, durante el evento**', 'Con laboratorio: **0** ooquistes o quistes por 1.000 cm³'],
       ],
       nota:
-        'Resolución 1618 de 2010. La tabla completa, con el índice de Langelier ' +
-        'y los análisis anuales, está en ' +
+        'Resolución 234 de 2026, anexo técnico I. En temporada alta —vacaciones ' +
+        'escolares, diciembre y enero, festividades— **la frecuencia trimestral ' +
+        'pasa a mensual**. El índice de Langelier sigue siendo obligatorio y se ' +
+        'calcula igual: está explicado en ' +
         '[qué obliga de verdad la Ley 1209](/blog/ley-1209-piscinas-copropiedad).',
     },
     {
       tipo: 'nota',
       texto:
-        'Y tres obligaciones que la sal tampoco levanta: los análisis van a ' +
-        '**laboratorio autorizado o acreditado ante el ONAC**, los productos ' +
-        'químicos deben tener **registro sanitario del INVIMA**, y el **libro ' +
-        'de registro** con las mediciones diarias y semanales tiene que estar ' +
-        'al día y disponible. Un sistema automático llena el agua de cloro; no ' +
-        'llena el libro.',
+        'Y tres obligaciones que la sal tampoco levanta: el laboratorio que ' +
+        'haga los análisis debe **demostrar la validación o verificación de sus ' +
+        'metodologías**; los productos químicos exigen **ficha técnica y hoja ' +
+        'de seguridad**, con el etiquetado del sistema globalmente armonizado; ' +
+        'y el **libro o registro sistematizado** tiene que estar al día y ' +
+        'disponible cuando la autoridad sanitaria lo pida. Un sistema ' +
+        'automático llena el agua de cloro; no llena el libro.',
+    },
+    {
+      tipo: 'nota',
+      texto:
+        'Dos cosas hay que declararlas, porque callarlas sería fingir más ' +
+        'certeza de la que tengo. La primera: **las columnas numéricas de la ' +
+        'tabla físico-química del anexo salen del PDF oficial con la capa de ' +
+        'texto degradada** y no las transcribo; las frecuencias sí se leen ' +
+        'limpias y son las de arriba. Para los valores exactos de pH y de cloro ' +
+        'aplicables a su caso, vaya al anexo. La segunda: la norma anterior ' +
+        'exigía laboratorio acreditado ante el ONAC y registro sanitario del ' +
+        'INVIMA para los químicos. **Busqué las dos exigencias en la resolución ' +
+        'nueva y no aparecen**, ni una sola vez. Lo que sí aparece es la ' +
+        'validación de metodologías y la ficha de seguridad del producto. Lo ' +
+        'digo con la cautela debida: que no estén en esta resolución no ' +
+        'significa que no existan en otra.',
     },
 
     { tipo: 'titulo', nivel: 2, texto: 'Las tres frases que va a oír' },
@@ -281,16 +303,18 @@ export const post: Post = {
   ],
   fuentes: [
     {
-      titulo: 'Resolución 1618 de 2010: calidad del agua de piscinas',
-      editor: 'Ministerio de la Protección Social',
-      url: 'https://www.minsalud.gov.co/Normatividad_Nuevo/RESOLUCI%C3%93N%201618%20DE%202010.pdf',
-      fecha: '2010-05-07',
+      titulo:
+        'Resolución 234 de 2026, criterios de calidad del agua contenida en estanques de piscinas y estructuras similares y buenas prácticas sanitarias',
+      editor: 'Ministerio de Salud y Protección Social',
+      url: 'https://camacol.co/sites/default/files/descargables/RESOLUCION%20MINSALUD%20NACIONAL%20234%20DE%20FEBRERO%20DE%202026.pdf',
+      fecha: '2026-02-10',
     },
     {
-      titulo: 'Resolución 1510 de 2011: criterios técnicos y de seguridad para piscinas',
-      editor: 'Ministerio de la Protección Social',
-      url: 'https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=42808',
-      fecha: '2011-05-06',
+      titulo:
+        'Resolución 929 de 2026, criterios técnicos constructivos y de seguridad para piscinas y estructuras similares',
+      editor: 'Ministerio de Salud y Protección Social',
+      url: 'https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/resolucion-0929-de-2026.pdf',
+      fecha: '2026-05-12',
     },
     {
       titulo: 'Ley 1209 de 2008, por la cual se establecen normas de seguridad en piscinas',

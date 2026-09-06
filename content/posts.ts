@@ -43,6 +43,16 @@ import { post as casaBioclimatica } from './blog/casa-bioclimatica-por-piso-term
 import { post as mamposteriaOPrefabricado } from './blog/mamposteria-o-prefabricado-que-conviene'
 import { post as loteConPendiente } from './blog/construir-en-lote-con-pendiente'
 import { post as edificioEnAmarillo } from './blog/mi-edificio-quedo-en-amarillo'
+import { post as costoPiscina } from './blog/cuanto-cuesta-una-piscina-en-colombia'
+import { post as piscinaConcretoOFibra } from './blog/piscina-concreto-fibra-de-vidrio-o-prefabricada'
+import { post as bordeInfinito } from './blog/piscina-de-borde-infinito'
+import { post as cuartoDeMaquinas } from './blog/cuarto-de-maquinas-de-una-piscina'
+import { post as calentarLaPiscina } from './blog/calentar-la-piscina-solar-bomba-de-calor-o-gas'
+import { post as salOCloro } from './blog/piscina-de-sal-o-cloro'
+import { post as piscinaEnTerraza } from './blog/piscina-en-terraza'
+import { post as jacuzziDeObraOPortatil } from './blog/jacuzzi-de-obra-o-portatil'
+import { post as piscinaYJacuzziJuntos } from './blog/piscina-y-jacuzzi-juntos'
+import { post as mantenimientoDePiscina } from './blog/mantenimiento-de-piscina-costo-mensual'
 
 /**
  * El índice del blog.
@@ -62,6 +72,20 @@ const registro: Post[] = [
      posterior al sismo siga en curso es además el que más tráfico
      recibe, y el orden del índice lo refleja solo. */
   edificioEnAmarillo,
+  /* El pilar de piscinas, de una vez. Se escribieron en dos tandas en
+     paralelo y se registran juntos a propósito: comparten cifras que salen
+     del mismo numeral de la Resolución 929 de 2026, y registrar la mitad
+     habría dejado el pilar citando dos normas distintas durante un rato. */
+  costoPiscina,
+  piscinaConcretoOFibra,
+  bordeInfinito,
+  cuartoDeMaquinas,
+  calentarLaPiscina,
+  salOCloro,
+  piscinaEnTerraza,
+  jacuzziDeObraOPortatil,
+  piscinaYJacuzziJuntos,
+  mantenimientoDePiscina,
   bienvenidosAPlanoBase,
   fisurasEnMuros,
   licenciaJamundi,

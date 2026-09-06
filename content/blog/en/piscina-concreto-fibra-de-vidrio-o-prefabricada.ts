@@ -22,8 +22,16 @@ import type { TraduccionPost } from '@/lib/types'
  *
  * Separadores: «0,90 m» → «0.90 m», «2,60 m» → «2.60 m», «3,00 m» → «3.00 m»,
  * «1,40 m» → «1.40 m». Los nombres de las normas no se traducen: Resolución
- * 4959 de 2006, Resolución 1510 de 2011, Ley 1209, Ley 400 de 1997, Ley 1480
+ * 4959 de 2006, Resolución 929 de 2026, Ley 1209, Ley 400 de 1997, Ley 1480
  * de 2011.
+ *
+ * La lista de exigencias comunes se rehízo sobre la Resolución 929 de 2026:
+ * desnatador cada **46.5 m²** (no 50), velocidad **2.4 m/s** en presión y
+ * **1.8 m/s** en succión (no «below 3 m/s»), diámetro máximo **eight inches**
+ * (no six), y período de recirculación de **4 to 6 hours**. Solo los 0.90 m
+ * entre desagües se mantuvieron. El término de la norma es
+ * «antientrampamiento»; el cuerpo conserva el del corpus, anti-entrapment
+ * cover, y cita la forma de la norma cuando la está citando.
  */
 export const traduccion: TraduccionPost = {
   slug: 'piscina-concreto-fibra-de-vidrio-o-prefabricada',

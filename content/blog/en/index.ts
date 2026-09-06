@@ -67,6 +67,16 @@ import type { TraduccionPost } from '@/lib/types'
  * decisión que tomó el agente y que aquí queda fijada.
  */
 import { traduccion as edificioEnAmarillo } from './mi-edificio-quedo-en-amarillo'
+import { traduccion as costoPiscina } from './cuanto-cuesta-una-piscina-en-colombia'
+import { traduccion as piscinaConcretoOFibra } from './piscina-concreto-fibra-de-vidrio-o-prefabricada'
+import { traduccion as bordeInfinito } from './piscina-de-borde-infinito'
+import { traduccion as cuartoDeMaquinas } from './cuarto-de-maquinas-de-una-piscina'
+import { traduccion as calentarLaPiscina } from './calentar-la-piscina-solar-bomba-de-calor-o-gas'
+import { traduccion as salOCloro } from './piscina-de-sal-o-cloro'
+import { traduccion as piscinaEnTerraza } from './piscina-en-terraza'
+import { traduccion as jacuzziDeObraOPortatil } from './jacuzzi-de-obra-o-portatil'
+import { traduccion as piscinaYJacuzziJuntos } from './piscina-y-jacuzzi-juntos'
+import { traduccion as mantenimientoDePiscina } from './mantenimiento-de-piscina-costo-mensual'
 import { traduccion as comprarLoteRural } from './comprar-lote-rural-que-verificar-antes-de-firmar'
 import { traduccion as aguaEnElCampo } from './agua-en-el-campo-que-permiso-necesita'
 import { traduccion as casaBioclimatica } from './casa-bioclimatica-por-piso-termico'
@@ -156,6 +166,16 @@ const registro: TraduccionPost[] = [
   ley1209Piscinas,
   licenciaPiscina,
   edificioEnAmarillo,
+  costoPiscina,
+  piscinaConcretoOFibra,
+  bordeInfinito,
+  cuartoDeMaquinas,
+  calentarLaPiscina,
+  salOCloro,
+  piscinaEnTerraza,
+  jacuzziDeObraOPortatil,
+  piscinaYJacuzziJuntos,
+  mantenimientoDePiscina,
 ]
 
 export const traduccionesPost = new Map(registro.map((t) => [t.slug, t]))

@@ -13,20 +13,27 @@ import type { Post } from '@/lib/types'
  * Colombia**, y en vez de inventarla se da lo que sí sirve, que es qué exigir
  * en el desglose.
  *
- * Las horas de bombeo no son un supuesto libre: salen del período de
- * recirculación de 6 a 8 horas que fija el artículo 13 de la Resolución 1510
- * de 2011. Y hay un matiz que el encargo pide cuidar y que aquí importa mucho:
- * **la norma fija el período de recirculación del sistema, no las horas
- * diarias de operación**. Lo uno es norma; lo otro es práctica, y se dice cuál
- * es cuál.
+ * Las horas de bombeo salen de la **Resolución 929 de 2026**, anexo técnico,
+ * numeral 10, tabla n.º 1, que supera materialmente a la Resolución 1510 de
+ * 2011 sobre la que se escribió la primera versión de esta pieza. Y el cambio
+ * obliga a un matiz nuevo: **la 929 ya no le fija tiempo de recirculación a la
+ * piscina de una casa** —su artículo 2 alcanza al uso colectivo abierto al
+ * público y al uso restringido no abierto al público, y deja la piscina de
+ * propiedad privada unihabitacional con las normas mínimas de seguridad de la
+ * Ley 1209—, pero para la que sí alcanza fija además la **circulación diaria**,
+ * que la 1510 no fijaba. Es decir: donde antes había que declarar las horas
+ * como práctica, ahora hay una banda de norma para el conjunto residencial y un
+ * vacío declarado para la casa.
  *
  * Dos tensiones normativas reales se declaran sin resolverlas de más:
  *
- * - El salvavidas: la Resolución 1510, art. 19, lo exige en piscina de uso
- *   colectivo durante todo el horario de funcionamiento; el reglamento de la
- *   Ley 1209 acota la exigencia de la unidad residencial a cuatro situaciones.
- *   Es del mismo tipo que la tensión de los drenajes ya documentada en
- *   `ley-1209-piscinas-copropiedad`.
+ * - El salvavidas: la Resolución 929, numeral 12.3, pide personal salvavidas
+ *   durante todo el horario de prestación del servicio y uno por cada veinte
+ *   menores de catorce años en condominios y conjuntos residenciales; el
+ *   reglamento de la Ley 1209 acota la exigencia de la unidad residencial a
+ *   cuatro situaciones y activa el salvavidas por encima de **diez** menores.
+ *   Una es resolución y la otra es ley, y aquí se dice cuál es cuál en vez de
+ *   fingir que concuerdan.
  * - El valor en pesos del salario mínimo de 2026 quedó en litigio, así que el
  *   costo de personal se expresa en salarios mínimos — igual que la pieza de la
  *   Ley 1209 hace con las multas, y por la misma razón.
@@ -86,11 +93,12 @@ export const post: Post = {
       tipo: 'parrafo',
       texto:
         'Son dos cosas —bombeo y agua— y entre las dos suelen ser la mitad del ' +
-        'gasto mensual. Las horas de bombeo no son un invento: la norma fija ' +
-        'que el **período de recirculación** de una piscina unifamiliar privada ' +
-        'sea de **6 a 8 horas**, es decir, que el sistema pueda pasar todo el ' +
-        'volumen por el filtro en ese tiempo. Con una bomba de 1 HP —0,75 kW— ' +
-        'trabajando ocho horas diarias salen 180 kWh al mes.',
+        'gasto mensual. Las horas de bombeo no son un invento: a la piscina de ' +
+        'un conjunto residencial la norma le pide un **recambio completo cada 4 ' +
+        'a 6 horas**, de dos a cuatro veces al día, con una **circulación ' +
+        'diaria de entre 8 y 24 horas**. Tomo el piso de esa banda. Con una ' +
+        'bomba de 1 HP —0,75 kW— trabajando ocho horas diarias salen 180 kWh al ' +
+        'mes.',
     },
     {
       tipo: 'tabla',
@@ -129,13 +137,13 @@ export const post: Post = {
     {
       tipo: 'nota',
       texto:
-        'Un matiz que conviene tener claro, porque mezcla norma con práctica: ' +
-        '**la norma fija el período de recirculación del sistema, no las horas ' +
-        'que usted debe encender la bomba cada día.** El período de ' +
-        'recirculación dimensiona el equipo; las horas de operación son una ' +
-        'decisión de manejo que depende del uso, de la temperatura y de la ' +
-        'carga de bañistas. Las ocho horas de la tabla son un supuesto de ' +
-        'operación razonable, no una obligación legal.',
+        'Un matiz que decide a quién le aplica todo esto: **la norma técnica ' +
+        'de piscinas alcanza a la de uso colectivo y a la de uso restringido ' +
+        '—la del conjunto—, y deja a la piscina de una casa únicamente con las ' +
+        'normas mínimas de seguridad de la Ley 1209.** Así que la banda de 8 a ' +
+        '24 horas de circulación diaria es obligación para el conjunto y ' +
+        'referencia para la casa. Si la piscina es suya y de nadie más, nadie ' +
+        'le va a exigir esas horas; la física del agua, en cambio, sí.',
     },
 
     { tipo: 'titulo', nivel: 2, texto: 'Lo que no tiene precio público, y por qué' },
@@ -177,32 +185,34 @@ export const post: Post = {
     },
     {
       tipo: 'tabla',
-      cabeceras: ['Qué se mide', 'Cada cuánto', 'Valor aceptable'],
+      cabeceras: ['Qué se mide', 'Cada cuánto', 'Qué cuesta'],
       filas: [
-        ['Cloro residual libre', 'Diario', '1 a 3 mg/L'],
-        ['Cloro combinado (cloraminas)', 'Diario', 'menos de 0,3 mg/L'],
-        ['Potencial de oxidación-reducción', 'Diario', 'mínimo 700 mV'],
-        ['pH y temperatura', 'Semanal', 'pH entre 7,0 y 8,0'],
-        ['Alcalinidad, dureza, ácido cianúrico', 'Semanal', 'Alcalinidad hasta 140; cianúrico menos de 100'],
-        ['Coliformes, *E. coli*, *P. aeruginosa*', 'Mensual', '**0** en 100 cm³'],
+        ['Cloro residual libre, pH, temperatura', '**Diario**, al inicio de la jornada y en horas de máxima ocupación', 'Equipo propio y tiempo de alguien, todos los días'],
+        ['Materias orgánicas flotantes y sedimentos', 'Diario', 'Inspección visual: no cuesta, pero hay que hacerla'],
+        ['Turbidez, oxidación-reducción, sólidos disueltos, conductividad', '**Trimestral**, en horas de máxima ocupación', 'Laboratorio'],
+        ['Heterótrofos, coliformes termotolerantes, *E. coli*', '**Trimestral**, en horas de máxima ocupación', 'Laboratorio'],
+        ['*Legionella*', 'Trimestral y al inicio de la jornada', 'Laboratorio, solo si la piscina es climatizada o aerosolizada'],
+        ['*Cryptosporidium* y *Giardia lamblia*', '**Por evento de contaminación fecal**', 'Laboratorio, imprevisible: hay que tener la partida reservada'],
       ],
       nota:
-        'Resolución 1618 de 2010. La tabla completa, con el índice de Langelier ' +
-        'y los análisis anuales, está en ' +
-        '[qué obliga de verdad la Ley 1209](/blog/ley-1209-piscinas-copropiedad).',
+        'Resolución 234 de 2026, anexo técnico I. Dos cosas que mueven el ' +
+        'presupuesto: en temporada alta **la frecuencia trimestral pasa a ' +
+        'mensual**, y el análisis de *Cryptosporidium* ya no es una cita anual ' +
+        'sino una respuesta a un incidente, que llega cuando llega.',
     },
     {
       tipo: 'nota',
       texto:
         'Y cuatro obligaciones que casi ninguna piscina cumple y que no cuestan ' +
-        'casi nada: el **libro de registro** con las mediciones diarias y ' +
-        'semanales, los lavados de filtro y el volumen recirculado, al día y ' +
-        'disponible; la **publicación mensual de los resultados de laboratorio ' +
-        'en lugar visible**, que es una cartelera junto a la piscina; los ' +
-        'análisis en **laboratorio autorizado o acreditado ante el ONAC**; y el ' +
-        '**registro sanitario del INVIMA** en los productos químicos. Un ' +
-        'proveedor que vende cloro sin registro está fuera de norma, y quien se ' +
-        'lo compra también.',
+        'casi nada. El **libro o registro sistematizado**, que ahora pide más ' +
+        'de lo que se suele anotar: volumen y caudal, químicos usados, ' +
+        'retrolavados, averías, **volumen de agua de reposición**, **horas de ' +
+        'funcionamiento**, número de bañistas y el cálculo del índice de ' +
+        'Langelier. La **publicación mensual de los resultados de laboratorio ' +
+        'en lugar visible**, que es una cartelera junto a la piscina. Que el ' +
+        'laboratorio **demuestre la validación o verificación de sus ' +
+        'metodologías**. Y la **ficha técnica y la hoja de seguridad** de cada ' +
+        'producto químico, con etiquetado del sistema globalmente armonizado.',
     },
 
     { tipo: 'titulo', nivel: 2, texto: 'El salvavidas: dónde se gasta de más y dónde de menos' },
@@ -221,13 +231,16 @@ export const post: Post = {
       tipo: 'nota',
       texto:
         'Hay una tensión normativa real que conviene conocer antes de discutir ' +
-        'un presupuesto: la Resolución 1510 de 2011 exige, para piscina de uso ' +
-        'colectivo, un salvavidas por piscina durante el horario de ' +
-        'funcionamiento, mientras que el reglamento de la Ley 1209 acota la ' +
-        'obligación de la unidad residencial a esas cuatro situaciones. Es del ' +
-        'mismo tipo que la tensión de los drenajes, y está explicada con más ' +
-        'detalle en [qué obliga de verdad la Ley ' +
-        '1209](/blog/ley-1209-piscinas-copropiedad).',
+        'un presupuesto, y la norma nueva la agranda. La Resolución 929 de ' +
+        '2026 pide **personal salvavidas durante todo el horario de prestación ' +
+        'del servicio**, uno por cada estanque de hasta 312 m² de lámina, y ' +
+        '**uno por cada veinte menores de catorce años en condominios, ' +
+        'conjuntos residenciales y propiedad horizontal**. El reglamento de la ' +
+        'Ley 1209 acota la obligación de la unidad residencial a esas cuatro ' +
+        'situaciones y activa el salvavidas por encima de **diez** menores. Una ' +
+        'es resolución y la otra es ley, y no dicen lo mismo. Es del mismo tipo ' +
+        'que la tensión de los drenajes, explicada en [qué obliga de verdad la ' +
+        'Ley 1209](/blog/ley-1209-piscinas-copropiedad).',
     },
     {
       tipo: 'nota',
@@ -341,16 +354,18 @@ export const post: Post = {
       fecha: '2026-07-01',
     },
     {
-      titulo: 'Resolución 1618 de 2010: calidad del agua de piscinas',
-      editor: 'Ministerio de la Protección Social',
-      url: 'https://www.minsalud.gov.co/Normatividad_Nuevo/RESOLUCI%C3%93N%201618%20DE%202010.pdf',
-      fecha: '2010-05-07',
+      titulo:
+        'Resolución 234 de 2026, criterios de calidad del agua contenida en estanques de piscinas y estructuras similares y buenas prácticas sanitarias',
+      editor: 'Ministerio de Salud y Protección Social',
+      url: 'https://camacol.co/sites/default/files/descargables/RESOLUCION%20MINSALUD%20NACIONAL%20234%20DE%20FEBRERO%20DE%202026.pdf',
+      fecha: '2026-02-10',
     },
     {
-      titulo: 'Resolución 1510 de 2011: criterios técnicos y de seguridad para piscinas',
-      editor: 'Ministerio de la Protección Social',
-      url: 'https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=42808',
-      fecha: '2011-05-06',
+      titulo:
+        'Resolución 929 de 2026, criterios técnicos constructivos y de seguridad para piscinas y estructuras similares',
+      editor: 'Ministerio de Salud y Protección Social',
+      url: 'https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/resolucion-0929-de-2026.pdf',
+      fecha: '2026-05-12',
     },
     {
       titulo: 'Ley 1209 de 2008, por la cual se establecen normas de seguridad en piscinas',

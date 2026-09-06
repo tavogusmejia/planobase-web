@@ -22,7 +22,13 @@ import type { TraduccionPost } from '@/lib/types'
  * «1.163 kWh», «$960,34» → «$960.34», «$3.517,06» → «$3,517.06», «35,4 MJ/m³»
  * → «35.4 MJ/m³», «1.150 BTU» → «1,150 BTU», «$2,49 millones» → «$2.49
  * million», «$498.000» → «$498,000». Y el porcentaje va pegado: «85 %» →
- * «85%», «60 y el 75 %» → «60% and 75%».
+ * «85%», «50 y el 70 %» → «50% and 70%».
+ *
+ * Las condiciones de piscina cubierta se rehicieron sobre la **Resolución 929
+ * de 2026**, numeral 10.6, que supera materialmente a la Resolución 1510 de
+ * 2011: el agua pasa de 38 °C a **40 °C**, la humedad de 60–75 % a **50–70%**,
+ * y entran el CO₂ (400–600 ppm), el aire 1–3 °C por encima del agua y la
+ * renovación de 4 a 6 veces por hora. Los 8 m³ por bañista se mantuvieron.
  */
 export const traduccion: TraduccionPost = {
   slug: 'calentar-la-piscina-solar-bomba-de-calor-o-gas',

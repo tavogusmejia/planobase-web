@@ -3,10 +3,14 @@ import type { TraduccionPost } from '@/lib/types'
 /**
  * Traducción de «Mantenimiento de piscina: el costo mensual real».
  *
- * La tabla de frecuencias de análisis se copia palabra por palabra de la
- * traducción de `ley-1209-piscinas-copropiedad`, igual que en
- * `piscina-de-sal-o-cloro`: es el mismo dato de la misma resolución, y una
- * traducción distinta cada vez es cómo un dato verificado deja de estarlo.
+ * La tabla de frecuencias se rehízo entera sobre la **Resolución 234 de 2026**,
+ * y se traduce **exactamente igual** que en `en/piscina-de-sal-o-cloro`, que es
+ * la otra pieza que la lleva: mismo dato, misma resolución, mismas palabras.
+ * Ya no coincide con la de `en/ley-1209-piscinas-copropiedad`, que sigue siendo
+ * la de la Resolución 1618 de 2010.
+ *
+ * `superada por` → **superseded in substance by**, nunca «repealed by»: ni la
+ * 929 ni la 234 traen cláusula derogatoria.
  *
  * Vocabulario que fija esta pieza: `retrolavado` → **backwashing**,
  * `canastilla` → **strainer basket**, `pérdida de carga` → **head loss**,
@@ -22,9 +26,10 @@ import type { TraduccionPost } from '@/lib/types'
  *
  * Separadores, dentro y fuera de las tablas: «$863,61» → «$863.61»,
  * «$155.449» → «$155,449», «$8.302,41» → «$8,302.41», «3,84 m³» → «3.84 m³»,
- * «$373.608» → «$373,608», «1,40 m» → «1.40 m», «0,3 mg/L» → «0.3 mg/L»,
- * «7,0 y 8,0» → «7.0 and 8.0». Ley 1209, Resolución 1618 de 2010, Resolución
- * 1510 de 2011, INVIMA y ONAC no se traducen.
+ * «$373.608» → «$373,608», «1,40 m» → «1.40 m», «312 m²» → «312 m²» y
+ * «1.000 cm³» → «1,000 cm³». Ley 1209, Resolución 234 de 2026 y Resolución 929
+ * de 2026 no se traducen, ni tampoco «propiedad horizontal», que se conserva
+ * porque es el nombre del régimen y ya está fijado por el corpus.
  */
 export const traduccion: TraduccionPost = {
   slug: 'mantenimiento-de-piscina-costo-mensual',
@@ -71,11 +76,12 @@ export const traduccion: TraduccionPost = {
       tipo: 'parrafo',
       texto:
         'Two things — pumping and water — and between them they are usually ' +
-        'half the monthly spend. The pumping hours are not invented: the rule ' +
-        'sets the **turnover period** of a private single-family pool at **6 ' +
-        'to 8 hours**, meaning the system must be able to pass the whole ' +
-        'volume through the filter in that time. With a 1 HP pump — 0.75 kW — ' +
-        'working eight hours a day, that comes to 180 kWh a month.',
+        'half the monthly spend. The pumping hours are not invented: for the ' +
+        'pool of a residential development the rule requires a **full turnover ' +
+        'every 4 to 6 hours**, two to four times a day, with **8 to 24 hours ' +
+        'of daily circulation**. I take the floor of that band. With a 1 HP ' +
+        'pump — 0.75 kW — working eight hours a day, that comes to 180 kWh a ' +
+        'month.',
     },
     {
       tipo: 'tabla',
@@ -115,12 +121,13 @@ export const traduccion: TraduccionPost = {
     {
       tipo: 'nota',
       texto:
-        'One distinction worth being clear about, because it mixes rule with ' +
-        'practice: **the rule sets the turnover period of the system, not the ' +
-        'hours you must run the pump each day.** The turnover period sizes the ' +
-        'equipment; operating hours are a management decision driven by use, ' +
-        'temperature and bather load. The eight hours in the table are a ' +
-        'reasonable operating assumption, not a legal duty.',
+        'One distinction that decides who all this applies to: **the technical ' +
+        'pool rule reaches collective-use pools and restricted-use pools — the ' +
+        'development pool — and leaves a house pool with nothing but the ' +
+        'minimum safety rules of Ley 1209.** So the 8-to-24-hour daily ' +
+        'circulation band is a duty for the development and a reference for ' +
+        'the house. If the pool is yours and nobody else’s, no one will hold ' +
+        'you to those hours; the physics of the water will.',
     },
 
     { tipo: 'titulo', texto: 'What has no public price, and why' },
@@ -163,31 +170,34 @@ export const traduccion: TraduccionPost = {
     },
     {
       tipo: 'tabla',
-      cabeceras: ['What is measured', 'How often', 'Acceptable value'],
+      cabeceras: ['What is measured', 'How often', 'What it costs'],
       filas: [
-        ['Free residual chlorine', 'Daily', '1 to 3 mg/L'],
-        ['Combined chlorine (chloramines)', 'Daily', 'less than 0.3 mg/L'],
-        ['Oxidation-reduction potential', 'Daily', '700 mV minimum'],
-        ['pH and temperature', 'Weekly', 'pH between 7.0 and 8.0'],
-        ['Alkalinity, hardness, cyanuric acid', 'Weekly', 'Alkalinity up to 140; cyanuric acid less than 100'],
-        ['Coliforms, *E. coli*, *P. aeruginosa*', 'Monthly', '**0** per 100 cm³'],
+        ['Free residual chlorine, pH, temperature', '**Daily**, at the start of the day and at peak occupancy', 'Your own kit and somebody’s time, every day'],
+        ['Floating organic matter and sediment', 'Daily', 'A visual check: no cost, but it has to happen'],
+        ['Turbidity, oxidation-reduction, dissolved solids, conductivity', '**Quarterly**, at peak occupancy', 'Laboratory'],
+        ['Heterotrophs, thermotolerant coliforms, *E. coli*', '**Quarterly**, at peak occupancy', 'Laboratory'],
+        ['*Legionella*', 'Quarterly and at the start of the day', 'Laboratory, only if the pool is heated or aerosolising'],
+        ['*Cryptosporidium* and *Giardia lamblia*', '**On a faecal contamination event**', 'Laboratory, unpredictable: keep the money set aside'],
       ],
       nota:
-        'Resolución 1618 de 2010. The full table, with the Langelier index and ' +
-        'the annual analyses, is in [what Ley 1209 really ' +
-        'requires](/blog/ley-1209-piscinas-copropiedad).',
+        'Resolución 234 de 2026, technical annex I. Two things that move the ' +
+        'budget: in peak season **the quarterly frequency becomes monthly**, ' +
+        'and the *Cryptosporidium* analysis is no longer an annual appointment ' +
+        'but a response to an incident, arriving whenever it arrives.',
     },
     {
       tipo: 'nota',
       texto:
-        'And four duties almost no pool meets, none of which costs much: the ' +
-        '**log book** with daily and weekly measurements, filter washes and ' +
-        'recirculated volume, up to date and available; **monthly display of ' +
-        'the laboratory results somewhere visible**, which means a noticeboard ' +
-        'beside the pool; analyses at a **laboratory authorised or accredited ' +
-        'by ONAC**; and **INVIMA sanitary registration** on the chemical ' +
-        'products. A supplier selling unregistered chlorine is in breach, and ' +
-        'so is whoever buys it.',
+        'And four duties almost no pool meets, none of which costs much. The ' +
+        '**log book or computerised register**, which now asks for more than ' +
+        'is usually written down: volume and flow, chemicals used, backwashes, ' +
+        'breakdowns, **volume of top-up water**, **hours of operation**, ' +
+        'number of bathers and the Langelier index calculation. **Monthly ' +
+        'display of the laboratory results somewhere visible**, which means a ' +
+        'noticeboard beside the pool. That the laboratory **demonstrate ' +
+        'validation or verification of its methods**. And a **technical data ' +
+        'sheet and safety data sheet** for every chemical, labelled to the ' +
+        'globally harmonised system.',
     },
 
     { tipo: 'titulo', texto: 'The lifeguard: where money is overspent and underspent' },
@@ -206,12 +216,16 @@ export const traduccion: TraduccionPost = {
       tipo: 'nota',
       texto:
         'There is a genuine tension between rules here, worth knowing before ' +
-        'you argue about a budget: Resolución 1510 de 2011 requires, for a ' +
-        'collective-use pool, one lifeguard per pool throughout opening hours, ' +
-        'whereas the implementing regulation of Ley 1209 narrows the duty of a ' +
-        'residential development to those four situations. It is the same kind ' +
-        'of tension as the one over drains, and it is set out at greater ' +
-        'length in [what Ley 1209 really ' +
+        'you argue about a budget, and the new rule widens it. Resolución 929 ' +
+        'de 2026 requires **lifeguard staff throughout the hours the pool is ' +
+        'in service**, one per pool of up to 312 m² of water surface, and ' +
+        '**one for every twenty children under fourteen in condominiums, ' +
+        'residential developments and propiedad horizontal**. The implementing ' +
+        'regulation of Ley 1209 narrows the duty of a residential development ' +
+        'to those four situations and triggers the lifeguard above **ten** ' +
+        'children. One is a resolution and the other is a statute, and they do ' +
+        'not say the same thing. It is the same kind of tension as the one ' +
+        'over drains, set out in [what Ley 1209 really ' +
         'requires](/blog/ley-1209-piscinas-copropiedad).',
     },
     {

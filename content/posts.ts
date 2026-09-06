@@ -53,6 +53,13 @@ import { post as piscinaEnTerraza } from './blog/piscina-en-terraza'
 import { post as jacuzziDeObraOPortatil } from './blog/jacuzzi-de-obra-o-portatil'
 import { post as piscinaYJacuzziJuntos } from './blog/piscina-y-jacuzzi-juntos'
 import { post as mantenimientoDePiscina } from './blog/mantenimiento-de-piscina-costo-mensual'
+import { post as ntc4595QueCambio } from './blog/ntc-4595-2025-que-cambio'
+import { post as disenarUnColegio } from './blog/como-se-disena-un-colegio-en-colombia'
+import { post as pliegosEquipamiento } from './blog/pliegos-de-un-equipamiento-publico'
+import { post as aguasResiduales } from './blog/aguas-residuales-sin-alcantarillado'
+import { post as ampliarSegundoPiso } from './blog/ampliar-un-segundo-piso'
+import { post as cubiertas } from './blog/cubiertas-barro-termoacustica-verde-o-placa'
+import { post as casaDeDescanso } from './blog/casa-de-descanso-o-renta-corta'
 
 /**
  * El índice del blog.
@@ -86,6 +93,17 @@ const registro: Post[] = [
   jacuzziDeObraOPortatil,
   piscinaYJacuzziJuntos,
   mantenimientoDePiscina,
+  /* El pilar institucional, que hasta ahora tenía dos piezas sueltas. Van
+     juntos por la misma razón que los de piscinas: los tres se apoyan en la
+     NTC 4595:2025 y se enlazan entre sí, y registrar uno solo dejaría
+     enlaces internos apuntando a rutas que todavía no existen. */
+  ntc4595QueCambio,
+  disenarUnColegio,
+  pliegosEquipamiento,
+  aguasResiduales,
+  ampliarSegundoPiso,
+  cubiertas,
+  casaDeDescanso,
   bienvenidosAPlanoBase,
   fisurasEnMuros,
   licenciaJamundi,

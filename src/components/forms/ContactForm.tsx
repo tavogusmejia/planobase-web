@@ -18,6 +18,33 @@ import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { ContactoDirecto } from '@/components/ui/ContactoDirecto'
 import { track } from '@/lib/analytics'
 
+/**
+ * Los dos atributos que conectan un control con lo que se dice de él.
+ *
+ * Sin ellos, un lector de pantalla al enfocar el campo del correo anuncia
+ * «Correo» y se calla: ni el texto de ayuda que está debajo, ni el motivo por
+ * el que el campo quedó en rojo. El `<label>` y el `role="alert"` ya estaban;
+ * lo que faltaba era esto, que es lo que los ata al control.
+ *
+ * `aria-describedby` acepta varios ids separados por espacio y los lee en
+ * orden, así que la ayuda va antes que el error. Los dos devuelven `undefined`
+ * cuando no aplican, y no una cadena vacía: `aria-describedby=""` apunta a un
+ * id que no existe, y algunos lectores anuncian el fallo de referencia.
+ */
+function aria(
+  id: string,
+  error?: string,
+  hayAyuda = false,
+): { 'aria-describedby'?: string; 'aria-invalid'?: true } {
+  const ids = [hayAyuda ? `${id}-ayuda` : null, error ? `${id}-error` : null]
+    .filter(Boolean)
+    .join(' ')
+  return {
+    'aria-describedby': ids === '' ? undefined : ids,
+    'aria-invalid': error ? true : undefined,
+  }
+}
+
 const campoBase =
   'w-full border-0 border-b border-line-control bg-transparent px-0 py-3 text-body ' +
   'text-ink outline-none transition-colors placeholder:text-muted ' +
@@ -103,6 +130,18 @@ export function ContactForm() {
     )
   }
 
+  /* Los errores, resueltos una sola vez: cada uno lo necesitan dos sitios —el
+     párrafo que lo pinta y el `aria` del control que lo describe— y repetir la
+     expresión en los dos es la forma de que un día dejen de coincidir. */
+  const e = {
+    nombre: err(errors.nombre?.message),
+    correo: err(errors.correo?.message),
+    whatsapp: err(errors.whatsapp?.message),
+    municipio: err(errors.codigoMunicipio?.message),
+    etapa: err(errors.etapa?.message),
+    mensaje: err(errors.mensaje?.message),
+  }
+
   return (
     <form
       noValidate
@@ -137,12 +176,13 @@ export function ContactForm() {
         id="nombre"
         label={t('nombre')}
         ayuda={t('nombreAyuda')}
-        error={err(errors.nombre?.message)}
+        error={e.nombre}
       >
         <input
           id="nombre"
           autoComplete="name"
           className={campoBase}
+          {...aria('nombre', e.nombre, true)}
           {...register('nombre')}
         />
       </Campo>
@@ -151,13 +191,14 @@ export function ContactForm() {
         id="correo"
         label={t('correo')}
         ayuda={t('correoAyuda')}
-        error={err(errors.correo?.message)}
+        error={e.correo}
       >
         <input
           id="correo"
           type="email"
           autoComplete="email"
           className={campoBase}
+          {...aria('correo', e.correo, true)}
           {...register('correo')}
         />
       </Campo>
@@ -166,7 +207,7 @@ export function ContactForm() {
         id="whatsapp"
         label={t('whatsapp')}
         ayuda={t('whatsappAyuda')}
-        error={err(errors.whatsapp?.message)}
+        error={e.whatsapp}
       >
         <input
           id="whatsapp"
@@ -175,6 +216,7 @@ export function ContactForm() {
           autoComplete="tel"
           placeholder="300 000 0000"
           className={campoBase}
+          {...aria('whatsapp', e.whatsapp, true)}
           {...register('whatsapp')}
         />
       </Campo>
@@ -183,12 +225,13 @@ export function ContactForm() {
         id="departamento"
         label={t('ubicacion')}
         ayuda={t('ubicacionAyuda')}
-        error={err(errors.codigoMunicipio?.message)}
+        error={e.municipio}
       >
         <div className="grid gap-5 sm:grid-cols-2">
           <select
             id="departamento"
             aria-label={t('departamento')}
+            aria-describedby="departamento-ayuda"
             value={departamento}
             className={campoBase}
             onChange={(e) => setDepartamento(e.target.value)}
@@ -211,6 +254,7 @@ export function ContactForm() {
             aria-label={t('municipio')}
             defaultValue=""
             disabled={departamento === ''}
+            {...aria('departamento', e.municipio, true)}
             className={cn(campoBase, departamento === '' && 'opacity-50')}
             {...register('codigoMunicipio')}
           >
@@ -229,12 +273,13 @@ export function ContactForm() {
       <Campo
         id="etapa"
         label={t('etapa')}
-        error={err(errors.etapa?.message)}
+        error={e.etapa}
       >
         <select
           id="etapa"
           defaultValue=""
           className={campoBase}
+          {...aria('etapa', e.etapa)}
           {...register('etapa')}
         >
           <option value="" disabled>
@@ -252,12 +297,13 @@ export function ContactForm() {
         id="mensaje"
         label={t('mensaje')}
         ayuda={t('mensajeAyuda')}
-        error={err(errors.mensaje?.message)}
+        error={e.mensaje}
       >
         <textarea
           id="mensaje"
           rows={5}
           className={cn(campoBase, 'resize-y')}
+          {...aria('mensaje', e.mensaje, true)}
           {...register('mensaje')}
         />
       </Campo>
@@ -377,12 +423,20 @@ function Campo({
       <label htmlFor={id} className="text-small block text-ink">
         {label}
       </label>
+      {/* Los ids son los que apunta el `aria-describedby` de cada control.
+          Si cambian aquí, hay que cambiarlos en `aria()`. */}
       {ayuda ? (
-        <p className="text-block measure mt-1 text-muted">{ayuda}</p>
+        <p id={`${id}-ayuda`} className="text-block measure mt-1 text-muted">
+          {ayuda}
+        </p>
       ) : null}
       <div className="mt-2">{children}</div>
       {error ? (
-        <p role="alert" className="text-small mt-2 text-accent-deep">
+        <p
+          id={`${id}-error`}
+          role="alert"
+          className="text-small mt-2 text-accent-deep"
+        >
           {error}
         </p>
       ) : null}

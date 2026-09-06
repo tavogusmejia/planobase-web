@@ -137,7 +137,7 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 | 3 | Cuánto cuesta remodelar, ambiente por ambiente | **publicado** · 4/8/2026 |
 | 4 | Las doce partidas que todo el mundo olvida al presupuestar | **publicado** · 23/9/2025 |
 | 5 | Por qué la obra se sale del presupuesto | **publicado** · 11/3/2026 |
-| 6 | **Cuánto cuesta un estudio de viabilidad de un predio** | pendiente · **con material ya reunido**, ver abajo |
+| 6 | Cuánto cuesta un estudio de viabilidad de un predio | **publicado** · 6/9/2026 |
 
 #### Material reunido para el n.º 6 · 6/9/2026
 
@@ -162,11 +162,23 @@ quien pide cotización no sabe cuál está pidiendo.
 Ese es el artículo: explicar qué distingue a los dos, qué entregable esperar de
 cada uno, y qué preguntar antes de aceptar una cotización.
 
-**Y una vía que no se exploró y conviene:** el **Decreto 2090 de 1989** tarifa
-los honorarios de arquitectura de forma escalonada sobre el costo de obra, y el
-artículo n.º 2 —«Cuánto cobra un arquitecto»— ya lo tiene transcrito y
-verificado. Falta comprobar si el decreto tarifa algo asimilable al estudio
-previo, o si el vacío es real. Si lo es, **el vacío es el artículo.**
+**La vía del Decreto 2090 se exploró, y el vacío resultó ser mejor que un
+vacío: es una exclusión escrita.** Su numeral 8.1.4 nombra los «estudios de
+factibilidad» dentro del capítulo 8, «Trabajos varios», que el propio decreto
+define en 8.1 como aquellos «en los cuales no son aplicables los otros
+honorarios establecidos en este reglamento». Para ese capítulo no hay tarifa:
+hay método de costeo (8.2) y tres formas de pago (8.3). Y el contraste que lo
+remata: el decreto **sí** tarifa el «presupuesto preliminar» en el 2,5 % del
+honorario de A P y S (numeral 3.2.2 a), pero exige que ya exista anteproyecto.
+Tarifa lo que viene después de dibujar; lo de antes, no.
+
+Eso le dio al artículo su segunda tesis: **el factor de ocho no es desorden del
+mercado, es lo que pasa cuando la única metodología publicada del país declina
+ponerle precio a ese trabajo.**
+
+Se añadió una cuarta referencia que ancla las otras tres porque sí tiene tarifa
+oficial: el concepto de norma urbanística cuesta 8,34 UVT y el de uso del suelo
+1,67 UVT — $436.799 y $87.465 con la UVT de 2026.
 
 Fuentes: `ays-arquitectura-interiorismo.com/p/estudio-de-prefactibilidad.html` ·
 `edificiencia.com/prefactibilidades.html`. Consultadas el 6/9/2026, y hay que

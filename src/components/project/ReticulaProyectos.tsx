@@ -21,9 +21,22 @@ import { cn } from '@/lib/utils'
  * entero se queda a color durante setenta segundos. Con diez segundos de gracia
  * por tarjeta, barrer la retícula es posible — pero hay que proponérselo.
  *
- * El hueco existe porque 23 proyectos no llenan una retícula de 2, 3 ni 4
- * columnas. Y 23 + 1 = 24, que sí es divisible entre las tres: el huevo encaja
- * exacto en todos los anchos, sin una sola regla de posicionamiento.
+ * El hueco existe porque los proyectos publicados no llenan una retícula de 2,
+ * 3 ni 4 columnas, y el huevo ocupa el que queda al final.
+ *
+ * **Esto encajaba exacto y ya no.** Con 23 proyectos, 23 + 1 = 24, divisible
+ * entre las tres: el huevo cerraba la última fila en todos los anchos sin una
+ * sola regla de posicionamiento. Al retirarse la Alcaldía Local de Teusaquillo
+ * el 6/9/2026 quedaron 22, y 22 + 1 = 23 no es divisible entre ninguna, así que
+ * la última fila queda desigual en los tres anchos.
+ *
+ * **No se arregla con una cifra fija, y por eso se deja escrito en vez de
+ * parchear.** El recuento va a volver a moverse: el Comedor Universidad del
+ * Valle entra en cuanto tenga fotos, y Teusaquillo puede volver. Cuadrar la
+ * retícula exigiría rellenar hasta el múltiplo de doce siguiente —hasta once
+ * celdas vacías— o reflotar el diseño, y eso es una decisión de estética que no
+ * se toma por el camino. El huevo sigue funcionando: solo dejó de cerrar la
+ * fila.
  *
  * Cómo se sabe que una portada sigue a color, sin temporizadores: lo avisa el
  * navegador. `transitionend` del filtro se dispara cuando el desvanecido a gris

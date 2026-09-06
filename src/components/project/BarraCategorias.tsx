@@ -16,9 +16,16 @@ import { routing } from '@/i18n/routing'
  * que se pueda saltar de una a otra sin volver atrás.
  *
  * Cada categoría con obra lleva a su propia página. Las vacías —que se muestran
- * a propósito, para declarar hacia dónde crece el estudio— no tienen página
- * adonde ir: se quedan en el filtro del índice, que sí sabe devolver «todavía
- * no hay obra publicada».
+ * a propósito, para declarar hacia dónde crece el estudio— no llevan a ninguna
+ * parte y por eso **no son enlaces**: se pintan con su cero y ahí termina.
+ *
+ * Antes sí lo eran, hacia `/proyectos?categoria=comercial`, y ese parámetro
+ * salía caro por partida doble. Obligaba a `/proyectos` a renderizarse en cada
+ * visita —leer `searchParams` la saca del prerenderizado— y lo que servía a
+ * cambio era una página que decía «todavía no hay obra publicada»: exactamente
+ * el soft-404 que `content/ajustes.ts` se cuida de no dejar indexar. Un enlace
+ * que promete obra y entrega un vacío no es navegación; el rótulo con su cero
+ * ya dice lo mismo y no promete nada.
  */
 export async function BarraCategorias({
   activa,
@@ -37,28 +44,47 @@ export async function BarraCategorias({
   const enlace = (c: Categoria | null) => {
     const activo = activa === c
     const n = c === null ? todos.length : (counts[c] ?? 0)
+
+    /* `n > 0` va antes que la vertical y no es redundante: hoy solo hay
+       verticales de categorías con obra, pero el día que se despublique el
+       último proyecto de una, su página responde 404 —así está escrita— y este
+       enlace apuntaría ahí. Con el conteo delante, la categoría se apaga sola
+       el mismo día. */
     const destino =
       c === null
         ? '/proyectos'
-        : verticalDe(c)
+        : n > 0 && verticalDe(c)
           ? `/proyectos/categoria/${c}`
-          : `/proyectos?categoria=${c}`
+          : null
+
+    const forma =
+      'text-small inline-flex items-baseline gap-2 whitespace-nowrap py-1 transition-colors'
+
+    const cuerpo = (
+      <>
+        {c === null ? tcat('todos') : tcat(c)}
+        <span className="text-block tabular-nums">{n}</span>
+      </>
+    )
+
+    // Sin destino no hay enlace. Un `<a>` que no lleva a ninguna parte se
+    // anuncia como enlace al lector de pantalla, recibe foco y no hace nada.
+    if (destino === null) {
+      return <span className={cn(forma, 'text-line')}>{cuerpo}</span>
+    }
 
     return (
       <Link
         href={destino}
         aria-current={activo ? 'true' : undefined}
         className={cn(
-          'text-small inline-flex items-baseline gap-2 whitespace-nowrap py-1 transition-colors',
+          forma,
           activo
             ? 'text-ink underline underline-offset-8'
-            : n === 0
-              ? 'text-line hover:text-muted'
-              : 'text-muted hover:text-accent',
+            : 'text-muted hover:text-accent',
         )}
       >
-        {c === null ? tcat('todos') : tcat(c)}
-        <span className="text-block tabular-nums">{n}</span>
+        {cuerpo}
       </Link>
     )
   }

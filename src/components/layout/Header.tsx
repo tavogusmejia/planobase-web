@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link, usePathname } from '@/i18n/navigation'
 import { Logotipo } from '@/components/brand/Logotipo'
@@ -21,6 +21,43 @@ export function Header({ locale }: { locale: string }) {
   const tc = useTranslations('comun')
   const pathname = usePathname()
   const [abierto, setAbierto] = useState(false)
+  const boton = useRef<HTMLButtonElement>(null)
+
+  /**
+   * El teclado en el menú móvil.
+   *
+   * **Escape lo cierra y devuelve el foco al botón.** Sin lo segundo, quien
+   * cierra con Escape pierde el foco al principio del documento y tiene que
+   * recorrer la cabecera entera para volver a donde estaba. Cerrar sin decir
+   * a dónde va el foco es la mitad del arreglo.
+   *
+   * **No hay trampa de foco, y es deliberado.** Esto es un desplegable, no un
+   * diálogo: el contenido de la página sigue detrás, visible y utilizable, y no
+   * hay nada que impida salir de él. Atrapar el foco en un elemento no modal
+   * encierra al lector en un sitio del que la interfaz no dice cómo salir, que
+   * es peor que no hacer nada. El patrón de desplegable de ARIA tampoco la pide.
+   *
+   * **Tampoco hace falta mover el foco al abrir:** el menú se pinta después del
+   * botón en el orden del documento, así que el siguiente tabulador ya entra en
+   * él. Moverlo a mano solo serviría para saltarse ese orden natural.
+   */
+  useEffect(() => {
+    if (!abierto) return
+    const alPulsar = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return
+      setAbierto(false)
+      boton.current?.focus()
+    }
+    document.addEventListener('keydown', alPulsar)
+    return () => document.removeEventListener('keydown', alPulsar)
+  }, [abierto])
+
+  /* Un enlace del menú ya lo cierra al pulsarlo, pero el botón de atrás del
+     navegador no pasa por ahí: sin esto, volver con el menú abierto deja la
+     lista tapando una página distinta. */
+  useEffect(() => {
+    setAbierto(false)
+  }, [pathname])
 
   const activa = (href: string) =>
     pathname === href || pathname.startsWith(`${href}/`)
@@ -109,6 +146,7 @@ export function Header({ locale }: { locale: string }) {
 
         <button
           type="button"
+          ref={boton}
           onClick={() => setAbierto((v) => !v)}
           aria-expanded={abierto}
           aria-controls="menu-movil"
@@ -118,12 +156,18 @@ export function Header({ locale }: { locale: string }) {
         </button>
       </div>
 
-      {abierto ? (
-        <nav
-          id="menu-movil"
-          aria-label="Principal"
-          className="border-t border-line px-gutter pb-8 pt-2 lg:hidden"
-        >
+      {/* Se pinta siempre y se oculta con el atributo `hidden`, en vez de
+          montarse y desmontarse. `aria-controls` del botón apunta a este `id`, y
+          un `aria-controls` que señala a un elemento inexistente no lleva a
+          ninguna parte: es lo que usa un lector de pantalla para saltar a la
+          región que el botón gobierna. Con `hidden` el navegador ya lo saca del
+          orden de tabulación, así que nada del menú cerrado es alcanzable. */}
+      <nav
+        id="menu-movil"
+        hidden={!abierto}
+        aria-label="Principal"
+        className="border-t border-line px-gutter pb-8 pt-2 lg:hidden"
+      >
           {/* Aquí sí va «Inicio»: con el menú abierto el logotipo queda tapado
               por la lista, así que deja de ser el acceso evidente que sí es en
               escritorio. */}
@@ -162,8 +206,7 @@ export function Header({ locale }: { locale: string }) {
               ))}
             </div>
           )}
-        </nav>
-      ) : null}
+      </nav>
     </header>
   )
 }

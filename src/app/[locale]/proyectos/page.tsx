@@ -1,30 +1,21 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { permanentRedirect } from 'next/navigation'
-import { Link } from '@/i18n/navigation'
 import { ProjectCard } from '@/components/project/ProjectCard'
 import { BarraCategorias } from '@/components/project/BarraCategorias'
+import { CategoriaEnParametro } from '@/components/project/CategoriaEnParametro'
 import { ReticulaProyectos } from '@/components/project/ReticulaProyectos'
 import { Rule } from '@/components/ui/Rule'
-import { getCategoryCounts, getProjects } from '@/lib/data/projects'
-import { CATEGORIAS, type Categoria } from '@/lib/types'
-import { verticalDe } from '@/lib/data/contenido'
+import { getProjects } from '@/lib/data/projects'
+import { verticalesDe } from '@/lib/data/contenido'
 import { alternativas, tarjeta } from '@/lib/metadatos'
 
 export async function generateMetadata({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string }>
-  searchParams: Promise<{ categoria?: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const { categoria } = await searchParams
   const t = await getTranslations({ locale, namespace: 'home' })
-
-  const activa = esCategoria(categoria) ? categoria : null
-  const counts = await getCategoryCounts()
-  const vacia = activa !== null && (counts[activa] ?? 0) === 0
 
   const ruta = `/${locale}/proyectos`
   const descripcion =
@@ -46,113 +37,76 @@ export async function generateMetadata({
       titulo: t('proyectosTitulo'),
       descripcion,
     }),
-    // Una categoría sin obra devuelve «todavía no hay obra publicada». Indexar
-    // eso es sembrar soft-404, y acumularlos le baja la confianza a todo el
-    // dominio. Se puede ver y compartir; no se indexa hasta que tenga obra.
-    ...(vacia ? { robots: { index: false, follow: true } } : {}),
   }
 }
 
-function esCategoria(v: string | undefined): v is Categoria {
-  return CATEGORIAS.includes(v as Categoria)
-}
-
 /**
- * El portafolio.
+ * El portafolio, completo y en una sola pieza.
  *
- * Dos cosas que el sitio de Wix no hacía. Una, el filtro devolvía los 24
- * proyectos para cualquier etiqueta; aquí filtra de verdad y lo hace en el
- * servidor: cada categoría es un enlace con su propia URL
- * (`?categoria=educativo`), así que el estado es compartible, indexable,
- * funciona con el botón atrás y no necesita una línea de JavaScript.
+ * **Esta página no filtra, y esa es la decisión.** Filtrar era lo que la
+ * mantenía viva en cada visita: leía `?categoria=` —en el cuerpo y en los
+ * metadatos— y eso basta para que Next la saque del prerenderizado. Con el
+ * filtro fuera, la URL que más tráfico frío recibe vuelve a servirse desde el
+ * build, ya escrita, en los dos idiomas.
  *
- * Dos, la retícula. Va a sangre y sin aire entre piezas, separada apenas por el
- * mismo filete de un cuadro de planchas: la fotografía manda y el conjunto se
- * lee como una sola superficie. Los rótulos se revelan al recorrerla.
+ * No se pierde nada, porque el filtro ya no vivía aquí: cada categoría con obra
+ * tiene desde hace tiempo su propia página —`/proyectos/categoria/educativo`—,
+ * con titular, texto de entrada y metadatos propios, y esas se generan también
+ * en el build. Había dos formas de ver lo mismo y solo una de las dos costaba
+ * un renderizado por visita; queda la que no cuesta y además posiciona. La
+ * navegación entre ellas la sigue dando `BarraCategorias`, que las dos páginas
+ * comparten.
  *
- * Que las categorías vacías se muestren con su cero no es un descuido: declara
- * el alcance del estudio y deja el hueco donde va a entrar la obra futura. Se
- * apaga desde `mostrarCategoriasVacias`, en content/ajustes.ts. Con cualquiera
- * de los dos valores, una categoría vacía nunca entra al sitemap y se sirve con
- * `noindex`.
+ * Las URLs viejas con parámetro no se quedan sin respuesta: las recoge
+ * `CategoriaEnParametro`, que las lleva a la página de la categoría o, si esa
+ * categoría todavía no tiene obra, limpia el parámetro y deja aquí. Ninguna
+ * devuelve 404 ni contenido distinto del que pedía.
+ *
+ * La retícula va a sangre y sin aire entre piezas, separada apenas por el mismo
+ * filete de un cuadro de planchas: la fotografía manda y el conjunto se lee
+ * como una sola superficie. Los rótulos se revelan al recorrerla.
  */
 export default async function ProyectosPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string }>
-  searchParams: Promise<{ categoria?: string }>
 }) {
   const { locale } = await params
   setRequestLocale(locale)
 
-  const { categoria } = await searchParams
-  const activa = esCategoria(categoria) ? categoria : null
-
-  /* Las categorías con vertical tienen su propia página. Se redirige aquí y no
-     en next.config porque un redirect de configuración arrastra el parámetro
-     original a la URL nueva —`/categoria/educativo?categoria=educativo`—, y
-     esta ruta lo deja limpio. Las categorías sin vertical, que son las vacías,
-     se siguen resolviendo abajo con su mensaje de «todavía no hay obra». */
-  if (activa && verticalDe(locale, activa)) {
-    // Permanente, no temporal: estas URLs se retiran. Un 307 le diría al
-    // buscador que siga visitándolas y que no traspase las señales a la buena.
-    permanentRedirect(`/${locale}/proyectos/categoria/${activa}`)
-  }
-
   const t = await getTranslations('home')
-  const tcat = await getTranslations('categorias')
-
-  const todos = await getProjects(locale)
-
-  const visibles = activa
-    ? todos.filter((p) => p.categorias.includes(activa))
-    : todos
+  const proyectos = await getProjects(locale)
 
   return (
     <div className="mx-auto max-w-[100rem] py-16 lg:py-24">
+      {/* Solo actúa si la URL trae `?categoria=`. No pinta nada y no toca el
+          renderizado: la página sigue saliendo del build. */}
+      <CategoriaEnParametro
+        conPagina={verticalesDe(locale).map((v) => v.categoria)}
+      />
+
       <div className="px-gutter lg:px-10">
         <h1 className="text-h1 text-ink">{t('proyectosTitulo')}</h1>
-        <Rule className="mt-4 max-w-md text-muted">
-          {visibles.length}
-          {activa ? ` / ${todos.length}` : ''}
-        </Rule>
-
-        {/* El dossier del sector: portada más una hoja por proyecto, listo para
-            adjuntar a una propuesta. Solo cuando hay un sector elegido. */}
-        {activa && visibles.length > 0 ? (
-          <Link
-            href={`/dossier/${activa}`}
-            className="text-block mt-5 inline-block text-accent underline-offset-4 hover:underline"
-          >
-            Dossier de {tcat(activa).toLowerCase()}
-          </Link>
-        ) : null}
+        <Rule className="mt-4 max-w-md text-muted">{proyectos.length}</Rule>
       </div>
 
-      <BarraCategorias activa={activa} />
+      <BarraCategorias activa={null} />
 
-      {visibles.length > 0 ? (
-        /* Cada pieza dibuja su propio filete; ver `.pieza` en globals.css. */
-        <ReticulaProyectos
-          total={visibles.length}
-          conHuevo={activa === null}
-          className="grid gap-px overflow-hidden sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
-        >
-          {visibles.map((p, i) => (
-            <ProjectCard
-              key={p.slug}
-              project={p}
-              priority={i < 4}
-              sizes="(min-width: 1536px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            />
-          ))}
-        </ReticulaProyectos>
-      ) : (
-        <p className="text-lead measure px-gutter py-24 text-muted lg:px-10">
-          {tcat('sinProyectos')}
-        </p>
-      )}
+      {/* Cada pieza dibuja su propio filete; ver `.pieza` en globals.css. */}
+      <ReticulaProyectos
+        total={proyectos.length}
+        conHuevo
+        className="grid gap-px overflow-hidden sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
+      >
+        {proyectos.map((p, i) => (
+          <ProjectCard
+            key={p.slug}
+            project={p}
+            priority={i < 4}
+            sizes="(min-width: 1536px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          />
+        ))}
+      </ReticulaProyectos>
     </div>
   )
 }

@@ -3,6 +3,7 @@
     "inicio": "Inicio",
     "proyectos": "Proyectos",
     "estudio": "Estudio",
+    "experiencia": "Experiencia",
     "servicios": "Servicios",
     "blog": "Blog",
     "contacto": "Contáctenos",
@@ -73,6 +74,31 @@
     "conteo": "{count, plural, one {Un proyecto} other {# proyectos}}",
     "reconocimientos": "{count, plural, one {Un reconocimiento en esta línea} other {# reconocimientos en esta línea}}"
   },
+  "experiencia": {
+    "cifraProyectos": "{count, plural, one {proyecto publicado} other {proyectos publicados}}",
+    "cifraArea": "{count, plural, one {área declarada en un proyecto} other {área declarada en # proyectos}}",
+    "cifraConstruidas": "{count, plural, one {obra construida} other {obras construidas}}",
+    "cifraCiudades": "{count, plural, one {ciudad} other {ciudades}}",
+    "cifraPremiadas": "{count, plural, one {proyecto con reconocimiento} other {proyectos con reconocimiento}}",
+    "cifraAnios": "años de obra",
+    "filtroEtiqueta": "Filtrar la experiencia por sector",
+    "soloConstruidas": "Solo obra construida",
+    "sinResultados": "No hay obra publicada que cumpla las dos condiciones a la vez.",
+    "tablaDescripcion": "Proyectos publicados con su sector, su lugar, su año, su área y su modalidad.",
+    "colProyecto": "Proyecto",
+    "colSector": "Sector",
+    "colLugar": "Lugar",
+    "colAnio": "Año",
+    "colArea": "Área",
+    "colModalidad": "Modalidad",
+    "cliente": "Cliente",
+    "sinArea": "área no publicada",
+    "sinSector": "sector no declarado",
+    "deConcurso": "ganada en concurso",
+    "conReconocimiento": "con reconocimiento",
+    "ambitoPublico": "concurso público",
+    "ambitoPrivado": "concurso privado"
+  },
   "categorias": {
     "todos": "Todos",
     "educativo": "Educativo",
@@ -113,7 +139,9 @@
     "sinCosto": "Sin costo",
     "desdePrecio": "desde {precio}",
     "llamar": "Llamar",
-    "escribirCorreo": "Escribir al correo"
+    "escribirCorreo": "Escribir al correo",
+    "primerPuesto": "Primer puesto",
+    "segundoPuesto": "Segundo puesto"
   },
   "error": {
     "etiqueta": "Error",
@@ -147,7 +175,8 @@
     "recibidoTexto": "Le escribimos por WhatsApp dentro de la siguiente hora hábil. Si prefiere adelantar la conversación, puede escribirnos ahora mismo.",
     "general": {
       "limite": "Recibimos varios mensajes desde esta conexión. Espere unos minutos e inténtelo de nuevo, o escríbanos directamente.",
-      "fallo": "No pudimos registrar su mensaje, y no queremos que se pierda. Escríbanos directamente y lo resolvemos ahora mismo."
+      "fallo": "No pudimos registrar su mensaje, y no queremos que se pierda. Escríbanos directamente y lo resolvemos ahora mismo.",
+      "tiempo": "El envío llegó demasiado rápido y lo tomamos por automático. Espere unos segundos y vuelva a enviarlo, o escríbanos directamente y lo resolvemos ahora mismo."
     },
     "errores": {
       "nombre": "Escriba su nombre completo.",
@@ -186,7 +215,8 @@
       "franjaTomada": "Alguien tomó esa hora mientras usted llenaba el formulario. Elija otra: la lista ya está actualizada.",
       "franjaNoValida": "Esa hora ya no está disponible. Elija otra de la lista.",
       "sinAgenda": "La agenda no está disponible ahora mismo. Escríbanos y la cerramos por WhatsApp.",
-      "fallo": "No pudimos agendar la cita. Escríbanos y lo resolvemos ahora mismo."
+      "fallo": "No pudimos agendar la cita. Escríbanos y lo resolvemos ahora mismo.",
+      "tiempo": "La reserva llegó demasiado rápido y la tomamos por automática. Espere unos segundos e inténtelo de nuevo, o escríbanos y cerramos la hora por WhatsApp."
     }
   },
   "blog": {

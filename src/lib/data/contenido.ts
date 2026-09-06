@@ -211,6 +211,12 @@ const COMPLETITUD: Record<RutaConCopia, () => boolean> = {
         (politicaDatosEn.secciones[i]?.bloques.length ?? 0) === s.bloques.length,
     ),
 
+  /* La página de credenciales no lleva más texto que el suyo: la tabla la
+     llenan nombres de proyecto —nombres propios de obras colombianas, que no se
+     traducen— y rótulos de `messages/`, que la guarda del build ya obliga a
+     tener en los dos idiomas. Con su copia completa, está completa. */
+  '/experiencia': () => true,
+
   // Solo se consulta para el inglés: el español es la fuente y siempre está.
   '/estudio': () =>
     oCae(ingles.manifiesto, '') !== '' &&

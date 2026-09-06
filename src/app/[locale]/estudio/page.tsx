@@ -72,6 +72,7 @@ export default async function EstudioPage({
 
   const t = await getTranslations('home')
   const tc = await getTranslations('cta')
+  const tcom = await getTranslations('comun')
 
   const corte = manifiesto.indexOf('. ') + 1
   const declaracion = corte > 0 ? manifiesto.slice(0, corte) : manifiesto
@@ -191,7 +192,9 @@ export default async function EstudioPage({
                 </span>
                 <div>
                   <p className="text-h5 text-ink">
-                    {r.puesto === 'primer' ? 'Primer puesto' : 'Segundo puesto'}
+                    {r.puesto === 'primer'
+                      ? tcom('primerPuesto')
+                      : tcom('segundoPuesto')}
                     {/* El ámbito se dice, no se esconde: cuatro públicos y uno
                         privado es una credencial más creíble que cinco a secas
                         ante quien va a verificarla. */}

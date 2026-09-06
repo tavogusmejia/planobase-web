@@ -56,6 +56,10 @@ export const contacto = {
 export const navegacion = [
   { key: 'proyectos', href: '/proyectos' },
   { key: 'estudio', href: '/estudio' },
+  /* Va pegada a `estudio` porque son la misma pregunta hecha por dos
+     públicos: quién es el estudio, y qué ha hecho con cifras verificables.
+     Quien evalúa un proponente entra por aquí y no por el portafolio. */
+  { key: 'experiencia', href: '/experiencia' },
   { key: 'servicios', href: '/servicios' },
   { key: 'blog', href: '/blog' },
   // APBS. Va después del blog y antes del contacto a propósito: es la sección

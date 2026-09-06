@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { migaDePan } from '@/components/seo/migaDePan'
 import { asesoria, contacto } from '@content/site'
 import { etiquetaPrecio } from '@/lib/precio'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
@@ -48,32 +50,41 @@ export default async function AsesoriaTecnicaPage({
   const { locale } = await params
   setRequestLocale(locale)
   const tc = await getTranslations('cta')
+  const tn = await getTranslations('nav')
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: asesoria.nombre,
-    description: asesoria.descripcion,
-    /* Referencia al nodo del sitio, no una organización anónima nueva. */
-    provider: { '@id': absoluteUrl('/#estudio') },
-    areaServed: { '@type': 'Country', name: 'Colombia' },
-    offers: {
-      '@type': 'Offer',
-      price: asesoria.precioCOP,
-      priceCurrency: 'COP',
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: asesoria.nombre,
+      description: asesoria.descripcion,
+      /* Referencia al nodo del sitio, no una organización anónima nueva. */
+      provider: { '@id': absoluteUrl('/#estudio') },
+      areaServed: { '@type': 'Country', name: 'Colombia' },
+      offers: {
+        '@type': 'Offer',
+        price: asesoria.precioCOP,
+        priceCurrency: 'COP',
+      },
     },
-  }
+    /* Cuelga de /servicios igual que las siete puertas, aunque su ruta no
+       lleve slug: es la ficha del servicio reservable. */
+    migaDePan([
+      { nombre: tn('servicios'), ruta: `/${locale}/servicios` },
+      {
+        nombre: asesoria.nombre,
+        ruta: `/${locale}/servicios/asesoria-tecnica`,
+      },
+    ]),
+  ]
 
   return (
     <div className="mx-auto max-w-[100rem] px-gutter py-16 lg:px-10 lg:py-24">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd datos={jsonLd} />
 
       <nav aria-label="Ruta" className="text-block text-muted">
         <Link href="/servicios" className="hover:text-accent">
-          Servicios
+          {tn('servicios')}
         </Link>
       </nav>
 

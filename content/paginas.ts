@@ -134,6 +134,43 @@ export const copiaPaginas = {
     ambitoPublico: 'concurso público',
     ambitoPrivado: 'concurso privado',
   },
+
+  /* Credenciales institucionales. Ficha P2 de `docs/PLAN-BLOG.md`.
+     La página que el blog no puede hacer: quien evalúa a un proponente no llega
+     por Google sino por SECOP, y no lee prosa, escanea cifras. Ninguna de las
+     que aparecen aquí está escrita en este archivo: la copia pone las palabras
+     y los números los calcula la página del portafolio publicado. */
+  '/experiencia': {
+    titulo: 'Experiencia',
+    tarjetaTitulo: 'La experiencia de Plano Base, con sus cifras',
+    metaDescripcion:
+      'Área, año, ciudad y modalidad de cada proyecto de Plano Base ' +
+      'Arquitectos, con los reconocimientos en concurso. Las cifras se ' +
+      'calculan del portafolio publicado.',
+    titular: 'Toda la obra del estudio, con su área, su año y su estado.',
+    entrada:
+      'Esta página está hecha para quien tiene que evaluar a un proponente. ' +
+      'Cada proyecto con su área, su año, su ciudad y su modalidad, y cada ' +
+      'reconocimiento con el puesto y el ámbito del concurso. Ninguna cifra ' +
+      'está escrita a mano: todas se calculan del portafolio publicado, así ' +
+      'que cambian cuando cambia la obra.',
+    tablaTitular: 'Los proyectos, uno por uno',
+    notaArea:
+      'La raya señala un proyecto cuya área no está publicada. El total de ' +
+      'metros cuadrados suma únicamente los proyectos que la declaran, y dice ' +
+      'cuántos son.',
+    notaModalidad:
+      'Obra construida es obra terminada. Concurso es una propuesta ' +
+      'presentada a un certamen. Proyecto no construido es un encargo que se ' +
+      'diseñó y no llegó a obra. Una obra construida que nació de un concurso ' +
+      'se anuncia como construida, y se dice de dónde viene.',
+    reconocimientosTitular: 'Reconocimientos, con su puesto y su ámbito',
+    dossierTitular: '¿Necesita el documento?',
+    dossierTexto:
+      'Cada sector tiene un dossier con una hoja por proyecto —área, año, ' +
+      'lugar, cliente y memoria—. Se guarda como PDF desde el diálogo de ' +
+      'impresión y se adjunta a una propuesta.',
+  },
 } as const
 
 export type RutaConCopia = keyof typeof copiaPaginas

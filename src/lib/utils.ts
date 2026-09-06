@@ -143,9 +143,14 @@ export function creditoDiseno(
  *
  * **El orden importa y no es arbitrario.** Una obra construida se anuncia como
  * tal aunque haya nacido de un concurso: es la credencial más fuerte que existe
- * y perderla por una precedencia mal puesta sería caro. Hoy no hay ningún caso
- * —los cinco concursos del portafolio no se construyeron—, pero el día que lo
- * haya, esto ya está resuelto.
+ * y perderla por una precedencia mal puesta sería caro.
+ *
+ * Este comentario decía que ese caso no existía todavía, y era falso las dos
+ * veces que afirmaba algo: **El Ensueño es exactamente eso** —`construido` y en
+ * la categoría `concursos`—, y los concursos publicados son **trece**, no cinco.
+ * Se escribió el 6/9/2026, el mismo día que llegaron los datos que lo
+ * desmentían. El código siempre estuvo bien: El Ensueño se anuncia como obra
+ * construida, que es la afirmación más fuerte y la verdadera.
  */
 export function esConcurso(p: { categorias: Categoria[] }): boolean {
   return p.categorias.includes('concursos')

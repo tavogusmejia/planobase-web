@@ -6,6 +6,8 @@ import { ProjectCard } from '@/components/project/ProjectCard'
 import { ReticulaProyectos } from '@/components/project/ReticulaProyectos'
 import { BarraCategorias } from '@/components/project/BarraCategorias'
 import { Rule } from '@/components/ui/Rule'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { migaDePan } from '@/components/seo/migaDePan'
 import { getByCategory } from '@/lib/data/projects'
 import { reconocimientos } from '@content/site'
 import { puertaPorSlug } from '@content/puertas'
@@ -67,6 +69,8 @@ export default async function VerticalPage({
   setRequestLocale(locale)
 
   const tv = await getTranslations('vertical')
+  const tn = await getTranslations('nav')
+  const tcom = await getTranslations('comun')
 
   const v = verticalDe(locale, categoria)
   if (!v) notFound()
@@ -84,6 +88,18 @@ export default async function VerticalPage({
 
   return (
     <div className="mx-auto max-w-[100rem] py-16 lg:py-24">
+      {/* La vertical sí cuelga del portafolio: es una página intermedia de
+          verdad, con `/proyectos` encima y las fichas debajo. */}
+      <JsonLd
+        datos={migaDePan([
+          { nombre: tn('proyectos'), ruta: `/${locale}/proyectos` },
+          {
+            nombre: v.titulo,
+            ruta: `/${locale}/proyectos/categoria/${v.categoria}`,
+          },
+        ])}
+      />
+
       <div className="px-gutter lg:px-10">
         <h1 className="text-h1 measure-display text-ink">{v.titulo}</h1>
         <p className="text-lead measure mt-8 text-ink-soft">{v.entrada}</p>
@@ -127,7 +143,9 @@ export default async function VerticalPage({
                   </span>
                   <div>
                     <p className="text-h5 text-ink">
-                      {r.puesto === 'primer' ? 'Primer puesto' : 'Segundo puesto'}
+                      {r.puesto === 'primer'
+                        ? tcom('primerPuesto')
+                        : tcom('segundoPuesto')}
                       <span className="text-block ml-3 text-muted">
                         {r.ambito === 'publico'
                           ? 'concurso público'

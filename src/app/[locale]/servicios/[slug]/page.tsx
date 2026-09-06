@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { migaDePan } from '@/components/seo/migaDePan'
 import { puertas, serviciosDe } from '@content/puertas'
 import { puertaDe, puertasDe } from '@/lib/data/contenido'
 import { asesoria, contacto, reconocimientos } from '@content/site'
@@ -60,48 +62,56 @@ export default async function PuertaPage({
   if (!puerta) notFound()
 
   const tc = await getTranslations('cta')
+  const tn = await getTranslations('nav')
+  const tcom = await getTranslations('comun')
 
   const servicios = serviciosDe(puerta)
   const otras = puertasDe(locale).filter((p) => p.slug !== slug)
   const esInstitucional = slug === 'espacio-publico-y-equipamientos'
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    serviceType: puerta.nombre,
-    description: puerta.respuesta,
-    /* Se referencia el nodo de la organización en vez de redeclararlo.
-       Antes cada página de servicio emitía un `Organization` sin `@id`: para
-       un buscador eso es una entidad nueva y anónima por página, compitiendo
-       con la del sitio en vez de sumarle. La dirección vive en ese nodo, que
-       es donde tiene que coincidir carácter por carácter con la ficha de
-       Google Business; repetirla aquí solo añadía sitios donde se desvíe. */
-    provider: { '@id': absoluteUrl('/#estudio') },
-    /* Declaraba Cali, Jamundí y Palmira. El estudio presta el servicio en
-       todo el país y el 43 % del portafolio publicado está en Bogotá: la
-       zona regional contradecía los propios datos del sitio. La sede sigue
-       siendo Cali y eso no lo dice este campo, lo dice `address`. */
-    areaServed: { '@type': 'Country', name: 'Colombia' },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: puerta.nombre,
-      itemListElement: servicios.map((s) => ({
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: s.titulo },
-      })),
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      serviceType: puerta.nombre,
+      description: puerta.respuesta,
+      /* Se referencia el nodo de la organización en vez de redeclararlo.
+         Antes cada página de servicio emitía un `Organization` sin `@id`: para
+         un buscador eso es una entidad nueva y anónima por página, compitiendo
+         con la del sitio en vez de sumarle. La dirección vive en ese nodo, que
+         es donde tiene que coincidir carácter por carácter con la ficha de
+         Google Business; repetirla aquí solo añadía sitios donde se desvíe. */
+      provider: { '@id': absoluteUrl('/#estudio') },
+      /* Declaraba Cali, Jamundí y Palmira. El estudio presta el servicio en
+         todo el país y el 43 % del portafolio publicado está en Bogotá: la
+         zona regional contradecía los propios datos del sitio. La sede sigue
+         siendo Cali y eso no lo dice este campo, lo dice `address`. */
+      areaServed: { '@type': 'Country', name: 'Colombia' },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: puerta.nombre,
+        itemListElement: servicios.map((s) => ({
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: s.titulo },
+        })),
+      },
     },
-  }
+    /* El mismo nombre que se lee arriba en la ruta visible, y por eso los dos
+       salen de `tn('servicios')`: una miga que dice «Services» sobre una
+       página que muestra «Servicios» no describe la página, la contradice. */
+    migaDePan([
+      { nombre: tn('servicios'), ruta: `/${locale}/servicios` },
+      { nombre: puerta.nombre, ruta: `/${locale}/servicios/${slug}` },
+    ]),
+  ]
 
   return (
     <div className="mx-auto max-w-[100rem] px-gutter py-16 lg:px-10 lg:py-24">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd datos={jsonLd} />
 
       <nav aria-label="Ruta" className="text-block text-muted">
         <Link href="/servicios" className="hover:text-accent">
-          Servicios
+          {tn('servicios')}
         </Link>
       </nav>
 
@@ -151,7 +161,9 @@ export default async function PuertaPage({
                     {r.anio}
                   </span>
                   <p className="text-small measure text-ink">
-                    {r.puesto === 'primer' ? 'Primer puesto' : 'Segundo puesto'}
+                    {r.puesto === 'primer'
+                      ? tcom('primerPuesto')
+                      : tcom('segundoPuesto')}
                     {' — '}
                     {r.titulo}
                   </p>

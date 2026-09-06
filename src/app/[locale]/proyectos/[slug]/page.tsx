@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { migaDePan } from '@/components/seo/migaDePan'
 import { Gallery } from '@/components/project/Gallery'
 import { ProjectCard } from '@/components/project/ProjectCard'
 import {
@@ -95,6 +97,7 @@ export default async function ProyectoPage({
   if (!project) notFound()
 
   const t = await getTranslations('proyecto')
+  const tn = await getTranslations('nav')
   const [{ anterior, siguiente }, relacionados] = await Promise.all([
     getNeighbours(locale, slug),
     getRelated(locale, project),
@@ -135,35 +138,42 @@ export default async function ProyectoPage({
       : []),
   ]
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'CreativeWork',
-    name: project.titulo,
-    dateCreated: String(project.anio),
-    // Mismos nombres que en la página. Ocultar a alguien en el HTML y
-    // declararlo en los datos estructurados sería publicarlo igual.
-    creator: nombresDiseno(project.diseno).map((n) => ({
-      '@type': 'Person',
-      name: n,
-    })),
-    locationCreated: {
-      '@type': 'Place',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: project.ciudad,
-        addressRegion: project.departamento,
-        addressCountry: 'CO',
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'CreativeWork',
+      name: project.titulo,
+      dateCreated: String(project.anio),
+      // Mismos nombres que en la página. Ocultar a alguien en el HTML y
+      // declararlo en los datos estructurados sería publicarlo igual.
+      creator: nombresDiseno(project.diseno).map((n) => ({
+        '@type': 'Person',
+        name: n,
+      })),
+      locationCreated: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: project.ciudad,
+          addressRegion: project.departamento,
+          addressCountry: 'CO',
+        },
       },
+      ...(project.portada ? { image: absoluteUrl(mediaSrc(project.portada.path)) } : {}),
     },
-    ...(project.portada ? { image: absoluteUrl(mediaSrc(project.portada.path)) } : {}),
-  }
+    /* La ficha cuelga del portafolio y de nada más. No se mete la categoría
+       en medio: un proyecto está en varias a la vez —Comedor Univalle es
+       educativo e institucional— y elegir una sería inventar una jerarquía
+       que la navegación del sitio no tiene. */
+    migaDePan([
+      { nombre: tn('proyectos'), ruta: `/${locale}/proyectos` },
+      { nombre: project.titulo, ruta: `/${locale}/proyectos/${slug}` },
+    ]),
+  ]
 
   return (
     <article>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd datos={jsonLd} />
 
       {project.portada ? (
         <div className="relative h-[70svh] min-h-[26rem] w-full bg-mist">

@@ -3,6 +3,7 @@
     "inicio": "Home",
     "proyectos": "Projects",
     "estudio": "Studio",
+    "experiencia": "Track record",
     "servicios": "Services",
     "blog": "Journal",
     "contacto": "Contact",
@@ -73,6 +74,31 @@
     "conteo": "{count, plural, one {One project} other {# projects}}",
     "reconocimientos": "{count, plural, one {One award in this line} other {# awards in this line}}"
   },
+  "experiencia": {
+    "cifraProyectos": "{count, plural, one {published project} other {published projects}}",
+    "cifraArea": "{count, plural, one {area stated by one project} other {area stated by # projects}}",
+    "cifraConstruidas": "{count, plural, one {built work} other {built works}}",
+    "cifraCiudades": "{count, plural, one {city} other {cities}}",
+    "cifraPremiadas": "{count, plural, one {project with an award} other {projects with an award}}",
+    "cifraAnios": "years of work",
+    "filtroEtiqueta": "Filter the track record by sector",
+    "soloConstruidas": "Built work only",
+    "sinResultados": "No published work meets both conditions at once.",
+    "tablaDescripcion": "Published projects with their sector, place, year, area and status.",
+    "colProyecto": "Project",
+    "colSector": "Sector",
+    "colLugar": "Location",
+    "colAnio": "Year",
+    "colArea": "Area",
+    "colModalidad": "Status",
+    "cliente": "Client",
+    "sinArea": "area not published",
+    "sinSector": "sector not stated",
+    "deConcurso": "won in competition",
+    "conReconocimiento": "award-winning",
+    "ambitoPublico": "open public competition",
+    "ambitoPrivado": "invited competition"
+  },
   "categorias": {
     "todos": "All",
     "educativo": "Education",
@@ -113,7 +139,9 @@
     "sinCosto": "Free",
     "desdePrecio": "from {precio}",
     "llamar": "Call",
-    "escribirCorreo": "Email us"
+    "escribirCorreo": "Email us",
+    "primerPuesto": "First place",
+    "segundoPuesto": "Second place"
   },
   "error": {
     "etiqueta": "Error",
@@ -147,7 +175,8 @@
     "recibidoTexto": "We will write to you on WhatsApp within the next working hour. If you would rather get ahead of the conversation, you can write to us now.",
     "general": {
       "limite": "We have received several messages from this connection. Please wait a few minutes and try again, or write to us directly.",
-      "fallo": "We could not register your message, and we do not want it to be lost. Write to us directly and we will sort it out right away."
+      "fallo": "We could not register your message, and we do not want it to be lost. Write to us directly and we will sort it out right away.",
+      "tiempo": "That submission came through too quickly and we took it for an automated one. Please wait a few seconds and send it again, or write to us directly and we will sort it out right away."
     },
     "errores": {
       "nombre": "Please write your full name.",
@@ -186,7 +215,8 @@
       "franjaTomada": "Someone took that time while you were filling in the form. Choose another: the list is already up to date.",
       "franjaNoValida": "That time is no longer available. Choose another from the list.",
       "sinAgenda": "The calendar is not available right now. Write to us and we will sort it out over WhatsApp.",
-      "fallo": "We could not book the appointment. Write to us and we will sort it out right away."
+      "fallo": "We could not book the appointment. Write to us and we will sort it out right away.",
+      "tiempo": "That booking came through too quickly and we took it for an automated one. Please wait a few seconds and try again, or write to us and we will sort out the time by WhatsApp."
     }
   },
   "blog": {

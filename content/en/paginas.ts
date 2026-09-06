@@ -111,4 +111,44 @@ export const copiaPaginasEn: { [R in RutaConCopia]?: Partial<CopiaDe<R>> } = {
     ambitoPublico: 'open public competition',
     ambitoPrivado: 'invited competition',
   },
+
+  /* Los dos rótulos del dossier van traducidos aunque la sección solo se pinte
+     en español: el documento se genera únicamente en el idioma editorial —se
+     adjunta a un pliego colombiano— y enlazarlo desde el inglés llevaría a un
+     404. Están escritos para el día que exista en los dos idiomas, y mientras
+     tanto no dejan la ruta a medio traducir. */
+  '/experiencia': {
+    titulo: 'Track record',
+    /* No «what Plano Base has built»: la página también lista obra que no se
+       construyó, y la tarjeta que se ve al compartir el enlace no puede
+       prometer más de lo que hay debajo. */
+    tarjetaTitulo: 'The Plano Base track record, with the figures',
+    metaDescripcion:
+      'Area, year, city and status for every Plano Base Arquitectos project, ' +
+      'with the competition awards. Every figure is computed from the ' +
+      'published portfolio.',
+    titular: 'Every project the studio has done, with its area, its year and its status.',
+    entrada:
+      'This page is built for whoever has to assess a bidder. Every project ' +
+      'with its area, its year, its city and its status, and every award with ' +
+      'the placing and the kind of competition it came from. No figure here ' +
+      'is typed by hand: all of them are computed from the published ' +
+      'portfolio, so they change when the work changes.',
+    tablaTitular: 'The projects, one by one',
+    notaArea:
+      'A dash marks a project whose area is not published. The square metre ' +
+      'total adds up only the projects that state one, and says how many ' +
+      'those are.',
+    notaModalidad:
+      'Built work means work completed. Competition entry means a proposal ' +
+      'submitted to a competition. Unbuilt project means a commission that ' +
+      'was designed and never reached site. Built work that began as a ' +
+      'competition entry is listed as built, and its origin is stated.',
+    reconocimientosTitular: 'Awards, with the placing and the kind of competition',
+    dossierTitular: 'Do you need the document?',
+    dossierTexto:
+      'Each sector has a dossier with one sheet per project — area, year, ' +
+      'place, client and project notes. Save it as a PDF from the print ' +
+      'dialogue and attach it to a proposal.',
+  },
 }

@@ -83,9 +83,10 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 
 | Código | | Tarea | Nota |
 |---|---|---|---|
-| D-01 | ⏳ | ~~Entrega A: calendario de reservas~~ — hecho el 6/9. **Falta aplicar la migración `20260906120000_reservas.sql` en Supabase** y publicar | El enlace de Meet se rellena solo cuando llegue X-02 |
+| D-01 | ⏳ | ~~Entrega A: calendario de reservas~~ — hecho el 6/9, **deliberadamente fuera de `main`**: ver la nota | El enlace de Meet se rellena solo cuando llegue X-02 |
 | D-21 | ⬜ | **Decidir cómo se agenda de verdad** — aplazado el 6/9, ver el marcador de abajo | Bloquea publicar D-01 |
 | D-22 | ⬜ | Poder cancelar o mover una reserva desde el correo | Solo si se sigue con el calendario propio |
+| D-23 | 🟡 | **Guarda de enlaces de fuentes**: comprobar que las URL citadas siguen resolviendo | Salió de encontrar cuatro muertas — ver R-12 |
 | D-02 | ⬜ | Monitoreo de errores y uptime | Necesita X-10 |
 | D-03 | ⬜ | UTMs que sobrevivan la navegación | Hoy solo funcionan si el anuncio apunta directo a `/contacto` |
 | D-04 | ⬜ | Meta CAPI con deduplicación | Hoy se pierde entre el 30 y el 50 % de las señales |
@@ -147,28 +148,38 @@ Calendly no se recomienda: hace lo mismo que Google y se paga aparte.
 
 ## C · Contenido
 
-**54 de 77 publicados**, los 54 en español e inglés. Faltan 23.
+**61 de 77 publicados**, los 61 en español e inglés. Faltan 16, y son exactamente
+los dieciséis que espera G-01.
 Listado y prioridades en `docs/PLAN-BLOG.md`.
 
 ### Se pueden escribir hoy
 
 | Código | | Artículo |
 |---|---|---|
-| C-01 | 🟡 | Qué cambió en la NTC 4595:2025 — la búsqueda está verificadamente vacía |
-| C-02 | ⬜ | Cómo se diseña un colegio en Colombia (NTC 4595 y 4596) |
-| C-03 | ⬜ | Cómo se estructuran los pliegos de un equipamiento público |
-| C-04 | ⬜ | Aguas residuales sin alcantarillado — ya no está bloqueado, ver la nota |
-| C-05 | ⬜ | Cuánto cuesta ampliar un segundo piso, y si la casa lo aguanta |
-| C-06 | ⬜ | Cubiertas: barro, termoacústica, verde o placa |
-| C-07 | ⬜ | Casa de descanso o renta corta: qué cambia en el diseño |
+| C-01 | 🟢 | ~~Qué cambió en la NTC 4595:2025~~ — `ntc-4595-2025-que-cambio` |
+| C-02 | 🟢 | ~~Cómo se diseña un colegio en Colombia~~ |
+| C-03 | 🟢 | ~~Cómo se estructuran los pliegos de un equipamiento público~~ |
+| C-04 | 🟢 | ~~Aguas residuales sin alcantarillado~~ — el escaneo se leyó mirándolo |
+| C-05 | 🟢 | ~~Cuánto cuesta ampliar un segundo piso, y si la casa lo aguanta~~ |
+| C-06 | 🟢 | ~~Cubiertas: barro, termoacústica, verde o placa~~ |
+| C-07 | 🟢 | ~~Casa de descanso o renta corta: qué cambia en el diseño~~ |
 | C-24 | ⬜ | Cuánto cuesta un estudio de viabilidad de un predio — **material ya reunido** en `PLAN-BLOG.md` |
+| C-25 | 🟡 | **Actualizar `reforzamiento-estructural-y-nsr-10`**: su lista de decretos se queda en 2010 y declara sin verificar algo que sí se verificó |
 
-**C-01 y C-02** comparten un aviso: la NTC 4595 solo se puede citar por su
-adopción ministerial. No se cita una NTC por número sin haberla leído.
+Los siete se escribieron el 6/9 con tres agentes en paralelo, repartidos por
+archivos y sin que ninguno tocara los índices. **El titular de C-01 resultó
+falso al investigarlo**: la NTC 4595:2025 no movió ninguna área. Lo que cambió
+es de dónde salen las cifras —la tabla de lotes pasó al anexo informativo—, y
+esa es la tesis que se publicó.
 
-**C-04** llevaba meses parado porque la Resolución 0330 de 2017 es un escaneo
-sin capa de texto. **Ya no es un bloqueo**: un PDF así se puede leer mirando la
-página en vez de extrayendo el texto.
+**Quedan C-24 y C-25**, los dos únicos escribibles que sobreviven a este lote.
+
+**C-25 sale de escribir C-05 y C-06.** El artículo de reforzamiento dice dentro
+de su cabecera que no se pudo verificar la designación del capítulo de la
+NSR-10 que rige la intervención de lo construido: es **A.10**, y su A.10.1.3.4
+nombra literalmente las ampliaciones en altura. Y su lista de decretos
+modificatorios se queda en 2010: faltan el 1711 de 2021, el 1401 de 2023 y el
+1580 de 2023. Los tres están ya en `hechos.ts`.
 
 ### Bloqueadas por G-01
 
@@ -214,6 +225,9 @@ Salieron de errores que ya se cometieron. Cada una costó trabajo.
 | R-09 | **Toda cifra lleva su fecha de corte.** Una cifra sin fecha es falsa dentro de seis meses |
 | R-10 | **Una migración de Supabase no se aplica sola.** No hay CI que las corra: al publicar algo que toque la base, hay que pegar el SQL en el editor de Supabase a mano. El código debe degradar si la columna todavía no existe |
 | R-11 | **Al terminar una tarea se actualiza este tablero**, y si al hacerla aparece otra, se añade. Un tablero desactualizado miente, y sobre él se toman decisiones |
+| R-12 | **Una fuente se pudre de tres formas, y solo la primera es obvia.** Que la norma se derogue; que **una regla dentro de ella** desaparezca sin que la norma caiga; y que **el enlace deje de resolver** aunque la norma siga viva. Ninguna guarda ve las tres |
+| R-13 | **Un enlace no se cambia por un código HTTP: se verifica por el título de la página.** Un 200 apuntando a la ley equivocada es peor que un enlace roto |
+| R-14 | **No se publica lo que Gustavo aplazó.** Si un lote de trabajo arrastra algo que él dejó en pausa, se separa el commit, no se publica «de paso» |
 
 ---
 

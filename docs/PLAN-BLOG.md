@@ -426,13 +426,21 @@ decidir presupuesto de pauta, hay que pagar una pasada de herramienta.
   verificar todas las que se citan habitualmente en impermeabilización,
   cubiertas y fontanería. **Los dos artículos de patología no citan ni un
   número de NTC**, y lo declaran dentro del texto.
-- **Lo que dicen los Títulos B, J y K de la NSR-10 sobre cargas de agua
-  empozada, humedad o impermeabilización.** La cadena de decretos está
-  confirmada —926 de 2010, más 1711 de 2021, 1401 de 2023 y 1580 de 2023—, pero
-  el anexo técnico supera el límite de descarga y no se pudo leer.
-- **La Resolución 0330 de 2017 (RAS).** El PDF que publica Minvivienda son siete
-  páginas escaneadas sin capa de texto, con metadatos anteriores a la
-  expedición. No se pudo establecer si cubre aguas lluvias de edificación.
+- ~~**Lo que dicen los Títulos B, J y K de la NSR-10.**~~ **El Título B sí se
+  puede leer**, en el PDF del IDRD (`2titulo-b-nsr-100.pdf`), y de ahí salieron
+  las cargas muertas y vivas de cubierta y el granizo de C-06. **J y K siguen
+  sin leerse.** La cadena de decretos está confirmada: 926 de 2010, más 1711 de
+  2021, 1401 de 2023 y 1580 de 2023.
+- ~~**La Resolución 0330 de 2017 (RAS).**~~ **Legible desde el 6/9**, entera y
+  con capa de texto, en el gestor normativo de la CRA (`normas.cra.gov.co`) —el
+  mismo recurso que desatascó el artículo de la Ley 1209 cuando el PDF oficial
+  resultó un escaneo—. El PDF de Minvivienda sigue siendo siete páginas
+  escaneadas; el problema nunca fue el formato sino el repositorio.
+
+  **La lección, que vale para todo lo que queda en esta lista:** antes de
+  declarar una norma ilegible, hay que buscarla en los otros gestores
+  normativos. Son varios y publican en HTML: el de Función Pública, el de la
+  Alcaldía de Bogotá y el de la CRA.
 - **Promedios de humedad relativa por ciudad del IDEAM.** El portal devuelve 404
   en las rutas probadas. No hay cifra citable.
 - **Los umbrales numéricos de temperatura y humedad relativa** que separan

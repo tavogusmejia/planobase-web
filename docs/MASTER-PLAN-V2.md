@@ -104,11 +104,11 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 | ~~D-09~~ | 🟢 | ~~Antispam: tiempo mínimo de llenado~~ — 4 s, con el instante firmado por el servidor | **Un bot paciente pasa**, y está declarado. Ver G-09 |
 | D-10 | ⬜ | Corte de dominio: DNS, variables, 301 desde Wix, Search Console | Comprobar antes si algún subdominio va por http — ver la nota de HSTS |
 | D-11 | ⬜ | Respaldo de leads más allá de Supabase y correo | Si los dos fallan, el lead se pierde |
-| D-12 | ⬜ | Integración continua y tests | — |
-| D-13 | ⬜ | `/proyectos` estático | — |
+| ~~D-12~~ | 🟢 | ~~Integración continua y tests~~ — Actions en cada push y PR, más 65 pruebas | Las catorce mutaciones de prueba fallaron como debían. Ver la nota |
+| ~~D-13~~ | 🟢 | ~~`/proyectos` estático~~ — el filtro por query se retira; vive en las siete rutas de categoría | 301 en `next.config.ts` para las URLs viejas |
 | ~~D-14~~ | 🟢 | ~~Fechas reales en el sitemap~~ — 39 de 45 filas emitían la hora del build | 146 fechas honestas; 86 URLs sin fecha a propósito |
-| D-15 | ⬜ | Teclado en el menú móvil | — |
-| D-16 | 🟡 | Páginas por ciudad: `/donde-trabajamos/bogota` y `/cali` — **desbloqueada el 6/9** |
+| ~~D-15~~ | 🟢 | ~~Teclado en el menú móvil~~ — Escape cierra y devuelve el foco | Sin trampa de foco: es un desplegable, no un diálogo |
+| D-16 | 🟡 | ~~Páginas por ciudad~~ → **Que el alcance nacional se vea, sin una página por ciudad** — reformulada por Gustavo el 6/9. Ver la nota |
 | ~~D-17~~ | 🟢 | ~~Página de credenciales institucionales~~ — **`/experiencia`**, los 22 publicados en tabla con filtro que recalcula los totales |
 | D-18 | 🔒 | Entrega B: pagos con Wompi | *(espera X-07)* |
 | D-19 | ⬜ | Proyectar datos al cliente | — |
@@ -308,6 +308,94 @@ borrar el archivo del bucket no lo es, y el orden correcto es siempre
 despublicar, comprobar el 404 y borrar después. El original en
 `assets-originales/` no se toca, así que restituir un proyecto es
 `pnpm media && pnpm media:upload`.
+
+---
+
+## D-12 · lo que corre solo desde ahora
+
+**`.github/workflows/ci.yml`**, en cada push y en cada PR: `typecheck`, `lint`,
+`test` y `build`, en ese orden — de lo barato a lo caro, para que un error de
+tipos no se descubra después de tres minutos de build.
+
+**Ninguna guarda necesita secretos, y se comprobó en vez de suponerlo:** el sitio
+entero se construye sin ningún `.env`, porque cada variable tiene reserva en
+`src/lib/env.ts` y la guarda de medios solo se activa bajo `VERCEL`. La CI corre
+en un fork sin dar de alta nada.
+
+**Un aviso que conviene tener presente:** `check-vigencia` depende de la fecha.
+El día que venza un dato de APBS, la CI se pondrá roja sin que nadie haya tocado
+el código. Es lo correcto —para eso existe— pero ahora también parará las PR.
+
+**`check:enlaces` va en un flujo aparte, los lunes.** No entra en cada push
+porque llama a 180 servidores y una rama se pondría roja porque el gestor
+normativo está lento a las once de la noche. Y **no lleva `continue-on-error`**:
+si encuentra una fuente muerta el trabajo falla y GitHub avisa por correo. En
+verde permanente nadie lo abriría nunca. No bloquea nada porque no se dispara en
+push ni en PR. **Ojo: los flujos programados solo corren desde la rama por
+defecto**, así que empieza a dispararse cuando esto esté en `main`.
+
+### 65 pruebas, y por qué esas
+
+Se priorizó por «cuánto duele el error y cuánto tarda en verse», no por
+cobertura. Cada prueba está atada a un error que este proyecto ya cometió o que
+no se vería nunca:
+
+- **`franjas.ts`** — el único módulo donde un error no se ve: una franja mal
+  calculada no rompe ninguna página ni sale en ningún registro, se convierte en
+  una cita a la que no hay nadie. La prueba de `+00:00` contra `.000Z` cubre el
+  caso en que **dos personas reservan la misma hora**. Y la de `DIAS_CERRADOS`
+  cubre una rama que hoy **no ejecuta nadie**, porque la lista está vacía: podría
+  estar rota desde el primer día.
+- **`sello.ts`** — falla en silencio hacia los dos lados: ablandado entra el
+  spam, endurecido se pierde el encargo por el que se paga la pauta. Una prueba
+  cubre que `timingSafeEqual` **lanza** si los búferes miden distinto: sin la
+  comprobación previa de longitud, mandar una firma corta no es un envío
+  rechazado, es una excepción que tumba el formulario para todos.
+- **`utils.ts`** — `naturalezaDe` con `null` que no es `false`, y la precedencia
+  de El Ensueño; `formatArea` por idioma, que es el error de la fase 0 del
+  bilingüe —«5.400 m²» un lector inglés lo lee como cinco coma cuatro—; y
+  `fechaLarga`, donde medianoche UTC es el día anterior en Bogotá.
+- **`atribucion.ts`** — la caducidad a 30 días, que es un error que tarda un mes
+  en poderse ver.
+
+**Se rompieron a propósito catorce funciones y las catorce fallaron.** Una de
+esas mutaciones destapó además una prueba floja, que se reforzó. Verificado
+aparte con una mutación independiente: invertir la precedencia de `naturalezaDe`
+tumba exactamente la prueba que lo vigila.
+
+---
+
+## D-16, reformulada · el alcance nacional sin páginas por ciudad
+
+**Gustavo la reformuló el 6/9:** basta con que a grandes rasgos se vea que el
+estudio trabaja a nivel nacional. Una página por ciudad es demasiado trabajo —y
+el propio plan lo avisaba: 800 a 1.200 palabras de contenido normativo cada una,
+que hay que refrescar cuando cambie el POT, y una página de ciudad
+desactualizada es peor que no tenerla.
+
+**Y no hace falta, porque el dato ya lo dice.** Los 22 proyectos publicados están
+en **7 departamentos y 8 ciudades**:
+
+| Departamento | Proyectos |
+|---|---|
+| Bogotá D.C. | 9 |
+| Valle del Cauca | 8 |
+| Nariño · Antioquia · Cundinamarca · Guaviare · Chocó | 1 cada uno |
+
+Eso no es «obra en todo el país» como adjetivo: es Ipiales en la frontera con
+Ecuador, Quibdó en el Pacífico y San José del Guaviare en la Amazonía. **Nombrar
+tres ciudades de periferia convence más que un mapa**, y no hay nada que
+mantener.
+
+**Lo que queda por hacer, entonces, es pequeño y se calcula solo:**
+
+1. `/experiencia` ya cuenta las ciudades; que cuente también los departamentos.
+2. Una línea en `/estudio` que nombre el alcance con ciudades reales en vez del
+   adjetivo. **Es copia y la aprueba Gustavo**, no se publica por el camino.
+
+Lo que **no** se hace: `LocalBusiness` en ninguna ciudad sin oficina física y
+atendida. Declararlo sería mentir en el schema, y abrir ficha de Google Business
+con una oficina virtual es causal de suspensión.
 
 ---
 

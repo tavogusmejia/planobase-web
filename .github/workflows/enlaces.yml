@@ -1,0 +1,90 @@
+# Las fuentes que cita el blog, una vez por semana.
+#
+# ## Por qué esto no va en `ci.yml`
+#
+# `pnpm check:enlaces` llama a unos 180 servidores, la mitad de ellos de
+# entidades colombianas que se caen un rato cada semana. Metido en el flujo de
+# cada push, el resultado no dependería del código: una rama en verde pasaría a
+# rojo porque el gestor normativo de Función Pública está lento a las once de la
+# noche. Y una comprobación que grita en falso se termina desactivando —o, peor,
+# se aprende a ignorar—, con lo que el día que una fuente muera de verdad nadie
+# mirará. El propio script ya lo dice en su cabecera.
+#
+# ## Por qué merece la pena tenerla igual
+#
+# El 6/9/2026, al barrer las 163 fuentes del corpus, aparecieron **cinco
+# muertas**; la peor, la Ley 160 de 1994, citada en seis artículos. Ninguna de
+# las cinco guardas del build lo veía, porque ninguna sale a la red. Un artículo
+# que cita una norma con un enlace que ya no resuelve no rompe nada: solo deja
+# de ser verificable, que es justo lo que lo hacía valer algo.
+#
+# ## Qué hace y qué no
+#
+# Corre los lunes por la mañana y **no bloquea nada**: no se dispara en ningún
+# push ni en ninguna pull request, así que no puede impedir un merge ni retrasar
+# una publicación. Si encuentra una fuente muerta el trabajo falla, y GitHub
+# avisa por correo cuando una ejecución programada se rompe; el resumen de la
+# ejecución lleva el detalle de qué URL murió y en qué artículos se cita.
+#
+# El script ya distingue el fallo del aviso: un 404 o una redirección a una
+# página de error es fallo, y un 403 o un tiempo de espera agotado es solo
+# aviso, porque el 6/9 se comprobó a mano que los cuatro casos así estaban vivos
+# y lo que fallaba era el cortafuegos.
+#
+# **Ojo con una cosa de GitHub:** los flujos programados solo corren desde la
+# rama por defecto. Mientras este archivo viva en una rama y no en `main`, el
+# cron no se dispara; hasta entonces se lanza a mano desde la pestaña Actions,
+# que es para lo que está `workflow_dispatch`.
+name: Fuentes del blog
+
+on:
+  schedule:
+    # Lunes a las 12:00 UTC, o sea las 07:00 de Bogotá: el aviso está en la
+    # bandeja antes de que empiece la semana.
+    - cron: '0 12 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  enlaces:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11.25.0
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Instalar dependencias
+        run: pnpm install --frozen-lockfile
+
+      # El script usa `curl` y no el `fetch` de Node: `funcionpublica.gov.co`
+      # —el sitio más citado del corpus— sirve una cadena de certificados
+      # incompleta que el cliente TLS de Node rechaza y el del sistema acepta.
+      # `curl` viene de serie en el runner de Ubuntu.
+      - name: Comprobar las fuentes
+        run: |
+          set -o pipefail
+          pnpm check:enlaces 2>&1 | tee enlaces.log
+
+      # Va al resumen de la ejecución para que el aviso lleve a una página donde
+      # se lee qué murió, sin abrir el registro entero.
+      - name: Resumen
+        if: always()
+        run: |
+          {
+            echo '### Fuentes citadas por el blog'
+            echo
+            echo '```'
+            tail -n 80 enlaces.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

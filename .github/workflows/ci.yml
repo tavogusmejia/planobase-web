@@ -1,0 +1,107 @@
+# Lo que tiene que estar en verde antes de publicar nada.
+#
+# Corre lo mismo que se corre a mano —tipos, lint, pruebas y build— en cada
+# push y en cada pull request. El orden no es casual: va de lo barato a lo caro,
+# para que un error de tipos no se descubra tres minutos después de empezar a
+# construir el sitio.
+#
+# **No necesita ningún secreto, y eso está comprobado.** Las cinco guardas que
+# corren antes de `next build` —redirects, fechas, traducciones, vigencia y
+# correos— leen archivos del repositorio y nada más: ni una consulta de red, ni
+# una variable de entorno. Y `next build` construye entero con el entorno vacío,
+# porque cada variable del sitio tiene un valor de reserva (`src/lib/env.ts`) y
+# la única guarda que exige configuración —la de los medios, en
+# `next.config.ts`— solo se activa cuando `VERCEL` está definida, que aquí no lo
+# está. Consecuencia práctica: este flujo funciona en un fork y en una rama sin
+# que nadie tenga que dar de alta nada.
+#
+# **`pnpm check:enlaces` no está aquí a propósito.** Va en `enlaces.yml`, una
+# vez por semana. La razón está escrita allí.
+name: Verificación
+
+on:
+  push:
+  pull_request:
+
+# Un push a una rama con pull request abierta dispara los dos disparadores. Con
+# esto, la ejecución vieja se cancela en cuanto llega una nueva del mismo ref y
+# no se pagan dos veces los mismos minutos.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  # El build no tiene por qué llamar a casa.
+  NEXT_TELEMETRY_DISABLED: '1'
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v7
+
+      # pnpm antes que Node: `setup-node` con `cache: pnpm` necesita que el
+      # binario ya exista para preguntarle dónde tiene el almacén.
+      #
+      # La versión va fijada y no en `latest` porque es la que escribió el
+      # `pnpm-lock.yaml` de este repositorio. Si Gustavo actualiza pnpm en su
+      # máquina, este número se actualiza también; con `latest`, el día que
+      # pnpm cambie el formato del lockfile el fallo aparecería aquí sin que
+      # nadie hubiera tocado nada.
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11.25.0
+
+      - uses: actions/setup-node@v7
+        with:
+          # `package.json` pide >=20, pero pnpm 11 pide >=22.13. Manda el más
+          # exigente de los dos.
+          node-version: 22
+          cache: pnpm
+
+      # El caché del almacén de pnpm lo lleva el paso de arriba. Este es el otro
+      # caché que de verdad ahorra: el de la compilación de Next, que reutiliza
+      # el trabajo de los módulos que no cambiaron.
+      #
+      # La clave cuelga del lockfile y del contenido: si cambia una dependencia
+      # o cualquier archivo del sitio, se guarda una entrada nueva; y
+      # `restore-keys` hace que mientras tanto se parta del caché anterior en
+      # vez de de cero. Es el patrón que documenta Vercel para Next en Actions.
+      - name: Caché del build de Next
+        uses: actions/cache@v6
+        with:
+          path: .next/cache
+          # Sin llaves `{ts,tsx}` en los patrones: `hashFiles` no expande
+          # llaves, y un patrón que no casa con nada devuelve cadena vacía. La
+          # clave saldría idéntica siempre y el caché no se invalidaría nunca,
+          # que es peor que no tenerlo.
+          key: ${{ runner.os }}-next-${{ hashFiles('pnpm-lock.yaml') }}-${{ hashFiles('src/**', 'content/**', 'messages/**') }}
+          restore-keys: |
+            ${{ runner.os }}-next-${{ hashFiles('pnpm-lock.yaml') }}-
+            ${{ runner.os }}-next-
+
+      # `--frozen-lockfile` es lo que convierte el lockfile en una afirmación
+      # comprobable: si alguien tocó `package.json` sin regenerarlo, esto falla
+      # aquí en vez de instalar en silencio una versión distinta de la que hay
+      # en la máquina de quien lo escribió.
+      - name: Instalar dependencias
+        run: pnpm install --frozen-lockfile
+
+      - name: Tipos
+        run: pnpm typecheck
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Pruebas
+        run: pnpm test
+
+      # Incluye las cinco guardas: redirects, fechas, traducciones, vigencia de
+      # los datos de APBS y correos.
+      - name: Build
+        run: pnpm build

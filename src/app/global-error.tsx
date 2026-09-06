@@ -84,12 +84,28 @@ export default function GlobalError({
             </button>
           </p>
 
+          {/* El número va escrito a mano, y es el único sitio del proyecto
+              donde eso es correcto: este archivo no importa `contacto` de
+              `content/site.ts` por la misma razón por la que no importa nada
+              más. Si el teléfono cambia allí, **hay que cambiarlo aquí a
+              mano**; no hay nada que lo avise.
+
+              Y tiene que estar: quien llega aquí ve una página sin estilos
+              porque falló el layout raíz. Es el peor momento del sitio, y
+              dejarle solo un enlace de WhatsApp asume que tiene WhatsApp. */}
           <p style={{ marginTop: '2rem' }}>
             <a
               href="https://wa.me/573014264603"
               style={{ color: '#55839b', textUnderlineOffset: '0.5rem' }}
             >
               Escribir por WhatsApp
+            </a>
+            <span style={{ color: '#c8c9ca', padding: '0 0.75rem' }}>·</span>
+            <a
+              href="tel:+573014264603"
+              style={{ color: '#55839b', textUnderlineOffset: '0.5rem' }}
+            >
+              Llamar al +57 301 426 4603
             </a>
             <span style={{ color: '#c8c9ca', padding: '0 0.75rem' }}>·</span>
             {/* Un `<a>` y no `<Link>`, a propósito: `<Link>` navegaría del lado

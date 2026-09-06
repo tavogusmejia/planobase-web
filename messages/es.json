@@ -109,7 +109,18 @@
     "cambiarIdioma": "Cambiar idioma",
     "traduccionPendiente": "Contenido en español; la traducción al inglés está en curso.",
     "sinCosto": "Sin costo",
-    "desdePrecio": "desde {precio}"
+    "desdePrecio": "desde {precio}",
+    "llamar": "Llamar",
+    "escribirCorreo": "Escribir al correo"
+  },
+  "error": {
+    "etiqueta": "Error",
+    "titulo": "Algo falló al cargar esta página. No es nada que usted haya hecho.",
+    "texto": "El fallo quedó registrado y lo estamos viendo. Puede intentarlo de nuevo aquí mismo; si vuelve a fallar, escríbanos y seguimos por el otro lado sin que usted pierda el hilo.",
+    "reintentar": "Intentar de nuevo",
+    "volverInicio": "Volver al inicio",
+    "referencia": "Referencia del fallo:",
+    "mensajeWhatsapp": "Hola Plano Base, la página del sitio me dio un error."
   },
   "formulario": {
     "nombre": "Nombre completo",
@@ -133,8 +144,8 @@
     "recibido": "Recibimos su mensaje.",
     "recibidoTexto": "Le escribimos por WhatsApp dentro de la siguiente hora hábil. Si prefiere adelantar la conversación, puede escribirnos ahora mismo.",
     "general": {
-      "limite": "Recibimos varios mensajes desde esta conexión. Espere unos minutos o escríbanos por WhatsApp.",
-      "fallo": "No pudimos registrar su mensaje. Escríbanos por WhatsApp y lo resolvemos de inmediato."
+      "limite": "Recibimos varios mensajes desde esta conexión. Espere unos minutos e inténtelo de nuevo, o escríbanos directamente.",
+      "fallo": "No pudimos registrar su mensaje, y no queremos que se pierda. Escríbanos directamente y lo resolvemos ahora mismo."
     },
     "errores": {
       "nombre": "Escriba su nombre completo.",

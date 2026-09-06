@@ -15,6 +15,7 @@ import {
 } from '@content/apbs/divipola'
 import { cn } from '@/lib/utils'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
+import { ContactoDirecto } from '@/components/ui/ContactoDirecto'
 import { track } from '@/lib/analytics'
 
 const campoBase =
@@ -327,13 +328,24 @@ export function ContactForm() {
         </div>
       </div>
 
+      {/* El fallo del envío es el único punto del sitio donde un error cuesta
+          un encargo: el mensaje ya se perdió y el estudio no tiene con qué
+          contactar a quien lo escribió. Así que aquí no basta con explicar lo
+          que pasó — hay que dejarle una salida que se pulse.
+
+          Antes esto era un `<p>` con la frase «escríbanos por WhatsApp», sin
+          enlace y sin número. */}
       {general ? (
-        <p
+        <div
           role="alert"
-          className="text-small border-l-2 border-accent-deep pl-4 text-ink"
+          className="border-l-2 border-accent-deep pl-4"
         >
-          {general}
-        </p>
+          <p className="text-small text-ink">{general}</p>
+          <ContactoDirecto
+            origen="web/formulario-fallo"
+            mensaje="Hola Plano Base, el formulario del sitio no me dejó enviar el mensaje."
+          />
+        </div>
       ) : null}
 
       <button

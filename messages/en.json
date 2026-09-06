@@ -109,7 +109,18 @@
     "cambiarIdioma": "Change language",
     "traduccionPendiente": "Content shown in Spanish; the English translation is in progress.",
     "sinCosto": "Free",
-    "desdePrecio": "from {precio}"
+    "desdePrecio": "from {precio}",
+    "llamar": "Call",
+    "escribirCorreo": "Email us"
+  },
+  "error": {
+    "etiqueta": "Error",
+    "titulo": "Something went wrong loading this page. It is nothing you did.",
+    "texto": "The failure has been logged and we are looking at it. You can try again right here; if it fails again, write to us and we will carry on from the other side without you losing the thread.",
+    "reintentar": "Try again",
+    "volverInicio": "Back to the home page",
+    "referencia": "Failure reference:",
+    "mensajeWhatsapp": "Hello Plano Base, the site gave me an error."
   },
   "formulario": {
     "nombre": "Full name",
@@ -133,8 +144,8 @@
     "recibido": "We have your message.",
     "recibidoTexto": "We will write to you on WhatsApp within the next working hour. If you would rather get ahead of the conversation, you can write to us now.",
     "general": {
-      "limite": "We have received several messages from this connection. Please wait a few minutes or write to us on WhatsApp.",
-      "fallo": "We could not register your message. Write to us on WhatsApp and we will sort it out straight away."
+      "limite": "We have received several messages from this connection. Please wait a few minutes and try again, or write to us directly.",
+      "fallo": "We could not register your message, and we do not want it to be lost. Write to us directly and we will sort it out right away."
     },
     "errores": {
       "nombre": "Please write your full name.",

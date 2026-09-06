@@ -77,6 +77,13 @@ import { traduccion as piscinaEnTerraza } from './piscina-en-terraza'
 import { traduccion as jacuzziDeObraOPortatil } from './jacuzzi-de-obra-o-portatil'
 import { traduccion as piscinaYJacuzziJuntos } from './piscina-y-jacuzzi-juntos'
 import { traduccion as mantenimientoDePiscina } from './mantenimiento-de-piscina-costo-mensual'
+import { traduccion as ntc4595QueCambio } from './ntc-4595-2025-que-cambio'
+import { traduccion as disenarUnColegio } from './como-se-disena-un-colegio-en-colombia'
+import { traduccion as pliegosEquipamiento } from './pliegos-de-un-equipamiento-publico'
+import { traduccion as aguasResiduales } from './aguas-residuales-sin-alcantarillado'
+import { traduccion as ampliarSegundoPiso } from './ampliar-un-segundo-piso'
+import { traduccion as cubiertas } from './cubiertas-barro-termoacustica-verde-o-placa'
+import { traduccion as casaDeDescanso } from './casa-de-descanso-o-renta-corta'
 import { traduccion as comprarLoteRural } from './comprar-lote-rural-que-verificar-antes-de-firmar'
 import { traduccion as aguaEnElCampo } from './agua-en-el-campo-que-permiso-necesita'
 import { traduccion as casaBioclimatica } from './casa-bioclimatica-por-piso-termico'
@@ -176,6 +183,13 @@ const registro: TraduccionPost[] = [
   jacuzziDeObraOPortatil,
   piscinaYJacuzziJuntos,
   mantenimientoDePiscina,
+  ntc4595QueCambio,
+  disenarUnColegio,
+  pliegosEquipamiento,
+  aguasResiduales,
+  ampliarSegundoPiso,
+  cubiertas,
+  casaDeDescanso,
 ]
 
 export const traduccionesPost = new Map(registro.map((t) => [t.slug, t]))

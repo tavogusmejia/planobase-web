@@ -30,7 +30,7 @@ export const post: Post = {
   slug: 'licencia-de-construccion-en-bogota',
   titulo: 'La licencia de construcción en Bogotá, paso a paso',
   pilar: 'tramites',
-  fecha: '2026-08-27',
+  fecha: '2026-02-25',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

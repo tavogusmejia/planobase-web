@@ -54,7 +54,7 @@ export const post: Post = {
   slug: 'agua-en-el-campo-que-permiso-necesita',
   titulo: 'El agua en el campo: de dónde sale y qué permiso necesita',
   pilar: 'casa-campestre',
-  fecha: '2026-01-13',
+  fecha: '2025-08-22',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

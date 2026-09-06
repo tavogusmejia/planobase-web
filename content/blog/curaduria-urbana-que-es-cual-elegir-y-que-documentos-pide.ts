@@ -34,7 +34,7 @@ export const post: Post = {
   slug: 'curaduria-urbana-que-es-cual-elegir-y-que-documentos-pide',
   titulo: 'Curaduría urbana: qué es, cuál elegir y qué documentos pide',
   pilar: 'tramites',
-  fecha: '2025-05-13',
+  fecha: '2025-05-06',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

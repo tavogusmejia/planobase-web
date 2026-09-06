@@ -22,7 +22,7 @@ export const post: Post = {
   slug: 'contrato-de-diseno-arquitectonico',
   titulo: 'El contrato de diseño arquitectónico: qué tiene que decir',
   pilar: 'proceso',
-  fecha: '2024-02-20',
+  fecha: '2024-02-13',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

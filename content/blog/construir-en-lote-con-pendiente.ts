@@ -57,7 +57,7 @@ export const post: Post = {
   slug: 'construir-en-lote-con-pendiente',
   titulo: 'Construir en un lote con pendiente: qué encarece de verdad la obra',
   pilar: 'casa-campestre',
-  fecha: '2026-07-07',
+  fecha: '2024-10-19',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

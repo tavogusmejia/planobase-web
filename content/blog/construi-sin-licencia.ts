@@ -19,7 +19,7 @@ export const post: Post = {
   slug: 'construi-sin-licencia',
   titulo: 'Construí sin licencia: qué sanción hay y cómo se legaliza',
   pilar: 'tramites',
-  fecha: '2025-07-08',
+  fecha: '2024-11-21',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

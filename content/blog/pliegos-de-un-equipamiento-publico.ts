@@ -47,7 +47,7 @@ export const post: Post = {
   slug: 'pliegos-de-un-equipamiento-publico',
   titulo: 'Cómo se estructuran los pliegos de un equipamiento público',
   pilar: 'institucional',
-  fecha: '2026-09-05',
+  fecha: '2026-05-25',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

@@ -32,7 +32,7 @@ export const post: Post = {
   slug: 'piscina-de-borde-infinito',
   titulo: 'Piscina de borde infinito: qué exige de verdad y por qué cuesta el doble',
   pilar: 'piscinas',
-  fecha: '2026-07-14',
+  fecha: '2025-11-22',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

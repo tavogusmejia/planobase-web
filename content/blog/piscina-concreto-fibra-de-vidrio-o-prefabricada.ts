@@ -37,7 +37,7 @@ export const post: Post = {
   slug: 'piscina-concreto-fibra-de-vidrio-o-prefabricada',
   titulo: 'Concreto, fibra de vidrio o prefabricada: cuál le conviene',
   pilar: 'piscinas',
-  fecha: '2026-06-16',
+  fecha: '2026-06-20',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

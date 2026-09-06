@@ -45,7 +45,7 @@ export const post: Post = {
   slug: 'mantenimiento-de-piscina-costo-mensual',
   titulo: 'Mantenimiento de piscina: el costo mensual real',
   pilar: 'piscinas',
-  fecha: '2026-08-31',
+  fecha: '2026-03-07',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

@@ -19,7 +19,7 @@ export const post: Post = {
   slug: 'interventoria-de-obra',
   titulo: 'Interventoría: por qué el que construye no puede ser el que vigila',
   pilar: 'proceso',
-  fecha: '2023-07-25',
+  fecha: '2023-07-10',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

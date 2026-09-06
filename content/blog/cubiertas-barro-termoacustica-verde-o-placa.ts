@@ -60,7 +60,7 @@ export const post: Post = {
   slug: 'cubiertas-barro-termoacustica-verde-o-placa',
   titulo: 'Cubiertas: barro, termoacústica, verde o placa',
   pilar: 'casa-campestre',
-  fecha: '2026-08-18',
+  fecha: '2025-07-22',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

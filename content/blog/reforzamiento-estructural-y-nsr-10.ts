@@ -56,7 +56,7 @@ export const post: Post = {
   slug: 'reforzamiento-estructural-y-nsr-10',
   titulo: 'Reforzamiento estructural: qué exige la norma y qué cuesta el trámite',
   pilar: 'tramites',
-  fecha: '2025-10-15',
+  fecha: '2025-09-08',
   actualizado: '2026-09-06',
   autor: 'Gustavo Mejía Martínez',
   resumen:

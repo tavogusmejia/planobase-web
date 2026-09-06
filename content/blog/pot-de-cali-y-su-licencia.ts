@@ -24,7 +24,7 @@ export const post: Post = {
   slug: 'pot-de-cali-y-su-licencia',
   titulo: 'Qué pasa con su licencia si cambia el POT de Cali',
   pilar: 'tramites',
-  fecha: '2026-09-04',
+  fecha: '2026-09-02',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

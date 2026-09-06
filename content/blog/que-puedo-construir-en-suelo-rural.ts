@@ -29,7 +29,7 @@ export const post: Post = {
   slug: 'que-puedo-construir-en-suelo-rural',
   titulo: 'Qué puedo construir en suelo rural',
   pilar: 'casa-campestre',
-  fecha: '2024-07-09',
+  fecha: '2024-07-17',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

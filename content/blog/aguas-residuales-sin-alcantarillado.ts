@@ -67,7 +67,7 @@ export const post: Post = {
   slug: 'aguas-residuales-sin-alcantarillado',
   titulo: 'Aguas residuales sin alcantarillado: qué exige la norma de verdad',
   pilar: 'casa-campestre',
-  fecha: '2026-07-14',
+  fecha: '2025-06-27',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

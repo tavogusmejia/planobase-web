@@ -27,7 +27,7 @@ export const post: Post = {
   slug: 'fisuras-en-muros',
   titulo: 'Fisuras en muros: cuáles son peligrosas y cuáles no',
   pilar: 'patologias',
-  fecha: '2026-09-02',
+  fecha: '2026-03-27',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

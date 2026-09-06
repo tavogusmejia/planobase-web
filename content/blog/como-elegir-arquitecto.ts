@@ -34,7 +34,7 @@ export const post: Post = {
   slug: 'como-elegir-arquitecto',
   titulo: 'Cómo elegir arquitecto, y qué señales indican que no es el indicado',
   pilar: 'local',
-  fecha: '2025-06-17',
+  fecha: '2025-04-12',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

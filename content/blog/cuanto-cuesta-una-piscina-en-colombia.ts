@@ -48,7 +48,7 @@ export const post: Post = {
   slug: 'cuanto-cuesta-una-piscina-en-colombia',
   titulo: 'Cuánto cuesta una piscina en Colombia, y cuánto cuesta cada mes',
   pilar: 'piscinas',
-  fecha: '2026-08-27',
+  fecha: '2026-02-13',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

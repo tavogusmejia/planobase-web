@@ -15,7 +15,7 @@ export const post: Post = {
   slug: 'diez-preguntas-antes-de-firmar-con-un-constructor',
   titulo: 'Diez preguntas antes de firmar con un constructor',
   pilar: 'proceso',
-  fecha: '2024-04-09',
+  fecha: '2024-04-11',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

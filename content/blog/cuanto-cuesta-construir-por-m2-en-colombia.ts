@@ -43,7 +43,7 @@ export const post: Post = {
   slug: 'cuanto-cuesta-construir-por-m2-en-colombia',
   titulo: 'Cuánto cuesta construir por m² en Colombia',
   pilar: 'costos',
-  fecha: '2026-05-19',
+  fecha: '2026-06-07',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

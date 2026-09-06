@@ -28,7 +28,7 @@ export const post: Post = {
   slug: 'filtraciones-en-cubierta',
   titulo: 'Filtraciones en cubierta: por qué aparecen y qué se hace',
   pilar: 'patologias',
-  fecha: '2026-02-17',
+  fecha: '2025-04-25',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

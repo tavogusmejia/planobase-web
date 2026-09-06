@@ -14,7 +14,7 @@ export const post: Post = {
   slug: 'por-que-la-obra-se-sale-del-presupuesto',
   titulo: 'Por qué la obra se sale del presupuesto',
   pilar: 'costos',
-  fecha: '2026-03-11',
+  fecha: '2024-09-27',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

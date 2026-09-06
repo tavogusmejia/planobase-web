@@ -31,7 +31,7 @@ export const post: Post = {
   slug: 'piscina-en-terraza',
   titulo: 'Piscina en terraza: carga estructural e impermeabilización',
   pilar: 'piscinas',
-  fecha: '2026-07-28',
+  fecha: '2025-12-26',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

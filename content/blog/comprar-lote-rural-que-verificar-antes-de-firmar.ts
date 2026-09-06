@@ -54,7 +54,7 @@ export const post: Post = {
   slug: 'comprar-lote-rural-que-verificar-antes-de-firmar',
   titulo: 'Comprar un lote rural: qué verificar antes de firmar',
   pilar: 'casa-campestre',
-  fecha: '2025-11-25',
+  fecha: '2025-08-08',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

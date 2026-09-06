@@ -14,7 +14,7 @@ export const post: Post = {
   slug: 'como-leer-un-plano',
   titulo: 'Cómo leer un plano arquitectónico',
   pilar: 'proceso',
-  fecha: '2023-11-14',
+  fecha: '2023-11-10',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

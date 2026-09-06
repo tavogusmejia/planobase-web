@@ -80,7 +80,7 @@ export const post: Post = {
   slug: 'ley-1209-piscinas-copropiedad',
   titulo: 'Ley 1209: qué obliga de verdad a una copropiedad con piscina',
   pilar: 'piscinas',
-  fecha: '2025-03-18',
+  fecha: '2025-03-13',
   actualizado: '2026-09-06',
   autor: 'Gustavo Mejía Martínez',
   resumen:

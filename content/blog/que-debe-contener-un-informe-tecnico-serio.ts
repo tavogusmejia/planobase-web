@@ -28,7 +28,7 @@ export const post: Post = {
   slug: 'que-debe-contener-un-informe-tecnico-serio',
   titulo: 'Qué debe contener un informe técnico serio',
   pilar: 'patologias',
-  fecha: '2025-11-11',
+  fecha: '2024-12-13',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

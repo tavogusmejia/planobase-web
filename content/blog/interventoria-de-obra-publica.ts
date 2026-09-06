@@ -31,7 +31,7 @@ export const post: Post = {
   slug: 'interventoria-de-obra-publica',
   titulo: 'Interventoría de obra pública: marco normativo',
   pilar: 'institucional',
-  fecha: '2025-08-13',
+  fecha: '2025-05-20',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

@@ -62,7 +62,7 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 |---|---|---|---|
 | X-01 | 🔴 | Que un abogado lea `content/legal.ts` | La pauta |
 | X-02 | 🔴 | Credenciales de Google: proyecto, Calendar API, cuenta de servicio, delegación | D-01 |
-| X-03 | 🔴 | Términos de referencia o actas de los 4 concursos | C-10, y cerrar H3/H6 |
+| X-03 | ⬜ | Términos de referencia o actas de los 4 concursos | C-10 · ya no bloquea H-03 |
 | X-04 | 🟡 | Crear la propiedad de GA4 → `NEXT_PUBLIC_GA4_ID` | La pauta |
 | X-05 | 🟡 | Crear la cuenta de Google Ads y su etiqueta de conversión | La pauta |
 | X-06 | 🟡 | Verificar si aplica el registro RNBD ante la SIC | — |
@@ -205,9 +205,14 @@ Para no volver a abrirlos por olvido. El detalle está en el archivo, §15.
 
 ---
 
-## Dos conflictos abiertos
+## Conflictos cerrados
 
 | Código | | Qué |
 |---|---|---|
-| H-03 | 🔴 | «Cuatro reconocimientos en concurso público **nacional**»: dos tienen respaldo documental y dos no. **El texto no se toca hasta ver los documentos** *(X-03)*. Salida honesta si urge: quitar «nacional» |
-| H-06 | 🔴 | «Cuatro» y «cinco» reconocimientos conviven sin explicarse. Las dos cifras son ciertas —cuatro públicos y uno privado— pero nada lo dice. Se cierra con H-03 |
+| H-03 | ⏳ | ~~«Cuatro reconocimientos en concurso público nacional»~~ — **cerrado el 6/9**: Gustavo confirma que los cuatro son nacionales. La afirmación del sitio se mantiene y la confirmación queda registrada en `content/site.ts` |
+| H-06 | ⏳ | ~~«Cuatro» y «cinco» conviven sin explicarse~~ — **cerrado el 6/9**: el titular de `/estudio` ahora dice «cinco: cuatro públicos nacionales y uno privado» |
+
+**X-03 deja de bloquear y sigue valiendo la pena.** Los términos de referencia ya
+no hacen falta para sostener la afirmación, pero el nombre oficial de cada
+concurso es mejor copia que el adjetivo, y permitiría completar los subtítulos de
+Teusaquillo y Las Colinas, que hoy no dicen el ámbito.

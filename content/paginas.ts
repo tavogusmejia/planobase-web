@@ -124,7 +124,12 @@ export const copiaPaginas = {
       'culturales, sedes administrativas y espacio público— con cuatro ' +
       'reconocimientos en concurso público nacional.',
     equipoTitular: 'Un arquitecto y un gerente de proyectos.',
-    reconocimientosTitular: 'Cinco reconocimientos en concurso.',
+    /* Decía «Cinco reconocimientos en concurso» tres líneas debajo de una
+       metadescripción que dice «cuatro». Las dos cifras son ciertas —cuatro
+       públicos y uno privado— y el problema era que nada lo explicaba. Es la
+       contradicción H-06, y se cierra diciéndolo. */
+    reconocimientosTitular:
+      'Cinco reconocimientos en concurso: cuatro públicos nacionales y uno privado.',
     ambitoPublico: 'concurso público',
     ambitoPrivado: 'concurso privado',
   },

@@ -106,7 +106,8 @@ export const copiaPaginasEn: { [R in RutaConCopia]?: Partial<CopiaDe<R>> } = {
       'administrative offices and public space, with four awards in national ' +
       'public competitions.',
     equipoTitular: 'One architect and one project manager.',
-    reconocimientosTitular: 'Five competition awards.',
+    reconocimientosTitular:
+      'Five competition awards: four in national public competitions and one invited.',
     ambitoPublico: 'open public competition',
     ambitoPrivado: 'invited competition',
   },

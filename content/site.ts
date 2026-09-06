@@ -151,8 +151,27 @@ export const creditosDiseno: Record<string, string> = {
 }
 
 /**
- * Cuatro reconocimientos en concurso público. Son la credencial más fuerte del
- * estudio frente a clientes institucionales y hoy están enterrados en una lista.
+ * Cuatro reconocimientos en concurso público **nacional**, más uno privado.
+ * Son la credencial más fuerte del estudio frente a clientes institucionales.
+ *
+ * **El ámbito nacional de los cuatro lo confirma Gustavo Mejía**, el 5 y el 6 de
+ * septiembre de 2026, y sobre esa confirmación se sostiene la afirmación que el
+ * sitio publica. Queda escrito aquí porque es un dato verificable por terceros
+ * —los términos de referencia y las actas de un concurso público son documentos
+ * públicos— y conviene que se sepa en qué se apoya.
+ *
+ * Qué dice el dato publicado de cada proyecto, para que nadie tenga que
+ * deducirlo: El Ensueño y Pradera El Volcán lo declaran nacional en su propio
+ * texto —el segundo por el nombre oficial del concurso—; Teusaquillo dice
+ * «concurso público arquitectónico», sin ámbito, y Las Colinas dice «concurso de
+ * ideas». Ninguno de los dos afirma lo contrario: se escribieron sin ese dato.
+ *
+ * **Lo que sigue mereciendo la pena, aunque ya no bloquee nada:** conseguir los
+ * términos de referencia de los cuatro (X-03). No para comprobar a Gustavo, sino
+ * porque el nombre oficial del concurso es mejor copia que el adjetivo —«Primer
+ * puesto en el Concurso Público Nacional de Anteproyecto Arquitectónico para…»
+ * convence más que «cuatro reconocimientos nacionales»— y porque permitiría
+ * completar los dos subtítulos que hoy no lo dicen.
  */
 export const reconocimientos: Award[] = [
   {

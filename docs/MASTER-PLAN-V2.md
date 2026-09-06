@@ -54,7 +54,7 @@ pero todavía sin publicar.
 |---|---|---|---|
 | ~~G-01~~ | 🟢 | ~~Marcar construido / propuesta / concurso~~ — **contestada por Eduardo el 6/9**: 23 de 24. Cinco fichas estaban mal marcadas. Queda solo Teusaquillo, por datos → G-07 | **Desbloqueadas: C-08 a C-23, D-16, D-17, X-09** |
 | ~~G-07~~ | 🟢 | ~~La ficha de Teusaquillo~~ — **resuelta el 6/9 retirando el proyecto entero del sitio**, decisión de Gustavo. Ver la nota | — |
-| G-08 | 🟡 | **Borrar del bucket `media` de Supabase las 8 imágenes de Teusaquillo** — es lo único de ese proyecto que sigue accesible por URL directa | Necesita el panel de Supabase; no se puede desde el repositorio |
+| G-08 | 🟡 | **Borrar del bucket las 8 imágenes de Teusaquillo.** Hay script: `pnpm media:retirar alcaldia-local-de-teusaquillo` para ver qué hay, y otra vez con `--borrar` | Necesita las claves de `.env.local`. Se niega a tocar un proyecto publicado |
 | G-02 | 🔴 | Sesión de lectura de copia con Eduardo — `/agendar` entera está sin aprobar | La pauta |
 | ~~G-03~~ | 🟢 | ~~Publicar el lote de la rama~~ — hecho el 6/9: 22 commits a `main`, más la migración aplicada en Supabase |
 | ~~G-04~~ | 🟢 | ~~NIT y plazo de conservación~~ — hecho el 6/9: NIT `901603373-9` y diez años con supresión a petición. **X-01 queda sin nada pendiente por parte del estudio** |
@@ -295,9 +295,18 @@ y su traducción en `content/en/proyectos.ts`. Restituirlo es cambiar dos
 booleanos y devolver una entrada a `reconocimientos`. Borrarlo habría hecho la
 decisión irreversible sin necesidad.
 
-**Lo que falta, y no se puede desde aquí: G-08.** Las ocho imágenes siguen en el
+**Lo que falta, y necesita sus claves: G-08.** Las ocho imágenes siguen en el
 bucket público `media` de Supabase, bajo
-`proyectos/alcaldia-local-de-teusaquillo/`, y son accesibles por URL directa.
+`proyectos/alcaldia-local-de-teusaquillo/`, y responden 200 hoy. Se cierran con
+`pnpm media:retirar alcaldia-local-de-teusaquillo` —que primero enseña lo que
+encontró— y luego la misma orden con `--borrar`.
+
+El script **se niega a borrar las imágenes de un proyecto que siga publicado**,
+y también a correr sobre un slug que no exista. Despublicar es reversible;
+borrar el archivo del bucket no lo es, y el orden correcto es siempre
+despublicar, comprobar el 404 y borrar después. El original en
+`assets-originales/` no se toca, así que restituir un proyecto es
+`pnpm media && pnpm media:upload`.
 
 ---
 

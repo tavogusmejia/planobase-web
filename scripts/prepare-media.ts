@@ -59,7 +59,7 @@ type WixProject = {
   video?: string
   cliente?: string
   sector?: string
-  construido?: boolean
+  construido?: boolean | null
   creditos_fotografia?: string
 }
 
@@ -401,7 +401,8 @@ async function main() {
       sector: p.sector ?? null,
       premio: p.premio ?? null,
       creditosFotografia: p.creditos_fotografia ?? null,
-      construido: p.construido ?? false,
+      /* Se conserva el `null`: es «sin comprobar», y no «no construido». */
+      construido: p.construido ?? null,
       categorias,
       destacado: p.destacado,
       enHeroHome: hero.has(p.slug),

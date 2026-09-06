@@ -20,7 +20,7 @@ import { urlIncrustable } from '@/lib/video'
 import {
   absoluteUrl,
   creditoDiseno,
-  esConcurso,
+  naturalezaDe,
   mediaSrc,
   nombresDiseno,
 } from '@/lib/utils'
@@ -109,7 +109,8 @@ export default async function ProyectoPage({
   /* La ficha técnica va visible de entrada. En el sitio actual vive dentro de
      un acordeón cerrado, que es donde nadie la ve. Los campos sin dato no se
      pintan: nunca aparece "0 m²" ni una etiqueta vacía. */
-  const naturaleza = esConcurso(project) ? t('concurso') : null
+  const clase = naturalezaDe(project)
+  const naturaleza = clase ? t(clase) : null
   const credito = creditoDiseno(locale, project.diseno, t('otros'))
 
   const ficha: { etiqueta: string; valor: string }[] = [

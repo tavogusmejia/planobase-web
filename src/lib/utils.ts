@@ -132,10 +132,33 @@ export function creditoDiseno(
  *
  * La regla de qué es concurso vive en `scripts/prepare-media.ts` y queda
  * grabada en `categorias`, así que el filtro del grid y esta etiqueta no pueden
- * contradecirse. El volcado de Wix trae `construido` marcado en UN solo
- * proyecto de 24, y eso es un vacío del CMS y no la verdad, así que del resto
- * no se afirma nada hasta que el estudio lo confirme.
+ * contradecirse.
+ *
+ * **Durante meses aquí no se pudo decir más que «concurso».** El volcado de Wix
+ * traía `construido` marcado en un solo proyecto de 24, y eso era un vacío del
+ * CMS y no la verdad, así que del resto no se afirmaba nada. Eduardo revisó las
+ * fichas el 6/9/2026 y ahora sí se puede: seis construidas, diecisiete no, y
+ * una —Teusaquillo— todavía sin datos, que sigue sin etiqueta porque `null` no
+ * es `false`.
+ *
+ * **El orden importa y no es arbitrario.** Una obra construida se anuncia como
+ * tal aunque haya nacido de un concurso: es la credencial más fuerte que existe
+ * y perderla por una precedencia mal puesta sería caro. Hoy no hay ningún caso
+ * —los cinco concursos del portafolio no se construyeron—, pero el día que lo
+ * haya, esto ya está resuelto.
  */
 export function esConcurso(p: { categorias: Categoria[] }): boolean {
   return p.categorias.includes('concursos')
+}
+
+export type Naturaleza = 'construido' | 'concurso' | 'propuesta'
+
+export function naturalezaDe(p: {
+  categorias: Categoria[]
+  construido: boolean | null
+}): Naturaleza | null {
+  if (p.construido === true) return 'construido'
+  if (esConcurso(p)) return 'concurso'
+  if (p.construido === false) return 'propuesta'
+  return null
 }

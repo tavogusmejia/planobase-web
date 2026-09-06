@@ -32,7 +32,8 @@
       "alertas": [
         "SIN IMÁGENES en el sitio actual",
         "No aparece en la galería de /proyectos aunque sí está en el sitemap"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "concurso-5inco-sena-ipiales",
@@ -62,7 +63,8 @@
         "faef14_91986e2e3ec24ba9881fdac0630d18c2~mv2.jpg",
         "faef14_533d0b60c8424c1a8bb2c3d478c75ae1~mv2.jpg",
         "faef14_1586d45460a348a8826ad98d8e0bd56e~mv2.jpg"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "concurso-5inco-sena-kennedy",
@@ -93,7 +95,8 @@
         "faef14_d17b67d1d82846fa8085ee5feae55bc3~mv2.jpg",
         "faef14_3743413c34154c2da14c87bd2bddbc5b~mv2.jpg",
         "faef14_cdb4d586392a429ab22fab6ecccbaf37~mv2.png"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "concurso-colegio-villas-del-progreso",
@@ -129,7 +132,8 @@
         "faef14_40b54e8f3049436da481ae91998231f5~mv2.png",
         "faef14_dda1b5326e7f468cbf790a65b6b87600~mv2.jpg",
         "faef14_6e2ae7cbfd6241d1be96f34d75b5a225~mv2.png"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "concurso-uva-orfelinato",
@@ -179,7 +183,8 @@
         "faef14_60f8fbdbefb443009c25ec11029ded4a~mv2.jpg",
         "faef14_e6dd510495ea445284d778af30d1ee63~mv2.jpg",
         "faef14_0ca8e9b74bad4b90ad3be3fad2660c37~mv2.jpg"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "plaza-de-los-libaneses",
@@ -207,7 +212,8 @@
       ],
       "alertas": [
         "Área en 0 en el CMS de Wix"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "colegio-prospero-pinzon",
@@ -241,7 +247,8 @@
       ],
       "alertas": [
         "Inconsistencia en el texto original: el campo Área dice 5400 m² pero la memoria dice ~8.600 m²"
-      ]
+      ],
+      "construido": true
     },
     {
       "slug": "colegio-francisco-antonio-zea",
@@ -275,7 +282,8 @@
       ],
       "alertas": [
         "El sitio actual dice 'Usmed'; lo correcto es 'Usme'"
-      ]
+      ],
+      "construido": true
     },
     {
       "slug": "alcaldia-local-de-teusaquillo",
@@ -350,7 +358,8 @@
       ],
       "alertas": [
         "Área en 0 en el CMS de Wix"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "casa-aguilar-castrillon",
@@ -386,7 +395,8 @@
       ],
       "alertas": [
         "Área en 0 en el CMS de Wix"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "colegio-bolivar",
@@ -418,7 +428,8 @@
       ],
       "alertas": [
         "Área en 0 en el CMS de Wix"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "ied-pompilio-martinez",
@@ -452,7 +463,8 @@
       ],
       "alertas": [
         "Typo en el texto original: 'galía abierta' -> 'galería abierta' (ya corregido aquí)"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "colegio-pradera-el-volcan",
@@ -491,7 +503,8 @@
         "faef14_1b223c4e3cd5457ebff8eee91ed57113~mv2.png",
         "faef14_26988c4cf4364f80a704eb3448af90b5~mv2.png",
         "faef14_cd567671dc424227837398b11baf22d9~mv2.png"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "espacio-publico-centro-de-cali",
@@ -520,7 +533,8 @@
       ],
       "alertas": [
         "Solo 3 imágenes; área en 0"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "colegio-y-teatro-el-ensueno",
@@ -603,7 +617,8 @@
         "faef14_5a035a7f05824371b1c96a22be4cfb4a~mv2.png",
         "faef14_eec5bda150a74f12ad3e6fd793a7221b~mv2.jpg",
         "faef14_60ba8237b0384254a7ef6d2e3cc4b049~mv2.png"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "tirreno",
@@ -641,7 +656,8 @@
       ],
       "alertas": [
         "La URL del video está pegada dentro del texto de la memoria en Wix; en el sitio nuevo debe ser un campo aparte"
-      ]
+      ],
+      "construido": true
     },
     {
       "slug": "jardin-infantil-los-alamos",
@@ -680,7 +696,8 @@
         "faef14_30f8fb306c45470baadbe432396fd250~mv2.png",
         "faef14_7cf653594e984b27bff025677ee9170b~mv2.png",
         "faef14_8f0b0b2dcda4445db7ea7c3223552618~mv2.png"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "alcaldia-local-de-santa-fe",
@@ -709,7 +726,8 @@
         "faef14_2709f0a74a764abca3d045b6edb0f9c2~mv2.png",
         "faef14_c4d65e2a946647769419eec25fa1e904~mv2.png",
         "faef14_9535c78f77e24bd19bfd80606a6eac05~mv2.png"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "teatro-cesar-conto-ferrer",
@@ -740,7 +758,8 @@
       ],
       "alertas": [
         "Solo 3 imágenes; área en 0. El sitio actual escribe 'Choco' sin tilde"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "cefe-tunal",
@@ -771,7 +790,8 @@
         "faef14_dae19ca1ea6b4b559529a30977d9a7ef~mv2.jpg",
         "faef14_f3e3b35ef128474aaf3ab88f450cbdc4~mv2.png",
         "faef14_6aa443d3bb8f44ba81045ec07f547e4f~mv2.jpg"
-      ]
+      ],
+      "construido": false
     },
     {
       "slug": "arezzo",
@@ -803,7 +823,8 @@
       ],
       "alertas": [
         "Texto con tono de brochure comercial, distinto al resto del portafolio. Considerar reescritura editorial."
-      ]
+      ],
+      "construido": true
     },
     {
       "slug": "colegio-bicentenario-de-la-independencia",
@@ -835,7 +856,8 @@
       "alertas": [
         "Sin subtítulo en el CMS",
         "La página legacy /portafolio todavía muestra este proyecto con texto Lorem Ipsum"
-      ]
+      ],
+      "construido": true
     }
   ]
 }

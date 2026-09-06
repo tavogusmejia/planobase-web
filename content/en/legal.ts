@@ -44,6 +44,7 @@ export const politicaDatosEn: Politica = {
         {
           tipo: 'lista',
           puntos: [
+            'NIT (Colombian tax ID): 901603373-9.',
             'Address: Calle 18 # 61-29, Cali, Valle del Cauca, Colombia.',
             'Email: proyectos@planobase.co',
             'Telephone: +57 301 426 4603',

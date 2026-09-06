@@ -22,9 +22,13 @@
  * 15; el requisito de agotar el trámite ante el responsable antes de acudir a
  * la Superintendencia, en el 16.
  *
- * **Tres cosas que este archivo NO puede decidir y quedan marcadas abajo:**
+ * **Lo que faltaba, y qué queda.** Eran tres cosas que este archivo no podía
+ * decidir. Dos se cerraron el 6/9/2026 y queda una, que no es del estudio:
  *
- * 1. **El NIT**, que no vive en el repositorio. No se inventa.
+ * 1. ~~El NIT, que no vive en el repositorio.~~ **Dado el 6/9/2026:
+ *    901603373-9.** Vive en `content/site.ts` y de ahí lo toman esta política y
+ *    el `taxID` del nodo de la organización — que es el único dato del JSON-LD
+ *    que un tercero puede cotejar contra un registro público.
  * 2. ~~El período de vigencia de la base de datos.~~ **Decidido el 6/9/2026:
  *    diez años, y supresión a petición del titular.**
  *
@@ -91,6 +95,7 @@ export const politicaDatos: Politica = {
         {
           tipo: 'lista',
           puntos: [
+            'NIT: 901603373-9.',
             'Dirección: Calle 18 # 61-29, Cali, Valle del Cauca, Colombia.',
             'Correo electrónico: proyectos@planobase.co',
             'Teléfono: +57 301 426 4603',

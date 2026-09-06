@@ -51,7 +51,7 @@ pero todavía sin publicar.
 | G-01 | 🔴 | Marcar construido / propuesta / concurso en los 23 → `docs/PROYECTOS-CONSTRUIDO.md` | C-08 a C-23, D-16, D-17, X-09 |
 | G-02 | 🔴 | Sesión de lectura de copia con Eduardo — `/agendar` entera está sin aprobar | La pauta |
 | ~~G-03~~ | 🟢 | ~~Publicar el lote de la rama~~ — hecho el 6/9: 22 commits a `main`, más la migración aplicada en Supabase |
-| G-04 | 🟡 | **Dar el NIT** de Plano Base Arquitectos S.A.S — el plazo de conservación ya está decidido: diez años y supresión a petición | X-01 |
+| ~~G-04~~ | 🟢 | ~~NIT y plazo de conservación~~ — hecho el 6/9: NIT `901603373-9` y diez años con supresión a petición. **X-01 queda sin nada pendiente por parte del estudio** |
 | G-05 | ⬜ | Confirmar los precios de los peldaños 2 y 3 de la escalera | D-05 |
 | G-06 | ⬜ | Buscar los términos de referencia de los 4 concursos *(o encargarlo)* | X-03 |
 
@@ -64,7 +64,7 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 
 | Código | | Trámite | Desbloquea |
 |---|---|---|---|
-| X-01 | 🔴 | Que un abogado lea `content/legal.ts` | La pauta |
+| X-01 | 🔴 | Que un abogado lea `content/legal.ts` — **ya no falta nada nuestro** | La pauta |
 | X-02 | 🔴 | Credenciales de Google: proyecto, Calendar API, cuenta de servicio, delegación | D-01 |
 | X-03 | ⬜ | Términos de referencia o actas de los 4 concursos | C-10 · ya no bloquea H-03 |
 | X-04 | 🟡 | Crear la propiedad de GA4 → `NEXT_PUBLIC_GA4_ID` | La pauta |

@@ -11,6 +11,10 @@ export const site = {
   nombre: 'Plano Base',
   nombreLargo: 'Plano Base Arquitectos',
   razonSocial: 'Plano Base Arquitectos S.A.S',
+  /* Sin puntos de millar a propósito: es un identificador que se coteja
+     contra el RUT y contra la ficha de Google Business, y ahí se escribe
+     así. Un punto de más obliga a alguien a decidir si es el mismo. */
+  nit: '901603373-9',
   fundado: 2020,
   copyright: (year: number) =>
     `© ${year} Plano Base, todos los derechos reservados`,

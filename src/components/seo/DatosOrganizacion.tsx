@@ -37,6 +37,10 @@ export function DatosOrganizacion() {
     '@id': absoluteUrl('/#estudio'),
     name: site.nombreLargo,
     legalName: site.razonSocial,
+    /* El NIT como `taxID`. Es el único dato del nodo que un tercero puede
+       cotejar contra un registro público, así que es lo que de verdad ata
+       esta entidad a la sociedad real. */
+    taxID: site.nit,
     url: absoluteUrl('/'),
     // Raster, no el SVG: Google no acepta SVG donde espera una imagen de
     // logotipo. Se genera desde el mismo vectorial.

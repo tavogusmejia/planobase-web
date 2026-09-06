@@ -54,7 +54,7 @@ pero todavía sin publicar.
 |---|---|---|---|
 | ~~G-01~~ | 🟢 | ~~Marcar construido / propuesta / concurso~~ — **contestada por Eduardo el 6/9**: 23 de 24. Cinco fichas estaban mal marcadas. Queda solo Teusaquillo, por datos → G-07 | **Desbloqueadas: C-08 a C-23, D-16, D-17, X-09** |
 | ~~G-07~~ | 🟢 | ~~La ficha de Teusaquillo~~ — **resuelta el 6/9 retirando el proyecto entero del sitio**, decisión de Gustavo. Ver la nota | — |
-| G-09 | 🟡 | **Configurar `FORM_TOKEN_SECRET` en Vercel** — cualquier cadena larga y aleatoria. Si ya existe `LEAD_IP_SALT`, el antispam funciona sin tocar nada | Sin ninguna de las dos, la comprobación de tiempo queda apagada y los formularios siguen funcionando |
+| ~~G-09~~ | 🟢 | ~~Configurar `FORM_TOKEN_SECRET`~~ — **hecho el 6/9**: secreto propio de 64 caracteres en Producción y Preview, marcado como sensible, y redesplegado para que entre | Se separó de `LEAD_IP_SALT` a propósito: ver la nota |
 | G-08 | 🟡 | **Borrar del bucket las 8 imágenes de Teusaquillo.** Hay script: `pnpm media:retirar alcaldia-local-de-teusaquillo` para ver qué hay, y otra vez con `--borrar` | Necesita las claves de `.env.local`. Se niega a tocar un proyecto publicado |
 | G-02 | 🔴 | Sesión de lectura de copia con Eduardo — `/agendar` entera está sin aprobar | La pauta |
 | ~~G-03~~ | 🟢 | ~~Publicar el lote de la rama~~ — hecho el 6/9: 22 commits a `main`, más la migración aplicada en Supabase |
@@ -336,6 +336,20 @@ campo de revisión. Para que la lleven hace falta un `actualizado` por entidad e
 segundos pasa. No distingue a una persona de un programa: distingue a quien
 esperó de quien no, y sube el costo del ataque. Está escrito así en el código
 para que nadie lo lea como una defensa que no es.
+
+**Por qué el sello tiene secreto propio y no reusa la sal de las IP.** El
+antispam ya funcionaba con `LEAD_IP_SALT`, porque el código cae a ella a
+propósito. Se le dio secreto propio igual, y la razón es concreta y no es
+higiene abstracta: **`LEAD_IP_SALT` es lo que protege las huellas de IP de los
+visitantes**, que son dato personal bajo la Ley 1581. Si el secreto de firma se
+filtrara alguna vez, con esa misma cadena se podrían forzar las IP y
+desanonimizar visitas. Dos usos, un secreto, y el más expuesto arrastrando al
+que protege datos personales.
+
+Rotarlo invalida los sellos que hubiera en pestañas abiertas, y eso no rompe
+nada: el formulario renueva el sello al recibir el rechazo y el segundo intento
+entra. Esa resiliencia, que se escribió pensando en otra cosa, es lo que hizo
+que la rotación fuera segura.
 
 **Y una línea que le falta a la política de datos:** nombrar la procedencia de
 campaña en «Qué datos recogemos». El sitio ya guardaba `utm_source` desde la

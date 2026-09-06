@@ -29,9 +29,29 @@ Cifras del balance, cada una con su fuente y su fecha de corte —se movieron
 varias veces entre agosto y septiembre, así que conviene revisarlas antes de
 publicar cualquiera:
 
-- **Cali:** 1.198 edificaciones diagnosticadas — 312 habitables, 543 no
-  habitables, 315 de uso restringido. Plan de seis meses de planeación y tres
-  años de obra.
+> **Corregido el 5/9/2026 por la tarde, al escribir el artículo del semáforo.**
+> Este documento venía publicando para Cali «1.198 diagnosticadas — 312
+> habitables, 543 no habitables, 315 de uso restringido», y **esa combinación no
+> aparece en ninguna fuente.** Solo el 543 coincide, y con el corte del 25 de
+> agosto. El resto no se pudo confirmar contra la Alcaldía ni contra el
+> repositorio oficial del terremoto.
+>
+> Se reemplaza por los dos cortes que sí están verificados. La cifra vieja se
+> deja aquí tachada y no borrada, porque anduvo semanas circulando por este
+> plan y conviene poder reconocerla si reaparece en un borrador.
+
+- **Cali**, dos cortes verificados. Se ponen los dos a propósito: la diferencia
+  entre ellos dice más que cualquiera de los dos suelto, porque enseña a qué
+  velocidad se mueve el censo.
+
+  | Corte | Visitadas | Habitables | Uso restringido | No habitables |
+  |---|---|---|---|---|
+  | 25 ago 2026 | 1.147 | 306 | 298 | 543 |
+  | 5 sep 2026 | 1.713 | 439 | 472 | 765 |
+
+  ~~1.198 diagnosticadas — 312 habitables, 543 no habitables, 315 de uso
+  restringido~~ · sin fuente. Plan de seis meses de planeación y tres años de
+  obra.
 - **Valle del Cauca:** de 1.150 sedes educativas, 720 afectadas y 220
   colapsadas.
 - **Nacional:** 3.726 sedes educativas afectadas, 811 colapsadas.
@@ -40,6 +60,13 @@ publicar cualquiera:
 - **Fondo Milagro** (modelo FOREC), con prioridad en vivienda, colegios y
   hospitales. Su secuencia declarada: primero información de daños, luego
   planeación, y solo al final contratación de obra.
+
+**Las cuatro cifras que quedan sin corte de fecha —las de sedes educativas y el
+Decreto 1261— no se han verificado con el mismo rigor que las de Cali.** La
+combinación de Cali resultó no existir en ninguna fuente, así que conviene tratar
+las demás como pendientes de comprobar y no publicarlas en el sitio sin buscarlas
+primero. La regla que este proyecto ya se dio: una cifra sin fecha de corte es
+una cifra falsa dentro de seis meses, y una sin fuente no llega a serlo nunca.
 
 ### Qué significa para el estudio
 
@@ -141,7 +168,7 @@ nadie fuera del repositorio.
 | | Qué | Qué falta |
 |---|---|---|
 | 🟡 | **Encuadre nacional** *(§9)* | Hechas las puertas, `/agendar`, la descripción de tres páginas, el `h1` de la portada y **los tres nodos del JSON-LD**. Comprobado además que **dos verticales dicen bien «Valle del Cauca» y «Cali»**: es donde está esa obra, y ensancharlo sería inventar proyectos. Solo queda pendiente lo que depende de marcar `construido` |
-| 🟡 | **El blog** *(§8)* | 43 de 75. De los 34 que faltan, **17 se pueden escribir hoy y 17 están bloqueados** por la decisión 1.9 |
+| 🟡 | **El blog** *(§8)* | **44 de 77.** De los 33 que faltan, **16 se pueden escribir hoy y 17 están bloqueados** por la decisión 1.9 |
 
 ### Bloqueado esperando a un tercero 🔴
 
@@ -1301,7 +1328,7 @@ mitad y mitad.
 
 | | Artículo |
 |---|---|
-| 74 | **Mi edificio quedó en amarillo: qué significa y qué sigue** |
+| ✅ 74 | ~~**Mi edificio quedó en amarillo: qué significa y qué sigue**~~ — **escrito el 5/9/2026**, en español e inglés. Y corrigió tres cosas que este plan daba por buenas: la circular, las cifras de Cali y el número de colores. Ver el §0 |
 | 75 | **Qué cambió en la NTC 4595:2025** |
 
 **El 74 es el número 1 del orden de publicación**, y por un motivo que caduca:

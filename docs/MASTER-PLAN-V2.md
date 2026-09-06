@@ -48,7 +48,8 @@ pero todavía sin publicar.
 
 | Código | | Tarea | Desbloquea |
 |---|---|---|---|
-| G-01 | 🔴 | Marcar construido / propuesta / concurso en los 23 → `docs/PROYECTOS-CONSTRUIDO.md` | C-08 a C-23, D-16, D-17, X-09 |
+| ~~G-01~~ | 🟢 | ~~Marcar construido / propuesta / concurso~~ — **contestada por Eduardo el 6/9**: 23 de 24. Cinco fichas estaban mal marcadas. Queda solo Teusaquillo, por datos → G-07 | **Desbloqueadas: C-08 a C-23, D-16, D-17, X-09** |
+| G-07 | 🟡 | **La ficha de Teusaquillo**: es la única de las 24 sin revisar, le faltan datos | Nada la espera. El sitio ya la etiqueta como concurso |
 | G-02 | 🔴 | Sesión de lectura de copia con Eduardo — `/agendar` entera está sin aprobar | La pauta |
 | ~~G-03~~ | 🟢 | ~~Publicar el lote de la rama~~ — hecho el 6/9: 22 commits a `main`, más la migración aplicada en Supabase |
 | ~~G-04~~ | 🟢 | ~~NIT y plazo de conservación~~ — hecho el 6/9: NIT `901603373-9` y diez años con supresión a petición. **X-01 queda sin nada pendiente por parte del estudio** |
@@ -72,7 +73,7 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 | X-06 | 🟡 | Verificar si aplica el registro RNBD ante la SIC | — |
 | X-07 | ⬜ | Cuenta de comercio Wompi *(papeleo largo, arrancar en paralelo)* | D-18 |
 | X-08 | ⬜ | Ficha de Google Business — dirección ya fijada: Cali | — |
-| X-09 | 🔒 | Publicar un proyecto en ArchDaily o Plataforma Arquitectura | *(espera G-01)* |
+| X-09 | 🟡 | Publicar un proyecto en ArchDaily o Plataforma Arquitectura — **desbloqueada el 6/9**. Ahora hay seis obras construidas que ofrecer, no una |
 | X-10 | ⬜ | Cuenta de un servicio de monitoreo de errores | D-02 |
 | X-11 | ⬜ | Token de la API de conversiones de Meta | D-04 |
 | X-12 | ⬜ | Plan de facturación electrónica con Odoo | — |
@@ -101,8 +102,8 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 | D-13 | ⬜ | `/proyectos` estático | — |
 | D-14 | ⬜ | Fechas reales en el sitemap | — |
 | D-15 | ⬜ | Teclado en el menú móvil | — |
-| D-16 | 🔒 | Páginas por ciudad: `/donde-trabajamos/bogota` y `/cali` | *(espera G-01)* |
-| D-17 | 🔒 | Página de credenciales institucionales | *(espera G-01)* — convierte al comprador público |
+| D-16 | 🟡 | Páginas por ciudad: `/donde-trabajamos/bogota` y `/cali` — **desbloqueada el 6/9** |
+| D-17 | 🟡 | Página de credenciales institucionales — **desbloqueada el 6/9**, y es la que más rinde: convierte al comprador público |
 | D-18 | 🔒 | Entrega B: pagos con Wompi | *(espera X-07)* |
 | D-19 | ⬜ | Proyectar datos al cliente | — |
 | ~~D-20~~ | 🟢 | ~~Aligerar `/contacto`~~ | **Descartada.** Medido: 10,2 kB de 174. No lo vale |
@@ -172,7 +173,9 @@ falso al investigarlo**: la NTC 4595:2025 no movió ninguna área. Lo que cambi�
 es de dónde salen las cifras —la tabla de lotes pasó al anexo informativo—, y
 esa es la tesis que se publicó.
 
-**No queda ningún artículo escribible.** Todo lo que falta espera a G-01.
+**Los quince que faltaban dejaron de estar bloqueados el 6/9**, cuando Eduardo
+contestó G-01. Los dieciséis códigos C-08 a C-23 pasan de 🔒 a escribibles, y con
+ellos los dos pilares vacíos: casos propios y Caribe insular.
 
 **Las fechas se repartieron el 6/9** para cumplir la R-17: el blog tenía dieciséis
 artículos en cinco semanas y ahora ninguno comparte día. Quedan **35 plazas
@@ -211,30 +214,44 @@ Ley 400 la da por la de remodelación.
 que, según la prensa, habría hecho diseñar para fuerzas sísmicas menores. No se
 expidió. Si vuelve, ese artículo es el primero que hay que revisar.
 
-### Bloqueadas por G-01
+### Ya no bloqueadas · el pilar de casos propios y el del Caribe
 
 | Código | | Artículo |
 |---|---|---|
-| C-08 | 🔒 | Pradera El Volcán: un colegio pensado como pieza de barrio |
-| C-09 | 🔒 | Casa de la Cultura Las Colinas, Guaviare |
-| C-10 | 🔒 | Alcaldía Local de Teusaquillo — *también espera X-03* |
-| C-11 | 🔒 | CEFE Tunal |
-| C-12 | 🔒 | Casa Aguilar: el método explicado al cliente particular |
-| C-13 | 🔒 | Construir en una isla: por qué todo cuesta tres veces más |
-| C-14 | 🔒 | Diseño resistente a huracanes: cargas, vidrio de impacto, anclaje |
-| C-15 | 🔒 | Bermuda y sus cubiertas blancas: el edificio como captación de agua |
-| C-16 | 🔒 | Agua dulce donde no hay ríos: cisternas y ósmosis inversa |
-| C-17 | 🔒 | La sal se lo come todo: materiales y el costo de equivocarse |
-| C-18 | 🔒 | Cimentar sobre roca coralina y suelo kárstico |
-| C-19 | 🔒 | Piedra coralina como material de proyecto |
-| C-20 | 🔒 | Retiros de la línea de más alta marea y zona costera |
-| C-21 | 🔒 | Fuera de red por obligación: solar, almacenamiento y agua |
-| C-22 | 🔒 | Cuánto cuesta el m² en Bahamas, Bermuda y Turks & Caicos |
-| C-23 | 🔒 | Lo que el Caribe insular le enseña a Barú, San Andrés y Santa Marta |
+| C-08 | ⬜ | Pradera El Volcán: un colegio pensado como pieza de barrio |
+| C-09 | ⬜ | Casa de la Cultura Las Colinas, Guaviare |
+| C-10 | ⬜ | Alcaldía Local de Teusaquillo — *también espera X-03* |
+| C-11 | ⬜ | CEFE Tunal |
+| C-12 | ⬜ | Casa Aguilar: el método explicado al cliente particular |
+| C-13 | ⬜ | Construir en una isla: por qué todo cuesta tres veces más |
+| C-14 | ⬜ | Diseño resistente a huracanes: cargas, vidrio de impacto, anclaje |
+| C-15 | ⬜ | Bermuda y sus cubiertas blancas: el edificio como captación de agua |
+| C-16 | ⬜ | Agua dulce donde no hay ríos: cisternas y ósmosis inversa |
+| C-17 | ⬜ | La sal se lo come todo: materiales y el costo de equivocarse |
+| C-18 | ⬜ | Cimentar sobre roca coralina y suelo kárstico |
+| C-19 | ⬜ | Piedra coralina como material de proyecto |
+| C-20 | ⬜ | Retiros de la línea de más alta marea y zona costera |
+| C-21 | ⬜ | Fuera de red por obligación: solar, almacenamiento y agua |
+| C-22 | ⬜ | Cuánto cuesta el m² en Bahamas, Bermuda y Turks & Caicos |
+| C-23 | ⬜ | Lo que el Caribe insular le enseña a Barú, San Andrés y Santa Marta |
 
-**Los dos pilares vacíos del blog son estos dieciséis.** El de casos propios
-tiene un solo artículo y el del Caribe ninguno, y no por falta de material: por
-G-01.
+**Los dos pilares vacíos del blog son estos dieciséis, y ya se pueden escribir.**
+El de casos propios tiene un solo artículo —y es el heredado de Wix— y el del
+Caribe ninguno.
+
+**Y al desbloquearlos apareció un hueco que nadie había visto.** De los cinco
+artículos de casos propios —Pradera El Volcán, Las Colinas, Teusaquillo, CEFE
+Tunal y Casa Aguilar— **ninguno trata una obra construida**: son cuatro
+concursos y una propuesta. Y de las seis obras que sí están construidas —El
+Ensueño, Bicentenario, Francisco Antonio Zea, Próspero Pinzón, Tirreno y
+Arezzo— **no hay un solo artículo planeado**. Cinco de esas seis figuraban como
+no construidas hasta el 6/9, así que el plan editorial se escribió sin saber
+que existían. Conviene decidir si entran, porque una obra construida y visitable
+convence más que un concurso.
+
+**Al fecharlos, la R-17.** Quedan 35 plazas libres y doce meses vacíos entre 2022
+y 2024, que es justo donde encajan: son obras ya construidas y no las ata ninguna
+norma reciente.
 
 ---
 

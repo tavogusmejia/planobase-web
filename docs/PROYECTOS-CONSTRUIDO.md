@@ -1,4 +1,19 @@
-# Los 23 proyectos publicados · para marcar
+# Los 23 proyectos publicados · **respondido**
+
+> **Contestado por Eduardo Mejía el 6 de septiembre de 2026.** 23 de 24 fichas
+> revisadas. Falta solo la de **Teusaquillo**, por datos.
+>
+> **Seis proyectos estaban mal marcados y ya se corrigieron**: además de El
+> Ensueño, están construidos el Colegio Bicentenario de la Independencia, el
+> Francisco Antonio Zea, el Próspero Pinzón, Tirreno y Arezzo. El sitio decía
+> de los cinco que no se habían construido.
+>
+> El portafolio queda en **6 obras construidas, 13 concursos y 5 propuestas**,
+> y desde el 6/9 el sitio lo dice: cada ficha y cada tarjeta llevan su
+> etiqueta. La de Teusaquillo sigue diciendo solo «Concurso», que es lo que se
+> sabe de ella; `construido` vale `null` y **no se colapsa a `false`**, porque
+> afirmar que no se construyó sin haberlo comprobado sería el mismo error que
+> esta revisión venía a cerrar.
 
 **Para qué sirve.** Hoy el sitio dice que **solo uno de los 23 proyectos
 publicados está construido**; los otros 22 figuran como propuesta, concurso o
@@ -41,31 +56,31 @@ en la columna.
 Ordenada por ciudad y, dentro de cada ciudad, por año — que es como se recuerda
 la obra. Los títulos están **tal como se publican hoy** en el sitio.
 
-| # | Título publicado | Ciudad | Año | Categorías | Dice hoy | **Qué es en realidad** | Nota |
+| # | Título publicado | Ciudad | Año | Categorías | Decía el sitio | **Qué es en realidad** | Nota |
 |---|---|---|---|---|---|---|---|
-| 1 | Alcaldía Local de Teusaquillo | Bogotá D.C. | 2014 | institucional, concursos | no construido | | *Primer puesto* |
-| 2 | Colegio y teatro El Ensueño | Bogotá D.C. | 2014 | educativo, cultural, concursos | **construido** | | *Primer puesto. Es el único marcado hoy* |
-| 3 | Colegio Bicentenario de la Independencia | Bogotá D.C. | 2015 | educativo | no construido | | |
-| 4 | Colegio Francisco Antonio Zea (Metrovivienda) | Bogotá D.C. | 2016 | educativo | no construido | | |
-| 5 | Colegio Próspero Pinzón | Bogotá D.C. | 2016 | educativo | no construido | | |
-| 6 | CEFE Tunal | Bogotá D.C. | 2017 | cultural, institucional, concursos | no construido | | |
-| 7 | Alcaldía Local de Santa Fe | Bogotá D.C. | 2018 | institucional | no construido | | |
-| 8 | Concurso Colegio Villas del Progreso | Bogotá D.C. | 2022 | educativo, urbano, concursos | no construido | | |
-| 9 | Jardín Infantil Los Álamos | Bogotá D.C. | 2022 | educativo, concursos | no construido | | |
-| 10 | Concurso 5inco Sena Kennedy | Bogotá D.C. | 2024 | educativo, cultural, concursos | no construido | | |
-| 11 | Colegio Bolívar | Cali | 2014 | educativo, concursos | no construido | | |
-| 12 | Colegio Pradera El Volcán | Cali | 2015 | educativo, concursos | no construido | | *Segundo puesto* |
-| 13 | Recuperación del espacio público del Centro de Cali | Cali | 2015 | urbano, concursos | no construido | | |
-| 14 | Tirreno | Cali | 2016 | vivienda | no construido | | |
-| 15 | Arezzo | Cali | 2017 | vivienda | no construido | | |
-| 16 | Plaza de los Libaneses | Cali | 2018 | urbano | no construido | | |
-| 17 | Casa Aguilar | Jamundí | 2018 | casas | no construido | | *Ojo: hay dos «Casa Aguilar». Conviene distinguirlas* |
-| 18 | Casa Aguilar Castrillón | Jamundí | 2018 | casas | no construido | | *Ver la nota de arriba* |
-| 19 | Institución Educativa Departamental Pompilio Martínez | Cajicá | 2016 | educativo, cultural, concursos | no construido | | |
-| 20 | Concurso 5inco Sena Ipiales | Ipiales | 2024 | educativo, concursos | no construido | | |
-| 21 | Concurso UVA Orfelinato | Medellín | 2013 | cultural, urbano, concursos | no construido | | |
-| 22 | Teatro César Conto Ferrer | Quibdó | 2017 | cultural, concursos | no construido | | *Segundo puesto, concurso privado* |
-| 23 | Casa cultural en el Centro Poblado Las Colinas Jaime Pardo Leal | San José del Guaviare | 2022 | cultural, concursos | no construido | | *Segundo puesto* |
+| 1 | Alcaldía Local de Teusaquillo | Bogotá D.C. | 2014 | institucional, concursos | no construido |  | *Primer puesto* · **pendiente: faltan datos** |
+| 2 | Colegio y teatro El Ensueño | Bogotá D.C. | 2014 | educativo, cultural, concursos | **construido** | **construido** | *Primer puesto* |
+| 3 | Colegio Bicentenario de la Independencia | Bogotá D.C. | 2015 | educativo | no construido | **construido** |  |
+| 4 | Colegio Francisco Antonio Zea (Metrovivienda) | Bogotá D.C. | 2016 | educativo | no construido | **construido** |  |
+| 5 | Colegio Próspero Pinzón | Bogotá D.C. | 2016 | educativo | no construido | **construido** |  |
+| 6 | CEFE Tunal | Bogotá D.C. | 2017 | cultural, institucional, concursos | no construido | no construido | *Infraestructura deportiva y cultural* |
+| 7 | Alcaldía Local de Santa Fe | Bogotá D.C. | 2018 | institucional | no construido | no construido |  |
+| 8 | Concurso Colegio Villas del Progreso | Bogotá D.C. | 2022 | educativo, urbano, concursos | no construido | no construido |  |
+| 9 | Jardín Infantil Los Álamos | Bogotá D.C. | 2022 | educativo, concursos | no construido | no construido |  |
+| 10 | Concurso 5inco Sena Kennedy | Bogotá D.C. | 2024 | educativo, cultural, concursos | no construido | no construido |  |
+| 11 | Colegio Bolívar | Cali | 2014 | educativo, concursos | no construido | no construido |  |
+| 12 | Colegio Pradera El Volcán | Cali | 2015 | educativo, concursos | no construido | no construido | *Segundo puesto* |
+| 13 | Recuperación del espacio público del Centro de Cali | Cali | 2015 | urbano, concursos | no construido | no construido |  |
+| 14 | Tirreno | Cali | 2016 | vivienda | no construido | **construido** |  |
+| 15 | Arezzo | Cali | 2017 | vivienda | no construido | **construido** |  |
+| 16 | Plaza de los Libaneses | Cali | 2018 | urbano | no construido | no construido |  |
+| 17 | Casa Aguilar | Jamundí | 2018 | casas | no construido | no construido | *Ojo: hay dos «Casa Aguilar». Conviene distinguirlas* |
+| 18 | Casa Aguilar Castrillón | Jamundí | 2018 | casas | no construido | no construido | *Ver la nota de arriba* |
+| 19 | Institución Educativa Departamental Pompilio Martínez | Cajicá | 2016 | educativo, cultural, concursos | no construido | no construido |  |
+| 20 | Concurso 5inco Sena Ipiales | Ipiales | 2024 | educativo, concursos | no construido | no construido |  |
+| 21 | Concurso UVA Orfelinato | Medellín | 2013 | cultural, urbano, concursos | no construido | no construido |  |
+| 22 | Teatro César Conto Ferrer | Quibdó | 2017 | cultural, concursos | no construido | no construido | *Segundo puesto, concurso privado* |
+| 23 | Casa cultural en el Centro Poblado Las Colinas Jaime Pardo Leal | San José del Guaviare | 2022 | cultural, concursos | no construido | no construido | *Segundo puesto* |
 
 **23 filas. Diez en Bogotá, seis en Cali, dos en Jamundí y una en cada una de
 las otras cinco ciudades.**
@@ -74,10 +89,10 @@ las otras cinco ciudades.**
 
 ## Dos cosas que conviene saber al llenarla
 
-**Hay un proyecto 24 que no está en esta tabla.** El **Comedor Universidad del
-Valle** (Cali, 2019, 1.707 m²) existe en el dato pero está sin publicar: no
-tiene imágenes y no aparece en la galería. Si también hay que marcarlo, se
-añade; hoy no sale a ninguna parte del sitio.
+**El proyecto 24, resuelto.** El **Comedor Universidad del Valle** (Cali, 2019,
+1.707 m²) **no se construyó**, y así queda registrado. Sigue sin publicar
+porque falta material: no tiene una sola imagen, y una ficha sin imágenes no
+sale a la galería. El dato ya es correcto para cuando aparezcan las fotos.
 
 **Los años son los que publica el sitio, y alguno puede no ser el año de la
 obra.** Ya hay un caso conocido: la Casa cultural Las Colinas figura como 2021

@@ -36,7 +36,7 @@ import type { TraduccionPost } from '@/lib/types'
 export const traduccion: TraduccionPost = {
   slug: 'concursos-publicos-de-arquitectura',
   titulo: 'Public architectural competitions: how they work from the inside',
-  traducido: '2026-09-05',
+  traducido: '2026-09-06',
   resumen:
     'You do not win with the best proposal: you win with the best proposal ' +
     'among those left eligible. How a concurso de méritos is put together, ' +
@@ -102,20 +102,26 @@ export const traduccion: TraduccionPost = {
       tipo: 'nota',
       texto:
         '**In the selection of consultants, price may not be included as a ' +
-        'selection criterion.** What is assessed is technical: the specific ' +
-        'experience of the bidder, the experience of the proposed team and ' +
-        'the quality of the proposal. The price is reviewed and agreed ' +
-        'afterwards, with whichever bidder came first.',
+        'selection criterion.** Numeral 4 of article 5 of Ley 1150 de 2007 ' +
+        'says so in those words, and it still stands. What is scored is ' +
+        'technical: the experience of the bidder and of the proposed team, ' +
+        'and the team\u2019s academic qualifications.',
     },
     {
       tipo: 'parrafo',
       texto:
-        'The consequence is a sequence worth keeping clear: **the technical ' +
-        'proposals are assessed first and the bidders ranked; only then is ' +
-        'the financial offer opened, and only that of the bidder ranked ' +
-        'first**, to check that it falls within the estimated value of the ' +
-        'process. If it does not, it can be reviewed, and if no agreement is ' +
-        'reached the next bidder is called.',
+        'A widely held idea needs undoing here, because it was true for ' +
+        'years and then stopped being true. The regulation used to set out a ' +
+        'two-envelope sequence: the technical proposals were assessed, the ' +
+        'bidders ranked, and only then was the financial offer of the ' +
+        'first-ranked opened, to be negotiated, moving on to the next bidder ' +
+        'if no agreement was reached. **That is no longer in the ' +
+        'regulation.** The Consejo de Estado suspended those numerals in 2018 ' +
+        'and 2019, and Decreto 399 de 2021 removed them. Article ' +
+        '2.2.1.2.1.3.2 of Decreto 1082 now has three numerals: a single ' +
+        'evaluation report is published, carrying the qualifying requirements ' +
+        'and the scoring together, and the award goes to whoever met ' +
+        'everything and scored highest.',
     },
     {
       tipo: 'parrafo',
@@ -127,11 +133,13 @@ export const traduccion: TraduccionPost = {
     {
       tipo: 'nota',
       texto:
-        'I do not set out here the sealed-envelope mechanics of the public ' +
-        'procurement platform: it changes with the versions of the system and ' +
-        'I could not verify it against a current official source. **What the ' +
-        'law does settle is the sequence: technical first, financial ' +
-        'afterwards, and only that of the bidder ranked first.**',
+        'The distinction matters and is easy to blur: **what the statute ' +
+        'lays down is the ban on price as a selection criterion; what the ' +
+        'regulation laid down was the order of the procedure.** The first ' +
+        'still stands. The second changed. And I do not set out the ' +
+        'sealed-envelope mechanics of the procurement platform: they change ' +
+        'with the versions of the system and I did not verify them against a ' +
+        'current official source.',
     },
 
     { tipo: 'titulo', texto: 'The two forms of the concurso de méritos' },

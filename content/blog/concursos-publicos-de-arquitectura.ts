@@ -16,9 +16,8 @@ import type { Post } from '@/lib/types'
  * Lo que se dejó explícitamente fuera por no estar verificado en el
  * repositorio, y así se declara también en el cuerpo del artículo:
  *
- * - **El número y la mecánica de los sobres en SECOP II.** Se describe la
- *   secuencia legal —técnica primero, económica después y solo del primero— sin
- *   detallar la operación de la plataforma.
+ * - **El número y la mecánica de los sobres en SECOP II.** No se detalla la
+ *   operación de la plataforma, que cambia con las versiones del sistema.
  * - **El régimen de capacidad residual.** Circula que no aplica a consultoría;
  *   no se pudo confirmar con fuente y no se publica.
  * - **El nivel de clasificación de la experiencia en el RUP.** Se dice que la
@@ -29,13 +28,34 @@ import type { Post } from '@/lib/types'
  *
  * Fechada en abril de 2026, después de la entrada en obligatoriedad de los
  * Documentos Tipo de Infraestructura Social.
+ *
+ * **Corregido el 6 de septiembre de 2026, y la corrección merece quedar
+ * escrita.** La primera versión afirmaba «lo que sí es de ley es la secuencia:
+ * técnica primero, económica después y solo del primero». Era falso desde
+ * abril de 2021. Esa secuencia vivía en los numerales 3 a 6 del artículo
+ * 2.2.1.2.1.3.2 del Decreto 1082; el Consejo de Estado los suspendió
+ * provisionalmente (autos del 25 de julio de 2018, exp. 56.165, y del 20 de
+ * febrero de 2019, exp. 61.463) y el Decreto 399 de 2021 los eliminó. El texto
+ * vigente tiene tres numerales, publica un solo informe de evaluación con los
+ * requisitos habilitantes y el puntaje juntos, y adjudica al mayor puntaje.
+ *
+ * **Lo que hace instructivo el error:** ninguna guarda podía verlo. El artículo
+ * citaba el Decreto 1082 y la Ley 1150, las dos vigentes y las dos con fecha
+ * anterior a la del artículo, así que `check-fechas` pasaba en verde. Lo que
+ * había caducado no era la fuente sino **una regla dentro de ella**, y eso no
+ * se detecta comparando fechas. Es la misma enfermedad que la Resolución 1510
+ * de 2011 en el pilar de piscinas, un grado más fina: allí murió la norma
+ * entera, aquí solo cuatro numerales.
+ *
+ * Se aprovechó para arreglar la URL de la Ley 1150, que redirigía a
+ * `norma_error.php` desde algún cambio del gestor normativo.
  */
 export const post: Post = {
   slug: 'concursos-publicos-de-arquitectura',
   titulo: 'Concursos públicos de arquitectura: cómo funcionan por dentro',
   pilar: 'institucional',
   fecha: '2026-04-14',
-  actualizado: null,
+  actualizado: '2026-09-06',
   autor: 'Gustavo Mejía Martínez',
   resumen:
     'No se gana con la mejor propuesta: se gana con la mejor propuesta entre ' +
@@ -102,19 +122,25 @@ export const post: Post = {
       tipo: 'nota',
       texto:
         '**En la selección de consultores no se puede incluir el precio como ' +
-        'factor de escogencia.** Se evalúan los aspectos técnicos: la ' +
-        'experiencia específica del proponente, la del equipo de trabajo y la ' +
-        'calidad de la propuesta. El valor se revisa y se acuerda después, con ' +
-        'el proponente que quedó en primer lugar.',
+        'factor de escogencia.** Lo dice el numeral 4 del artículo 5 de la Ley ' +
+        '1150 de 2007, con esas palabras, y sigue vigente. Lo que se califica ' +
+        'son los aspectos técnicos: la experiencia del interesado y la del ' +
+        'equipo de trabajo, y la formación académica del equipo.',
     },
     {
       tipo: 'parrafo',
       texto:
-        'La consecuencia es una secuencia que conviene tener clara: **primero ' +
-        'se evalúa lo técnico y se ordena a los proponentes; solo entonces se ' +
-        'abre la oferta económica, y solo la del primero**, para verificar que ' +
-        'esté dentro del valor estimado del proceso. Si no lo está, se puede ' +
-        'revisar, y si no hay acuerdo se pasa al siguiente.',
+        'Aquí conviene deshacer una idea muy extendida, porque durante años ' +
+        'fue cierta y dejó de serlo. El reglamento describía una secuencia de ' +
+        'dos sobres: se evaluaba lo técnico, se ordenaba a los proponentes y ' +
+        'solo entonces se abría la oferta económica del primero, para ' +
+        'negociarla y pasar al siguiente si no había acuerdo. **Eso ya no ' +
+        'está en el reglamento.** El Consejo de Estado suspendió esos ' +
+        'numerales en 2018 y 2019, y el Decreto 399 de 2021 los eliminó. Hoy ' +
+        'el artículo 2.2.1.2.1.3.2 del Decreto 1082 tiene tres numerales: se ' +
+        'publica un solo informe de evaluación, con los requisitos ' +
+        'habilitantes y el puntaje juntos, y se adjudica a quien cumplió todo ' +
+        'y obtuvo el mayor puntaje.',
     },
     {
       tipo: 'parrafo',
@@ -125,10 +151,12 @@ export const post: Post = {
     {
       tipo: 'nota',
       texto:
-        'No detallo aquí la mecánica de sobres de la plataforma de contratación ' +
-        'porque cambia con las versiones del sistema y no pude verificarla ' +
-        'contra fuente oficial vigente. **Lo que sí es de ley es la secuencia: ' +
-        'técnica primero, económica después y solo del primero.**',
+        'La distinción importa y es fácil de confundir: **lo que está en la ' +
+        'ley es la prohibición del precio como factor de escogencia; lo que ' +
+        'estaba en el reglamento era el orden del procedimiento.** Lo primero ' +
+        'sigue en pie. Lo segundo cambió. Y la mecánica de sobres de la ' +
+        'plataforma no la detallo: cambia con las versiones del sistema y no ' +
+        'la verifiqué contra fuente oficial vigente.',
     },
 
     { tipo: 'titulo', nivel: 2, texto: 'Las dos formas del concurso de méritos' },
@@ -289,8 +317,15 @@ export const post: Post = {
     {
       titulo: 'Ley 1150 de 2007, modalidades de selección, concurso de méritos y factores de evaluación',
       editor: 'Departamento Administrativo de la Función Pública',
-      url: 'https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=25678',
+      url: 'https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=184686',
       fecha: '2007-07-16',
+    },
+    {
+      titulo:
+        'Decreto 399 de 2021, que modificó el procedimiento del concurso de méritos',
+      editor: 'Departamento Administrativo de la Función Pública',
+      url: 'https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=161571',
+      fecha: '2021-04-13',
     },
     {
       titulo: 'Decreto 1082 de 2015, único reglamentario del sector administrativo de planeación nacional',
@@ -301,7 +336,7 @@ export const post: Post = {
     {
       titulo: 'Ley 2022 de 2020, documentos tipo de obligatoria aplicación',
       editor: 'Departamento Administrativo de la Función Pública',
-      url: 'https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=138954',
+      url: 'https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=136375',
       fecha: '2020-07-22',
     },
     {

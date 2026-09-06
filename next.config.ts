@@ -274,44 +274,18 @@ const nextConfig: NextConfig = {
   },
 
   async redirects() {
-    return [
-      /**
-       * `/proyectos?categoria=X` → `/proyectos/categoria/X`.
-       *
-       * El portafolio filtraba por query, y eso era lo único que lo sacaba del
-       * prerenderizado: una ruta que recibe `searchParams` se renderiza en cada
-       * visita. Se retiró el 6/9/2026 y el filtro vive en las siete rutas de
-       * categoría, que ya existían, son estáticas y además traen titular, texto
-       * y reconocimientos.
-       *
-       * Hay además un rescate en el cliente para las URLs viejas, pero un 301
-       * de verdad es mejor: llega antes, no necesita JavaScript y le dice al
-       * buscador qué pasó en vez de dejarle deducirlo del canonical.
-       *
-       * **Va aquí y no en `redirects.json`.** Ese archivo es el volcado de Wix
-       * y `buildRedirects()` lo convierte en pares `source`/`destination` sin
-       * `has`; una regla de Next no puede condicionarse a un query string sin
-       * él. Meter un `?` en el `from` no compilaría como literal de ruta.
-       *
-       * Solo las siete con obra: las otras cuatro categorías están en cero y no
-       * tienen página de vertical a la que llevar, así que su rescate se queda
-       * en el cliente, que se limita a limpiar el parámetro.
-       */
-      {
-        source: '/:locale(es|en)/proyectos',
-        has: [
-          {
-            type: 'query' as const,
-            key: 'categoria',
-            value:
-              '(?<cat>educativo|cultural|institucional|urbano|casas|vivienda|concursos)',
-          },
-        ],
-        destination: '/:locale/proyectos/categoria/:cat',
-        permanent: true,
-      },
-      ...buildRedirects(),
-    ]
+    /* Aquí hubo un momento una regla que mandaba `/proyectos?categoria=X` a
+       `/proyectos/categoria/X`. Se retiró el mismo día que se puso, porque
+       **Next arrastra el query string al destino** y producía
+       `/categoria/educativo?categoria=educativo`. Es la misma trampa que el
+       comentario de `page.tsx` ya documentaba cuando el redirect vivía allí, y
+       no se puede evitar desde `redirects()`: haría falta el middleware.
+
+       No hace falta. `CategoriaEnParametro` recoge esas URL en el cliente y
+       deja la limpia, el canonical de `/proyectos` consolida igual, y ninguna
+       URL con parámetro está indexada ni enlazada desde fuera — el sitio de Wix
+       nunca tuvo esa forma. */
+    return buildRedirects()
   },
 
   async headers() {

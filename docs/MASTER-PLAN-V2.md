@@ -28,10 +28,15 @@ trabajo:
 |---|---|
 | 🔴 | Bloquea a otras cosas |
 | 🟡 | Siguiente |
+| 🟢 | Hecha y desplegada en `www.planobase.co` |
 | ⬜ | Pendiente, sin prisa |
 | 🔒 | Bloqueada por otra tarea |
 | ⏳ | Hecha, **sin publicar** — vive en `blog/seccion-y-articulos` |
-| ✅ | Hecha y desplegada en `www.planobase.co` |
+
+Los tres primeros son el semáforo y se leen en ese orden: rojo detiene a otras
+cosas, amarillo es lo que sigue, verde está en el sitio. Los tres de abajo no son
+estados del semáforo sino matices: sin prisa, esperando a otra tarea, o hecha
+pero todavía sin publicar.
 
 > **Publicado el 6/9/2026.** Todo lo de las sesiones del 5 y el 6 salió a
 > producción en `main` — 22 commits— y la migración de Supabase se aplicó. Ahora
@@ -45,7 +50,7 @@ trabajo:
 |---|---|---|---|
 | G-01 | 🔴 | Marcar construido / propuesta / concurso en los 23 → `docs/PROYECTOS-CONSTRUIDO.md` | C-08 a C-23, D-16, D-17, X-09 |
 | G-02 | 🔴 | Sesión de lectura de copia con Eduardo — `/agendar` entera está sin aprobar | La pauta |
-| ~~G-03~~ | ✅ | ~~Publicar el lote de la rama~~ — hecho el 6/9: 22 commits a `main`, más la migración aplicada en Supabase |
+| ~~G-03~~ | 🟢 | ~~Publicar el lote de la rama~~ — hecho el 6/9: 22 commits a `main`, más la migración aplicada en Supabase |
 | G-04 | 🟡 | Dar el NIT y decidir cuánto tiempo se conservan los datos | X-01 |
 | G-05 | ⬜ | Confirmar los precios de los peldaños 2 y 3 de la escalera | D-05 |
 | G-06 | ⬜ | Buscar los términos de referencia de los 4 concursos *(o encargarlo)* | X-03 |
@@ -97,7 +102,7 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 | D-17 | 🔒 | Página de credenciales institucionales | *(espera G-01)* — convierte al comprador público |
 | D-18 | 🔒 | Entrega B: pagos con Wompi | *(espera X-07)* |
 | D-19 | ⬜ | Proyectar datos al cliente | — |
-| ~~D-20~~ | ✅ | ~~Aligerar `/contacto`~~ | **Descartada.** Medido: 10,2 kB de 174. No lo vale |
+| ~~D-20~~ | 🟢 | ~~Aligerar `/contacto`~~ | **Descartada.** Medido: 10,2 kB de 174. No lo vale |
 
 ---
 
@@ -179,17 +184,17 @@ mirar si algo se comporta raro en el sitio.
 
 | | Qué |
 |---|---|
-| ✅ | Política de datos bilingüe, autorización expresa con su prueba, y su enlace en el pie |
-| ✅ | Banner de consentimiento: ninguna etiqueta se carga sin un sí explícito |
-| ✅ | GA4 y la etiqueta de conversión de Ads, montadas detrás de ese consentimiento |
-| ✅ | Las dos plantillas de correo: acuse de recibo y confirmación de reserva con `.ics` |
-| ✅ | Cuando el envío falla, hay a dónde llamar: WhatsApp, teléfono y correo |
-| ✅ | Cabeceras de seguridad: CSP, HSTS, anti-enmarcado y el resto |
-| ✅ | Accesibilidad del formulario: cada campo con su ayuda y su error anunciados |
-| ✅ | El artículo del sismo, y los diez del pilar de piscinas |
-| ✅ | El artículo de la Ley 1209, actualizado contra la normativa de 2026 |
-| ✅ | Los tres nodos del JSON-LD: zona de servicio nacional, una sola entidad |
-| ✅ | Registro «usted» en la interfaz, y siete fugas del bilingüe corregidas |
+| 🟢 | Política de datos bilingüe, autorización expresa con su prueba, y su enlace en el pie |
+| 🟢 | Banner de consentimiento: ninguna etiqueta se carga sin un sí explícito |
+| 🟢 | GA4 y la etiqueta de conversión de Ads, montadas detrás de ese consentimiento |
+| 🟢 | Las dos plantillas de correo: acuse de recibo y confirmación de reserva con `.ics` |
+| 🟢 | Cuando el envío falla, hay a dónde llamar: WhatsApp, teléfono y correo |
+| 🟢 | Cabeceras de seguridad: CSP, HSTS, anti-enmarcado y el resto |
+| 🟢 | Accesibilidad del formulario: cada campo con su ayuda y su error anunciados |
+| 🟢 | El artículo del sismo, y los diez del pilar de piscinas |
+| 🟢 | El artículo de la Ley 1209, actualizado contra la normativa de 2026 |
+| 🟢 | Los tres nodos del JSON-LD: zona de servicio nacional, una sola entidad |
+| 🟢 | Registro «usted» en la interfaz, y siete fugas del bilingüe corregidas |
 
 ---
 
@@ -199,11 +204,11 @@ Para no volver a abrirlos por olvido. El detalle está en el archivo, §15.
 
 | | Frente |
 |---|---|
-| ✅ | El sitio es bilingüe de verdad: 95 URLs inglesas con `hreflang` recíproco |
-| ✅ | APBS y la calculadora de expensas, para los 1.103 municipios del DANE |
-| ✅ | El rediseño de las páginas de proyecto |
-| ✅ | El formulario recibe leads de todo el país |
-| ✅ | Cinco guardas de build que no dejan compilar si algo se rompe |
+| 🟢 | El sitio es bilingüe de verdad: 95 URLs inglesas con `hreflang` recíproco |
+| 🟢 | APBS y la calculadora de expensas, para los 1.103 municipios del DANE |
+| 🟢 | El rediseño de las páginas de proyecto |
+| 🟢 | El formulario recibe leads de todo el país |
+| 🟢 | Cinco guardas de build que no dejan compilar si algo se rompe |
 
 ---
 
@@ -211,8 +216,8 @@ Para no volver a abrirlos por olvido. El detalle está en el archivo, §15.
 
 | Código | | Qué |
 |---|---|---|
-| H-03 | ✅ | ~~«Cuatro reconocimientos en concurso público nacional»~~ — **cerrado el 6/9**: Gustavo confirma que los cuatro son nacionales. La afirmación del sitio se mantiene y la confirmación queda registrada en `content/site.ts` |
-| H-06 | ✅ | ~~«Cuatro» y «cinco» conviven sin explicarse~~ — **cerrado el 6/9**: el titular de `/estudio` ahora dice «cinco: cuatro públicos nacionales y uno privado» |
+| H-03 | 🟢 | ~~«Cuatro reconocimientos en concurso público nacional»~~ — **cerrado el 6/9**: Gustavo confirma que los cuatro son nacionales. La afirmación del sitio se mantiene y la confirmación queda registrada en `content/site.ts` |
+| H-06 | 🟢 | ~~«Cuatro» y «cinco» conviven sin explicarse~~ — **cerrado el 6/9**: el titular de `/estudio` ahora dice «cinco: cuatro públicos nacionales y uno privado» |
 
 **X-03 deja de bloquear y sigue valiendo la pena.** Los términos de referencia ya
 no hacen falta para sostener la afirmación, pero el nombre oficial de cada

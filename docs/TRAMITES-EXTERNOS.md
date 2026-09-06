@@ -14,7 +14,7 @@ el mismo código que lleva aquí cada apartado; este documento es el detalle.
 
 **Cómo leer el estado.** 🔴 bloquea algo que ya está construido y esperando ·
 🟡 hace falta pronto pero todavía no bloquea · ⬜ se puede diferir sin costo ·
-✅ hecho.
+🟢 hecho.
 
 ---
 

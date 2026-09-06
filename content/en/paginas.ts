@@ -103,11 +103,11 @@ export const copiaPaginasEn: { [R in RutaConCopia]?: Partial<CopiaDe<R>> } = {
     metaDescripcion:
       'Plano Base is an architecture studio based in Cali, with work across ' +
       'Colombia. Most of it is public: schools, cultural centres, ' +
-      'administrative offices and public space, with four awards in national ' +
+      'administrative offices and public space, with three awards in national ' +
       'public competitions.',
     equipoTitular: 'One architect and one project manager.',
     reconocimientosTitular:
-      'Five competition awards: four in national public competitions and one invited.',
+      'Four competition awards: three in national public competitions and one invited.',
     ambitoPublico: 'open public competition',
     ambitoPrivado: 'invited competition',
   },

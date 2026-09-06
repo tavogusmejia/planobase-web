@@ -53,9 +53,8 @@ export const verticales: Record<string, VerticalTraducible> = {
       'person who was never in a design meeting.',
     metaTitulo: 'Institutional architecture · Administrative buildings',
     metaDescripcion:
-      'Design of administrative and institutional buildings in Colombia. ' +
-      'First place in the public competition for the Alcaldía Local de ' +
-      'Teusaquillo, a borough government building in Bogotá.',
+      'Design of administrative and public service buildings in Colombia. ' +
+      'They have to work for the person who was never in a design meeting.',
   },
   urbano: {
     titulo: 'Public space',

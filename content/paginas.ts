@@ -115,21 +115,22 @@ export const copiaPaginas = {
     /* El title de Wix decía «Arquitectura bioclimática en Bogotá». El estudio
        tiene sede en Cali y su obra es sobre todo pública: era un error de
        posicionamiento, no solo de redacción. Lo que sí es cierto —y faltaba—
-       es que la obra está repartida por el país: diez de los veinticuatro
-       proyectos del portafolio están en Bogotá. */
+       es que la obra está repartida por el país: nueve de los veintidós
+       proyectos publicados están en Bogotá. (Eran diez de veintitrés hasta
+       el 6/9/2026, cuando se retiró Teusaquillo.) */
     titulo: 'Estudio',
     metaDescripcion:
       'Plano Base es un estudio de arquitectura con sede en Cali y obra en ' +
       'todo el país. Trabajamos sobre todo en obra pública —colegios, centros ' +
-      'culturales, sedes administrativas y espacio público— con cuatro ' +
+      'culturales, sedes administrativas y espacio público— con tres ' +
       'reconocimientos en concurso público nacional.',
     equipoTitular: 'Un arquitecto y un gerente de proyectos.',
-    /* Decía «Cinco reconocimientos en concurso» tres líneas debajo de una
-       metadescripción que dice «cuatro». Las dos cifras son ciertas —cuatro
-       públicos y uno privado— y el problema era que nada lo explicaba. Es la
-       contradicción H-06, y se cierra diciéndolo. */
+    /* Las dos cifras tienen que explicarse juntas o se contradicen: la
+       metadescripción cuenta solo los públicos y esta línea cuenta todos. Es la
+       contradicción H-06, y se cierra diciéndolo. Bajaron de cinco a cuatro el
+       6/9/2026, al retirarse Teusaquillo. */
     reconocimientosTitular:
-      'Cinco reconocimientos en concurso: cuatro públicos nacionales y uno privado.',
+      'Cuatro reconocimientos en concurso: tres públicos nacionales y uno privado.',
     ambitoPublico: 'concurso público',
     ambitoPrivado: 'concurso privado',
   },

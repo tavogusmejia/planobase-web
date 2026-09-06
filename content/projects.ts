@@ -808,9 +808,9 @@ export const projects: Project[] = [
       "institucional",
       "concursos"
     ],
-    "destacado": true,
+    "destacado": false,
     "enHeroHome": false,
-    "publicado": true,
+    "publicado": false,
     "memoria": "El proyecto Teusaquillo propone una intervención arquitectónica que reinterpreta la arquitectura institucional desde una visión inclusiva, sostenible y conectada con el tejido urbano. Concebido como una casa pública, este edificio para la Alcaldía de Teusaquillo busca representar un nuevo carácter cívico, en diálogo con las transformaciones urbanas y la identidad del barrio.\n\nDesde el planteamiento urbano, la propuesta genera una relación simbólica y funcional con la ciudad mediante una gran escalinata que invita al ciudadano a recorrer y apropiarse del espacio. El recorrido ascendente, que se articula desde el costado oriental del predio, representa un vínculo con los cerros de Bogotá, integrando valores de diseño urbano participativo y espacio público representativo.\n\nEl planteamiento arquitectónico se resuelve en dos volúmenes claramente diferenciados: un zócalo cerrado que responde a la escala inmediata del entorno, y un volumen superior liviano, permeable, resuelto con celosías en concreto blanco que mejoran la iluminación natural, la ventilación cruzada y el aislamiento térmico. Esta estrategia, junto con el uso racional de los materiales, permite optimizar el rendimiento energético, convirtiendo a la edificación en un ejemplo de arquitectura bioclimática y eficiencia energética en edificios públicos.\n\nTeusaquillo se consolida como un modelo de arquitectura institucional sostenible, que no solo responde a criterios técnicos y normativos, sino que pone en el centro la experiencia ciudadana y el respeto por el entorno urbano.",
     "videoUrl": null,
     "portada": {

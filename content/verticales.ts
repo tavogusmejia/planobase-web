@@ -74,10 +74,17 @@ export const verticales: Vertical[] = [
       'elegido, y eso impone una exigencia distinta: tiene que funcionar para ' +
       'quien no estuvo en ninguna reunión de diseño.',
     metaTitulo: 'Arquitectura institucional · Sedes administrativas',
+    /* Decía «Primer puesto en el concurso público de la Alcaldía Local de
+       Teusaquillo». Ese proyecto se retiró del sitio el 6/9/2026 y la meta se
+       quedó sin credencial que ofrecer: los dos proyectos institucionales que
+       siguen publicados son propuestas, y ninguno de los cuatro reconocimientos
+       vivos es de esta categoría. Así que no se reclama premio: se dice lo que
+       el estudio sostiene sobre estos edificios, que es la línea de `entrada` y
+       es cierta. */
     metaDescripcion:
-      'Diseño de sedes administrativas y edificios institucionales en ' +
-      'Colombia. Primer puesto en el concurso público de la Alcaldía Local de ' +
-      'Teusaquillo.',
+      'Diseño de sedes administrativas y edificios de servicio público en ' +
+      'Colombia. Tienen que funcionar para quien no estuvo en ninguna reunión ' +
+      'de diseño.',
     puerta: 'espacio-publico-y-equipamientos',
   },
   {

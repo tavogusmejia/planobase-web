@@ -1,7 +1,10 @@
 # Los 23 proyectos publicados · **respondido**
 
 > **Contestado por Eduardo Mejía el 6 de septiembre de 2026.** 23 de 24 fichas
-> revisadas. Falta solo la de **Teusaquillo**, por datos.
+> revisadas. La de **Teusaquillo** quedó sin revisar, y el 6/9 se resolvió de
+> otro modo: **el proyecto se retiró del sitio entero**. El edificio se empezó
+> en 2017 y nunca se terminó; el motivo y lo que costó están en el plan
+> maestro.
 >
 > **Seis proyectos estaban mal marcados y ya se corrigieron**: además de El
 > Ensueño, están construidos el Colegio Bicentenario de la Independencia, el
@@ -58,7 +61,7 @@ la obra. Los títulos están **tal como se publican hoy** en el sitio.
 
 | # | Título publicado | Ciudad | Año | Categorías | Decía el sitio | **Qué es en realidad** | Nota |
 |---|---|---|---|---|---|---|---|
-| 1 | Alcaldía Local de Teusaquillo | Bogotá D.C. | 2014 | institucional, concursos | no construido |  | *Primer puesto* · **pendiente: faltan datos** |
+| 1 | ~~Alcaldía Local de Teusaquillo~~ | Bogotá D.C. | 2014 | institucional, concursos | no construido | **retirado del sitio** | *Se empezó en 2017 y nunca se terminó. Decisión de Gustavo el 6/9* |
 | 2 | Colegio y teatro El Ensueño | Bogotá D.C. | 2014 | educativo, cultural, concursos | **construido** | **construido** | *Primer puesto* |
 | 3 | Colegio Bicentenario de la Independencia | Bogotá D.C. | 2015 | educativo | no construido | **construido** |  |
 | 4 | Colegio Francisco Antonio Zea (Metrovivienda) | Bogotá D.C. | 2016 | educativo | no construido | **construido** |  |

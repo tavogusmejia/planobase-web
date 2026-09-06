@@ -31,6 +31,7 @@ trabajo:
 | 🟢 | Hecha y desplegada en `www.planobase.co` |
 | ⬜ | Pendiente, sin prisa |
 | 🔒 | Bloqueada por otra tarea |
+| ⬛ | Cancelada |
 | ⏳ | Hecha, **sin publicar** — vive en `blog/seccion-y-articulos` |
 
 Los tres primeros son el semáforo y se leen en ese orden: rojo detiene a otras
@@ -52,7 +53,8 @@ pero todavía sin publicar.
 | Código | | Tarea | Desbloquea |
 |---|---|---|---|
 | ~~G-01~~ | 🟢 | ~~Marcar construido / propuesta / concurso~~ — **contestada por Eduardo el 6/9**: 23 de 24. Cinco fichas estaban mal marcadas. Queda solo Teusaquillo, por datos → G-07 | **Desbloqueadas: C-08 a C-23, D-16, D-17, X-09** |
-| G-07 | 🟡 | **La ficha de Teusaquillo**: es la única de las 24 sin revisar, le faltan datos | Nada la espera. El sitio ya la etiqueta como concurso |
+| ~~G-07~~ | 🟢 | ~~La ficha de Teusaquillo~~ — **resuelta el 6/9 retirando el proyecto entero del sitio**, decisión de Gustavo. Ver la nota | — |
+| G-08 | 🟡 | **Borrar del bucket `media` de Supabase las 8 imágenes de Teusaquillo** — es lo único de ese proyecto que sigue accesible por URL directa | Necesita el panel de Supabase; no se puede desde el repositorio |
 | G-02 | 🔴 | Sesión de lectura de copia con Eduardo — `/agendar` entera está sin aprobar | La pauta |
 | ~~G-03~~ | 🟢 | ~~Publicar el lote de la rama~~ — hecho el 6/9: 22 commits a `main`, más la migración aplicada en Supabase |
 | ~~G-04~~ | 🟢 | ~~NIT y plazo de conservación~~ — hecho el 6/9: NIT `901603373-9` y diez años con supresión a petición. **X-01 queda sin nada pendiente por parte del estudio** |
@@ -70,7 +72,7 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 |---|---|---|---|
 | X-01 | 🔴 | Que un abogado lea `content/legal.ts` — **ya no falta nada nuestro** | La pauta |
 | X-02 | 🔴 | Credenciales de Google: proyecto, Calendar API, cuenta de servicio, delegación | D-01 |
-| X-03 | ⬜ | Términos de referencia o actas de los 4 concursos | C-10 · ya no bloquea H-03 |
+| X-03 | ⬜ | Términos de referencia o actas de los **3** concursos públicos que quedan | Ya no bloquea nada. C-10 se retiró con el proyecto |
 | X-04 | 🟡 | Crear la propiedad de GA4 → `NEXT_PUBLIC_GA4_ID` | La pauta |
 | X-05 | 🟡 | Crear la cuenta de Google Ads y su etiqueta de conversión | La pauta |
 | X-06 | 🟡 | Verificar si aplica el registro RNBD ante la SIC | — |
@@ -230,7 +232,7 @@ expidió. Si vuelve, ese artículo es el primero que hay que revisar.
 |---|---|---|
 | C-08 | ⬜ | Pradera El Volcán: un colegio pensado como pieza de barrio |
 | C-09 | ⬜ | Casa de la Cultura Las Colinas, Guaviare |
-| C-10 | ⬜ | Alcaldía Local de Teusaquillo — *también espera X-03* |
+| ~~C-10~~ | ⬛ | ~~Alcaldía Local de Teusaquillo~~ — **cancelado el 6/9**: el proyecto se retiró del sitio |
 | C-11 | ⬜ | CEFE Tunal |
 | C-12 | ⬜ | Casa Aguilar: el método explicado al cliente particular |
 | C-13 | ⬜ | Construir en una isla: por qué todo cuesta tres veces más |
@@ -249,10 +251,10 @@ expidió. Si vuelve, ese artículo es el primero que hay que revisar.
 El de casos propios tiene un solo artículo —y es el heredado de Wix— y el del
 Caribe ninguno.
 
-**Y al desbloquearlos apareció un hueco que nadie había visto.** De los cinco
-artículos de casos propios —Pradera El Volcán, Las Colinas, Teusaquillo, CEFE
-Tunal y Casa Aguilar— **ninguno trata una obra construida**: son cuatro
-concursos y una propuesta. Y de las seis obras que sí están construidas —El
+**Y al desbloquearlos apareció un hueco que nadie había visto.** De los cuatro
+artículos de casos propios que quedan —Pradera El Volcán, Las Colinas, CEFE
+Tunal y Casa Aguilar— **ninguno trata una obra construida**: son tres concursos
+y una propuesta. El quinto, Teusaquillo, se canceló con el proyecto. Y de las seis obras que sí están construidas —El
 Ensueño, Bicentenario, Francisco Antonio Zea, Próspero Pinzón, Tirreno y
 Arezzo— **no hay un solo artículo planeado**. Cinco de esas seis figuraban como
 no construidas hasta el 6/9, así que el plan editorial se escribió sin saber
@@ -262,6 +264,40 @@ convence más que un concurso.
 **Al fecharlos, la R-17.** Quedan 35 plazas libres y doce meses vacíos entre 2022
 y 2024, que es justo donde encajan: son obras ya construidas y no las ata ninguna
 norma reciente.
+
+---
+
+## Por qué se retiró Teusaquillo
+
+**Decisión de Gustavo, el 6/9/2026.** Al ir a cerrar G-07 —que era solo saber si
+la obra se había construido— apareció que el edificio **se empezó en enero de
+2017 y nunca se terminó**. Es un caso público: la prensa lo llama «el elefante
+blanco de Teusaquillo», lleva años paralizado, costó 22.290 millones de pesos y
+tiene a la Contraloría y a la Procuraduría de por medio.
+
+**El premio era cierto y está verificado.** ArchDaily publica la ficha del Primer
+Lugar del Concurso Público de Anteproyecto, arbitrado por la SCA con 53
+propuestas, con los tres autores del estudio. Esto no fue corregir un dato falso:
+fue decidir no asociar el nombre del estudio a ese edificio.
+
+**Lo que costó.** Los reconocimientos bajan de cinco a cuatro y los públicos
+nacionales de cuatro a tres. La categoría institucional se queda sin credencial
+—sus dos proyectos publicados son propuestas— y su metadescripción se reescribió
+sin reclamar premio.
+
+**Lo que se retiró.** El proyecto del portafolio, su ficha, su premio en
+`/estudio` y en cada página de servicio, y su mención en la metadescripción de la
+categoría institucional. La redirección de la URL vieja de Wix ahora lleva al
+portafolio en vez de morir en un 404 — la guarda de redirecciones lo detectó.
+
+**Lo que no se borró, a propósito.** El dato sigue entero en `content/projects.ts`
+y su traducción en `content/en/proyectos.ts`. Restituirlo es cambiar dos
+booleanos y devolver una entrada a `reconocimientos`. Borrarlo habría hecho la
+decisión irreversible sin necesidad.
+
+**Lo que falta, y no se puede desde aquí: G-08.** Las ocho imágenes siguen en el
+bucket público `media` de Supabase, bajo
+`proyectos/alcaldia-local-de-teusaquillo/`, y son accesibles por URL directa.
 
 ---
 

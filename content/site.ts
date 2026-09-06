@@ -155,36 +155,36 @@ export const creditosDiseno: Record<string, string> = {
 }
 
 /**
- * Cuatro reconocimientos en concurso público **nacional**, más uno privado.
+ * Tres reconocimientos en concurso público **nacional**, más uno privado.
  * Son la credencial más fuerte del estudio frente a clientes institucionales.
  *
- * **El ámbito nacional de los cuatro lo confirma Gustavo Mejía**, el 5 y el 6 de
- * septiembre de 2026, y sobre esa confirmación se sostiene la afirmación que el
- * sitio publica. Queda escrito aquí porque es un dato verificable por terceros
- * —los términos de referencia y las actas de un concurso público son documentos
- * públicos— y conviene que se sepa en qué se apoya.
+ * **Eran cuatro públicos hasta el 6/9/2026.** El primer puesto de la Alcaldía
+ * Local de Teusaquillo se retiró ese día por decisión de Gustavo, junto con el
+ * proyecto entero: el edificio se empezó en 2017, nunca se terminó y es un caso
+ * público con la Contraloría y la Procuraduría de por medio. **El premio era
+ * cierto y está verificado** —ArchDaily publica la ficha del Primer Lugar con
+ * los tres autores, arbitrado por la SCA con 53 propuestas— así que esto no es
+ * una corrección de un dato falso sino una decisión editorial, y se puede
+ * revertir devolviendo esta entrada.
+ *
+ * **El ámbito nacional de los que quedan lo confirma Gustavo Mejía**, el 5 y el
+ * 6 de septiembre de 2026, y sobre esa confirmación se sostiene la afirmación
+ * que el sitio publica. Queda escrito aquí porque es un dato verificable por
+ * terceros —los términos de referencia y las actas de un concurso público son
+ * documentos públicos— y conviene que se sepa en qué se apoya.
  *
  * Qué dice el dato publicado de cada proyecto, para que nadie tenga que
  * deducirlo: El Ensueño y Pradera El Volcán lo declaran nacional en su propio
- * texto —el segundo por el nombre oficial del concurso—; Teusaquillo dice
- * «concurso público arquitectónico», sin ámbito, y Las Colinas dice «concurso de
- * ideas». Ninguno de los dos afirma lo contrario: se escribieron sin ese dato.
+ * texto —el segundo por el nombre oficial del concurso— y Las Colinas dice
+ * «concurso de ideas», sin ámbito. No afirma lo contrario: se escribió sin ese
+ * dato.
  *
  * **Lo que sigue mereciendo la pena, aunque ya no bloquee nada:** conseguir los
- * términos de referencia de los cuatro (X-03). No para comprobar a Gustavo, sino
- * porque el nombre oficial del concurso es mejor copia que el adjetivo —«Primer
- * puesto en el Concurso Público Nacional de Anteproyecto Arquitectónico para…»
- * convence más que «cuatro reconocimientos nacionales»— y porque permitiría
- * completar los dos subtítulos que hoy no lo dicen.
+ * términos de referencia de los tres que quedan (X-03). No para comprobar a
+ * Gustavo, sino porque el nombre oficial del concurso es mejor copia que el
+ * adjetivo, y porque permitiría completar el subtítulo de Las Colinas.
  */
 export const reconocimientos: Award[] = [
-  {
-    puesto: 'primer',
-    titulo: 'Alcaldía Local de Teusaquillo',
-    anio: 2014,
-    proyectoSlug: 'alcaldia-local-de-teusaquillo',
-    ambito: 'publico',
-  },
   {
     /* Estaba listado como «Colegio distrital y equipamiento urbano en Ciudad
        Bolívar» y sin enlazar, mientras El Ensueño —un colegio con teatro en
@@ -192,8 +192,9 @@ export const reconocimientos: Award[] = [
        tenía el premio en su ficha y no aparecía en esta lista. Eran el mismo,
        con dos nombres. Confirmado por Gustavo el 4/9/2026.
 
-       Importa más de lo que parece: es el premio más fuerte del estudio y su
-       única obra construida, y estaban desconectados. */
+       Importa más de lo que parece: es el premio más fuerte del estudio, y
+       estaban desconectados. (Decía «su única obra construida»: dejó de ser
+       cierto el 6/9/2026, cuando Eduardo confirmó que son seis.) */
     puesto: 'primer',
     titulo: 'Colegio y teatro El Ensueño, Ciudad Bolívar',
     anio: 2014,

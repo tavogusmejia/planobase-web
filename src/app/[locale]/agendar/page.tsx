@@ -5,6 +5,7 @@ import { Rule } from '@/components/ui/Rule'
 import { contacto } from '@content/site'
 import { etiquetaPrecio } from '@/lib/precio'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
+import { ReservaForm } from '@/components/forms/ReservaForm'
 import { alternativas, tarjeta } from '@/lib/metadatos'
 import { asesoriaDe, copiaDe } from '@/lib/data/contenido'
 
@@ -93,6 +94,15 @@ export default async function AgendarPage({
                 </li>
               ))}
             </ul>
+          </section>
+
+          {/* El calendario, que es lo que esta página vino a hacer.
+              Va antes de las condiciones y después de lo que se lleva: primero
+              se entiende qué recibe, luego se elige cuándo, y la letra pequeña
+              queda debajo — que es el orden en que alguien decide, no el orden
+              en que a un abogado le gustaría. */}
+          <section className="mt-20 border-t border-line pt-12">
+            <ReservaForm />
           </section>
 
           {/* Las políticas van completas y visibles. El plan de campaña promete

@@ -186,7 +186,7 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 
 | # | Título | Estado |
 |---|---|---|
-| 29 | Alcaldía Local de Teusaquillo: cómo se gana un concurso | pendiente · **no se escribe hasta cerrar `PLAN-MAESTRO.md` §1.6**: el artículo tendría que declarar el ámbito del concurso, que es justo el dato en disputa |
+| 29 | Alcaldía Local de Teusaquillo: cómo se gana un concurso | pendiente · **no se escribe hasta cerrar `archivo/PLAN-MAESTRO-v1.md` §1.6**: el artículo tendría que declarar el ámbito del concurso, que es justo el dato en disputa |
 | 30 | Pradera El Volcán: un colegio pensado como pieza de barrio | pendiente |
 | 31 | Casa de la Cultura Las Colinas, Guaviare | pendiente |
 | 32 | CEFE Tunal | pendiente |
@@ -242,7 +242,7 @@ Estado: `pendiente` · `en curso` · `verificando` · `publicado`
 decidió **deshabilitar `/en`** hasta que se traduzca el cuerpo editorial de
 verdad, así que estos artículos, cuando lleguen, salen **en español** — y el
 pilar entero sigue bloqueado por la decisión de marcar `construido` en los 23
-proyectos. Ver `PLAN-MAESTRO.md` §1.11 y §9.
+proyectos. Ver `archivo/PLAN-MAESTRO-v1.md` §1.11 y §9.
 
 | # | Título | Estado |
 |---|---|---|
@@ -268,7 +268,7 @@ del 5/9/2026) y entran a la hoja de ruta como fase propia.
 | # | Pieza | Estado | Por qué |
 |---|---|---|---|
 | **P1** | **Calculadora de expensas de curaduría** | **aprobada** | La única calculadora funcional del país en este nicho es anónima, no publica su tabla base y **tiene la UVT de 2026 equivocada**. La fórmula del Decreto 1890, la UVT verificada por dos vías y las tarifas publicadas ya están en mano. Es el activo más difícil de copiar del plan, y es código, no redacción |
-| **P2** | **Página de credenciales institucionales** | **aprobada, bloqueada** | Los 24 proyectos en formato m² / entidad / año / modalidad. Un blog no captura al comprador institucional —ese llega por SECOP, no por Google—; una página de credenciales con cifras sí lo convierte. **Depende de marcar `construido`** → la tabla para llenar está en `docs/PROYECTOS-CONSTRUIDO.md`. Y la modalidad de cada concurso depende además del conflicto abierto de `PLAN-MAESTRO.md` §1.6 |
+| **P2** | **Página de credenciales institucionales** | **aprobada, bloqueada** | Los 24 proyectos en formato m² / entidad / año / modalidad. Un blog no captura al comprador institucional —ese llega por SECOP, no por Google—; una página de credenciales con cifras sí lo convierte. **Depende de marcar `construido`** → la tabla para llenar está en `docs/PROYECTOS-CONSTRUIDO.md`. Y la modalidad de cada concurso depende además del conflicto abierto de `archivo/PLAN-MAESTRO-v1.md` §1.6 |
 | **P3** | **Publicar en ArchDaily / Plataforma Arquitectura** | **aprobada** | El estudio no tiene ni una publicación, y buscar «Plano Base arquitectos Colombia» devuelve Plan:b de Medellín. Es el enlace de mayor autoridad temática del sector. Esfuerzo bajo, retorno alto y duradero |
 | P4 | Calculadora de presupuesto de obra | pendiente | El imán de leads que hoy no existe: pide el correo para entregar el resultado |
 | P5 | PDF «Antes de comprar un lote» | pendiente | Verificación descargable a cambio del correo |
@@ -444,7 +444,7 @@ Comparar un precio de venta con un costo de obra induce a error.
    plazos, artículos de ley. Lo que no se pueda verificar, no se publica.
 3. **Las cifras llevan fecha y fuente.** Un costo por m² sin fecha es una
    mentira con vencimiento.
-4. **Registro: usted.** Igual que el resto del sitio (ver PLAN-MAESTRO §6).
+4. **Registro: usted.** Igual que el resto del sitio (ver archivo/PLAN-MAESTRO-v1.md §6).
 5. **Sin marketing hueco, sin admiraciones, frases cortas.** El tono del sitio.
 6. **Imágenes, en este orden de preferencia:** obra propia → diagrama propio →
    imagen de terceros con licencia comprobable y **crédito visible** (autor,

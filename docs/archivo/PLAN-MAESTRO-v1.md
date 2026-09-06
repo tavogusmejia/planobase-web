@@ -1,3 +1,21 @@
+> # ⚠️ ARCHIVADO · 6 de septiembre de 2026
+>
+> **Este documento ya no es el tablero de trabajo.** Las tareas viven ahora en
+> `docs/MASTER-PLAN-V2.md`, una por línea y con código.
+>
+> Se archivó porque llegó a 1.741 líneas y dejó de servir para lo que se usa un
+> plan: mirar qué sigue. **No se borró porque aquí está el porqué de todo** — las
+> seis auditorías que lo originaron, las decisiones con su fecha y su
+> justificación, las transcripciones literales de los datos en disputa, y el
+> razonamiento detrás de cada cosa que se descartó.
+>
+> **Cuándo volver aquí:** cuando haga falta saber por qué algo se decidió así, no
+> qué falta por hacer. El v2 remite a este documento cuando el porqué importa.
+>
+> Lo que sigue queda tal como estaba el 6 de septiembre de 2026, sin tocar.
+
+---
+
 # Plan maestro · Plano Base Web
 
 Estado del proyecto y hoja de ruta completa.

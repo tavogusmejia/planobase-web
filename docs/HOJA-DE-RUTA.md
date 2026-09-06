@@ -4,7 +4,7 @@ Qué falta, por fases. Una línea por cosa.
 Última actualización: 5 de septiembre de 2026 — con las respuestas del dueño
 registradas.
 
-El detalle de cada frente está en `PLAN-MAESTRO.md` y `PLAN-BLOG.md`.
+El detalle de cada frente está en `archivo/PLAN-MAESTRO-v1.md` y `PLAN-BLOG.md`.
 Este documento es solo el orden.
 
 ---
@@ -25,7 +25,7 @@ solo el efecto: qué quedó cerrado, qué sigue abierto y qué se desbloquea.
 | 0.4 | **Abrir cuenta de comercio Wompi.** El trámite tarda más que el desarrollo | **Abierta por decisión de orden.** «Se debe hacer, pero no en esta fase; primero empezar a pautar. Déjalo como tarea crítica» | El calendario sale **sin pago** (Entrega A) y la Entrega B espera. No bloquea la pauta |
 | 0.5 | **Dirección pública: ¿Cali o Jamundí?** Cambiarla después de crear la ficha resetea su antigüedad | **Cerrada. Cali** | **Desbloquea** la ficha de Google Business y cierra la contradicción H7. La dirección publicada hoy —Calle 18 # 61-29, Cali— no se toca |
 | 0.6 | **Marcar `construido` en los 23 proyectos.** Hoy solo 1 está marcado | **Abierta.** Pidió la lista para llenarla | Entregada en **`docs/PROYECTOS-CONSTRUIDO.md`**. Sigue bloqueando tráfico frío, reencuadre, credenciales y Caribe |
-| 0.7 | **Reformular «cuatro reconocimientos en concurso público nacional».** El dato no lo sostiene | **En conflicto, sin cerrar.** Él afirma que **los cuatro son concursos nacionales**; los subtítulos publicados de los propios proyectos dicen otra cosa | **No se toca el texto en ninguna dirección.** Se cierra con términos de referencia o acta de cada concurso. Detalle y transcripciones literales en `PLAN-MAESTRO.md` §1.6 |
+| 0.7 | **Reformular «cuatro reconocimientos en concurso público nacional».** El dato no lo sostiene | **En conflicto, sin cerrar.** Él afirma que **los cuatro son concursos nacionales**; los subtítulos publicados de los propios proyectos dicen otra cosa | **No se toca el texto en ninguna dirección.** Se cierra con términos de referencia o acta de cada concurso. Detalle y transcripciones literales en `archivo/PLAN-MAESTRO-v1.md` §1.6 |
 | 0.8 | **Registro de trato: usted en todo el sitio** | **Cerrada. Usted** | **Desbloquea** las 32 reescrituras de la tarea 5.2 |
 | 0.9 | **Aprobar la copia pendiente.** Solo dos puertas llevan sello de aprobación | **Abierta.** «Necesito revisar todo» | Falta **fijar fecha** de la sesión de lectura con Eduardo. Sigue bloqueando la pauta sobre `/agendar` |
 | 0.10 | **Bogotá no es Cundinamarca.** Corrección de dato, no decisión | Sin cambios — se aplica sin consultar | **Aplicada** *(b4284ab)*: diez proyectos, sus textos alternativos y el JSON-LD |
@@ -169,7 +169,7 @@ fijada —Cali—, pero él dijo que le interesa «arquitectos en Colombia», no
 «arquitectos en Cali». Conviene decirlo sin adornos: una ficha de Google
 Business **solo posiciona por proximidad**; no existe una ficha nacional. El
 alcance nacional se gana con la tarea 5.1 y con las páginas de ciudad de
-`PLAN-MAESTRO.md` §9, no con la ficha. **Falta que confirme si aun así quiere
+`archivo/PLAN-MAESTRO-v1.md` §9, no con la ficha. **Falta que confirme si aun así quiere
 crearla** — para «arquitectos en Cali» el paquete de mapas se lleva la mayor
 parte de los clics, y ese tráfico no compite con el nacional: se suma.
 
@@ -244,7 +244,7 @@ puedo hacer solo. Ordenado por urgencia.
 > **Respondido el 5 de septiembre de 2026.** Las respuestas se dejan aquí
 > literales, tal como las escribió, y no se editan: son el registro de la
 > decisión. Su efecto está volcado en la Fase 0, arriba, y el desarrollo de cada
-> una en `PLAN-MAESTRO.md` §1.
+> una en `archivo/PLAN-MAESTRO-v1.md` §1.
 >
 > **Ninguna de las cinco casillas de trámite quedó marcada.** El estado real se
 > lee en la prosa de cada respuesta, y así se registró.
@@ -288,7 +288,7 @@ sea cierto y siga siendo fuerte.
 > que un comprador institucional verifica. **El texto del sitio no se toca en
 > ninguna dirección** hasta ver los términos de referencia o el acta de cada
 > concurso. Las cuatro transcripciones literales y lo que haría falta para
-> cerrarlo están en `PLAN-MAESTRO.md` §1.6.
+> cerrarlo están en `archivo/PLAN-MAESTRO-v1.md` §1.6.
 
 ### A5 · ¿Tratamos de «usted» en todo el sitio?
 Hoy hay 32 frases en «tú» y 21 en «usted». Recomiendo unificar en **usted**: es
@@ -455,7 +455,7 @@ Quien no está ya en el radar de la entidad, no aparece.
 
 **R/:** Si, estamos en condiciones.
 
-> **Registrado.** Confirma la lectura del `PLAN-MAESTRO.md` §0: el diagnóstico de
+> **Registrado.** Confirma la lectura del `archivo/PLAN-MAESTRO-v1.md` §0: el diagnóstico de
 > edificaciones y la visita técnica con informe son hoy los servicios de mayor
 > demanda real, y el estudio puede atenderlos. Refuerza el orden de publicación
 > del blog (`PLAN-BLOG.md` §6) y no cambia ninguna fase.
@@ -500,7 +500,7 @@ encuadre honesto es también el más fuerte, y no deja flanco.
 |---|---|
 | `docs/PLAN-BLOG.md` §2 | **Corregido.** Decía «ejecutados en XMC Caribbean y Edospina» sobre la tabla de proyectos caribeños. Ahora separa las dos etapas y su geografía |
 | `docs/HOJA-DE-RUTA.md`, pregunta A8 | La pregunta original arrastraba la misma mezcla. Se deja literal —es el registro— con la corrección anotada debajo |
-| `docs/PLAN-MAESTRO.md` §9, «Caribe insular» | **Sin error de atribución.** Ya decía «se atribuye la experiencia a las personas y no al estudio». Se le añadió la separación de las dos etapas para que quede explícita |
+| `docs/archivo/PLAN-MAESTRO-v1.md` §9, «Caribe insular» | **Sin error de atribución.** Ya decía «se atribuye la experiencia a las personas y no al estudio». Se le añadió la separación de las dos etapas para que quede explícita |
 | `content/pilares.ts`, pilar `piscinas` | **Correcto, no se toca.** «Quien dirige esta línea en el estudio trae quince años diseñando sistemas hidráulicos y construyendo piscinas de borde infinito y cuerpos de agua en el Caribe» — atribuye a la persona y no nombra a Edospina |
 | `content/pilares.ts`, pilar `caribe` | **Correcto, no se toca.** Habla de lo que exige construir en una isla, sin afirmar obra del estudio |
 | `content/blog/ley-1209-piscinas-copropiedad.ts` | **Correcto, no se toca.** «Quien firma lleva quince años diseñando sistemas hidráulicos y construyendo piscinas y cuerpos de agua» — sin geografía y sin atribuir al estudio |
@@ -521,7 +521,7 @@ se tocaron para no mezclar documentación con código:
 | N1 | ~~Deshabilitar `/en`~~ **Anulada y sustituida** por el plan bilingüe. Ya en marcha: tipos de traducción y respaldo de mensajes en `f70bd53` | `src/lib/types.ts` · `src/i18n/request.ts` |
 | N2 | **Escribir el plan de facturación electrónica con Odoo** *(decisión 0.12)*. No existe todavía como documento | `docs/` |
 | N3 | ~~Confirmar si se crea la ficha de Google Business~~ **Confirmado el 5/9/2026: sí.** Queda ejecutarlo, con el NAP exacto de `content/site.ts` | Trámite |
-| N4 | **El comentario de cabecera de `reconocimientos` en `content/site.ts` dice «Cuatro reconocimientos en concurso público» y la lista tiene cinco entradas** —cuatro públicas y una privada, el Teatro César Conto Ferrer—. Es la contradicción H6 del `PLAN-MAESTRO.md` §6, y se resuelve en la misma pasada que 0.7. No se tocó | `content/site.ts` |
+| N4 | **El comentario de cabecera de `reconocimientos` en `content/site.ts` dice «Cuatro reconocimientos en concurso público» y la lista tiene cinco entradas** —cuatro públicas y una privada, el Teatro César Conto Ferrer—. Es la contradicción H6 del `archivo/PLAN-MAESTRO-v1.md` §6, y se resuelve en la misma pasada que 0.7. No se tocó | `content/site.ts` |
 | N5 | **Plantillas de correo de Resend** *(decisión 0.3)*: acuse de recibo del formulario y confirmación de reserva con `.ics` | Tarea 1.7 |
 | N6 | **El enlace «Ficha de experiencia» se pinta también en inglés, y allí no lleva a ninguna parte buena.** Su rótulo está escrito a mano en el componente, sin `t()`, así que no tiene entrada en `messages/es.json` ni en `messages/en.json`. Y la hoja imprimible se genera solo en español desde `d84485a`: como `dynamicParams` conserva su valor por defecto, desde `/en` el enlace no da 404 sino algo peor —Next renderiza la hoja bajo demanda **en español bajo una URL `/en`**, que es justo lo que aquel commit quiso evitar—. **Decisión del 5/9/2026: se deja como está**, y se resuelve cuando las páginas de proyecto entren en `traducida()`. Salió al arreglar el hueco del grid, que era otra cosa y ya está corregido | `src/app/[locale]/proyectos/[slug]/page.tsx` |
 

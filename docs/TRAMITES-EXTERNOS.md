@@ -9,8 +9,8 @@ una entidad pública.
 Existe porque estas tareas se pierden. Una tarea de código tiene un archivo
 donde vive y un build que se pone rojo si falta; un trámite no tiene ninguna de
 las dos cosas, y por eso el proyecto puede quedarse parado semanas esperando
-algo que nadie recordaba que había que pedir. El resumen en tabla vive en el
-§12 del plan maestro; aquí está el detalle de cada uno.
+algo que nadie recordaba que había que pedir. El resumen en una línea vive en el bloque **X** de `MASTER-PLAN-V2.md`, con
+el mismo código que lleva aquí cada apartado; este documento es el detalle.
 
 **Cómo leer el estado.** 🔴 bloquea algo que ya está construido y esperando ·
 🟡 hace falta pronto pero todavía no bloquea · ⬜ se puede diferir sin costo ·
@@ -23,7 +23,7 @@ algo que nadie recordaba que había que pedir. El resumen en tabla vive en el
 Estos tres son los que separan al sitio de recibir el primer peso de campaña.
 Todo el código está hecho.
 
-### 1. 🔴 Revisión jurídica de la política de tratamiento de datos
+### X-01 · 🔴 Revisión jurídica de la política de tratamiento de datos
 
 **Quién:** un abogado. **Cuánto:** una lectura, no una redacción.
 
@@ -60,7 +60,7 @@ Superintendencia de Industria y Comercio. Un archivo de TypeScript no firma eso.
 
 ---
 
-### 2. 🟡 Cuenta de Google Analytics 4
+### X-04 · 🟡 Cuenta de Google Analytics 4
 
 **Quién:** Gustavo. **Cuánto:** minutos.
 
@@ -81,7 +81,7 @@ guardarla en Vercel.
 
 ---
 
-### 3. 🟡 Cuenta de Google Ads y acción de conversión
+### X-05 · 🟡 Cuenta de Google Ads y acción de conversión
 
 **Quién:** Gustavo. **Cuánto:** minutos, una vez exista la cuenta.
 
@@ -105,7 +105,7 @@ cifra por la que se decide qué anuncio se apaga.
 
 ## Lo que bloquea el sistema de reservas
 
-### 4. 🔴 Credenciales de Google para el calendario
+### X-02 · 🔴 Credenciales de Google para el calendario
 
 **Quién:** Gustavo, en Google Cloud. **Cuánto:** una sesión.
 
@@ -142,7 +142,7 @@ invitado.
 
 ## Lo que bloquea afirmaciones ya publicadas
 
-### 5. 🔴 Términos de referencia o actas de los cuatro concursos
+### X-03 · 🔴 Términos de referencia o actas de los cuatro concursos
 
 **Quién:** Gustavo y Eduardo, ante las entidades convocantes o la Sociedad
 Colombiana de Arquitectos.
@@ -180,7 +180,7 @@ adjetivo: es cierta bajo las dos versiones de los hechos.
 
 ## Lo que hay que verificar, no necesariamente hacer
 
-### 6. 🟡 Registro de la base de datos ante la SIC (RNBD)
+### X-06 · 🟡 Registro de la base de datos ante la SIC (RNBD)
 
 **Quién:** el contador, o el mismo abogado del punto 1.
 
@@ -201,7 +201,7 @@ Supabase, con su finalidad y su responsable.
 
 ## Lo que está diferido a propósito
 
-### 7. ⬜ Cuenta de comercio Wompi
+### X-07 · ⬜ Cuenta de comercio Wompi
 
 **Quién:** Gustavo, con el contador. **Cuánto:** el papeleo tarda más que el
 código.
@@ -219,7 +219,7 @@ espera al banco. Hay ambiente de pruebas para avanzar el código mientras tanto.
 
 ---
 
-### 8. ⬜ Ficha de Google Business
+### X-08 · ⬜ Ficha de Google Business
 
 **Quién:** Gustavo.
 
@@ -242,7 +242,7 @@ suspensión.
 
 ---
 
-### 9. 🟡 Publicar en ArchDaily o Plataforma Arquitectura
+### X-09 · 🔒 Publicar en ArchDaily o Plataforma Arquitectura *(espera G-01)*
 
 **Quién:** Gustavo y Eduardo, enviando material a la redacción.
 
@@ -266,7 +266,7 @@ exactamente la credencial que se busca ganar.
 
 ---
 
-### 10. ⬜ Factura electrónica · plan con Odoo
+### X-12 · ⬜ Factura electrónica · plan con Odoo
 
 **Quién:** el contador.
 
@@ -281,17 +281,17 @@ Esto no está en el §12 del plan y conviene anotarlo antes de que sorprenda:
 
 | | Qué | Cuándo hace falta |
 |---|---|---|
-| ⬜ | **Cuenta de un servicio de monitoreo de errores** —y su alerta de lead perdido— | Es una de las tres tareas de §7 que siguen abiertas antes de la pauta |
-| ⬜ | **Token de acceso de Meta para la API de conversiones** | Bloque del primer mes de §7. Hoy se pierde entre el 30 y el 50 % de las señales, así que el costo por lead del panel es ficción |
+| ⬜ | **X-10 · Cuenta de un servicio de monitoreo de errores** | Es una de las tres tareas de §7 que siguen abiertas antes de la pauta |
+| ⬜ | **X-11 · Token de acceso de Meta para la API de conversiones** | Bloque del primer mes de §7. Hoy se pierde entre el 30 y el 50 % de las señales, así que el costo por lead del panel es ficción |
 
 ---
 
 ## Lo que no es externo, pero tampoco lo resuelve el código
 
-Se anota aquí para que la lista esté completa. El detalle está en el §1 del
-plan maestro.
+Se anota aquí para que la lista esté completa. Es el bloque **G** de
+`MASTER-PLAN-V2.md`.
 
 | | Qué | A qué bloquea |
 |---|---|---|
-| 🔴 | **Marcar cuáles de los 23 proyectos están construidos** · `docs/PROYECTOS-CONSTRUIDO.md` | Diez artículos, la página de credenciales y buena parte de §8. Media hora sobre una mesa con Eduardo, y es lo que más desbloquea de todo el proyecto |
+| 🔴 | **G-01 · Marcar cuáles de los 23 proyectos están construidos** · `docs/PROYECTOS-CONSTRUIDO.md` | **Dieciséis artículos**, la página de credenciales y el envío a ArchDaily. Media hora sobre una mesa con Eduardo, y es lo que más desbloquea de todo el proyecto |
 | 🔴 | **La sesión de lectura de la copia con Eduardo** | `/agendar` entera está sin aprobar, y es la página que va a recibir el dinero. **Conviene hacerla después de la pasada de redacción, no antes**: aprobar una vez, sobre el texto final |

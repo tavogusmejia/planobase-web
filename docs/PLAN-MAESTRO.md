@@ -141,7 +141,7 @@ nadie fuera del repositorio.
 | | Qué | Qué falta |
 |---|---|---|
 | 🟡 | **Encuadre nacional** *(§9)* | Hechas las puertas, `/agendar`, la descripción de tres páginas, el `h1` de la portada y **los tres nodos del JSON-LD**. Comprobado además que **dos verticales dicen bien «Valle del Cauca» y «Cali»**: es donde está esa obra, y ensancharlo sería inventar proyectos. Solo queda pendiente lo que depende de marcar `construido` |
-| 🟡 | **El blog** *(§8)* | 43 de 75. Diez de los 32 que faltan están bloqueados por la decisión 1.9 |
+| 🟡 | **El blog** *(§8)* | 43 de 75. De los 34 que faltan, **17 se pueden escribir hoy y 17 están bloqueados** por la decisión 1.9 |
 
 ### Bloqueado esperando a un tercero 🔴
 
@@ -160,7 +160,7 @@ Tres bloquean cosas que ya están construidas y esperando:
 
 | | Qué | A qué bloquea |
 |---|---|---|
-| 🔴 | **1.9 · Marcar cuáles proyectos están construidos** | Diez artículos —los cinco casos propios y los once del Caribe—, la página de credenciales, y buena parte de §8. **Es media hora en `docs/PROYECTOS-CONSTRUIDO.md`** y es, con diferencia, lo que más desbloquea |
+| 🔴 | **1.9 · Marcar cuáles proyectos están construidos** | Dieciséis artículos —los cinco casos propios y los once del Caribe—, la página de credenciales, y buena parte de §8. **Es media hora en `docs/PROYECTOS-CONSTRUIDO.md`** y es, con diferencia, lo que más desbloquea |
 | 🔴 | **1.6 · Los cuatro reconocimientos** — lo que falta son los documentos, y pedirlos es un trámite: ver `docs/TRAMITES-EXTERNOS.md` | El artículo 29 y la corrección de la contradicción H6 |
 | 🔴 | **1.8 · La copia pendiente de aprobación** | Los textos marcados «PENDIENTE DE APROBACIÓN» en `content/` |
 | ⬜ | **1.4 · Cuenta de comercio Wompi** — no espera una decisión: la decisión fue diferirla. Es un trámite, y está en `docs/TRAMITES-EXTERNOS.md` | El frente de pagos (§4), que a propósito ya no está en el camino crítico |
@@ -1279,10 +1279,41 @@ Seis auditorías independientes sobre el repositorio y el mercado:
 
 ---
 
-## 14. Los 32 artículos que faltan por escribir
+## 14. Los 34 artículos que faltan por escribir
 
 Estado al cierre de la sesión del 5 de septiembre de 2026: **43 de 75
-publicados, y los 43 en español e inglés.** Faltan estos 32.
+publicados, y los 43 en español e inglés.** Faltan estos 34.
+
+**Eran 32 y la cuenta estaba mal por dos motivos distintos, los dos corregidos
+el 5/9 por la tarde.**
+
+El primero: **dos artículos se habían caído entre dos listas.** Están en el
+orden de publicación de `PLAN-BLOG.md` §6 y no estaban aquí, y uno de los dos
+es el número 1 por relación valor/esfuerzo de toda la investigación de mercado.
+Son los que abren esta sección.
+
+El segundo: esta sección y el estado de arriba decían **«diez bloqueados»** y
+la propia frase los enumeraba como cinco casos propios más once del Caribe, que
+son dieciséis. Con la cuenta en limpio: **17 escribibles hoy y 17 bloqueados**,
+mitad y mitad.
+
+### Los dos que se habían caído entre listas (2)
+
+| | Artículo |
+|---|---|
+| 74 | **Mi edificio quedó en amarillo: qué significa y qué sigue** |
+| 75 | **Qué cambió en la NTC 4595:2025** |
+
+**El 74 es el número 1 del orden de publicación**, y por un motivo que caduca:
+demanda masiva hoy y competencia local **nula** tras el sismo del 10 de agosto.
+El semáforo de habitabilidad, las tres fases, quién firma cada una y el
+procedimiento de reporte de Cali. Es la ciudad donde está la oficina.
+
+El 75 tiene la SERP verificadamente vacía y es la prueba de competencia más
+directa ante el público institucional. Comparte materia con el 25 —«Cómo se
+diseña un colegio en Colombia»— pero no es el mismo artículo: aquel explica la
+norma, este explica **qué cambió** en su edición de 2025. Aplica el mismo aviso
+que el 25: la NTC 4595 solo se puede citar por su adopción ministerial.
 
 La cadena de tandas que produjo los últimos 21 sigue siendo la forma de
 escribirlos: un agente por tanda, contexto fresco, verificación contra fuente

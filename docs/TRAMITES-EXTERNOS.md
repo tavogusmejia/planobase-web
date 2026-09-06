@@ -1,7 +1,8 @@
 # Trámites externos · Plano Base Web
 
 Todo lo que el repositorio **no puede resolver solo**: lo que depende de un
-abogado, un contador, un banco, Google, Meta o una entidad pública.
+abogado, un contador, un banco, Google, Meta, una redacción de arquitectura o
+una entidad pública.
 
 Última actualización: **5 de septiembre de 2026.**
 
@@ -241,7 +242,31 @@ suspensión.
 
 ---
 
-### 9. ⬜ Factura electrónica · plan con Odoo
+### 9. 🟡 Publicar en ArchDaily o Plataforma Arquitectura
+
+**Quién:** Gustavo y Eduardo, enviando material a la redacción.
+
+**El estudio no tiene ni una sola publicación**, y buscar «Plano Base
+arquitectos Colombia» devuelve Plan:b, de Medellín. Es el enlace de mayor
+autoridad temática del sector, y es la clase de enlace que no caduca.
+
+Está aprobado desde el 5/9/2026 como pieza P3 de `PLAN-BLOG.md`, y el plan lo
+describe como **esfuerzo bajo y retorno alto y duradero**. Se anota aquí porque
+depende de que una redacción externa acepte, que es exactamente lo que hace que
+un trámite se pierda entre las tareas de código.
+
+**Qué hay que mandar:** un proyecto con memoria, planimetría y fotografía o
+render de calidad. El portafolio ya tiene las 24 memorias escritas y las
+imágenes preparadas, así que el material existe; lo que falta es elegir el
+proyecto y enviarlo.
+
+**Conviene esperar a la decisión 1.9.** Mandar a publicar un proyecto sin tener
+claro si está construido o si es una propuesta de concurso es arriesgar
+exactamente la credencial que se busca ganar.
+
+---
+
+### 10. ⬜ Factura electrónica · plan con Odoo
 
 **Quién:** el contador.
 

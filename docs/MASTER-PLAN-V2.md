@@ -39,12 +39,15 @@ cosas, amarillo es lo que sigue, verde está en el sitio. Los tres de abajo no s
 estados del semáforo sino matices: sin prisa, esperando a otra tarea, o hecha
 pero todavía sin publicar.
 
-> **Publicado el 6/9/2026.** Todo lo de las sesiones del 5 y el 6 está en
-> producción, incluido el calendario de reservas, y `main` y la rama vuelven a
-> tener lo mismo. **No hay nada esperando publicación.**
+> **Cierre del 6/9/2026.** Todo está en producción y verificado ahí, no solo
+> construido: las tres ramas —`main`, `blog/seccion-y-articulos` y
+> `worktree-pasada-redaccion`— apuntan al mismo commit. **No hay nada esperando
+> publicación.** Las dos migraciones de Supabase están aplicadas.
 >
-> Lo único que queda por hacer a mano en Supabase: nada. Las dos migraciones
-> —`leads` y `reservas`— están aplicadas y comprobadas contra producción.
+> **Lo primero al retomar, y sin esto nada de lo de hoy existe en su máquina:**
+> la carpeta principal se quedó en `blog/seccion-y-articulos` y **74 commits por
+> detrás**. Antes de tocar nada, `git pull` y `pnpm install` — lo segundo porque
+> entró Vitest y sin él `pnpm test` no corre.
 
 ---
 
@@ -55,12 +58,12 @@ pero todavía sin publicar.
 | ~~G-01~~ | 🟢 | ~~Marcar construido / propuesta / concurso~~ — **contestada por Eduardo el 6/9**: 23 de 24. Cinco fichas estaban mal marcadas. Queda solo Teusaquillo, por datos → G-07 | **Desbloqueadas: C-08 a C-23, D-16, D-17, X-09** |
 | ~~G-07~~ | 🟢 | ~~La ficha de Teusaquillo~~ — **resuelta el 6/9 retirando el proyecto entero del sitio**, decisión de Gustavo. Ver la nota | — |
 | ~~G-09~~ | 🟢 | ~~Configurar `FORM_TOKEN_SECRET`~~ — **hecho el 6/9**: secreto propio de 64 caracteres en Producción y Preview, marcado como sensible, y redesplegado para que entre | Se separó de `LEAD_IP_SALT` a propósito: ver la nota |
-| G-08 | 🟡 | **Borrar del bucket las 8 imágenes de Teusaquillo.** Hay script: `pnpm media:retirar alcaldia-local-de-teusaquillo` para ver qué hay, y otra vez con `--borrar` | Necesita las claves de `.env.local`. Se niega a tocar un proyecto publicado |
+| G-08 | ⬜ | **Borrar del bucket las 8 imágenes de Teusaquillo** — `pnpm media:retirar alcaldia-local-de-teusaquillo`, y otra vez con `--borrar`. **Gustavo decidió el 6/9 no borrarlas todavía**: queda pendiente a propósito, no por olvido | El proyecto ya no sale por ninguna parte del sitio; esto es solo la URL directa del bucket |
 | G-02 | 🔴 | Sesión de lectura de copia con Eduardo — `/agendar` entera está sin aprobar | La pauta |
 | ~~G-03~~ | 🟢 | ~~Publicar el lote de la rama~~ — hecho el 6/9: 22 commits a `main`, más la migración aplicada en Supabase |
 | ~~G-04~~ | 🟢 | ~~NIT y plazo de conservación~~ — hecho el 6/9: NIT `901603373-9` y diez años con supresión a petición. **X-01 queda sin nada pendiente por parte del estudio** |
 | ~~G-05~~ | 🟢 | ~~Precios de los peldaños 2 y 3~~ — decidido el 6/9: **la escalera no publica precios**, se cotiza cliente por cliente. Se retiró también el «desde $300.000» del peldaño 2 |
-| G-06 | ⬜ | Términos de referencia de los concursos — **aplazado el 6/9, y sin coste**. Solo faltan dos: Teusaquillo y Las Colinas. Empezar preguntándole a Eduardo, que se presentó y pudo guardar las bases; si no, SCA o SECOP | Nada. Solo mejora la copia |
+| G-06 | ⬜ | Términos de referencia de los concursos — **aplazado el 6/9, y sin coste**. Ya solo falta **Las Colinas**: el de Teusaquillo dejó de importar al retirarse el proyecto. Empezar preguntándole a Eduardo, que se presentó y pudo guardar las bases; si no, SCA o SECOP | Nada. Solo mejora la copia |
 
 ---
 
@@ -308,6 +311,30 @@ borrar el archivo del bucket no lo es, y el orden correcto es siempre
 despublicar, comprobar el 404 y borrar después. El original en
 `assets-originales/` no se toca, así que restituir un proyecto es
 `pnpm media && pnpm media:upload`.
+
+---
+
+## Dónde retomar
+
+**Lo que decide Gustavo, y sin lo cual esas tareas no se pueden hacer:**
+
+| | La pregunta |
+|---|---|
+| D-08 | ¿Quién entra al panel de leads, y cómo se autentica? |
+| D-11 | ¿A dónde va el respaldo de leads si fallan Supabase y el correo? |
+| D-19 | ¿Qué significa «proyectar datos al cliente»? Está sin definir |
+| D-21 | ¿El calendario propio se queda, o se sustituye por Google o Calendly? |
+| D-16 | La línea de `/estudio` — ver la nota de D-16 reformulada |
+| G-02 | La sesión de lectura de copia con Eduardo. `/agendar` sigue sin aprobar |
+
+**Lo que se puede hacer sin preguntar nada:** los dieciséis artículos C-08 a
+C-23, que dejaron de estar bloqueados hoy, más C-24 y C-25. Al fecharlos, la
+R-17: quedan 35 plazas libres y doce meses vacíos entre 2022 y 2024.
+
+**Y el hueco editorial que apareció al desbloquearlos y nadie ha decidido:** de
+los cuatro artículos de casos propios ninguno trata una obra construida, y de
+las seis obras que sí lo están no hay un solo artículo planeado. El plan se
+escribió cuando el sitio creía tener una sola obra construida.
 
 ---
 

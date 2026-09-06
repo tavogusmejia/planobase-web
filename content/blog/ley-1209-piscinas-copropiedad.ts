@@ -574,9 +574,22 @@ export const post: Post = {
       fecha: '2010-05-07',
     },
     {
+      /* La URL era el PDF de minsalud, y ese PDF no se puede leer: baja 667 KB,
+         trae **una sola página** y no tiene una sola letra extraíble. La
+         Resolución 1510 tiene una treintena de artículos, así que una página
+         sin texto no puede ser la norma — es un escaneo, y ni siquiera
+         completo. Quien pulsara la fuente para comprobar el artículo se
+         encontraba con algo que no podía leer ni buscar.
+
+         Se cambia por el gestor normativo de la Alcaldía de Bogotá, que sirve
+         el articulado completo en texto. Comprobado: devuelve las definiciones
+         del artículo 3, incluida la de canaleta desnatadora.
+
+         Lo destapó el agente que escribió los cinco artículos de costos del
+         pilar, al ir a citar la misma norma y no poder abrirla. */
       titulo: 'Resolución 1510 de 2011: criterios técnicos y de seguridad para piscinas',
       editor: 'Ministerio de la Protección Social',
-      url: 'https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%201510%20de%202011.pdf',
+      url: 'https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=42808',
       fecha: '2011-05-06',
     },
     {

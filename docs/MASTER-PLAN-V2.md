@@ -53,7 +53,7 @@ pero todavía sin publicar.
 | ~~G-03~~ | 🟢 | ~~Publicar el lote de la rama~~ — hecho el 6/9: 22 commits a `main`, más la migración aplicada en Supabase |
 | ~~G-04~~ | 🟢 | ~~NIT y plazo de conservación~~ — hecho el 6/9: NIT `901603373-9` y diez años con supresión a petición. **X-01 queda sin nada pendiente por parte del estudio** |
 | ~~G-05~~ | 🟢 | ~~Precios de los peldaños 2 y 3~~ — decidido el 6/9: **la escalera no publica precios**, se cotiza cliente por cliente. Se retiró también el «desde $300.000» del peldaño 2 |
-| G-06 | ⬜ | Buscar los términos de referencia de los 4 concursos *(o encargarlo)* | X-03 |
+| G-06 | ⬜ | Términos de referencia de los concursos — **aplazado el 6/9, y sin coste**. Solo faltan dos: Teusaquillo y Las Colinas. Empezar preguntándole a Eduardo, que se presentó y pudo guardar las bases; si no, SCA o SECOP | Nada. Solo mejora la copia |
 
 ---
 

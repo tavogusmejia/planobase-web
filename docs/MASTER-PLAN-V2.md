@@ -38,9 +38,12 @@ cosas, amarillo es lo que sigue, verde está en el sitio. Los tres de abajo no s
 estados del semáforo sino matices: sin prisa, esperando a otra tarea, o hecha
 pero todavía sin publicar.
 
-> **Publicado el 6/9/2026.** Todo lo de las sesiones del 5 y el 6 salió a
-> producción en `main` — 22 commits— y la migración de Supabase se aplicó. Ahora
-> mismo no hay nada esperando publicación.
+> **Publicado el 6/9/2026.** Todo lo de las sesiones del 5 y el 6 está en
+> producción, incluido el calendario de reservas, y `main` y la rama vuelven a
+> tener lo mismo. **No hay nada esperando publicación.**
+>
+> Lo único que queda por hacer a mano en Supabase: nada. Las dos migraciones
+> —`leads` y `reservas`— están aplicadas y comprobadas contra producción.
 
 ---
 
@@ -84,8 +87,8 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 
 | Código | | Tarea | Nota |
 |---|---|---|---|
-| D-01 | ⏳ | ~~Entrega A: calendario de reservas~~ — hecho el 6/9, **deliberadamente fuera de `main`**: ver la nota | El enlace de Meet se rellena solo cuando llegue X-02 |
-| D-21 | ⬜ | **Decidir cómo se agenda de verdad** — aplazado el 6/9, ver el marcador de abajo | Bloquea publicar D-01 |
+| ~~D-01~~ | 🟢 | ~~Entrega A: calendario de reservas~~ — **publicado el 6/9 y funcionando**: la API devuelve 120 franjas, ninguna en fin de semana | El enlace de Meet se rellena solo cuando llegue X-02 |
+| D-21 | ⬜ | **Decidir cómo se agenda de verdad** — aplazado el 6/9, ver el marcador de abajo | Ya no bloquea nada: D-01 salió. Decide si se queda |
 | D-22 | ⬜ | Poder cancelar o mover una reserva desde el correo | Solo si se sigue con el calendario propio |
 | D-23 | 🟡 | **Guarda de enlaces de fuentes**: comprobar que las URL citadas siguen resolviendo | Salió de encontrar cuatro muertas — ver R-12 |
 | D-02 | ⬜ | Monitoreo de errores y uptime | Necesita X-10 |
@@ -110,8 +113,15 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 
 ### Marcador · cómo se agenda, sin decidir
 
-D-01 está construido y **sin publicar** a propósito. Antes de publicarlo hay que
-resolver esto, y se aplazó el 6/9 para investigarlo con calma.
+D-01 **se publicó el 6/9 y está funcionando**, así que esto ya no bloquea nada:
+decide si el calendario propio se queda o se sustituye. La comparación se deja
+entera porque el punto débil sigue en pie.
+
+**Una corrección, porque este tablero llegó a mentir sobre ello.** Decía que
+faltaba aplicar la migración `20260906120000_reservas.sql` en Supabase. **Ya
+estaba aplicada** — se comprobó el 6/9 llamando a `/api/agenda` en producción,
+que respondió `hayAgenda: true` con 120 franjas. Sobre esa frase falsa se tomó
+la decisión de no publicar D-01 durante medio día.
 
 **El punto débil de lo que se construyó, dicho sin adornos:** *no ve el
 calendario real de Gustavo.* Solo conoce las citas que él mismo creó, así que si

@@ -174,6 +174,19 @@ esa es la tesis que se publicó.
 
 **No queda ningún artículo escribible.** Todo lo que falta espera a G-01.
 
+**Las fechas se repartieron el 6/9** para cumplir la R-17: el blog tenía dieciséis
+artículos en cinco semanas y ahora ninguno comparte día. Quedan **35 plazas
+libres** hasta hoy y **doce meses vacíos**, todos entre 2022 y 2024 — que es
+justo donde encajan los quince que faltan, porque son casos de obra ya
+construida y su fecha no la ata ninguna norma reciente. Al escribirlos, mirar
+primero qué mes está libre.
+
+**La única excepción a la R-17 es agosto de 2026, que lleva tres.** No cabía de
+otra forma: cinco artículos citan cosas que ocurrieron entre el 5 de agosto y el
+5 de septiembre —el Decreto 974, el simulador del CPNAA, las tarifas de energía,
+la mesa del POT y las cifras del terremoto— y entre esos dos meses solo hay
+cuatro plazas. Agosto es además el mes que de verdad fue excepcional.
+
 **De C-25 salieron tres cosas que conviene no perder.** La primera, que el
 capítulo es **A.10** y que dentro tenía lo que el artículo necesitaba: hasta
 dónde hay que reforzar depende de la **edad de la edificación** (A.10.9.2), la
@@ -247,6 +260,7 @@ Salieron de errores que ya se cometieron. Cada una costó trabajo.
 | R-14 | **No se publica lo que Gustavo aplazó.** Si un lote de trabajo arrastra algo que él dejó en pausa, se separa el commit, no se publica «de paso» |
 | R-15 | **Un reglamento no es su decreto de adopción.** La NSR-10 son nueve decretos, y el PDF que sale primero en una búsqueda suele ser la versión original. Antes de citar un capítulo, comprobar contra qué edición se está leyendo |
 | R-16 | **Al corregir un artículo, releerlo entero.** C-25 se encargó con dos defectos y tenía cinco. Los tres que nadie había visto salieron de leer, no de buscar |
+| R-17 | **Como máximo dos artículos por mes, y nunca dos el mismo día.** Decisión de Gustavo del 6/9. Un artículo nuevo se fecha en un mes con hueco, no el día en que se escribió |
 
 ---
 

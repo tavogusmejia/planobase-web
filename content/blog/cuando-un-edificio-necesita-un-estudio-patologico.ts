@@ -30,7 +30,7 @@ export const post: Post = {
   slug: 'cuando-un-edificio-necesita-un-estudio-patologico',
   titulo: 'Cuándo un edificio necesita un estudio patológico',
   pilar: 'patologias',
-  fecha: '2026-01-27',
+  fecha: '2025-03-22',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

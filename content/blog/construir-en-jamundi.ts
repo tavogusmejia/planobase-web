@@ -34,7 +34,7 @@ export const post: Post = {
   slug: 'construir-en-jamundi',
   titulo: 'Construir en Jamundí: crecimiento, suelo y norma',
   pilar: 'local',
-  fecha: '2025-12-10',
+  fecha: '2025-10-07',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

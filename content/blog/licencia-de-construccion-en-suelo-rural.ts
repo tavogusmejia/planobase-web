@@ -29,7 +29,7 @@ export const post: Post = {
   slug: 'licencia-de-construccion-en-suelo-rural',
   titulo: 'Licencia de construcción en suelo rural: por qué tarda el doble',
   pilar: 'casa-campestre',
-  fecha: '2025-02-11',
+  fecha: '2025-02-06',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

@@ -30,7 +30,7 @@ export const post: Post = {
   slug: 'doce-partidas-que-se-olvidan-al-presupuestar',
   titulo: 'Las doce partidas que todo el mundo olvida al presupuestar',
   pilar: 'costos',
-  fecha: '2025-09-23',
+  fecha: '2025-06-07',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

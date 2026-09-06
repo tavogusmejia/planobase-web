@@ -39,7 +39,7 @@ export const post: Post = {
   slug: 'calentar-la-piscina-solar-bomba-de-calor-o-gas',
   titulo: 'Calentar la piscina: solar, bomba de calor o gas',
   pilar: 'piscinas',
-  fecha: '2026-09-02',
+  fecha: '2026-08-19',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

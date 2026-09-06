@@ -33,7 +33,7 @@ export const post: Post = {
   slug: 'comprar-lote-verificacion-antes-de-firmar',
   titulo: 'Comprar lote: la verificación de doce puntos antes de firmar',
   pilar: 'local',
-  fecha: '2023-01-16',
+  fecha: '2023-01-18',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

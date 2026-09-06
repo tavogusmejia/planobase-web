@@ -34,7 +34,7 @@ export const post: Post = {
   slug: 'cuanto-cuesta-remodelar-ambiente-por-ambiente',
   titulo: 'Cuánto cuesta remodelar, ambiente por ambiente',
   pilar: 'costos',
-  fecha: '2026-08-04',
+  fecha: '2025-10-21',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

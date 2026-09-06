@@ -91,7 +91,7 @@ export const post: Post = {
   slug: 'ntc-4595-2025-que-cambio',
   titulo: 'NTC 4595:2025: qué cambió y cuándo obliga',
   pilar: 'institucional',
-  fecha: '2026-08-28',
+  fecha: '2026-05-07',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

@@ -32,7 +32,7 @@ export const post: Post = {
   slug: 'piscina-y-jacuzzi-juntos',
   titulo: 'Piscina y jacuzzi juntos: qué equipos se comparten y cuándo sale mal',
   pilar: 'piscinas',
-  fecha: '2026-08-25',
+  fecha: '2026-01-26',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

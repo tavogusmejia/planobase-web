@@ -43,7 +43,7 @@ export const post: Post = {
   slug: 'piscina-de-sal-o-cloro',
   titulo: 'Sal o cloro: el mito del agua salada',
   pilar: 'piscinas',
-  fecha: '2026-07-08',
+  fecha: '2026-07-09',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

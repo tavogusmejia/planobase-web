@@ -25,7 +25,7 @@ export const post: Post = {
   slug: 'licencia-de-construccion-en-jamundi',
   titulo: 'Licencia de construcción en Jamundí: sin curaduría y sin expensas',
   pilar: 'tramites',
-  fecha: '2026-07-22',
+  fecha: '2026-07-20',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

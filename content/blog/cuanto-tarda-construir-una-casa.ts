@@ -31,7 +31,7 @@ export const post: Post = {
   slug: 'cuanto-tarda-construir-una-casa',
   titulo: 'Cuánto tarda construir una casa, etapa por etapa',
   pilar: 'casa-campestre',
-  fecha: '2023-03-14',
+  fecha: '2023-03-15',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

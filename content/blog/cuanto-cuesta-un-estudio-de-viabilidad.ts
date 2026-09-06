@@ -58,7 +58,7 @@ export const post: Post = {
   slug: 'cuanto-cuesta-un-estudio-de-viabilidad',
   titulo: 'Cuánto cuesta un estudio de viabilidad de un predio',
   pilar: 'costos',
-  fecha: '2026-09-06',
+  fecha: '2026-04-21',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

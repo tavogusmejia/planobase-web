@@ -58,7 +58,7 @@ export const post: Post = {
   slug: 'mamposteria-o-prefabricado-que-conviene',
   titulo: 'Mampostería o prefabricado: qué conviene, y cuándo',
   pilar: 'casa-campestre',
-  fecha: '2026-06-09',
+  fecha: '2024-12-27',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

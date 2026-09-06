@@ -29,7 +29,7 @@ export const post: Post = {
   slug: 'diez-errores-mas-caros-casa-campestre',
   titulo: 'Los diez errores más caros al construir una casa campestre',
   pilar: 'casa-campestre',
-  fecha: '2024-11-19',
+  fecha: '2024-11-05',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

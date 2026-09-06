@@ -38,7 +38,7 @@ export const post: Post = {
   slug: 'jacuzzi-de-obra-o-portatil',
   titulo: 'Jacuzzi de obra o portátil: carga, desagüe y requisitos eléctricos',
   pilar: 'piscinas',
-  fecha: '2026-08-11',
+  fecha: '2026-01-07',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

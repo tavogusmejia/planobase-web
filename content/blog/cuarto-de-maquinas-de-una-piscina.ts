@@ -33,7 +33,7 @@ export const post: Post = {
   slug: 'cuarto-de-maquinas-de-una-piscina',
   titulo: 'El cuarto de máquinas: la partida que más se subestima',
   pilar: 'piscinas',
-  fecha: '2026-06-30',
+  fecha: '2025-12-12',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

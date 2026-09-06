@@ -26,7 +26,7 @@ export const post: Post = {
   slug: 'cuanto-cobra-un-arquitecto',
   titulo: 'Cuánto cobra un arquitecto en Colombia',
   pilar: 'costos',
-  fecha: '2026-08-20',
+  fecha: '2026-08-13',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

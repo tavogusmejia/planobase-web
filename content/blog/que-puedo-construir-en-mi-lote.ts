@@ -30,7 +30,7 @@ export const post: Post = {
   slug: 'que-puedo-construir-en-mi-lote',
   titulo: 'Qué puedo construir en mi lote',
   pilar: 'tramites',
-  fecha: '2024-06-11',
+  fecha: '2024-06-14',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

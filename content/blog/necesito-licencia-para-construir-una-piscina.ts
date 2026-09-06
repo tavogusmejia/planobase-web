@@ -29,7 +29,7 @@ export const post: Post = {
   slug: 'necesito-licencia-para-construir-una-piscina',
   titulo: '¿Necesito licencia para construir una piscina?',
   pilar: 'piscinas',
-  fecha: '2025-04-22',
+  fecha: '2025-02-25',
   actualizado: '2026-09-05',
   autor: 'Gustavo Mejía Martínez',
   resumen:

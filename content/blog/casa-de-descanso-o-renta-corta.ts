@@ -65,7 +65,7 @@ export const post: Post = {
   slug: 'casa-de-descanso-o-renta-corta',
   titulo: 'Casa de descanso o renta corta: qué cambia en el diseño',
   pilar: 'casa-campestre',
-  fecha: '2026-08-25',
+  fecha: '2025-09-21',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

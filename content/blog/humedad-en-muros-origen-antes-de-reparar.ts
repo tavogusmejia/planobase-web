@@ -26,7 +26,7 @@ export const post: Post = {
   slug: 'humedad-en-muros-origen-antes-de-reparar',
   titulo: 'Humedad en muros: distinguir el origen antes de reparar',
   pilar: 'patologias',
-  fecha: '2026-05-05',
+  fecha: '2025-01-27',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

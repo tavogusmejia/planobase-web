@@ -39,7 +39,7 @@ export const post: Post = {
   slug: 'cuanto-cuesta-una-casa-campestre',
   titulo: 'Cuánto cuesta una casa campestre',
   pilar: 'casa-campestre',
-  fecha: '2026-06-23',
+  fecha: '2025-07-09',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

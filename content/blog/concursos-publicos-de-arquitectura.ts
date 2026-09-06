@@ -54,7 +54,7 @@ export const post: Post = {
   slug: 'concursos-publicos-de-arquitectura',
   titulo: 'Concursos públicos de arquitectura: cómo funcionan por dentro',
   pilar: 'institucional',
-  fecha: '2026-04-14',
+  fecha: '2025-11-09',
   actualizado: '2026-09-06',
   autor: 'Gustavo Mejía Martínez',
   resumen:

@@ -45,7 +45,7 @@ export const post: Post = {
   slug: 'como-se-disena-un-colegio-en-colombia',
   titulo: 'Cómo se diseña un colegio en Colombia',
   pilar: 'institucional',
-  fecha: '2026-09-02',
+  fecha: '2026-08-22',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

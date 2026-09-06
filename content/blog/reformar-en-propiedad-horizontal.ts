@@ -17,7 +17,7 @@ export const post: Post = {
   slug: 'reformar-en-propiedad-horizontal',
   titulo: 'Reformar en propiedad horizontal: qué autoriza la asamblea y qué no',
   pilar: 'tramites',
-  fecha: '2025-01-21',
+  fecha: '2024-10-09',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

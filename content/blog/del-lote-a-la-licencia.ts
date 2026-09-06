@@ -17,7 +17,7 @@ export const post: Post = {
   slug: 'del-lote-a-la-licencia',
   titulo: 'Del lote a la licencia: el recorrido completo',
   pilar: 'proceso',
-  fecha: '2024-09-17',
+  fecha: '2024-09-09',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

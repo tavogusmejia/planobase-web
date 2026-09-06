@@ -57,7 +57,7 @@ export const post: Post = {
   slug: 'casa-bioclimatica-por-piso-termico',
   titulo: 'La casa bioclimática, clima por clima: lo que de verdad cambia',
   pilar: 'casa-campestre',
-  fecha: '2026-03-31',
+  fecha: '2025-01-12',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

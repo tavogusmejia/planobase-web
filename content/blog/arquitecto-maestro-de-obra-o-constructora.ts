@@ -21,7 +21,7 @@ export const post: Post = {
   slug: 'arquitecto-maestro-de-obra-o-constructora',
   titulo: 'Arquitecto, maestro de obra o constructora: quién hace qué',
   pilar: 'proceso',
-  fecha: '2023-05-16',
+  fecha: '2023-05-18',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

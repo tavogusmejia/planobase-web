@@ -64,7 +64,7 @@ export const post: Post = {
   slug: 'ampliar-un-segundo-piso',
   titulo: 'Cuánto cuesta ampliar un segundo piso, y si la casa lo aguanta',
   pilar: 'costos',
-  fecha: '2026-07-28',
+  fecha: '2026-04-11',
   actualizado: null,
   autor: 'Gustavo Mejía Martínez',
   resumen:

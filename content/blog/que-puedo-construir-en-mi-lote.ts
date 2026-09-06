@@ -479,7 +479,7 @@ export const post: Post = {
     {
       titulo: 'Ley 160 de 1994, sistema nacional de reforma agraria, artículos 38 y 44',
       editor: 'Departamento Administrativo de la Función Pública',
-      url: 'https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=9779',
+      url: 'https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=66789',
       fecha: '1994-08-03',
     },
     {

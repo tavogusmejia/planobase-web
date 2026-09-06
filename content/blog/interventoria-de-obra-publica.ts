@@ -298,7 +298,7 @@ export const post: Post = {
     {
       titulo: 'Ley 1150 de 2007, modalidades de selección y selección de consultores',
       editor: 'Departamento Administrativo de la Función Pública',
-      url: 'https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=25678',
+      url: 'https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=184686',
       fecha: '2007-07-16',
     },
     {

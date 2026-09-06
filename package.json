@@ -12,6 +12,7 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
+    "check:enlaces": "tsx scripts/check-enlaces.ts",
     "media": "tsx scripts/prepare-media.ts",
     "media:upload": "tsx scripts/upload-media.ts",
     "media:retirar": "tsx scripts/retirar-medios.ts",

@@ -388,7 +388,7 @@ export const post: Post = {
     {
       titulo: 'Atlas de Radiación Solar de Colombia',
       editor: 'IDEAM y Unidad de Planeación Minero Energética',
-      url: 'https://repositoriobi.minenergia.gov.co/bitstream/handle/123456789/2414/5825.pdf',
+      url: 'https://bdigital.upme.gov.co/handle/001/1236',
       fecha: '2005-01-01',
     },
     {

@@ -381,7 +381,7 @@ export const post: Post = {
     {
       titulo: 'Ley 160 de 1994, unidad agrícola familiar y fraccionamiento de predios rurales',
       editor: 'Departamento Administrativo de la Función Pública',
-      url: 'https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=9779',
+      url: 'https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=66789',
       fecha: '1994-08-03',
     },
     {

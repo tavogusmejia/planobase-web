@@ -855,7 +855,7 @@ export const post: Post = {
       titulo:
         'Decreto 1783 de 2021, que modifica el trámite de licencias urbanísticas',
       editor: 'Ministerio de Vivienda, Ciudad y Territorio',
-      url: 'https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=175059',
+      url: 'https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=175086',
       fecha: '2021-12-21',
     },
     {

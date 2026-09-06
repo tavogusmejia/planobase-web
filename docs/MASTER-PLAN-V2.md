@@ -97,7 +97,7 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 | D-02 | ⬜ | Monitoreo de errores y uptime | Necesita X-10 |
 | ~~D-03~~ | 🟢 | ~~UTMs que sobrevivan la navegación~~ — ventana de 30 días, la misma de Meta y Google Ads | Un rechazo explícito de consentimiento borra lo guardado |
 | D-04 | ⬜ | Meta CAPI con deduplicación | Hoy se pierde entre el 30 y el 50 % de las señales |
-| D-05 | 🟡 | `/agendar` con reconocimientos y obra | Hoy no pinta nada del portafolio |
+| ~~D-05~~ | 🟢 | ~~`/agendar` con reconocimientos y obra~~ — tres obras construidas y los cuatro premios | **Solo era posible desde G-01**: antes habrían sido tres propuestas |
 | ~~D-06~~ | 🟢 | ~~`BreadcrumbList` en proyectos y servicios~~ — cuatro rutas, con `item` absoluto | **`FAQPage` no se implementó y esa es la entrega**: ninguna página lo merece. Ver la nota |
 | ~~D-07~~ | 🟢 | ~~Métricas de rendimiento (Web Vitals)~~ — ruta propia, sin contratar nada | Un solo `sendBeacon` al ocultarse la pestaña. No registra IP ni agente |
 | D-08 | ⬜ | Panel de leads | Hoy la única forma de ver un lead es entrar a Supabase |

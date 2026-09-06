@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { Logotipo } from '@/components/brand/Logotipo'
 import { Rule } from '@/components/ui/Rule'
 import { contacto, site } from '@content/site'
-import { creditoDiseno, esConcurso, mediaSrc } from '@/lib/utils'
+import { creditoDiseno, mediaSrc, naturalezaDe } from '@/lib/utils'
 import { formatArea } from '@/lib/formato'
 import type { Project } from '@/lib/types'
 import { lugar } from '@/lib/lugar'
@@ -30,7 +30,14 @@ const IDIOMA_DEL_PAPEL = 'es'
 
 export function HojaProyecto({ project }: { project: Project }) {
   const area = formatArea(IDIOMA_DEL_PAPEL, project.areaM2)
-  const naturaleza = esConcurso(project) ? 'Concurso' : null
+  /* La hoja va siempre en español: se imprime y se deja sobre una mesa. */
+  const NATURALEZA: Record<string, string> = {
+    construido: 'Obra construida',
+    concurso: 'Concurso',
+    propuesta: 'Proyecto no construido',
+  }
+  const clase = naturalezaDe(project)
+  const naturaleza = clase ? NATURALEZA[clase] : null
   const credito = creditoDiseno(IDIOMA_DEL_PAPEL, project.diseno, 'otros')
 
   const ficha: { etiqueta: string; valor: string }[] = [

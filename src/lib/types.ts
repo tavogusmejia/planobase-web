@@ -88,7 +88,15 @@ export type Project = {
   sector: string | null
   premio: string | null
   creditosFotografia: string | null
-  construido: boolean
+  /**
+   * `null` es «todavía no se sabe», y no es lo mismo que `false`.
+   *
+   * Eduardo revisó 23 de las 24 fichas el 6/9/2026; de la de Teusaquillo
+   * faltan datos. Colapsar ese hueco a `false` haría que el sitio afirmara
+   * que un proyecto no se construyó sin que nadie lo haya comprobado, que
+   * es justo el error que esta revisión venía a cerrar.
+   */
+  construido: boolean | null
   categorias: Categoria[]
   destacado: boolean
   enHeroHome: boolean

@@ -626,7 +626,7 @@ export const projects: Project[] = [
     "sector": null,
     "premio": null,
     "creditosFotografia": null,
-    "construido": false,
+    "construido": true,
     "categorias": [
       "educativo"
     ],
@@ -714,7 +714,7 @@ export const projects: Project[] = [
     "sector": null,
     "premio": null,
     "creditosFotografia": null,
-    "construido": false,
+    "construido": true,
     "categorias": [
       "educativo"
     ],
@@ -803,7 +803,7 @@ export const projects: Project[] = [
     "sector": null,
     "premio": "Primer puesto",
     "creditosFotografia": null,
-    "construido": false,
+    "construido": null,
     "categorias": [
       "institucional",
       "concursos"
@@ -1803,7 +1803,7 @@ export const projects: Project[] = [
     "sector": "Pance",
     "premio": null,
     "creditosFotografia": null,
-    "construido": false,
+    "construido": true,
     "categorias": [
       "vivienda"
     ],
@@ -2264,7 +2264,7 @@ export const projects: Project[] = [
     "sector": null,
     "premio": null,
     "creditosFotografia": null,
-    "construido": false,
+    "construido": true,
     "categorias": [
       "vivienda"
     ],
@@ -2339,7 +2339,7 @@ export const projects: Project[] = [
     "sector": null,
     "premio": null,
     "creditosFotografia": null,
-    "construido": false,
+    "construido": true,
     "categorias": [
       "educativo"
     ],

@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { RotuloProyecto, useRotulo } from '@/components/project/RotuloProyecto'
 import { usePortadaColoreada } from '@/components/project/ReticulaProyectos'
-import { cn, esConcurso, mediaSrc } from '@/lib/utils'
+import { cn, mediaSrc, naturalezaDe } from '@/lib/utils'
 import { portadasEnGrises } from '@content/ajustes'
 import type { Project } from '@/lib/types'
 
@@ -38,7 +38,10 @@ export function ProjectCard({
 
   if (!portada) return null
 
-  const etiqueta = esConcurso(project) ? t('concurso') : null
+  /* Sin etiqueta cuando la ficha no se ha revisado: callar es correcto,
+     afirmar «no construido» sin comprobarlo no lo es. */
+  const naturaleza = naturalezaDe(project)
+  const etiqueta = naturaleza ? t(naturaleza) : null
 
   return (
     <article className="pieza">

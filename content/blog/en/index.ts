@@ -84,6 +84,7 @@ import { traduccion as aguasResiduales } from './aguas-residuales-sin-alcantaril
 import { traduccion as ampliarSegundoPiso } from './ampliar-un-segundo-piso'
 import { traduccion as cubiertas } from './cubiertas-barro-termoacustica-verde-o-placa'
 import { traduccion as casaDeDescanso } from './casa-de-descanso-o-renta-corta'
+import { traduccion as estudioDeViabilidad } from './cuanto-cuesta-un-estudio-de-viabilidad'
 import { traduccion as comprarLoteRural } from './comprar-lote-rural-que-verificar-antes-de-firmar'
 import { traduccion as aguaEnElCampo } from './agua-en-el-campo-que-permiso-necesita'
 import { traduccion as casaBioclimatica } from './casa-bioclimatica-por-piso-termico'
@@ -190,6 +191,7 @@ const registro: TraduccionPost[] = [
   ampliarSegundoPiso,
   cubiertas,
   casaDeDescanso,
+  estudioDeViabilidad,
 ]
 
 export const traduccionesPost = new Map(registro.map((t) => [t.slug, t]))

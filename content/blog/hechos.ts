@@ -251,6 +251,35 @@ export const hechos: Hecho[] = [
     fecha: '2008-07-14',
     patrones: ['ley 1209'],
   },
+
+  /* Las tres normas que renovaron el pilar de piscinas en 2026. Se anotan aquí
+     porque el corpus vivió meses citando las que estas sustituyeron —la 1510 de
+     2011 y la 1618 de 2010— y nadie lo notó: las guardas comprobaban que un
+     artículo no se fechara antes de su fuente, pero no que su fuente siguiera
+     en pie. Con estas tres, cualquier artículo que las mencione queda anclado a
+     su fecha, y el que las cite quedará también fechado después. */
+  {
+    id: 'resolucion-929-2026',
+    descripcion:
+      'Resolución 929 de 2026, criterios técnicos constructivos y de seguridad ' +
+      'para piscinas. Supera a la Resolución 1510 de 2011',
+    fecha: '2026-05-12',
+    patrones: ['resolucion 929', '929 de 2026'],
+  },
+  {
+    id: 'resolucion-234-2026',
+    descripcion:
+      'Resolución 234 de 2026, calidad del agua de piscinas. Ocupa el campo de ' +
+      'la Resolución 1618 de 2010, y crea el IRAPI',
+    fecha: '2026-02-10',
+    patrones: ['resolucion 234', '234 de 2026', 'irapi'],
+  },
+  {
+    id: 'retie-2026',
+    descripcion: 'RETIE vigente, Resolución 40284 de 2026 del Ministerio de Minas',
+    fecha: '2026-06-23',
+    patrones: ['resolucion 40284', '40284 de 2026'],
+  },
   {
     id: 'ley-675-2001',
     descripcion: 'Ley 675 de 2001, régimen de propiedad horizontal',

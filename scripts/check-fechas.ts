@@ -107,15 +107,35 @@ for (const post of posts) {
     }
   }
 
-  // Contra el calendario de hechos. Es lo que cierra el agujero que dejan las
-  // fuentes: un artículo puede mencionar algo sin citarlo formalmente.
+  /* Contra el calendario de hechos. Es lo que cierra el agujero que dejan las
+     fuentes: un artículo puede mencionar algo sin citarlo formalmente.
+
+     **Se compara contra `actualizado` cuando existe, y no contra `fecha`.**
+     Hasta el 6/9/2026 se comparaba siempre contra la fecha de publicación, y eso
+     dejaba un artículo viejo sin forma legítima de ponerse al día: el de la Ley
+     1209 se publicó en marzo de 2025 y en septiembre de 2026 hubo que
+     actualizarlo porque la Resolución 929 de 2026 superó a la que citaba. Con la
+     regla anterior, mencionar la norma nueva rompía el build, y las dos salidas
+     eran malas — mover la fecha de publicación, que es mentir sobre cuándo se
+     escribió y tira por la borda la antigüedad que el artículo ya tiene en el
+     buscador, o dejarlo citando una norma superada.
+
+     El motivo por el que la regla existía sigue en pie y sigue cubierto: lo que
+     no se puede es que un artículo *publicado* en 2023 mencione un decreto de
+     2025 sin decir que se tocó después. Cuando hay `actualizado`, el sitio lo
+     enseña junto a la fecha, así que el lector sabe que el texto es posterior.
+     Sin `actualizado`, la comparación es contra la publicación, igual que antes. */
   const texto = textoDePost(post)
+  const cuando = post.actualizado ?? post.fecha
   for (const h of hechos) {
     if (!h.patrones.some((pat) => texto.includes(pat))) continue
-    if (post.fecha < h.fecha) {
+    if (cuando < h.fecha) {
       marca(
-        `se publica el ${post.fecha} y menciona «${h.descripcion}», ` +
-          `del ${h.fecha}. La fecha del artículo tiene que ser posterior.`,
+        post.actualizado
+          ? `se actualiza el ${post.actualizado} y menciona «${h.descripcion}», ` +
+              `del ${h.fecha}. La fecha de actualización tiene que ser posterior.`
+          : `se publica el ${post.fecha} y menciona «${h.descripcion}», ` +
+              `del ${h.fecha}. La fecha del artículo tiene que ser posterior.`,
       )
     }
   }

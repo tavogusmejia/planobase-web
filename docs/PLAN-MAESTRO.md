@@ -1,18 +1,24 @@
 # Plan maestro · Plano Base Web
 
 Estado del proyecto y hoja de ruta completa.
-Última actualización: **5 de septiembre de 2026, tras la tanda de arreglos
-rápidos de la noche** — con las decisiones del dueño en §1 y lo ejecutado
-marcado a lo largo del documento.
+Última actualización: **6 de septiembre de 2026** — con el pilar de piscinas
+escrito, la Ley 1581 montada y dos lecciones nuevas en §16.
 
 Este documento nació reuniendo seis auditorías sobre el repositorio y sobre el
 mercado. No hay que leerlo de una sentada: cada frente es independiente y está
 marcado con lo que bloquea y lo que no.
 
-**Buena parte ya está en producción.** El estado de la sección siguiente dice
-qué, con una línea por frente; ✅ significa desplegado en `www.planobase.co` y
-no solo escrito. Los tres frentes que este plan no llegó a contemplar —el sitio
-bilingüe, APBS y el rediseño de las páginas de proyecto— están en §15.
+**Buena parte ya está en producción, y otra buena parte espera en una rama.** El
+estado de la sección siguiente dice qué es qué: **✅ significa desplegado en
+`www.planobase.co`** y **⏳ significa hecho, verificado y sin publicar**. La
+diferencia importa y es fácil de pasar por alto — ver el aviso del estado. Los
+tres frentes que este plan no llegó a contemplar —el sitio bilingüe, APBS y el
+rediseño de las páginas de proyecto— están en §15.
+
+**Si solo va a leer dos cosas**, que sean el aviso del estado —para saber qué se
+ve y qué no— y el §16, que recoge lo que este proyecto aprendió por las malas:
+que una norma citada puede quedar superada sin que ninguna guarda del build lo
+note.
 
 ---
 
@@ -128,19 +134,31 @@ empezar · 🔴 bloqueado esperando una decisión suya.
 Lo que sigue es la foto del día. Cada línea con ✅ está desplegada en
 `www.planobase.co`, no solo escrita.
 
-**Con una excepción, marcada abajo con ⏳.** Las seis últimas filas de la tabla
-salieron de la pasada de redacción del 5/9 por la tarde y están **commiteadas en
-la rama, sin publicar**: el trabajo se acumula por lotes y Gustavo pide la
-publicación cuando la quiere. Están terminadas y verificadas contra el HTML
-generado —`pnpm build` en verde, con sus cuatro guardas—, pero todavía no las ve
-nadie fuera del repositorio.
+> ### ⚠️ Nada de lo marcado ⏳ se ve en `www.planobase.co`
+>
+> Es la confusión más fácil de tener con este documento, y ya pasó: el 6/9 se
+> preguntó por qué el pie de página no tenía enlace a la política de datos.
+> **Lo tiene** —se añadió el 5/9 por la noche y está verificado en el HTML
+> generado— pero vive en la rama `blog/seccion-y-articulos`, sin publicar.
+>
+> **Todo lo que salió de las sesiones del 5 y el 6 de septiembre está ahí:** la
+> política de datos y su enlace en el pie, el banner de consentimiento, las
+> plantillas de correo, las cabeceras de seguridad, los once artículos nuevos.
+> Terminado, verificado y esperando.
+>
+> Para verlo antes de publicar: `git pull && pnpm dev` y abrir
+> `localhost:3000`. Para publicarlo, pedirlo — el trabajo se acumula por lotes y
+> la publicación la pide Gustavo cuando la quiere.
+
+**Cómo distinguirlo de un vistazo:** ✅ significa que ya se ve en el sitio; ⏳
+significa que está hecho y verificado, pero todavía en la rama.
 
 ### Terminado ✅
 
 | | Qué |
 |---|---|
 | ✅ | **El sitio es bilingüe de verdad.** 95 URLs en inglés, con `hreflang` recíproco. Cada ruta entra al índice inglés cuando su contenido está traducido, no porque el idioma esté encendido |
-| ✅ | **Los 43 artículos del blog, en español e inglés.** Y el portafolio entero: las 24 memorias, las 7 verticales, los 10 temas |
+| ✅ | **Los 43 artículos del blog, en español e inglés.** Y el portafolio entero: las 24 memorias, las 7 verticales, los 10 temas. *(Hoy son 54: ver la fila del blog más abajo)* |
 | ✅ | **El embudo comercial completo en inglés**: portada, estudio, servicios, las 7 puertas, contacto y agendar |
 | ✅ | **APBS y la calculadora de expensas de curaduría**, para los 1.103 municipios del DANE, con vigencia que caduca sola en tres capas |
 | ✅ | **El formulario recibe leads de todo el país.** Antes ofrecía seis opciones del Valle y Bogotá entraba como «Otro» |
@@ -166,6 +184,11 @@ nadie fuera del repositorio.
 | ⏳ | **GA4 y la etiqueta de conversión de Google Ads**, montadas detrás de ese mismo consentimiento |
 | ⏳ | **Cuando el envío falla, hay a dónde llamar**: WhatsApp, teléfono y correo en los tres puntos de fallo. Y la página de error deja de estar en español fijo |
 | ⏳ | **El artículo del sismo**, en los dos idiomas *(§14, n.º 74)* |
+| ⏳ | **El pilar de piscinas: diez artículos** en los dos idiomas, con tres diagramas propios, escritos contra la normativa de 2026 *(§14)* |
+| ⏳ | **El artículo de la Ley 1209, actualizado.** Citaba dos normas superadas, y ahora se rectifica a sí mismo sobre el ONAC y el INVIMA |
+| ⏳ | **El enlace a la política en el pie**, en todas las páginas, más el botón de preferencias de medición |
+| ⏳ | **`main` fusionado en la rama**, con las cabeceras de seguridad de la otra rama y GA4 añadido a su CSP |
+| ⏳ | **`check-fechas` compara contra `actualizado`**, para que un artículo puesto al día pueda citar la norma que lo obligó a actualizarse |
 
 ### Empezado, falta parte 🟡
 
@@ -173,7 +196,7 @@ nadie fuera del repositorio.
 |---|---|---|
 | 🟡 | **Registro «usted»** *(decisión 1.7)* | Hecho en el formulario, `/contacto`, la portada, los rótulos del blog y la interfaz entera: `messages/` y la copia de error quedan sin un solo tuteo, comprobado con un barrido. **Falta el cuerpo de los artículos en `content/blog/`** |
 | 🟡 | **Encuadre nacional** *(§9)* | Hechas las puertas, `/agendar`, la descripción de tres páginas, el `h1` de la portada y **los tres nodos del JSON-LD**. Comprobado además que **dos verticales dicen bien «Valle del Cauca» y «Cali»**: es donde está esa obra, y ensancharlo sería inventar proyectos. Solo queda pendiente lo que depende de marcar `construido` |
-| 🟡 | **El blog** *(§8)* | **44 de 77.** De los 33 que faltan, **16 se pueden escribir hoy y 17 están bloqueados** por la decisión 1.9. Los diez de piscinas están escritos y **sin registrar**: ver el aviso del §8 |
+| 🟡 | **El blog** *(§8)* | **54 de 77**, los 54 en los dos idiomas. De los 23 que faltan, **7 se pueden escribir hoy y 16 están bloqueados** por la decisión 1.9. La cifra sale de las guardas del build, no de contar a mano |
 
 ### Bloqueado esperando a un tercero 🔴
 
@@ -660,8 +683,11 @@ las URLs existentes, y qué recordar el día que se traduzca— estaba en la tar
 
 #### 🔄 REVERTIDA el mismo día · «prefiero mantener el inglés pero traducir todo, absolutamente todo»
 
-Y se hizo. **Los 43 artículos, el portafolio entero, las verticales, los temas y
-el embudo comercial están en los dos idiomas**, con 95 URLs inglesas indexables.
+Y se hizo. **El blog entero, el portafolio, las verticales, los temas y el
+embudo comercial están en los dos idiomas**, con 95 URLs inglesas indexables.
+Eran 43 artículos cuando se escribió esto; hoy son 54, y los once nuevos se
+escribieron bilingües desde el origen, que es la regla que salió de aquella
+pasada.
 Ver §15.
 
 Tres decisiones asociadas, tomadas con las cifras delante —86.100 palabras
@@ -987,20 +1013,24 @@ página.
 
 ### Antes de gastar el primer peso en pauta · ~7-8 días
 
+**Las ⏳ están hechas y verificadas, pero viven en la rama sin publicar.**
+Ver el aviso del estado, arriba: es la confusión más fácil de tener con
+esta tabla.
+
 | | Tarea | Esfuerzo |
 |---|---|---|
-| ✅ | Política de tratamiento de datos + autorización expresa (Ley 1581) — **falta que la lea un abogado** | — |
-| ✅ | Banner de consentimiento y arranque condicionado de etiquetas | — |
-| ✅ | GA4 + etiqueta de conversión de Google Ads — **falta crear las cuentas y poner las variables** | — |
+| ⏳ | Política de tratamiento de datos + autorización expresa (Ley 1581) — **falta que la lea un abogado** | — |
+| ⏳ | Banner de consentimiento y arranque condicionado de etiquetas | — |
+| ⏳ | GA4 + etiqueta de conversión de Google Ads — **falta crear las cuentas y poner las variables** | — |
 | ✅ | Corte de dominio: DNS, variables, 301 desde Wix, Search Console | — |
 | ✅ | Páginas de error (`error.tsx`, `global-error.tsx`) | — |
-| ⬜ | Monitoreo de errores + alerta de lead perdido + uptime | 0,5 d |
-| ✅ | Resend verificado ✅ + acuse de recibo al cliente ✅ + confirmación de reserva ✅ | — |
+| ⬜ | Monitoreo de errores + uptime | 0,5 d |
+| ⏳ | Resend verificado ✅ + acuse de recibo al cliente + confirmación de reserva | — |
 | ✅ | Cabeceras de seguridad (CSP, HSTS, resto) | — |
 | ✅ | Open Graph propio por página | — |
 | ⬜ | URLs de campaña con `/es/` explícito y UTMs | 3 h |
 | 🔴 | Marcar construido vs. concurso en los 23 proyectos | 0,5 d |
-| ✅ | ~~Los tres errores de envío del formulario salen siempre en español~~ — cerrado al montar las plantillas: el idioma entró en el esquema y con él las claves | — |
+| ⏳ | ~~Los tres errores de envío del formulario salen siempre en español~~ — cerrado al montar las plantillas: el idioma entró en el esquema y con él las claves | — |
 
 **Sobre los errores del formulario, que salió al hacer la pasada de redacción
 y no estaba en esta lista.** Los mensajes de campo —«Escriba su nombre
@@ -1065,8 +1095,34 @@ hecho: se traduce todo** · Teclado en el menú móvil.
 Ver `docs/PLAN-BLOG.md` para el listado completo de temas, el calendario
 editorial y el estado de cada artículo.
 
-Resumen: **73 temas en diez pilares**, más de cinco años de material a cadencia
-sostenible. Hoy el blog tiene **una sola entrada, de octubre de 2022**.
+Resumen: **77 temas en diez pilares**, más de cinco años de material a cadencia
+sostenible.
+
+> ~~Hoy el blog tiene **una sola entrada, de octubre de 2022**.~~ Era cierto el
+> día de la auditoría y lleva meses sin serlo. **Hoy son 54, todos en español e
+> inglés**, y faltan 23 — de los cuales solo 7 se pueden escribir sin que
+> Gustavo marque antes cuáles proyectos están construidos.
+
+**Cómo está repartido, que es lo que enseña dónde está el hueco:**
+
+| Pilar | Artículos |
+|---|---|
+| Piscinas y jacuzzis | 12 |
+| Casa y casa campestre | 10 |
+| Trámites y norma | 8 |
+| Proceso y decisión | 7 |
+| Patologías | 6 |
+| Costos | 5 |
+| Local y mapa | 3 |
+| Institucional | 2 |
+| **Casos propios** | **1** |
+| **Caribe insular** | **0** |
+
+Los dos pilares del fondo son exactamente los dieciséis artículos que espera la
+decisión 1.9. Dicho en una tabla se ve mejor que en una lista: **el pilar que
+prueba que el estudio sabe hacer lo que dice —los casos propios— tiene un solo
+artículo**, y no por falta de material sino porque nadie ha marcado todavía qué
+está construido.
 
 Los diez pilares:
 
@@ -1231,15 +1287,22 @@ que tocarlo**.
 El orden es correcto y no se puede saltar:
 
 ```
-El embudo cierra con     → calendario + Meet (Entrega A)
-La pauta puede arrancar  → + las 11 tareas del primer bloque de §7
+El embudo cierra con     → calendario (Entrega A)
+La pauta puede arrancar  → + lo que queda del primer bloque de §7
 ```
 
 Un anuncio que lleva a un WhatsApp sin seguimiento quema presupuesto y no deja
 aprendizaje.
 
-Tres de las once tareas dependen de usted, no de código: verificar el dominio en
-Resend, hacer el corte de DNS y aprobar la política de datos.
+**Actualizado el 6/9/2026: de las once tareas de aquel bloque quedan dos**, y
+ninguna es larga — el monitoreo de errores y las URLs de campaña con sus UTMs.
+Las URLs pueden esperar, porque sin pauta encendida no miden nada y entran junto
+con GA4 y Ads, que es donde tienen sentido.
+
+**Lo que de verdad separa a la pauta de encenderse ya no es código.** Es que un
+abogado lea `content/legal.ts` y que existan las cuentas de GA4 y Google Ads. Las
+tres están en `docs/TRAMITES-EXTERNOS.md` con lo que hay que llevarle a cada
+una. ~~Verificar el dominio en Resend~~ ya está hecho.
 
 ---
 
@@ -1247,39 +1310,55 @@ Resend, hacer el corte de DNS y aprobar la política de datos.
 
 **Actualizado el 5/9/2026 con lo que quedó decidido.** Lo tachado ya no aplica.
 
+**Reescrito el 6/9/2026.** Casi todo lo que estaba en las tres primeras franjas
+se hizo en dos sesiones, así que el cronograma que había describía un futuro que
+ya es pasado. Lo tachado queda para poder auditar qué se movió.
+
 ```
-AHORA (usted)     ~~Verificar planobase.co en Resend~~ HECHO
-                  ~~Decidir: precio · Workspace · dirección~~ HECHO
-                  Marcar construido en los 23  →  docs/PROYECTOS-CONSTRUIDO.md
-                  Ejecutar el trámite B3: credenciales de Google
-                  Agendar la sesión de lectura de la copia con Eduardo
-                  Buscar los términos de referencia de los cuatro concursos
-                  (Wompi: iniciar el papeleo en paralelo, sin bloquear nada)
+AHORA (usted)     Marcar construido en los 23  →  docs/PROYECTOS-CONSTRUIDO.md
+                  Es media hora y libera 16 artículos, la página de
+                  credenciales y el envío a ArchDaily
 
-SEMANA 1-2        Reencuadre geográfico nacional
-                  Pasada única de redacción (registro + 7 contradicciones
-                  + unificación de rótulos)
-                  Primeros artículos del blog
+                  Que un abogado lea content/legal.ts
+                  Las credenciales de Google  →  docs/TRAMITES-EXTERNOS.md
+                  La sesión de lectura de la copia con Eduardo
+                  Los términos de referencia de los cuatro concursos
+                  Decidir si se publica el lote que está en la rama
 
-SEMANA 2-3        Entrega A: calendario + Meet + correo con .ics
+~~SEMANA 1-2~~    ~~Reencuadre geográfico~~ HECHO, salvo lo que depende de 1.9
+   HECHO          ~~Pasada única de redacción~~ HECHA
+                  ~~Primeros artículos~~ HECHOS: once, y el pilar de piscinas
+                  ~~La Ley 1581 entera~~ HECHA
+                  ~~Cabeceras de seguridad~~ HECHAS
 
-SEMANA 3-4        Las 11 tareas del bloque «antes de la pauta»
+SIGUIENTE         Entrega A: calendario + correo con .ics
+                  El correo YA ESTÁ escrito y probado; falta el calendario.
+                  El enlace de Meet se enchufa cuando lleguen las credenciales,
+                  y la plantilla ya contempla que falte
+
+                  Los 7 artículos que no dependen de nadie
+                  Monitoreo de errores
                   Corte de dominio
 
-SEMANA 5          ENCENDER PAUTA
-
-SEMANA 5-8        Entrega B: panel /admin + Wompi
+DESPUÉS           ENCENDER PAUTA (cuando el abogado firme y existan las cuentas)
+                  Los 16 artículos que libera la decisión 1.9
+                  Entrega B: panel /admin + Wompi
                   Bloque «primer mes» de §7
-                  Cadencia de blog
-
-DESPUÉS           Intranet: clientes, proyectos, RFI, planos, comunicaciones
-                  Plan de facturación electrónica con Odoo (§1.12)
+                  Intranet · facturación con Odoo (§1.12)
 ```
 
 **Lo que cambió de orden:** Wompi sale del camino crítico y la Entrega A puede
 empezar ya, porque la primera llamada es gratuita y hay Workspace confirmado.
 Las plantillas de correo entran en la semana 1-2 junto con la Entrega A, no
 después.
+
+**Y lo que cambió el 6/9:** la pauta ya no espera al código. Espera a un abogado
+y a dos cuentas de Google, y las tres cosas están en `docs/TRAMITES-EXTERNOS.md`
+con lo que hay que llevarle a cada uno. Lo que sí quedó claro es cuál es el
+cuello de botella real del proyecto, y no es técnico: **media hora de Gustavo
+sobre una mesa con Eduardo libera dieciséis artículos, la página de credenciales
+institucionales y el envío a ArchDaily.** Nada de lo que se puede programar
+compite con eso.
 
 ---
 
@@ -1327,10 +1406,11 @@ Seis auditorías independientes sobre el repositorio y el mercado:
 
 ---
 
-## 14. Los 34 artículos que faltan por escribir
+## 14. Los 23 artículos que faltan por escribir
 
-Estado al cierre de la sesión del 5 de septiembre de 2026: **43 de 75
-publicados, y los 43 en español e inglés.** Faltan estos 34.
+Estado al cierre de la sesión del 6 de septiembre de 2026: **54 de 77
+publicados, y los 54 en español e inglés.** Faltan estos 23, y **solo 7 se
+pueden escribir hoy**: los otros 16 esperan la decisión 1.9.
 
 **Eran 32 y la cuenta estaba mal por dos motivos distintos, los dos corregidos
 el 5/9 por la tarde.**
@@ -1409,11 +1489,15 @@ Es media hora de trabajo de Gustavo y libera cinco artículos.
 | 47 | Cubiertas: barro, termoacústica, verde o placa |
 | 49 | Casa de descanso o renta corta: qué cambia en el diseño |
 
-El 42 quedó a medias en una tanda anterior: la Resolución 0330 de 2017 es un
-escaneo sin capa de texto y no se pudo leer. Si sigue igual, el artículo se
-escribe declarándolo, como se hizo con el del agua.
+~~El 42 quedó a medias en una tanda anterior: la Resolución 0330 de 2017 es un
+escaneo sin capa de texto y no se pudo leer.~~
 
-### Piscinas y jacuzzis (10)
+**Ese bloqueo se acabó el 6/9/2026.** Un PDF sin capa de texto ya no impide
+escribir el artículo: la Resolución 234 de 2026 se leyó **mirando la página**
+en vez de extraer el texto, y sus tablas salieron enteras. El 42 se puede
+escribir cuando se quiera.
+
+### Piscinas y jacuzzis (10) — ✅ LOS DIEZ, escritos el 6/9/2026
 
 | | Artículo |
 |---|---|
@@ -1427,6 +1511,11 @@ escribe declarándolo, como se hizo con el del agua.
 | 60 | Jacuzzi de obra o portátil: carga, desagüe y requisitos eléctricos |
 | 61 | Piscina y jacuzzi juntos: compartir equipos, y cuándo sale mal |
 | 62 | Mantenimiento de piscina: el costo mensual real |
+
+**Los diez están escritos**, en español e inglés, con tres diagramas propios. Y
+salieron con una sorpresa que vale más que los artículos: **la normativa
+colombiana de piscinas se renovó entera en 2026** y el corpus la citaba
+desactualizada. Ver §16.
 
 **Es el pilar con la credencial que ningún competidor tiene**: quince años
 diseñando sistemas hidráulicos y construyendo piscinas de borde infinito. Regla
@@ -1561,9 +1650,15 @@ al copiarse deja de verificarse.
 Cuando se escriban los 32 que faltan, conviene auditar cada cifra repetida
 contra la pieza que la introdujo.
 
-### 15.5 · Las cuatro guardas del build
+### 15.5 · Las cinco guardas del build
 
-`pnpm build` no compila si alguna falla, y esa es la razón de que existan:
+`pnpm build` no compila si alguna falla, y esa es la razón de que existan.
+
+**Son cinco desde el 5/9/2026**: se añadió `check-correos.ts`, que valida el
+`.ics` de la confirmación de reserva contra la RFC 5545 y comprueba que el texto
+que escribe un visitante salga inerte en el correo. Y `check-fechas.ts` cambió
+el 6/9: ahora compara contra `actualizado` y no contra `fecha`, para que un
+artículo puesto al día pueda citar la norma que lo obligó a actualizarse.
 
 | Guarda | Qué impide |
 |---|---|
@@ -1571,3 +1666,93 @@ contra la pieza que la introdujo.
 | `check-fechas` | Que un artículo fechado hacia atrás cite una fuente del futuro |
 | `check-traducciones` | Que una traducción exista y esté mal: cuerpo truncado, tabla sin columnas, diagrama sin traducir, español filtrado. **No rompe por lo que falta**, solo por lo que está mal |
 | `check-vigencia` | Que se despliegue la calculadora con un dato caduco |
+
+### 15.6 · Lo que se hizo el 5 y el 6 de septiembre
+
+Sin repetir lo que ya está en el estado, y solo lo que no cabía en una fila:
+
+- **Las dos plantillas de correo**, con el `.ics` escrito a mano contra la RFC
+  5545. No se usó biblioteca: las tres cosas que rompen un calendario —CRLF,
+  plegado a 75 octetos y escapado— son justo las que una dependencia esconde y
+  luego hay que depurar a ciegas cuando Outlook lo rechaza y Gmail lo acepta.
+- **La Ley 1581 entera**: política de datos bilingüe, autorización expresa con
+  su prueba —qué autorizó, cuándo y qué política estaba vigente— y consentimiento
+  previo a cualquier etiqueta de medición.
+- **La salida cuando algo falla**, que fue idea de Gustavo y corrigió una mía. Se
+  había propuesto una alerta interna de lead perdido; él objetó que si el sistema
+  está caído una alerta no recupera nada, porque el mensaje que se perdió llevaba
+  justamente los datos de contacto. Tenía razón. Lo que se hizo en su lugar fue
+  darle al visitante una salida que se pulse: WhatsApp, teléfono y correo.
+- **Once artículos nuevos**, y la actualización del de la Ley 1209.
+
+---
+
+## 16. Dos lecciones del 6 de septiembre
+
+No son casillas. Son las dos cosas que este proyecto no sabía y que costaron
+trabajo aprender.
+
+### 16.1 · Una fuente puede quedar superada sin que ninguna guarda lo note
+
+El blog citaba la **Resolución 1510 de 2011** como norma vigente de piscinas.
+Dejó de serlo, y el corpus siguió citándola durante meses **con el build en
+verde todo ese tiempo**.
+
+Lo que la reemplaza es la **Resolución 929 del 12 de mayo de 2026**, y en calidad
+del agua la **Resolución 234 del 10 de febrero de 2026**. Los cambios no son
+matices: el pH pasó de una banda de 7,0–8,0 a **6,8–7,3**, el ácido cianúrico de
+«menos de 100» a **máximo 15**, la microbiología de mensual a trimestral, y
+apareció *Legionella*, que no existía. Son las cifras con las que alguien
+dimensiona o mantiene una piscina.
+
+**La formulación jurídica importa y no se puede relajar.** La 929 **no deroga**
+la 1510 por su número. La 1510 se quedó sin piso porque nació al amparo del
+Decreto 2171 de 2009, que el Decreto 554 de 2015 derogó. Se dice **«superada
+por»**, nunca «derogada por» — es lo que resiste una lectura de abogado, y hay
+una guarda que falla si aparece la palabra «derogada».
+
+**Por qué ninguna guarda lo vio, y por qué no tiene arreglo automático.**
+`check-fechas.ts` comprueba que un artículo no se feche antes de la fuente que
+cita. Nada comprueba que la fuente **siga en pie**, porque para saberlo hay que
+ir a mirar. De ahí la única regla que sirve:
+
+> **Al retomar un pilar, lo primero es comprobar que sus normas siguen vivas.**
+> No al escribir el artículo nuevo: antes, y para todo el pilar.
+
+Y dos hallazgos de método que salieron con ello:
+
+- **Un PDF sin capa de texto ya no bloquea un artículo.** El anexo de la 234 se
+  leyó mirando la página, no extrayendo el texto. Eso desatascó el artículo 42,
+  parado desde hacía meses por esa razón exacta.
+- **Una fuente que no se puede abrir es peor que ninguna.** El PDF oficial de la
+  1510 en `minsalud.gov.co` son 667 KB de una sola página sin una letra
+  extraíble. Este blog pone las fuentes a la vista para que se puedan comprobar:
+  quien pulsa para verificar y no puede no pierde esa cita, pierde la confianza
+  en las otras doce.
+
+### 16.2 · Cómo trabajar con varios agentes a la vez
+
+La misma noche, dos agentes en ramas distintas **implementaron las cabeceras de
+seguridad por separado** y **corrigieron los mismos tres tuteos**. Se pagó dos
+veces por lo mismo. Y en el pilar de piscinas, dos tandas en paralelo estuvieron
+a punto de publicar el español citando una norma y el inglés otra, con la
+estructura cuadrando y ninguna guarda viéndolo.
+
+Las tres reglas que salen de ahí:
+
+1. **Mirar las otras ramas antes de lanzar nada.** El duplicado no se descubrió
+   hasta el merge.
+2. **Repartir por archivos, no por temas.** Dos temas distintos pueden acabar en
+   el mismo archivo; dos archivos distintos, nunca. La regla que sí funcionó fue
+   que **ningún agente toca los índices** —`content/posts.ts` y
+   `content/blog/en/index.ts`—: los registra quien coordina, al final.
+3. **El riesgo no es el conflicto de git, es la divergencia silenciosa.** Un
+   conflicto se ve y se resuelve. Dos idiomas afirmando leyes distintas con la
+   misma estructura de bloques no lo ve nadie. Se cerró contando cuántas veces
+   cada idioma nombra cada norma, y esa cuenta cazó una divergencia real.
+
+**Y una que vale para leer este documento entero:** las dos contradicciones que
+se corrigieron el 6/9 —«diez artículos bloqueados» que eran dieciséis, y Wompi
+figurando a la vez como decisión pendiente y como decisión tomada— no las podía
+ver ninguna guarda. Aparecieron leyendo el documento de un tirón. Conviene
+hacerlo de vez en cuando.

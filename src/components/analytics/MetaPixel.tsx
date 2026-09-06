@@ -6,18 +6,26 @@ import { entornoPublico } from '@/lib/env'
 /**
  * Pixel de Meta.
  *
- * Devuelve `null` si no hay ID configurado, y por eso se monta sin condicional
- * en el layout: mientras `NEXT_PUBLIC_META_PIXEL_ID` no exista, el sitio no
- * lleva ni una línea de seguimiento, y el día que exista no hay que tocar nada.
+ * Devuelve `null` si no hay ID configurado: mientras `NEXT_PUBLIC_META_PIXEL_ID`
+ * no exista, el sitio no lleva ni una línea de seguimiento.
  *
  * Antes de esto no había medición de ningún tipo en todo el sitio. Sin costo por
  * lead no se puede apagar el anuncio que no funciona ni escalar el que sí, y
  * Meta no puede optimizar por conversión: solo por clic. Con presupuestos
  * pequeños esa diferencia lo es todo.
  *
- * DEUDA CON DISPARADOR, no olvido: esto va sin aviso de consentimiento y el
- * sitio no tiene política de privacidad. A volumen cero el riesgo bajo la Ley
- * 1581 es teórico; antes de la primera inversión en pauta hay que resolverlo.
+ * **Este componente no decide si se carga: lo decide `Medicion`.** Colgaba
+ * suelto del layout y se montaba para todo el mundo; ahora solo existe cuando el
+ * visitante ha dicho que sí. Aquí no hay que comprobar nada — si este código se
+ * está ejecutando es porque hubo consentimiento.
+ *
+ * Aquí vivía una «deuda con disparador»: que el Pixel iba sin aviso de
+ * consentimiento y el sitio no tenía política de privacidad, con el disparador
+ * puesto en la primera inversión en pauta. **Se saldó el 5/9/2026** — hay
+ * política en `/politica-de-datos`, hay banner, y ninguna etiqueta se carga sin
+ * un sí explícito. Se deja escrito que se saldó y no se borra sin más, porque un
+ * comentario que anuncia una deuda ya pagada hace que el siguiente que lo lea la
+ * vuelva a pagar.
  */
 export function MetaPixel() {
   const id = entornoPublico.metaPixelId

@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import createNextIntlPlugin from 'next-intl/plugin'
 import { sitioIndexable } from './src/lib/env'
+import { cabecerasDeSeguridad } from './src/lib/cabeceras'
 import type { NextConfig } from 'next'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -148,17 +149,29 @@ const nextConfig: NextConfig = {
   },
 
   async headers() {
-    if (sitioIndexable()) return []
+    /* Las de seguridad van siempre, y esto antes estaba al revés.
+     *
+     * Hasta hoy esta función devolvía un array vacío en cuanto el sitio pasaba
+     * al dominio real, y lo poco que enviaba —la etiqueta de no indexar— se
+     * apagaba justo al llegar a producción. No era un fallo de seguridad porque
+     * aquí nunca hubo seguridad: no había CSP, ni HSTS, ni nada, en ningún
+     * entorno. Ver `src/lib/cabeceras.ts`.
+     *
+     * El `noindex` conserva su condición y se añade encima, no en lugar de.
+     * Mientras el sitio viva en un dominio de Vercel con el de Wix todavía en
+     * pie, nada de aquí debe indexarse: la etiqueta de cada página solo cubre el
+     * HTML, y esta cabecera cubre además el sitemap, las imágenes y cualquier
+     * respuesta que no sea una página. Desaparece sola en cuanto
+     * NEXT_PUBLIC_SITE_URL apunte al dominio real.
+     */
+    const seguridad = cabecerasDeSeguridad()
 
-    // Mientras el sitio viva en un dominio de Vercel con el de Wix todavía en
-    // pie, nada de aquí debe indexarse. La etiqueta `noindex` de cada página
-    // solo cubre el HTML; esta cabecera cubre además el sitemap, las imágenes y
-    // cualquier respuesta que no sea una página. Desaparece sola en cuanto
-    // NEXT_PUBLIC_SITE_URL apunte al dominio real.
     return [
       {
         source: '/:path*',
-        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }],
+        headers: sitioIndexable()
+          ? seguridad
+          : [...seguridad, { key: 'X-Robots-Tag', value: 'noindex, follow' }],
       },
     ]
   },

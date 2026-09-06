@@ -297,7 +297,11 @@ export const hechos: Hecho[] = [
   },
   {
     id: 'nsr-10',
-    descripcion: 'NSR-10, Decreto 926 de 2010',
+    descripcion:
+      'NSR-10: el Decreto 926 de 2010 **más ocho decretos modificatorios** — ' +
+      '2525 de 2010, 092 de 2011, 340 de 2012, 945 de 2017, 2113 de 2019, ' +
+      '1711 de 2021, 1401 de 2023 y 1580 de 2023. Citar solo el 926 es leer ' +
+      'una versión de 2010 del reglamento',
     fecha: '2010-03-19',
     patrones: ['nsr-10', 'decreto 926'],
   },
@@ -417,5 +421,54 @@ export const hechos: Hecho[] = [
       'verticales',
     fecha: '2009-12-22',
     patrones: ['acuerdo 418'],
+  },
+
+  /* Los tres decretos que faltaban de la cadena de la NSR-10, y que no son
+     trámite: los tres tocan el capítulo A.10, que es el que rige la
+     intervención de lo ya construido.
+
+     Se anotan porque el artículo de reforzamiento vivió meses citando el
+     Decreto 926 como si fuera el reglamento entero, y el capítulo que
+     necesitaba había cambiado dos veces por debajo. El PDF del Título A que
+     sale primero en una búsqueda es el de 2010 y está superado justo en esos
+     puntos —el 945 añadió el A.10.1.3.7 y volvió independiente la supervisión
+     técnica del A.10.1.6—, sin que ninguna guarda pueda avisar: el 926 sigue
+     vigente y es de 2010. */
+  {
+    id: 'decreto-945-2017',
+    descripcion:
+      'Decreto 945 de 2017, que modifica el Título A de la NSR-10: añade el ' +
+      'A.10.1.3.7, convierte en independiente la supervisión técnica del ' +
+      'A.10.1.6 y crea el Apéndice A-6 de revisión independiente de diseños',
+    fecha: '2017-06-05',
+    patrones: ['decreto 945', 'apendice a-6'],
+  },
+  {
+    id: 'decreto-2113-2019',
+    descripcion:
+      'Decreto 2113 de 2019, que incorpora a la NSR-10 el AIS-610-EP-2017 ' +
+      'sobre edificaciones patrimoniales de adobe y tapia pisada',
+    fecha: '2019-11-25',
+    patrones: ['decreto 2113', 'ais-610', 'ais 610'],
+  },
+  {
+    id: 'decreto-1711-2021',
+    descripcion: 'Decreto 1711 de 2021, que modifica parcialmente la NSR-10',
+    fecha: '2021-12-13',
+    patrones: ['decreto 1711'],
+  },
+
+  /* Las expensas de los dos conceptos, en pesos. La UVT ya está vigilada, pero
+     las cifras derivadas no lo estaban, y son las que un lector copia. Caducan
+     el 1 de enero de 2027, cuando cambie la UVT. */
+  {
+    id: 'expensas-conceptos-2026',
+    descripcion:
+      'Con la UVT de 2026, el concepto de norma urbanística cuesta $436.799 ' +
+      '($519.791 con IVA) y el de uso del suelo $87.465 ($104.083 con IVA). ' +
+      'Artículo 2.2.6.6.8.15 del Decreto 1077, sustituido por el artículo 5 ' +
+      'del Decreto 1890 de 2021, que el Decreto 1107 de 2026 no tocó',
+    fecha: '2025-12-15',
+    patrones: ['436.799', '519.791', '87.465', '104.083'],
   },
 ]

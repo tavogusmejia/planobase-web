@@ -148,8 +148,8 @@ Calendly no se recomienda: hace lo mismo que Google y se paga aparte.
 
 ## C · Contenido
 
-**61 de 77 publicados**, los 61 en español e inglés. Faltan 16, y son exactamente
-los dieciséis que espera G-01.
+**62 de 77 publicados**, los 62 en español e inglés. Faltan 15, y son exactamente
+los que espera G-01: **no queda nada escribible sin él**.
 Listado y prioridades en `docs/PLAN-BLOG.md`.
 
 ### Se pueden escribir hoy
@@ -163,8 +163,8 @@ Listado y prioridades en `docs/PLAN-BLOG.md`.
 | C-05 | 🟢 | ~~Cuánto cuesta ampliar un segundo piso, y si la casa lo aguanta~~ |
 | C-06 | 🟢 | ~~Cubiertas: barro, termoacústica, verde o placa~~ |
 | C-07 | 🟢 | ~~Casa de descanso o renta corta: qué cambia en el diseño~~ |
-| C-24 | ⬜ | Cuánto cuesta un estudio de viabilidad de un predio — **material ya reunido** en `PLAN-BLOG.md` |
-| C-25 | 🟡 | **Actualizar `reforzamiento-estructural-y-nsr-10`**: su lista de decretos se queda en 2010 y declara sin verificar algo que sí se verificó |
+| C-24 | 🟢 | ~~Cuánto cuesta un estudio de viabilidad de un predio~~ — `cuanto-cuesta-un-estudio-de-viabilidad` |
+| C-25 | 🟢 | ~~Actualizar `reforzamiento-estructural-y-nsr-10`~~ — y salieron cinco defectos más, no dos |
 
 Los siete se escribieron el 6/9 con tres agentes en paralelo, repartidos por
 archivos y sin que ninguno tocara los índices. **El titular de C-01 resultó
@@ -172,14 +172,31 @@ falso al investigarlo**: la NTC 4595:2025 no movió ninguna área. Lo que cambi�
 es de dónde salen las cifras —la tabla de lotes pasó al anexo informativo—, y
 esa es la tesis que se publicó.
 
-**Quedan C-24 y C-25**, los dos únicos escribibles que sobreviven a este lote.
+**No queda ningún artículo escribible.** Todo lo que falta espera a G-01.
 
-**C-25 sale de escribir C-05 y C-06.** El artículo de reforzamiento dice dentro
-de su cabecera que no se pudo verificar la designación del capítulo de la
-NSR-10 que rige la intervención de lo construido: es **A.10**, y su A.10.1.3.4
-nombra literalmente las ampliaciones en altura. Y su lista de decretos
-modificatorios se queda en 2010: faltan el 1711 de 2021, el 1401 de 2023 y el
-1580 de 2023. Los tres están ya en `hechos.ts`.
+**De C-25 salieron tres cosas que conviene no perder.** La primera, que el
+capítulo es **A.10** y que dentro tenía lo que el artículo necesitaba: hasta
+dónde hay que reforzar depende de la **edad de la edificación** (A.10.9.2), la
+supervisión técnica independiente es obligatoria **sin umbral de área**
+(A.10.1.6), y los Títulos J y K solo obligan si hay cambio de uso o ampliación
+(A.10.1.3.7).
+
+La segunda, que **el PDF del Título A que sale primero en una búsqueda es el de
+2010 y está superado justo en esos puntos**. El Decreto 945 de 2017 añadió el
+A.10.1.3.7 y volvió *independiente* la supervisión del A.10.1.6. Ninguna guarda
+podía avisar: el Decreto 926 sigue vigente y es de 2010. **No hay ningún Título
+A consolidado alojado en un dominio `.gov.co`**; si aparece uno, hay que
+sustituir esa fuente.
+
+La tercera, que el artículo llevaba **tres errores más** que nadie había pedido
+buscar: decía «superen los 2.000 m²» donde la norma dice «tengan o superen»,
+describía el 30 % de las expensas como si fuera del total cuando es del área a
+intervenir, y prometía una exención de impuestos por «la licencia» cuando la
+Ley 400 la da por la de remodelación.
+
+**Y una que hay que vigilar:** en agosto de 2026 hubo un proyecto de decreto
+que, según la prensa, habría hecho diseñar para fuerzas sísmicas menores. No se
+expidió. Si vuelve, ese artículo es el primero que hay que revisar.
 
 ### Bloqueadas por G-01
 
@@ -228,6 +245,8 @@ Salieron de errores que ya se cometieron. Cada una costó trabajo.
 | R-12 | **Una fuente se pudre de tres formas, y solo la primera es obvia.** Que la norma se derogue; que **una regla dentro de ella** desaparezca sin que la norma caiga; y que **el enlace deje de resolver** aunque la norma siga viva. Ninguna guarda ve las tres |
 | R-13 | **Un enlace no se cambia por un código HTTP: se verifica por el título de la página.** Un 200 apuntando a la ley equivocada es peor que un enlace roto |
 | R-14 | **No se publica lo que Gustavo aplazó.** Si un lote de trabajo arrastra algo que él dejó en pausa, se separa el commit, no se publica «de paso» |
+| R-15 | **Un reglamento no es su decreto de adopción.** La NSR-10 son nueve decretos, y el PDF que sale primero en una búsqueda suele ser la versión original. Antes de citar un capítulo, comprobar contra qué edición se está leyendo |
+| R-16 | **Al corregir un artículo, releerlo entero.** C-25 se encargó con dos defectos y tenía cinco. Los tres que nadie había visto salieron de leer, no de buscar |
 
 ---
 

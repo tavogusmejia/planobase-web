@@ -66,6 +66,7 @@ import type { TraduccionPost } from '@/lib/types'
  * primeras estaban implícitas y costaron una deducción; la tercera fue una
  * decisión que tomó el agente y que aquí queda fijada.
  */
+import { traduccion as edificioEnAmarillo } from './mi-edificio-quedo-en-amarillo'
 import { traduccion as comprarLoteRural } from './comprar-lote-rural-que-verificar-antes-de-firmar'
 import { traduccion as aguaEnElCampo } from './agua-en-el-campo-que-permiso-necesita'
 import { traduccion as casaBioclimatica } from './casa-bioclimatica-por-piso-termico'
@@ -154,6 +155,7 @@ const registro: TraduccionPost[] = [
   interventoriaObraPublica,
   ley1209Piscinas,
   licenciaPiscina,
+  edificioEnAmarillo,
 ]
 
 export const traduccionesPost = new Map(registro.map((t) => [t.slug, t]))

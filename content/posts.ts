@@ -42,6 +42,7 @@ import { post as aguaEnElCampo } from './blog/agua-en-el-campo-que-permiso-neces
 import { post as casaBioclimatica } from './blog/casa-bioclimatica-por-piso-termico'
 import { post as mamposteriaOPrefabricado } from './blog/mamposteria-o-prefabricado-que-conviene'
 import { post as loteConPendiente } from './blog/construir-en-lote-con-pendiente'
+import { post as edificioEnAmarillo } from './blog/mi-edificio-quedo-en-amarillo'
 
 /**
  * El índice del blog.
@@ -57,6 +58,10 @@ import { post as loteConPendiente } from './blog/construir-en-lote-con-pendiente
  * antes de la fuente más reciente que cita, y que su slug siga resolviendo—.
  */
 const registro: Post[] = [
+  /* Va el primero por su fecha, que es hoy. Mientras el diagnóstico
+     posterior al sismo siga en curso es además el que más tráfico
+     recibe, y el orden del índice lo refleja solo. */
+  edificioEnAmarillo,
   bienvenidosAPlanoBase,
   fisurasEnMuros,
   licenciaJamundi,

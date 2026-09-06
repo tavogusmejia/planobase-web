@@ -163,6 +163,30 @@
     "autorizacion": "Autorizo a Plano Base Arquitectos a tratar mis datos personales para responder a esta consulta, en los términos de su política de datos.",
     "autorizacionEnlace": "Leer la política de datos"
   },
+  "reserva": {
+    "titulo": "Elija cuándo hablamos",
+    "cargando": "Buscando horas disponibles",
+    "sinFranjas": "No hay horas libres en las próximas dos semanas. Escríbanos y la buscamos.",
+    "zona": "Hora de Colombia (GMT-5)",
+    "otraHora": "Ver otra hora",
+    "mensaje": "Si quiere, adelántenos algo (opcional)",
+    "mensajeAyuda": "Con dos líneas basta. Llegamos a la llamada con el contexto leído.",
+    "autorizacion": "Autorizo a Plano Base Arquitectos a tratar mis datos para agendar y atender esta asesoría, en los términos de su política de datos.",
+    "reservar": "Confirmar la cita",
+    "reservando": "Confirmando",
+    "listoTitular": "Listo, queda agendada.",
+    "listoTexto": "Le llega un correo con la cita y el archivo para su calendario. Si necesita moverla, responda a ese correo.",
+    "errores": {
+      "franja": "Elija una hora de la lista.",
+      "autorizacion": "Necesitamos su autorización para poder agendar."
+    },
+    "general": {
+      "franjaTomada": "Alguien tomó esa hora mientras usted llenaba el formulario. Elija otra: la lista ya está actualizada.",
+      "franjaNoValida": "Esa hora ya no está disponible. Elija otra de la lista.",
+      "sinAgenda": "La agenda no está disponible ahora mismo. Escríbanos y la cerramos por WhatsApp.",
+      "fallo": "No pudimos agendar la cita. Escríbanos y lo resolvemos ahora mismo."
+    }
+  },
   "blog": {
     "entradas": "{count, plural, one {# entrada} other {# entradas}}",
     "temas": "Temas"

@@ -1,8 +1,9 @@
 # Plan maestro · Plano Base Web
 
 Estado del proyecto y hoja de ruta completa.
-Última actualización: **5 de septiembre de 2026, al cierre de la jornada** — con
-las decisiones del dueño en §1 y lo ejecutado marcado a lo largo del documento.
+Última actualización: **5 de septiembre de 2026, tras la tanda de arreglos
+rápidos de la noche** — con las decisiones del dueño en §1 y lo ejecutado
+marcado a lo largo del documento.
 
 Este documento nació reuniendo seis auditorías sobre el repositorio y sobre el
 mercado. No hay que leerlo de una sentada: cada frente es independiente y está
@@ -149,26 +150,30 @@ nadie fuera del repositorio.
 | ✅ | Contraste de color corregido: texto secundario, enlaces y campos de formulario *(tarea de §7)* |
 | ✅ | Bogotá deja de figurar en Cundinamarca *(decisión 1.10)* |
 | ✅ | Los 32 artículos que faltan, listados y priorizados *(§14)* |
-| ⏳ | **Registro «usted» en todo el sitio** *(decisión 1.7)*. Quedaban seis cadenas en tú, no 32: las pasadas anteriores ya habían limpiado el resto |
+| ✅ | **Cabeceras de seguridad.** Hasta ahora, en el dominio real no salía ni una *(tarea de §7)* |
+| ✅ | El vídeo de Tirreno, que llevaba desde la migración sin verse |
+| ⏳ | **Registro «usted» en la interfaz** *(decisión 1.7)*. Quedaban seis cadenas en tú, no 32: las pasadas anteriores ya habían limpiado el resto |
 | ⏳ | **Las contradicciones H1, H2 y H4** del §6, y H5 ya venía resuelta desde la migración |
 | ⏳ | **Las inconsistencias del §6**: un rótulo de botón, una ventana de respuesta, áreas en metros enteros, y el número deja de ir en letra y cifra en la misma pantalla |
 | ⏳ | **El `h1` de `/agendar` dice el precio** en vez de argumentar que no debería ser caro |
 | ⏳ | **Los tres nodos del JSON-LD** *(§9)*: zona de servicio nacional y una sola entidad de organización |
 | ⏳ | **Siete fugas del bilingüe**: rótulos y contadores escritos en español a mano dentro de `[locale]`, que `/en` pintaba en español |
 | ⏳ | **Las dos plantillas de Resend** *(decisión 1.3)*: el acuse de recibo del formulario y la confirmación de reserva con el `.ics`. En español e inglés |
-| ⏳ | **Los errores del formulario dejan de salir siempre en español**, que era el hallazgo abierto de la pasada anterior |
 | ⏳ | **Quinta guarda de build**, `check-correos.ts`: valida el `.ics` contra la RFC y que el texto del visitante salga inerte |
 | ⏳ | **La política de tratamiento de datos** *(Ley 1581)*, en `/politica-de-datos` y en los dos idiomas. **Pendiente de revisión jurídica** |
 | ⏳ | **La autorización expresa en el formulario**, con la prueba guardada: qué autorizó, cuándo y qué política estaba vigente |
 | ⏳ | **El banner de consentimiento.** Ninguna etiqueta se carga sin un sí explícito |
 | ⏳ | **GA4 y la etiqueta de conversión de Google Ads**, montadas detrás de ese mismo consentimiento |
+| ⏳ | **Cuando el envío falla, hay a dónde llamar**: WhatsApp, teléfono y correo en los tres puntos de fallo. Y la página de error deja de estar en español fijo |
+| ⏳ | **El artículo del sismo**, en los dos idiomas *(§14, n.º 74)* |
 
 ### Empezado, falta parte 🟡
 
 | | Qué | Qué falta |
 |---|---|---|
+| 🟡 | **Registro «usted»** *(decisión 1.7)* | Hecho en el formulario, `/contacto`, la portada, los rótulos del blog y la interfaz entera: `messages/` y la copia de error quedan sin un solo tuteo, comprobado con un barrido. **Falta el cuerpo de los artículos en `content/blog/`** |
 | 🟡 | **Encuadre nacional** *(§9)* | Hechas las puertas, `/agendar`, la descripción de tres páginas, el `h1` de la portada y **los tres nodos del JSON-LD**. Comprobado además que **dos verticales dicen bien «Valle del Cauca» y «Cali»**: es donde está esa obra, y ensancharlo sería inventar proyectos. Solo queda pendiente lo que depende de marcar `construido` |
-| 🟡 | **El blog** *(§8)* | **44 de 77.** De los 33 que faltan, **16 se pueden escribir hoy y 17 están bloqueados** por la decisión 1.9 |
+| 🟡 | **El blog** *(§8)* | **44 de 77.** De los 33 que faltan, **16 se pueden escribir hoy y 17 están bloqueados** por la decisión 1.9. Los diez de piscinas están escritos y **sin registrar**: ver el aviso del §8 |
 
 ### Bloqueado esperando a un tercero 🔴
 
@@ -195,8 +200,13 @@ Tres bloquean cosas que ya están construidas y esperando:
 ### Sin empezar ⬜
 
 Reservas con calendario y Meet *(§3)* · Pagos *(§4)* · CRM e intranet *(§5)* ·
-Pauta *(§10)* · Y de §7: monitoreo de errores y alerta de lead perdido,
-cabeceras de seguridad, y URLs de campaña.
+Pauta *(§10)* · Y de §7: monitoreo de errores y uptime, y URLs de campaña.
+
+La alerta de lead perdido **sale de esta lista y no por hacerse**: Gustavo la
+descartó con un argumento que la desmonta —si el sistema está caído, avisar al
+estudio no recupera nada, porque el mensaje que se perdió llevaba justamente
+los datos de contacto—. Lo que se hizo en su lugar fue darle al visitante una
+salida que se pulse: WhatsApp, teléfono y correo en el momento del fallo.
 
 **El bloqueo de la pauta ya no es de código.** La política, el banner y la
 medición están montados. Lo que falta para encenderla son cuatro cosas que no
@@ -986,7 +996,7 @@ página.
 | ✅ | Páginas de error (`error.tsx`, `global-error.tsx`) | — |
 | ⬜ | Monitoreo de errores + alerta de lead perdido + uptime | 0,5 d |
 | ✅ | Resend verificado ✅ + acuse de recibo al cliente ✅ + confirmación de reserva ✅ | — |
-| ⬜ | Cabeceras de seguridad (CSP, HSTS, resto) | 4-6 h |
+| ✅ | Cabeceras de seguridad (CSP, HSTS, resto) | — |
 | ✅ | Open Graph propio por página | — |
 | ⬜ | URLs de campaña con `/es/` explícito y UTMs | 3 h |
 | 🔴 | Marcar construido vs. concurso en los 23 proyectos | 0,5 d |
@@ -1032,10 +1042,21 @@ hecho: se traduce todo** · Teclado en el menú móvil.
 - **El gris de todo el sitio no pasa accesibilidad.** Contraste 2,71:1 cuando el
   mínimo es 4,5:1, y aparece **65 veces**. La corrección es cambiar dos
   variables de color.
-- **En producción no se envía ninguna cabecera de seguridad.** El bloque
-  devuelve un array vacío en cuanto el sitio pasa al dominio real.
+- ~~**En producción no se envía ninguna cabecera de seguridad.** El bloque
+  devuelve un array vacío en cuanto el sitio pasa al dominio real.~~ ✅
+  **Corregido.** Salen CSP, X-Frame-Options, nosniff, Referrer-Policy,
+  Permissions-Policy, COOP y —solo en el dominio real— HSTS a un año.
 - **`/contacto` es la página más pesada del sitio** (165 kB de JavaScript) y es
   la página donde se decide todo.
+- **Cuando el formulario falla, el visitante inglés lee el error en español.**
+  Los mensajes de validación sí están traducidos —el esquema usa claves—, pero
+  los tres avisos de fallo general viven escritos a mano en
+  `src/app/actions/leads.ts`. Solo se ven cuando algo va mal, que es justo
+  cuando el lead está a punto de perderse. Arreglarlo es mover esas tres frases
+  a `messages/` y leerlas con `getTranslations` en la Server Action, con la
+  frase en español como red de seguridad si la traducción no resolviera:
+  media hora, y hay que escribir la copia inglesa. *(Encontrado el 5/9/2026;
+  sin hacer.)*
 
 ---
 

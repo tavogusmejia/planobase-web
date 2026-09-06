@@ -16,6 +16,7 @@ import { routing } from '@/i18n/routing'
 import { lugar } from '@/lib/lugar'
 import { formatArea } from '@/lib/formato'
 import { alternativas } from '@/lib/metadatos'
+import { urlIncrustable } from '@/lib/video'
 import {
   absoluteUrl,
   creditoDiseno,
@@ -100,6 +101,10 @@ export default async function ProyectoPage({
   ])
 
   const area = formatArea(locale, project.areaM2)
+
+  /* El enlace que guarda el contenido es el de compartir, que el navegador se
+     niega a incrustar. Ver `urlIncrustable`. */
+  const video = urlIncrustable(project.videoUrl)
 
   /* La ficha técnica va visible de entrada. En el sitio actual vive dentro de
      un acordeón cerrado, que es donde nadie la ve. Los campos sin dato no se
@@ -253,10 +258,10 @@ export default async function ProyectoPage({
 
             {/* Fuera de `.memoria`: un vídeo dentro de un texto a dos columnas
                 se parte por la mitad al saltar de columna. */}
-            {project.videoUrl ? (
+            {video ? (
               <div className="mt-12 aspect-video w-full bg-mist">
                 <iframe
-                  src={project.videoUrl}
+                  src={video}
                   title={`${project.titulo} — video`}
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

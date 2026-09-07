@@ -46,9 +46,12 @@ pero todavía sin publicar.
 >
 > **Y la noche del 6/9 salió un lote más, que sigue sin publicar** en
 > `worktree-calendario-dos-servicios`: los dos servicios agendables, las dos
-> duraciones sobre el mismo calendario, Google Calendar, los festivos y dos
-> defectos que estaban vivos en producción. **Lleva una migración de Supabase
-> que hay que pegar a mano** (R-10): `20260906230000_dos_tipos_de_cita.sql`.
+> duraciones sobre el mismo calendario, Google Calendar, los festivos, dos
+> defectos que estaban vivos en producción, y el renombrado de **APBS → Apps**,
+> que pidió el socio de Gustavo porque la sigla no se entendía.
+>
+> **Su migración de Supabase ya está aplicada** — Gustavo la pegó el 7/9 sin
+> contratiempos: `20260906230000_dos_tipos_de_cita.sql`.
 
 ---
 
@@ -97,6 +100,7 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 | ~~D-01~~ | 🟢 | ~~Entrega A: calendario de reservas~~ — **publicado el 6/9 y funcionando**: la API devuelve 120 franjas, ninguna en fin de semana | El enlace de Meet se rellena solo cuando llegue X-02 |
 | ~~D-21~~ | ⏳ | ~~Decidir cómo se agenda de verdad~~ — **cerrada la noche del 6/9: se queda el calendario propio**, y no por gusto. Ver el marcador de abajo | Ni Calendly ni Google pueden cobrar en pesos |
 | D-22 | ⬜ | Poder cancelar o mover una reserva desde el correo | Ya tiene lo que le faltaba: `evento_google` y `secuencia` se escriben desde el 6/9 |
+| D-24 | 🟡 | **Borrar dos renders de Villas del Progreso** — identificados y aplazados el 6/9 de noche. Ver la nota al final | Necesita la carpeta principal: los originales no existen en ningún worktree |
 | ~~D-23~~ | 🟢 | ~~Guarda de enlaces de fuentes~~ — `pnpm check:enlaces`. **No va en el build a propósito**: llama a 180 servidores y un gestor normativo lento no puede impedir un despliegue | 177 de 181 responden. Probada inyectando una URL muerta |
 | D-02 | ⬜ | Monitoreo de errores y uptime | Necesita X-10 |
 | ~~D-03~~ | 🟢 | ~~UTMs que sobrevivan la navegación~~ — ventana de 30 días, la misma de Meta y Google Ads | Un rechazo explícito de consentimiento borra lo guardado |
@@ -577,3 +581,66 @@ Para no volver a abrirlos por olvido. El detalle está en el archivo, §15.
 no hacen falta para sostener la afirmación, pero el nombre oficial de cada
 concurso es mejor copia que el adjetivo, y permitiría completar los subtítulos de
 Teusaquillo y Las Colinas, que hoy no dicen el ámbito.
+
+---
+
+## D-24 · las dos imágenes de Villas del Progreso
+
+El socio de Gustavo marcó dos renders para retirar. **Están identificados** —
+costó, porque los `alt` son autogenerados y no describen nada: hubo que mirar
+los archivos.
+
+**Proyecto:** `concurso-colegio-villas-del-progreso`, hoy con doce imágenes.
+
+| | Archivo | Qué se ve |
+|---|---|---|
+| A | `proyectos/concurso-colegio-villas-del-progreso/04.webp` | Plaza cubierta, columnas, escalera naranja al fondo |
+| B | `.../05.webp` | Vestíbulo con gradería roja y abertura ovalada en el cielorraso |
+
+Son las dos de peor render de las doce: sin gente, sin vegetación, materiales
+planos y sobreexpuestos, al lado de la 02, 03, 06 y 07, que son piezas acabadas.
+**La portada es la `01.webp`**, así que retirarlas no toca la home —el proyecto
+está en `heroSlides`— ni la retícula del portafolio.
+
+**Por qué no se hizo el 6/9:** `assets-originales/` y `public/media/` están en
+`.gitignore` y **no existen en ningún worktree**. Correr `pnpm media` desde uno
+vacía las 23 galerías y despublica los 22 proyectos, porque
+`prepare-media.ts:411` despublica lo que se queda sin imágenes. Esto se hace en
+el checkout principal o no se hace.
+
+**Tres trampas que no se ven a simple vista:**
+
+1. **El generador empareja por posición, no por nombre.**
+   `prepare-media.ts:351-365` busca el origen por el índice del array; el nombre
+   de Wix solo aporta la extensión. Quitar dos entradas del JSON sin renumerar
+   los archivos físicos haría que siguiera procesando justo las dos que se
+   quieren quitar y dejara fuera la 11 y la 12.
+2. **Todo lo de medios solo añade.** `prepare-media` salta el `.webp` que ya
+   existe y `upload-media` nunca borra del bucket.
+3. **`pnpm media:retirar` no sirve**: opera por proyecto entero y se niega a
+   tocar uno publicado, que es este caso.
+
+**Lo que sí tranquiliza:** `wix-migration/01-content/projects.json` está al día
+—lleva `publicado_en_grid: false` en Teusaquillo y los `construido` de G-01—,
+así que **regenerar no revive ninguna decisión tomada a mano.**
+
+**El procedimiento acordado**, en la carpeta principal:
+
+1. Mover `04.png` y `05.png` a un `_retirados/` dentro de la carpeta del
+   proyecto en `assets-originales/` —no borrarlos, el generador solo mira
+   `NN.ext` en la raíz— y renumerar `06..12` → `04..10`.
+2. Quitar las dos entradas del array `galeria` en `projects.json`.
+3. Borrar entero `public/media/proyectos/concurso-colegio-villas-del-progreso/`.
+4. `pnpm media`, y comprobar que `git diff --stat content/projects.ts` toca solo
+   ese proyecto. Los `alt` pasan de «de 12» a «de 10» solos.
+5. **Borrar del bucket la carpeta entera del proyecto y volver a subir**
+   (decisión de Gustavo del 6/9). Al renumerar, siete direcciones cambian de
+   contenido, y el bucket sirve con caché de un año: sobreescribir podría seguir
+   enseñando durante meses justo los renders que se querían quitar. Un archivo
+   recién creado no arrastra caché, y de paso desaparecen la 11 y la 12, que si
+   no quedarían huérfanas.
+6. `pnpm media:upload`, y verificar en el navegador que la ficha enseña diez.
+
+**Una consecuencia que no es obvia:** `HojaProyecto.tsx:64-67` toma tres
+imágenes de apoyo saltando la portada —hoy la 02, 03 y 04—, así que la hoja
+imprimible de ese proyecto cambia sola. No se rompe; conviene mirarla.

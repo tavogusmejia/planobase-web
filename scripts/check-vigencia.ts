@@ -1,7 +1,7 @@
 /**
  * Corre antes de cada `next build`.
  *
- * Segunda capa de la defensa contra los datos caducos de APBS. No deja
+ * Segunda capa de la defensa contra los datos caducos de Apps. No deja
  * desplegar el sitio con una calculadora que va a devolver cifras viejas.
  *
  * Es deliberadamente incómodo: un dato vencido no es un aviso, es un fallo. La
@@ -14,7 +14,7 @@ const vencidos = DATOS_CON_VIGENCIA.filter((d) => estaVencido(d.dato))
 const proximos = DATOS_CON_VIGENCIA.filter((d) => porVencer(d.dato))
 
 if (vencidos.length > 0) {
-  console.error('\n✗ Datos de APBS vencidos. La calculadora daría cifras mal:\n')
+  console.error('\n✗ Datos de Apps vencidos. La calculadora daría cifras mal:\n')
   for (const { nombre, dato } of vencidos) {
     console.error(
       `  ${nombre}\n` +

@@ -1,5 +1,11 @@
 /**
- * APBS — las herramientas.
+ * Apps — las herramientas.
+ *
+ * **Se llamaba «APBS» hasta el 6/9/2026.** Se renombró porque la sigla no se
+ * entendía: el título de la página la usaba como nombre propio y en ninguna
+ * parte del sitio —ni de este repo— se decía qué significaba. Las rutas y las
+ * carpetas siguen diciendo `apbs`, que es identificador y no texto; lo que
+ * cambió es lo que se lee.
  *
  * Sección propia, con su lugar en el menú. La idea es que el sitio no solo
  * explique cómo funcionan las cosas sino que **haga el cálculo**: quien llega

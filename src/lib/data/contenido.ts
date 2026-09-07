@@ -182,7 +182,7 @@ export function temaTraducido(slug: string, idioma: string): boolean {
  * contenido que de verdad la llena. Cada entrada dice qué se lee en esa página.
  */
 const COMPLETITUD: Record<RutaConCopia, () => boolean> = {
-  /* El índice del blog pinta los diez temas; el de APBS, la ficha de cada
+  /* El índice del blog pinta los diez temas; el de Apps, la ficha de cada
      herramienta disponible. */
   '/blog': () => pilares.every((p) => temaTraducido(p.slug, 'en')),
   '/apbs': () => false,

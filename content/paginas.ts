@@ -29,9 +29,18 @@ export const copiaPaginas = {
     masEntradas: 'Más entradas',
   },
 
+  /* OJO: esta entrada NO la consume nadie. `src/app/[locale]/apbs/page.tsx` no
+     importa `copiaDe`: duplica a mano su descripción, su titular y sus botones.
+     La entrada sigue viva porque `RutaConCopia` la exige como clave, y por
+     tanto `COMPLETITUD` también.
+
+     Se mantiene al día de todas formas —el 6/9/2026 se renombró aquí junto con
+     la página— porque una copia muerta que dice otra cosa es una trampa: el día
+     que alguien conecte la página a `copiaDe`, el título volvería al nombre
+     viejo sin que nada lo explicara. */
   '/apbs': {
-    titulo: 'APBS',
-    tarjetaTitulo: 'APBS · Herramientas de Plano Base',
+    titulo: 'Apps',
+    tarjetaTitulo: 'Apps · Herramientas de Plano Base',
     metaDescripcion:
       'Herramientas que hacen el cálculo, no que lo expliquen: expensas de ' +
       'curaduría, verificaciones de trámite y lo que vaya haciendo falta. Con ' +

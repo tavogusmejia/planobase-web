@@ -7,7 +7,7 @@ import {
 } from '@content/apbs/vigencia'
 
 /**
- * Tercera capa del aviso de caducidad de APBS. Corre a diario por cron.
+ * Tercera capa del aviso de caducidad de Apps. Corre a diario por cron.
  *
  * Las otras dos —la herramienta que se degrada sola y el build que falla— ya
  * garantizan que nunca se publique una cifra vieja. Esta capa no protege: solo
@@ -50,8 +50,8 @@ export async function GET(request: Request) {
   const vencidos = aAvisar.filter(({ dato }) => estaVencido(dato, hoy))
   const asunto =
     vencidos.length > 0
-      ? `APBS · ${vencidos.length} dato(s) VENCIDOS — la calculadora está mal`
-      : 'APBS · hay un dato por vencer'
+      ? `Apps · ${vencidos.length} dato(s) VENCIDOS — la calculadora está mal`
+      : 'Apps · hay un dato por vencer'
 
   const cuerpo = aAvisar
     .map(({ nombre, dato }) => {

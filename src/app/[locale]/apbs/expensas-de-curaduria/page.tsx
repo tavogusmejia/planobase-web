@@ -92,7 +92,7 @@ export default async function ExpensasPage({
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'APBS', item: absoluteUrl(`/${locale}/apbs`) },
+        { '@type': 'ListItem', position: 1, name: 'Apps', item: absoluteUrl(`/${locale}/apbs`) },
         {
           '@type': 'ListItem',
           position: 2,
@@ -109,7 +109,7 @@ export default async function ExpensasPage({
 
       <nav aria-label="Ruta" className="text-block mb-10 text-muted">
         <Link href="/apbs" className="hover:text-ink">
-          APBS
+          Apps
         </Link>
       </nav>
 

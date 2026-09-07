@@ -22,8 +22,10 @@ export const copiaPaginasEn: { [R in RutaConCopia]?: Partial<CopiaDe<R>> } = {
   },
 
   '/apbs': {
-    titulo: 'APBS',
-    tarjetaTitulo: 'APBS · Tools by Plano Base',
+    /* «Apps» no se traduce: funciona igual en los dos idiomas, que es parte
+       de por qué se eligió. Ver la nota de `content/paginas.ts`. */
+    titulo: 'Apps',
+    tarjetaTitulo: 'Apps · Tools by Plano Base',
     metaDescripcion:
       'Tools that do the calculation rather than explain it: curaduría ' +
       'charges, permit checks and whatever else turns out to be needed. With ' +

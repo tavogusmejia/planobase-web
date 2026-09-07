@@ -19,7 +19,7 @@ export async function generateMetadata({
   const { locale } = await params
   const url = `/${locale}/apbs`
   return {
-    title: 'APBS',
+    title: 'Apps',
     description: DESCRIPCION,
     /* Canonical autorreferenciado, hreflang solo de lo traducido y el
        `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
@@ -32,7 +32,7 @@ export async function generateMetadata({
       url: absoluteUrl(url),
       siteName: 'Plano Base',
       locale: locale === 'en' ? 'en_US' : 'es_CO',
-      title: 'APBS · Herramientas de Plano Base',
+      title: 'Apps · Herramientas de Plano Base',
       description: DESCRIPCION,
       images: [{ url: absoluteUrl('/og/default.jpg'), width: 1200, height: 630 }],
     },
@@ -40,7 +40,16 @@ export async function generateMetadata({
 }
 
 /**
- * APBS. El índice de herramientas.
+ * Apps. El índice de herramientas.
+ *
+ * La ruta sigue siendo `/apbs` a propósito: renombrarla obligaría a un 301, a
+ * tocar el sitemap, los `hreflang` y el enlace de un artículo del blog, y nadie
+ * teclea una dirección — se llega por el menú o por Google, que enseña el
+ * título.
+ *
+ * Los textos de esta página están escritos aquí y **no** salen de
+ * `content/paginas.ts`, que tiene una entrada `'/apbs'` sin consumir. Ver la
+ * nota que hay allí.
  *
  * Se lista todo, disponible o no, con el estado a la vista. Anunciar lo que
  * viene es honesto y además útil: alguien que necesita justo eso puede
@@ -58,7 +67,7 @@ export default async function ApbsPage({
   return (
     <div className="mx-auto max-w-[100rem] px-gutter py-16 lg:px-10 lg:py-24">
       <header>
-        <h1 className="text-h1 text-ink">APBS</h1>
+        <h1 className="text-h1 text-ink">Apps</h1>
         <p className="text-lead measure mt-8 text-ink-soft">{DESCRIPCION}</p>
         <Rule className="mt-8 text-muted">
           {herramientas.length}{' '}

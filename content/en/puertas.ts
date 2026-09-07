@@ -87,40 +87,56 @@ export const puertas: Record<string, PuertaTraducible> = {
 
 type PeldanoTraducible = Partial<Pick<Peldano, 'nombre' | 'entrega'>>
 
-/** Por el número del peldaño, que es su identidad y no cambia. */
-export const escalera: Record<number, PeldanoTraducible> = {
-  1: {
-    nombre: 'Technical consultation',
+/**
+ * Por el slug del peldaño.
+ *
+ * **Antes se indexaba por número, y esto decía que el número era su identidad y
+ * no cambiaba.** Cambió el 6/9/2026, al entrar la asesoría de pago entre el 1 y
+ * el 2. Con el índice numérico, renumerar el español y no esto habría desplazado
+ * la traducción entera un peldaño —«Feasibility study» debajo de «Visita técnica
+ * con informe»— y **ninguna guarda lo habría cazado**, porque la clave existía;
+ * lo que estaba mal era su contenido. Por slug no puede pasar: si falta, cae al
+ * español y `check-traducciones` lo ve.
+ */
+export const escalera: Record<string, PeldanoTraducible> = {
+  'primera-llamada': {
+    nombre: 'First call',
     entrega:
       'Fifteen minutes with an architect. We tell you whether we can help, ' +
       'what your case involves and what the next step is.',
   },
-  2: {
+  'asesoria-tecnica': {
+    nombre: 'Technical consultation',
+    entrega:
+      'An hour with an architect on one specific point: a crack, what the ' +
+      'planning rules allow on your plot, whether a budget makes sense.',
+  },
+  'visita-tecnica-con-informe': {
     nombre: 'Site visit with report',
     entrega:
       'We go to the plot or the building. You come away with a written ' +
       'report: what you have, what constrains it, what needs doing and in ' +
       'what order.',
   },
-  3: {
+  'estudio-de-viabilidad': {
     nombre: 'Feasibility study',
     entrega:
       'What the planning rules allow on your plot, what can be built, a ' +
       'rough budget per square metre, and a programme.',
   },
-  4: {
+  'anteproyecto': {
     nombre: 'Concept design',
     entrega:
       'Site layout, plans, massing and images. The project stops being an ' +
       'idea and becomes something you can look at and correct.',
   },
-  5: {
+  'proyecto-y-licencia': {
     nombre: 'Detailed design and building permit',
     entrega:
       'Construction drawings, coordination with the other engineering ' +
       'disciplines, and filing with the urban curator’s office.',
   },
-  6: {
+  'direccion-de-obra': {
     nombre: 'Construction administration',
     entrega:
       'Technical support during construction, with reports and control of ' +

@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase/admin'
 import { haySupabaseAdmin } from '@/lib/env'
 import { franjasLibres, franjasPosibles, type Franja } from '@/lib/agenda/franjas'
-import { asesoria } from '@content/site'
+import { primeraLlamada } from '@content/site'
 import { VENTANA_DIAS } from '@content/agenda'
 
 /**
@@ -22,7 +22,7 @@ import { VENTANA_DIAS } from '@content/agenda'
 export const dynamic = 'force-dynamic'
 
 export async function GET() {
-  const posibles = franjasPosibles(asesoria.duracionMin)
+  const posibles = franjasPosibles(primeraLlamada.duracionMin)
 
   if (!haySupabaseAdmin()) {
     return NextResponse.json(

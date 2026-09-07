@@ -13,7 +13,7 @@ import {
 import { franjasPosibles } from '@/lib/agenda/franjas'
 import { verificarSello } from '@/lib/formulario/sello'
 import { enviarConfirmacionReserva } from '@/lib/correo/reserva'
-import { asesoria } from '@content/site'
+import { primeraLlamada } from '@content/site'
 import { politicaDatos } from '@content/legal'
 
 /**
@@ -79,14 +79,14 @@ export async function crearReserva(raw: unknown): Promise<ReservaResult> {
      que ya quedó fuera de la antelación mínima mientras el visitante llenaba el
      formulario— no pasa. */
   const inicio = new Date(r.inicio)
-  const valida = franjasPosibles(asesoria.duracionMin).some(
+  const valida = franjasPosibles(primeraLlamada.duracionMin).some(
     (f) => new Date(f.inicio).getTime() === inicio.getTime(),
   )
   if (!valida) {
     return { ok: false, errores: {}, general: 'general.franjaNoValida' }
   }
 
-  const fin = new Date(inicio.getTime() + asesoria.duracionMin * 60_000)
+  const fin = new Date(inicio.getTime() + primeraLlamada.duracionMin * 60_000)
   const idioma = r.idioma === 'en' ? 'en' : 'es'
 
   const h = await headers()

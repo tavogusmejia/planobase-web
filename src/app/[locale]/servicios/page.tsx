@@ -3,7 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { copiaDe, escaleraDe, puertasDe } from '@/lib/data/contenido'
-import { asesoria, contacto } from '@content/site'
+import { contacto, primeraLlamada } from '@content/site'
 import { etiquetaPrecio } from '@/lib/precio'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { alternativas, tarjeta } from '@/lib/metadatos'
@@ -127,7 +127,7 @@ export default async function ServiciosPage({
         </h2>
         <p className="text-lead measure mt-6 text-ink-soft">
           Se avanza por pasos, y en cada uno usted decide si sigue. El primero
-          no cuesta nada y dura {asesoria.duracionMin} minutos.
+          no cuesta nada y dura {primeraLlamada.duracionMin} minutos.
         </p>
 
         <ol className="mt-14 border-t border-line">
@@ -160,10 +160,10 @@ export default async function ServiciosPage({
         </h2>
         <div className="mt-10 lg:mt-0">
           <p className="text-h3 text-ink">
-            {await etiquetaPrecio(asesoria.precioCOP)}
+            {await etiquetaPrecio(primeraLlamada.precioCOP)}
           </p>
           <p className="text-small measure mt-3 text-ink-soft">
-            {asesoria.duracionMin} minutos con un arquitecto. Le decimos si
+            {primeraLlamada.duracionMin} minutos con un arquitecto. Le decimos si
             podemos ayudarle y cuál es el siguiente paso.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">

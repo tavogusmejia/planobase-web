@@ -7,7 +7,7 @@ import { JsonLd } from '@/components/seo/JsonLd'
 import { migaDePan } from '@/components/seo/migaDePan'
 import { puertas, serviciosDe } from '@content/puertas'
 import { puertaDe, puertasDe } from '@/lib/data/contenido'
-import { asesoria, contacto, reconocimientos } from '@content/site'
+import { contacto, primeraLlamada, reconocimientos } from '@content/site'
 import { routing } from '@/i18n/routing'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { alternativas, tarjeta } from '@/lib/metadatos'
@@ -179,7 +179,7 @@ export default async function PuertaPage({
         <div className="mt-8 lg:mt-0">
           <p className="text-small text-ink-soft">
             La primera llamada no cuesta nada y dura{' '}
-            {asesoria.duracionMin} minutos. Sale de ella sabiendo si podemos
+            {primeraLlamada.duracionMin} minutos. Sale de ella sabiendo si podemos
             ayudarle y qué implica.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">

@@ -10,7 +10,7 @@ import { etiquetaPrecio } from '@/lib/precio'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { ReservaForm } from '@/components/forms/ReservaForm'
 import { alternativas, tarjeta } from '@/lib/metadatos'
-import { asesoriaDe, copiaDe } from '@/lib/data/contenido'
+import { citaDe, copiaDe } from '@/lib/data/contenido'
 
 export async function generateMetadata({
   params,
@@ -18,11 +18,11 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const asesoria = asesoriaDe(locale)
+  const primeraLlamada = citaDe('primera-llamada', locale)
   const ruta = `/${locale}/agendar`
-  const descripcion = asesoria.descripcion.slice(0, 300)
+  const descripcion = primeraLlamada.descripcion.slice(0, 300)
   return {
-    title: asesoria.nombre,
+    title: primeraLlamada.nombre,
     description: descripcion,
     /* Canonical autorreferenciado, hreflang solo de lo traducido y el
        `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
@@ -33,7 +33,7 @@ export async function generateMetadata({
     openGraph: tarjeta({
       locale,
       ruta,
-      titulo: asesoria.nombre,
+      titulo: primeraLlamada.nombre,
       descripcion,
     }),
   }
@@ -66,7 +66,7 @@ export default async function AgendarPage({
   setRequestLocale(locale)
 
   const copia = copiaDe('/agendar', locale)
-  const asesoria = asesoriaDe(locale)
+  const primeraLlamada = citaDe('primera-llamada', locale)
   const tcom = await getTranslations('comun')
 
   /* D-05 · la prueba.
@@ -85,7 +85,7 @@ export default async function AgendarPage({
     .filter((p) => p.construido === true && p.portada !== null)
     .slice(0, 3)
 
-  const mensajeWa = `Hola Plano Base, quiero agendar una ${asesoria.nombre.toLowerCase()}.`
+  const mensajeWa = `Hola Plano Base, quiero agendar una ${primeraLlamada.nombre.toLowerCase()}.`
 
   /* Lo que la persona recibe. Sale del plan de campaña: es exactamente lo que
      el anuncio promete, así que la página tiene que sostenerlo. */
@@ -95,9 +95,9 @@ export default async function AgendarPage({
     <div className="mx-auto max-w-[100rem] px-gutter py-16 lg:px-10 lg:py-24">
       <div className="grid gap-16 lg:grid-cols-[1fr_24rem] lg:gap-24">
         <div>
-          <h1 className="text-h1 measure-display text-ink">{asesoria.tagline}</h1>
+          <h1 className="text-h1 measure-display text-ink">{primeraLlamada.tagline}</h1>
           <p className="text-lead measure mt-8 text-ink-soft">
-            {asesoria.descripcion}
+            {primeraLlamada.descripcion}
           </p>
 
           <section className="mt-16">
@@ -177,7 +177,7 @@ export default async function AgendarPage({
           <section className="mt-20">
             <h2 className="text-block text-muted">{copia.condiciones}</h2>
             <dl className="mt-6 border-t border-line">
-              {asesoria.politicas.map((p) => (
+              {primeraLlamada.politicas.map((p) => (
                 <div
                   key={p.clave}
                   className="grid gap-1 border-b border-line py-5 sm:grid-cols-[12rem_1fr] sm:gap-8"
@@ -192,12 +192,12 @@ export default async function AgendarPage({
 
         <aside className="lg:sticky lg:top-28 lg:h-fit">
           <div className="border-t-2 border-signal pt-8">
-            <h2 className="text-h3 text-ink">{asesoria.nombre}</h2>
+            <h2 className="text-h3 text-ink">{primeraLlamada.nombre}</h2>
             <Rule className="mt-3 text-muted">
-              {asesoria.duracionMin} min
+              {primeraLlamada.duracionMin} min
             </Rule>
             <p className="text-h2 mt-8 tabular-nums text-ink">
-              {await etiquetaPrecio(asesoria.precioCOP)}
+              {await etiquetaPrecio(primeraLlamada.precioCOP)}
             </p>
 
             <WhatsAppLink

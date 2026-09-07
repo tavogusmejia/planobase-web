@@ -84,16 +84,25 @@ export const cargos: Record<string, string[]> = {
 }
 
 /**
- * La asesoría técnica, en inglés.
+ * Lo que se puede agendar, en inglés. Desde el 6/9/2026 son dos.
  *
- * Es el primer peldaño y el producto que sostiene el embudo, así que va entero:
- * el gancho, la descripción y las tres condiciones. La duración y el precio no
- * están aquí porque no son texto.
+ * Van enteros —gancho, descripción y las tres condiciones— porque son el
+ * producto que sostiene el embudo. La duración y el precio no están aquí
+ * porque no son texto.
  */
-export const asesoria: Partial<
+
+/**
+ * La primera llamada, en inglés.
+ *
+ * Se llamaba `asesoria` y su `nombre` era «Technical consultation». Ese nombre
+ * se va al servicio de pago, que es lo que describe. El `tagline` no se toca:
+ * ya decía «The first call with an architect costs nothing», así que encaja con
+ * el nombre nuevo mejor que con el viejo.
+ */
+export const primeraLlamada: Partial<
   Pick<Service, 'nombre' | 'tagline' | 'descripcion' | 'politicas'>
 > = {
-  nombre: 'Technical consultation',
+  nombre: 'First call',
   tagline: 'The first call with an architect costs nothing.',
   descripcion:
     'Fifteen minutes with an architect from Plano Base, free and with no ' +
@@ -114,6 +123,41 @@ export const asesoria: Partial<
     {
       clave: 'No commitment',
       texto: 'There is no cost and no obligation to hire anything afterwards.',
+    },
+  ],
+}
+
+/**
+ * La asesoría técnica de pago, en inglés.
+ *
+ * Hereda el nombre que tenía la gratuita, porque es el que describe lo que
+ * hace. El precio va en pesos y no se convierte: se cobra en pesos.
+ */
+export const asesoriaTecnica: Partial<
+  Pick<Service, 'nombre' | 'tagline' | 'descripcion' | 'politicas'>
+> = {
+  nombre: 'Technical consultation',
+  tagline: 'An hour with an architect, to settle one question.',
+  descripcion:
+    'An hour with an architect from Plano Base on one specific point of your ' +
+    'project: a crack you are not sure is serious, whether the plot allows ' +
+    'what you have in mind, what the regulations require in your case, ' +
+    'whether the budget you were quoted makes sense. You come in with a ' +
+    'question and leave with the answer.',
+  politicas: [
+    {
+      clave: 'Booking',
+      texto:
+        'You book on the site and confirm with payment, before the meeting. ' +
+        'We write to you on WhatsApp to close it.',
+    },
+    {
+      clave: 'Length',
+      texto: 'One hour. If the case warrants more, we tell you before booking.',
+    },
+    {
+      clave: 'Changes',
+      texto: 'You can move it by giving us 24 hours notice.',
     },
   ],
 }

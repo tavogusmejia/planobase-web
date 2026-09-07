@@ -253,28 +253,41 @@ export const reconocimientos: Award[] = [
 
 
 /**
+ * Lo que se puede agendar, que desde el 6/9/2026 son dos cosas y no una.
+ *
+ * **Antes se llamaban igual, y ese era el problema.** Lo que se agendaba era
+ * una llamada de quince minutos sin costo, pero el objeto se llamaba «Asesoría
+ * técnica» y ocupaba el slug `asesoria-tecnica`. Al añadir una asesoría de pago
+ * de verdad, el nombre tenía que irse a donde describe algo: la de pago se
+ * queda con él, y la gratuita pasa a ser la «Primera llamada» — que es, además,
+ * lo que su propio titular ya decía.
+ *
+ * **La historia que no se puede repetir.** Hasta el 4/9/2026 la asesoría era
+ * una reunión de una hora a $50.000 con pago por adelantado, mientras el plan
+ * de Facebook Ads la anunciaba como «sin costo de consulta inicial». Un lead
+ * que hacía clic en «gratis» y aterrizaba en una pasarela no convertía — y
+ * peor, quemaba el aprendizaje del algoritmo con clics que nunca cerraban, lo
+ * que encarece todas las impresiones siguientes. Se partió en dos por eso.
+ *
+ * Ahora vuelve a existir la de pago, y ese modo de falla no vuelve **porque
+ * conviven**: la gratuita sigue siendo lo que recibe el tráfico frío. De ahí
+ * una regla que no se negocia: **la pauta apunta a la Primera llamada, nunca a
+ * la asesoría de pago.** Un anuncio que lleve directo al cobro repite el error
+ * de septiembre.
+ */
+
+/**
  * El primer escalón, y el destino del tráfico de campaña.
  *
- * Hasta hoy era una reunión virtual de una hora a $50.000 COP, con pago por
- * adelantado y no reembolsable, mientras el plan de Facebook Ads la anunciaba
- * como "sin costo de consulta inicial" y "sin compromiso". Un lead que hacía
- * clic en "gratis" y aterrizaba en una pasarela de pago no convertía — y peor,
- * quemaba el aprendizaje del algoritmo con clics que nunca cerraban, lo que
- * encarece todas las impresiones siguientes.
- *
- * Decisión de Gustavo (4/9/2026): se parte en dos. Esta primera llamada es
- * corta y sin costo, y es lo que recibe el tráfico frío; el producto pagado de
- * verdad es la visita técnica con informe escrito, que vive en la escalera de
- * `content/puertas.ts`. Así el anuncio dice la verdad y la hora del director
- * —el recurso más escaso de una empresa de dos personas— deja de venderse al
- * precio de un almuerzo.
- *
- * El slug NO cambia: /servicios/asesoria-tecnica está en el sitemap y es
- * destino de un redirect desde Wix.
+ * Es lo que hasta el 6/9/2026 se llamaba `asesoria`. Cambia el nombre y el
+ * slug; no cambia ni una palabra de lo que promete.
  */
-export const asesoria: Service = {
-  slug: 'asesoria-tecnica',
-  nombre: 'Asesoría técnica',
+export const primeraLlamada: Service = {
+  /* Estrena slug propio. No tiene página en `/servicios`: su página es
+     `/agendar`, que ya la describe con este mismo titular. Dos URLs compitiendo
+     por la misma consulta se canibalizan. */
+  slug: 'primera-llamada',
+  nombre: 'Primera llamada',
   /* Decía «no debe ser costoso» y es el h1 de /agendar, a tres líneas del
      rótulo «Sin costo»: argumentaba que no debería ser caro justo al lado de
      la palabra que dice que es gratis. Quien llega de un anuncio lee el
@@ -314,6 +327,92 @@ export const asesoria: Service = {
       texto: 'No hay costo ni obligación de contratar nada después.',
     },
   ],
+}
+
+/**
+ * La asesoría de pago: una hora con un arquitecto, $50.000.
+ *
+ * **Se queda con el slug `asesoria-tecnica`, y eso no es inercia.** Esa URL está
+ * en el sitemap y es destino de un redirect desde Wix, así que tenía que seguir
+ * resolviendo de todas formas; dársela al servicio de pago hace además que por
+ * primera vez la dirección describa lo que hay detrás.
+ *
+ * **Qué la separa de la primera llamada**, que es la pregunta que se hará quien
+ * llegue: la llamada corta dice *qué* necesita su caso —qué tipo de trabajo, qué
+ * implica, cuál es el siguiente paso—. Esta resuelve. Se entra con una duda
+ * técnica concreta y se sale con la respuesta.
+ *
+ * Una hora fija, no una tarifa por horas. No hay nada que cotizar, y por eso el
+ * precio se publica: el argumento que mantiene sin cifras la escalera de
+ * `content/puertas.ts` —que un precio ancla la conversación antes de saber qué
+ * pide el caso— no aplica a algo que dura lo mismo para todo el mundo.
+ *
+ * **Mientras no exista Wompi, se cobra a mano**: la cita se agenda igual y el
+ * cobro se cierra por transferencia o Nequi desde WhatsApp. Es deliberado —
+ * montar la pasarela antes de saber si esto se vende es construir la parte cara
+ * para nadie.
+ */
+export const asesoriaTecnica: Service = {
+  slug: 'asesoria-tecnica',
+  nombre: 'Asesoría técnica',
+  tagline: 'Una hora con un arquitecto, para resolver una duda concreta.',
+  descripcion:
+    'Una hora con un arquitecto de Plano Base sobre un punto concreto de su ' +
+    'proyecto: una fisura que no sabe si es grave, si el lote da para lo que ' +
+    'quiere, qué exige la norma en su caso, si el presupuesto que le pasaron ' +
+    'tiene sentido. Se entra con una pregunta y se sale con la respuesta.',
+  duracionMin: 60,
+  precioCOP: 50_000,
+  /* PENDIENTE DE APROBACIÓN: redactadas a partir de la decisión del 6/9/2026,
+     no de un documento del estudio. Y hay una que habrá que revisar el día que
+     entre el cobro por la pasarela: hoy dice que se paga antes de la cita
+     porque se cobra a mano, y con Wompi el pago será parte de agendar. */
+  politicas: [
+    {
+      clave: 'Reserva',
+      texto:
+        'Se agenda en el sitio y se confirma con el pago, antes de la cita. ' +
+        'Le escribimos por WhatsApp para cerrarlo.',
+    },
+    {
+      clave: 'Duración',
+      texto: 'Una hora. Si el caso da para más, se lo decimos antes de agendar.',
+    },
+    {
+      clave: 'Cambios',
+      texto: 'Puede moverla avisando con 24 horas de antelación.',
+    },
+  ],
+}
+
+/** Un servicio que se puede agendar. Los dos, y no hay más. */
+export type TipoCita = 'primera-llamada' | 'asesoria-tecnica'
+
+/**
+ * El catálogo por el que resuelven la API, la Server Action y el formulario.
+ *
+ * **Es la única fuente de `duracionMin` y `precioCOP`, y eso es una defensa,
+ * no una comodidad.** Si esos dos números pudieran llegar en la petición,
+ * alguien mandaría `duracionMin: 1` y se colaría entre dos citas, o
+ * `precioCOP: 0` y agendaría la de pago gratis. Del navegador solo viaja el
+ * tipo, y el tipo se valida contra estas claves.
+ */
+export const CITAS = {
+  'primera-llamada': primeraLlamada,
+  'asesoria-tecnica': asesoriaTecnica,
+} satisfies Record<TipoCita, Service>
+
+/**
+ * A qué se agenda quien llega sin decir a qué.
+ *
+ * La gratuita, siempre. Es lo que recibe la pauta, y ante un parámetro raro o
+ * ausente hay que enseñar la puerta abierta, no la de pago.
+ */
+export const TIPO_POR_DEFECTO: TipoCita = 'primera-llamada'
+
+/** Si una cadena cualquiera —una query, un campo de formulario— nombra un tipo. */
+export function esTipoCita(valor: unknown): valor is TipoCita {
+  return typeof valor === 'string' && valor in CITAS
 }
 
 /**

@@ -7,7 +7,7 @@ import { ProjectCard } from '@/components/project/ProjectCard'
 import { getFeatured, getHeroProjects, getStats } from '@/lib/data/projects'
 import { tituloSitio } from '@content/site'
 import {
-  asesoriaDe,
+  citaDe,
   copiaDe,
   manifiestoDe,
   puertasDe,
@@ -68,7 +68,7 @@ export default async function HomePage({
 
   const manifiesto = manifiestoDe(locale)
   const puertas = puertasDe(locale)
-  const asesoria = asesoriaDe(locale)
+  const primeraLlamada = citaDe('primera-llamada', locale)
   /* El titular de esta sección es el mismo de /servicios. Vivía escrito dos
      veces —la tarea 5.4 de la hoja de ruta—: ahora sale de un solo sitio. */
   const titularServicios = copiaDe('/servicios', locale).titular
@@ -196,16 +196,16 @@ export default async function HomePage({
       <section className="mx-auto mt-32 max-w-[100rem] px-gutter lg:px-10">
         <div className="border-t border-line pt-12 lg:grid lg:grid-cols-2 lg:gap-16">
           <div>
-            <h2 className="text-h2 text-ink">{asesoria.nombre}</h2>
+            <h2 className="text-h2 text-ink">{primeraLlamada.nombre}</h2>
             <Rule className="mt-4 text-muted">
-              {t('servicioDuracion', { minutos: asesoria.duracionMin })}
-              &nbsp; {await etiquetaPrecio(asesoria.precioCOP)}
+              {t('servicioDuracion', { minutos: primeraLlamada.duracionMin })}
+              &nbsp; {await etiquetaPrecio(primeraLlamada.precioCOP)}
             </Rule>
           </div>
           <div className="mt-8 lg:mt-0">
-            <p className="text-lead measure text-ink">{asesoria.tagline}</p>
+            <p className="text-lead measure text-ink">{primeraLlamada.tagline}</p>
             <p className="text-body measure mt-6 text-ink-soft">
-              {asesoria.descripcion}
+              {primeraLlamada.descripcion}
             </p>
             <Link
               href="/agendar"

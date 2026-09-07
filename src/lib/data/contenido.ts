@@ -8,14 +8,15 @@ import {
 } from '@content/paginas'
 import { copiaPaginasEn } from '@content/en/paginas'
 import {
+  CITAS,
   equipo,
   manifiesto,
   sobreElEquipo,
   vision,
   type TemaVision,
+  type TipoCita,
 } from '@content/site'
 import { escalera, puertas, type Peldano, type Puerta } from '@content/puertas'
-import { asesoria } from '@content/site'
 import { verticales, type Vertical } from '@content/verticales'
 import { pilares, type Pilar } from '@content/pilares'
 import { politicaDatos, type Politica } from '@content/legal'
@@ -83,8 +84,18 @@ export function equipoDe(idioma: string): TeamMember[] {
   return equipo.map((m) => fusionar(m, { cargo: ingles.cargos[m.slug] }))
 }
 
-export function asesoriaDe(idioma: string): Service {
-  return ES_ESPANOL(idioma) ? asesoria : fusionar<Service>(asesoria, ingles.asesoria)
+/**
+ * Uno de los dos servicios que se agendan, en el idioma que toque.
+ *
+ * Sustituye a `asesoriaDe(idioma)`, que solo sabía de uno porque solo había
+ * uno. El tipo va primero porque es lo que identifica el servicio; el idioma
+ * es la superposición.
+ */
+export function citaDe(tipo: TipoCita, idioma: string): Service {
+  const base = CITAS[tipo]
+  if (ES_ESPANOL(idioma)) return base
+  const overlay = tipo === 'primera-llamada' ? ingles.primeraLlamada : ingles.asesoriaTecnica
+  return fusionar<Service>(base, overlay)
 }
 
 export function puertasDe(idioma: string): Puerta[] {
@@ -98,7 +109,7 @@ export function puertaDe(idioma: string, slug: string): Puerta | null {
 
 export function escaleraDe(idioma: string): Peldano[] {
   if (ES_ESPANOL(idioma)) return escalera
-  return escalera.map((p) => fusionar<Peldano>(p, inglesPuertas.escalera[p.n]))
+  return escalera.map((p) => fusionar<Peldano>(p, inglesPuertas.escalera[p.slug]))
 }
 
 /** Una puerta está lista cuando sus cuatro campos de texto están traducidos. */
@@ -181,20 +192,27 @@ const COMPLETITUD: Record<RutaConCopia, () => boolean> = {
      son nombres propios y no se traducen. */
   '': () =>
     Boolean(ingles.manifiesto) &&
-    Boolean(ingles.asesoria.descripcion) &&
+    Boolean(ingles.primeraLlamada.descripcion) &&
     puertas.every((p) => puertaCompleta(p.slug)),
 
-  /* Estas dos se llenan con su propia copia y con `asesoria` de site.ts, que
-     es el mismo producto en los dos idiomas salvo su descripción. */
-  '/contacto': () => Boolean(ingles.asesoria.descripcion),
-  '/agendar': () => Boolean(ingles.asesoria.descripcion),
+  /* Estas dos se llenan con su propia copia y con los servicios de site.ts, que
+     son el mismo producto en los dos idiomas salvo su descripción.
 
-  /* Las siete puertas y los seis peldaños: la página de servicios los pinta
+     `/agendar` pide los DOS porque desde el 6/9/2026 pinta los dos servicios:
+     con solo el primero, la página se declararía traducida enseñando la
+     asesoría técnica en español a un lector inglés. `/contacto` solo nombra la
+     llamada gratuita, así que le basta con esa. */
+  '/contacto': () => Boolean(ingles.primeraLlamada.descripcion),
+  '/agendar': () =>
+    Boolean(ingles.primeraLlamada.descripcion) &&
+    Boolean(ingles.asesoriaTecnica.descripcion),
+
+  /* Las siete puertas y los siete peldaños: la página de servicios los pinta
      todos, así que traducir seis de siete la deja a medias. */
   '/servicios': () =>
     puertas.every((p) => puertaCompleta(p.slug)) &&
     escalera.every((p) => {
-      const t = inglesPuertas.escalera[p.n]
+      const t = inglesPuertas.escalera[p.slug]
       return Boolean(t?.nombre && t.entrega)
     }),
 

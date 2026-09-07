@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
-import { asesoria, contacto } from '@content/site'
+import { primeraLlamada, contacto } from '@content/site'
 import { etiquetaPrecio } from '@/lib/precio'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 
@@ -26,13 +26,13 @@ export async function CtaBar() {
     >
       <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-3 px-gutter py-3 lg:px-10">
         <p className="text-block hidden lg:block">
-          {asesoria.nombre} · {await etiquetaPrecio(asesoria.precioCOP)}
+          {primeraLlamada.nombre} · {await etiquetaPrecio(primeraLlamada.precioCOP)}
         </p>
 
         <div className="flex min-w-0 flex-1 items-center justify-between gap-3 sm:justify-end sm:gap-6">
           <WhatsAppLink
             numero={contacto.whatsapp}
-            mensaje={`Hola Plano Base, quiero agendar una ${asesoria.nombre.toLowerCase()}.`}
+            mensaje={`Hola Plano Base, quiero agendar una ${primeraLlamada.nombre.toLowerCase()}.`}
             origen="web/barra-fija"
             className="text-block shrink-0 underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
           >

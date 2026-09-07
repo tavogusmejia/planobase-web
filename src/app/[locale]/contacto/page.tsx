@@ -7,7 +7,7 @@ import { contacto } from '@content/site'
 import { etiquetaPrecio } from '@/lib/precio'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { alternativas, tarjeta } from '@/lib/metadatos'
-import { asesoriaDe, copiaDe } from '@/lib/data/contenido'
+import { citaDe, copiaDe } from '@/lib/data/contenido'
 
 export async function generateMetadata({
   params,
@@ -46,7 +46,7 @@ export default async function ContactoPage({
   const tc = await getTranslations('cta')
 
   const copia = copiaDe('/contacto', locale)
-  const asesoria = asesoriaDe(locale)
+  const primeraLlamada = citaDe('primera-llamada', locale)
 
   return (
     <div className="mx-auto max-w-[100rem] px-gutter py-16 lg:px-10 lg:py-24">
@@ -103,11 +103,11 @@ export default async function ContactoPage({
           </ul>
 
           <div className="mt-14 border-t border-line pt-8">
-            <h2 className="text-h4 text-ink">{asesoria.nombre}</h2>
+            <h2 className="text-h4 text-ink">{primeraLlamada.nombre}</h2>
             <Rule className="mt-3 text-muted">
-              {asesoria.duracionMin} min &nbsp; {await etiquetaPrecio(asesoria.precioCOP)}
+              {primeraLlamada.duracionMin} min &nbsp; {await etiquetaPrecio(primeraLlamada.precioCOP)}
             </Rule>
-            <p className="text-small mt-5 text-ink-soft">{asesoria.tagline}</p>
+            <p className="text-small mt-5 text-ink-soft">{primeraLlamada.tagline}</p>
             <Link
               href="/agendar"
               className="text-block mt-6 inline-block bg-signal px-6 py-3.5 uppercase tracking-[0.08em] text-paper transition-opacity hover:opacity-90"

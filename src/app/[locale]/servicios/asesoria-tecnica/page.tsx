@@ -4,7 +4,8 @@ import { Link } from '@/i18n/navigation'
 import { Rule } from '@/components/ui/Rule'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { migaDePan } from '@/components/seo/migaDePan'
-import { asesoria, contacto } from '@content/site'
+import { contacto } from '@content/site'
+import { citaDe } from '@/lib/data/contenido'
 import { etiquetaPrecio } from '@/lib/precio'
 import { WhatsAppLink } from '@/components/ui/WhatsAppLink'
 import { alternativas, tarjeta } from '@/lib/metadatos'
@@ -16,10 +17,11 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  const asesoriaTecnica = citaDe('asesoria-tecnica', locale)
   const ruta = `/${locale}/servicios/asesoria-tecnica`
-  const descripcion = asesoria.descripcion.slice(0, 300)
+  const descripcion = asesoriaTecnica.descripcion.slice(0, 300)
   return {
-    title: asesoria.nombre,
+    title: asesoriaTecnica.nombre,
     description: descripcion,
     /* Canonical autorreferenciado, hreflang solo de lo traducido y el
        `robots` de esta ruta, los tres del mismo sitio. Va donde estaba
@@ -30,7 +32,7 @@ export async function generateMetadata({
     openGraph: tarjeta({
       locale,
       ruta,
-      titulo: asesoria.nombre,
+      titulo: asesoriaTecnica.nombre,
       descripcion,
     }),
   }
@@ -49,6 +51,7 @@ export default async function AsesoriaTecnicaPage({
 }) {
   const { locale } = await params
   setRequestLocale(locale)
+  const asesoriaTecnica = citaDe('asesoria-tecnica', locale)
   const tc = await getTranslations('cta')
   const tn = await getTranslations('nav')
 
@@ -56,14 +59,14 @@ export default async function AsesoriaTecnicaPage({
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
-      name: asesoria.nombre,
-      description: asesoria.descripcion,
+      name: asesoriaTecnica.nombre,
+      description: asesoriaTecnica.descripcion,
       /* Referencia al nodo del sitio, no una organización anónima nueva. */
       provider: { '@id': absoluteUrl('/#estudio') },
       areaServed: { '@type': 'Country', name: 'Colombia' },
       offers: {
         '@type': 'Offer',
-        price: asesoria.precioCOP,
+        price: asesoriaTecnica.precioCOP,
         priceCurrency: 'COP',
       },
     },
@@ -72,7 +75,7 @@ export default async function AsesoriaTecnicaPage({
     migaDePan([
       { nombre: tn('servicios'), ruta: `/${locale}/servicios` },
       {
-        nombre: asesoria.nombre,
+        nombre: asesoriaTecnica.nombre,
         ruta: `/${locale}/servicios/asesoria-tecnica`,
       },
     ]),
@@ -88,20 +91,20 @@ export default async function AsesoriaTecnicaPage({
         </Link>
       </nav>
 
-      <h1 className="text-h1 measure-display mt-6 text-ink">{asesoria.nombre}</h1>
+      <h1 className="text-h1 measure-display mt-6 text-ink">{asesoriaTecnica.nombre}</h1>
       <Rule className="mt-6 max-w-3xl text-muted">
-        {asesoria.duracionMin} min &nbsp; {await etiquetaPrecio(asesoria.precioCOP)}
+        {asesoriaTecnica.duracionMin} min &nbsp; {await etiquetaPrecio(asesoriaTecnica.precioCOP)}
       </Rule>
 
-      <p className="text-lead measure mt-10 text-ink">{asesoria.tagline}</p>
+      <p className="text-lead measure mt-10 text-ink">{asesoriaTecnica.tagline}</p>
       <p className="text-body measure mt-6 text-ink-soft">
-        {asesoria.descripcion}
+        {asesoriaTecnica.descripcion}
       </p>
 
       <section className="mt-16">
         <h2 className="text-block text-muted">Condiciones</h2>
         <dl className="mt-6 border-t border-line">
-          {asesoria.politicas.map((p) => (
+          {asesoriaTecnica.politicas.map((p) => (
             <div
               key={p.clave}
               className="grid gap-1 border-b border-line py-5 sm:grid-cols-[12rem_1fr] sm:gap-8"
@@ -122,7 +125,7 @@ export default async function AsesoriaTecnicaPage({
         </Link>
         <WhatsAppLink
           numero={contacto.whatsapp}
-          mensaje={`Hola Plano Base, quiero agendar una ${asesoria.nombre.toLowerCase()}.`}
+          mensaje={`Hola Plano Base, quiero agendar una ${asesoriaTecnica.nombre.toLowerCase()}.`}
           origen="web/asesoria-tecnica"
           className="text-block border border-accent px-7 py-4 uppercase tracking-[0.08em] text-accent transition-colors hover:bg-accent hover:text-paper"
         >

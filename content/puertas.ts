@@ -144,8 +144,14 @@ export const puertas: Puerta[] = [
  * llegó a publicar «desde $300.000». Ya no: `precioCOP` es `null` en todos los
  * peldaños salvo el primero.
  *
- * **La única cifra que se publica es el cero de la asesoría**, y esa no es un
- * precio sino la promesa del anuncio: vive en `content/site.ts` y no aquí.
+ * **Las cifras que se publican son las de los dos servicios agendables** —el
+ * cero de la primera llamada y los $50.000 de la asesoría técnica— y ninguna de
+ * las dos vive aquí: viven en `content/site.ts`, con el servicio. No son
+ * precios de la escalera sino la promesa de lo que se puede reservar hoy en el
+ * sitio, y por eso no contradicen la regla: **una hora dura lo mismo para todo
+ * el mundo, así que su precio no ancla ninguna conversación.** Del peldaño 3 en
+ * adelante, que es donde el caso sí cambia el precio, sigue sin publicarse
+ * nada.
  *
  * Se investigaron precios de mercado antes de decidir esto —dos referencias
  * colombianas reales, una de Cali y otra de Bogotá— y la investigación no se
@@ -153,7 +159,22 @@ export const puertas: Puerta[] = [
  * `docs/PLAN-BLOG.md`.
  */
 export type Peldano = {
+  /**
+   * El orden en que se pintan. **No es la identidad**: cambia cada vez que se
+   * inserta un peldaño, y ya cambió el 6/9/2026 al entrar la asesoría de pago.
+   */
   n: number
+  /**
+   * La identidad, y lo que indexa la traducción.
+   *
+   * Antes la traducción se indexaba por `n`, con el comentario «que es su
+   * identidad y no cambia». Cambió. Y el modo de falla era feo: al renumerar,
+   * el inglés se desplaza un peldaño entero y `/servicios` muestra «Feasibility
+   * study» bajo «Visita técnica con informe». **No lo caza ninguna guarda** —
+   * `check-traducciones` comprueba que la clave exista, y existía, con el texto
+   * de otro. Por slug eso no puede pasar.
+   */
+  slug: string
   nombre: string
   entrega: string
   precioCOP: number | null
@@ -164,11 +185,35 @@ export type Peldano = {
 export const escalera: Peldano[] = [
   {
     n: 1,
-    nombre: 'Asesoría técnica',
+    slug: 'primera-llamada',
+    /* Se llamaba «Asesoría técnica», con la descripción de la llamada de quince
+       minutos. Al entrar el servicio de pago con ese nombre, este peldaño tenía
+       el nombre del siguiente y la entrega del suyo. */
+    nombre: 'Primera llamada',
     entrega:
       'Quince minutos con un arquitecto. Le decimos si podemos ayudarle, qué ' +
       'implica su caso y cuál es el siguiente paso.',
     precioCOP: 0,
+  },
+  {
+    /* Producto del 6/9/2026: el escalón que faltaba. El salto de una llamada
+       gratis de quince minutos a una visita al predio con informe escrito era
+       de un metro, y es donde se caía la gente; una hora a $50.000 es el paso
+       más pequeño que cabe entre los dos. Que la escalera exista «para que el
+       siguiente sea una decisión pequeña en vez de un salto» lo dice su propio
+       encabezado.
+
+       `precioCOP` es `null` aquí a propósito, y no por descuido: la regla de
+       que la escalera no publica precios se mantiene intacta. La cifra vive en
+       `content/site.ts` con el resto del servicio agendable, que es donde ya
+       vivía el cero de la llamada gratuita. */
+    n: 2,
+    slug: 'asesoria-tecnica',
+    nombre: 'Asesoría técnica',
+    entrega:
+      'Una hora con un arquitecto sobre un punto concreto: una fisura, lo que ' +
+      'permite la norma en su predio, si un presupuesto tiene sentido.',
+    precioCOP: null,
   },
   {
     /* Producto nuevo (decisión del 4/9/2026): es el primer escalón pagado y el
@@ -182,7 +227,8 @@ export const escalera: Peldano[] = [
 
        PENDIENTE DE APROBACIÓN: el alcance está redactado a partir de la
        decisión, no de un documento del estudio. */
-    n: 2,
+    n: 3,
+    slug: 'visita-tecnica-con-informe',
     nombre: 'Visita técnica con informe',
     entrega:
       'Vamos al predio o al inmueble. Sale con un informe escrito: qué tiene, ' +
@@ -190,7 +236,8 @@ export const escalera: Peldano[] = [
     precioCOP: null,
   },
   {
-    n: 3,
+    n: 4,
+    slug: 'estudio-de-viabilidad',
     nombre: 'Estudio de viabilidad',
     entrega:
       'Qué permite la norma en su predio, qué se puede construir, presupuesto ' +
@@ -198,7 +245,8 @@ export const escalera: Peldano[] = [
     precioCOP: null,
   },
   {
-    n: 4,
+    n: 5,
+    slug: 'anteproyecto',
     nombre: 'Anteproyecto',
     entrega:
       'Implantación, plantas, volumetría e imágenes. El proyecto deja de ser ' +
@@ -206,7 +254,8 @@ export const escalera: Peldano[] = [
     precioCOP: null,
   },
   {
-    n: 5,
+    n: 6,
+    slug: 'proyecto-y-licencia',
     nombre: 'Proyecto arquitectónico y licencia',
     entrega:
       'Planos constructivos, coordinación con las demás ingenierías y trámite ' +
@@ -214,7 +263,8 @@ export const escalera: Peldano[] = [
     precioCOP: null,
   },
   {
-    n: 6,
+    n: 7,
+    slug: 'direccion-de-obra',
     nombre: 'Dirección de obra',
     entrega:
       'Acompañamiento técnico durante la construcción, con reportes y control ' +

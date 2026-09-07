@@ -39,15 +39,16 @@ cosas, amarillo es lo que sigue, verde está en el sitio. Los tres de abajo no s
 estados del semáforo sino matices: sin prisa, esperando a otra tarea, o hecha
 pero todavía sin publicar.
 
-> **Cierre del 6/9/2026.** Todo está en producción y verificado ahí, no solo
-> construido: las tres ramas —`main`, `blog/seccion-y-articulos` y
-> `worktree-pasada-redaccion`— apuntan al mismo commit. **No hay nada esperando
-> publicación.** Las dos migraciones de Supabase están aplicadas.
+> **Cierre del 6/9/2026, de día.** Lo de la sesión larga está en producción y
+> verificado ahí, no solo construido: `main`, `blog/seccion-y-articulos` y
+> `worktree-pasada-redaccion` apuntan al mismo commit, y las dos migraciones de
+> Supabase están aplicadas.
 >
-> **Lo primero al retomar, y sin esto nada de lo de hoy existe en su máquina:**
-> la carpeta principal se quedó en `blog/seccion-y-articulos` y **74 commits por
-> detrás**. Antes de tocar nada, `git pull` y `pnpm install` — lo segundo porque
-> entró Vitest y sin él `pnpm test` no corre.
+> **Y la noche del 6/9 salió un lote más, que sigue sin publicar** en
+> `worktree-calendario-dos-servicios`: los dos servicios agendables, las dos
+> duraciones sobre el mismo calendario, Google Calendar, los festivos y dos
+> defectos que estaban vivos en producción. **Lleva una migración de Supabase
+> que hay que pegar a mano** (R-10): `20260906230000_dos_tipos_de_cita.sql`.
 
 ---
 
@@ -75,12 +76,12 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 | Código | | Trámite | Desbloquea |
 |---|---|---|---|
 | X-01 | 🔴 | Que un abogado lea `content/legal.ts` — **ya no falta nada nuestro** | La pauta |
-| X-02 | 🔴 | Credenciales de Google: proyecto, Calendar API, cuenta de servicio, delegación | D-01 |
+| X-02 | 🟡 | Credenciales de Google: proyecto, Calendar API, cuenta de servicio, delegación | **Ya no bloquea nada: es un interruptor.** El código está escrito, probado y en la rama. **Corrección: son DOS scopes**, `calendar.events` + `calendar.readonly` |
 | X-03 | ⬜ | Términos de referencia o actas de los **3** concursos públicos que quedan | Ya no bloquea nada. C-10 se retiró con el proyecto |
 | X-04 | 🟡 | Crear la propiedad de GA4 → `NEXT_PUBLIC_GA4_ID` | La pauta |
-| X-05 | 🟡 | Crear la cuenta de Google Ads y su etiqueta de conversión | La pauta |
+| X-05 | 🟡 | Crear la cuenta de Google Ads y **sus dos etiquetas** de conversión | La pauta. Son dos: lead y reserva. `NEXT_PUBLIC_GOOGLE_ADS_LEAD_LABEL` y `..._SCHEDULE_LABEL` |
 | X-06 | 🟡 | Verificar si aplica el registro RNBD ante la SIC | — |
-| X-07 | ⬜ | Cuenta de comercio Wompi *(papeleo largo, arrancar en paralelo)* | D-18 |
+| X-07 | ⬜ | Cuenta de comercio Wompi | **Aplazado a propósito el 6/9**: se abre cuando haya ventas que lo justifiquen. Ver la nota de abajo |
 | X-08 | ⬜ | Ficha de Google Business — dirección ya fijada: Cali | — |
 | X-09 | 🟡 | Publicar un proyecto en ArchDaily o Plataforma Arquitectura — **desbloqueada el 6/9**. Ahora hay seis obras construidas que ofrecer, no una |
 | X-10 | ⬜ | Cuenta de un servicio de monitoreo de errores | D-02 |
@@ -94,8 +95,8 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 | Código | | Tarea | Nota |
 |---|---|---|---|
 | ~~D-01~~ | 🟢 | ~~Entrega A: calendario de reservas~~ — **publicado el 6/9 y funcionando**: la API devuelve 120 franjas, ninguna en fin de semana | El enlace de Meet se rellena solo cuando llegue X-02 |
-| D-21 | ⬜ | **Decidir cómo se agenda de verdad** — aplazado el 6/9, ver el marcador de abajo | Ya no bloquea nada: D-01 salió. Decide si se queda |
-| D-22 | ⬜ | Poder cancelar o mover una reserva desde el correo | Solo si se sigue con el calendario propio |
+| ~~D-21~~ | ⏳ | ~~Decidir cómo se agenda de verdad~~ — **cerrada la noche del 6/9: se queda el calendario propio**, y no por gusto. Ver el marcador de abajo | Ni Calendly ni Google pueden cobrar en pesos |
+| D-22 | ⬜ | Poder cancelar o mover una reserva desde el correo | Ya tiene lo que le faltaba: `evento_google` y `secuencia` se escriben desde el 6/9 |
 | ~~D-23~~ | 🟢 | ~~Guarda de enlaces de fuentes~~ — `pnpm check:enlaces`. **No va en el build a propósito**: llama a 180 servidores y un gestor normativo lento no puede impedir un despliegue | 177 de 181 responden. Probada inyectando una URL muerta |
 | D-02 | ⬜ | Monitoreo de errores y uptime | Necesita X-10 |
 | ~~D-03~~ | 🟢 | ~~UTMs que sobrevivan la navegación~~ — ventana de 30 días, la misma de Meta y Google Ads | Un rechazo explícito de consentimiento borra lo guardado |
@@ -113,53 +114,84 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 | ~~D-15~~ | 🟢 | ~~Teclado en el menú móvil~~ — Escape cierra y devuelve el foco | Sin trampa de foco: es un desplegable, no un diálogo |
 | D-16 | 🟡 | ~~Páginas por ciudad~~ → **Que el alcance nacional se vea, sin una página por ciudad** — reformulada por Gustavo el 6/9. Ver la nota |
 | ~~D-17~~ | 🟢 | ~~Página de credenciales institucionales~~ — **`/experiencia`**, los 22 publicados en tabla con filtro que recalcula los totales |
-| D-18 | 🔒 | Entrega B: pagos con Wompi | *(espera X-07)* |
+| D-18 | ⬜ | Entrega B: pagos con Wompi | **Aplazada a propósito, no bloqueada.** Criterio para reabrirla: seis asesorías vendidas a mano en dos meses |
 | D-19 | ⬜ | Proyectar datos al cliente | — |
 | ~~D-20~~ | 🟢 | ~~Aligerar `/contacto`~~ | **Descartada.** Medido: 10,2 kB de 174. No lo vale |
 
-### Marcador · cómo se agenda, sin decidir
+### D-21 · cómo se agenda, decidido
 
-D-01 **se publicó el 6/9 y está funcionando**, así que esto ya no bloquea nada:
-decide si el calendario propio se queda o se sustituye. La comparación se deja
-entera porque el punto débil sigue en pie.
+**Se queda el calendario propio.** Decisión de Gustavo la noche del 6/9, después
+de investigar las alternativas a fondo. Se deja escrito con detalle para no
+repetir la investigación: la pregunta va a volver.
 
-**Una corrección, porque este tablero llegó a mentir sobre ello.** Decía que
-faltaba aplicar la migración `20260906120000_reservas.sql` en Supabase. **Ya
-estaba aplicada** — se comprobó el 6/9 llamando a `/api/agenda` en producción,
-que respondió `hayAgenda: true` con 120 franjas. Sobre esa frase falsa se tomó
-la decisión de no publicar D-01 durante medio día.
+**Lo que decidió no fue la medición, aunque eso era lo que el tablero decía.**
+La comparación anterior sostenía que un iframe se lleva la conversión a donde el
+Píxel no la ve. **Eso es cierto para Google y falso para Calendly**, que tiene
+integración nativa de Meta Pixel y de GA4 en cualquier plan de pago, más
+webhooks. El argumento era más débil de lo que estaba escrito.
 
-**El punto débil de lo que se construyó, dicho sin adornos:** *no ve el
-calendario real de Gustavo.* Solo conoce las citas que él mismo creó, así que si
-hay una reunión a las 10 el sitio sigue ofreciendo las 10.
+**Lo que decide es que ninguno de los dos puede cobrar en pesos colombianos.**
 
-| | Calendario propio *(construido)* | Google Appointment Schedules | Calendly |
+- **Calendly** solo integra Stripe y PayPal, y **solo en cinco monedas: AUD,
+  CAD, EUR, GBP y USD.** El peso no está. No admite Wompi, PayU, Mercado Pago ni
+  ePayco. Y **Stripe no opera en Colombia**: no aparece en su lista oficial de
+  países, ni siquiera en fase previa, y no soporta PSE, Nequi ni Daviplata.
+- **Google Appointment Schedules** exige Stripe también, así que hereda el mismo
+  problema. Y además **no admite ninguna etiqueta de conversión** —ni Píxel, ni
+  GA4, ni Ads— ni personalización de tipografía o color, ni tiene API.
+
+No es una limitación de plan que se compre con más dinero: es límite de
+producto.
+
+| | Propio | Calendly Standard | Google Appointment Schedules |
 |---|---|---|---|
-| Ve el calendario real | **no** | sí | sí |
-| Enlace de Meet | falta X-02 | automático | sí |
-| Cancelar y mover solo | no | sí | sí |
-| Costo | 0 | **ya se paga con Workspace** | gratis limitado |
-| Estética del sitio | sí | iframe | iframe |
-| Datos en la base propia | sí | no | no |
-| Medir la conversión del anuncio | sí | **no** | a medias |
-| Un solo correo, el del estudio | sí | Google manda el suyo | no |
+| Cobrar $50.000 en COP | **sí** — PSE, Nequi, Bancolombia, tarjeta | no | no |
+| Meta Pixel | sí, evento estándar y CAPI con `fbp`/`fbc` reales | sí, eventos personalizados | **no** |
+| Google Ads | sí | solo vía GA4, **sin GTM** | **no** |
+| Ve el calendario real | **sí, desde X-02** | sí | sí |
+| Estética del sitio | total | parcial | prácticamente nula |
+| Costo | 0 de licencia + ~2,65 % + $700 por cobro | 24 USD/mes (2 asientos) | 0 |
+| Mantenimiento | **propio** | de ellos | de ellos |
 
-**Lo que decide, y es una sola cosa:** con un iframe, la conversión ocurre dentro
-de él, donde el Pixel y GA4 no la ven. Eso importa el día que haya pauta —se
-pagaría por anuncios sin poder saber cuál trae citas—, y no importa nada
-mientras no la haya.
+**Y hay que decirlo entero: si el estudio cobrara en dólares, la respuesta sería
+la contraria.** Calendly por 24 USD/mes ahorraría el trabajo de Google y su
+mantenimiento, y mide de sobra para la pauta de un estudio de dos personas. Lo
+que lo saca de la ecuación es cobrar 50.000 pesos por PSE o Nequi.
 
-**Y lo que falta en el propio es exactamente X-02.** Conectar la API de Google
-Calendar cierra el hueco de la disponibilidad real *y* trae el enlace de Meet,
-sin perder diseño, datos ni medición. El código está escrito con esa costura
-puesta.
+**El punto débil que motivó la duda ya está cerrado** (6/9, noche): el
+calendario lee la agenda real por `freeBusy` y crea la cita con su enlace de
+Meet. Solo espera las credenciales de X-02.
 
-Las tres razones por las que en su día se descartó Cal.com están en
-`archivo/PLAN-MAESTRO-v1.md` §3. Dos siguen valiendo para Google y Calendly: el
-pago —ninguno integra Wompi ni PSE— y la estética en la página que recibe el
-dinero.
+### Por qué Wompi se aplaza, y cuándo se reabre
 
-Calendly no se recomienda: hace lo mismo que Google y se paga aparte.
+El cobro es la parte cara del calendario propio, y no por programarla:
+**Wompi no publica changelog.** Comprobado: ninguna página de novedades entre
+las noventa de su documentación, y su blog está vacío. Los avisos de cambio
+viven incrustados dentro de páginas sueltas, así que **la única forma de
+enterarse de que algo va a romperse es revisar la documentación a mano**.
+
+Hay precedente confirmado dos veces: la firma de integridad pasó de opcional
+(mayo 2022) a obligatoria (septiembre 2023) sin anuncio, y rompió comercios en
+producción; los tokens de aceptación pasaron de uno a dos después de marzo de
+2024, también sin aviso. Y hay uno con fecha: **el 31 de octubre de 2026** muere
+`GET /merchants/:llave_publica`, documentado en una sola página de noventa.
+
+Dos matices que juegan a favor el día que se monte: los cortes de su página de
+estado son casi todos **aguas abajo** —botón de Bancolombia, Nequi, PSE,
+Daviplata—, no de su API, así que hay que degradar por método de pago y no en
+bloque; y los dos cambios silenciosos ocurrieron en la **API de Transacciones**,
+que el diseño previsto no usa (Web Checkout por redirección más webhook).
+
+**Mientras tanto se cobra a mano**: la asesoría se agenda igual, queda con
+`pago_estado` en `'pendiente'`, y el cobro se cierra por transferencia o Nequi
+desde WhatsApp. **Criterio para reabrir D-18: seis asesorías vendidas en dos
+meses.** Si se venden, se monta sabiendo que hay demanda; si se vende una, se
+ahorró construir la parte cara para nadie.
+
+**Un aviso para la CSP el día que se monte:** `next.config.ts` lleva
+`form-action 'self'`, y el Web Checkout es un POST de formulario a
+`checkout.wompi.co`. Sin añadir ese origen, el navegador cancela el envío **sin
+ningún error visible**.
 
 ---
 
@@ -323,8 +355,8 @@ despublicar, comprobar el 404 y borrar después. El original en
 | D-08 | ¿Quién entra al panel de leads, y cómo se autentica? |
 | D-11 | ¿A dónde va el respaldo de leads si fallan Supabase y el correo? |
 | D-19 | ¿Qué significa «proyectar datos al cliente»? Está sin definir |
-| D-21 | ¿El calendario propio se queda, o se sustituye por Google o Calendly? |
 | D-16 | La línea de `/estudio` — ver la nota de D-16 reformulada |
+| **X-02** | **No es una decisión: es una sesión suya en Google Cloud.** Enciende el calendario que ya está construido. Pasos en `TRAMITES-EXTERNOS.md` §X-02 |
 | G-02 | La sesión de lectura de copia con Eduardo. `/agendar` sigue sin aprobar |
 
 **Lo que se puede hacer sin preguntar nada:** los dieciséis artículos C-08 a

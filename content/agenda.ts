@@ -11,10 +11,11 @@
  * correo se las repite con la zona al lado, porque una cita a las diez sin
  * decir de dónde son esas diez es una cita que alguien va a perder.
  *
- * **PENDIENTE DE APROBACIÓN.** Los valores de abajo son un punto de partida
- * razonable, no una decisión del estudio: nadie ha dicho todavía a qué horas
- * quiere Gustavo atender llamadas. Están puestos para que el sistema funcione y
- * se corrigen en un minuto.
+ * **Aprobado por Gustavo el 6/9/2026.** Los valores de abajo dejaron de ser un
+ * punto de partida y son la disponibilidad del estudio: lunes a viernes, de
+ * nueve a doce y de dos a cinco, citas cada media hora, dos horas de antelación
+ * y dos semanas de ventana. Se pueden cambiar cuando él quiera, pero ya no hay
+ * nada pendiente aquí.
  */
 
 /** Los días que se atiende. 1 es lunes y 5 es viernes, como `getDay()` salvo
@@ -62,9 +63,16 @@ export const VENTANA_DIAS = 14
 /**
  * Días concretos en los que no se atiende, en formato `AAAA-MM-DD`.
  *
- * Festivos, vacaciones, el día que haya una entrega. Se escriben a mano porque
- * los festivos colombianos son movibles —la Ley Emiliani corre varios al lunes
- * siguiente— y una tabla mal calculada cierra la agenda un día laborable o abre
- * un festivo. Escribirlos a mano es tedioso una vez al año y no falla.
+ * **Los festivos ya no van aquí.** Los calcula `content/festivos.ts`, incluida
+ * la Ley Emiliani y las cinco fiestas que dependen de la Pascua. Esta lista
+ * quedó para lo que ningún cálculo puede saber: vacaciones, el día de una
+ * entrega, un viaje.
+ *
+ * Y para un caso más, que conviene tener presente: **un festivo nuevo creado
+ * por ley**. Se anota aquí a mano mientras se confirma contra el texto de la
+ * norma, y luego se pasa al cálculo. En 2026 se habló de uno —la Virgen de
+ * Chiquinquirá, por la Ley 2578— y las fuentes consultadas no coinciden en si
+ * existe ni en qué día cae, así que no está puesto. Añadir uno que no existe
+ * cierra la agenda un día hábil; omitir uno que sí existe la abre en festivo.
  */
 export const DIAS_CERRADOS: string[] = []

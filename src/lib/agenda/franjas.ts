@@ -6,6 +6,7 @@ import {
   PASO_MINUTOS,
   VENTANA_DIAS,
 } from '@content/agenda'
+import { esFestivo } from '@content/festivos'
 
 /**
  * Qué franjas existen, según la disponibilidad declarada.
@@ -104,7 +105,10 @@ export function franjasPosibles(
     const cursor = new Date(ahora.getTime() + d * 86_400_000)
     const dia = diaEnZona(cursor)
 
-    if (DIAS_CERRADOS.includes(dia)) continue
+    /* Los festivos salen de `content/festivos.ts`, que los calcula. En
+       `DIAS_CERRADOS` queda solo lo que ningún cálculo puede saber: vacaciones,
+       el día de una entrega, o un festivo nuevo mientras se confirma. */
+    if (DIAS_CERRADOS.includes(dia) || esFestivo(dia)) continue
     if (!DIAS_HABILES.includes(diaSemanaEnZona(cursor) as 1 | 2 | 3 | 4 | 5)) {
       continue
     }

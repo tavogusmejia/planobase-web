@@ -58,8 +58,25 @@ export function ReservaForm() {
   const tf = useTranslations('formulario')
   const idioma = useLocale()
 
-  const err = (clave?: string) =>
-    clave ? (t(clave as Parameters<typeof t>[0]) as string) : undefined
+  /* `reservaSchema` emite claves de dos espacios distintos, y hasta ahora esto
+     solo miraba uno. `errores.franja` y `errores.autorizacion` viven en
+     `reserva`, porque son propias de agendar; las seis de datos personales
+     —nombre, correo, whatsapp, largo…— viven en `formulario`, que es donde
+     estaban desde el formulario de contacto y donde ya tienen su redacción.
+
+     Sin la segunda búsqueda, escribir mal el correo pintaba la cadena
+     `errores.correo` en crudo, en la página que recibe la pauta y en el momento
+     exacto en que alguien está intentando dejar sus datos. Se busca primero en
+     `reserva`, que es el espacio propio de este formulario, y se cae a
+     `formulario`; si no está en ninguno no se pinta nada, porque una clave
+     interna debajo de un campo es peor que ningún mensaje. */
+  const err = (clave?: string) => {
+    if (!clave) return undefined
+    const k = clave as Parameters<typeof t>[0]
+    if (t.has(k)) return t(k) as string
+    const kf = clave as Parameters<typeof tf>[0]
+    return tf.has(kf) ? (tf(kf) as string) : undefined
+  }
 
   /* Los errores generales pasan por `t.has` antes de traducirse: una clave que
      todavía no está en `messages/` se pintaría en crudo justo cuando la

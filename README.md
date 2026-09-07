@@ -66,6 +66,25 @@ LEAD_IP_SALT=<openssl rand -hex 16>
 # porque se genera en otro sitio de la interfaz; sin ella, Ads recibe la
 # conversión y no sabe clasificarla, así que no la cuenta.
 # NEXT_PUBLIC_GOOGLE_ADS_LEAD_LABEL=<etiqueta>
+# La etiqueta de la conversión «reserva», que es otra distinta. Un formulario
+# enviado y una hora agendada no valen lo mismo, y con una sola etiqueta Ads
+# las sumaría y optimizaría hacia la mezcla.
+# NEXT_PUBLIC_GOOGLE_ADS_SCHEDULE_LABEL=<etiqueta>
+
+# --- google calendar (X-02) ---
+# Las cuatro juntas o ninguna: `hayGoogleCalendar()` las exige en bloque. Sin
+# ellas el calendario funciona igual que hasta ahora —ofrece franjas, confirma
+# la reserva y manda el correo— y lo único que falta es que vea la agenda real
+# de Gustavo y que la cita traiga su enlace de Meet.
+# Cómo sacarlas, paso a paso, en docs/TRAMITES-EXTERNOS.md §X-02.
+# GOOGLE_SA_EMAIL=<...@....iam.gserviceaccount.com>
+# La clave privada del JSON de la cuenta de servicio, con los \n escapados tal
+# como vienen. El código deshace el escape; si se pegan saltos de línea de
+# verdad, la variable se parte y `createSign` lanza un error que no explica nada.
+# GOOGLE_SA_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+# GOOGLE_CALENDAR_ID=<id del calendario «Asesorías Plano Base»>
+# La cuenta en cuyo nombre actúa la cuenta de servicio (delegación de dominio).
+# GOOGLE_IMPERSONA=proyectos@planobase.co
 
 # --- apbs ---
 # Protege el cron que avisa cuando un dato de las calculadoras va a caducar.

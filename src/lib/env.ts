@@ -130,6 +130,51 @@ export function configSupabaseAdmin(): { url: string; claveServicio: string } {
 }
 
 /**
+ * Si hay credenciales para hablar con Google Calendar.
+ *
+ * Mismo patrón que `haySupabaseAdmin()`, y por la misma razón: sin esto el
+ * calendario funciona exactamente como hasta hoy —ofrece sus franjas y confirma
+ * la reserva— y lo único que falta es que vea la agenda real y traiga el enlace
+ * de Meet. **Una credencial ausente no puede costar una cita.**
+ */
+export function hayGoogleCalendar(): boolean {
+  return Boolean(
+    process.env.GOOGLE_SA_EMAIL &&
+      process.env.GOOGLE_SA_PRIVATE_KEY &&
+      process.env.GOOGLE_CALENDAR_ID &&
+      process.env.GOOGLE_IMPERSONA,
+  )
+}
+
+/** Lanza si falta algo. Llamar solo tras comprobar `hayGoogleCalendar()`. */
+export function configGoogleCalendar(): {
+  cuentaServicio: string
+  clavePrivada: string
+  calendarioId: string
+  impersona: string
+} {
+  enServidor('configGoogleCalendar()')
+  return {
+    cuentaServicio: requerida('GOOGLE_SA_EMAIL', process.env.GOOGLE_SA_EMAIL),
+    /* Los saltos de línea de una clave PEM viajan escapados dentro de una
+       variable de entorno. Sin deshacer el escape, `createSign` lanza
+       «error:1E08010C:DECODER routines::unsupported», que no dice
+       absolutamente nada sobre la causa real y cuesta una tarde. */
+    clavePrivada: requerida(
+      'GOOGLE_SA_PRIVATE_KEY',
+      process.env.GOOGLE_SA_PRIVATE_KEY,
+    ).replace(/\\n/g, '\n'),
+    calendarioId: requerida(
+      'GOOGLE_CALENDAR_ID',
+      process.env.GOOGLE_CALENDAR_ID,
+    ),
+    /* La cuenta cuyo calendario se lee y en cuyo nombre se crean los eventos.
+       Es la delegación de dominio: la cuenta de servicio actúa *como* ella. */
+    impersona: requerida('GOOGLE_IMPERSONA', process.env.GOOGLE_IMPERSONA),
+  }
+}
+
+/**
  * El secreto con el que se firma el sello de tiempo de los formularios.
  *
  * Cae a `LEAD_IP_SALT` a propósito, y no por pereza: las dos son el mismo tipo

@@ -14,6 +14,7 @@ import { franjasPosibles } from '@/lib/agenda/franjas'
 import { verificarSello } from '@/lib/formulario/sello'
 import { enviarConfirmacionReserva } from '@/lib/correo/reserva'
 import { CITAS, TIPO_POR_DEFECTO, esTipoCita } from '@content/site'
+import { crearEvento } from '@/lib/google/calendario'
 import { politicaDatos } from '@content/legal'
 
 /**
@@ -148,6 +149,42 @@ export async function crearReserva(raw: unknown): Promise<ReservaResult> {
      hecha: está en la base y el estudio la ve. Al revés —devolver error porque
      no salió un correo— perdería una cita ya ganada. */
   after(async () => {
+    /* La cita en el calendario de Gustavo, con su sala de Meet.
+       **Después del INSERT y nunca antes.** La reserva ya está escrita y
+       confirmada a estas alturas: si Google no contesta, se pierde el enlace,
+       no la cita. `crearEvento` devuelve `null` en vez de lanzar, y el correo
+       de abajo ya sabe contarlo. */
+    let evento: Awaited<ReturnType<typeof crearEvento>> = null
+    try {
+      evento = await crearEvento({
+        reservaId: data.id as string,
+        titulo: `${cita.nombre} · ${r.nombre}`,
+        descripcion: [
+          `${cita.nombre} agendada desde planobase.co`,
+          `WhatsApp: ${r.whatsapp}`,
+          r.mensaje ? `\nLo que cuenta:\n${r.mensaje}` : '',
+        ]
+          .filter(Boolean)
+          .join('\n'),
+        inicio,
+        fin,
+        invitado: { correo: r.correo, nombre: r.nombre },
+      })
+
+      if (evento) {
+        /* Se guardan los dos: el enlace para reenviarlo, y el id del evento
+           para poder moverlo o cancelarlo el día que exista D-22. Si esta
+           escritura falla no se deshace nada — el evento ya está en el
+           calendario y el correo ya lleva el enlace. */
+        await supabaseAdmin()
+          .from('reservas')
+          .update({ enlace: evento.enlace, evento_google: evento.id })
+          .eq('id', data.id)
+      }
+    } catch (e) {
+      console.error('[reservas] Google no pudo crear el evento:', e)
+    }
+
     try {
       const salio = await enviarConfirmacionReserva({
         idioma,
@@ -159,9 +196,9 @@ export async function crearReserva(raw: unknown): Promise<ReservaResult> {
         correo: r.correo,
         inicio,
         fin,
-        /* Nulo hasta que existan las credenciales de Google (X-02). La
-           plantilla ya lo contempla y avisa de que el enlace llega aparte. */
-        enlace: null,
+        /* Nulo si Google no está configurado o no contestó. La plantilla ya lo
+           contempla y avisa de que el enlace llega en un segundo correo. */
+        enlace: evento?.enlace ?? null,
       })
       if (!salio) console.error('[reservas] La confirmación no salió.')
     } catch (e) {

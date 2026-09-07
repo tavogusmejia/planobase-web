@@ -121,14 +121,42 @@ Los pasos, en orden:
 1. Crear un proyecto en Google Cloud.
 2. Habilitar la **Google Calendar API** en ese proyecto.
 3. Crear una **cuenta de servicio** y descargar su clave.
-4. Autorizar la **delegación de dominio** en la consola de Workspace, con **un
-   solo scope**: el de calendario. No más.
+4. Autorizar la **delegación de dominio** en la consola de Workspace, con
+   **dos scopes y ni uno más**:
+
+   ```
+   https://www.googleapis.com/auth/calendar.events
+   https://www.googleapis.com/auth/calendar.readonly
+   ```
+
+   **Corrección del 6/9/2026.** Esto decía «un solo scope». `calendar.events`
+   basta para *crear* la cita, pero no consta que baste para consultar la
+   disponibilidad con `freeBusy`, que es la mitad de por qué se hace todo esto.
+   Si faltara, el fallo sería un `403 insufficientPermissions` que solo
+   aparecería el día que las credenciales existan — es decir, en el peor momento
+   posible y después de haber hecho el trámite entero.
+
+   Ninguno de los dos permite borrar nada. El scope amplio `auth/calendar` sí, y
+   por eso no se pide: hay una prueba (`tests/google/jwt.test.ts`) que falla si
+   alguien lo añade al código.
 5. Crear un calendario nuevo, «Asesorías Plano Base», y compartirlo con la
    cuenta de servicio.
 
-**Qué desbloquea:** la Entrega A entera —calendario, Google Meet y el correo de
-confirmación—. La plantilla de ese correo, con el `.ics` adjunto, **ya está
-escrita y probada**: no espera al calendario, lo espera él a ella.
+**Qué desbloquea:** que el calendario vea la agenda real de Gustavo y que la
+cita traiga su enlace de Meet. **El código ya está escrito, probado y
+desplegado** (6/9/2026): sin estas credenciales el sitio se comporta
+exactamente como hasta ahora —ofrece franjas, confirma la reserva y manda el
+correo, avisando de que el enlace llega aparte—. Esto es un interruptor, no una
+tarea de desarrollo pendiente.
+
+**Las cuatro variables que hay que pegar en Vercel**, con estos nombres:
+
+```
+GOOGLE_SA_EMAIL          la cuenta de servicio, ...@....iam.gserviceaccount.com
+GOOGLE_SA_PRIVATE_KEY    la clave privada del JSON, con los \n tal cual vienen
+GOOGLE_CALENDAR_ID       el id del calendario «Asesorías Plano Base»
+GOOGLE_IMPERSONA         proyectos@planobase.co
+```
 
 **Costo adicional: $0.** No hay que contratar nada.
 

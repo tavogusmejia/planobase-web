@@ -4,6 +4,7 @@ import { haySupabaseAdmin } from '@/lib/env'
 import { franjasLibres, franjasPosibles, type Franja } from '@/lib/agenda/franjas'
 import { CITAS, TIPO_POR_DEFECTO, esTipoCita } from '@content/site'
 import { VENTANA_DIAS } from '@content/agenda'
+import { ocupadosDe } from '@/lib/google/calendario'
 
 /**
  * Las franjas libres de la asesoría.
@@ -73,8 +74,23 @@ export async function GET(peticion: Request) {
       inicio: r.inicio as string,
       fin: r.fin as string,
     }))
+
+    /* Y lo que ocupa el calendario real de Gustavo, que es lo que la base no
+       puede saber. Hasta ahora la agenda solo conocía las citas que ella misma
+       había creado, así que si había una reunión a las diez el sitio seguía
+       ofreciendo las diez.
+
+       Si Google no contesta esto devuelve una lista vacía y se sigue con lo que
+       hay en la base — que es exactamente el comportamiento de antes, ni mejor
+       ni peor. No ofrecer nada sería peor: una hora ocupada cuesta un correo
+       para moverla; una agenda en blanco cuesta el clic del anuncio. */
+    const enGoogle = await ocupadosDe(new Date(desde), new Date(hasta))
+
     return NextResponse.json(
-      { franjas: franjasLibres(posibles, ocupados), hayAgenda: true },
+      {
+        franjas: franjasLibres(posibles, [...ocupados, ...enGoogle]),
+        hayAgenda: true,
+      },
       { headers: { 'Cache-Control': 'no-store' } },
     )
   } catch (e) {

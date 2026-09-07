@@ -198,6 +198,9 @@
   },
   "reserva": {
     "titulo": "Elija cuándo hablamos",
+    "queAgenda": "¿Qué quiere agendar?",
+    "duracionYPrecio": "{minutos} min · {precio}",
+    "sinCosto": "Sin costo",
     "cargando": "Buscando horas disponibles",
     "sinFranjas": "No hay horas libres en las próximas dos semanas. Escríbanos y la buscamos.",
     "zona": "Hora de Colombia (GMT-5)",

@@ -161,15 +161,22 @@ describe('franjasLibres', () => {
        `2026-09-10T15:00:00.000Z` y la base la devuelve como
        `2026-09-10T15:00:00+00:00`. Es el mismo instante y dos cadenas
        distintas: comparándolas como texto, la franja ya vendida se sigue
-       ofreciendo y dos personas reservan la misma hora. */
-    const libres = franjasLibres(posibles, ['2026-09-10T15:00:00+00:00'])
+       ofreciendo y dos personas reservan la misma hora.
+
+       Desde que se compara por solape, la normalización tiene que funcionar en
+       los cuatro extremos y no en uno, así que este caso cubre más que antes. */
+    const libres = franjasLibres(posibles, [
+      { inicio: '2026-09-10T15:00:00+00:00', fin: '2026-09-10T15:15:00+00:00' },
+    ])
     expect(libres.map((f) => f.inicio)).toEqual(['2026-09-10T15:30:00.000Z'])
   })
 
   it('también con el desplazamiento de Bogotá, que es como se pudo guardar', () => {
     // `2026-09-10T10:00:00-05:00` son las 15:00Z: mismo instante, tercera forma
     // de escribirlo.
-    const libres = franjasLibres(posibles, ['2026-09-10T10:00:00-05:00'])
+    const libres = franjasLibres(posibles, [
+      { inicio: '2026-09-10T10:00:00-05:00', fin: '2026-09-10T10:15:00-05:00' },
+    ])
     expect(libres.map((f) => f.inicio)).toEqual(['2026-09-10T15:30:00.000Z'])
   })
 

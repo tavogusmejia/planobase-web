@@ -37,12 +37,23 @@ export const reservaSchema = z.object({
   mensaje: z.string().trim().max(2000, 'errores.largo').optional(),
 
   /**
+   * Cuál de los dos servicios se agenda.
+   *
+   * Se acota a las dos cadenas y nada más. **De aquí no sale ni la duración ni
+   * el precio**: los resuelve la Server Action contra el catálogo del servidor,
+   * porque un número que llega del navegador es un número que alguien puede
+   * elegir. Opcional para no romper una pestaña abierta desde antes del cambio;
+   * si falta, se agenda la primera llamada.
+   */
+  tipo: z.enum(['primera-llamada', 'asesoria-tecnica']).optional(),
+
+  /**
    * El instante elegido, en ISO y UTC.
    *
    * Se valida que sea una fecha real, pero **que la franja siga libre no se
    * comprueba aquí**: entre validar y escribir caben otras peticiones. Eso lo
-   * garantiza el índice único de la tabla, que es el único sitio donde la
-   * garantía es de verdad.
+   * garantiza la restricción de exclusión de la tabla, que es el único sitio
+   * donde la garantía es de verdad.
    */
   inicio: z
     .string()

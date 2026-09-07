@@ -13,7 +13,7 @@ import {
 import { franjasPosibles } from '@/lib/agenda/franjas'
 import { verificarSello } from '@/lib/formulario/sello'
 import { enviarConfirmacionReserva } from '@/lib/correo/reserva'
-import { primeraLlamada } from '@content/site'
+import { CITAS, TIPO_POR_DEFECTO, esTipoCita } from '@content/site'
 import { politicaDatos } from '@content/legal'
 
 /**
@@ -78,15 +78,22 @@ export async function crearReserva(raw: unknown): Promise<ReservaResult> {
      el mismo cálculo que produjo la lista, así que un instante inventado —o uno
      que ya quedó fuera de la antelación mínima mientras el visitante llenaba el
      formulario— no pasa. */
+  /* Del navegador solo viaja el tipo, y la duración y el precio se resuelven
+     aquí contra el catálogo. **Nunca al revés.** Si esos dos números pudieran
+     llegar en la petición, alguien mandaría `duracionMin: 1` y se colaría entre
+     dos citas, o `precioCOP: 0` y agendaría la de pago gratis. */
+  const tipo = esTipoCita(r.tipo) ? r.tipo : TIPO_POR_DEFECTO
+  const cita = CITAS[tipo]
+
   const inicio = new Date(r.inicio)
-  const valida = franjasPosibles(primeraLlamada.duracionMin).some(
+  const valida = franjasPosibles(cita.duracionMin).some(
     (f) => new Date(f.inicio).getTime() === inicio.getTime(),
   )
   if (!valida) {
     return { ok: false, errores: {}, general: 'general.franjaNoValida' }
   }
 
-  const fin = new Date(inicio.getTime() + primeraLlamada.duracionMin * 60_000)
+  const fin = new Date(inicio.getTime() + cita.duracionMin * 60_000)
   const idioma = r.idioma === 'en' ? 'en' : 'es'
 
   const h = await headers()
@@ -103,6 +110,12 @@ export async function crearReserva(raw: unknown): Promise<ReservaResult> {
       mensaje: r.mensaje ?? null,
       inicio: inicio.toISOString(),
       fin: fin.toISOString(),
+      tipo,
+      precio_cop: cita.precioCOP,
+      /* Mientras el cobro se cierra a mano por WhatsApp, esto es lo que le dice
+         al estudio qué citas están cobradas. La gratuita no tiene estado de
+         pago porque no hay nada que cobrar. */
+      pago_estado: cita.precioCOP > 0 ? 'pendiente' : null,
       locale: idioma,
       origen: 'web/agendar',
       utm_source: r.utmSource ?? null,
@@ -113,11 +126,18 @@ export async function crearReserva(raw: unknown): Promise<ReservaResult> {
     .single()
 
   if (error) {
-    /* 23505 es la violación del índice único: alguien se quedó con la franja
-       mientras esta persona llenaba el formulario. No es un fallo del sistema
-       sino una carrera perdida, y merece un mensaje distinto — el de un error
-       genérico haría pensar que el sitio está roto. */
-    if (error.code === '23505') {
+    /* Alguien se quedó con la franja mientras esta persona llenaba el
+       formulario. No es un fallo del sistema sino una carrera perdida, y merece
+       un mensaje distinto — el genérico haría pensar que el sitio está roto.
+
+       **Son dos códigos y hay que reconocer los dos.** `23P01` es la violación
+       de la restricción de exclusión, que es la que vigila el solape desde que
+       hay dos duraciones. `23505` era el del índice único que la precedió, y se
+       mantiene por una razón práctica: esta migración se pega a mano en
+       Supabase, así que entre desplegar el código y aplicarla hay un rato en el
+       que la base todavía responde con el viejo. Quitarlo dejaría ese hueco sin
+       mensaje bueno. */
+    if (error.code === '23P01' || error.code === '23505') {
       return { ok: false, errores: {}, general: 'general.franjaTomada' }
     }
     console.error('[reservas] No se pudo insertar:', error.message)

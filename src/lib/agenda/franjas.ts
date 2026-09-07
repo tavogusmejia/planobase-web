@@ -131,17 +131,47 @@ export function franjasPosibles(
   return salida.sort((a, b) => a.inicio.localeCompare(b.inicio))
 }
 
-/** Las que quedan libres, quitando las que ya están tomadas. */
-export function franjasLibres(
-  posibles: Franja[],
-  ocupadas: string[],
-): Franja[] {
-  /* Se comparan instantes normalizados y no las cadenas tal cual: Postgres
-     devuelve `2026-09-10T15:00:00+00:00` y aquí se generó
-     `2026-09-10T15:00:00.000Z`. Son el mismo momento y dos cadenas distintas,
-     y compararlas como texto dejaría ofrecer una franja ya vendida. */
-  const tomadas = new Set(ocupadas.map((o) => new Date(o).getTime()))
-  return posibles.filter((f) => !tomadas.has(new Date(f.inicio).getTime()))
+/** Un tramo de tiempo ocupado: una reserva, o un hueco de otra agenda. */
+export type Rango = { inicio: string; fin: string }
+
+/**
+ * Si dos tramos se pisan.
+ *
+ * **El intervalo es semiabierto `[inicio, fin)`**: una cita que termina a las
+ * 10:00 y otra que empieza a las 10:00 no se solapan. Es la misma convención
+ * que el `tstzrange(inicio, fin, '[)')` de la restricción de la base, y las dos
+ * tienen que coincidir — si divergen, el sitio ofrece una hora que la base va a
+ * rechazar, o esconde una que estaba libre.
+ *
+ * **Nunca comparar las cadenas tal cual.** Postgres devuelve
+ * `2026-09-10T15:00:00+00:00` y aquí se genera `2026-09-10T15:15:00.000Z`: son
+ * el mismo huso y dos formatos, y `<` sobre texto da un orden lexicográfico sin
+ * ningún sentido. Se normalizan los cuatro extremos.
+ */
+export function solapan(a: Rango, b: Rango): boolean {
+  return (
+    new Date(a.inicio).getTime() < new Date(b.fin).getTime() &&
+    new Date(b.inicio).getTime() < new Date(a.fin).getTime()
+  )
+}
+
+/**
+ * Las que quedan libres, quitando todo lo que se pise con algo ocupado.
+ *
+ * **Antes esto comparaba instantes de inicio exactos**, y funcionaba mientras
+ * todas las citas duraran lo mismo: con quince minutos para todo el mundo, dos
+ * citas o empiezan a la vez o no se tocan. Dejó de valer por dos motivos que
+ * llegaron juntos: los servicios duran quince y sesenta minutos —una llamada a
+ * las 10:00 y una asesoría a las 10:15 no comparten inicio y comparten un
+ * cuarto de hora—, y la disponibilidad real de Google llega como tramos de
+ * duración arbitraria que no empiezan en ninguna franja.
+ *
+ * Se sustituyó en vez de añadir una función al lado: dejar viva la versión que
+ * ya no es correcta solo garantiza que alguien la llame dentro de tres meses.
+ */
+export function franjasLibres(posibles: Franja[], ocupados: Rango[]): Franja[] {
+  if (ocupados.length === 0) return posibles
+  return posibles.filter((f) => !ocupados.some((o) => solapan(f, o)))
 }
 
 /** Agrupa por día local, que es como se pinta y como se decide. */

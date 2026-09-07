@@ -198,6 +198,9 @@
   },
   "reserva": {
     "titulo": "Choose when we talk",
+    "queAgenda": "What would you like to book?",
+    "duracionYPrecio": "{minutos} min · {precio}",
+    "sinCosto": "Free",
     "cargando": "Looking for available times",
     "sinFranjas": "There are no free times in the next two weeks. Write to us and we will find one.",
     "zona": "Colombia time (GMT-5)",

@@ -38,9 +38,11 @@ describe('la escalera', () => {
     /* El orden importa y es una decisión, no un accidente: el salto de una
        llamada gratis a una visita al predio era demasiado grande, y la
        asesoría de pago existe para partirlo en dos. */
-    expect(escalera[0].slug).toBe('primera-llamada')
-    expect(escalera[1].slug).toBe('asesoria-tecnica')
-    expect(escalera[2].slug).toBe('visita-tecnica-con-informe')
+    expect(escalera.map((p) => p.slug).slice(0, 3)).toEqual([
+      'primera-llamada',
+      'asesoria-tecnica',
+      'visita-tecnica-con-informe',
+    ])
   })
 
   it('tiene traducción para cada peldaño, y ninguna sobra', () => {

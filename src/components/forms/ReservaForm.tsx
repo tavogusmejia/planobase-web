@@ -12,6 +12,12 @@ import { cn } from '@/lib/utils'
 import { track } from '@/lib/analytics'
 import { atribucionActual } from '@/lib/atribucion'
 import { useSelloTiempo } from './useSelloTiempo'
+import {
+  CITAS,
+  TIPO_POR_DEFECTO,
+  esTipoCita,
+  type TipoCita,
+} from '@content/site'
 
 /**
  * Reservar la asesoría sin hablar con nadie.
@@ -89,6 +95,23 @@ export function ReservaForm() {
     return t.has(k) ? (t(k) as string) : (t('general.fallo') as string)
   }
 
+  /* Qué servicio se está agendando. Empieza por la gratuita y `?tipo=` lo
+     cambia después de montar, para que la ficha de /servicios/asesoria-tecnica
+     pueda enlazar directo a su propio calendario.
+
+     **Se lee de `window.location.search` y no con `useSearchParams`, y no es
+     una preferencia.** `useSearchParams` obliga a envolver el componente en un
+     Suspense y, sin él, saca de la prerenderización a la página entera — el
+     build falla con `missing-suspense-with-csr-bailout`. Y `/agendar` tiene que
+     salir del build ya hecha: es donde aterriza la pauta. Es la misma decisión,
+     por la misma razón, que ya tomó `components/analytics/Atribucion.tsx`. */
+  const [tipo, setTipo] = useState<TipoCita>(TIPO_POR_DEFECTO)
+
+  useEffect(() => {
+    const pedido = new URLSearchParams(window.location.search).get('tipo')
+    if (esTipoCita(pedido)) setTipo(pedido)
+  }, [])
+
   const [franjas, setFranjas] = useState<Franja[] | null>(null)
   const [hayAgenda, setHayAgenda] = useState(true)
   const [elegida, setElegida] = useState<string | null>(null)
@@ -106,9 +129,9 @@ export function ReservaForm() {
   })
 
   /** Pide las franjas al montar, y las vuelve a pedir si una carrera se pierde. */
-  const cargar = async () => {
+  const cargar = async (cual: TipoCita = tipo) => {
     try {
-      const r = await fetch('/api/agenda', { cache: 'no-store' })
+      const r = await fetch(`/api/agenda?tipo=${cual}`, { cache: 'no-store' })
       const d = (await r.json()) as { franjas: Franja[]; hayAgenda: boolean }
       setFranjas(d.franjas)
       setHayAgenda(d.hayAgenda)
@@ -124,11 +147,19 @@ export function ReservaForm() {
      atribuyéndose a ese anuncio. Ventana de caducidad y consentimiento, en
      `src/lib/atribucion.ts`. */
   useEffect(() => {
-    void cargar()
+    /* Se recarga al cambiar de servicio, y no es cosmético: las horas de una
+       cita de una hora no son las mismas que las de quince minutos, y una
+       reserva ajena de las 10:15 tapa la asesoría de las 10:00 sin tapar
+       ninguna llamada. La lista anterior deja de ser cierta. */
+    setFranjas(null)
+    setElegida(null)
+    setValue('tipo', tipo)
+    void cargar(tipo)
     const { utmSource, utmCampaign } = atribucionActual()
     if (utmSource) setValue('utmSource', utmSource)
     if (utmCampaign) setValue('utmCampaign', utmCampaign)
-  }, [setValue])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setValue, tipo])
 
   /* El sello nace al pintarse la página, no al aparecer los campos: quien elige
      franja ya lleva un rato aquí, y volver a contar desde ese momento
@@ -179,11 +210,55 @@ export function ReservaForm() {
     )
   }
 
+  /* El selector va FUERA de las salidas de abajo, y eso importa. Al cambiar de
+     servicio la lista se vacía mientras llegan las franjas nuevas, y si el
+     selector viviera dentro del formulario desaparecería justo entonces: quien
+     pulsara la asesoría por error se quedaría mirando «Buscando horas» sin
+     forma de volver. Es también lo que pasa cuando un servicio se queda sin
+     horas libres y el otro no. */
+  const selector = (
+    <fieldset className="mb-10">
+      <legend className="text-small text-muted">{t('queAgenda')}</legend>
+      <div className="mt-4 flex flex-wrap gap-3">
+        {(Object.keys(CITAS) as TipoCita[]).map((clave) => {
+          const cita = CITAS[clave]
+          const activo = clave === tipo
+          return (
+            <button
+              key={clave}
+              type="button"
+              onClick={() => setTipo(clave)}
+              aria-pressed={activo}
+              className={cn(
+                'border px-5 py-3 text-left transition-colors',
+                activo
+                  ? 'border-accent text-ink'
+                  : 'border-line text-ink-soft hover:border-line-control',
+              )}
+            >
+              <span className="text-body block">{cita.nombre}</span>
+              <span className="text-small mt-1 block text-muted">
+                {t('duracionYPrecio', {
+                  minutos: cita.duracionMin,
+                  precio:
+                    cita.precioCOP === 0
+                      ? t('sinCosto')
+                      : `$${cita.precioCOP.toLocaleString('es-CO')}`,
+                })}
+              </span>
+            </button>
+          )
+        })}
+      </div>
+    </fieldset>
+  )
+
   /* Sin agenda no se enseña un calendario vacío ni un error: se enseña la vía
      que sí funciona. */
   if (franjas !== null && (!hayAgenda || franjas.length === 0)) {
     return (
       <div>
+        {selector}
         <p className="text-body measure text-ink-soft">
           {hayAgenda ? t('sinFranjas') : t('general.sinAgenda')}
         </p>
@@ -196,7 +271,12 @@ export function ReservaForm() {
   }
 
   if (franjas === null) {
-    return <p className="text-small text-muted">{t('cargando')}…</p>
+    return (
+      <div>
+        {selector}
+        <p className="text-small text-muted">{t('cargando')}…</p>
+      </div>
+    )
   }
 
   return (
@@ -206,7 +286,10 @@ export function ReservaForm() {
         setGeneral(null)
         const res = await crearReserva({ ...data, idioma, selloTiempo: sello })
         if (res.ok) {
-          track('Schedule', { content_name: 'asesoria' })
+          /* El nombre del servicio viaja con el evento: sin él, el día que
+             haya pauta no se podría distinguir una llamada gratuita de una
+             asesoría vendida, que es justo la diferencia que importa. */
+          track('Schedule', { content_name: tipo, value: CITAS[tipo].precioCOP })
           setListo(true)
           return
         }
@@ -221,12 +304,14 @@ export function ReservaForm() {
           if (res.general.includes('franja')) {
             setElegida(null)
             setValue('inicio', '')
-            void cargar()
+            void cargar(tipo)
           }
         }
       })}
       className="space-y-10"
     >
+      {selector}
+
       <div>
         <h2 className="text-h4 text-ink">{t('titulo')}</h2>
         <p className="text-block mt-2 text-muted">{t('zona')}</p>

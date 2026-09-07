@@ -118,7 +118,10 @@ export default async function AsesoriaTecnicaPage({
 
       <div className="mt-14 flex flex-wrap gap-4">
         <Link
-          href="/agendar"
+          /* Con el tipo puesto: /agendar empieza en la primera llamada, y
+             quien llega desde aquí ya eligió la de pago. Sin esto tendría que
+             volver a elegirla. */
+          href="/agendar?tipo=asesoria-tecnica"
           className="text-block bg-signal px-7 py-4 uppercase tracking-[0.08em] text-paper transition-opacity hover:opacity-90"
         >
           {tc('reservar')}

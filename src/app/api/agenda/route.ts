@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase/admin'
 import { haySupabaseAdmin } from '@/lib/env'
 import { franjasLibres, franjasPosibles, type Franja } from '@/lib/agenda/franjas'
-import { primeraLlamada } from '@content/site'
+import { CITAS, TIPO_POR_DEFECTO, esTipoCita } from '@content/site'
 import { VENTANA_DIAS } from '@content/agenda'
 
 /**
@@ -21,8 +21,19 @@ import { VENTANA_DIAS } from '@content/agenda'
  */
 export const dynamic = 'force-dynamic'
 
-export async function GET() {
-  const posibles = franjasPosibles(primeraLlamada.duracionMin)
+export async function GET(peticion: Request) {
+  /* El tipo llega por query porque las franjas de quince minutos no son las
+     mismas que las de una hora, y la página tiene que poder pedir unas u otras
+     sin recargar.
+
+     Un valor raro cae al tipo por defecto en vez de devolver 400. Es la misma
+     regla que el resto de esta ruta: aquí no se devuelve nunca un error. Quien
+     llega con `?tipo=cualquiercosa` —un enlace mal copiado, un rastreador— tiene
+     que ver la agenda de la primera llamada, no una página rota justo donde
+     aterriza la pauta. */
+  const crudo = new URL(peticion.url).searchParams.get('tipo')
+  const tipo = esTipoCita(crudo) ? crudo : TIPO_POR_DEFECTO
+  const posibles = franjasPosibles(CITAS[tipo].duracionMin)
 
   if (!haySupabaseAdmin()) {
     return NextResponse.json(
@@ -39,9 +50,15 @@ export async function GET() {
 
     const { data, error } = await supabaseAdmin()
       .from('reservas')
-      .select('inicio')
+      /* `fin` además de `inicio`: con dos duraciones lo que ocupa la agenda es
+         el tramo entero, no el instante en que empieza. */
+      .select('inicio, fin')
       .neq('estado', 'cancelada')
-      .gte('inicio', desde)
+      /* Se filtra por `fin` y no por `inicio`: una cita que empezó hace media
+         hora y todavía no ha terminado sigue ocupando, y con `inicio >= ahora`
+         se quedaba fuera de la consulta. Con citas de quince minutos casi nunca
+         se notaba; con una hora, sí. */
+      .gte('fin', desde)
       .lte('inicio', hasta)
 
     if (error) {
@@ -52,9 +69,12 @@ export async function GET() {
       )
     }
 
-    const ocupadas = (data ?? []).map((r) => r.inicio as string)
+    const ocupados = (data ?? []).map((r) => ({
+      inicio: r.inicio as string,
+      fin: r.fin as string,
+    }))
     return NextResponse.json(
-      { franjas: franjasLibres(posibles, ocupadas), hayAgenda: true },
+      { franjas: franjasLibres(posibles, ocupados), hayAgenda: true },
       { headers: { 'Cache-Control': 'no-store' } },
     )
   } catch (e) {

@@ -32,6 +32,19 @@ export const entornoPublico = {
    * Sin ella, Ads recibe la conversión sin saber cuál es y no la cuenta.
    */
   googleAdsEtiquetaLead: process.env.NEXT_PUBLIC_GOOGLE_ADS_LEAD_LABEL ?? '',
+
+  /**
+   * La etiqueta de la conversión «reserva», que es una distinta.
+   *
+   * Una reserva y un formulario enviado no valen lo mismo: la reserva trae hora
+   * puesta en el calendario. Con una sola etiqueta Ads las sumaría y
+   * optimizaría hacia la mezcla, que es la peor de las dos decisiones posibles.
+   *
+   * Vacía hasta que exista la cuenta de Ads (X-05). Sin ella no se dispara nada
+   * y no se rompe nada.
+   */
+  googleAdsEtiquetaReserva:
+    process.env.NEXT_PUBLIC_GOOGLE_ADS_SCHEDULE_LABEL ?? '',
 } as const
 
 /**

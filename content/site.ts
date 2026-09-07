@@ -410,9 +410,17 @@ export const CITAS = {
  */
 export const TIPO_POR_DEFECTO: TipoCita = 'primera-llamada'
 
-/** Si una cadena cualquiera —una query, un campo de formulario— nombra un tipo. */
+/**
+ * Si una cadena cualquiera —una query, un campo de formulario— nombra un tipo.
+ *
+ * **`Object.hasOwn` y no `in`.** El operador `in` recorre la cadena de
+ * prototipos, así que `'constructor' in CITAS` es `true` y esto daba por bueno
+ * `?tipo=constructor`: `CITAS['constructor']` devolvía la función `Object`, su
+ * `duracionMin` era `undefined`, y el cálculo de franjas se iba a `NaN`. Lo
+ * mismo con `toString` o `valueOf`. Lo encontró una prueba, no una revisión.
+ */
 export function esTipoCita(valor: unknown): valor is TipoCita {
-  return typeof valor === 'string' && valor in CITAS
+  return typeof valor === 'string' && Object.hasOwn(CITAS, valor)
 }
 
 /**

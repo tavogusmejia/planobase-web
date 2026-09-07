@@ -72,13 +72,36 @@ export function track(evento: EventoMeta, parametros?: ParametrosEvento): void {
 
     /* La conversión de Ads es un envío aparte del evento de GA4, y hace falta
        la etiqueta: sin ella Ads recibe algo que no sabe clasificar y no lo
-       cuenta. Solo el lead, que es la conversión declarada del plan de
-       campaña; mandar todo como conversión desdibuja justo la cifra por la que
-       se decide qué anuncio se apaga. */
-    const { googleAdsId, googleAdsEtiquetaLead } = entornoPublico
-    if (evento === 'Lead' && googleAdsId && googleAdsEtiquetaLead) {
+       cuenta.
+
+       **Dos conversiones, no una.** Hasta ahora solo se declaraba el lead, y
+       una reserva —que es una cita con hora puesta— no llegaba a Ads en
+       absoluto: Meta se enteraba por el Píxel y Google no se enteraba de nada.
+       Van con etiquetas distintas a propósito, porque un formulario enviado y
+       una hora agendada no valen lo mismo y sumarlas hace que Ads optimice
+       hacia la mezcla.
+
+       Lo que no se manda como conversión sigue sin mandarse: `Contact` y
+       `ViewContent` son señales de recorrido, y declararlas conversión
+       desdibuja la cifra por la que se decide qué anuncio se apaga. */
+    const { googleAdsId, googleAdsEtiquetaLead, googleAdsEtiquetaReserva } =
+      entornoPublico
+
+    const etiqueta =
+      evento === 'Lead'
+        ? googleAdsEtiquetaLead
+        : evento === 'Schedule'
+          ? googleAdsEtiquetaReserva
+          : ''
+
+    if (etiqueta && googleAdsId) {
       window.gtag('event', 'conversion', {
-        send_to: `${googleAdsId}/${googleAdsEtiquetaLead}`,
+        send_to: `${googleAdsId}/${etiqueta}`,
+        /* El valor viaja cuando lo hay: una asesoría de $50.000 y una llamada
+           gratuita son dos conversiones que Ads no debería tratar igual. */
+        ...(typeof parametros?.value === 'number'
+          ? { value: parametros.value, currency: 'COP' }
+          : {}),
       })
     }
   }

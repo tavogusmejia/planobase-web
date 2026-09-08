@@ -121,18 +121,21 @@ export const bios: Record<string, string> = {
     'contact between owners, suppliers and contractors. A finalist in an ' +
     'international ideas competition and a DAAD scholarship recipient.',
   'laura-cuesta':
-    'A graphic designer from Universidad del Valle. She works in multimedia, ' +
-    'editorial and web design, and in illustration. For four years she ran ' +
-    'interactive media at Centro Magis, Universidad Javeriana in Cali.',
+    'A graphic designer from Universidad del Valle. She has been with Plano ' +
+    'Base since January 2025. She works in multimedia, editorial and web ' +
+    'design, and in illustration. Before that she ran interactive media at ' +
+    'Centro Magis, Universidad Javeriana in Cali, for four years.',
   'carlos-orozco':
     'A civil engineer from Universidad de Cartagena, with a specialization in ' +
     "structural analysis and design and a master's from Politecnico di " +
-    'Torino. He designs bridges: eight steel-and-concrete composite ones, ' +
+    'Torino. A Plano Base collaborator since January 2026. ' +
+    'He designs bridges: eight steel-and-concrete composite ones, ' +
     'including a fifteen-span crossing. Before that he supervised a ' +
     'seven-storey building in Bogotá.',
   'nicolas-gomez':
-    'A mechanical engineer from Universidad Nacional. Since 2019 he has ' +
-    'worked between the field and management: smart building commissioning, ' +
+    'A mechanical engineer from Universidad Nacional, with Plano Base since ' +
+    'late 2024. He has worked between the field and management since 2019: ' +
+    'smart building commissioning, ' +
     'drone thermography and energy diagnostics. An ISO 50001 internal auditor ' +
     'and a certified drone pilot.',
 }

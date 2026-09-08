@@ -182,9 +182,10 @@ export const equipo: TeamMember[] = [
     cargo: ['Diseño Gráfico'],
     foto: fotosEquipo['laura-cuesta'] ?? null,
     bio:
-      'Diseñadora gráfica de la Universidad del Valle. Trabaja el diseño ' +
-      'multimedia, editorial y web, y la ilustración. Llevó durante cuatro ' +
-      'años los medios interactivos del Centro Magis de la Javeriana en Cali.',
+      'Diseñadora gráfica de la Universidad del Valle. En Plano Base desde ' +
+      'enero de 2025. Trabaja el diseño multimedia, editorial y web, y la ' +
+      'ilustración. Antes llevó durante cuatro años los medios interactivos ' +
+      'del Centro Magis de la Javeriana en Cali.',
   },
   {
     slug: 'carlos-orozco',
@@ -194,6 +195,7 @@ export const equipo: TeamMember[] = [
     bio:
       'Ingeniero civil de la Universidad de Cartagena, especialista en ' +
       'análisis y diseño de estructuras y máster por el Politécnico de Turín. ' +
+      'Colaborador de Plano Base desde enero de 2026. ' +
       'Diseña puentes: ocho mixtos de acero y hormigón, uno de ellos de quince ' +
       'vanos. Antes fue residente de un edificio de siete pisos en Bogotá.',
   },
@@ -203,8 +205,9 @@ export const equipo: TeamMember[] = [
     cargo: ['Energía'],
     foto: fotosEquipo['nicolas-gomez'] ?? null,
     bio:
-      'Ingeniero mecánico de la Universidad Nacional. Desde 2019 trabaja entre ' +
-      'la obra y la gestión: puesta en marcha de edificios inteligentes, ' +
+      'Ingeniero mecánico de la Universidad Nacional, en Plano Base desde ' +
+      'finales de 2024. Trabaja entre la obra y la gestión desde 2019: ' +
+      'puesta en marcha de edificios inteligentes, ' +
       'termografía con dron y diagnóstico energético. Auditor interno ISO ' +
       '50001 y piloto certificado de sistemas no tripulados.',
   },

@@ -116,31 +116,33 @@ export const manifiesto =
  * después el resto. Por eso solo esos tres llevan los dos apellidos: entre ellos
  * «Mejía» no distingue a nadie.
  *
- * Los cargos son los que dio Gustavo el 7/9. El de él cambió en esa misma
- * pasada —era «Gerente de Proyectos · Consultor Técnico»—, así que si algo se ve
- * distinto a como estaba, es eso y es deliberado.
+ * **Un cargo por persona, y es el área, no el puesto.** Los dictó Gustavo el
+ * 8/9 uno por uno. Antes eran dos por cabeza —«Arquitecto Director ·
+ * Representante Legal»— y en una retícula de tres columnas no cabían: se salían
+ * de su celda y se dibujaban encima del vecino. Pero el motivo de fondo no es
+ * de maquetación: quien entra aquí busca quién resuelve su problema, y «Energía»
+ * o «Estructuras Metálicas» lo dicen antes que un organigrama.
  *
- * Dos venían en inglés, «Manager Fabricaciones» y «Manager Energía», y se
- * castellanizaron con su visto bueno: eran los únicos anglicismos de un sitio
- * que va entero en español. En inglés siguen diciendo Manager, que allí es lo
- * natural.
+ * Lo que se cayó al recortar no se perdió: el segundo cargo de cada uno vive
+ * ahora dentro de su bio, que es donde se puede explicar.
  */
 export const equipo: TeamMember[] = [
   {
     slug: 'eduardo-mejia-martinez',
     nombre: 'Eduardo Mejía Martínez',
-    cargo: ['Arquitecto Director', 'Representante Legal'],
+    cargo: ['Arquitecto Director'],
     foto: fotosEquipo['eduardo-mejia-martinez'] ?? null,
     bio:
       'Arquitecto de la Universidad del Valle, de su primera promoción y con ' +
-      'tesis meritoria. Dirige el estudio desde 2022. Ganó el concurso público ' +
+      'tesis meritoria. Dirige el estudio desde 2022 y es su representante ' +
+      'legal. Ganó el concurso público ' +
       'nacional del colegio y teatro El Ensueño, en Ciudad Bolívar, y ha ' +
       'enseñado proyectos en la Javeriana y en la Universidad del Valle.',
   },
   {
     slug: 'julian-mejia-martinez',
     nombre: 'Julián Mejía Martínez',
-    cargo: ['Jefe de Fabricación', 'Construcciones en Estructura Metálica'],
+    cargo: ['Estructuras Metálicas'],
     foto: fotosEquipo['julian-mejia-martinez'] ?? null,
     bio:
       'Instalador experto de estructura metálica: empezó como soldador y llegó ' +
@@ -152,29 +154,30 @@ export const equipo: TeamMember[] = [
   {
     slug: 'gustavo-mejia-martinez',
     nombre: 'Gustavo Mejía Martínez',
-    cargo: ['Director de Proyectos', 'Construcciones Residenciales y Piscinas'],
+    cargo: ['Residencial y Piscinas'],
     foto: fotosEquipo['gustavo-mejia-martinez'] ?? null,
     bio:
       'Ingeniero mecánico de la Universidad Nacional, con maestría en gestión ' +
-      'de proyectos. Lleva obra desde 2007 entre Colombia, el Caribe ' +
+      'de proyectos, que es lo que dirige aquí. Lleva obra desde 2007 entre Colombia, el Caribe ' +
       'y Estados Unidos: piscinas de borde infinito, spas y cascadas en Bakers ' +
       'Bay, y la fuente del aeropuerto internacional de Bermuda.',
   },
   {
     slug: 'miguel-ortiz',
     nombre: 'Miguel Ortiz',
-    cargo: ['Arquitecto', 'Residente de Obra'],
+    cargo: ['Arquitectura'],
     foto: fotosEquipo['miguel-ortiz'] ?? null,
     bio:
       'Arquitecto de la Universidad del Valle. Entró al estudio como ' +
-      'practicante en 2022 y hoy coordina los proyectos: es el punto de ' +
-      'contacto entre propietarios, proveedores y contratistas. Finalista de ' +
+      'practicante en 2022 y hoy coordina los proyectos y responde por la ' +
+      'obra: es el punto de contacto entre propietarios, proveedores y ' +
+      'contratistas. Finalista de ' +
       'un concurso internacional de ideas y becado por el DAAD.',
   },
   {
     slug: 'laura-cuesta',
     nombre: 'Laura Cuesta',
-    cargo: ['Diseñadora Gráfica', 'Ilustradora'],
+    cargo: ['Diseño Gráfico'],
     foto: fotosEquipo['laura-cuesta'] ?? null,
     bio:
       'Diseñadora gráfica de la Universidad del Valle. Trabaja el diseño ' +
@@ -184,7 +187,7 @@ export const equipo: TeamMember[] = [
   {
     slug: 'carlos-orozco',
     nombre: 'Carlos Orozco',
-    cargo: ['Ingeniero Civil', 'Especialista en Infraestructura'],
+    cargo: ['Infraestructuras'],
     foto: fotosEquipo['carlos-orozco'] ?? null,
     bio:
       'Ingeniero civil de la Universidad de Cartagena, especialista en ' +
@@ -195,7 +198,7 @@ export const equipo: TeamMember[] = [
   {
     slug: 'nicolas-gomez',
     nombre: 'Nicolás Gómez',
-    cargo: ['Ingeniero Mecánico', 'Gerente de Energía'],
+    cargo: ['Energía'],
     foto: fotosEquipo['nicolas-gomez'] ?? null,
     bio:
       'Ingeniero mecánico de la Universidad Nacional. Desde 2019 trabaja entre ' +

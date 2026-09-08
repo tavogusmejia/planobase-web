@@ -145,7 +145,8 @@ export const equipo: TeamMember[] = [
     cargo: ['Estructuras Metálicas'],
     foto: fotosEquipo['julian-mejia-martinez'] ?? null,
     bio:
-      'Instalador experto de estructura metálica: empezó como soldador y llegó ' +
+      'Fabricante e instalador experto de estructura metálica: empezó como ' +
+      'soldador y llegó ' +
       'a supervisar el montaje en obra. Hoy dirige un taller de fabricación ' +
       'entero —corte por láser, plegado, soldadura MIG, TIG y láser, puente ' +
       'grúa— y responde por la producción completa, del presupuesto a la pieza ' +
@@ -157,10 +158,11 @@ export const equipo: TeamMember[] = [
     cargo: ['Residencial y Piscinas'],
     foto: fotosEquipo['gustavo-mejia-martinez'] ?? null,
     bio:
-      'Ingeniero mecánico de la Universidad Nacional, con maestría en gestión ' +
-      'de proyectos, que es lo que dirige aquí. Lleva obra desde 2007 entre Colombia, el Caribe ' +
-      'y Estados Unidos: piscinas de borde infinito, spas y cascadas en Bakers ' +
-      'Bay, y la fuente del aeropuerto internacional de Bermuda.',
+      'Ingeniero mecánico de la Universidad Nacional y máster en gestión de ' +
+      'proyectos, que es lo que dirige aquí. Desde 2007 hace obra en Colombia, ' +
+      'el Caribe y Estados Unidos: piscinas de borde infinito y cascadas en ' +
+      'Bakers Bay, las fuentes del Mary Brickell Village en Miami y la del ' +
+      'aeropuerto de Bermuda, y casas de ultralujo en Bahamas y Turks & Caicos.',
   },
   {
     slug: 'miguel-ortiz',

@@ -101,18 +101,19 @@ export const bios: Record<string, string> = {
     'Ciudad Bolívar, and has taught design at Universidad Javeriana and ' +
     'Universidad del Valle.',
   'julian-mejia-martinez':
-    'An expert steel erector: he started out as a welder and worked his way up ' +
+    'An expert steel fabricator and erector: he started out as a welder and ' +
+    'worked his way up ' +
     'to supervising field installation. Today he runs a full fabrication shop ' +
     '— laser cutting, press braking, MIG, TIG and laser welding, overhead ' +
     'cranes — and answers for production end to end, from the estimate to the ' +
     'installed piece.',
   'gustavo-mejia-martinez':
-    'A mechanical engineer from Universidad Nacional, with a ' +
-    "master's in project management, which is what he runs here. He has been " +
-    'building since 2007 across ' +
-    'Colombia, the Caribbean and the United States: infinity pools, spas and ' +
-    "waterfalls at Bakers Bay, and the fountain at Bermuda's international " +
-    'airport.',
+    'A mechanical engineer from Universidad Nacional with a ' +
+    "master's in project management, which is what he runs here. Since 2007 " +
+    'he has built in Colombia, the Caribbean and the United States: infinity ' +
+    'pools and waterfalls at Bakers Bay, the fountains at Mary Brickell ' +
+    "Village in Miami and the one at Bermuda's airport, and ultra-luxury " +
+    'homes in the Bahamas and Turks & Caicos.',
   'miguel-ortiz':
     'An architect from Universidad del Valle. He joined the studio as an ' +
     'intern in 2022 and now coordinates its projects and answers for the work ' +

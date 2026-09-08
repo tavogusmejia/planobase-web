@@ -14,9 +14,12 @@ Actualizado: **7 de septiembre de 2026**.
 > espera una decisión mía y las reglas que salieron de errores que ya costaron
 > trabajo. Lee también `CLAUDE.md`.
 >
-> **Mi carpeta está al día y no hay nada sin publicar**: `main`, y todo lo del 6
-> y el 7 de septiembre está en producción y verificado ahí. No hace falta ningún
-> `git pull` ni aplicar ninguna migración.
+> **Mi carpeta está en `main` y todo lo del 6 y el 7 de septiembre de día está
+> en producción.** No hace falta ningún `git pull` ni aplicar ninguna migración.
+> **Pero hay un lote sin publicar** en `worktree-equipo-bio-hover`: el equipo de
+> siete con su bio al pasar el cursor. Y mientras no se publique, **no corras
+> `pnpm media`**: te deja la sección de equipo sin fotos, y el tablero explica
+> por qué.
 >
 > Empieza por decirme qué se puede hacer sin input mío y qué está esperándome, y
 > vamos una por una. No quiero explicaciones largas salvo que necesites que
@@ -26,10 +29,15 @@ Actualizado: **7 de septiembre de 2026**.
 
 ## El estado, en tres frases
 
-**Todo está publicado.** `main` en `888093a`, la carpeta principal en `main` y
-limpia, y las dos migraciones de Supabase aplicadas — la de reservas el 6/9 y la
-de los dos tipos de cita el 7/9, esta última pegada a mano por Gustavo. **No hay
-lote esperando publicación.**
+**Casi todo está publicado.** `main` en `2e0ec83`, la carpeta principal en `main`
+y limpia, y las dos migraciones de Supabase aplicadas — la de reservas el 6/9 y
+la de los dos tipos de cita el 7/9, esta última pegada a mano por Gustavo.
+
+**Lo que falta por publicar es un lote y está en `worktree-equipo-bio-hover`:**
+la sección de equipo pasa de dos personas a siete, cada retrato cuenta quién es
+al pasar el cursor, el procesador de imágenes convierte a gris de verdad, y el
+botón de agendar dejó de prometer «la primera llamada» en las páginas donde se
+cobra. No toca la base de datos, así que no hay migración que pegar.
 
 **El calendario está terminado salvo un trámite.** El código de Google Calendar
 está escrito, probado y desplegado; solo espera las credenciales de X-02. Sin
@@ -111,6 +119,12 @@ cambia de contenido sin cambiar de nombre, quien ya la tenía sigue viendo la
 anterior. **Al tocar cualquier imagen, comprobar en ventana de incógnito** — en
 la normal parece que el cambio no salió. El arreglo de raíz está aplazado a
 propósito.
+
+**1 bis · Y ahora mismo `pnpm media` está minado desde `main`.** Los originales
+de `assets-originales/equipo/` ya se llaman como cada persona —`Eduardo Mejía
+Martínez.jpeg`— pero el código que sabe leer eso vive en la rama sin publicar.
+Corrido desde `main`, el script no reconoce un solo retrato y **deja la sección
+de equipo sin fotos**. Se acaba en cuanto se publique el lote.
 
 **2 · Los medios no se tocan desde un worktree.** `assets-originales/` y
 `public/media/` están en `.gitignore` y no existen ahí; correr `pnpm media`

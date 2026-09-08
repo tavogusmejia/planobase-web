@@ -52,6 +52,15 @@ pero todavía sin publicar.
 >
 > **Su migración de Supabase ya está aplicada** — Gustavo la pegó el 7/9 sin
 > contratiempos: `20260906230000_dos_tipos_de_cita.sql`.
+>
+> **Cierre del 7/9/2026, de noche: hay un lote sin publicar** en
+> `worktree-equipo-bio-hover`. El equipo pasa de dos personas a siete con su bio
+> al pasar el cursor, el procesador de retratos convierte a gris de verdad, y el
+> botón de agendar dejó de prometer «la primera llamada» en las páginas donde se
+> cobra. **Y arrastra una trampa mientras no se publique**: los originales de
+> `assets-originales/equipo/` ya están renombrados al nombre de cada persona,
+> pero el código que sabe leerlos vive en esa rama. **Correr `pnpm media` desde
+> `main` deja la sección de equipo sin una sola foto.**
 
 ---
 
@@ -101,6 +110,8 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 | ~~D-21~~ | ⏳ | ~~Decidir cómo se agenda de verdad~~ — **cerrada la noche del 6/9: se queda el calendario propio**, y no por gusto. Ver el marcador de abajo | Ni Calendly ni Google pueden cobrar en pesos |
 | D-22 | ⬜ | Poder cancelar o mover una reserva desde el correo | Ya tiene lo que le faltaba: `evento_google` y `secuencia` se escriben desde el 6/9 |
 | ~~D-24~~ | 🟢 | ~~Borrar dos renders de Villas del Progreso~~ — **hecho el 7/9**: la galería queda en diez, los originales apartados en `_retirados/` y el bucket repoblado | Salió de aquí `media:retirar --repoblar`, que el script no sabía hacer |
+| D-26 | ⏳ | **El equipo pasa a siete, con bio al pasar el cursor** — hecho el 7/9, sin publicar. Entran Julián, Carlos y Nicolás; vuelven Miguel y Laura. Ver la nota al final | El hover no lleva JavaScript. La ficha por integrante se descartó: decisión de Gustavo |
+| D-27 | ⬜ | **Reemplazar tres retratos** — los de Eduardo (606 px) y Miguel (600 px) se quedan cortos, y el de Laura es de cuerpo entero sobre fondo liso y desentona con los primeros planos. **Aplazado a propósito el 7/9** | Reemplazar es dejar el archivo nuevo con el mismo nombre: el procesador ya detecta que cambió y regenera |
 | D-25 | ⬜ | **Huella de contenido en el nombre de las imágenes** — **aplazado a propósito el 7/9**, no por olvido. Ver la nota al final | Hasta entonces: cambiar una imagen sin cambiar su nombre deja a los visitantes viendo la vieja |
 | ~~D-23~~ | 🟢 | ~~Guarda de enlaces de fuentes~~ — `pnpm check:enlaces`. **No va en el build a propósito**: llama a 180 servidores y un gestor normativo lento no puede impedir un despliegue | 177 de 181 responden. Probada inyectando una URL muerta |
 | D-02 | ⬜ | Monitoreo de errores y uptime | Necesita X-10 |
@@ -620,6 +631,69 @@ caché de un año.
 proyecto, siguen siendo 24 proyectos y 22 publicados, las imágenes bajan de 230
 a 228, el bucket tiene diez archivos, la 11 y la 12 devuelven 400, y los bytes
 de la 04 y la 05 coinciden con los locales.
+
+---
+
+## D-26 · el equipo pasa a siete — hecho el 7/9, sin publicar
+
+**Eran dos y ahora son siete.** Entran Julián Mejía Martínez, Carlos Orozco y
+Nicolás Gómez, y vuelven Miguel Ortiz y Laura Cuesta, cuyos retratos llevaban
+desde la migración en `assets-originales/equipo/` sin procesar porque el código
+afirmaba que ya no estaban en el estudio.
+
+**El orden lo fijó Gustavo y no es alfabético:** Eduardo, Julián y Gustavo
+arriba; después Miguel y Laura; después Carlos y Nicolás. Por eso solo los tres
+hermanos llevan los dos apellidos —entre ellos «Mejía» no distingue a nadie— y
+por eso la retícula pasó a tres columnas: con dos, siete personas se estiran
+cuatro filas y los hermanos se separan.
+
+**La ficha por integrante se descartó.** Estaba pedida al principio de la
+sesión y Gustavo la retiró media hora después: prefirió no revelar tanto de cada
+uno. Queda solo la bio al pasar el cursor.
+
+**El hover no lleva JavaScript.** El texto está en el HTML desde el primer
+momento y el CSS solo decide cuándo se ve, así que un lector de pantalla lo
+encuentra siempre — que es exactamente lo que Wix no tenía, con los nombres
+pintados dentro de la imagen. Donde no hay cursor la bio se lee bajo el cargo.
+**Lo que no resuelve, y está escrito en el CSS:** con teclado y vista, en
+escritorio, a la bio no se llega. No se arregla poniéndole `tabindex` a un
+párrafo; la salida honesta, si algún día importa, es enseñarla siempre.
+
+**El procesador de retratos cambió de raíz.** El nombre del archivo es ahora el
+nombre de la persona, y la conversión a gris ocurre al procesar. Esto último no
+era un detalle: los cuatro retratos de Wix ya venían en blanco y negro
+—saturación cero, medida— así que el sitio aparentaba un estilo que no aplicaba
+nadie, y **las tres fotos nuevas llegaron a color**. Sin el cambio habrían
+entrado a color y roto la retícula.
+
+**De ahí salieron tres guardas:** un archivo mal nombrado se salta con aviso en
+vez de publicar a «Miembro 3»; reemplazar una foto conservando su nombre ahora
+sí la regenera, porque antes el script veía el `.webp` viejo y lo daba por
+bueno; y se avisa del retrato por debajo de 1000 px y del que sigue publicado
+sin original.
+
+**Las bios salen de las siete hojas de vida**, que viven en
+`assets-originales/equipo/hojas-de-vida/` y por tanto fuera del repositorio: son
+datos personales y ahí no los versiona nadie. Tres decisiones que conviene no
+perder:
+
+- **El concurso de Teusaquillo no aparece en la bio de Eduardo**, aunque su hoja
+  de vida lo lista. Ese proyecto se retiró del sitio el 6/9 y esto no lo reabre
+  por la puerta de atrás.
+- **No se publicó ninguna cifra que el documento no sostenga.** Nicolás declara
+  «casi 8 años» y sus fechas dan siete y pico, así que se publica «desde 2019»,
+  que además no envejece. Dos hojas de vida traen porcentajes autoreportados
+  —uno es una reducción del 150 %, que no existe— y quedaron fuera.
+- **Cinco de las siete hojas de vida no mencionan a Plano Base**: solo las de
+  Eduardo y Miguel. Ninguna bio afirma, por tanto, un vínculo con el estudio que
+  su documento no respalde. Si Carlos, Julián, Nicolás o Laura tienen aquí un
+  papel concreto, hace falta que Gustavo lo diga.
+
+**Y dos cosas que quedaron sin resolver a propósito.** Ninguno de los siete
+declara matrícula profesional —da igual, porque el 4/9 se decidió no
+publicarlas—, y el nombre real de dos no es el que se publica: Miguel Ortiz
+firma *Juan Miguel Ortiz Marín* y Laura Cuesta, *Laura Cuesta Quetama*. Se
+publican como los nombró Gustavo.
 
 ---
 

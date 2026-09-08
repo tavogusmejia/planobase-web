@@ -53,14 +53,17 @@ pero todavía sin publicar.
 > **Su migración de Supabase ya está aplicada** — Gustavo la pegó el 7/9 sin
 > contratiempos: `20260906230000_dos_tipos_de_cita.sql`.
 >
-> **Cierre del 7/9/2026, de noche: hay un lote sin publicar** en
-> `worktree-equipo-bio-hover`. El equipo pasa de dos personas a siete con su bio
-> al pasar el cursor, el procesador de retratos convierte a gris de verdad, y el
-> botón de agendar dejó de prometer «la primera llamada» en las páginas donde se
-> cobra. **Y arrastra una trampa mientras no se publique**: los originales de
-> `assets-originales/equipo/` ya están renombrados al nombre de cada persona,
-> pero el código que sabe leerlos vive en esa rama. **Correr `pnpm media` desde
-> `main` deja la sección de equipo sin una sola foto.**
+> **Cierre del 7/9/2026, de noche: publicado y verificado en el sitio.** El
+> equipo pasa de dos personas a siete con su bio al pasar el cursor, el
+> procesador de retratos convierte a gris de verdad, y el botón de agendar dejó
+> de prometer «la primera llamada» en las páginas donde se cobra. `main` en
+> `b9629d7`, sin migración que pegar.
+>
+> **Los cinco retratos nuevos se subieron al bucket ANTES del push**, y ese orden
+> importa: al revés, el despliegue entra con cinco imágenes rotas y el build pasa
+> en verde igual. Los siete responden 200.
+>
+> **Ya no hay lote esperando publicación.**
 
 ---
 
@@ -110,7 +113,7 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 | ~~D-21~~ | ⏳ | ~~Decidir cómo se agenda de verdad~~ — **cerrada la noche del 6/9: se queda el calendario propio**, y no por gusto. Ver el marcador de abajo | Ni Calendly ni Google pueden cobrar en pesos |
 | D-22 | ⬜ | Poder cancelar o mover una reserva desde el correo | Ya tiene lo que le faltaba: `evento_google` y `secuencia` se escriben desde el 6/9 |
 | ~~D-24~~ | 🟢 | ~~Borrar dos renders de Villas del Progreso~~ — **hecho el 7/9**: la galería queda en diez, los originales apartados en `_retirados/` y el bucket repoblado | Salió de aquí `media:retirar --repoblar`, que el script no sabía hacer |
-| D-26 | ⏳ | **El equipo pasa a siete, con bio al pasar el cursor** — hecho el 7/9, sin publicar. Entran Julián, Carlos y Nicolás; vuelven Miguel y Laura. Ver la nota al final | El hover no lleva JavaScript. La ficha por integrante se descartó: decisión de Gustavo |
+| D-26 | 🟢 | ~~**El equipo pasa a siete, con bio al pasar el cursor**~~ — **publicado el 7/9 y verificado en el sitio**. Entran Julián, Carlos y Nicolás; vuelven Miguel y Laura. Ver la nota al final | El hover no lleva JavaScript. La ficha por integrante se descartó: decisión de Gustavo |
 | D-27 | ⬜ | **Reemplazar tres retratos** — los de Eduardo (606 px) y Miguel (600 px) se quedan cortos, y el de Laura es de cuerpo entero sobre fondo liso y desentona con los primeros planos. **Aplazado a propósito el 7/9** | Reemplazar es dejar el archivo nuevo con el mismo nombre: el procesador ya detecta que cambió y regenera |
 | D-25 | ⬜ | **Huella de contenido en el nombre de las imágenes** — **aplazado a propósito el 7/9**, no por olvido. Ver la nota al final | Hasta entonces: cambiar una imagen sin cambiar su nombre deja a los visitantes viendo la vieja |
 | ~~D-23~~ | 🟢 | ~~Guarda de enlaces de fuentes~~ — `pnpm check:enlaces`. **No va en el build a propósito**: llama a 180 servidores y un gestor normativo lento no puede impedir un despliegue | 177 de 181 responden. Probada inyectando una URL muerta |
@@ -634,7 +637,7 @@ de la 04 y la 05 coinciden con los locales.
 
 ---
 
-## D-26 · el equipo pasa a siete — hecho el 7/9, sin publicar
+## D-26 · el equipo pasa a siete — publicado el 7/9
 
 **Eran dos y ahora son siete.** Entran Julián Mejía Martínez, Carlos Orozco y
 Nicolás Gómez, y vuelven Miguel Ortiz y Laura Cuesta, cuyos retratos llevaban

@@ -49,10 +49,13 @@ export function Rule({
         aria-hidden
         className={cn(
           'rule mt-[-0.35em] min-w-8',
-          /* Con el dato partido en varias líneas la cota se queda corta y fija:
+          /* Con el dato partido en varias líneas la cota va fija, no al 50 %:
              repartir el ancho a medias dejaría el texto en una columna de dos
-             palabras. */
-          wrap ? 'w-8 shrink-0' : 'flex-1',
+             palabras. Ocho rem y no dos —cuatro veces la medida inicial, por
+             decisión de Gustavo el 8/9— porque un trazo corto bajo un nombre
+             largo no se lee como una cota de plano, que es lo que es. Cabe
+             porque los cargos pasaron ese mismo día a una sola palabra o dos. */
+          wrap ? 'w-32 shrink-0' : 'flex-1',
           color,
           draw && 'rule--draw',
         )}

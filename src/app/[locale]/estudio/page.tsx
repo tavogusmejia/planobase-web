@@ -143,16 +143,20 @@ export default async function EstudioPage({
         </h2>
         <p className="text-body measure mt-8 text-ink-soft">{sobreElEquipo}</p>
 
-        <ul className="mt-14 grid gap-x-10 gap-y-14 border-t border-line pt-12 sm:grid-cols-2 lg:max-w-3xl">
+        {/* Tres columnas y no dos desde que el estudio son siete: con dos, la
+            sección se estira cuatro filas. Con tres, los tres hermanos Mejía
+            Martínez caen juntos en la primera, que es el orden que pidió
+            Gustavo. */}
+        <ul className="mt-14 grid gap-x-10 gap-y-14 border-t border-line pt-12 sm:grid-cols-2 lg:max-w-5xl lg:grid-cols-3">
           {equipo.map((m) => (
-            <li key={m.slug}>
+            <li key={m.slug} className={m.foto ? 'group relative' : undefined}>
               {m.foto ? (
                 <div className="relative aspect-square w-full overflow-hidden bg-mist">
                   <Image
                     src={mediaSrc(m.foto.path)}
                     alt={m.foto.alt}
                     fill
-                    sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 100vw"
+                    sizes="(min-width: 1024px) 20rem, (min-width: 640px) 45vw, 100vw"
                     placeholder="blur"
                     blurDataURL={m.foto.blurDataURL}
                     className="object-cover"
@@ -164,6 +168,20 @@ export default async function EstudioPage({
               {/* La línea de cota bajo el nombre, igual que bajo un proyecto:
                   lo que mide aquí es el oficio. */}
               <Rule className="mt-3 text-muted">{m.cargo.join(' · ')}</Rule>
+
+              {/* La bio va SIEMPRE en el HTML, aunque el cursor no la haya
+                  pedido: un lector de pantalla la lee, y donde no hay cursor
+                  —un teléfono— se pinta como texto corriente bajo el cargo. Lo
+                  que hace el hover es revelarla, no traerla. */}
+              {m.bio ? (
+                <p
+                  className={
+                    m.foto ? 'bio-equipo text-block' : 'text-block measure mt-4 text-ink-soft'
+                  }
+                >
+                  {m.bio}
+                </p>
+              ) : null}
             </li>
           ))}
         </ul>

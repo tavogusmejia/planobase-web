@@ -81,7 +81,9 @@ export function visionDe(idioma: string): TemaVision[] {
 
 export function equipoDe(idioma: string): TeamMember[] {
   if (ES_ESPANOL(idioma)) return equipo
-  return equipo.map((m) => fusionar(m, { cargo: ingles.cargos[m.slug] }))
+  return equipo.map((m) =>
+    fusionar(m, { cargo: ingles.cargos[m.slug], bio: ingles.bios[m.slug] }),
+  )
 }
 
 /**

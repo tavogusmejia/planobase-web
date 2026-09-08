@@ -80,7 +80,55 @@ export const vision: Record<string, TemaTraducible> = {
 /** Cargos del equipo, por `slug`. */
 export const cargos: Record<string, string[]> = {
   'eduardo-mejia-martinez': ['Principal Architect', 'Legal Representative'],
-  'gustavo-mejia-martinez': ['Project Manager', 'Technical Consultant'],
+  'julian-mejia-martinez': ['Fabrication Manager', 'Steel Structure Construction'],
+  'gustavo-mejia-martinez': ['Project Director', 'Residential Construction and Pools'],
+  'miguel-ortiz': ['Architect', 'Site Supervisor'],
+  'laura-cuesta': ['Graphic Designer', 'Illustrator'],
+  'carlos-orozco': ['Civil Engineer', 'Infrastructure Specialist'],
+  'nicolas-gomez': ['Mechanical Engineer', 'Energy Manager'],
+}
+
+/**
+ * Las bios del equipo, en inglés. Cada frase sale de la hoja de vida de esa
+ * persona; lo que el documento no sostiene no se escribe aquí tampoco.
+ */
+export const bios: Record<string, string> = {
+  'eduardo-mejia-martinez':
+    'An architect from Universidad del Valle, in its first graduating class ' +
+    'and with a distinguished thesis. He has led the studio since 2022. He won ' +
+    'the national public competition for the El Ensueño school and theatre in ' +
+    'Ciudad Bolívar, and has taught design at Universidad Javeriana and ' +
+    'Universidad del Valle.',
+  'julian-mejia-martinez':
+    'He came up through the shop floor: he started out as a welder and now ' +
+    'runs production at a steel fabrication plant. He covers the whole job, ' +
+    'from laser cutting and press braking through to field installation.',
+  'gustavo-mejia-martinez':
+    'A mechanical engineer from Universidad Nacional, currently finishing a ' +
+    "master's in project management. He has been building since 2007 across " +
+    'Colombia, the Caribbean and the United States: infinity pools, spas and ' +
+    "waterfalls at Bakers Bay, and the fountain at Bermuda's international " +
+    'airport.',
+  'miguel-ortiz':
+    'An architect from Universidad del Valle. He joined the studio as an ' +
+    'intern in 2022 and now coordinates its projects: he is the point of ' +
+    'contact between owners, suppliers and contractors. A finalist in an ' +
+    'international ideas competition and a DAAD scholarship recipient.',
+  'laura-cuesta':
+    'A graphic designer from Universidad del Valle. She works in multimedia, ' +
+    'editorial and web design, and in illustration. For four years she ran ' +
+    'interactive media at Centro Magis, Universidad Javeriana in Cali.',
+  'carlos-orozco':
+    'A civil engineer from Universidad de Cartagena, with a specialization in ' +
+    "structural analysis and design and a master's from Politecnico di " +
+    'Torino. He designs bridges: eight steel-and-concrete composite ones, ' +
+    'including a fifteen-span crossing. Before that he supervised a ' +
+    'seven-storey building in Bogotá.',
+  'nicolas-gomez':
+    'A mechanical engineer from Universidad Nacional. Since 2019 he has ' +
+    'worked between the field and management: smart building commissioning, ' +
+    'drone thermography and energy diagnostics. An ISO 50001 internal auditor ' +
+    'and a certified drone pilot.',
 }
 
 /**

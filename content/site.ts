@@ -106,9 +106,19 @@ export const manifiesto =
   'del proceso.'
 
 /**
- * Equipo. Nombres y cargos tomados de las tarjetas de presentación del estudio
- * (Exportados/PDF/Tarjeta de presentación). El sitio de Wix mostraba cuatro
- * retratos con los nombres dentro de la imagen; hoy el estudio son dos personas.
+ * Equipo. Siete personas desde el 7/9/2026, cuando Gustavo abrió la sección:
+ * antes eran dos, y el sitio de Wix había mostrado cuatro retratos con los
+ * nombres metidos dentro de la imagen, donde no los leía ni un buscador ni un
+ * lector de pantalla.
+ *
+ * **El orden lo fijó Gustavo y no es alfabético ni jerárquico a secas.** Arriba
+ * los tres hermanos Mejía Martínez, que son quienes responden por el estudio;
+ * después el resto. Por eso solo esos tres llevan los dos apellidos: entre ellos
+ * «Mejía» no distingue a nadie.
+ *
+ * Los cargos son los que dio Gustavo el 7/9. El de él cambió en esa misma
+ * pasada —era «Gerente de Proyectos · Consultor Técnico»—, así que si algo se ve
+ * distinto a como estaba, es eso y es deliberado.
  */
 export const equipo: TeamMember[] = [
   {
@@ -116,12 +126,75 @@ export const equipo: TeamMember[] = [
     nombre: 'Eduardo Mejía Martínez',
     cargo: ['Arquitecto Director', 'Representante Legal'],
     foto: fotosEquipo['eduardo-mejia-martinez'] ?? null,
+    bio:
+      'Arquitecto de la Universidad del Valle, de su primera promoción y con ' +
+      'tesis meritoria. Dirige el estudio desde 2022. Ganó el concurso público ' +
+      'nacional del colegio y teatro El Ensueño, en Ciudad Bolívar, y ha ' +
+      'enseñado proyectos en la Javeriana y en la Universidad del Valle.',
+  },
+  {
+    slug: 'julian-mejia-martinez',
+    nombre: 'Julián Mejía Martínez',
+    cargo: ['Manager Fabricaciones', 'Construcciones en Estructura Metálica'],
+    foto: fotosEquipo['julian-mejia-martinez'] ?? null,
+    bio:
+      'Viene del taller: empezó como soldador y hoy dirige la producción de ' +
+      'una planta de estructura metálica. Cubre el trabajo entero, del corte ' +
+      'por láser y el plegado hasta el montaje en obra.',
   },
   {
     slug: 'gustavo-mejia-martinez',
     nombre: 'Gustavo Mejía Martínez',
-    cargo: ['Gerente de Proyectos', 'Consultor Técnico'],
+    cargo: ['Director de Proyectos', 'Construcciones Residenciales y Piscinas'],
     foto: fotosEquipo['gustavo-mejia-martinez'] ?? null,
+    bio:
+      'Ingeniero mecánico de la Universidad Nacional, con maestría en gestión ' +
+      'de proyectos en curso. Lleva obra desde 2007 entre Colombia, el Caribe ' +
+      'y Estados Unidos: piscinas de borde infinito, spas y cascadas en Bakers ' +
+      'Bay, y la fuente del aeropuerto internacional de Bermuda.',
+  },
+  {
+    slug: 'miguel-ortiz',
+    nombre: 'Miguel Ortiz',
+    cargo: ['Arquitecto', 'Residente de Obra'],
+    foto: fotosEquipo['miguel-ortiz'] ?? null,
+    bio:
+      'Arquitecto de la Universidad del Valle. Entró al estudio como ' +
+      'practicante en 2022 y hoy coordina los proyectos: es el punto de ' +
+      'contacto entre propietarios, proveedores y contratistas. Finalista de ' +
+      'un concurso internacional de ideas y becado por el DAAD.',
+  },
+  {
+    slug: 'laura-cuesta',
+    nombre: 'Laura Cuesta',
+    cargo: ['Diseñadora Gráfica', 'Ilustradora'],
+    foto: fotosEquipo['laura-cuesta'] ?? null,
+    bio:
+      'Diseñadora gráfica de la Universidad del Valle. Trabaja el diseño ' +
+      'multimedia, editorial y web, y la ilustración. Llevó durante cuatro ' +
+      'años los medios interactivos del Centro Magis de la Javeriana en Cali.',
+  },
+  {
+    slug: 'carlos-orozco',
+    nombre: 'Carlos Orozco',
+    cargo: ['Ingeniero Civil', 'Especialista en Infraestructura'],
+    foto: fotosEquipo['carlos-orozco'] ?? null,
+    bio:
+      'Ingeniero civil de la Universidad de Cartagena, especialista en ' +
+      'análisis y diseño de estructuras y máster por el Politécnico de Turín. ' +
+      'Diseña puentes: ocho mixtos de acero y hormigón, uno de ellos de quince ' +
+      'vanos. Antes fue residente de un edificio de siete pisos en Bogotá.',
+  },
+  {
+    slug: 'nicolas-gomez',
+    nombre: 'Nicolás Gómez',
+    cargo: ['Ingeniero Mecánico', 'Manager Energía'],
+    foto: fotosEquipo['nicolas-gomez'] ?? null,
+    bio:
+      'Ingeniero mecánico de la Universidad Nacional. Desde 2019 trabaja entre ' +
+      'la obra y la gestión: puesta en marcha de edificios inteligentes, ' +
+      'termografía con dron y diagnóstico energético. Auditor interno ISO ' +
+      '50001 y piloto certificado de sistemas no tripulados.',
   },
 ]
 

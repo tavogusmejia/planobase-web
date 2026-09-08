@@ -448,6 +448,66 @@
     }
   }
 
+  /* --- La bio del equipo ---------------------------------------------------
+     Al pasar el cursor por un retrato se lee quién es esa persona. Cero
+     JavaScript: el texto está en el HTML desde el primer momento y esto solo
+     decide cuándo se ve. Un lector de pantalla lo encuentra igual, y eso es
+     justo lo que el sitio de Wix no tenía — allí los nombres estaban pintados
+     dentro de la imagen.
+
+     El velo se dibuja sobre el retrato y no sobre la ficha entera: `top: 0`
+     más la misma proporción cuadrada de la foto. Cubrir el `li` completo
+     taparía también el nombre y el cargo, que son lo único que queda cuando el
+     cursor se va.
+
+     `pointer-events: none` porque el velo no es un botón ni lleva a ninguna
+     parte: si capturara el ratón, el cursor sobre el texto contaría como salir
+     de la tarjeta y la bio parpadearía. Ya no hay ficha por integrante — se
+     descartó el 7/9 — así que aquí no hay nada que pulsar.
+
+     Donde no hay cursor la bio vuelve al flujo y se lee bajo el cargo, en el
+     color del texto secundario. Un teléfono no puede revelar nada, y esconder
+     media página detrás de un gesto que no existe es peor que enseñarla.
+
+     Lo que esta solución no resuelve, dicho para que nadie lo descubra tarde:
+     quien navegue con teclado y vista en un escritorio no llega a la bio. No se
+     le pone `tabindex` a un párrafo para arreglarlo — sería anunciar como
+     interactivo algo que no hace nada. La salida honesta, si algún día importa,
+     es enseñarla siempre.                                                     */
+
+  .bio-equipo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+    background-color: color-mix(in srgb, var(--color-ink) 88%, transparent);
+    color: var(--color-paper);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 350ms ease-out;
+  }
+
+  .group:hover .bio-equipo {
+    opacity: 1;
+  }
+
+  @media (hover: none) {
+    .bio-equipo {
+      position: static;
+      display: block;
+      aspect-ratio: auto;
+      padding: 0;
+      margin-top: 1rem;
+      background-color: transparent;
+      color: var(--color-ink-soft);
+      opacity: 1;
+    }
+  }
+
   /* --- Piezas de la retícula ----------------------------------------------
      El filete entre fichas se dibujaba con el fondo de la retícula asomando por
      el `gap`. Funciona mientras la retícula esté llena; en cuanto sobra un

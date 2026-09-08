@@ -115,6 +115,16 @@ export type TeamMember = {
   nombre: string
   cargo: string[]
   foto: ProjectImage | null
+  /**
+   * Dos o tres frases que se revelan al pasar el cursor sobre el retrato. Sale
+   * de la hoja de vida de cada uno, que vive fuera del repositorio.
+   *
+   * Es opcional porque quien no la tenga escrita debe salir igual en la
+   * retícula, con su nombre y su cargo, en vez de desaparecer de la página. Y
+   * tiene que caber en el cuadrado del retrato sin desbordarlo: unos 300
+   * caracteres, no un currículum.
+   */
+  bio?: string
 }
 
 export type Award = {

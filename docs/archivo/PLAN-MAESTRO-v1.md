@@ -1,7 +1,7 @@
 > # ⚠️ ARCHIVADO · 6 de septiembre de 2026
 >
 > **Este documento ya no es el tablero de trabajo.** Las tareas viven ahora en
-> `docs/MASTER-PLAN-V2.md`, una por línea y con código.
+> `docs/MASTER-PLAN-V3.md` — y antes de él vivió `docs/archivo/MASTER-PLAN-V2.md`, una por línea y con código.
 >
 > Se archivó porque llegó a 1.741 líneas y dejó de servir para lo que se usa un
 > plan: mirar qué sigue. **No se borró porque aquí está el porqué de todo** — las

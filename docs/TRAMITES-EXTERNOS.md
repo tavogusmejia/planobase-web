@@ -9,7 +9,7 @@ una entidad pública.
 Existe porque estas tareas se pierden. Una tarea de código tiene un archivo
 donde vive y un build que se pone rojo si falta; un trámite no tiene ninguna de
 las dos cosas, y por eso el proyecto puede quedarse parado semanas esperando
-algo que nadie recordaba que había que pedir. El resumen en una línea vive en el bloque **X** de `MASTER-PLAN-V2.md`, con
+algo que nadie recordaba que había que pedir. El resumen en una línea vive en el bloque **X** de `MASTER-PLAN-V3.md`, con
 el mismo código que lleva aquí cada apartado; este documento es el detalle.
 
 **Cómo leer el estado.** 🔴 bloquea algo que ya está construido y esperando ·
@@ -317,7 +317,7 @@ Esto no está en el §12 del plan y conviene anotarlo antes de que sorprenda:
 ## Lo que no es externo, pero tampoco lo resuelve el código
 
 Se anota aquí para que la lista esté completa. Es el bloque **G** de
-`MASTER-PLAN-V2.md`.
+`MASTER-PLAN-V3.md`.
 
 | | Qué | A qué bloquea |
 |---|---|---|

@@ -1,7 +1,14 @@
 # Master Plan v2 · Plano Base Web
 
+> **ARCHIVADO el 7 de septiembre de 2026.** El tablero vivo es
+> `docs/MASTER-PLAN-V3.md`, que solo enumera lo que falta. Esto se guarda porque
+> aquí está **el porqué de lo ya hecho**: qué se decidió, contra qué se decidió y
+> qué costó averiguarlo. Antes de reabrir algo que parezca olvidado, buscarlo
+> aquí — casi todo lo que falta en el v3 está aplazado a propósito, y la razón
+> está en esta página.
+
 Tablero de trabajo. Una tarea por línea, con código.
-Actualizado: **6 de septiembre de 2026**
+Actualizado: **6 de septiembre de 2026**, con el cierre del 7.
 
 El razonamiento —por qué cada cosa se decidió como se decidió, las auditorías y
 las discusiones— está en `docs/archivo/PLAN-MAESTRO-v1.md`, que se archivó

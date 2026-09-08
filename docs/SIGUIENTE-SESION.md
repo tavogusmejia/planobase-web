@@ -10,7 +10,7 @@ Actualizado: **7 de septiembre de 2026**.
 ## El prompt
 
 > Retomamos el sitio de Plano Base. Antes de nada: **lee
-> `docs/MASTER-PLAN-V2.md` entero** — es el tablero, dice qué está hecho, qué
+> `docs/MASTER-PLAN-V3.md` entero** — es el tablero, dice qué está hecho, qué
 > espera una decisión mía y las reglas que salieron de errores que ya costaron
 > trabajo. Lee también `CLAUDE.md`.
 >

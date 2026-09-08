@@ -143,9 +143,11 @@ export const equipo: TeamMember[] = [
     cargo: ['Jefe de Fabricación', 'Construcciones en Estructura Metálica'],
     foto: fotosEquipo['julian-mejia-martinez'] ?? null,
     bio:
-      'Viene del taller: empezó como soldador y hoy dirige la producción de ' +
-      'una planta de estructura metálica. Cubre el trabajo entero, del corte ' +
-      'por láser y el plegado hasta el montaje en obra.',
+      'Instalador experto de estructura metálica: empezó como soldador y llegó ' +
+      'a supervisar el montaje en obra. Hoy dirige un taller de fabricación ' +
+      'entero —corte por láser, plegado, soldadura MIG, TIG y láser, puente ' +
+      'grúa— y responde por la producción completa, del presupuesto a la pieza ' +
+      'montada.',
   },
   {
     slug: 'gustavo-mejia-martinez',
@@ -154,7 +156,7 @@ export const equipo: TeamMember[] = [
     foto: fotosEquipo['gustavo-mejia-martinez'] ?? null,
     bio:
       'Ingeniero mecánico de la Universidad Nacional, con maestría en gestión ' +
-      'de proyectos en curso. Lleva obra desde 2007 entre Colombia, el Caribe ' +
+      'de proyectos. Lleva obra desde 2007 entre Colombia, el Caribe ' +
       'y Estados Unidos: piscinas de borde infinito, spas y cascadas en Bakers ' +
       'Bay, y la fuente del aeropuerto internacional de Bermuda.',
   },
@@ -606,12 +608,18 @@ export const vision: TemaVision[] = [
 ]
 
 /**
- * Cómo se presenta el tamaño del estudio. Son dos personas y eso es un hecho,
- * no un problema: se enuncia como dedicación, no se disimula como capacidad.
- * Sobre la recomendación del informe de posicionamiento AEC.
+ * Cómo se presenta el tamaño del estudio. El tamaño es un hecho, no un
+ * problema: se enuncia como dedicación, no se disimula como capacidad. Sobre la
+ * recomendación del informe de posicionamiento AEC.
+ *
+ * **PENDIENTE DE APROBACIÓN**, y reescrito el 7/9 por necesidad: decía «son dos
+ * personas» y desde esa tarde son siete. El párrafo anterior nombraba solo a
+ * Eduardo y a Gustavo y remitía a «especialistas que convocamos», justo encima
+ * de una retícula con los siete y su cargo. Lo que se conserva íntegro es la
+ * última frase, que es la que de verdad vende.
  */
 export const sobreElEquipo =
   'Eduardo y Gustavo Mejía Martínez dirigen personalmente cada proyecto. ' +
-  'Para estructura, redes, presupuesto y obra convocamos especialistas con ' +
-  'quienes trabajamos desde 2020. Aquí no hay un ejecutivo comercial de por ' +
-  'medio: habla con quien firma los planos.'
+  'Alrededor de ellos hay arquitectura, fabricación en estructura metálica, ' +
+  'ingeniería civil, energía y diseño. Aquí no hay un ejecutivo comercial de ' +
+  'por medio: habla con quien firma los planos.'

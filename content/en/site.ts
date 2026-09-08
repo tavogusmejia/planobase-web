@@ -24,10 +24,10 @@ export const manifiesto =
   'of the process.'
 
 export const sobreElEquipo =
-  'Eduardo and Gustavo Mejía Martínez lead every project themselves. For ' +
-  'structure, building services, budgeting and construction we bring in ' +
-  'specialists we have worked with since 2020. There is no account manager in ' +
-  'between: you talk to the person who signs the drawings.'
+  'Eduardo and Gustavo Mejía Martínez lead every project themselves. Around ' +
+  'them sit architecture, steel fabrication, civil engineering, energy and ' +
+  'design. There is no account manager in between: you talk to the person who ' +
+  'signs the drawings.'
 
 type TemaTraducible = Partial<Pick<TemaVision, 'titulo' | 'texto' | 'cita'>>
 
@@ -100,11 +100,13 @@ export const bios: Record<string, string> = {
     'Ciudad Bolívar, and has taught design at Universidad Javeriana and ' +
     'Universidad del Valle.',
   'julian-mejia-martinez':
-    'He came up through the shop floor: he started out as a welder and now ' +
-    'runs production at a steel fabrication plant. He covers the whole job, ' +
-    'from laser cutting and press braking through to field installation.',
+    'An expert steel erector: he started out as a welder and worked his way up ' +
+    'to supervising field installation. Today he runs a full fabrication shop ' +
+    '— laser cutting, press braking, MIG, TIG and laser welding, overhead ' +
+    'cranes — and answers for production end to end, from the estimate to the ' +
+    'installed piece.',
   'gustavo-mejia-martinez':
-    'A mechanical engineer from Universidad Nacional, currently finishing a ' +
+    'A mechanical engineer from Universidad Nacional, with a ' +
     "master's in project management. He has been building since 2007 across " +
     'Colombia, the Caribbean and the United States: infinity pools, spas and ' +
     "waterfalls at Bakers Bay, and the fountain at Bermuda's international " +

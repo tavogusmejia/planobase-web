@@ -12,6 +12,11 @@ const eslintConfig = [
     ignores: [
       '.next/**',
       'node_modules/**',
+      /* Los worktrees de Claude Code viven dentro del repo y traen su propio
+         `.next`. Sin esto, `pnpm lint` entra ahí y saca ciento y pico de
+         problemas del código compilado —`require()` prohibido, expresiones sin
+         asignar— que no son de nadie y esconden los de verdad. */
+      '.claude/worktrees/**',
       'wix-migration/**',
       'assets-originales/**',
       'media/**',

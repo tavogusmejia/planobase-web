@@ -260,77 +260,63 @@ export const projects: Project[] = [
         "width": 2534,
         "height": 1426,
         "blurDataURL": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4WAoAAAAQAAAADwAACAAAQUxQSB0AAAABH9D/iAgYZBupaCdxPi/xPo/3CBH9D+R1GKTtAgBWUDggUgAAAPABAJ0BKhAACQADgFolnALsAQMThlQfQAD+8Ya+KGfzVzfLgpaybRaW+6aXUVJ++OlfdqBuOuDBOW4yo9AeMm4aC6/BqgPwWE+E2PSKpj0AAAA=",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 2 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 2 de 10."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/03.webp",
         "width": 2560,
         "height": 1440,
         "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAQCdASoQAAkAA4BaJQBOgBZn7P/oAPxmavHuZqRvyneYZxTBlogI4IfSwTWxunxKqp9lyLcvy6BuXvPCVZvj1FVA5bb3I7rvS13poaMmHvfpYa5lkAAA",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 3 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 3 de 10."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/04.webp",
         "width": 2560,
         "height": 1440,
-        "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAkAA4BaJQBOgMWbubhybAAA/iW7vLBE/cL1nRI575RB4dQhY8QL3Hv+7RZ8DnAulQNZriYUHnznYGnyfpddj2uAAA==",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 4 de 12."
+        "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAA4BaJaQAAuRwqzn3BPAA/qxvl3Bvr2pKImv/6N7nhyyBWfY8uZWA64XSLJ6gFkHPQWmYEkkGTOmWCvPUrFS4AAAA",
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 4 de 10."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/05.webp",
         "width": 2560,
         "height": 1440,
-        "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoQAAkAA4BaJYwCdAEWSrOFJgAA/e9NVLvPK56oR8SLbO3ovXlZGJHoPuEGou++cc81VeSYaAA=",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 5 de 12."
+        "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkAA4BaJaQAAujYMJkfAAD+6k6M8vFpfYrdSYeeGyRcaim3czSXUp3ai9a1y2jJmINuNVxInLh4bbdXFYAA",
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 5 de 10."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/06.webp",
-        "width": 2560,
-        "height": 1440,
-        "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAA4BaJaQAAuRwqzn3BPAA/qxvl3Bvr2pKImv/6N7nhyyBWfY8uZWA64XSLJ6gFkHPQWmYEkkGTOmWCvPUrFS4AAAA",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 6 de 12."
-      },
-      {
-        "path": "proyectos/concurso-colegio-villas-del-progreso/07.webp",
-        "width": 2560,
-        "height": 1440,
-        "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkAA4BaJaQAAujYMJkfAAD+6k6M8vFpfYrdSYeeGyRcaim3czSXUp3ai9a1y2jJmINuNVxInLh4bbdXFYAA",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 7 de 12."
-      },
-      {
-        "path": "proyectos/concurso-colegio-villas-del-progreso/08.webp",
         "width": 1920,
         "height": 1080,
         "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoQAAkAA4BaJaQAAudmkT77wAD++Bl9sHy9jiwGYTDTlfMC2OozaATdBEAAAA==",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 8 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 6 de 10."
       },
       {
-        "path": "proyectos/concurso-colegio-villas-del-progreso/09.webp",
+        "path": "proyectos/concurso-colegio-villas-del-progreso/07.webp",
         "width": 1920,
         "height": 1080,
         "blurDataURL": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAkAA4BaJZwAAudH0F0AAP72EKNA41i/4nlg0vJ0AAAA",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 9 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 7 de 10."
+      },
+      {
+        "path": "proyectos/concurso-colegio-villas-del-progreso/08.webp",
+        "width": 2560,
+        "height": 1803,
+        "blurDataURL": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4WAoAAAAQAAAADwAACgAAQUxQSBkAAAABD6AgbQPGv+V2x0ZExIFAIAl9/BEi+h96AFZQOCBYAAAA0AEAnQEqEAALAAOAWiWkAAKR0gnmNAAA/uiTUFM7MJLJ2q03afw98Ezl1Nx9uxbVuKC8F2rLGTplKAR5TOv04SLAqm5zPqnmnmGD42rfisqgY56EGAAAAA==",
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 8 de 10."
+      },
+      {
+        "path": "proyectos/concurso-colegio-villas-del-progreso/09.webp",
+        "width": 2384,
+        "height": 1684,
+        "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoQAAsAA4BaJZQAAxf/JYgesJYAAP7051uRHV+PoELAJ54/oKP/JlBHkcMlXVWfA+hWtIweusSxoVngWsUN1/AAAAA=",
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 9 de 10."
       },
       {
         "path": "proyectos/concurso-colegio-villas-del-progreso/10.webp",
         "width": 2560,
-        "height": 1803,
-        "blurDataURL": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4WAoAAAAQAAAADwAACgAAQUxQSBkAAAABD6AgbQPGv+V2x0ZExIFAIAl9/BEi+h96AFZQOCBYAAAA0AEAnQEqEAALAAOAWiWkAAKR0gnmNAAA/uiTUFM7MJLJ2q03afw98Ezl1Nx9uxbVuKC8F2rLGTplKAR5TOv04SLAqm5zPqnmnmGD42rfisqgY56EGAAAAA==",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 10 de 12."
-      },
-      {
-        "path": "proyectos/concurso-colegio-villas-del-progreso/11.webp",
-        "width": 2384,
-        "height": 1684,
-        "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoQAAsAA4BaJZQAAxf/JYgesJYAAP7051uRHV+PoELAJ54/oKP/JlBHkcMlXVWfA+hWtIweusSxoVngWsUN1/AAAAA=",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 11 de 12."
-      },
-      {
-        "path": "proyectos/concurso-colegio-villas-del-progreso/12.webp",
-        "width": 2560,
         "height": 1807,
         "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4WAoAAAAQAAAADwAACgAAQUxQSBgAAAABD6AQQADE37nRiIgYCASS0McfIaL/oQdWUDggRgAAAPABAJ0BKhAACwADgFolnAAClB/bFE5pDAD+9xFqUqhdIgbet7uBKZE/+RGMRVtuQyzbAO2DxTIDlcj2MgEuJfO2hY2kFAA=",
-        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 12 de 12."
+        "alt": "Concurso Colegio Villas del Progreso, Bogotá D.C. Imagen 10 de 10."
       }
     ],
     "alertas": []

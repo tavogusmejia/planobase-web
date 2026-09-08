@@ -22,7 +22,32 @@
  * Lo que este script **no** hace: tocar `assets-originales/`. El original se
  * queda donde está, así que restituir un proyecto es despublicarlo al revés y
  * correr `pnpm media && pnpm media:upload`.
+ *
+ * ## `--repoblar`, para un proyecto que sigue vivo
+ *
+ * `pnpm media:retirar <slug> --repoblar --borrar`
+ *
+ * Hay un segundo caso que la salvaguarda de arriba impide y que es legítimo:
+ * **quitarle imágenes a un proyecto publicado**. Pasó el 7/9/2026 con Villas
+ * del Progreso, al retirar dos renders de doce.
+ *
+ * No basta con subir encima. Al quitar dos de en medio, las siguientes se
+ * renumeran: la 06 pasa a ser la 04, y así. Siete direcciones cambian de
+ * contenido, y el bucket sirve con caché de un año — sobreescribir puede seguir
+ * enseñando durante meses justo los renders que se querían quitar. Y las dos
+ * últimas quedarían huérfanas para siempre, porque `upload-media` solo añade.
+ *
+ * Por eso este modo **borra el prefijo entero y da por hecho que a continuación
+ * se corre `pnpm media:upload`**. Es una operación distinta de retirar un
+ * proyecto muerto y por eso lleva otro nombre.
+ *
+ * Su salvaguarda es otra, y es la que corresponde: **exige que
+ * `public/media/proyectos/<slug>/` exista y tenga archivos**. Así no se puede
+ * vaciar el bucket de un proyecto vivo sin tener ya generado con qué volver a
+ * llenarlo. Correr `pnpm media` antes es parte del procedimiento, no una
+ * recomendación.
  */
+import { readdirSync, existsSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
@@ -61,12 +86,15 @@ async function main(): Promise<void> {
 
   const args = process.argv.slice(2)
   const borrar = args.includes('--borrar')
+  const repoblar = args.includes('--repoblar')
   const slugs = args.filter((a) => !a.startsWith('--'))
 
   if (slugs.length === 0) {
     console.error(
-      'Uso: pnpm media:retirar <slug> [<slug>…] [--borrar]\n' +
-        'Sin --borrar solo enseña lo que encontró.',
+      'Uso: pnpm media:retirar <slug> [<slug>…] [--repoblar] [--borrar]\n' +
+        'Sin --borrar solo enseña lo que encontró.\n' +
+        '--repoblar: para un proyecto vivo al que se le quitan imágenes; borra\n' +
+        'el prefijo entero y exige correr `pnpm media:upload` después.',
     )
     process.exitCode = 1
     return
@@ -77,15 +105,39 @@ async function main(): Promise<void> {
   const publicados = new Set(projects.filter((p) => p.publicado).map((p) => p.slug))
   const conocidos = new Set(projects.map((p) => p.slug))
   const vivos = slugs.filter((s) => publicados.has(s))
-  if (vivos.length > 0) {
+  if (vivos.length > 0 && !repoblar) {
     console.error(
       `✗ Estos proyectos siguen publicados: ${vivos.join(', ')}.\n` +
         '  Despublíquelos primero en el JSON de origen, corra el build y compruebe\n' +
         '  que su ficha devuelve 404. Borrar las imágenes de un proyecto vivo deja\n' +
-        '  la ficha en pie y llena de huecos.',
+        '  la ficha en pie y llena de huecos.\n' +
+        '\n' +
+        '  Si lo que quiere es quitarle ALGUNAS imágenes a un proyecto que sigue\n' +
+        '  vivo, eso es otra operación y tiene su bandera: --repoblar.',
     )
     process.exitCode = 1
     return
+  }
+
+  /* La salvaguarda de `--repoblar` es distinta y es la que corresponde: no
+     mira si el proyecto está publicado —justamente lo está— sino si ya hay
+     generado con qué volver a llenar el bucket. Sin esto, un `--repoblar` sobre
+     un proyecto sin regenerar dejaría la ficha viva y sin una sola imagen. */
+  if (repoblar) {
+    const vacios = slugs.filter((slug) => {
+      const dir = join(ROOT, 'public/media/proyectos', slug)
+      return !existsSync(dir) || readdirSync(dir).length === 0
+    })
+    if (vacios.length > 0) {
+      console.error(
+        `✗ No hay imágenes generadas para: ${vacios.join(', ')}.\n` +
+          '  --repoblar borra el bucket dando por hecho que se vuelve a subir\n' +
+          '  enseguida. Corra `pnpm media` primero y compruebe que\n' +
+          '  public/media/proyectos/<slug>/ tiene lo que debe tener.',
+      )
+      process.exitCode = 1
+      return
+    }
   }
   const desconocidos = slugs.filter((s) => !conocidos.has(s))
   if (desconocidos.length > 0) {
@@ -116,9 +168,14 @@ async function main(): Promise<void> {
 
   console.log(
     borrar
-      ? `\n  Listo. ${total} archivo(s) borrados del bucket «${BUCKET}».`
+      ? `\n  Listo. ${total} archivo(s) borrados del bucket «${BUCKET}».` +
+          (repoblar
+            ? '\n  AHORA corra `pnpm media:upload`: el bucket está vacío para\n'
+              + '  ese proyecto y su ficha sigue publicada.'
+            : '')
       : `\n  ${total} archivo(s) encontrados. Nada se ha borrado.\n` +
-          `  Para borrarlos de verdad: pnpm media:retirar ${slugs.join(' ')} --borrar`,
+          `  Para borrarlos de verdad: pnpm media:retirar ${slugs.join(' ')}` +
+          `${repoblar ? ' --repoblar' : ''} --borrar`,
   )
 }
 

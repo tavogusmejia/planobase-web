@@ -29,3 +29,7 @@ media/
 supabase/.temp/
 .vercel
 .env*
+
+# Worktrees de Claude Code. Viven dentro del repo y tienen su propio git; que
+# aparezcan como «sin seguimiento» en cada `git status` solo hace ruido.
+.claude/worktrees/

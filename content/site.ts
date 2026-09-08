@@ -119,6 +119,11 @@ export const manifiesto =
  * Los cargos son los que dio Gustavo el 7/9. El de él cambió en esa misma
  * pasada —era «Gerente de Proyectos · Consultor Técnico»—, así que si algo se ve
  * distinto a como estaba, es eso y es deliberado.
+ *
+ * Dos venían en inglés, «Manager Fabricaciones» y «Manager Energía», y se
+ * castellanizaron con su visto bueno: eran los únicos anglicismos de un sitio
+ * que va entero en español. En inglés siguen diciendo Manager, que allí es lo
+ * natural.
  */
 export const equipo: TeamMember[] = [
   {
@@ -135,7 +140,7 @@ export const equipo: TeamMember[] = [
   {
     slug: 'julian-mejia-martinez',
     nombre: 'Julián Mejía Martínez',
-    cargo: ['Manager Fabricaciones', 'Construcciones en Estructura Metálica'],
+    cargo: ['Jefe de Fabricación', 'Construcciones en Estructura Metálica'],
     foto: fotosEquipo['julian-mejia-martinez'] ?? null,
     bio:
       'Viene del taller: empezó como soldador y hoy dirige la producción de ' +
@@ -188,7 +193,7 @@ export const equipo: TeamMember[] = [
   {
     slug: 'nicolas-gomez',
     nombre: 'Nicolás Gómez',
-    cargo: ['Ingeniero Mecánico', 'Manager Energía'],
+    cargo: ['Ingeniero Mecánico', 'Gerente de Energía'],
     foto: fotosEquipo['nicolas-gomez'] ?? null,
     bio:
       'Ingeniero mecánico de la Universidad Nacional. Desde 2019 trabaja entre ' +

@@ -33,7 +33,7 @@ siete. El calendario está construido y solo espera X-02.
 
 | | | Tarea |
 |---|---|---|
-| G-02 | 🔴 | Lectura de copia con Eduardo. `/agendar` entera sigue sin aprobar, y ahora incluye las condiciones de la asesoría de pago |
+| G-02 | 🔴 | Lectura de copia con Eduardo. `/agendar` entera sigue sin aprobar, y ahora incluye las condiciones de la asesoría de pago. **Se suma el titular de equipo en `/estudio`**: decía «Un arquitecto y un gerente de proyectos» y hubo que reescribirlo al pasar a siete |
 | G-06 | ⬜ | Términos de referencia del concurso de **Las Colinas**. Aplazado y sin coste. Preguntar primero a Eduardo; si no, SCA o SECOP |
 | G-08 | ⬜ | Borrar del bucket las 8 imágenes de Teusaquillo: `pnpm media:retirar alcaldia-local-de-teusaquillo`, y otra vez con `--borrar`. **Aplazado a propósito** |
 

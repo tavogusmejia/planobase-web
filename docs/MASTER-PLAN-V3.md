@@ -76,7 +76,7 @@ Qué llevar, cuánto tarda y a quién, en `docs/TRAMITES-EXTERNOS.md`.
 | D-18 | ⬜ | Pagos con Wompi. **Aplazada, no bloqueada.** Se reabre con seis asesorías vendidas a mano en dos meses |
 | D-25 | ⬜ | Huella de contenido en el nombre de las imágenes. **Aplazado**: cuesta regenerar y volver a subir 228 imágenes y todavía no hay pauta |
 | D-27 | ⬜ | Reemplazar tres retratos: Eduardo (606 px) y Miguel (600 px) se quedan cortos, y el de Laura desentona con los primeros planos. **Aplazado** |
-| D-28 | ⬜ | Una palabra descuadrada en `/estudio`: el párrafo del equipo dice «ingeniería civil» y el cargo de Carlos dice «Infraestructuras». Se lee una debajo de la otra |
+| ~~D-28~~ | 🟢 | ~~«Ingeniería civil» encima de «Infraestructuras» en `/estudio`~~ — **resuelta el 8/9 al reescribir el párrafo del equipo**: dejó de enumerar oficios, así que ya no hay dos palabras para lo mismo |
 
 ---
 

@@ -24,10 +24,9 @@ export const manifiesto =
   'of the process.'
 
 export const sobreElEquipo =
-  'Eduardo and Gustavo Mejía Martínez lead every project themselves. Around ' +
-  'them sit architecture, steel fabrication, civil engineering, energy and ' +
-  'design. There is no account manager in between: you talk to the person who ' +
-  'signs the drawings.'
+  'The Plano Base team is multidisciplinary and technical, and it is put ' +
+  'together to suit each project. There is no account manager in between: you ' +
+  'talk to the person who signs the drawings.'
 
 type TemaTraducible = Partial<Pick<TemaVision, 'titulo' | 'texto' | 'cita'>>
 

@@ -112,9 +112,15 @@ export const manifiesto =
  * lector de pantalla.
  *
  * **El orden lo fijó Gustavo y no es alfabético ni jerárquico a secas.** Arriba
- * los tres hermanos Mejía Martínez, que son quienes responden por el estudio;
- * después el resto. Por eso solo esos tres llevan los dos apellidos: entre ellos
- * «Mejía» no distingue a nadie.
+ * los tres hermanos Mejía, que son quienes responden por el estudio; después el
+ * resto.
+ *
+ * **Los tres llevan el segundo apellido abreviado**, «Mejía M.», por decisión
+ * suya del 8/9. Entre ellos «Mejía» no distingue a nadie, así que la inicial
+ * hace falta; el apellido entero, tres veces seguidas en la misma fila, se leía
+ * como un trabalenguas. El `slug` no cambia —sigue siendo
+ * `eduardo-mejia-martinez`— porque es la llave con la que casan la foto, el
+ * cargo en inglés y la bio en inglés: tocarlo rompería las tres.
  *
  * **Un cargo por persona, y es el área, no el puesto.** Los dictó Gustavo el
  * 8/9 uno por uno. Antes eran dos por cabeza —«Arquitecto Director ·
@@ -129,7 +135,7 @@ export const manifiesto =
 export const equipo: TeamMember[] = [
   {
     slug: 'eduardo-mejia-martinez',
-    nombre: 'Eduardo Mejía Martínez',
+    nombre: 'Eduardo Mejía M.',
     cargo: ['Arquitecto Director'],
     foto: fotosEquipo['eduardo-mejia-martinez'] ?? null,
     bio:
@@ -141,7 +147,7 @@ export const equipo: TeamMember[] = [
   },
   {
     slug: 'julian-mejia-martinez',
-    nombre: 'Julián Mejía Martínez',
+    nombre: 'Julián Mejía M.',
     cargo: ['Estructuras Metálicas'],
     foto: fotosEquipo['julian-mejia-martinez'] ?? null,
     bio:
@@ -154,7 +160,7 @@ export const equipo: TeamMember[] = [
   },
   {
     slug: 'gustavo-mejia-martinez',
-    nombre: 'Gustavo Mejía Martínez',
+    nombre: 'Gustavo Mejía M.',
     cargo: ['Residencial y Piscinas'],
     foto: fotosEquipo['gustavo-mejia-martinez'] ?? null,
     bio:
@@ -618,18 +624,27 @@ export const vision: TemaVision[] = [
 ]
 
 /**
- * Cómo se presenta el tamaño del estudio. El tamaño es un hecho, no un
- * problema: se enuncia como dedicación, no se disimula como capacidad. Sobre la
- * recomendación del informe de posicionamiento AEC.
+ * Cómo se presenta el equipo. Se enuncia como dedicación, no se disimula como
+ * capacidad. Sobre la recomendación del informe de posicionamiento AEC.
  *
- * **PENDIENTE DE APROBACIÓN**, y reescrito el 7/9 por necesidad: decía «son dos
- * personas» y desde esa tarde son siete. El párrafo anterior nombraba solo a
- * Eduardo y a Gustavo y remitía a «especialistas que convocamos», justo encima
- * de una retícula con los siete y su cargo. Lo que se conserva íntegro es la
- * última frase, que es la que de verdad vende.
+ * **Reescrito por Gustavo el 8/9, y por dos razones que conviene no perder.**
+ *
+ * **Sin nombres propios.** Decía «Eduardo y Gustavo Mejía Martínez dirigen
+ * personalmente cada proyecto» y eso queda a un palmo de una retícula donde los
+ * siete salen con nombre, cara y cargo: repetir dos de ellos aquí arriba sobra,
+ * y deja a los otros cinco leyéndose como acompañamiento.
+ *
+ * **Y sin lista de especialidades.** La versión anterior enumeraba arquitectura,
+ * estructura metálica, ingeniería civil, energía y diseño — y una lista así se
+ * lee como un techo: da a entender que el estudio hace eso y nada más. Tener
+ * gente especializada no es lo mismo que limitarse a sus especialidades. De
+ * paso, esa lista decía «ingeniería civil» justo encima de una tarjeta cuyo
+ * cargo dice «Infraestructuras», que era la D-28.
+ *
+ * La última frase se conserva íntegra desde la primera versión: es la que de
+ * verdad vende.
  */
 export const sobreElEquipo =
-  'Eduardo y Gustavo Mejía Martínez dirigen personalmente cada proyecto. ' +
-  'Alrededor de ellos hay arquitectura, fabricación en estructura metálica, ' +
-  'ingeniería civil, energía y diseño. Aquí no hay un ejecutivo comercial de ' +
-  'por medio: habla con quien firma los planos.'
+  'El equipo de Plano Base es multidisciplinario y técnico, y se arma según lo ' +
+  'que pida cada proyecto. Aquí no hay un ejecutivo comercial de por medio: ' +
+  'habla con quien firma los planos.'

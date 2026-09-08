@@ -1,7 +1,7 @@
 # Master Plan v3 · Plano Base Web
 
 Tablero de trabajo. **Solo lo que falta**, una tarea por línea.
-Actualizado: **7 de septiembre de 2026**
+Actualizado: **8 de septiembre de 2026**
 
 Lo ya hecho y por qué se decidió como se decidió está en
 `docs/archivo/MASTER-PLAN-V2.md`, que se archivó al quedarse en 659 líneas de
@@ -21,11 +21,12 @@ parezca olvidado, mirar allí: casi siempre está aplazado a propósito.
 
 ## Estado del sitio
 
-`main` en `1781135`, todo publicado y verificado en producción. Las dos
+Todo publicado y verificado en producción, `main` al día. Las dos
 migraciones de Supabase aplicadas. No hay lote esperando.
 
 **62 de 77 artículos publicados**, los 62 en español e inglés. El equipo son
-siete. El calendario está construido y solo espera X-02.
+siete, cada uno con su bio al pasar el cursor. El calendario está construido y
+solo espera X-02.
 
 ---
 
@@ -33,7 +34,7 @@ siete. El calendario está construido y solo espera X-02.
 
 | | | Tarea |
 |---|---|---|
-| G-02 | 🔴 | Lectura de copia con Eduardo. `/agendar` entera sigue sin aprobar, y ahora incluye las condiciones de la asesoría de pago. **Se suma el titular de equipo en `/estudio`**: decía «Un arquitecto y un gerente de proyectos» y hubo que reescribirlo al pasar a siete |
+| ~~G-02~~ | 🟢 | ~~Lectura de copia~~ — **hecha el 8/9 con Gustavo, sin esperar a Eduardo**: él contestó las preguntas. Ver la nota al final |
 | G-06 | ⬜ | Términos de referencia del concurso de **Las Colinas**. Aplazado y sin coste. Preguntar primero a Eduardo; si no, SCA o SECOP |
 | G-08 | ⬜ | Borrar del bucket las 8 imágenes de Teusaquillo: `pnpm media:retirar alcaldia-local-de-teusaquillo`, y otra vez con `--borrar`. **Aplazado a propósito** |
 
@@ -75,6 +76,7 @@ Qué llevar, cuánto tarda y a quién, en `docs/TRAMITES-EXTERNOS.md`.
 | D-18 | ⬜ | Pagos con Wompi. **Aplazada, no bloqueada.** Se reabre con seis asesorías vendidas a mano en dos meses |
 | D-25 | ⬜ | Huella de contenido en el nombre de las imágenes. **Aplazado**: cuesta regenerar y volver a subir 228 imágenes y todavía no hay pauta |
 | D-27 | ⬜ | Reemplazar tres retratos: Eduardo (606 px) y Miguel (600 px) se quedan cortos, y el de Laura desentona con los primeros planos. **Aplazado** |
+| D-28 | ⬜ | Una palabra descuadrada en `/estudio`: el párrafo del equipo dice «ingeniería civil» y el cargo de Carlos dice «Infraestructuras». Se lee una debajo de la otra |
 
 ---
 
@@ -116,8 +118,36 @@ escribió cuando el sitio creía tener una sola obra construida.
 
 ## Lo que espera decisión de Gustavo
 
-X-02 · G-02 · X-01 · X-04 y X-05 · D-08 · D-11 · D-19 · la línea de `/estudio`
-de D-16 · G-08.
+X-02 · X-01 · X-04 y X-05 · D-08 · D-11 · D-19 · la línea de `/estudio` de
+D-16 · G-08.
+
+---
+
+## G-02 · la lectura de copia, hecha el 8/9
+
+**Se hizo con Gustavo y no con Eduardo**, porque él se ofreció a contestar. Lo
+que salió, que no fue cosmético:
+
+- **El titular de equipo no lleva cifra.** «Un arquitecto y un gerente de
+  proyectos» fue exacto hasta que el estudio pasó a siete, y «Un estudio de
+  siete personas» habría caducado igual. Queda «Detrás de cada plano hay nombres
+  propios». De ahí sale la R-19.
+- **El rango de costos por municipio sale de la llamada gratuita** y se va a la
+  asesoría de una hora, que es donde se puede hacer. Era la promesa más cara de
+  `/agendar`: quien llegaba de un anuncio esperaba colgar con una cifra a los
+  quince minutos.
+- **La respuesta baja a «menos de 24 horas»** desde «la siguiente hora hábil».
+  Estaba en ocho textos y en un sitio que nadie tenía en la lista: el aviso que
+  le llega al estudio con cada lead, donde le dice al arquitecto de turno con
+  qué urgencia contestar.
+- **Un cargo por persona, y es el área**, dictados uno a uno. Lo que se cayó
+  bajó a la bio.
+- **Las siete bios, revisadas una por una con él.** Tres decían lo que la hoja
+  de vida sostenía y les faltaba lo único que el documento no podía dar: desde
+  cuándo esa persona está en Plano Base.
+
+**Lo que sigue sin aprobar**, y por tanto sigue marcado en el código: las
+verticales de `content/verticales.ts` y la escalera de `content/puertas.ts`.
 
 ---
 
@@ -145,6 +175,7 @@ Cada una costó trabajo. El caso que la originó está en el archivo.
 | R-16 | Al corregir un artículo, releerlo entero. Los errores que nadie pidió buscar salen de leer, no de buscar |
 | R-17 | Máximo dos artículos por mes, y nunca dos el mismo día. Un artículo nuevo se fecha en un mes con hueco |
 | R-18 | Las imágenes se suben al bucket **antes** del push. Al revés, el despliegue entra con las fotos rotas y el build pasa en verde igual |
+| R-19 | **Un titular no cuenta cuántos son.** Un estudio crece y se reduce sin avisar, y una cifra obliga a editar el sitio cada vez. Dos titulares caducaron así en dos días |
 
 ---
 

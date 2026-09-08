@@ -3,7 +3,7 @@
 Pegue esto al abrir la siguiente sesión. Está escrito para que quien lo lea no
 tenga que reconstruir el contexto ni preguntar lo que ya está decidido.
 
-Actualizado: **7 de septiembre de 2026**.
+Actualizado: **8 de septiembre de 2026**.
 
 ---
 
@@ -26,15 +26,21 @@ Actualizado: **7 de septiembre de 2026**.
 
 ## El estado, en tres frases
 
-**Todo está publicado.** `main` en `b9629d7`, la carpeta principal en `main` y
+**Todo está publicado.** La carpeta principal en `main` y
 limpia, y las dos migraciones de Supabase aplicadas — la de reservas el 6/9 y la
 de los dos tipos de cita el 7/9, esta última pegada a mano por Gustavo. **No hay
 lote esperando publicación.**
 
-**Lo último que salió, la noche del 7/9:** la sección de equipo pasa de dos
-personas a siete, cada retrato cuenta quién es al pasar el cursor, el procesador
-de imágenes convierte a gris de verdad, y el botón de agendar dejó de prometer
-«la primera llamada» en las páginas donde se cobra.
+**Lo último que salió, entre la noche del 7/9 y la madrugada del 8/9:** la
+sección de equipo pasa de dos personas a siete, cada retrato cuenta quién es al
+pasar el cursor, el procesador de imágenes convierte a gris de verdad, y el
+botón de agendar dejó de prometer «la primera llamada» en las páginas donde se
+cobra. Y salió **la lectura de copia, la G-02**, que llevaba semanas esperando
+una sesión con Eduardo: la hizo Gustavo él mismo. De ahí que el sitio ya no
+prometa un rango de costos en quince minutos ni respuesta en una hora.
+
+**El tablero es ahora `docs/MASTER-PLAN-V3.md`**, con las 41 tareas que faltan y
+nada más. El v2, con el porqué de todo lo ya hecho, está en `docs/archivo/`.
 
 **El calendario está terminado salvo un trámite.** El código de Google Calendar
 está escrito, probado y desplegado; solo espera las credenciales de X-02. Sin
@@ -78,7 +84,7 @@ diez y los originales están apartados, no borrados, en `_retirados/`.
 | | La pregunta o el trámite |
 |---|---|
 | **X-02** | **Lo más rentable de todo**: una sesión en Google Cloud enciende un calendario que ya está construido. **Ojo, son DOS scopes** — `calendar.events` **y** `calendar.readonly`; el documento decía uno y estaba mal. Pasos en `docs/TRAMITES-EXTERNOS.md` §X-02 |
-| **G-02** | La lectura de copia con Eduardo. `/agendar` sigue sin aprobar, y ahora incluye las condiciones nuevas de la asesoría de pago, marcadas `PENDIENTE DE APROBACIÓN` en `content/site.ts` |
+| **G-02** | ~~La lectura de copia~~ — **hecha el 8/9 con Gustavo, sin Eduardo.** Lo que sigue sin aprobar son las verticales y la escalera de servicios, no `/agendar` |
 | **X-01** | Que un abogado lea `content/legal.ts`. Del lado del estudio ya no falta nada |
 | **X-04 · X-05** | GA4 y Google Ads. **Son dos etiquetas de conversión, no una**: lead y reserva. Sin ellas, agendar no llega a Google |
 | **D-08** | ¿Quién entra al panel de leads y cómo se autentica? |

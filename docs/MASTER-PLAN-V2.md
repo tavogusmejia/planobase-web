@@ -101,6 +101,7 @@ Detalle de cada uno —qué llevar, cuánto tarda, a quién— en
 | ~~D-21~~ | ⏳ | ~~Decidir cómo se agenda de verdad~~ — **cerrada la noche del 6/9: se queda el calendario propio**, y no por gusto. Ver el marcador de abajo | Ni Calendly ni Google pueden cobrar en pesos |
 | D-22 | ⬜ | Poder cancelar o mover una reserva desde el correo | Ya tiene lo que le faltaba: `evento_google` y `secuencia` se escriben desde el 6/9 |
 | ~~D-24~~ | 🟢 | ~~Borrar dos renders de Villas del Progreso~~ — **hecho el 7/9**: la galería queda en diez, los originales apartados en `_retirados/` y el bucket repoblado | Salió de aquí `media:retirar --repoblar`, que el script no sabía hacer |
+| D-25 | ⬜ | **Huella de contenido en el nombre de las imágenes** — **aplazado a propósito el 7/9**, no por olvido. Ver la nota al final | Hasta entonces: cambiar una imagen sin cambiar su nombre deja a los visitantes viendo la vieja |
 | ~~D-23~~ | 🟢 | ~~Guarda de enlaces de fuentes~~ — `pnpm check:enlaces`. **No va en el build a propósito**: llama a 180 servidores y un gestor normativo lento no puede impedir un despliegue | 177 de 181 responden. Probada inyectando una URL muerta |
 | D-02 | ⬜ | Monitoreo de errores y uptime | Necesita X-10 |
 | ~~D-03~~ | 🟢 | ~~UTMs que sobrevivan la navegación~~ — ventana de 30 días, la misma de Meta y Google Ads | Un rechazo explícito de consentimiento borra lo guardado |
@@ -619,3 +620,40 @@ caché de un año.
 proyecto, siguen siendo 24 proyectos y 22 publicados, las imágenes bajan de 230
 a 228, el bucket tiene diez archivos, la 11 y la 12 devuelven 400, y los bytes
 de la 04 y la 05 coinciden con los locales.
+
+---
+
+## D-25 · por qué una imagen cambiada se sigue viendo vieja
+
+**Salió al hacer D-24 y costó una confusión**, así que queda escrito.
+
+Al quitar dos imágenes de doce, las siete siguientes se renumeraron: la `06`
+pasó a ser la `04`. Siete direcciones cambiaron de contenido **sin cambiar de
+nombre**. Y el optimizador de Next sirve `/_next/image?...` con
+`cache-control: public, max-age=31536000` — **un año**.
+
+Consecuencia: quien hubiera abierto esa ficha antes del cambio siguió viendo los
+renders viejos. No es un fallo del despliegue ni del bucket —se comprobó que los
+dos servían lo nuevo, y que la caché de Vercel estaba limpia— sino de la caché
+del navegador de cada visitante, que **no se puede purgar desde el servidor**.
+
+Pasó con Gustavo el 7/9: abrió la página, vio las imágenes que acababa de mandar
+retirar, y hasta abrirla en otro navegador no se vio que el sitio estaba bien.
+
+**El arreglo de raíz es la huella de contenido en el nombre**: que cada archivo
+se llame `04-a1b2c3d4.webp`, con las letras derivadas de sus bytes. Si la imagen
+cambia, cambia el nombre, y ninguna caché puede servir la vieja. Es lo que hace
+cualquier canalización de recursos estáticos, y es justo lo que a esta le falta.
+
+**Aplazado el 7/9 por decisión de Gustavo**, y la razón es buena: cuesta
+regenerar y volver a subir las 228 imágenes, limpiar las viejas del bucket, y el
+sitio todavía no recibe pauta, así que los visitantes que arrastran una versión
+vieja son poquísimos.
+
+**Mientras tanto, dos cosas que hay que recordar:**
+
+1. **Al cambiar cualquier imagen, comprobar en una ventana de incógnito.** En la
+   normal se ve la de antes y parece que el cambio no salió.
+2. **El día que haya anuncios, esto sube de categoría.** Alguien que llega por
+   un anuncio no tiene la página cacheada, así que verá lo correcto — pero
+   cualquier revisión interna seguirá engañando.

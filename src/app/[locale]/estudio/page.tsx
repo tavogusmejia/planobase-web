@@ -164,10 +164,17 @@ export default async function EstudioPage({
                 </div>
               ) : null}
 
-              <h3 className="text-h3 mt-6 text-ink">{m.nombre}</h3>
+              {/* Dos renglones de alto aunque el nombre ocupe uno.
+                  «Eduardo Mejía Martínez» se parte en dos y «Miguel Ortiz» no,
+                  así que sin esto los cargos de una misma fila quedan a
+                  alturas distintas y la retícula se lee torcida. */}
+              <h3 className="text-h3 mt-6 min-h-[2lh] text-ink">{m.nombre}</h3>
               {/* La línea de cota bajo el nombre, igual que bajo un proyecto:
-                  lo que mide aquí es el oficio. */}
-              <Rule className="mt-3 text-muted">{m.cargo.join(' · ')}</Rule>
+                  lo que mide aquí es el oficio. Envuelve porque dos cargos
+                  concatenados no caben en una columna de tres. */}
+              <Rule wrap className="mt-3 text-muted">
+                {m.cargo.join(' · ')}
+              </Rule>
 
               {/* La bio va SIEMPRE en el HTML, aunque el cursor no la haya
                   pedido: un lector de pantalla la lee, y donde no hay cursor

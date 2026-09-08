@@ -140,7 +140,10 @@ export const copiaPaginas = {
       'todo el país. Trabajamos sobre todo en obra pública —colegios, centros ' +
       'culturales, sedes administrativas y espacio público— con tres ' +
       'reconocimientos en concurso público nacional.',
-    equipoTitular: 'Un arquitecto y un gerente de proyectos.',
+    /* PENDIENTE DE APROBACIÓN. Decía «Un arquitecto y un gerente de
+       proyectos», que era exacto mientras el estudio fueron dos personas y
+       dejó de serlo el 7/9, con la retícula de siete justo debajo. */
+    equipoTitular: 'Un estudio de siete personas.',
     /* Las dos cifras tienen que explicarse juntas o se contradicen: la
        metadescripción cuenta solo los públicos y esta línea cuenta todos. Es la
        contradicción H-06, y se cierra diciéndolo. Bajaron de cinco a cuatro el

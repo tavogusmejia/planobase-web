@@ -110,7 +110,7 @@ export const copiaPaginasEn: { [R in RutaConCopia]?: Partial<CopiaDe<R>> } = {
       'Colombia. Most of it is public: schools, cultural centres, ' +
       'administrative offices and public space, with three awards in national ' +
       'public competitions.',
-    equipoTitular: 'One architect and one project manager.',
+    equipoTitular: 'A studio of seven.',
     reconocimientosTitular:
       'Four competition awards: three in national public competitions and one invited.',
     ambitoPublico: 'open public competition',

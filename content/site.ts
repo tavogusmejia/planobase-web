@@ -392,11 +392,12 @@ export const primeraLlamada: Service = {
   politicas: [
     {
       clave: 'Reserva',
-      /* Decía «el mismo día» mientras el formulario y /agendar prometían
-         la siguiente hora hábil. Eran tres redacciones para dos promesas.
-         Se unifican en la de /agendar, que es la página que convierte. */
-      texto:
-        'Por WhatsApp. Confirmamos fecha y hora dentro de la siguiente hora hábil.',
+      /* Decía «el mismo día» mientras el formulario y /agendar prometían otro
+         plazo. Eran tres redacciones para dos promesas. Se unifican en la de
+         /agendar, que es la página que convierte. El plazo bajó el 8/9 desde
+         «la siguiente hora hábil»: prometía más de lo que el estudio puede
+         cumplir. Lo que cambia es la ventana, no la unificación. */
+      texto: 'Por WhatsApp. Confirmamos fecha y hora en menos de 24 horas.',
     },
     {
       clave: 'Duración',
@@ -439,8 +440,9 @@ export const asesoriaTecnica: Service = {
   descripcion:
     'Una hora con un arquitecto de Plano Base sobre un punto concreto de su ' +
     'proyecto: una fisura que no sabe si es grave, si el lote da para lo que ' +
-    'quiere, qué exige la norma en su caso, si el presupuesto que le pasaron ' +
-    'tiene sentido. Se entra con una pregunta y se sale con la respuesta.',
+    'quiere, qué rango de costos tiene lo que quiere construir en su ' +
+    'municipio, si el presupuesto que le pasaron tiene sentido. Se entra con ' +
+    'una pregunta y se sale con la respuesta.',
   duracionMin: 60,
   precioCOP: 50_000,
   /* PENDIENTE DE APROBACIÓN: redactadas a partir de la decisión del 6/9/2026,

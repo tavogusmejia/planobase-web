@@ -174,7 +174,7 @@
     "enviar": "Enviar proyecto",
     "enviando": "Enviando",
     "recibido": "Recibimos su mensaje.",
-    "recibidoTexto": "Le escribimos por WhatsApp dentro de la siguiente hora hábil. Si prefiere adelantar la conversación, puede escribirnos ahora mismo.",
+    "recibidoTexto": "Le escribimos por WhatsApp en menos de 24 horas. Si prefiere adelantar la conversación, puede escribirnos ahora mismo.",
     "general": {
       "limite": "Recibimos varios mensajes desde esta conexión. Espere unos minutos e inténtelo de nuevo, o escríbanos directamente.",
       "fallo": "No pudimos registrar su mensaje, y no queremos que se pierda. Escríbanos directamente y lo resolvemos ahora mismo.",

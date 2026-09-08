@@ -16,7 +16,7 @@ import { MUNICIPIO_DANE } from '@content/apbs/divipola'
  * plan de campaña necesita:
  *
  * - `whatsapp`: el formulario actual no pide teléfono, pero todo el protocolo
- *   de seguimiento del plan corre por WhatsApp con un SLA de 1 hora. Sin este
+ *   de seguimiento del plan corre por WhatsApp con un SLA de 24 horas. Sin este
  *   campo el lead entra muerto.
  * - `municipio` y `etapa`: son dos de las cuatro preguntas del formulario de
  *   Lead Ads. Preguntando lo mismo, los leads de Facebook y los de la web caen

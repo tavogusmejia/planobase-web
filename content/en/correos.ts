@@ -8,7 +8,7 @@
  * Una nota sobre el registro: el español va en «usted» por decisión del sitio,
  * y el inglés no tiene esa distinción. Lo que sí se conserva es el tono —formal
  * sin ser rígido— y sobre todo la promesa de plazo, que tiene que decir lo
- * mismo que dice el sitio en inglés: «within the next working hour».
+ * mismo que dice el sitio en inglés: «in under 24 hours».
  */
 import type { CopiaCorreos } from '../correos'
 
@@ -26,9 +26,9 @@ export const correosEn: Parcial = {
       'Your message reached Plano Base and it is already on an architect’s ' +
       'desk, not in an automated inbox.',
     plazo:
-      'We will write to you on WhatsApp within the next working hour. If your ' +
-      'message came in at night or over the weekend, the clock starts when the ' +
-      'office opens.',
+      'We will write to you on WhatsApp in under 24 hours. If your message ' +
+      'came in over a weekend or a public holiday, we reply on the next ' +
+      'working day.',
     resumenTitular: 'This is what you told us',
     campoUbicacion: 'Where',
     campoEtapa: 'Stage',

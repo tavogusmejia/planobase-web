@@ -162,8 +162,7 @@ export const primeraLlamada: Partial<
   politicas: [
     {
       clave: 'Booking',
-      texto:
-        'Over WhatsApp. We confirm the date and time within the next working hour.',
+      texto: 'Over WhatsApp. We confirm the date and time in under 24 hours.',
     },
     {
       clave: 'Length',
@@ -191,9 +190,9 @@ export const asesoriaTecnica: Partial<
   descripcion:
     'An hour with an architect from Plano Base on one specific point of your ' +
     'project: a crack you are not sure is serious, whether the plot allows ' +
-    'what you have in mind, what the regulations require in your case, ' +
-    'whether the budget you were quoted makes sense. You come in with a ' +
-    'question and leave with the answer.',
+    'what you have in mind, what a build like yours costs in your ' +
+    'municipality, whether the budget you were quoted makes sense. You come ' +
+    'in with a question and leave with the answer.',
   politicas: [
     {
       clave: 'Booking',

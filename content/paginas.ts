@@ -96,11 +96,16 @@ export const copiaPaginas = {
        página donde se convierte. */
     incluyeTitular: 'Qué se lleva de la primera llamada',
     incluye1: 'Si su proyecto es técnicamente viable, y qué lo condiciona.',
-    incluye2: 'Un rango real de costos para su municipio, sin cifras de catálogo.',
+    /* Decía «Un rango real de costos para su municipio, sin cifras de
+       catálogo», y Gustavo lo corrigió el 8/9: eso es trabajo de la asesoría
+       de una hora, no de una llamada de quince minutos sin costo. Se movió
+       allí, a su descripción. Era la promesa más cara de la página: quien
+       llegaba del anuncio esperaba colgar con una cifra. */
+    incluye2: 'Qué hace falta para poder costearlo, y qué mueve el precio en su caso.',
     incluye3: 'Los pasos concretos para empezar, en orden y con tiempos.',
     condiciones: 'Condiciones',
     porWhatsapp: 'Agendar por WhatsApp',
-    respuesta: 'Respondemos dentro de la siguiente hora hábil.',
+    respuesta: 'Respondemos en menos de 24 horas.',
     porFormulario: 'Prefiero escribir por el formulario',
     /* D-05. Quien llega de un anuncio no sabe quién es el estudio, y una
        página de conversión sin una sola prueba pide confianza sin darla. Va
@@ -140,10 +145,18 @@ export const copiaPaginas = {
       'todo el país. Trabajamos sobre todo en obra pública —colegios, centros ' +
       'culturales, sedes administrativas y espacio público— con tres ' +
       'reconocimientos en concurso público nacional.',
-    /* PENDIENTE DE APROBACIÓN. Decía «Un arquitecto y un gerente de
-       proyectos», que era exacto mientras el estudio fueron dos personas y
-       dejó de serlo el 7/9, con la retícula de siete justo debajo. */
-    equipoTitular: 'Un estudio de siete personas.',
+    /* APROBADO por Gustavo el 8/9/2026, y con un criterio que conviene no
+       perder: **el titular no dice cuántos son**. Decía «Un arquitecto y un
+       gerente de proyectos», exacto mientras fueron dos y falso desde el 7/9;
+       su reemplazo provisional, «Un estudio de siete personas», habría vuelto
+       a caducar en cuanto entrara o saliera alguien. Un estudio crece y se
+       reduce sin avisar, y un titular con cifra obliga a editar el sitio cada
+       vez.
+
+       Lo que dice ahora es lo único que no caduca, y además es exactamente lo
+       contrario de lo que hacía Wix, que escondía los nombres dentro de la
+       imagen donde no los leía ni un buscador ni un lector de pantalla. */
+    equipoTitular: 'Detrás de cada plano hay nombres propios.',
     /* Las dos cifras tienen que explicarse juntas o se contradicen: la
        metadescripción cuenta solo los públicos y esta línea cuenta todos. Es la
        contradicción H-06, y se cierra diciéndolo. Bajaron de cinco a cuatro el

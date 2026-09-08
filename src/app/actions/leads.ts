@@ -23,8 +23,8 @@ import { etiquetaMunicipio } from '@content/apbs/divipola'
  * Antes esto escribía a `.leads/leads.jsonl` con `appendFile`. En Vercel el
  * sistema de archivos es de solo lectura, así que el `mkdir` lanzaba, caía al
  * catch y el visitante leía «No pudimos registrar tu mensaje» — con el sitio
- * prometiendo respuesta en una hora en tres páginas distintas. Cada envío
- * perdido era un encargo que nadie supo que tocó la puerta.
+ * prometiendo respuesta en menos de 24 horas en tres páginas distintas. Cada
+ * envío perdido era un encargo que nadie supo que tocó la puerta.
  *
  * Ahora hay una cascada, en este orden:
  *
@@ -148,7 +148,7 @@ function cuerpoCorreo(r: RegistroLead): string {
     `Responder por WhatsApp: https://wa.me/${digitos}`,
     procedencia ? `Procedencia: ${procedencia}` : '',
     '',
-    'El sitio promete respuesta en una hora.',
+    'El sitio promete respuesta en menos de 24 horas.',
   ]
     .filter((l) => l !== '')
     .join('\n')
@@ -162,7 +162,7 @@ function cuerpoCorreo(r: RegistroLead): string {
  * responde al visitante. El acuse al cliente, en cambio, nunca lo decide.
  *
  * Sigue en texto plano y a propósito: lo lee alguien del estudio en el móvil,
- * dentro de la hora que promete el sitio, y una maqueta no le añade nada.
+ * dentro del plazo que promete el sitio, y una maqueta no le añade nada.
  */
 async function notificar(r: RegistroLead): Promise<boolean> {
   const { notificarA, notificarDesde, resendApiKey } = configLeads()

@@ -74,11 +74,11 @@ export const copiaPaginasEn: { [R in RutaConCopia]?: Partial<CopiaDe<R>> } = {
   '/agendar': {
     incluyeTitular: 'What you take away from the first call',
     incluye1: 'Whether your project is technically feasible, and what constrains it.',
-    incluye2: 'A real cost range for your municipality, not catalogue figures.',
+    incluye2: 'What it takes to price it, and what drives the cost in your case.',
     incluye3: 'The concrete steps to begin, in order and with timings.',
     condiciones: 'Terms',
     porWhatsapp: 'Book over WhatsApp',
-    respuesta: 'We reply within the next working hour.',
+    respuesta: 'We reply in under 24 hours.',
     porFormulario: 'I would rather write through the form',
     obraTitular: 'Built work',
     obraPie: 'Six built works across seven departments of the country.',
@@ -110,7 +110,7 @@ export const copiaPaginasEn: { [R in RutaConCopia]?: Partial<CopiaDe<R>> } = {
       'Colombia. Most of it is public: schools, cultural centres, ' +
       'administrative offices and public space, with three awards in national ' +
       'public competitions.',
-    equipoTitular: 'A studio of seven.',
+    equipoTitular: 'Behind every drawing there are names.',
     reconocimientosTitular:
       'Four competition awards: three in national public competitions and one invited.',
     ambitoPublico: 'open public competition',

@@ -174,7 +174,7 @@
     "enviar": "Send project",
     "enviando": "Sending",
     "recibido": "We have your message.",
-    "recibidoTexto": "We will write to you on WhatsApp within the next working hour. If you would rather get ahead of the conversation, you can write to us now.",
+    "recibidoTexto": "We will write to you on WhatsApp in under 24 hours. If you would rather get ahead of the conversation, you can write to us now.",
     "general": {
       "limite": "We have received several messages from this connection. Please wait a few minutes and try again, or write to us directly.",
       "fallo": "We could not register your message, and we do not want it to be lost. Write to us directly and we will sort it out right away.",

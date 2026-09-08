@@ -22,10 +22,12 @@
  *    estudio, o la reserva llega partida en dos remitentes y el que manda
  *    parece Google.
  *
- * Las dos promesas de plazo dicen lo mismo que el resto del sitio —«dentro de
- * la siguiente hora hábil»—, y eso no es casualidad ni se puede tocar aquí
- * suelto: es la única ventana de respuesta que publica el sitio, y ya se unificó
- * una vez porque convivían tres redacciones distintas.
+ * Las dos promesas de plazo dicen lo mismo que el resto del sitio —«en menos de
+ * 24 horas»—, y eso no es casualidad ni se puede tocar aquí suelto: es la única
+ * ventana de respuesta que publica el sitio, y ya se unificó una vez porque
+ * convivían tres redacciones distintas. El 8/9 bajó desde «la siguiente hora
+ * hábil», que prometía más de lo que el estudio puede cumplir; la unificación
+ * sigue en pie, lo que cambió es el plazo.
  */
 
 export type CopiaCorreos = {
@@ -77,9 +79,8 @@ export const correos: CopiaCorreos = {
        estudio. Prometer correo aquí y responder por WhatsApp allá es la clase
        de desajuste que hace dudar de todo lo demás. */
     plazo:
-      'Le escribimos por WhatsApp dentro de la siguiente hora hábil. Si su ' +
-      'mensaje entró de noche o en fin de semana, la cuenta empieza cuando ' +
-      'abre la oficina.',
+      'Le escribimos por WhatsApp en menos de 24 horas. Si su mensaje entró ' +
+      'en fin de semana o festivo, le respondemos el siguiente día hábil.',
     resumenTitular: 'Esto fue lo que nos contó',
     campoUbicacion: 'Dónde',
     campoEtapa: 'Etapa',

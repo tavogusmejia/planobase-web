@@ -64,8 +64,9 @@ export function absoluteUrl(path: string): string {
 }
 
 /**
- * Enlace de WhatsApp con mensaje prellenado. El plan de campaña fija un SLA de
- * respuesta de 1 hora, así que este es el canal principal, no un extra.
+ * Enlace de WhatsApp con mensaje prellenado. El sitio promete respuesta en
+ * menos de 24 horas y el seguimiento corre por aquí, así que este es el canal
+ * principal, no un extra.
  *
  * `origen` viaja dentro del propio texto porque WhatsApp no transporta nada más:
  * no hay UTMs, ni referer, ni cookie que sobreviva al salto a la aplicación. El

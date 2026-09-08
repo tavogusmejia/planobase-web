@@ -15,8 +15,8 @@
  * automática y equivocarse significa poner la foto de un colegio en la ficha de
  * otro. Es una tarea curada, pendiente con Gustavo.
  */
-import { mkdir, readFile, writeFile, access } from 'node:fs/promises'
-import { join, dirname } from 'node:path'
+import { mkdir, readFile, readdir, stat, writeFile, access } from 'node:fs/promises'
+import { join, dirname, basename, extname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 import type { Categoria, Project, ProjectImage } from '../src/lib/types.ts'
@@ -221,50 +221,92 @@ async function heroSlugs(proyectos: WixProject[]): Promise<Set<string>> {
 /**
  * Retratos del equipo: `assets-originales/equipo/` → `public/media/equipo/`.
  *
- * Wix mostraba cuatro retratos con los nombres DENTRO de la imagen, así que no
- * los leía ni un buscador ni un lector de pantalla. Los archivos se bajaron como
- * `miembro-1..4` y el orden coincide con el del manifiesto de Wix, donde dos
- * traen el nombre en el archivo original: `00gustavo_edited.jpg` y
- * `00Miguel_edited.jpg`, más `00laura.png`.
+ * **El nombre del archivo es el nombre de la persona.** `Eduardo Mejía
+ * Martínez.jpg` publica a Eduardo Mejía Martínez bajo el slug
+ * `eduardo-mejia-martinez`. Antes vivía aquí una tabla fija que emparejaba
+ * `miembro-1..4` con nombres deducidos del manifiesto de Wix —dos archivos
+ * traían el nombre y los otros dos salían por descarte—, y eso obligaba a tocar
+ * el código cada vez que entra alguien al estudio.
  *
- * De ahí sale este emparejamiento. Miguel y Laura ya no están en el estudio, así
- * que no se procesan. Gustavo es seguro por el nombre del archivo; Eduardo sale
- * por descarte —es el único de los cuatro sin nombre en el archivo y el único
- * miembro actual que falta—, así que CONVIENE MIRARLO antes de publicar.
+ * Se procesa solo lo que esté en la RAÍZ de la carpeta. Las subcarpetas se
+ * ignoran a propósito: ahí viven las hojas de vida, que llevan cédula y teléfono
+ * y no tienen nada que hacer en un directorio que alimenta el sitio.
  *
- * Se recortan a cuadrado: los originales vienen en tres proporciones distintas y
- * un par de retratos con encuadres que no casan se ve peor que cualquier recorte.
+ * **Un archivo cuyo nombre no parezca el de una persona se salta con aviso.**
+ * Sin esa guarda, un `miembro-3.jpg` sin renombrar se publicaría como si el
+ * estudio tuviera un integrante llamado «Miembro 3».
+ *
+ * **Se convierten a gris.** Los cuatro retratos que trajo Wix ya venían en
+ * blanco y negro, así que el sitio aparentaba un estilo que en realidad no
+ * aplicaba nadie: la primera foto a color que entrara lo habría roto. La
+ * conversión va en el archivo servido y no en un filtro de CSS porque lo que se
+ * publica debe ser lo que se ve, sin depender de que cargue una hoja de estilos.
+ *
+ * Se recortan a cuadrado: los originales vienen en proporciones distintas y un
+ * par de retratos con encuadres que no casan se ve peor que cualquier recorte.
  * `position: 'attention'` deja que sharp busque la zona con más información en
  * vez de cortar por el centro a ciegas.
+ *
+ * El orden en que salen los integrantes NO se decide aquí: esto emite un mapa
+ * por slug, y quien manda es la lista `equipo` de `content/site.ts`.
  */
-const RETRATOS: { archivo: string; slug: string; nombre: string }[] = [
-  {
-    archivo: 'miembro-1.jpeg',
-    slug: 'eduardo-mejia-martinez',
-    nombre: 'Eduardo Mejía Martínez',
-  },
-  {
-    archivo: 'miembro-2.jpg',
-    slug: 'gustavo-mejia-martinez',
-    nombre: 'Gustavo Mejía Martínez',
-  },
-]
+const EXT_RETRATO = new Set(['.jpg', '.jpeg', '.png', '.webp', '.tif', '.tiff'])
 
 const LADO_RETRATO = 1000
+
+const slugDePersona = (nombre: string) =>
+  sinAcentos(nombre)
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+
+/**
+ * Qué se acepta como nombre de persona: dos palabras o más, sin cifras. Es una
+ * guarda contra el descuido —`miembro-3.jpg`, `IMG_2841.jpg` y `foto final.jpg`
+ * pasarían a ser integrantes del estudio—, no una validación de nombres. Un
+ * nombre real que esta regla rechace se resuelve renombrando el archivo.
+ */
+const pareceNombre = (base: string) =>
+  !/\d/.test(base) && base.trim().split(/\s+/).length >= 2
 
 async function generarRetratos(): Promise<number> {
   const origen = join(ROOT, 'assets-originales/equipo')
   const destino = join(ROOT, 'public/media/equipo')
   const salida: Record<string, ProjectImage> = {}
 
-  for (const r of RETRATOS) {
-    const from = join(origen, r.archivo)
-    if (!(await exists(from))) continue
+  if (!(await exists(origen))) {
+    console.warn('  ⚠ no existe assets-originales/equipo: retratos sin tocar')
+    return 0
+  }
+
+  const entradas = await readdir(origen, { withFileTypes: true })
+  const ordenadas = entradas.sort((a, b) => a.name.localeCompare(b.name, 'es'))
+
+  for (const entrada of ordenadas) {
+    if (!entrada.isFile()) continue
+    if (!EXT_RETRATO.has(extname(entrada.name).toLowerCase())) continue
+
+    const nombre = basename(entrada.name, extname(entrada.name)).trim()
+    if (!pareceNombre(nombre)) {
+      console.warn(`  ⚠ ${entrada.name}: no parece un nombre de persona, se salta`)
+      continue
+    }
+
+    const slug = slugDePersona(nombre)
+    const from = join(origen, entrada.name)
+    const to = join(destino, `${slug}.webp`)
 
     await mkdir(destino, { recursive: true })
-    const to = join(destino, `${r.slug}.webp`)
 
-    if (!(await exists(to))) {
+    /* Se regenera también cuando el original es más reciente que lo publicado.
+       Sin esto, reemplazar una foto conservando su nombre no hacía nada: el
+       script veía el .webp de antes y lo daba por bueno. Y al regenerarla hay
+       que mirarla en una ventana de incógnito — el optimizador la sirve con un
+       año de caché y el navegador de quien ya la vio enseña la anterior. */
+    const publicado = await exists(to)
+    const rehacer = !publicado || (await stat(from)).mtimeMs > (await stat(to)).mtimeMs
+
+    if (rehacer) {
+      if (publicado) console.log(`  retrato actualizado: ${slug}`)
       await sharp(from)
         .rotate()
         .resize({
@@ -274,22 +316,40 @@ async function generarRetratos(): Promise<number> {
           position: 'attention',
           withoutEnlargement: true,
         })
+        .grayscale()
         .webp({ quality: QUALITY })
         .toFile(to)
     }
 
     const meta = await sharp(to).metadata()
+    const ancho = meta.width ?? 0
+    if (ancho < LADO_RETRATO) {
+      console.warn(
+        `  ⚠ ${slug}: ${ancho} px de lado, por debajo de ${LADO_RETRATO}. El original es pequeño`,
+      )
+    }
+
     const blur = await sharp(to)
       .resize({ width: 16, fit: 'inside' })
       .webp({ quality: 40 })
       .toBuffer()
 
-    salida[r.slug] = {
-      path: `equipo/${r.slug}.webp`,
-      width: meta.width ?? 0,
+    salida[slug] = {
+      path: `equipo/${slug}.webp`,
+      width: ancho,
       height: meta.height ?? 0,
       blurDataURL: `data:image/webp;base64,${blur.toString('base64')}`,
-      alt: `Retrato de ${r.nombre}`,
+      alt: `Retrato de ${nombre}`,
+    }
+  }
+
+  /* Quien sale del estudio deja su .webp publicado, y en el bucket. Se avisa y
+     no se borra: despublicar es reversible y borrar el archivo no, y el orden
+     correcto es siempre despublicar, comprobar y borrar después. */
+  for (const archivo of await readdir(destino).catch(() => [] as string[])) {
+    const slug = basename(archivo, extname(archivo))
+    if (extname(archivo) === '.webp' && !(slug in salida)) {
+      console.warn(`  ⚠ ${archivo}: publicado pero ya no tiene original`)
     }
   }
 

@@ -3,7 +3,7 @@
 Pegue esto al abrir la siguiente sesión. Está escrito para que quien lo lea no
 tenga que reconstruir el contexto ni preguntar lo que ya está decidido.
 
-Actualizado: **8 de septiembre de 2026**.
+Actualizado: **12 de septiembre de 2026**.
 
 ---
 
@@ -14,9 +14,10 @@ Actualizado: **8 de septiembre de 2026**.
 > espera una decisión mía y las reglas que salieron de errores que ya costaron
 > trabajo. Lee también `CLAUDE.md`.
 >
-> **Mi carpeta está al día y no hay nada sin publicar**: `main`, y todo lo del 6
-> y el 7 de septiembre está en producción y verificado ahí. No hace falta ningún
-> `git pull` ni aplicar ninguna migración.
+> **Hay un lote sin publicar**, en la rama `equipo/diego-florez`: la entrada de
+> Diego Florez al equipo, verificada en local pero sin subir. Todo lo demás, del
+> 6, el 7 y el 8 de septiembre, está en producción y verificado ahí. No hace
+> falta ningún `git pull` ni aplicar ninguna migración.
 >
 > Empieza por decirme qué se puede hacer sin input mío y qué está esperándome, y
 > vamos una por una. No quiero explicaciones largas salvo que necesites que
@@ -26,12 +27,22 @@ Actualizado: **8 de septiembre de 2026**.
 
 ## El estado, en tres frases
 
-**Todo está publicado.** La carpeta principal en `main` y
-limpia, y las dos migraciones de Supabase aplicadas — la de reservas el 6/9 y la
-de los dos tipos de cita el 7/9, esta última pegada a mano por Gustavo. **No hay
-lote esperando publicación.**
+**Queda un lote sin publicar.** La rama `equipo/diego-florez` lleva la octava
+persona del equipo — foto procesada, bio en los dos idiomas, documentos al día —
+y espera a que Gustavo pida la publicación. Lo demás está en `main` y en
+producción, con las dos migraciones de Supabase aplicadas: la de reservas el 6/9
+y la de los dos tipos de cita el 7/9, esta última pegada a mano por él.
 
-**Lo último que salió, entre la noche del 7/9 y la madrugada del 8/9:** la
+**Ojo con el orden al publicarlo**: el retrato de Diego ya está procesado en
+`public/media/equipo/`, pero **hay que correr `pnpm media:upload` antes del
+push** o el despliegue entra con la foto rota y el build pasa en verde igual
+(R-18).
+
+**Lo último, el 12/9:** entró **Diego Florez, Compras y Logística**, el octavo
+del equipo. Su nombre va **sin tilde** a propósito, porque así lo escribe él —
+no es un acento que se perdió al nombrar el archivo del retrato.
+
+**Y antes, entre la noche del 7/9 y la madrugada del 8/9:** la
 sección de equipo pasa de dos personas a siete, cada retrato cuenta quién es al
 pasar el cursor, el procesador de imágenes convierte a gris de verdad, y el
 botón de agendar dejó de prometer «la primera llamada» en las páginas donde se

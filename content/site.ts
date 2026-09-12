@@ -106,10 +106,16 @@ export const manifiesto =
   'del proceso.'
 
 /**
- * Equipo. Siete personas desde el 7/9/2026, cuando Gustavo abrió la sección:
- * antes eran dos, y el sitio de Wix había mostrado cuatro retratos con los
- * nombres metidos dentro de la imagen, donde no los leía ni un buscador ni un
- * lector de pantalla.
+ * Equipo. Ocho personas desde el 12/9/2026, cuando entró Diego Florez. Fueron
+ * siete desde el 7/9, cuando Gustavo abrió la sección: antes eran dos, y el
+ * sitio de Wix había mostrado cuatro retratos con los nombres metidos dentro
+ * de la imagen, donde no los leía ni un buscador ni un lector de pantalla.
+ *
+ * **«Diego Florez» va sin tilde**, decisión de Gustavo del 12/9: así lo escribe
+ * él en su hoja de vida. Es la excepción a la regla de nombrar el archivo del
+ * retrato con las tildes de la persona, y por eso conviene dejarla escrita —
+ * quien vea `Diego Florez.jpeg` al lado de `Nicolás Gómez.jpeg` va a pensar que
+ * falta un acento.
  *
  * **El orden lo fijó Gustavo y no es alfabético ni jerárquico a secas.** Arriba
  * los tres hermanos Mejía, que son quienes responden por el estudio; después el
@@ -216,6 +222,19 @@ export const equipo: TeamMember[] = [
       'puesta en marcha de edificios inteligentes, ' +
       'termografía con dron y diagnóstico energético. Auditor interno ISO ' +
       '50001 y piloto certificado de sistemas no tripulados.',
+  },
+  {
+    slug: 'diego-florez',
+    nombre: 'Diego Florez',
+    cargo: ['Compras y Logística'],
+    foto: fotosEquipo['diego-florez'] ?? null,
+    bio:
+      'Ingeniero mecánico de la Universidad Nacional y máster por el ' +
+      'Politécnico de Milán. En Plano Base desde enero de 2026. Es el enlace ' +
+      'entre el diseño, la producción y los proveedores: lo ha hecho en más ' +
+      'de diez proyectos de manufactura. Antes respondió por el control de ' +
+      'calidad de veinte proyectos, del diseño a la instalación en obra, para ' +
+      'clientes en Estados Unidos.',
   },
 ]
 
@@ -630,9 +649,9 @@ export const vision: TemaVision[] = [
  * **Reescrito por Gustavo el 8/9, y por dos razones que conviene no perder.**
  *
  * **Sin nombres propios.** Decía «Eduardo y Gustavo Mejía Martínez dirigen
- * personalmente cada proyecto» y eso queda a un palmo de una retícula donde los
- * siete salen con nombre, cara y cargo: repetir dos de ellos aquí arriba sobra,
- * y deja a los otros cinco leyéndose como acompañamiento.
+ * personalmente cada proyecto» y eso queda a un palmo de una retícula donde
+ * todos salen con nombre, cara y cargo: repetir dos de ellos aquí arriba sobra,
+ * y deja al resto leyéndose como acompañamiento.
  *
  * **Y sin lista de especialidades.** La versión anterior enumeraba arquitectura,
  * estructura metálica, ingeniería civil, energía y diseño — y una lista así se

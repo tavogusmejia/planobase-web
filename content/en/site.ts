@@ -85,6 +85,11 @@ export const cargos: Record<string, string[]> = {
   'laura-cuesta': ['Graphic Design'],
   'carlos-orozco': ['Infrastructure'],
   'nicolas-gomez': ['Energy'],
+  // «Compras y Logística» en español. «Procurement and Logistics» era el
+  // calco exacto y es el único cargo de los ocho que no cabe en la cota de
+  // ancho fijo: se partía en dos renglones y desalineaba su fila. Gustavo
+  // eligió esta el 12/9.
+  'diego-florez': ['Procurement and Supply'],
 }
 
 /**
@@ -137,6 +142,13 @@ export const bios: Record<string, string> = {
     'smart building commissioning, ' +
     'drone thermography and energy diagnostics. An ISO 50001 internal auditor ' +
     'and a certified drone pilot.',
+  'diego-florez':
+    'A mechanical engineer from Universidad Nacional with a ' +
+    "master's from Politecnico di Milano. With Plano Base since January 2026. " +
+    'He is the link between design, production and suppliers, a role he has ' +
+    'held on more than ten manufacturing projects. Before that he answered ' +
+    'for quality control on twenty projects, from design through field ' +
+    'installation, for clients in the United States.',
 }
 
 /**

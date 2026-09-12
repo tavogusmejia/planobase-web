@@ -10,6 +10,13 @@ export const fotosEquipo: Record<string, ProjectImage> = {
     "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQAgCdASoQABAAA4BaJaQAD5aQkND/s8nCgyAA/PeFF76fTGScI3MByoia8HUj87vHwA4kNCIrCy9sYxCoIoLPlajzhJ8J7uiYV2hFQ/qG+PC4P8UyRdM9ZIBOtu1jsIq/m7KR9EPTwwZ0QAAAAA==",
     "alt": "Retrato de Carlos Orozco"
   },
+  "diego-florez": {
+    "path": "equipo/diego-florez.webp",
+    "width": 1000,
+    "height": 1000,
+    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAgCdASoQABAAA4BaJaQAD45QkfO3/AQps8AA/vcRDMnJAt26xmrUx89KiAsCKADk8bJLagK716tqAiTbkEHgQnJ1bZ4I9yCADUG2gzPprv5QcJGUXWzB4NAAAA==",
+    "alt": "Retrato de Diego Florez"
+  },
   "eduardo-mejia-martinez": {
     "path": "equipo/eduardo-mejia-martinez.webp",
     "width": 606,

@@ -1,7 +1,7 @@
 # Master Plan v3 · Plano Base Web
 
 Tablero de trabajo. **Solo lo que falta**, una tarea por línea.
-Actualizado: **8 de septiembre de 2026**
+Actualizado: **12 de septiembre de 2026**
 
 Lo ya hecho y por qué se decidió como se decidió está en
 `docs/archivo/MASTER-PLAN-V2.md`, que se archivó al quedarse en 659 líneas de
@@ -25,8 +25,8 @@ Todo publicado y verificado en producción, `main` al día. Las dos
 migraciones de Supabase aplicadas. No hay lote esperando.
 
 **62 de 77 artículos publicados**, los 62 en español e inglés. El equipo son
-siete, cada uno con su bio al pasar el cursor. El calendario está construido y
-solo espera X-02.
+ocho —Diego Florez, Compras y Logística, entró el 12/9—, cada uno con su bio al
+pasar el cursor. El calendario está construido y solo espera X-02.
 
 ---
 
@@ -194,7 +194,8 @@ Lo que muerde a quien no lo sepa.
 4. **Los retratos del equipo se llaman como la persona** —`Eduardo Mejía
    Martínez.jpeg`— y de ahí salen el slug y el texto alternativo. Un archivo mal
    nombrado se salta con aviso, y cualquier foto se convierte a gris al
-   procesarla.
+   procesarla. **`Diego Florez.jpeg` va sin tilde a propósito**, decisión de
+   Gustavo del 12/9: así lo escribe él. No es un acento que se perdió.
 5. **La CI se pone roja sin que nadie toque el código.** `check-vigencia` depende
    de la fecha: el día que venza un dato de Apps, las PR se paran. Es lo
    correcto; no confundirlo con una regresión.

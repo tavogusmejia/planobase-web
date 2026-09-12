@@ -137,6 +137,15 @@ export const manifiesto =
  *
  * Lo que se cayó al recortar no se perdió: el segundo cargo de cada uno vive
  * ahora dentro de su bio, que es donde se puede explicar.
+ *
+ * **Miguel pasó de «Arquitectura» a «Supervisión de Obra» el 12/9.** Decía lo
+ * que estudió y no lo que hace aquí; su bio ya contaba que responde por la
+ * obra, y ahora lo dice el cargo, que es lo primero que se lee. La palabra
+ * «arquitecto» no se pierde: abre su bio.
+ *
+ * Se barajó «Residente de Obra» y se descartó por ser un puesto, no un área —
+ * justo lo que esta regla evita. El único puesto que queda es «Arquitecto
+ * Director», y ese se sostiene porque dirigir el estudio no es un área.
  */
 export const equipo: TeamMember[] = [
   {
@@ -179,7 +188,7 @@ export const equipo: TeamMember[] = [
   {
     slug: 'miguel-ortiz',
     nombre: 'Miguel Ortiz',
-    cargo: ['Arquitectura'],
+    cargo: ['Supervisión de Obra'],
     foto: fotosEquipo['miguel-ortiz'] ?? null,
     bio:
       'Arquitecto de la Universidad del Valle. Entró al estudio como ' +

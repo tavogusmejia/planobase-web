@@ -81,7 +81,7 @@ export const cargos: Record<string, string[]> = {
   'eduardo-mejia-martinez': ['Principal Architect'],
   'julian-mejia-martinez': ['Steel Structures'],
   'gustavo-mejia-martinez': ['Residential and Pools'],
-  'miguel-ortiz': ['Architecture'],
+  'miguel-ortiz': ['Site Supervision'],
   'laura-cuesta': ['Graphic Design'],
   'carlos-orozco': ['Infrastructure'],
   'nicolas-gomez': ['Energy'],
